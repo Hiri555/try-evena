@@ -1,0 +1,554 @@
+/* ==========================================================================
+   Variables CSS - Couleurs et polices
+   ========================================================================== */
+:root {
+    /* Couleurs principales */
+    --color-primary: #D4AF37;
+    --color-primary-dark: #B8941F;
+    --color-text-primary: #2C2C2C;
+    --color-text-secondary: #5A5A5A;
+    --color-background: #FFFFFF;
+    --color-background-light: #F9F9F9;
+    --color-border: #E5E5E5;
+    --color-accent: #FF6B6B;
+
+    /* Typographie */
+    --font-primary: 'Georgia', 'Times New Roman', serif;
+    --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    /* Espacements */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+
+    /* Breakpoints */
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 1024px;
+}
+
+/* ==========================================================================
+   Reset et styles de base
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* Container général */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ==========================================================================
+   En-tête de l'article
+   ========================================================================== */
+.article-header {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.article-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.article-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.article-intro p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-intro p:last-child {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Info auteur */
+.author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-details {
+    text-align: left;
+}
+
+.author-name {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.author-name strong {
+    font-weight: 600;
+}
+
+.last-updated {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Image hero
+   ========================================================================== */
+.hero-image {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+}
+
+.hero-image picture,
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Conteneur des raisons
+   ========================================================================== */
+.reasons-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* ==========================================================================
+   Bloc raison
+   ========================================================================== */
+.reason-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg) 0;
+}
+
+.reason-block.reverse {
+    grid-template-columns: 1fr 1fr;
+}
+
+.reason-block.reverse .reason-content {
+    order: 2;
+}
+
+.reason-block.reverse .reason-image {
+    order: 1;
+}
+
+/* Contenu de la raison */
+.reason-content {
+    padding: var(--spacing-md);
+}
+
+.reason-title {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.reason-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+.reason-text p em {
+    font-style: italic;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+}
+
+/* Image de la raison */
+.reason-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+}
+
+/* ==========================================================================
+   Section CTA Final
+   ========================================================================== */
+.final-cta {
+    background: linear-gradient(135deg, #FFF5E1 0%, #FFE4B5 100%);
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: var(--spacing-xl) 0;
+}
+
+.cta-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.cta-image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cta-content {
+    text-align: center;
+}
+
+.cta-title {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-button {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Compte à rebours */
+.countdown {
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md);
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+}
+
+.countdown-label {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.time-unit {
+    background-color: var(--color-text-primary);
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    min-width: 70px;
+    text-align: center;
+}
+
+.separator {
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+.shipping-info {
+    font-family: var(--font-primary);
+    font-size: 1.25rem;
+    color: #27ae60;
+    margin-top: var(--spacing-md);
+}
+
+/* ==========================================================================
+   Section Témoignages
+   ========================================================================== */
+.testimonials {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.testimonials-title {
+    font-family: var(--font-primary);
+    font-size: 2.25rem;
+    text-align: center;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 700;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: #FFFFFF;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.testimonial-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto var(--spacing-sm);
+    object-fit: cover;
+}
+
+.testimonial-stars {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.testimonial-name {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+.testimonial-text {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Section Dernier CTA
+   ========================================================================== */
+.last-chance-cta {
+    background-color: var(--color-primary);
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+}
+
+.last-chance-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.last-chance-title {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    line-height: 1.4;
+    color: #FFFFFF;
+    margin-bottom: var(--spacing-lg);
+}
+
+.cta-button-secondary {
+    background-color: #FFFFFF;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+    font-weight: 700;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-button-secondary:hover {
+    background-color: var(--color-background-light);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   Responsive - Tablette
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .article-title {
+        font-size: 2rem;
+    }
+
+    .reason-title {
+        font-size: 1.5rem;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-container {
+        grid-template-columns: 250px 1fr;
+    }
+}
+
+/* ==========================================================================
+   Responsive - Mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-xl: 2.5rem;
+    }
+
+    .article-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .article-intro {
+        font-size: 1rem;
+    }
+
+    .reason-block,
+    .reason-block.reverse {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .reason-block.reverse .reason-content {
+        order: 1;
+    }
+
+    .reason-block.reverse .reason-image {
+        order: 2;
+    }
+
+    .reason-title {
+        font-size: 1.375rem;
+    }
+
+    .reason-text p {
+        font-size: 1rem;
+    }
+
+    .cta-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .cta-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .cta-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    .countdown-timer {
+        font-size: 2rem;
+    }
+
+    .time-unit {
+        padding: 0.4rem 0.8rem;
+        min-width: 60px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-title {
+        font-size: 1.75rem;
+    }
+
+    .last-chance-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-button-secondary {
+        font-size: 1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-button,
+    .cta-button-secondary {
+        padding: 1rem 1.5rem;
+        font-size: 0.9375rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.5rem;
+    }
+
+    .time-unit {
+        padding: 0.3rem 0.6rem;
+        min-width: 50px;
+        font-size: 1.5rem;
+    }
+}
