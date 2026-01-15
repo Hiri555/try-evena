@@ -1,6 +1,6 @@
 /**
  * Script principal pour la landing page
- * Gère le compte à rebours et les interactions
+ * Gère le compte à rebours, le bouton sticky et les interactions
  */
 
 // ==========================================================================
@@ -71,6 +71,40 @@ function updateCountdown(endTime) {
 }
 
 // ==========================================================================
+// Bouton Sticky
+// ==========================================================================
+
+/**
+ * Initialise le bouton sticky qui apparaît au scroll
+ */
+function initStickyButton() {
+    const stickyButton = document.getElementById('sticky-cta-button');
+    const finalCTA = document.querySelector('.final-cta');
+
+    if (!stickyButton || !finalCTA) return;
+
+    // Fonction pour gérer l'apparition du bouton
+    function handleScroll() {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const finalCTAPosition = finalCTA.offsetTop;
+
+        // Afficher le bouton quand on a scrollé au moins 500px
+        // ET qu'on n'a pas encore atteint la section final-cta
+        if (window.scrollY > 500 && scrollPosition < finalCTAPosition) {
+            stickyButton.classList.add('show');
+        } else {
+            stickyButton.classList.remove('show');
+        }
+    }
+
+    // Écouter le scroll
+    window.addEventListener('scroll', handleScroll);
+
+    // Vérifier au chargement
+    handleScroll();
+}
+
+// ==========================================================================
 // Gestion des boutons CTA
 // ==========================================================================
 
@@ -78,7 +112,7 @@ function updateCountdown(endTime) {
  * Initialise les événements des boutons CTA
  */
 function initCTAButtons() {
-    const ctaButtons = document.querySelectorAll('.cta-button, .cta-button-secondary');
+    const ctaButtons = document.querySelectorAll('.cta-button, .sticky-cta-btn');
 
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -91,7 +125,7 @@ function initCTAButtons() {
             // Animation au clic
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
-                this.style.transform = 'translateY(-2px)';
+                this.style.transform = '';
             }, 100);
 
             // Afficher un message dans la console (à remplacer par la vraie action)
@@ -181,6 +215,7 @@ function initScrollAnimations() {
  */
 function init() {
     initCountdown();
+    initStickyButton();
     initCTAButtons();
     initLazyLoading();
     initScrollAnimations();
