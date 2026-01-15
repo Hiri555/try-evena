@@ -78,19 +78,19 @@ function updateCountdown(endTime) {
  * Initialise le bouton sticky qui apparaît au scroll
  */
 function initStickyButton() {
-    const stickyButton = document.getElementById('sticky-cta-button');
+    const stickyButton = document.getElementById('listicleSticky-sticky_add_to_cart');
     const finalCTA = document.querySelector('.final-cta');
 
-    if (!stickyButton || !finalCTA) return;
+    if (!stickyButton) return;
 
     // Fonction pour gérer l'apparition du bouton
     function handleScroll() {
         const scrollPosition = window.scrollY + window.innerHeight;
-        const finalCTAPosition = finalCTA.offsetTop;
+        const finalCTAPosition = finalCTA ? finalCTA.offsetTop : Infinity;
 
-        // Afficher le bouton quand on a scrollé au moins 500px
-        // ET qu'on n'a pas encore atteint la section final-cta
-        if (window.scrollY > 500 && scrollPosition < finalCTAPosition) {
+        // Afficher le bouton quand on a scrollé au moins 400px
+        // Cacher le bouton si on a atteint la section final-cta
+        if (window.scrollY > 400 && scrollPosition < finalCTAPosition) {
             stickyButton.classList.add('show');
         } else {
             stickyButton.classList.remove('show');
@@ -112,7 +112,7 @@ function initStickyButton() {
  * Initialise les événements des boutons CTA
  */
 function initCTAButtons() {
-    const ctaButtons = document.querySelectorAll('.cta-button, .sticky-cta-btn');
+    const ctaButtons = document.querySelectorAll('.cta-button, .listicle-sticky-button__link');
 
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
