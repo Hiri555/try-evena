@@ -170,9 +170,38 @@
             min-width: 50px;
         }
 
+        .sticky-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #b8895f 0%, #a67b5b 100%);
+            color: white;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .sticky-button:hover {
+            background: linear-gradient(135deg, #a67b5b 0%, #956a4d 100%);
+            box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.2);
+        }
+
         @media (max-width: 480px) {
             .container {
                 margin: 0;
+                margin-bottom: 80px;
             }
 
             .offer-text {
@@ -183,6 +212,11 @@
                 padding: 10px 12px;
                 font-size: 18px;
                 min-width: 45px;
+            }
+
+            .sticky-button {
+                padding: 16px 20px;
+                font-size: 14px;
             }
         }
     </style>
@@ -250,5 +284,9 @@
             window.location.href = 'https://try-evena.com/products/evena-fond-de-teint-4-en-1';
         }
     </script>
+
+    <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="sticky-button">
+        Réclamez votre offre spéciale maintenant →
+    </a>
 </body>
 </html>
