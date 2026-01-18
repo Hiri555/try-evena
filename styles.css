@@ -1,0 +1,446 @@
+/* ==========================================================================
+   Variables CSS - Couleurs et polices
+   ========================================================================== */
+:root {
+    /* Couleurs principales */
+    --color-primary: #b87670;
+    --color-primary-dark: #a06660;
+    --color-text-primary: #2C2C2C;
+    --color-text-secondary: #5A5A5A;
+    --color-background: #FFFFFF;
+    --color-background-light: #F9F9F9;
+    --color-border: #E5E5E5;
+    --color-accent: #FF6B6B;
+
+    /* Typographie */
+    --font-primary: 'Georgia', 'Times New Roman', serif;
+    --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    /* Espacements */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+}
+
+/* ==========================================================================
+   Reset et styles de base
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+/* Container général */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ==========================================================================
+   En-tête de l'article
+   ========================================================================== */
+.article-header {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.article-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.article-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.article-intro p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-intro p:last-child {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Info auteur */
+.author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-details {
+    text-align: left;
+}
+
+.author-name {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.author-name strong {
+    font-weight: 600;
+}
+
+.last-updated {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Image hero
+   ========================================================================== */
+.hero-image {
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+    padding: 0 var(--spacing-md);
+}
+
+.hero-image picture,
+.hero-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Conteneur des raisons - Layout VERTICAL
+   ========================================================================== */
+.reasons-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+/* ==========================================================================
+   Bloc raison - VERTICAL: Titre → Image → Texte
+   ========================================================================== */
+.reason-block {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.reason-block:last-child {
+    border-bottom: none;
+}
+
+.reason-title {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    text-align: center;
+}
+
+.reason-image {
+    margin-bottom: var(--spacing-md);
+}
+
+.reason-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    object-fit: cover;
+}
+
+.reason-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+.reason-text p em {
+    font-style: italic;
+    color: var(--color-primary-dark);
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   Section CTA Final - SIMPLIFIÉ
+   ========================================================================== */
+.final-cta {
+    background-color: #FFFFFF;
+    border: 2px solid #E5E5E5;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: var(--spacing-xl) auto;
+    padding: var(--spacing-md);
+    text-align: center;
+}
+
+.cta-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cta-image {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-content {
+    width: 100%;
+}
+
+.cta-title {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.cta-button {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s ease;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Compte à rebours simplifié */
+.countdown {
+    margin: var(--spacing-md) 0;
+}
+
+.countdown-label {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.time-value {
+    background-color: var(--color-text-primary);
+    color: #FFFFFF;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    min-width: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+.separator {
+    color: var(--color-text-primary);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   Bouton Sticky qui apparaît au scroll
+   ========================================================================== */
+.listicle-sticky-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100%;
+    z-index: 9900;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    padding: 12px 0;
+    box-sizing: border-box;
+    background: transparent;
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.listicle-sticky-button.show {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.listicle-sticky-button__container {
+    width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.listicle-sticky-button__content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.listicle-sticky-button__link {
+    display: block;
+    width: 100%;
+    background-color: #b87670;
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 16px 24px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(184, 118, 112, 0.4);
+    font-family: var(--font-secondary);
+    letter-spacing: 0.5px;
+}
+
+.listicle-sticky-button__link:hover {
+    background-color: #a06660;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(184, 118, 112, 0.5);
+}
+
+/* ==========================================================================
+   Responsive - Tablette
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .article-title {
+        font-size: 2rem;
+    }
+
+    .reason-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================================================
+   Responsive - Mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 2rem;
+        --spacing-xl: 2.5rem;
+    }
+
+    .article-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
+    }
+
+    .article-intro {
+        font-size: 1rem;
+    }
+
+    .reason-title {
+        font-size: 1.375rem;
+    }
+
+    .reason-text p {
+        font-size: 1rem;
+    }
+
+    .cta-title {
+        font-size: 1.125rem;
+    }
+
+    .cta-button {
+        font-size: 0.9375rem;
+        padding: 0.875rem 1.5rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.25rem;
+    }
+
+    .time-value {
+        padding: 0.25rem 0.5rem;
+        min-width: 35px;
+        font-size: 1.25rem;
+    }
+
+    .listicle-sticky-button__link {
+        font-size: 0.9375rem;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-button,
+    .listicle-sticky-button__link {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .countdown-timer {
+        font-size: 1.125rem;
+    }
+
+    .time-value {
+        padding: 0.2rem 0.4rem;
+        min-width: 32px;
+        font-size: 1.125rem;
+    }
+}

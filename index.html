@@ -3,284 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Offre Spéciale - 100% Pure</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #f5f5f5, #ffffff);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 400px;
-            width: 100%;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .product-image {
-            width: 100%;
-            background: linear-gradient(135deg, #d4a574 0%, #c9987f 100%);
-            padding: 40px 30px;
-            position: relative;
-            min-height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: bold;
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        .product-display {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .brush-icon {
-            width: 40px;
-            height: 120px;
-            background: linear-gradient(to bottom, #d4a574 0%, #f5e5d3 50%, #ffffff 100%);
-            border-radius: 20px 20px 50% 50%;
-            position: relative;
-            transform: rotate(-15deg);
-        }
-
-        .brush-icon::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            filter: blur(8px);
-        }
-
-        .foundation-bottle {
-            width: 50px;
-            height: 100px;
-            background: linear-gradient(to bottom, #d4a574 0%, #c9987f 100%);
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .foundation-bottle::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
-            background: #b8895f;
-            border-radius: 4px 4px 0 0;
-            border-top: 3px solid #d4a574;
-        }
-
-        .content {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .offer-text {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .cta-button {
-            width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #b8895f 0%, #a67b5b 100%);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(184, 137, 95, 0.3);
-            margin-bottom: 30px;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(184, 137, 95, 0.4);
-        }
-
-        .timer-section {
-            text-align: center;
-        }
-
-        .timer-label {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .time-box {
-            background: #333;
-            color: white;
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: bold;
-            min-width: 50px;
-        }
-
-        .sticky-button {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
-            padding: 18px 24px;
-            background: linear-gradient(135deg, #b8895f 0%, #a67b5b 100%);
-            color: white;
-            border: none;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-        }
-
-        .sticky-button:hover {
-            background: linear-gradient(135deg, #a67b5b 0%, #956a4d 100%);
-            box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                margin: 0;
-                margin-bottom: 80px;
-            }
-
-            .offer-text {
-                font-size: 14px;
-            }
-
-            .time-box {
-                padding: 10px 12px;
-                font-size: 18px;
-                min-width: 45px;
-            }
-
-            .sticky-button {
-                padding: 16px 20px;
-                font-size: 14px;
-            }
-        }
-    </style>
+    <title>10 Raisons Pour Lesquelles Les Femmes de 50+ Appellent Ce Fond de Teint Leur "Petit Secret"</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="product-image">
-            <div class="logo">
-                100%<br>PURE
+    <main class="article-container">
+        <!-- En-tête de l'article -->
+        <header class="article-header">
+            <div class="container">
+                <h1 class="article-title">10 Raisons Pour Lesquelles Les Femmes de 50+ Appellent Ce Fond de Teint Leur "Petit Secret"</h1>
+
+                <div class="article-intro">
+                    <p>Des milliers de fonds de teint sur le marché. Et à partir d'un certain âge, l'impression qu'aucun n'a été pensé pour nous.</p>
+                    <p>Des teintes qui virent au orange. Des textures qui marquent chaque ride. Des formules qui assèchent ou qui font briller.</p>
+                    <p>Celui-ci fonctionne différemment. Et quand tu auras lu les 10 raisons, tu comprendras pourquoi.</p>
+                </div>
+
+                <div class="author-info">
+                    <img src="assets/author.jpg" alt="Auteur" class="author-avatar">
+                    <div class="author-details">
+                        <p class="author-name">Par <strong>Juliana</strong></p>
+                        <p class="last-updated">Dernière mise à jour Mars 2025</p>
+                    </div>
+                </div>
             </div>
-            <div class="product-display">
-                <div class="brush-icon"></div>
-                <div class="foundation-bottle"></div>
-            </div>
+        </header>
+
+        <!-- Image principale -->
+        <div class="hero-image">
+            <picture>
+                <img src="assets/hero-image.jpg" alt="Fond de teint adaptatif" loading="eager">
+            </picture>
         </div>
 
-        <div class="content">
-            <p class="offer-text">
-                Cliquez ci-dessous et réclamez votre offre spéciale aujourd'hui!
-            </p>
+        <!-- Liste des raisons -->
+        <div class="reasons-container">
 
-            <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="cta-button" style="text-decoration: none; display: block;">
-                Profiter de l'offre spéciale
-            </a>
+            <!-- Raison 1 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°1 : Tu n'auras plus jamais à deviner ta teinte</h2>
+                <div class="reason-image">
+                    <img src="assets/raison1.jpg" alt="Adaptation parfaite de la teinte" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>8 femmes sur 10 portent la mauvaise teinte de fond de teint. Sans le savoir.</p>
+                    <p>Tu choisis "Beige Naturel" en magasin. Tu rentres confiante. Le lendemain matin, en pleine lumière du jour : ton visage est orange. Ou gris. Ou trop rose.</p>
+                    <p>Et avec les années, c'est pire. Le teint devient moins uniforme. Les rougeurs apparaissent. Les taches aussi. Trouver la bonne teinte devient un casse-tête.</p>
+                    <p>Ce fond de teint s'ajuste au contact de ta peau. Tu l'appliques. Il trouve ta teinte tout seul.</p>
+                    <p>Teint clair, moyen, plus hâlé. Peu importe. Le rendu est naturel. Comme ta peau. En mieux.</p>
+                </div>
+            </article>
 
-            <div class="timer-section">
-                <p class="timer-label">Se termine dans:</p>
-                <div class="countdown">
-                    <div class="time-box" id="hours">00</div>
-                    <div class="time-box" id="minutes">43</div>
-                    <div class="time-box" id="seconds">30</div>
+            <!-- Raison 2 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°2 : Il ne se loge pas dans les ridules</h2>
+                <div class="reason-image">
+                    <img src="assets/raison2.jpg" alt="Texture lisse sans ridules" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Tu te maquilles le matin. Tout est lisse. Tu te trouves bien.</p>
+                    <p>Deux heures plus tard, tu passes devant un miroir. Et là. Chaque petite ligne autour de ta bouche est visible. Soulignée. Comme si ton fond de teint avait décidé de pointer du doigt tout ce que tu voulais cacher.</p>
+                    <p><em>"J'ai découvert des rides que je ne savais même pas avoir."</em></p>
+                    <p>Les fonds de teint classiques sèchent et craquent sur la peau. Ils s'accumulent dans chaque pli.</p>
+                    <p>Celui-ci reste souple. Il glisse sur les ridules. Il ne s'enfonce pas dedans.</p>
+                    <p>À 8h du matin ou à 18h le soir, ta peau garde le même aspect. Lisse. Douce au toucher.</p>
+                </div>
+            </article>
+
+            <!-- Raison 3 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°3 : Il redonne l'éclat qu'on pensait avoir perdu</h2>
+                <div class="reason-image">
+                    <img src="assets/raison3.jpg" alt="Éclat naturel retrouvé" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Tu te souviens de ta peau avant ?</p>
+                    <p>Cette luminosité qu'on avait sans rien faire. Cet air reposé même après une mauvaise nuit.</p>
+                    <p>Avec le temps, la peau perd de sa lumière. Elle paraît fatiguée. Éteinte. Même maquillée.</p>
+                    <p>Certaines rajoutent des produits. Illuminateur par-ci. Highlighter par-là. Résultat : ou trop brillant, ou toujours terne.</p>
+                    <p>Ce fond de teint ne brille pas. Il ne fait pas mat non plus.</p>
+                    <p>Il donne juste cet éclat naturel. Celui d'une peau fraîche. Reposée. Vivante.</p>
+                    <p>Celui qu'on croyait parti pour toujours.</p>
+                </div>
+            </article>
+
+            <!-- Raison 4 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°4 : Il hydrate ta peau sans la faire briller</h2>
+                <div class="reason-image">
+                    <img src="assets/raison4.jpg" alt="Hydratation sans brillance" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Après 50 ans, la peau devient plus sèche. Elle tire. Les ridules se voient davantage.</p>
+                    <p>Alors tu cherches un fond de teint hydratant. Logique.</p>
+                    <p>Sauf qu'à midi, ton front brille. Tes joues luisent. Tu as l'air grasse alors que ta peau est sèche en dessous.</p>
+                    <p><em>"Les mats me vieillissent. Les brillants montrent tous mes pores. Il est où, le juste milieu ?"</em></p>
+                    <p>Ce fond de teint est enrichi en acide hyaluronique, huile de coco et vitamine E — trois actifs qui nourrissent la peau en profondeur sans laisser de film gras en surface. Tu le sens dès l'application : confortable, léger, comme une crème de soin qui fond sur la peau.</p>
+                    <p>Mais contrairement aux formules hydratantes classiques, il ne brille pas. Pas d'effet gras à midi, pas de retouche nécessaire après le déjeuner.</p>
+                    <p>Ta peau reste hydratée et ton teint reste frais, du matin jusqu'au soir.</p>
+                </div>
+            </article>
+
+            <!-- Raison 5 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°5 : Il protège ta peau du vieillissement (avec un SPF 50)</h2>
+                <div class="reason-image">
+                    <img src="assets/raison5.jpg" alt="Protection SPF 50" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Les dermatologues sont clairs : 90% des rides viennent du soleil. Les taches brunes aussi. Le relâchement aussi.</p>
+                    <p>Le problème ? Mettre une crème solaire sous le maquillage, c'est une couche de plus. Ça fait lourd. Ça laisse un film blanc. Et souvent, ça fait glisser le fond de teint.</p>
+                    <p>Ce fond de teint contient déjà une protection SPF 50 contre les rayons UV.</p>
+                    <p>Tu n'ajoutes rien. Tu n'empiles rien. Une seule application.</p>
+                    <p>Tu maquilles ta peau. Tu la protèges. Tu empêches les nouvelles rides et les nouvelles taches d'apparaître.</p>
+                    <p>Le matin, tu fais un geste. Et ce geste te protège toute la journée.</p>
+                </div>
+            </article>
+
+            <!-- Raison 6 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°6 : Ta peau s'améliore même quand tu l'enlèves</h2>
+                <div class="reason-image">
+                    <img src="assets/raison6.png" alt="Amélioration de la peau" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>La plupart des fonds de teint étouffent la peau. Tu les portes toute la journée, et le soir, quand tu démaquilles, ta peau est fatiguée, déshydratée, parfois même irritée.</p>
+                    <p>Ce fond de teint fait l'inverse.</p>
+                    <p>L'acide hyaluronique repulpe la peau pendant que tu le portes. La vitamine E répare. Les huiles naturelles nourrissent en profondeur. Ce n'est pas juste du maquillage — c'est un soin qui se fait oublier.</p>
+                    <p>Après quelques semaines, tu commences à remarquer quelque chose d'étrange : ta peau paraît plus lisse, plus lumineuse... même sans maquillage. Comme si elle avait retrouvé une partie de ce qu'elle avait perdu.</p>
+                    <p><em>"J'ai reçu un compliment sur ma peau alors que je ne portais rien. Ça ne m'était pas arrivé depuis des années."</em></p>
+                </div>
+            </article>
+
+            <!-- Raison 7 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°7 : Une formule douce qui respecte les peaux sensibles</h2>
+                <div class="reason-image">
+                    <img src="assets/raison7.jpg" alt="Formule 100% naturelle" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Avec le temps, la peau devient plus réactive. Ce qui passait avant ne passe plus. Une mauvaise formule, et c'est rougeurs, tiraillements, inconfort toute la journée.</p>
+                    <p>Beaucoup de fonds de teint contiennent des parabènes, des sulfates, des parfums synthétiques — des ingrédients qui agressent la peau sans qu'on s'en rende compte.</p>
+                    <p>Cette formule est différente. 100% vegan. Sans ingrédients agressifs. Juste ce dont la peau a besoin pour être nourrie, pas irritée.</p>
+                    <p>L'acide hyaluronique et la vitamine E travaillent ensemble pour hydrater sans provoquer de réaction. Beaucoup de femmes qui avaient abandonné le fond de teint à cause de leur peau sensible ont enfin trouvé une formule qu'elles peuvent porter tous les jours, sans que leur peau proteste.</p>
+                </div>
+            </article>
+
+            <!-- Raison 8 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°8 : Il s'adapte à ta peau, peu importe son type</h2>
+                <div class="reason-image">
+                    <img src="assets/raison8.jpg" alt="Pour tous types de peau" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>À 50, 60 ou 70 ans, la peau n'est jamais simple. Elle peut être sèche sur les joues et grasse sur le front. Sensible un jour, normale le lendemain. Déshydratée à cause d'un médicament, ou réactive à cause de la ménopause.</p>
+                    <p>Trouver un fond de teint qui fonctionne avec TOUT ça ? Presque impossible.</p>
+                    <p>Cette formule s'adapte non seulement à ta carnation, mais aussi aux besoins spécifiques de ta peau. Peau sèche ? Elle hydrate. Peau mixte ? Elle équilibre. Peau sensible ? Elle apaise.</p>
+                    <p>Le rendu reste naturel. Confortable. Comme une seconde peau qui comprend ce dont tu as besoin, sans que tu aies à lui expliquer.</p>
+                </div>
+            </article>
+
+            <!-- Raison 9 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°9 : Les professionnels du maquillage l'adorent (et elles sont difficiles)</h2>
+                <div class="reason-image">
+                    <img src="assets/raison9.jpg" alt="Recommandé par les dermatologues" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Les maquilleuses professionnelles voient des dizaines de peaux chaque semaine. Elles savent ce qui fonctionne sur une peau de 25 ans... et ce qui fonctionne sur une peau de 60 ans.</p>
+                    <p>Ce ne sont pas les mêmes produits.</p>
+                    <p>Cette formule a été testée par des maquilleuses expérimentées, spécialisées dans les peaux matures. Leur verdict ? Un teint frais et naturel, sans souligner les ridules ni la texture de la peau.</p>
+                    <p>Quand une professionnelle qui passe ses journées à corriger les erreurs des autres produits te dit "celui-là, il marche vraiment" — ça veut dire quelque chose.</p>
+                </div>
+            </article>
+
+            <!-- Raison 10 -->
+            <article class="reason-block">
+                <h2 class="reason-title">Raison n°10 : Tu peux l'essayer sans risque (satisfaite ou remboursée)</h2>
+                <div class="reason-image">
+                    <img src="assets/raison10.png" alt="Essai gratuit 30 jours" loading="eager">
+                </div>
+                <div class="reason-text">
+                    <p>Soyons honnêtes. Tu as déjà été déçue. Plus d'une fois.</p>
+                    <p>Des promesses qui ne tiennent pas. Des produits qui fonctionnent sur la pub mais pas sur ta peau. Des tubes à 50€ qui finissent au fond d'un tiroir après deux utilisations.</p>
+                    <p>On comprend. C'est pour ça qu'on propose une garantie satisfaite ou remboursée de 30 jours.</p>
+                    <p>Tu commandes. Tu essaies chez toi, dans ta vraie lumière, avec ta vraie peau, dans ta vraie vie. Si le résultat ne te plaît pas — pour n'importe quelle raison — tu es remboursée. Sans justification. Sans discussion.</p>
+                    <p>Et en ce moment, l'offre spéciale te permet de recevoir un deuxième fond de teint gratuit avec ta commande.</p>
+                    <p>Aucun risque. Juste la possibilité de découvrir ce que des milliers de femmes ont déjà découvert : un fond de teint qui tient enfin ses promesses.</p>
+                </div>
+            </article>
+
+        </div>
+
+    
+
+        <!-- Bouton sticky -->
+        <div id="listicleSticky-sticky_add_to_cart" data-listicle-sticky-button="" class="listicle-sticky-button">
+            <div class="listicle-sticky-button__container">
+                <div class="listicle-sticky-button__content">
+                    <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="listicle-sticky-button__link" id="listicleSticky-sticky_add_to_cart-btn">
+                        PROFITER DE L'OFFRE SPÉCIALE
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        // Configuration du compte à rebours
-        let totalSeconds = (0 * 3600) + (43 * 60) + 30; // 43 minutes et 30 secondes
+    </main>
 
-        function updateCountdown() {
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-
-            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (totalSeconds > 0) {
-                totalSeconds--;
-            } else {
-                // Réinitialiser le compte à rebours quand il atteint 0
-                totalSeconds = (0 * 3600) + (43 * 60) + 30;
-            }
-        }
-
-        // Démarrer le compte à rebours
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    </script>
-
-    <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="sticky-button">
-        PROFITER DE L'OFFRE SPÉCIALE
-    </a>
+    <script src="script.js"></script>
 </body>
 </html>
