@@ -116,23 +116,14 @@ function initCTAButtons() {
 
     ctaButtons.forEach(button => {
         button.addEventListener('click', function(e) {
-            // Ajouter ici l'URL de destination ou l'action souhaitée
-            // Par exemple : window.location.href = 'https://votre-page-de-commande.com';
-
-            // Pour l'instant, empêcher le comportement par défaut
-            e.preventDefault();
-
             // Animation au clic
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 100);
 
-            // Afficher un message dans la console (à remplacer par la vraie action)
-            console.log('CTA cliqué - Redirection vers la page de commande');
-
-            // IMPORTANT : Décommenter la ligne suivante et ajouter votre URL de destination
-            // window.location.href = 'https://votre-page-de-commande.com';
+            // Les liens avec href fonctionnent normalement (pas de preventDefault)
+            console.log('CTA cliqué - Redirection vers:', this.getAttribute('href'));
         });
     });
 }
