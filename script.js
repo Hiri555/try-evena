@@ -1,6 +1,5 @@
 /**
- * Script principal — Landing page Evena
- * Gère le bouton sticky, les interactions CTA et le lazy loading
+ * Script principal — Listicle Evena 5 raisons
  */
 
 // ==========================================================================
@@ -9,7 +8,7 @@
 
 function initStickyButton() {
     const stickyButton = document.getElementById('listicleSticky-sticky_add_to_cart');
-    const finalCTA = document.querySelector('.final-cta-section');
+    const finalCTA = document.querySelector('.final-cta');
 
     if (!stickyButton) return;
 
@@ -29,7 +28,7 @@ function initStickyButton() {
 }
 
 // ==========================================================================
-// Lazy loading des images
+// Lazy loading
 // ==========================================================================
 
 function initLazyLoading() {
@@ -74,10 +73,7 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -30px 0px'
     });
 
-    const animatedElements = document.querySelectorAll(
-        '.benefit-item, .before-after-container, .testimonial-card'
-    );
-
+    const animatedElements = document.querySelectorAll('.reason-block, .testimonial');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
