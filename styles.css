@@ -11,8 +11,6 @@
     --color-background-warm: #FDF8F6;
     --color-border: #E5E5E5;
     --color-green: #2D7A4F;
-    --color-green-dark: #1F5C3A;
-    --color-gold: #C9A84C;
     --color-gold-light: #E8D5A0;
 
     --font-primary: 'Georgia', 'Times New Roman', serif;
@@ -23,9 +21,6 @@
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
     --spacing-xl: 4rem;
-
-    --max-width: 900px;
-    --border-radius: 12px;
 }
 
 /* ==========================================================================
@@ -54,21 +49,19 @@ img {
 }
 
 /* ==========================================================================
-   SECTION 1 — HERO / SOCIAL PROOF
+   HERO — SOCIAL PROOF
    ========================================================================== */
 .hero-section {
     background-color: var(--color-background-light);
-    padding: 0 0 var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
 }
 
 .hero-wrapper {
-    max-width: var(--max-width);
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--spacing-sm);
-    position: relative;
 }
 
-/* Badge avis */
 .rating-badge {
     display: inline-flex;
     align-items: center;
@@ -89,16 +82,12 @@ img {
 
 .rating-text {
     color: var(--color-text-primary);
-    font-size: 0.95rem;
 }
 
-/* Image hero */
 .hero-image-container {
     width: 100%;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 0;
-    position: relative;
 }
 
 .hero-img {
@@ -118,29 +107,8 @@ img {
     color: #FFFFFF;
     padding: 14px 24px;
     font-size: 1.05rem;
-    margin-top: -4px;
     position: relative;
     z-index: 2;
-}
-
-.guarantee-banner::before,
-.guarantee-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 100%;
-    background-color: var(--color-green);
-}
-
-.guarantee-banner::before {
-    left: -10px;
-    transform: skewX(-8deg);
-}
-
-.guarantee-banner::after {
-    right: -10px;
-    transform: skewX(8deg);
 }
 
 .guarantee-check {
@@ -148,64 +116,104 @@ img {
     font-weight: 700;
 }
 
-.guarantee-text {
-    font-size: 1.05rem;
-}
-
 .guarantee-text strong {
     font-weight: 700;
 }
 
-/* Témoignages hero */
+/* Mini témoignages */
 .hero-testimonials {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-sm);
     margin-top: var(--spacing-md);
-    padding: 0 var(--spacing-xs);
 }
 
-.testimonial-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+.testimonial-mini {
     background: #FFFFFF;
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     padding: 16px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-}
-
-.testimonial-avatar {
-    flex-shrink: 0;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    overflow: hidden;
-    background-color: var(--color-border);
-}
-
-.testimonial-avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.testimonial-author {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-    margin-bottom: 4px;
-}
-
-.testimonial-quote {
     font-size: 0.9rem;
+    line-height: 1.5;
     color: var(--color-text-secondary);
-    font-style: italic;
-    line-height: 1.4;
+}
+
+.testimonial-mini strong {
+    color: var(--color-text-primary);
 }
 
 /* ==========================================================================
-   SECTION 2 — 4 PRODUITS. 1 GESTE.
+   EN-TÊTE ARTICLE
+   ========================================================================== */
+.article-header {
+    background-color: var(--color-background-light);
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.article-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.article-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-lg);
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+}
+
+.article-intro p {
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-intro p:last-child {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-details {
+    text-align: left;
+}
+
+.author-name {
+    font-size: 0.95rem;
+    color: var(--color-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.last-updated {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   4 PRODUITS. 1 GESTE.
    ========================================================================== */
 .benefits-section {
     background-color: var(--color-background-warm);
@@ -213,30 +221,24 @@ img {
 }
 
 .benefits-wrapper {
-    max-width: var(--max-width);
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .benefits-title {
     font-family: var(--font-primary);
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
     color: #3D1E1E;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     line-height: 1.2;
 }
 
-/* Grille bénéfices */
 .benefits-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-md);
-    align-items: center;
-    justify-items: center;
-    max-width: 750px;
-    margin: 0 auto;
 }
 
 .benefit-item {
@@ -244,44 +246,9 @@ img {
     padding: var(--spacing-sm);
 }
 
-.benefit-top-left {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.benefit-top-right {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-.benefit-bottom-left {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.benefit-bottom-right {
-    grid-column: 3;
-    grid-row: 2;
-}
-
-.benefit-product-center {
-    grid-column: 2;
-    grid-row: 1 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--spacing-sm);
-}
-
-.benefit-product-center img {
-    max-height: 320px;
-    width: auto;
-    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
-}
-
 .benefit-icon {
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     border-radius: 50%;
     border: 2px solid var(--color-gold-light);
     display: flex;
@@ -289,74 +256,113 @@ img {
     justify-content: center;
     margin: 0 auto var(--spacing-xs);
     background: #FFFFFF;
-}
-
-.icon-placeholder {
-    font-size: 2rem;
-    line-height: 1;
+    font-size: 1.8rem;
 }
 
 .benefit-name {
     font-family: var(--font-primary);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text-primary);
     margin-bottom: 4px;
 }
 
 .benefit-desc {
-    font-size: 0.875rem;
+    font-size: 0.85rem;
     color: var(--color-text-secondary);
     line-height: 1.4;
 }
 
 /* ==========================================================================
-   SECTION 3 — BEAUTY SHOT PRODUIT
+   10 RAISONS
    ========================================================================== */
-.product-beauty-section {
-    padding: 0;
-}
-
-.beauty-wrapper {
-    max-width: 100%;
+.reasons-container {
+    max-width: 800px;
     margin: 0 auto;
+    padding: var(--spacing-lg) var(--spacing-md);
 }
 
-.beauty-img {
+.reason-block {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.reason-block:last-child {
+    border-bottom: none;
+}
+
+.reason-title {
+    font-family: var(--font-primary);
+    font-size: 1.75rem;
+    line-height: 1.3;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    text-align: center;
+}
+
+.reason-image {
+    margin-bottom: var(--spacing-md);
+}
+
+.reason-image img {
     width: 100%;
     height: auto;
-    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     object-fit: cover;
-    max-height: 600px;
+}
+
+/* Vidéo (raison 2) */
+.reason-video {
+    margin-bottom: var(--spacing-md);
+}
+
+.reason-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background: #000;
+}
+
+.reason-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+}
+
+.reason-text p em {
+    font-style: italic;
+    color: var(--color-primary-dark);
+    font-weight: 500;
 }
 
 /* ==========================================================================
-   SECTION 4 — AVANT / APRÈS
+   AVANT / APRÈS
    ========================================================================== */
 .before-after-section {
-    padding: var(--spacing-xl) var(--spacing-sm);
-    background-color: var(--color-background);
-}
-
-.before-after-wrapper {
-    max-width: 700px;
-    margin: 0 auto;
+    padding: var(--spacing-lg) 0;
+    margin-bottom: var(--spacing-xl);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .before-after-title {
     font-family: var(--font-primary);
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     text-align: center;
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
 }
 
 .before-after-container {
     position: relative;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 .before-after-img {
@@ -372,70 +378,17 @@ img {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 12px 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.4));
+    padding: 12px 24px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.35));
 }
 
 .label-before,
 .label-after {
     color: #FFFFFF;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-}
-
-/* ==========================================================================
-   SECTION 5 — CTA FINAL
-   ========================================================================== */
-.final-cta-section {
-    padding: var(--spacing-xl) var(--spacing-sm);
-    background-color: var(--color-background-light);
-    text-align: center;
-}
-
-.final-cta-wrapper {
-    max-width: 550px;
-    margin: 0 auto;
-}
-
-.cta-urgency {
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-primary-dark);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: 0.3px;
-}
-
-.cta-button-main {
-    display: inline-block;
-    width: 100%;
-    max-width: 450px;
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 18px 32px;
-    border-radius: 50px;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(184, 118, 112, 0.35);
-    letter-spacing: 0.5px;
-    font-family: var(--font-secondary);
-}
-
-.cta-button-main:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(184, 118, 112, 0.5);
-}
-
-.cta-reassurance {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin-top: var(--spacing-sm);
 }
 
 /* ==========================================================================
@@ -478,7 +431,7 @@ img {
 .listicle-sticky-button__link {
     display: block;
     width: 100%;
-    background-color: var(--color-primary);
+    background-color: #b87670;
     color: #FFFFFF;
     font-size: 1rem;
     font-weight: 700;
@@ -494,7 +447,7 @@ img {
 }
 
 .listicle-sticky-button__link:hover {
-    background-color: var(--color-primary-dark);
+    background-color: #a06660;
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(184, 118, 112, 0.5);
 }
@@ -503,12 +456,16 @@ img {
    Responsive — Tablette
    ========================================================================== */
 @media (max-width: 1024px) {
-    .benefits-title {
-        font-size: 2.2rem;
+    .article-title {
+        font-size: 2rem;
     }
 
-    .benefit-product-center img {
-        max-height: 260px;
+    .reason-title {
+        font-size: 1.5rem;
+    }
+
+    .benefits-title {
+        font-size: 2rem;
     }
 }
 
@@ -521,13 +478,38 @@ img {
         --spacing-xl: 2.5rem;
     }
 
-    /* Hero */
-    .rating-badge {
-        font-size: 0.85rem;
-        padding: 6px 12px;
+    .article-title {
+        font-size: 1.75rem;
+        line-height: 1.3;
     }
 
-    .rating-stars {
+    .article-intro {
+        font-size: 1rem;
+    }
+
+    .reason-title {
+        font-size: 1.375rem;
+    }
+
+    .reason-text p {
+        font-size: 1rem;
+    }
+
+    .benefits-title {
+        font-size: 1.75rem;
+    }
+
+    .benefits-grid {
+        gap: var(--spacing-sm);
+    }
+
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .benefit-name {
         font-size: 0.95rem;
     }
 
@@ -538,86 +520,13 @@ img {
 
     .hero-testimonials {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
-    .testimonial-card {
-        padding: 14px;
-    }
-
-    /* Bénéfices */
-    .benefits-title {
-        font-size: 1.9rem;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto;
-        gap: var(--spacing-sm);
-    }
-
-    .benefit-top-left {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .benefit-top-right {
-        grid-column: 2;
-        grid-row: 2;
-    }
-
-    .benefit-bottom-left {
-        grid-column: 1;
-        grid-row: 3;
-    }
-
-    .benefit-bottom-right {
-        grid-column: 2;
-        grid-row: 3;
-    }
-
-    .benefit-product-center {
-        grid-column: 1 / 3;
-        grid-row: 1;
-    }
-
-    .benefit-product-center img {
-        max-height: 220px;
-    }
-
-    .benefit-icon {
-        width: 64px;
-        height: 64px;
-    }
-
-    .icon-placeholder {
-        font-size: 1.6rem;
-    }
-
-    .benefit-name {
-        font-size: 1rem;
-    }
-
-    .benefit-desc {
-        font-size: 0.8rem;
-    }
-
-    /* Avant/Après */
     .before-after-title {
-        font-size: 1.5rem;
+        font-size: 1.375rem;
     }
 
-    .beauty-img {
-        max-height: 400px;
-    }
-
-    /* CTA */
-    .cta-button-main {
-        font-size: 1rem;
-        padding: 16px 24px;
-    }
-
-    /* Sticky */
     .listicle-sticky-button__link {
         font-size: 0.9375rem;
         padding: 14px 20px;
@@ -625,8 +534,12 @@ img {
 }
 
 @media (max-width: 480px) {
+    .article-title {
+        font-size: 1.5rem;
+    }
+
     .benefits-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     .guarantee-banner {
@@ -635,22 +548,13 @@ img {
         gap: 6px;
     }
 
-    .guarantee-banner::before,
-    .guarantee-banner::after {
-        display: none;
-    }
-
-    .cta-button-main,
-    .listicle-sticky-button__link {
-        padding: 14px 20px;
-        font-size: 0.875rem;
-    }
-
-    .before-after-title {
-        font-size: 1.3rem;
-    }
-
     .rating-badge {
         font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .listicle-sticky-button__link {
+        padding: 12px 16px;
+        font-size: 0.875rem;
     }
 }
