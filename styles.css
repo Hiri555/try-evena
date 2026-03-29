@@ -1,22 +1,21 @@
 /* ==========================================================================
-   Variables CSS - Couleurs et polices
+   Variables CSS
    ========================================================================== */
 :root {
-    /* Couleurs principales */
     --color-primary: #b87670;
     --color-primary-dark: #a06660;
     --color-text-primary: #2C2C2C;
     --color-text-secondary: #5A5A5A;
     --color-background: #FFFFFF;
     --color-background-light: #F9F9F9;
+    --color-background-warm: #FDF8F6;
     --color-border: #E5E5E5;
-    --color-accent: #FF6B6B;
+    --color-gold: #C9A84C;
+    --color-gold-light: #E8D5A0;
 
-    /* Typographie */
     --font-primary: 'Georgia', 'Times New Roman', serif;
     --font-secondary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
-    /* Espacements */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
@@ -25,7 +24,7 @@
 }
 
 /* ==========================================================================
-   Reset et styles de base
+   Reset
    ========================================================================== */
 * {
     margin: 0;
@@ -49,138 +48,182 @@ img {
     display: block;
 }
 
-button {
-    cursor: pointer;
-    border: none;
-    font-family: inherit;
+/* ==========================================================================
+   TRUST BAR
+   ========================================================================== */
+.trust-bar {
+    background-color: var(--color-background-warm);
+    border: 2px solid var(--color-gold-light);
+    border-left: none;
+    border-right: none;
+    padding: 14px 16px;
 }
 
-/* Container général */
+.trust-bar__inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.trust-bar__rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.trust-bar__stars {
+    color: var(--color-gold);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.trust-bar__score {
+    font-size: 1.1rem;
+    color: var(--color-text-primary);
+}
+
+.trust-bar__badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.trust-bar__separator {
+    color: var(--color-border);
+}
+
+/* ==========================================================================
+   EN-TÊTE ARTICLE
+   ========================================================================== */
+.article-header {
+    background-color: var(--color-background);
+    padding: var(--spacing-lg) 0 var(--spacing-md);
+}
+
 .container {
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
-/* ==========================================================================
-   En-tête de l'article
-   ========================================================================== */
-.article-header {
-    background-color: var(--color-background-light);
-    padding: var(--spacing-xl) 0;
-    text-align: center;
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-name {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.author-name strong {
+    color: var(--color-text-primary);
 }
 
 .article-title {
     font-family: var(--font-primary);
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
+    line-height: 1.25;
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-md);
     font-weight: 700;
 }
 
 .article-intro {
-    max-width: 800px;
-    margin: 0 auto var(--spacing-lg);
-    font-size: 1.125rem;
+    font-size: 1.1rem;
     color: var(--color-text-secondary);
+    line-height: 1.8;
 }
 
 .article-intro p {
     margin-bottom: var(--spacing-sm);
 }
 
-.article-intro p:last-child {
-    font-weight: 600;
+.article-intro p em {
+    color: var(--color-primary-dark);
+}
+
+.article-intro p strong {
     color: var(--color-text-primary);
 }
 
-/* Info auteur */
-.author-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    margin-top: var(--spacing-lg);
-}
-
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.author-details {
-    text-align: left;
-}
-
-.author-name {
-    font-size: 0.95rem;
-    color: var(--color-text-primary);
-    margin-bottom: 0.25rem;
-}
-
-.author-name strong {
+.intro-teaser {
     font-weight: 600;
-}
-
-.last-updated {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-}
-
-/* ==========================================================================
-   Image hero
-   ========================================================================== */
-.hero-image {
-    max-width: 1200px;
-    margin: var(--spacing-lg) auto;
-    padding: 0 var(--spacing-md);
-}
-
-.hero-image picture,
-.hero-image img {
-    width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    color: var(--color-text-primary) !important;
+    font-style: italic;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+    border-top: 1px solid var(--color-border);
 }
 
 /* ==========================================================================
-   Conteneur des raisons - Layout VERTICAL
+   RAISONS
    ========================================================================== */
 .reasons-container {
     max-width: 800px;
     margin: 0 auto;
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-xl);
 }
 
-/* ==========================================================================
-   Bloc raison - VERTICAL: Titre → Image → Texte
-   ========================================================================== */
 .reason-block {
     margin-bottom: var(--spacing-xl);
-    padding-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-xl);
     border-bottom: 1px solid var(--color-border);
 }
 
-.reason-block:last-child {
+.reason-block--last {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .reason-title {
     font-family: var(--font-primary);
-    font-size: 1.75rem;
+    font-size: 1.65rem;
     line-height: 1.3;
     color: var(--color-text-primary);
     margin-bottom: var(--spacing-md);
     font-weight: 700;
-    text-align: center;
 }
 
-.reason-image {
+/* Texte des raisons */
+.reason-text {
     margin-bottom: var(--spacing-md);
+}
+
+.reason-text p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+}
+
+.reason-text p strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.reason-text p em {
+    font-style: italic;
+    color: var(--color-primary-dark);
+}
+
+/* Images des raisons */
+.reason-image {
+    margin: var(--spacing-md) 0;
 }
 
 .reason-image img {
@@ -191,115 +234,154 @@ button {
     object-fit: cover;
 }
 
-.reason-text p {
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--color-text-secondary);
-}
-
-.reason-text p em {
-    font-style: italic;
-    color: var(--color-primary-dark);
-    font-weight: 500;
-}
-
-/* ==========================================================================
-   Section CTA Final - SIMPLIFIÉ
-   ========================================================================== */
-.final-cta {
-    background-color: #FFFFFF;
-    border: 2px solid #E5E5E5;
-    border-radius: 12px;
-    max-width: 500px;
-    margin: var(--spacing-xl) auto;
-    padding: var(--spacing-md);
-    text-align: center;
-}
-
-.cta-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cta-image {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 8px;
-    margin-bottom: var(--spacing-md);
-}
-
-.cta-content {
-    width: 100%;
-}
-
-.cta-title {
-    font-size: 1.25rem;
-    line-height: 1.4;
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
-    font-weight: 600;
-}
-
-.cta-button {
-    background-color: var(--color-primary);
-    color: #FFFFFF;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    width: 100%;
-    transition: all 0.3s ease;
-    margin-bottom: var(--spacing-md);
-}
-
-.cta-button:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
-}
-
-/* Compte à rebours simplifié */
-.countdown {
+/* Vidéo (raison 2) */
+.reason-video {
     margin: var(--spacing-md) 0;
 }
 
-.countdown-label {
-    font-size: 0.875rem;
-    color: var(--color-text-secondary);
-    margin-bottom: var(--spacing-xs);
-    font-weight: 600;
-}
-
-.countdown-timer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3rem;
-    font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-text-primary);
-}
-
-.time-value {
-    background-color: var(--color-text-primary);
-    color: #FFFFFF;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    min-width: 40px;
-    text-align: center;
-    display: inline-block;
-}
-
-.separator {
-    color: var(--color-text-primary);
-    font-weight: 700;
+.reason-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background: #000;
 }
 
 /* ==========================================================================
-   Bouton Sticky qui apparaît au scroll
+   TÉMOIGNAGES (blockquote)
+   ========================================================================== */
+.testimonial {
+    background-color: var(--color-background-warm);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 8px 8px 0;
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.testimonial p {
+    font-size: 1.0625rem !important;
+    font-style: italic;
+    color: var(--color-text-primary) !important;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-xs) !important;
+}
+
+.testimonial cite {
+    display: block;
+    font-size: 0.9rem;
+    font-style: normal;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+}
+
+/* ==========================================================================
+   LISTE 4-EN-1
+   ========================================================================== */
+.four-in-one-list {
+    margin: var(--spacing-md) 0;
+}
+
+.four-in-one-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+}
+
+.four-in-one-number {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.four-in-one-item strong {
+    color: var(--color-text-primary);
+}
+
+/* ==========================================================================
+   CLOSING CHOICE
+   ========================================================================== */
+.closing-choice {
+    background-color: var(--color-background-light);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+    text-align: center;
+}
+
+.closing-choice p {
+    color: var(--color-text-primary) !important;
+}
+
+/* ==========================================================================
+   CTA INLINE
+   ========================================================================== */
+.cta-inline {
+    display: block;
+    text-align: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: var(--spacing-sm) 0;
+    margin: var(--spacing-sm) 0;
+    transition: color 0.2s ease;
+}
+
+.cta-inline:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   CTA FINAL
+   ========================================================================== */
+.final-cta {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--color-border);
+}
+
+.cta-button-final {
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 1.15rem;
+    font-weight: 700;
+    padding: 18px 32px;
+    border-radius: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(184, 118, 112, 0.35);
+    letter-spacing: 0.5px;
+    font-family: var(--font-secondary);
+}
+
+.cta-button-final:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(184, 118, 112, 0.5);
+}
+
+.cta-offer {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-top: var(--spacing-sm);
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================================================
+   BOUTON STICKY
    ========================================================================== */
 .listicle-sticky-button {
     position: fixed;
@@ -338,9 +420,9 @@ button {
 .listicle-sticky-button__link {
     display: block;
     width: 100%;
-    background-color: #b87670;
+    background-color: var(--color-primary);
     color: #FFFFFF;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     padding: 16px 24px;
     border-radius: 50px;
@@ -350,30 +432,30 @@ button {
     transition: all 0.3s ease;
     box-shadow: 0 4px 20px rgba(184, 118, 112, 0.4);
     font-family: var(--font-secondary);
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
 }
 
 .listicle-sticky-button__link:hover {
-    background-color: #a06660;
+    background-color: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(184, 118, 112, 0.5);
 }
 
 /* ==========================================================================
-   Responsive - Tablette
+   Responsive — Tablette
    ========================================================================== */
 @media (max-width: 1024px) {
     .article-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
     }
 
     .reason-title {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
     }
 }
 
 /* ==========================================================================
-   Responsive - Mobile
+   Responsive — Mobile
    ========================================================================== */
 @media (max-width: 768px) {
     :root {
@@ -382,7 +464,7 @@ button {
     }
 
     .article-title {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
         line-height: 1.3;
     }
 
@@ -391,56 +473,72 @@ button {
     }
 
     .reason-title {
-        font-size: 1.375rem;
+        font-size: 1.3rem;
     }
 
-    .reason-text p {
+    .reason-text p,
+    .four-in-one-item {
         font-size: 1rem;
     }
 
-    .cta-title {
-        font-size: 1.125rem;
+    .trust-bar__rating {
+        flex-direction: column;
+        gap: 4px;
     }
 
-    .cta-button {
-        font-size: 0.9375rem;
-        padding: 0.875rem 1.5rem;
+    .trust-bar__badges {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 0.8rem;
     }
 
-    .countdown-timer {
-        font-size: 1.25rem;
+    .trust-bar__separator {
+        display: none;
     }
 
-    .time-value {
-        padding: 0.25rem 0.5rem;
-        min-width: 35px;
-        font-size: 1.25rem;
+    .testimonial {
+        padding: var(--spacing-sm);
+    }
+
+    .cta-button-final {
+        font-size: 1rem;
+        padding: 16px 24px;
     }
 
     .listicle-sticky-button__link {
-        font-size: 0.9375rem;
+        font-size: 0.875rem;
         padding: 14px 20px;
+    }
+
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .reasons-container {
+        padding: var(--spacing-md) var(--spacing-sm) var(--spacing-xl);
     }
 }
 
 @media (max-width: 480px) {
     .article-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
-    .cta-button,
+    .reason-title {
+        font-size: 1.2rem;
+    }
+
+    .trust-bar__stars {
+        font-size: 1.2rem;
+    }
+
+    .trust-bar__score {
+        font-size: 0.95rem;
+    }
+
+    .cta-button-final,
     .listicle-sticky-button__link {
-        padding: 0.875rem 1.25rem;
+        padding: 14px 16px;
         font-size: 0.875rem;
-    }
-
-    .countdown-timer {
-        font-size: 1.125rem;
-    }
-
-    .time-value {
-        padding: 0.2rem 0.4rem;
-        min-width: 32px;
-        font-size: 1.125rem;
     }
 }
