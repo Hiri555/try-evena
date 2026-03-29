@@ -52,49 +52,15 @@ img {
    TRUST BAR
    ========================================================================== */
 .trust-bar {
-    background-color: var(--color-background-warm);
-    border: 2px solid var(--color-gold-light);
-    border-left: none;
-    border-right: none;
-    padding: 14px 16px;
-}
-
-.trust-bar__inner {
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    padding: var(--spacing-md) var(--spacing-sm);
 }
 
-.trust-bar__rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 6px;
-}
-
-.trust-bar__stars {
-    color: var(--color-gold);
-    font-size: 1.4rem;
-    letter-spacing: 2px;
-}
-
-.trust-bar__score {
-    font-size: 1.1rem;
-    color: var(--color-text-primary);
-}
-
-.trust-bar__badges {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-}
-
-.trust-bar__separator {
-    color: var(--color-border);
+.trust-bar__img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* ==========================================================================
