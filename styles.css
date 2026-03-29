@@ -49,15 +49,73 @@ img {
 }
 
 /* ==========================================================================
-   TRUST BAR
+   MASTHEAD MAGAZINE
    ========================================================================== */
+.magazine-masthead {
+    border-bottom: 1px solid var(--color-border);
+    padding: 20px 16px 16px;
+}
+
+.masthead-inner {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.masthead-name {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--color-text-primary);
+}
+
+.masthead-date {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+}
+
+.masthead-divider {
+    height: 1px;
+    background-color: var(--color-text-primary);
+    margin-bottom: 10px;
+}
+
+.masthead-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.masthead-label {
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.masthead-sep {
+    color: var(--color-border);
+}
+
+.masthead-dot {
+    font-size: 0.5rem;
+    color: var(--color-text-secondary);
+}
 
 /* ==========================================================================
    EN-TÊTE ARTICLE
    ========================================================================== */
 .article-header {
     background-color: var(--color-background);
-    padding: var(--spacing-lg) 0 var(--spacing-md);
+    padding: var(--spacing-md) 0 var(--spacing-md);
 }
 
 .container {
@@ -89,12 +147,30 @@ img {
     color: var(--color-text-primary);
 }
 
+.author-role {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+.title-wrapper {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.title-line {
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold-light), var(--color-gold), var(--color-gold-light));
+    max-width: 100%;
+    margin: 0 auto;
+}
+
 .article-title {
     font-family: var(--font-primary);
     font-size: 2.2rem;
     line-height: 1.25;
     color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md) 0;
     font-weight: 700;
 }
 
@@ -435,8 +511,9 @@ img {
         font-size: 0.8rem;
     }
 
-    .trust-bar__separator {
-        display: none;
+    .masthead-nav {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .testimonial {
