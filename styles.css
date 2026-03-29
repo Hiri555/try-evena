@@ -234,18 +234,6 @@ img {
     object-fit: cover;
 }
 
-/* Vidéo (raison 2) */
-.reason-video {
-    margin: var(--spacing-md) 0;
-}
-
-.reason-video video {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    background: #000;
-}
 
 /* ==========================================================================
    TÉMOIGNAGES (blockquote)
