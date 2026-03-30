@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reddit Comment Scraper</title>
+  <title>Reddit & Quora Scraper</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header class="header">
       <div class="header-left">
         <span class="logo">🛡️</span>
-        <h1 class="app-title">Reddit Comment Scraper</h1>
+        <h1 class="app-title">Reddit & Quora Scraper</h1>
       </div>
       <div class="header-right">
         <span class="badge">v1.0</span>
@@ -40,6 +40,12 @@
       <span id="status-text"></span>
     </div>
 
+    <!-- Site Indicator -->
+    <div id="site-indicator" class="site-indicator hidden">
+      <span id="site-icon" class="site-icon"></span>
+      <span id="site-name" class="site-name"></span>
+    </div>
+
     <!-- Scrape Button -->
     <button id="scrape-btn" class="scrape-btn">
       <span class="scrape-btn-text">Scrape Comments</span>
@@ -48,7 +54,7 @@
 
     <!-- Content Tabs -->
     <div class="tabs">
-      <button class="tab-btn active" data-content="comments">Comments</button>
+      <button class="tab-btn active" data-content="comments">Comments / Answers</button>
       <button class="tab-btn" data-content="insights">Insights</button>
     </div>
 
@@ -67,7 +73,7 @@
       <div id="comments-list" class="comments-list">
         <div class="empty-state">
           <p>No comments scraped yet.</p>
-          <p class="hint">Navigate to a Reddit post and click "Scrape Comments"</p>
+          <p class="hint">Navigate to a Reddit or Quora post and click "Scrape Comments"</p>
         </div>
       </div>
     </div>

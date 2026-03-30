@@ -91,6 +91,35 @@ body {
   font-size: 16px;
 }
 
+/* Site Indicator */
+.site-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 6px 12px 0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.site-indicator.reddit {
+  background: rgba(255, 69, 0, 0.12);
+  border: 1px solid rgba(255, 69, 0, 0.3);
+  color: #ff6b35;
+}
+
+.site-indicator.quora {
+  background: rgba(185, 43, 39, 0.12);
+  border: 1px solid rgba(185, 43, 39, 0.3);
+  color: #e2574c;
+}
+
+.site-icon {
+  font-size: 14px;
+}
+
 /* Status Bar */
 .status-bar {
   margin: 8px 12px;

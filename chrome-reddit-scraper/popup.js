@@ -1,12 +1,13 @@
 /**
- * Reddit Comment Scraper - Popup Script
+ * Reddit & Quora Scraper - Popup Script
  * Manages UI interactions, triggers scraping, and handles exports.
  */
 
 (() => {
   "use strict";
 
-  let scrapedData = null; // { post: {...}, comments: [...] }
+  let scrapedData = null; // { post: {...}, comments: [...], site: "reddit"|"quora" }
+  let currentSite = "unknown";
 
   /* ---- DOM References ---- */
   const scrapeBtn = document.getElementById("scrape-btn");
@@ -21,6 +22,9 @@
   const postAuthor = document.getElementById("post-author");
   const postContent = document.getElementById("post-content");
   const postImages = document.getElementById("post-images");
+  const siteIndicator = document.getElementById("site-indicator");
+  const siteIcon = document.getElementById("site-icon");
+  const siteName = document.getElementById("site-name");
 
   // Insight elements
   const totalCommentsEl = document.getElementById("total-comments");
@@ -48,16 +52,48 @@
     });
   });
 
+  /* ---- Site Detection on Popup Open ---- */
+  (async () => {
+    try {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (tab && tab.url) {
+        if (tab.url.includes("reddit.com")) {
+          currentSite = "reddit";
+          showSiteIndicator("reddit");
+        } else if (tab.url.includes("quora.com")) {
+          currentSite = "quora";
+          showSiteIndicator("quora");
+        }
+      }
+    } catch (_) {}
+  })();
+
+  function showSiteIndicator(site) {
+    siteIndicator.classList.remove("hidden");
+    if (site === "reddit") {
+      siteIcon.textContent = "🔴";
+      siteName.textContent = "Reddit detected";
+      siteIndicator.className = "site-indicator reddit";
+    } else if (site === "quora") {
+      siteIcon.textContent = "🔵";
+      siteName.textContent = "Quora detected";
+      siteIndicator.className = "site-indicator quora";
+    }
+  }
+
   /* ---- Scrape Action ---- */
   scrapeBtn.addEventListener("click", async () => {
     setLoading(true);
-    showStatus("Scraping comments...", false);
+    showStatus("Scraping content...", false);
 
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-      if (!tab || !tab.url || !tab.url.includes("reddit.com")) {
-        showStatus("Please navigate to a Reddit post first.", true);
+      const isReddit = tab && tab.url && tab.url.includes("reddit.com");
+      const isQuora = tab && tab.url && tab.url.includes("quora.com");
+
+      if (!tab || !tab.url || (!isReddit && !isQuora)) {
+        showStatus("Please navigate to a Reddit or Quora page first.", true);
         setLoading(false);
         return;
       }
@@ -87,8 +123,10 @@
         }
 
         scrapedData = response.data;
+        currentSite = scrapedData.site || (isQuora ? "quora" : "reddit");
         const count = flattenComments(scrapedData.comments).length;
-        showStatus(`Scraped ${count} comments!`, false);
+        const label = currentSite === "quora" ? "answers" : "comments";
+        showStatus(`Scraped ${count} ${label}!`, false);
         renderPost(scrapedData.post);
         renderComments(scrapedData.comments);
         renderInsights(scrapedData.comments);
@@ -143,7 +181,8 @@
 
     const numSpan = document.createElement("span");
     numSpan.className = "comment-number";
-    numSpan.textContent = `Comment ${number}`;
+    const itemLabel = currentSite === "quora" ? "Answer" : "Comment";
+    numSpan.textContent = `${itemLabel} ${number}`;
 
     const authorSpan = document.createElement("span");
     authorSpan.className = "comment-author";
@@ -225,14 +264,16 @@
       (c) => `"${csvEscape(c.author)}","${c.score}","${csvEscape(c.text)}"`
     );
     const csv = [header, ...rows].join("\n");
-    downloadFile(csv, "reddit_comments.csv", "text/csv");
+    const prefix = currentSite === "quora" ? "quora_answers" : "reddit_comments";
+    downloadFile(csv, `${prefix}.csv`, "text/csv");
     showStatus("CSV downloaded!", false);
   });
 
   jsonBtn.addEventListener("click", () => {
     if (!scrapedData) return showStatus("Nothing to export. Scrape first!", true);
     const json = JSON.stringify(scrapedData, null, 2);
-    downloadFile(json, "reddit_comments.json", "application/json");
+    const prefix = currentSite === "quora" ? "quora_answers" : "reddit_comments";
+    downloadFile(json, `${prefix}.json`, "application/json");
     showStatus("JSON downloaded!", false);
   });
 

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Reddit Comment Scraper",
-  "version": "1.0.0",
-  "description": "Scrape Reddit posts, comments, and images from the current page.",
+  "name": "Reddit & Quora Scraper",
+  "version": "1.1.0",
+  "description": "Scrape Reddit and Quora posts, comments, and answers from the current page.",
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html",
@@ -19,7 +19,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.reddit.com/*"],
+      "matches": ["*://*.reddit.com/*", "*://*.quora.com/*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
