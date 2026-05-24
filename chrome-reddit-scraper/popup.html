@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reddit Comment Scraper</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <span class="logo">🛡️</span>
+        <h1 class="app-title">Reddit Comment Scraper</h1>
+      </div>
+      <div class="header-right">
+        <span class="badge">v1.0</span>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+      <button class="nav-btn active" data-tab="home">
+        <span class="nav-icon">🏠</span>
+        <span>Home</span>
+      </button>
+      <button class="nav-btn" data-tab="history">
+        <span class="nav-icon">📊</span>
+        <span>History</span>
+      </button>
+      <button class="nav-btn" data-tab="settings">
+        <span class="nav-icon">⚙️</span>
+        <span>Settings</span>
+      </button>
+    </nav>
+
+    <!-- Status Bar -->
+    <div id="status-bar" class="status-bar hidden">
+      <span id="status-text"></span>
+    </div>
+
+    <!-- Scrape Button -->
+    <button id="scrape-btn" class="scrape-btn">
+      <span class="scrape-btn-text">Scrape Comments</span>
+      <div id="loading-spinner" class="spinner hidden"></div>
+    </button>
+
+    <!-- Content Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-content="comments">Comments</button>
+      <button class="tab-btn" data-content="insights">Insights</button>
+    </div>
+
+    <!-- Post Info -->
+    <div id="post-info" class="post-info hidden">
+      <h3 id="post-title" class="post-title"></h3>
+      <div class="post-meta">
+        <span id="post-author" class="post-author"></span>
+      </div>
+      <p id="post-content" class="post-content"></p>
+      <div id="post-images" class="post-images"></div>
+    </div>
+
+    <!-- Comments Tab -->
+    <div id="comments-panel" class="panel active">
+      <div id="comments-list" class="comments-list">
+        <div class="empty-state">
+          <p>No comments scraped yet.</p>
+          <p class="hint">Navigate to a Reddit post and click "Scrape Comments"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Insights Tab -->
+    <div id="insights-panel" class="panel hidden">
+      <div class="insights-grid">
+        <div class="insight-card">
+          <div class="insight-value" id="total-comments">0</div>
+          <div class="insight-label">Total Comments</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value" id="avg-length">0</div>
+          <div class="insight-label">Avg. Comment Length</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value" id="total-score">0</div>
+          <div class="insight-label">Total Score</div>
+        </div>
+        <div class="insight-card">
+          <div class="insight-value" id="avg-score">0</div>
+          <div class="insight-label">Avg. Score</div>
+        </div>
+      </div>
+      <div class="top-commenters">
+        <h3>Top Commenters</h3>
+        <ol id="top-commenters-list"></ol>
+      </div>
+    </div>
+
+    <!-- Export Buttons -->
+    <div class="export-bar">
+      <button class="export-btn" id="copy-btn">
+        <span>📋</span>
+        <span>Copy</span>
+      </button>
+      <button class="export-btn" id="csv-btn">
+        <span>📊</span>
+        <span>CSV</span>
+      </button>
+      <button class="export-btn" id="json-btn">
+        <span>{ }</span>
+        <span>JSON</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
