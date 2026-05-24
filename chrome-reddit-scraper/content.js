@@ -13,6 +13,7 @@
     const host = window.location.hostname;
     if (host.includes("reddit.com")) return "reddit";
     if (host.includes("quora.com")) return "quora";
+    if (host.includes("youtube.com")) return "youtube";
     return "unknown";
   }
 
@@ -38,9 +39,16 @@
       }
 
       if (site === "quora") {
-        // Click "More answers" or "Continue reading" buttons
         const moreButtons = document.querySelectorAll(
           'button[class*="more"], [class*="ExpandAnswer"], [class*="ContinueReading"]'
+        );
+        moreButtons.forEach((btn) => btn.click());
+      }
+
+      if (site === "youtube") {
+        // Click "Read more" on comments and "Show more replies"
+        const moreButtons = document.querySelectorAll(
+          'ytd-button-renderer#more-replies button, tp-yt-paper-button#more, [id="more-replies"] button'
         );
         moreButtons.forEach((btn) => btn.click());
       }
@@ -356,6 +364,113 @@
     return answers;
   }
 
+  /* ====================
+     YOUTUBE SCRAPING
+     ==================== */
+
+  function scrapeYouTubePost() {
+    const post = { title: "", author: "", content: "", images: [] };
+
+    // Video title
+    post.title =
+      getText('h1.ytd-watch-metadata yt-formatted-string') ||
+      getText('h1.title yt-formatted-string') ||
+      getText('#title h1') ||
+      getText('h1') ||
+      "";
+
+    // Channel name
+    const channelEl =
+      document.querySelector('ytd-channel-name yt-formatted-string a') ||
+      document.querySelector('ytd-channel-name yt-formatted-string') ||
+      document.querySelector('#channel-name a') ||
+      document.querySelector('#owner-name a');
+    post.author = channelEl ? channelEl.textContent.trim() : "";
+
+    // Video description
+    const descEl =
+      document.querySelector('ytd-text-inline-expander > yt-attributed-string') ||
+      document.querySelector('ytd-text-inline-expander span') ||
+      document.querySelector('#description-inline-expander yt-attributed-string') ||
+      document.querySelector('#description yt-formatted-string');
+    post.content = descEl ? descEl.textContent.trim().substring(0, 2000) : "";
+
+    // Video thumbnail
+    const videoId = new URLSearchParams(window.location.search).get("v");
+    if (videoId) {
+      post.images.push(`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`);
+    }
+
+    return post;
+  }
+
+  function scrapeYouTubeComments() {
+    const comments = [];
+    const seen = new Set();
+
+    const commentThreads = document.querySelectorAll("ytd-comment-thread-renderer");
+
+    commentThreads.forEach((thread, idx) => {
+      const threadId = `yt-comment-${idx}`;
+      if (seen.has(threadId)) return;
+      seen.add(threadId);
+
+      const mainComment = thread.querySelector("#comment #body");
+      if (!mainComment) return;
+
+      // Author
+      const authorEl =
+        mainComment.querySelector("#author-text span") ||
+        mainComment.querySelector("#author-text");
+      const author = authorEl ? authorEl.textContent.trim() : "";
+
+      // Comment text
+      const textEl =
+        mainComment.querySelector("#content-text yt-attributed-string") ||
+        mainComment.querySelector("#content-text");
+      const text = textEl ? textEl.textContent.trim() : "";
+
+      if (!text) return;
+
+      // Like count
+      const likeEl =
+        mainComment.querySelector("#vote-count-middle") ||
+        mainComment.querySelector("#vote-count-left");
+      const score = likeEl ? parseScore(likeEl.textContent) : 0;
+
+      // Replies
+      const replies = [];
+      const replySection = thread.querySelector("ytd-comment-replies-renderer");
+      if (replySection) {
+        const replyEls = replySection.querySelectorAll("ytd-comment-renderer #body");
+        replyEls.forEach((replyBody) => {
+          const replyAuthorEl =
+            replyBody.querySelector("#author-text span") ||
+            replyBody.querySelector("#author-text");
+          const replyAuthor = replyAuthorEl ? replyAuthorEl.textContent.trim() : "";
+
+          const replyTextEl =
+            replyBody.querySelector("#content-text yt-attributed-string") ||
+            replyBody.querySelector("#content-text");
+          const replyText = replyTextEl ? replyTextEl.textContent.trim() : "";
+
+          const replyLikeEl =
+            replyBody.querySelector("#vote-count-middle") ||
+            replyBody.querySelector("#vote-count-left");
+          const replyScore = replyLikeEl ? parseScore(replyLikeEl.textContent) : 0;
+
+          if (replyText) {
+            replies.push({ author: replyAuthor, score: replyScore, text: replyText, replies: [] });
+          }
+        });
+      }
+
+      comments.push({ author, score, text, replies });
+    });
+
+    return comments;
+  }
+
   /* ---- Helpers ---- */
 
   function getText(selector) {
@@ -383,7 +498,10 @@
 
           let post, comments;
 
-          if (site === "quora") {
+          if (site === "youtube") {
+            post = scrapeYouTubePost();
+            comments = scrapeYouTubeComments();
+          } else if (site === "quora") {
             post = scrapeQuoraPost();
             comments = scrapeQuoraComments();
           } else {

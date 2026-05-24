@@ -116,6 +116,12 @@ body {
   color: #e2574c;
 }
 
+.site-indicator.youtube {
+  background: rgba(255, 0, 0, 0.12);
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  color: #ff4444;
+}
+
 .site-icon {
   font-size: 14px;
 }

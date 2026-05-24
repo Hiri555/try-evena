@@ -63,6 +63,9 @@
         } else if (tab.url.includes("quora.com")) {
           currentSite = "quora";
           showSiteIndicator("quora");
+        } else if (tab.url.includes("youtube.com")) {
+          currentSite = "youtube";
+          showSiteIndicator("youtube");
         }
       }
     } catch (_) {}
@@ -78,6 +81,10 @@
       siteIcon.textContent = "🔵";
       siteName.textContent = "Quora detected";
       siteIndicator.className = "site-indicator quora";
+    } else if (site === "youtube") {
+      siteIcon.textContent = "🔴";
+      siteName.textContent = "YouTube detected";
+      siteIndicator.className = "site-indicator youtube";
     }
   }
 
@@ -91,9 +98,10 @@
 
       const isReddit = tab && tab.url && tab.url.includes("reddit.com");
       const isQuora = tab && tab.url && tab.url.includes("quora.com");
+      const isYouTube = tab && tab.url && tab.url.includes("youtube.com");
 
-      if (!tab || !tab.url || (!isReddit && !isQuora)) {
-        showStatus("Please navigate to a Reddit or Quora page first.", true);
+      if (!tab || !tab.url || (!isReddit && !isQuora && !isYouTube)) {
+        showStatus("Please navigate to Reddit, Quora, or YouTube first.", true);
         setLoading(false);
         return;
       }
@@ -123,7 +131,7 @@
         }
 
         scrapedData = response.data;
-        currentSite = scrapedData.site || (isQuora ? "quora" : "reddit");
+        currentSite = scrapedData.site || (isYouTube ? "youtube" : isQuora ? "quora" : "reddit");
         const count = flattenComments(scrapedData.comments).length;
         const label = currentSite === "quora" ? "answers" : "comments";
         showStatus(`Scraped ${count} ${label}!`, false);
@@ -181,7 +189,8 @@
 
     const numSpan = document.createElement("span");
     numSpan.className = "comment-number";
-    const itemLabel = currentSite === "quora" ? "Answer" : "Comment";
+    const siteLabels = { quora: "Answer", youtube: "Comment", reddit: "Comment" };
+    const itemLabel = siteLabels[currentSite] || "Comment";
     numSpan.textContent = `${itemLabel} ${number}`;
 
     const authorSpan = document.createElement("span");
@@ -264,7 +273,8 @@
       (c) => `"${csvEscape(c.author)}","${c.score}","${csvEscape(c.text)}"`
     );
     const csv = [header, ...rows].join("\n");
-    const prefix = currentSite === "quora" ? "quora_answers" : "reddit_comments";
+    const prefixes = { quora: "quora_answers", youtube: "youtube_comments", reddit: "reddit_comments" };
+    const prefix = prefixes[currentSite] || "scraped_data";
     downloadFile(csv, `${prefix}.csv`, "text/csv");
     showStatus("CSV downloaded!", false);
   });
@@ -272,7 +282,8 @@
   jsonBtn.addEventListener("click", () => {
     if (!scrapedData) return showStatus("Nothing to export. Scrape first!", true);
     const json = JSON.stringify(scrapedData, null, 2);
-    const prefix = currentSite === "quora" ? "quora_answers" : "reddit_comments";
+    const prefixes = { quora: "quora_answers", youtube: "youtube_comments", reddit: "reddit_comments" };
+    const prefix = prefixes[currentSite] || "scraped_data";
     downloadFile(json, `${prefix}.json`, "application/json");
     showStatus("JSON downloaded!", false);
   });
