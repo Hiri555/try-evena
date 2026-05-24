@@ -492,3 +492,60 @@ body {
   from { opacity: 0; transform: translateY(-4px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Transcript */
+.transcript-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #161b22;
+  border-bottom: 1px solid #21262d;
+  font-size: 11px;
+  color: #8b949e;
+}
+
+.transcript-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.transcript-toggle input {
+  cursor: pointer;
+}
+
+.transcript-list {
+  padding: 8px 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.transcript-line {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  border-bottom: 1px solid #1c2128;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.transcript-line:last-child {
+  border-bottom: none;
+}
+
+.transcript-time {
+  flex-shrink: 0;
+  color: #58a6ff;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 48px;
+}
+
+.transcript-text {
+  color: #c9d1d9;
+  flex: 1;
+}

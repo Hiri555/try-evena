@@ -15,7 +15,7 @@
         <h1 class="app-title">Social Scraper</h1>
       </div>
       <div class="header-right">
-        <span class="badge">v1.2</span>
+        <span class="badge">v1.3</span>
       </div>
     </header>
 
@@ -55,6 +55,7 @@
     <!-- Content Tabs -->
     <div class="tabs">
       <button class="tab-btn active" data-content="comments">Comments / Answers</button>
+      <button class="tab-btn" data-content="transcript">Transcript</button>
       <button class="tab-btn" data-content="insights">Insights</button>
     </div>
 
@@ -74,6 +75,23 @@
         <div class="empty-state">
           <p>No comments scraped yet.</p>
           <p class="hint">Navigate to a Reddit, Quora, or YouTube page and click "Scrape Comments"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transcript Tab -->
+    <div id="transcript-panel" class="panel hidden">
+      <div id="transcript-meta" class="transcript-meta hidden">
+        <span id="transcript-language"></span>
+        <label class="transcript-toggle">
+          <input type="checkbox" id="transcript-timestamps" checked>
+          <span>Timestamps</span>
+        </label>
+      </div>
+      <div id="transcript-list" class="transcript-list">
+        <div class="empty-state">
+          <p>No transcript yet.</p>
+          <p class="hint">Scrape a YouTube video to extract its transcript.</p>
         </div>
       </div>
     </div>
@@ -117,6 +135,10 @@
       <button class="export-btn" id="json-btn">
         <span>{ }</span>
         <span>JSON</span>
+      </button>
+      <button class="export-btn" id="transcript-btn">
+        <span>📝</span>
+        <span>Transcript</span>
       </button>
     </div>
   </div>
