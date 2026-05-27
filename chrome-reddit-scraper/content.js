@@ -406,66 +406,98 @@
 
   async function scrapeYouTubeTranscript() {
     const videoId = new URLSearchParams(window.location.search).get("v");
-    if (!videoId) return { segments: [], text: "", language: "" };
-
-    // Try to pull caption tracks from ytInitialPlayerResponse injected by YouTube
-    let playerResponse = null;
-    try {
-      playerResponse = window.ytInitialPlayerResponse || null;
-    } catch (_) {}
-
-    // Fallback 1: scan all scripts for ytInitialPlayerResponse JSON
-    if (!playerResponse) {
-      const scripts = document.querySelectorAll("script");
-      for (const s of scripts) {
-        const src = s.textContent || "";
-        const idx = src.indexOf("ytInitialPlayerResponse");
-        if (idx !== -1) {
-          const eq = src.indexOf("=", idx);
-          if (eq !== -1) {
-            try {
-              const jsonStart = src.indexOf("{", eq);
-              if (jsonStart !== -1) {
-                const jsonStr = extractJsonObject(src, jsonStart);
-                playerResponse = JSON.parse(jsonStr);
-                break;
-              }
-            } catch (_) {}
-          }
-        }
-      }
+    if (!videoId) {
+      return { segments: [], text: "", language: "", source: "no-video" };
     }
 
-    // Fallback 2 (SPA navigation): fetch the watch page directly
-    if (!playerResponse) {
+    // Strategy 1: extract ytInitialPlayerResponse from the current document.
+    // Don't trust the first parseable object — many YouTube pages contain
+    // multiple references to that name (the actual one has `captions`).
+    let playerResponse = findPlayerResponseInHtml(
+      document.documentElement.outerHTML
+    );
+
+    // Strategy 2: re-fetch the watch page (SPA navigations replace the DOM
+    // but the inline script for the new video isn't always present yet).
+    if (!hasCaptions(playerResponse)) {
       try {
-        const resp = await fetch(`https://www.youtube.com/watch?v=${videoId}`, {
-          credentials: "include",
-        });
+        const resp = await fetch(
+          `https://www.youtube.com/watch?v=${videoId}&hl=en`,
+          { credentials: "include" }
+        );
         const html = await resp.text();
-        const idx = html.indexOf("ytInitialPlayerResponse");
-        if (idx !== -1) {
-          const eq = html.indexOf("=", idx);
-          if (eq !== -1) {
-            const jsonStart = html.indexOf("{", eq);
-            if (jsonStart !== -1) {
-              try {
-                playerResponse = JSON.parse(extractJsonObject(html, jsonStart));
-              } catch (_) {}
-            }
-          }
-        }
+        const fetched = findPlayerResponseInHtml(html);
+        if (hasCaptions(fetched)) playerResponse = fetched;
       } catch (_) {}
     }
 
     const tracks =
-      playerResponse?.captions?.playerCaptionsTracklistRenderer?.captionTracks || [];
+      playerResponse?.captions?.playerCaptionsTracklistRenderer
+        ?.captionTracks || [];
 
-    if (tracks.length === 0) {
-      return { segments: [], text: "", language: "" };
+    if (tracks.length > 0) {
+      const result = await fetchCaptionTrack(tracks);
+      if (result.segments.length > 0) {
+        result.source = "captionTracks";
+        return result;
+      }
     }
 
-    // Prefer non-auto-generated track in user/page language, then English, then first
+    // Strategy 3: open YouTube's own transcript panel and scrape the DOM.
+    const dom = await scrapeTranscriptPanel();
+    if (dom.segments.length > 0) {
+      dom.source = "domPanel";
+      return dom;
+    }
+
+    return {
+      segments: [],
+      text: "",
+      language: "",
+      source: "none",
+      debug: {
+        hasPlayerResponse: !!playerResponse,
+        hasCaptionsField: !!playerResponse?.captions,
+        trackCount: tracks.length,
+      },
+    };
+  }
+
+  function hasCaptions(pr) {
+    return !!pr?.captions?.playerCaptionsTracklistRenderer?.captionTracks?.length;
+  }
+
+  function findPlayerResponseInHtml(text) {
+    if (!text) return null;
+    const markers = [
+      "var ytInitialPlayerResponse = ",
+      "window.ytInitialPlayerResponse = ",
+      "ytInitialPlayerResponse = ",
+      '"ytInitialPlayerResponse":',
+    ];
+    let bestWithoutCaptions = null;
+    for (const marker of markers) {
+      let from = 0;
+      while (true) {
+        const idx = text.indexOf(marker, from);
+        if (idx === -1) break;
+        from = idx + marker.length;
+        const braceIdx = text.indexOf("{", idx + marker.length - 1);
+        if (braceIdx === -1) continue;
+        const jsonStr = extractJsonObject(text, braceIdx);
+        try {
+          const parsed = JSON.parse(jsonStr);
+          if (hasCaptions(parsed)) return parsed;
+          if (!bestWithoutCaptions && parsed?.videoDetails) {
+            bestWithoutCaptions = parsed;
+          }
+        } catch (_) {}
+      }
+    }
+    return bestWithoutCaptions;
+  }
+
+  async function fetchCaptionTrack(tracks) {
     const lang = (document.documentElement.lang || "en").split("-")[0];
     const pick =
       tracks.find((t) => t.languageCode === lang && t.kind !== "asr") ||
@@ -474,46 +506,126 @@
       tracks.find((t) => t.languageCode === "en") ||
       tracks[0];
 
-    if (!pick || !pick.baseUrl) return { segments: [], text: "", language: "" };
+    if (!pick || !pick.baseUrl) {
+      return { segments: [], text: "", language: "" };
+    }
 
-    // Request JSON3 format for easy parsing
-    const url = pick.baseUrl + "&fmt=json3";
     let segments = [];
     try {
-      const resp = await fetch(url);
+      const resp = await fetch(pick.baseUrl + "&fmt=json3", {
+        credentials: "include",
+      });
       const data = await resp.json();
       segments = (data.events || [])
         .filter((ev) => ev.segs)
-        .map((ev) => {
-          const text = ev.segs
+        .map((ev) => ({
+          start: (ev.tStartMs || 0) / 1000,
+          text: ev.segs
             .map((s) => s.utf8 || "")
             .join("")
             .replace(/\n+/g, " ")
-            .trim();
-          return { start: (ev.tStartMs || 0) / 1000, text };
-        })
+            .trim(),
+        }))
         .filter((seg) => seg.text);
-    } catch (_) {
-      // Fallback: try plain XML and parse
+    } catch (_) {}
+
+    if (segments.length === 0) {
       try {
-        const resp = await fetch(pick.baseUrl);
+        const resp = await fetch(pick.baseUrl, { credentials: "include" });
         const xml = await resp.text();
         const doc = new DOMParser().parseFromString(xml, "text/xml");
-        segments = Array.from(doc.querySelectorAll("text")).map((t) => ({
-          start: parseFloat(t.getAttribute("start") || "0"),
-          text: decodeHtml(t.textContent || "").trim(),
-        }));
+        segments = Array.from(doc.querySelectorAll("text"))
+          .map((t) => ({
+            start: parseFloat(t.getAttribute("start") || "0"),
+            text: decodeHtml(t.textContent || "").trim(),
+          }))
+          .filter((s) => s.text);
       } catch (_) {}
     }
 
-    const fullText = segments.map((s) => s.text).join(" ");
     return {
       segments,
-      text: fullText,
+      text: segments.map((s) => s.text).join(" "),
       language: pick.languageCode || "",
-      languageName: pick.name?.simpleText || "",
+      languageName: pick.name?.simpleText || pick.name?.runs?.[0]?.text || "",
       isAutoGenerated: pick.kind === "asr",
     };
+  }
+
+  async function scrapeTranscriptPanel() {
+    // Locate "Show transcript" — covers EN, FR and the description-section
+    // shortcut button used on modern desktop layouts.
+    const findButton = () => {
+      const direct = document.querySelector(
+        'ytd-video-description-transcript-section-renderer button, ' +
+          'ytd-video-description-transcript-section-renderer ytd-button-renderer button, ' +
+          '[target-id="engagement-panel-searchable-transcript"] button'
+      );
+      if (direct) return direct;
+
+      const candidates = document.querySelectorAll(
+        'button, tp-yt-paper-button, yt-button-shape button'
+      );
+      for (const b of candidates) {
+        const aria = (b.getAttribute("aria-label") || "").toLowerCase();
+        const txt = (b.textContent || "").trim().toLowerCase();
+        if (
+          aria.includes("transcript") ||
+          aria.includes("transcription") ||
+          txt === "show transcript" ||
+          txt === "afficher la transcription" ||
+          txt === "transcription"
+        ) {
+          return b;
+        }
+      }
+      return null;
+    };
+
+    const existing = document.querySelectorAll(
+      "ytd-transcript-segment-renderer"
+    );
+    if (existing.length === 0) {
+      const btn = findButton();
+      if (!btn) return { segments: [], text: "", language: "" };
+      btn.click();
+      for (let i = 0; i < 40; i++) {
+        await new Promise((r) => setTimeout(r, 200));
+        if (document.querySelectorAll("ytd-transcript-segment-renderer").length > 0) {
+          break;
+        }
+      }
+    }
+
+    const segEls = document.querySelectorAll("ytd-transcript-segment-renderer");
+    if (segEls.length === 0) return { segments: [], text: "", language: "" };
+
+    const segments = Array.from(segEls)
+      .map((el) => {
+        const timeEl =
+          el.querySelector(".segment-timestamp") ||
+          el.querySelector('[class*="timestamp"]');
+        const textEl =
+          el.querySelector(".segment-text") ||
+          el.querySelector("yt-formatted-string");
+        const timeStr = timeEl ? timeEl.textContent.trim() : "0:00";
+        const text = textEl ? textEl.textContent.trim() : "";
+        return { start: parseTimeString(timeStr), text };
+      })
+      .filter((s) => s.text);
+
+    return {
+      segments,
+      text: segments.map((s) => s.text).join(" "),
+      language: (document.documentElement.lang || "").split("-")[0],
+    };
+  }
+
+  function parseTimeString(str) {
+    const parts = str.split(":").map((p) => parseInt(p, 10) || 0);
+    if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+    if (parts.length === 2) return parts[0] * 60 + parts[1];
+    return parts[0] || 0;
   }
 
   function extractJsonObject(src, start) {

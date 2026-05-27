@@ -271,11 +271,17 @@
 
     if (!transcript || !transcript.segments || transcript.segments.length === 0) {
       transcriptMeta.classList.add("hidden");
-      const msg =
-        currentSite === "youtube"
-          ? "No transcript available for this video."
-          : "Transcript is only available on YouTube videos.";
-      transcriptList.innerHTML = `<div class="empty-state"><p>${msg}</p></div>`;
+      let msg;
+      if (currentSite !== "youtube") {
+        msg = "Transcript is only available on YouTube videos.";
+      } else if (transcript?.debug?.hasCaptionsField === false) {
+        msg =
+          "This video has no captions enabled by its author and no auto-generated transcript.";
+      } else {
+        msg =
+          "Could not load transcript. Try refreshing the page, then click Scrape again.";
+      }
+      transcriptList.innerHTML = `<div class="empty-state"><p>${escapeHtml(msg)}</p></div>`;
       return;
     }
 
