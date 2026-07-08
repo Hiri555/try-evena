@@ -1,68 +1,61 @@
-# Calming the Flush — Advertorial LP V3 (Phase 1 prototype)
+# Rosalia — Daily Reset Serum · Advertorial (Phase 1 prototype)
 
-Standalone, fully-responsive visualization prototype of the **Daily Reset Serum**
-long-form advertorial. Verbatim copy locked, editorial "Aesop-adjacent" universe,
-Wundt-compliant motion. Zero Shopify code (that is Phase 2).
+A standalone, art-directed **editorial letter** for Rosalia — built to the v2 brief:
+the source HTML is a *manuscript* (locked copy), the visual universe is invented.
+Reads like a Kinfolk / Aesop-journal / NYT-Styles feature, not a styled skeleton.
+Zero Shopify code (that is Phase 2).
 
-**Live preview:** open `index.html` — no build step, no dependencies.
+**Preview:** open `ctf-lp/index.html` — no build step, no dependencies.
 
 ```bash
-# from repo root
-python3 -m http.server 8000
-# then open http://localhost:8000/ctf-lp/
+python3 -m http.server 8000   # from repo root → http://localhost:8000/ctf-lp/
 ```
 
-## What's built
+## The direction — "La Lettre"
 
-- **12 briques**, in order, single-page scroll (no Brique 09 — intentional):
-  01 Hero · 02 Lead · 03 Background Story (BLOC A + B) · 04 Problem Agitation ·
-  05 Root Cause · 06 Mechanism · 07 Product Intro · 08 Social Proof ·
-  10 Make It Personal · 10.5 Trust Stack · 11 Close (+ FAQ) · 12 Final Whisper
-- **All 12 verbatim-locked doctrine phrases** present, character-perfect
-  (see `DEV_INSTRUCTIONS.md` §13). Copy is never paraphrased.
-- **5 CTAs** — 4 skip (reader-voice pills, anchor-jump) + 1 main (`#checkout`
-  placeholder for Phase 2 Add-to-Cart). No prices, no shipping subtitle, no sales language.
+- **Rosalia masthead** + kicker + **byline with reading time** ("By Margot · a six-minute
+  letter · written at a café, 2:47 PM") — a magazine feature opener.
+- **Fraunces** (variable editorial serif, optical sizing) for display + **Inter** for body.
+- Refined **muted-editorial palette** (dusty rose `#C4718E`, wine `#7A3A54`/`#4B1528`,
+  warm paper) — dustier, less candy than the skeleton.
+- **No reader-visible architecture labels** (BLOC A / 10.5 / Close etc. removed) — briques
+  flow through **ornamental separators**, not signposts.
+- Subtle **paper grain**, a **scroll progress hairline**, a **drop cap** opening the café
+  chapter, magazine **pull-quotes** with hanging quotation mark.
 
-## Motion (all respect `prefers-reduced-motion`, final states preserved)
+## Signature motion (all respect `prefers-reduced-motion`, final states preserved)
 
-| Brique | Motion |
-|---|---|
-| 01/02/… | Scroll-triggered fade/stagger reveals (IntersectionObserver) |
-| 02 · 08 | Count-up stats (21 mois / 43 / 312 · 87 / 91) |
-| 04 | **4-panel rosacea cross-fade** — 1.5s/stage, holds on Stage 4 (regret anticipation) |
-| 05 | Animated **loop SVG** (5 levers, pulsing arrows, node 05 emergent) |
-| 05 | "I was neither" highlight pulse |
-| 06 | "Simultaneously." scale-in · animated **thermostat SVG** (healthy returns, yours only rises) |
-| 07 | Core-claim word-by-word reveal |
-| 08 | Testimonial scroll-snap carousel · dots · one-time auto-nudge hint |
-| 10 | Decoupling-climax line reveal (Level 4) · paired desire stack |
-| 11 | Breathing main CTA · guarantee underline draw · FAQ accordion (+/−, first pre-open) |
+- **Rosacea progression (headline visual):** four documentary portrait plates whose
+  cheek-and-nose **flush deepens** Stage 01→04 as you read — regret anticipation as motion,
+  abstract (not literal/exploitative), holds on Stage 04.
+- **The loop:** animated SVG, pulses travelling the five levers, node 05 emergent in wine.
+- **Thermostat vs ratchet:** animated gauges — healthy needle returns, yours only rises.
+- **Decoupling climax:** line-by-line mask-wipe reveal (Level 4 peak).
+- Core-claim word-by-word reveal · count-up stats · "I was neither" pulse ·
+  breathing main CTA with depth-on-hover · guarantee underline draw · scroll reveals.
 
-Reduced-motion users get the finished layout instantly (Stage 4 shown, needles at rest, all copy visible).
+## Interactive
 
-## Placeholders (intentionally visible — see `DEV_INSTRUCTIONS.md` §6)
+Scroll-snap testimonial carousel (progress dots + one-time nudge hint) · FAQ accordion
+(+/−, first pre-open) · skip CTAs with sliding arrow.
 
-Every asset slot renders as a dashed placeholder with its **spec + strategic function**
-label intact so Chief can see where assets go before commissioning. The 3-packshot rule
-(07 editorial / 10.5 quiet / 11 dramatic) is labelled. Animated SVGs stand in for the
-thermostat + loop until the illustrator commission lands.
+## Doctrine honoured
 
-## Doctrine guardrails honoured
+All **12 verbatim-locked phrases** character-perfect · brand **Rosalia** throughout ·
+5 reader-voice CTAs (`#checkout` placeholder, no price/shipping on button) · Margot solo
+first-person · no urgency / scarcity / stars / "as seen in" / trust badges / sticky bar /
+popups / corporate "we". Asset slots stay **visible with spec + function labels** (the three
+packshots each in a different register: editorial / quiet / dramatic).
 
-No urgency, scarcity, anchoring, star ratings, "as seen in", trust-badge soup,
-sticky buy-bar, exit-intent, chat popups, or corporate "we" (the one preserved "we"
-in Brique 07 "What we left out" stays). Editorial letter, not sales page.
+## QA
 
-## Design system
+Verified in Chromium: **no horizontal overflow** at 390px, **no JS errors**, semantic HTML
+(`<article>`/`<blockquote>`/`<figure>`/`<footer>`), `alt`/`aria-label` on visuals, visible
+focus states, meaningful reduced-motion path.
 
-Cormorant Garamond (display) + Inter (UI/body), Google Fonts. Palette from the source
-`:root` variables (muted rose / deep wine / cream). Prose max-width ~660px, line-height 1.75,
-letter-spaced eyebrows. Accessibility: semantic `<section>`/`<h2>`/`<blockquote>`/`<footer>`,
-`alt`/`aria-label` on visuals, visible focus states, meaningful reduced-motion path.
+## Phase 2 (after Chief validates the universe)
 
-## Phase 2 (after Chief validates)
-
-Port to Shopify Liquid: `layout/full-page.liquid` (keep `{{ content_for_header }}`),
+Port 1:1 to Shopify Liquid — `layout/full-page.liquid` (keep `{{ content_for_header }}`),
 `templates/page.advertorial.liquid`, 12 modular sections with `@app` block slots + CSS
 app-gatekeeper, product form Add-to-Cart with `cart.attributes.source = 'advertorial-v3'`,
-Meta Pixel + GA4 events (the CTA click handler already logs `Lead`/`AddToCart` intent to console).
+Meta Pixel + GA4 events (the CTA handler already logs `Lead`/`AddToCart` intent).

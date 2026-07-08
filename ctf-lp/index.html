@@ -3,1397 +3,975 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calming the Flush — The Daily Reset Serum</title>
+<title>Rosalia — The Daily Reset Serum</title>
 <meta name="description" content="It doesn't calm your face. It helps your face calm itself. A letter from Margot, after two years spent answering one question about reactive, flushing-prone skin.">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Calming the Flush — The Daily Reset Serum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rosalia — A letter from Margot">
 <meta property="og:description" content="It doesn't calm your face. It helps your face calm itself.">
-<meta property="og:site_name" content="Calming the Flush">
+<meta property="og:site_name" content="Rosalia">
 <meta property="og:image" content="og-image.jpg">
-<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Calming the Flush — The Daily Reset Serum">
+<meta name="twitter:title" content="Rosalia — A letter from Margot">
 <meta name="twitter:description" content="It doesn't calm your face. It helps your face calm itself.">
-<!-- Favicon (inline, no external request) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FBF9F5'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%234B1528' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23FAF5F0'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='21' fill='%23C4718E' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root {
-  --pink: #993556;
-  --pink-dark: #4B1528;
-  --pink-mid: #D4537E;
-  --pink-badge: #72243E;
-  --pink-light: #FBEAF0;
-  --cream: #FBF9F5;
-  --beige: #F8F3EC;
-  --footer-bg: #F4EFE5;
-  --dark: #1F1F1D;
-  --gray: #5F5E5A;
-  --gray2: #6B6B68;
-  --placeholder: #EEEAE2;
-  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+:root{
+  --paper:#FAF5F0;
+  --paper-2:#F2EAE0;
+  --paper-3:#ECE1D4;
+  --ink:#231F1E;
+  --ink-soft:#5C5350;
+  --ink-faint:#8B7F7A;
+  --rosa:#C4718E;
+  --rosa-dk:#7A3A54;
+  --wine:#4B1528;
+  --rosa-lt:#F1DBE1;
+  --rosa-wash:#F8EBEF;
+  --line:rgba(122,58,84,.15);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --measure:600px;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--cream);
-  color: var(--dark);
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  line-height: 1.75;
-  font-weight: 400;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Inter',sans-serif;
+  font-size:17px;
+  line-height:1.8;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
 }
+/* Paper grain — very subtle analog warmth */
+body::before{
+  content:"";position:fixed;inset:0;z-index:1;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  opacity:.035;mix-blend-mode:multiply;
+}
+/* Reading progress hairline */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,var(--rosa),var(--rosa-dk));z-index:50;transition:width .1s linear}
 
-.lp { max-width: 660px; margin: 0 auto; padding: 0 24px; }
+.feature{position:relative;z-index:2}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 26px}
+.wide{max-width:940px;margin:0 auto;padding:0 26px}
 
 /* Typography */
-.serif { font-family: 'Cormorant Garamond', serif; }
-.eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--pink);
-  font-weight: 500;
-}
-h1 { font-family: 'Cormorant Garamond', serif; font-size: 40px; line-height: 1.24; font-weight: 500; letter-spacing: -0.01em; }
-h2 { font-family: 'Cormorant Garamond', serif; font-size: 33px; line-height: 1.28; font-weight: 500; text-align: center; letter-spacing: -0.01em; }
-h3 { font-family: 'Cormorant Garamond', serif; font-size: 24px; line-height: 1.4; font-weight: 500; }
-p { margin-bottom: 18px; font-size: 16px; }
-.small { font-size: 13px; color: var(--gray); }
-.pink { color: var(--pink-mid); }
-.pink-bold { color: var(--pink); font-weight: 500; }
-.centered { text-align: center; }
-.italic { font-style: italic; }
-.w500 { font-weight: 500; }
+.serif{font-family:'Fraunces',serif;font-optical-sizing:auto}
+h1,h2,h3{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;letter-spacing:-.015em;line-height:1.12}
+h1{font-size:clamp(31px,7.2vw,56px)}
+h2{font-size:clamp(26px,4.6vw,40px);line-height:1.16}
+h3{font-size:clamp(22px,3.4vw,29px);line-height:1.22}
+p{margin-bottom:20px}
+.lede{font-family:'Fraunces',serif;font-size:clamp(19px,2.7vw,23px);line-height:1.5;color:var(--ink-soft)}
+.eyebrow{font-family:'Inter';font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rosa);font-weight:500}
+.eyebrow.muted{color:var(--ink-faint)}
+.center{text-align:center}
+.italic{font-style:italic}
+.rosa{color:var(--rosa)}
+.rosa-dk{color:var(--rosa-dk)}
+.soft{color:var(--ink-soft)}
+.faint{color:var(--ink-faint)}
+.small{font-size:14px}
+em{font-style:italic}
 
-/* Section spacing — editorial breathing room */
-.section { padding: 68px 0; }
-.section-divider { width: 60px; height: 1px; background: var(--pink); opacity: 0.25; margin: 0 auto; }
+/* Sections */
+.brique{padding:78px 0;position:relative}
+@media(max-width:640px){.brique{padding:52px 0}}
 
-/* Section tag */
-.section-tag {
-  display: inline-block;
-  background: var(--pink-light);
-  color: var(--pink-badge);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 5px 15px;
-  border-radius: 20px;
-  margin-bottom: 26px;
-}
+/* Ornament separator (replaces any label) */
+.ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin:6px auto;color:var(--rosa);opacity:.7}
+.ornament::before,.ornament::after{content:"";height:1px;width:46px;background:linear-gradient(90deg,transparent,var(--line))}
+.ornament::after{background:linear-gradient(90deg,var(--line),transparent)}
+.ornament svg{width:15px;height:15px;flex:0 0 auto}
 
-/* Pink left bar */
-.pink-bar {
-  border-left: 3px solid var(--pink);
-  padding-left: 26px;
-  margin: 30px 0;
-}
-.pink-bar p { margin-bottom: 8px; }
+/* Masthead */
+.masthead{padding:34px 0 8px;text-align:center}
+.wordmark{font-family:'Fraunces',serif;font-weight:500;font-size:27px;letter-spacing:.02em;color:var(--rosa);font-optical-sizing:auto}
+.wordmark .dot{color:var(--rosa-dk)}
+.kicker{margin-top:12px}
+.rule{height:1px;background:var(--line);max-width:var(--measure);margin:18px auto 0}
+.byline{font-size:12.5px;color:var(--ink-faint);letter-spacing:.02em;margin-top:16px}
+.byline .sep{opacity:.5;margin:0 8px}
 
-/* Cards */
-.card {
-  background: #fff;
-  border: 0.5px solid rgba(153,53,86,0.15);
-  border-radius: 10px;
-  padding: 22px;
-  margin-bottom: 12px;
-}
-.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 26px 0; }
-.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin: 26px 0; }
+/* Pull quote */
+.pullquote{position:relative;margin:34px 0;padding-left:26px;border-left:2px solid var(--rosa)}
+.pullquote p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(19px,3vw,24px);line-height:1.4;color:var(--rosa-dk);margin-bottom:10px}
+.pullquote p:last-child{margin-bottom:0}
+.bigquote{text-align:center;border:0;padding:0;margin:40px auto;max-width:560px}
+.bigquote::before{content:"\201C";font-family:'Fraunces',serif;display:block;font-size:64px;line-height:.6;color:var(--rosa);opacity:.4;margin-bottom:6px}
+.bigquote p{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(22px,3.6vw,30px);line-height:1.32;color:var(--rosa-dk)}
 
-/* Image placeholder — intentionally visible, spec labels intact */
-.img-placeholder {
-  background: var(--placeholder);
-  border: 1.5px dashed rgba(153,53,86,0.28);
-  border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  color: var(--gray2);
-  font-size: 13px;
-  font-style: italic;
-  line-height: 1.55;
-  padding: 20px;
-}
-.img-placeholder strong { font-style: normal; }
-
-/* CTA */
-.cta-wrapper { text-align: center; margin: 30px 0; }
-
-/* Founder card */
-.founder-card {
-  display: flex; align-items: center; gap: 16px;
-  margin: 26px 0;
-  padding: 16px;
-}
-.founder-photo {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: var(--placeholder);
-  border: 1px dashed rgba(153,53,86,0.28);
-  flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif; font-style: italic;
-  color: var(--pink); font-size: 22px;
+/* Drop cap */
+.dropcap::first-letter{
+  font-family:'Fraunces',serif;font-weight:500;
+  float:left;font-size:74px;line-height:.72;
+  padding:8px 12px 0 0;color:var(--rosa-dk);
 }
 
-.pill {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  padding: 5px 13px;
-  border-radius: 20px;
-  background: var(--beige);
-  color: var(--gray);
-  margin: 3px 4px;
+/* Wash panel */
+.wash{background:var(--rosa-wash);border-radius:14px;padding:26px 28px}
+.paper-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
+
+/* Recognition list (I-know) */
+.reco{margin:30px 0}
+.reco-line{padding:9px 0 9px 20px;border-left:2px solid var(--rosa-lt);margin:6px 0;font-size:16px;color:var(--ink)}
+.reco-line.pay{border-left:3px solid var(--rosa);background:var(--rosa-wash);padding:16px 20px;font-weight:500;color:var(--rosa-dk);border-radius:0 8px 8px 0}
+
+/* Mirror grid */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:26px 0}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.mirror{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.mirror h4{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:5px}
+.mirror p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.5}
+
+/* Stat trio */
+.stat{background:var(--paper-2);border-radius:12px;padding:22px 14px;text-align:center}
+.stat .n{font-family:'Fraunces',serif;font-weight:500;font-size:27px;color:var(--rosa-dk);letter-spacing:-.02em;display:block;margin-bottom:4px}
+.stat .l{font-size:12px;color:var(--ink-soft);line-height:1.4}
+
+/* Byline / founder */
+.founder{display:flex;align-items:center;gap:16px;margin:30px 0}
+.monogram{width:56px;height:56px;border-radius:50%;border:1px solid var(--rosa);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-style:italic;font-size:26px;color:var(--rosa-dk);flex:0 0 auto}
+.founder .name{font-family:'Fraunces',serif;font-size:20px;line-height:1.2}
+.founder .role{font-size:13px;color:var(--ink-faint)}
+
+/* Lever cards */
+.lever{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:14px;position:relative}
+.lever .tag{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa);font-weight:500;margin-bottom:7px}
+.lever .sub{font-family:'Fraunces',serif;font-style:italic;color:var(--rosa);font-size:16px;margin-bottom:12px}
+.lever h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin-bottom:4px}
+.lever p{font-size:14.5px;color:var(--ink-soft);margin:0;line-height:1.62}
+.lever .conc{font-size:11px;letter-spacing:.06em;color:var(--ink-faint);font-weight:400}
+.lever--five{border:1.5px solid var(--rosa);background:linear-gradient(180deg,#fff,var(--rosa-wash))}
+
+.pill{display:inline-block;font-size:11px;font-weight:500;letter-spacing:.05em;padding:6px 14px;border-radius:22px;background:var(--paper-2);color:var(--ink-soft);margin:3px}
+
+/* Placeholder — intentionally visible, art-directed frames */
+.plate{
+  position:relative;border-radius:12px;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;color:var(--ink-faint);font-size:13px;line-height:1.55;padding:26px;
 }
+.plate .tag{font-style:normal;font-weight:500;letter-spacing:.16em;text-transform:uppercase;font-size:10.5px;color:var(--rosa-dk)}
+.plate .spec{font-style:italic;max-width:360px;margin-top:8px}
+.plate--editorial{aspect-ratio:3/2;background:
+  radial-gradient(120% 100% at 70% 20%,#fff 0,var(--paper-2) 70%);
+  border:1px solid var(--line)}
+.plate--quiet{aspect-ratio:6/5;background:linear-gradient(180deg,#F6EFE6,#EFE6D9);border:1px solid var(--line)}
+.plate--drama{aspect-ratio:3/2;background:
+  radial-gradient(90% 120% at 78% 30%,#5c3346 0,#33121f 62%,#210b14 100%);color:#e6c9d3}
+.plate--drama .tag{color:#f0d3dd}
+.plate--drama .spec{color:#c8a3b1}
+.plate .frame-caption{margin-top:14px;font-family:'Fraunces',serif;font-style:italic;font-size:14px}
 
-.guarantee-block {
-  background: var(--pink-light);
-  border-radius: 12px;
-  padding: 24px;
-  margin: 24px auto;
-  max-width: 520px;
+/* ROSACEA documentary progression */
+.rosacea{margin:26px 0 10px}
+.rosacea-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:640px){.rosacea-strip{grid-template-columns:1fr 1fr;gap:10px}}
+.plate-portrait{
+  aspect-ratio:3/4;border-radius:10px;position:relative;overflow:hidden;
+  background:#F4EAE0;border:1px solid var(--line);box-shadow:0 1px 0 rgba(255,255,255,.6) inset;
+  padding:0;
 }
-
-/* FAQ accordion */
-.faq-block {
-  background: var(--beige);
-  border-radius: 14px;
-  padding: 30px 30px 12px;
-  margin: 24px auto;
+.plate-portrait .skin{position:absolute;inset:0;background:
+  radial-gradient(60% 42% at 50% 40%, rgba(0,0,0,.05), transparent 70%);
 }
-.faq-item { border-bottom: 0.5px solid rgba(153,53,86,0.18); }
-.faq-item:last-child { border-bottom: 0; }
-.faq-q-btn {
-  width: 100%;
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 15px;
-  color: var(--dark);
-  padding: 18px 34px 18px 0;
-  position: relative;
-  line-height: 1.5;
+/* the flush overlay grows per stage via --flush (0..1) */
+.plate-portrait .flush{
+  position:absolute;inset:0;opacity:calc(var(--flush));
+  background:
+    radial-gradient(26% 20% at 37% 46%, rgba(196,90,84,.85), transparent 72%),
+    radial-gradient(26% 20% at 63% 46%, rgba(196,90,84,.85), transparent 72%),
+    radial-gradient(30% 16% at 50% 60%, rgba(179,70,66,.5), transparent 75%),
+    radial-gradient(80% 70% at 50% 45%, rgba(190,84,80,.28), transparent 78%);
+  transition:opacity 1.1s var(--ease);
+  mix-blend-mode:multiply;
 }
-.faq-q-btn:hover { color: var(--pink-dark); }
-.faq-q-btn .sign {
-  position: absolute;
-  right: 2px; top: 16px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  color: var(--pink);
-  line-height: 1;
-  transition: transform 0.3s var(--ease);
+.plate-portrait .cap{position:absolute;left:0;right:0;bottom:0;padding:10px 12px;background:linear-gradient(0deg,rgba(250,245,240,.94),transparent);text-align:center}
+.plate-portrait .cap .st{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--rosa-dk);font-weight:600}
+.plate-portrait .cap .ag{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.rosacea-note{font-size:11px;color:var(--ink-faint);font-style:italic;text-align:center;max-width:620px;margin:14px auto 0;line-height:1.5}
+
+/* Comparison cards */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+@media(max-width:640px){.compare{grid-template-columns:1fr}}
+.compare .c{border-radius:12px;padding:22px}
+.compare .healthy{background:var(--paper-2)}
+.compare .yours{background:var(--rosa-wash)}
+.compare h4{font-family:'Fraunces',serif;font-weight:500;font-size:20px;margin:8px 0}
+
+/* Thermostat + loop figures */
+figure{margin:32px 0}
+figcaption{text-align:center;font-size:12px;color:var(--ink-faint);font-style:italic;margin-top:8px}
+.needle-h{transform-origin:100px 92px;animation:nH 3.4s var(--ease) infinite}
+.needle-b{transform-origin:100px 92px;animation:nB 3.4s var(--ease) infinite}
+@keyframes nH{0%{transform:rotate(-58deg)}34%{transform:rotate(52deg)}68%{transform:rotate(-58deg)}100%{transform:rotate(-58deg)}}
+@keyframes nB{0%{transform:rotate(-58deg)}30%{transform:rotate(-18deg)}56%{transform:rotate(20deg)}82%{transform:rotate(50deg)}100%{transform:rotate(52deg)}}
+.loop-pulse{stroke-dasharray:5 11;animation:loopDash 2.8s linear infinite}
+@keyframes loopDash{to{stroke-dashoffset:-64}}
+.loop-glow{animation:glow 3.2s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:.3}50%{opacity:1}}
+
+/* Simultaneously */
+.mono-word{display:inline-block;max-width:100%;font-family:'Fraunces',serif;font-style:italic;font-size:clamp(30px,6vw,46px);color:var(--rosa-dk);letter-spacing:-.01em}
+
+/* CTAs */
+.skip{margin:40px auto 0;max-width:520px;text-align:center;padding-top:26px;border-top:1px solid var(--line)}
+.skip a{display:inline-flex;align-items:center;gap:2px;font-family:'Fraunces',serif;font-style:italic;font-size:18px;color:var(--rosa-dk);text-decoration:none;padding:13px 26px;background:var(--rosa-wash);border-radius:30px;transition:background .25s var(--ease),transform .25s var(--ease)}
+.skip a em{font-weight:600;font-style:italic;padding-right:4px}
+.skip a .arw{display:inline-block;transition:transform .25s var(--ease)}
+.skip a:hover{background:var(--rosa-lt);transform:translateY(-1px)}
+.skip a:hover .arw{transform:translateX(4px)}
+
+.buy{text-align:center;margin:44px auto 0}
+.buy a{
+  display:inline-block;font-family:'Inter';font-size:16.5px;color:#fff;text-decoration:none;
+  padding:22px 44px;background:var(--rosa-dk);border-radius:38px;font-weight:500;letter-spacing:.01em;
+  box-shadow:0 10px 30px rgba(75,21,40,.24);transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+  animation:breathe 3.6s ease-in-out infinite;
 }
-.faq-answer {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.3s var(--ease);
-}
-.faq-answer > div { overflow: hidden; }
-.faq-item.open .faq-answer { grid-template-rows: 1fr; }
-.faq-a { font-size: 14px; color: var(--gray); margin: 0; padding: 0 0 20px; }
+.buy a em{font-family:'Fraunces',serif;font-style:italic;font-weight:500}
+.buy a:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(75,21,40,.32);animation-play-state:paused}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.016)}}
 
-.price { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 500; }
+a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offset:3px;border-radius:5px}
 
-/* Ingredient card */
-.ingr-card { position: relative; }
-.ingr-card .lever-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); margin-bottom: 6px; font-weight: 500; }
-.ingr-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; margin-bottom: 6px; }
-.ingr-card p { font-size: 14px; color: var(--gray); margin-bottom: 0; }
-.card-05 { border: 2px solid var(--pink); }
+/* Guarantee */
+.guarantee{background:var(--rosa-wash);border-radius:14px;padding:24px;max-width:520px;margin:26px auto;text-align:center}
+.uline{position:relative;display:inline-block}
+.uline::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--rosa);transition:width .9s var(--ease)}
+.uline.in::after{width:100%}
 
-/* Stats */
-.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--pink-dark); font-weight: 600; letter-spacing: -0.02em; }
+/* Future pacing */
+.future{border-left:2px solid var(--rosa-lt);padding-left:22px;max-width:540px;margin:0 auto}
+.future p{margin-bottom:14px;line-height:1.55}
+.future .m{color:var(--rosa-dk);font-weight:500}
 
-/* V3 Skip CTAs */
-.skip-cta {
-  text-align: center;
-  margin: 36px auto 0;
-  padding-top: 24px;
-  border-top: 0.5px solid var(--pink-light);
-  max-width: 520px;
-}
-.skip-cta a {
-  display: inline-block;
-  font-family: 'Cormorant Garamond', serif;
-  font-style: italic;
-  font-size: 17px;
-  color: var(--pink-dark);
-  text-decoration: none;
-  letter-spacing: 0.01em;
-  padding: 13px 26px;
-  background: var(--pink-light);
-  border-radius: 28px;
-  font-weight: 500;
-  transition: opacity 0.2s var(--ease);
-}
-.skip-cta a:hover { opacity: 0.85; }
-.skip-cta a em { font-weight: 600; }
+/* PS */
+.ps{max-width:540px;margin:48px auto 0;padding:26px;background:var(--paper-2);border-radius:12px}
 
-/* V3 Main CTA */
-.main-cta { text-align: center; margin: 40px auto 0; }
-.main-cta a {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 16px;
-  color: #fff;
-  text-decoration: none;
-  padding: 21px 42px;
-  background: var(--pink-dark);
-  border-radius: 36px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  box-shadow: 0 8px 24px rgba(75, 21, 40, 0.22);
-  animation: breathe 3s ease-in-out infinite;
-}
-.main-cta a em { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; }
-@keyframes breathe {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.015); }
-}
+/* FAQ */
+.faq{max-width:560px;margin:36px auto 0;background:var(--paper-2);border-radius:14px;padding:12px 30px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:0}
+.faq-q{width:100%;background:none;border:0;text-align:left;cursor:pointer;font-family:'Inter';font-weight:500;font-size:15.5px;color:var(--ink);padding:20px 34px 20px 0;position:relative;line-height:1.5}
+.faq-q:hover{color:var(--rosa-dk)}
+.faq-q .sign{position:absolute;right:0;top:18px;font-family:'Fraunces',serif;font-size:26px;color:var(--rosa);line-height:1}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s var(--ease)}
+.faq-a>div{overflow:hidden}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a p{font-size:14px;color:var(--ink-soft);margin:0;padding:0 0 22px}
 
-/* Focus states — accessibility */
-a:focus-visible, button:focus-visible {
-  outline: 2px solid var(--pink);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
+/* Testimonials */
+.swipe-hint{text-align:center;margin-bottom:16px}
+.carousel{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:0 -26px;padding-bottom:10px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.ctrack{display:flex;gap:16px;padding:0 26px}
+.testi{flex:0 0 84%;max-width:320px;scroll-snap-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;transition:transform .3s var(--ease)}
+.testi .vid{aspect-ratio:9/16;max-height:360px;border-radius:10px;background:var(--rosa-wash);border:1px solid var(--rosa-lt);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:16px;margin-bottom:16px}
+.testi .play{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--rosa-dk);display:flex;align-items:center;justify-content:center;color:var(--rosa-dk);margin-bottom:12px}
+.testi .who{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa);font-weight:500;margin-bottom:8px}
+.testi blockquote{font-family:'Fraunces',serif;font-style:italic;font-size:16px;line-height:1.45;color:var(--ink)}
+.cdots{display:flex;gap:9px;justify-content:center;margin-top:18px}
+.cdots button{width:8px;height:8px;border-radius:50%;background:var(--rosa-lt);border:0;padding:0;cursor:pointer;transition:transform .3s,background .3s}
+.cdots button.on{background:var(--rosa-dk);transform:scale(1.35)}
+.nudge.do-nudge{animation:nudge .85s var(--ease) 1}
+@keyframes nudge{0%,100%{transform:translateX(0)}42%{transform:translateX(-22px)}}
 
-.iknow-line { font-size: 15px; line-height: 1.6; color: var(--dark); }
-
-/* ===== SCROLL REVEAL ===== */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
-.reveal.in { opacity: 1; transform: none; }
-.reveal-left { opacity: 0; transform: translateX(-16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.reveal-left.in { opacity: 1; transform: none; }
-.stagger > * { opacity: 0; transform: translateY(14px); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease); }
-.stagger.in > * { opacity: 1; transform: none; }
-
-/* Word-reveal (typewriter-adjacent, no cursor) */
-.word-reveal .wr { opacity: 0; transition: opacity 0.4s ease; }
-.word-reveal.in .wr { opacity: 1; }
-
-/* Pulse highlight */
-.hl-pulse { background: var(--pink-light); padding: 2px 6px; border-radius: 3px; color: var(--pink-dark); font-weight: 500; }
-.hl-pulse.pulsing { animation: hlpulse 0.9s var(--ease) 1; }
-@keyframes hlpulse {
-  0% { background: var(--pink-light); }
-  45% { background: var(--pink-mid); color: #fff; }
-  100% { background: var(--pink-light); color: var(--pink-dark); }
-}
-
-/* Scale-in for "Simultaneously." */
-.scale-in { opacity: 0; transform: scale(1.05); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-.scale-in.in { opacity: 1; transform: scale(1); }
-
-/* ===== THERMOSTAT SVG ===== */
-.thermo-wrap { max-width: 560px; margin: 28px auto; }
-.needle-healthy { transform-origin: 100px 92px; animation: needleHealthy 3s ease-in-out infinite; }
-.needle-broken { transform-origin: 100px 92px; animation: needleBroken 3s ease-in-out infinite; }
-@keyframes needleHealthy {
-  0% { transform: rotate(-60deg); }
-  35% { transform: rotate(50deg); }
-  70% { transform: rotate(-60deg); }
-  100% { transform: rotate(-60deg); }
-}
-@keyframes needleBroken {
-  0% { transform: rotate(-60deg); }
-  30% { transform: rotate(-20deg); }
-  55% { transform: rotate(15deg); }
-  80% { transform: rotate(48deg); }
-  100% { transform: rotate(50deg); }
-}
-
-/* ===== LOOP SVG ===== */
-.loop-node circle { transition: fill 0.3s ease; }
-.loop-pulse { stroke-dasharray: 6 10; animation: loopDash 2.6s linear infinite; }
-@keyframes loopDash { to { stroke-dashoffset: -64; } }
-.loop-node-glow { animation: nodeGlow 3s ease-in-out infinite; }
-@keyframes nodeGlow { 0%,100% { opacity: 0.35; } 50% { opacity: 1; } }
-
-/* ===== 4-PANEL ROSACEA CROSS-FADE ===== */
-.rosacea-stage { position: relative; height: 300px; border-radius: 10px; overflow: hidden; max-width: 660px; margin: 24px auto 12px; border: 1.5px dashed rgba(153,53,86,0.28); }
-.rosacea-panel {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  flex-direction: column; text-align: center; padding: 20px;
-  opacity: 0; transition: opacity 1s ease;
-  font-family: 'Inter', sans-serif;
-}
-.rosacea-panel.show { opacity: 1; }
-.rp1 { background: linear-gradient(160deg, #FBEFE9, #F7E7DE); }
-.rp2 { background: linear-gradient(160deg, #F8DDD5, #F3C9BE); }
-.rp3 { background: linear-gradient(160deg, #EFC0B4, #E5A594); }
-.rp4 { background: linear-gradient(160deg, #DFA091, #C97D6B); }
-.rosacea-panel .stage-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink-dark); font-weight: 600; }
-.rosacea-panel .age-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); margin-top: 6px; }
-.rosacea-panel .stage-desc { font-family:'Cormorant Garamond', serif; font-style: italic; font-size: 17px; color: var(--pink-dark); margin-top: 14px; max-width: 340px; }
-.rosacea-spec { font-size: 11px; color: var(--gray2); font-style: italic; text-align: center; max-width: 620px; margin: 0 auto 8px; line-height: 1.5; }
-.rosacea-dots { display: flex; gap: 8px; justify-content: center; margin: 10px 0 0; }
-.rosacea-dots span { width: 7px; height: 7px; border-radius: 50%; background: rgba(153,53,86,0.25); transition: background 0.3s, transform 0.3s; }
-.rosacea-dots span.on { background: var(--pink-dark); transform: scale(1.25); }
-
-/* ===== TESTIMONIAL CAROUSEL ===== */
-.carousel-outer { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-bottom: 10px; margin: 0 -24px; scrollbar-width: none; }
-.carousel-outer::-webkit-scrollbar { display: none; }
-.carousel-track { display: flex; gap: 14px; padding: 0 24px; }
-.testi-card { flex: 0 0 86%; max-width: 300px; scroll-snap-align: start; }
-.testi-video {
-  background: var(--pink-light); border-radius: 8px; padding: 78px 16px; text-align: center; margin-bottom: 16px;
-  border: 1.5px dashed rgba(153,53,86,0.3);
-}
-.testi-play { color: var(--pink-dark); font-size: 26px; margin: 0 0 8px; }
-.carousel-dots { display: flex; gap: 9px; justify-content: center; margin-top: 16px; }
-.carousel-dots button { width: 8px; height: 8px; border-radius: 50%; background: rgba(153,53,86,0.25); border: none; padding: 0; cursor: pointer; transition: background 0.3s, transform 0.3s; }
-.carousel-dots button.on { background: var(--pink-dark); transform: scale(1.3); }
-.nudge { animation: none; }
-.nudge.do-nudge { animation: nudge 0.8s var(--ease) 1; }
-@keyframes nudge { 0%,100% { transform: translateX(0); } 40% { transform: translateX(-20px); } }
-
-/* Underline draw */
-.underline-draw { position: relative; display: inline-block; }
-.underline-draw::after {
-  content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0; background: var(--pink);
-  transition: width 0.8s var(--ease);
-}
-.underline-draw.in::after { width: 100%; }
+/* Paired desire stack */
+.pair{max-width:560px;margin:0 auto}
+.pair .row{margin-bottom:26px}
+.pair .loss{font-style:italic;color:var(--ink-faint);margin-bottom:4px}
+.pair .gain{font-family:'Fraunces',serif;font-style:italic;font-size:19px;color:var(--rosa-dk);margin-top:6px}
+.pair .label{font-family:'Fraunces',serif;font-size:15px;color:var(--rosa-dk);margin-top:8px}
 
 /* Footer */
-.footer { background: var(--footer-bg); padding: 52px 24px 34px; margin-top: 40px; }
-.footer-inner { max-width: 660px; margin: 0 auto; }
-.footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; margin: 26px 0; }
-.footer-col h4 { font-size: 13px; font-weight: 500; margin-bottom: 12px; letter-spacing: 0.03em; }
-.footer-col a { display: block; font-size: 13px; color: var(--gray); text-decoration: none; margin-bottom: 8px; }
-.footer-col a:hover { color: var(--pink-dark); }
-.footer-disclaimer { font-size: 11px; color: var(--gray2); margin-top: 32px; line-height: 1.6; }
+.foot{background:var(--paper-3);padding:56px 26px 36px;margin-top:44px;position:relative;z-index:2}
+.foot-in{max-width:var(--measure);margin:0 auto}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin:28px 0}
+@media(max-width:640px){.foot-grid{grid-template-columns:1fr;gap:22px}}
+.foot h4{font-size:12.5px;font-weight:600;margin-bottom:12px;letter-spacing:.04em}
+.foot a{display:block;font-size:13px;color:var(--ink-soft);text-decoration:none;margin-bottom:8px}
+.foot a:hover{color:var(--rosa-dk)}
+.disclaimer{font-size:11px;color:var(--ink-faint);margin-top:30px;line-height:1.6}
 
-@media (max-width: 600px) {
-  h1 { font-size: 28px; }
-  h2 { font-size: 25px; }
-  .section { padding: 44px 0; }
-  .card-grid, .card-grid-3 { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
-  .main-cta a { font-size: 15px; padding: 18px 32px; }
-  .rosacea-stage { height: 340px; }
-}
+/* ===== Scroll reveal ===== */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.stg>*{opacity:0;transform:translateY(16px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.stg.in>*{opacity:1;transform:none}
+.wordrev .w{opacity:.16;transition:opacity .5s ease}
+.wordrev.in .w{opacity:1}
+.scalein{opacity:0;transform:scale(1.06);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.scalein.in{opacity:1;transform:scale(1)}
+/* line-mask wipe for the climax */
+.linemask span{display:block;overflow:hidden}
+.linemask span i{display:block;font-style:inherit;transform:translateY(105%);transition:transform .7s var(--ease)}
+.linemask.in span i{transform:none}
 
-/* ===== REDUCED MOTION FALLBACK — preserve final states ===== */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  .reveal, .reveal-left, .stagger > *, .scale-in { opacity: 1 !important; transform: none !important; }
-  .word-reveal .wr { opacity: 1 !important; }
-  .underline-draw::after { width: 100% !important; }
-  .rosacea-panel { opacity: 0; }
-  .rosacea-panel.rp4 { opacity: 1; }
-  .needle-healthy { transform: rotate(-60deg); }
-  .needle-broken { transform: rotate(50deg); }
-  .main-cta a { animation: none !important; }
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv,.stg>*,.scalein{opacity:1!important;transform:none!important}
+  .wordrev .w{opacity:1!important}
+  .linemask span i{transform:none!important}
+  .uline::after{width:100%!important}
+  .needle-h{transform:rotate(-58deg)}
+  .needle-b{transform:rotate(52deg)}
+  .buy a{animation:none!important}
+  .plate-portrait .flush{transition:none}
 }
 </style>
 </head>
 <body class="advertorial-body">
+<div id="progress"></div>
 
-<div class="lp">
+<div class="feature">
 
-<!-- ========== BRIQUE 01 — HERO ========== -->
-<section class="section" style="padding-top:44px;">
-  <p class="eyebrow centered reveal" style="margin-bottom:26px;">If you flinch when you see your own face</p>
-  <h1 class="centered reveal" style="max-width:600px;margin:0 auto 22px;">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="pink">walk past a mirror</span> without tilting my chin down.</h1>
-  <p class="centered reveal" style="color:var(--gray);max-width:540px;margin:0 auto 26px;">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="pink-bold">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
-  <div class="img-placeholder reveal" style="height:320px;margin:24px 0;">
-    <strong style="color:var(--pink-dark);">Hero — scrolling photo gallery</strong>
-    Woman untagging on her phone · 400×320px · mobile-first
-    <span style="font-style:normal;font-size:12px;">could be static or a subtle motion loop</span>
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead wrap">
+  <div class="wordmark rv">Rosalia<span class="dot">.</span></div>
+  <div class="kicker rv"><span class="eyebrow muted">A letter · on reactive skin</span></div>
+  <div class="rule"></div>
+  <p class="byline rv">By Margot<span class="sep">·</span>a six-minute letter<span class="sep">·</span>written at a café, 2:47 PM</p>
+</header>
+
+<!-- ========== 01 — HERO ========== -->
+<section class="brique wrap" style="padding-top:34px">
+  <p class="eyebrow center rv" style="margin-bottom:24px">If you flinch when you see your own face</p>
+  <h1 class="center rv" style="max-width:640px;margin:0 auto 26px">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="rosa">walk past a mirror</span> without tilting my chin down.</h1>
+  <p class="lede center rv" style="max-width:560px;margin:0 auto 30px">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="rosa-dk" style="font-weight:500">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
+  <div class="plate plate--editorial rv" style="margin:26px 0">
+    <span class="tag">Hero · scrolling photo gallery</span>
+    <span class="spec">Woman untagging on her phone · 400×320 · mobile-first · static or a subtle motion loop</span>
   </div>
-  <div class="cta-wrapper reveal">
-    <p class="serif italic" style="font-size:18px;color:var(--pink-dark);max-width:480px;margin:0 auto;">There's one paragraph below that took me ten years to find. Read it carefully. ↓</p>
+  <p class="serif italic center rv" style="font-size:19px;color:var(--rosa-dk);max-width:480px;margin:0 auto">There's one paragraph below that took me ten years to find. Read it carefully. ↓</p>
+</section>
+
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
+
+<!-- ========== 02 — LEAD ========== -->
+<section class="brique wrap">
+  <div class="bigquote rv" style="margin-top:8px"><p>You're tired of reading these. I know. I read fifty before I gave up trying to find the one that wasn't lying to me.</p></div>
+
+  <div class="reco stg">
+    <div class="reco-line">I know the Wednesday morning mirror — the seconds before you decide whether today is bearable.</div>
+    <div class="reco-line">I know the forty-five minutes of makeup that's actually just to come back down to baseline.</div>
+    <div class="reco-line">I know the Zoom self-view you can't stop checking.</div>
+    <div class="reco-line">I know the bathroom door after a meeting that didn't go well.</div>
+    <div class="reco-line">I know the quiet untagging — every photo, without looking.</div>
+    <div class="reco-line pay">I know the moment your face says something you weren't feeling — and you watched yourself be misread.</div>
+  </div>
+
+  <p class="serif italic center soft rv" style="font-size:18px;margin:24px 0">I'm not the only one who knows this. There are a lot of us.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:19px;margin:18px 0">I know because I lived it. For ten years.</p>
+
+  <p class="rv">What follows isn't another serum article. It isn't a sensitive-skin routine. It isn't a list of triggers to avoid. It's the explanation no one bothered to give me in the ten years I was asking for it.</p>
+
+  <div class="grid3 rv" style="margin:32px 0">
+    <div class="stat"><span class="n" data-count="21" data-suffix="&nbsp;mois">21&nbsp;mois</span><span class="l">en lab dermatologique</span></div>
+    <div class="stat"><span class="n" data-count="43">43</span><span class="l">formulations testées</span></div>
+    <div class="stat"><span class="n" data-count="312" data-suffix="&nbsp;femmes">312&nbsp;femmes</span><span class="l">panel · 8 semaines</span></div>
+  </div>
+
+  <p class="rv" style="margin-top:24px">Two years ago, someone did. <span class="rosa-dk" style="font-weight:500">I stopped looking for a cream. I started looking for a question.</span></p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:30px auto;max-width:440px">Take the next five minutes. They were it.</p>
+
+  <div class="pullquote rv" style="margin-top:34px">
+    <p>Two years ago, at a café, a woman I'd never met leaned over.</p>
+    <p>She asked me one question.</p>
+    <p style="color:var(--rosa);font-weight:500">I haven't stopped thinking about it since.</p>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 02 — LEAD ========== -->
-<section class="section">
-  <p class="centered serif italic reveal" style="font-size:20px;margin-bottom:30px;max-width:560px;margin-left:auto;margin-right:auto;">You're tired of reading these. I know. I read fifty before I gave up trying to find the one that wasn't lying to me.</p>
+<!-- ========== 03 — BACKGROUND STORY ========== -->
+<section class="brique wrap">
+  <h2 class="center rv" style="margin-bottom:10px">I wrote this letter for the woman whose Wednesday looks like this.</h2>
+  <p class="center italic soft rv" style="margin-bottom:26px">Pick any three. If three are yours — the rest of this is too.</p>
 
-  <div class="stagger" style="margin:30px 0;">
-    <div class="iknow-line" style="border-left:2px solid var(--pink-light);padding:6px 0 6px 14px;margin:10px 0;">I know the Wednesday morning mirror — the seconds before you decide whether today is bearable.</div>
-    <div class="iknow-line" style="border-left:2px solid var(--pink-light);padding:6px 0 6px 14px;margin:10px 0;">I know the forty-five minutes of makeup that's actually just to come back down to baseline.</div>
-    <div class="iknow-line" style="border-left:2px solid var(--pink-light);padding:6px 0 6px 14px;margin:10px 0;">I know the Zoom self-view you can't stop checking.</div>
-    <div class="iknow-line" style="border-left:2px solid var(--pink-light);padding:6px 0 6px 14px;margin:10px 0;">I know the bathroom door after a meeting that didn't go well.</div>
-    <div class="iknow-line" style="border-left:2px solid var(--pink-light);padding:6px 0 6px 14px;margin:10px 0;">I know the quiet untagging — every photo, without looking.</div>
-    <div class="iknow-line iknow-decoupling" style="border-left:3px solid var(--pink);background:var(--pink-light);padding:14px 18px;margin:14px 0;font-weight:500;color:var(--pink-dark);">I know the moment your face says something you weren't feeling — and you watched yourself be misread.</div>
+  <div class="grid2 stg">
+    <div class="mirror"><h4>The 7 AM mirror</h4><p>Where you decide what today will let you do.</p></div>
+    <div class="mirror"><h4>The 45-minute makeup</h4><p>Not really makeup. Coverage.</p></div>
+    <div class="mirror"><h4>The Zoom self-view</h4><p>The one you can't stop checking — even while someone is talking to you.</p></div>
+    <div class="mirror"><h4>The family photo</h4><p>Where you're the one taking it. Where you got used to it.</p></div>
+    <div class="mirror"><h4>The quiet untag</h4><p>Every photo. Without looking.</p></div>
+    <div class="mirror"><h4>The bathroom door</h4><p>After the meeting that didn't go well. Sometimes longer than ten minutes.</p></div>
   </div>
 
-  <p class="centered serif italic reveal" style="font-size:17px;color:var(--gray);margin:24px 0;">I'm not the only one who knows this. There are a lot of us.</p>
+  <p class="serif italic center rv" style="font-size:22px;margin:30px auto;max-width:460px">I checked off all six. Every morning. For ten years.</p>
 
-  <p class="centered serif italic reveal" style="font-size:18px;color:var(--pink-dark);margin:18px 0;">I know because I lived it. For ten years.</p>
-
-  <p class="reveal">What follows isn't another serum article. It isn't a sensitive-skin routine. It isn't a list of triggers to avoid. It's the explanation no one bothered to give me in the ten years I was asking for it.</p>
-
-  <!-- V3 Stats · 3 badges with count-up -->
-  <div class="card-grid-3 reveal" style="margin:30px 0;">
-    <div class="card" style="text-align:center;padding:20px 12px;background:var(--beige);border:0;">
-      <p style="margin:0 0 4px;"><span class="stat-num" data-count="21" data-suffix="&nbsp;mois">21&nbsp;mois</span></p>
-      <p style="font-size:12px;color:var(--gray);margin:0;line-height:1.4;">en lab dermatologique</p>
-    </div>
-    <div class="card" style="text-align:center;padding:20px 12px;background:var(--beige);border:0;">
-      <p style="margin:0 0 4px;"><span class="stat-num" data-count="43">43</span></p>
-      <p style="font-size:12px;color:var(--gray);margin:0;line-height:1.4;">formulations testées</p>
-    </div>
-    <div class="card" style="text-align:center;padding:20px 12px;background:var(--beige);border:0;">
-      <p style="margin:0 0 4px;"><span class="stat-num" data-count="312" data-suffix="&nbsp;femmes">312&nbsp;femmes</span></p>
-      <p style="font-size:12px;color:var(--gray);margin:0;line-height:1.4;">panel · 8 semaines</p>
-    </div>
+  <div class="pullquote rv">
+    <p style="font-size:clamp(18px,2.8vw,22px)">And the worst part wasn't checking them off. It was the feeling I couldn't put into words — that something had been missed, by every person I'd asked.</p>
   </div>
 
-  <p class="reveal" style="margin-top:24px;">Two years ago, someone did. <span class="pink-bold">I stopped looking for a cream. I started looking for a question.</span></p>
-
-  <div class="pink-bar centered reveal" style="margin:28px auto;max-width:480px;text-align:center;">
-    <p class="serif italic" style="font-size:20px;color:var(--pink-dark);">Take the next five minutes. They were it.</p>
-  </div>
-
-  <div class="pink-bar reveal" style="margin-top:32px;">
-    <p class="serif" style="font-size:20px;">Two years ago, at a café, a woman I'd never met leaned over.</p>
-    <p class="serif" style="font-size:20px;">She asked me one question.</p>
-    <p class="serif pink-bold" style="font-size:20px;">I haven't stopped thinking about it since.</p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ========== BRIQUE 03 — BACKGROUND STORY ========== -->
-<section class="section">
-
-  <!-- BLOC A — Customer Mirror -->
-  <div class="section-tag reveal" style="margin-bottom:16px;">BLOC A · Customer Mirror</div>
-  <h2 class="reveal" style="margin-bottom:8px;">I wrote this letter for the woman whose Wednesday looks like this.</h2>
-  <p class="centered italic reveal" style="color:var(--gray);margin-bottom:24px;">Pick any three. If three are yours — the rest of this is too.</p>
-
-  <div class="card-grid stagger">
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The 7 AM mirror</p><p style="font-size:13px;color:var(--gray);margin:0;">Where you decide what today will let you do.</p></div>
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The 45-minute makeup</p><p style="font-size:13px;color:var(--gray);margin:0;">Not really makeup. Coverage.</p></div>
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The Zoom self-view</p><p style="font-size:13px;color:var(--gray);margin:0;">The one you can't stop checking — even while someone is talking to you.</p></div>
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The family photo</p><p style="font-size:13px;color:var(--gray);margin:0;">Where you're the one taking it. Where you got used to it.</p></div>
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The quiet untag</p><p style="font-size:13px;color:var(--gray);margin:0;">Every photo. Without looking.</p></div>
-    <div class="card"><p class="serif w500" style="font-size:16px;margin:0 0 4px;">The bathroom door</p><p style="font-size:13px;color:var(--gray);margin:0;">After the meeting that didn't go well. Sometimes longer than ten minutes.</p></div>
-  </div>
-
-  <p class="centered serif italic reveal" style="font-size:22px;margin:28px 0;">I checked off all six. Every morning. For ten years.</p>
-
-  <div class="pink-bar reveal" style="margin:24px 0;">
-    <p class="serif italic" style="font-size:19px;color:var(--pink-dark);">And the worst part wasn't checking them off. It was the feeling I couldn't put into words — that something had been missed, by every person I'd asked.</p>
-  </div>
-
-  <div class="founder-card reveal">
-    <div class="founder-photo">M</div>
+  <div class="founder rv">
+    <div class="monogram">M</div>
     <div>
-      <p class="serif" style="font-size:20px;margin-bottom:2px;">Margot</p>
-      <p class="small" style="margin:0;">Not a dermatologist. Not a chemist.</p>
+      <div class="name">Margot</div>
+      <div class="role">Not a dermatologist. Not a chemist.</div>
     </div>
   </div>
 
-  <p class="reveal" style="margin-top:20px;">Me too. Reformulated after the fourth event — worse than what started.</p>
+  <p class="rv">Me too. Reformulated after the fourth event — worse than what started.</p>
+  <p class="rv"><strong>Esoterics.</strong> Twelve weeks. It didn't address the redness.</p>
+  <p class="rv"><strong>Azelaic acid serums</strong> — The Ordinary, Stem Naturalcare. Both burned. I plateaued.</p>
+  <p class="rv"><strong>IPL.</strong> Four sessions. $1,500 each. The third one made me red for a month.</p>
+  <p class="rv"><strong>Niacinamide at 30%.</strong> Two weeks. It flared everything.</p>
+  <p class="rv"><strong>Once gotten.</strong> Six months. It worked. Then I stopped — and within two months the flushing was back.</p>
 
-  <p class="reveal"><strong>Esoterics.</strong> Twelve weeks. It didn't address the redness.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:30px auto;max-width:460px">Twelve thousand dollars. Six tries. Each one answering the wrong question.</p>
 
-  <p class="reveal"><strong>Azelaic acid serums</strong> — The Ordinary, Stem Naturalcare. Both burned. I plateaued.</p>
-
-  <p class="reveal"><strong>IPL.</strong> Four sessions. $1,500 each. The third one made me red for a month.</p>
-
-  <p class="reveal"><strong>Niacinamide at 30%.</strong> Two weeks. It flared everything.</p>
-
-  <p class="reveal"><strong>Once gotten.</strong> Six months. It worked. Then I stopped — and within two months the flushing was back.</p>
-
-  <p class="centered serif italic reveal" style="font-size:20px;margin:28px 0;color:var(--pink-dark);">Twelve thousand dollars. Six tries. Each one answering the wrong question.</p>
-
-  <!-- V3 THE TURNING POINT -->
-  <p class="eyebrow reveal" style="margin-top:36px;margin-bottom:14px;">THE TURNING POINT</p>
-
-  <div class="reveal" style="background:var(--beige);border-left:3px solid var(--pink);padding:22px 26px;margin:0 0 24px;border-radius:0 8px 8px 0;">
-    <p style="line-height:1.75;margin:0;">I was on a Zoom call with a client. I watched my own face in the bottom-right corner redden from collar to hairline while she was telling me about her contract renewal. I missed everything she said. I excused myself after that one. I closed my laptop at five and sat in the bathroom for twenty minutes. I just couldn't do it anymore.</p>
+  <div class="wash rv" style="margin:24px 0">
+    <p style="margin:0;line-height:1.8">I was on a Zoom call with a client. I watched my own face in the bottom-right corner redden from collar to hairline while she was telling me about her contract renewal. I missed everything she said. I excused myself after that one. I closed my laptop at five and sat in the bathroom for twenty minutes. I just couldn't do it anymore.</p>
   </div>
 
-  <p class="reveal">That weekend I stopped looking for the next cream. I started looking for what was actually happening underneath. I read papers I didn't understand. I read Reddit threads at 2 AM. I posted in a forum.</p>
+  <p class="rv">That weekend I stopped looking for the next cream. I started looking for what was actually happening underneath. I read papers I didn't understand. I read Reddit threads at 2 AM. I posted in a forum.</p>
+  <p class="rv">Three days later I was back at the café where I'd been writing for two years.</p>
 
-  <p class="reveal">Three days later I was back at the café where I'd been writing for two years.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:30px auto;max-width:520px">This was the first time I wished someone had written for me at twenty-eight. Or twenty-three. I'm writing it for you now.</p>
 
-  <p class="centered serif italic reveal" style="font-size:18px;color:var(--pink-dark);margin:28px 0;">This was the first time I wished someone had written for me at twenty-eight. Or twenty-three. I'm writing it for you now.</p>
+  <div class="ornament" style="margin:38px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
 
-  <div class="section-divider" style="margin:40px auto;"></div>
+  <p class="eyebrow muted rv" style="margin-bottom:12px">Tuesday · 2:47 PM</p>
+  <h2 class="rv" style="text-align:left;margin-bottom:18px">The café where I'd been hiding for two years.</h2>
 
-  <!-- BLOC B — Turning Point Café -->
-  <div class="section-tag reveal" style="margin-bottom:14px;">BLOC B · Turning Point Café</div>
-  <p class="eyebrow reveal" style="margin-bottom:12px;">TUESDAY · 2:47 PM</p>
-  <h2 class="reveal" style="text-align:left;margin-bottom:16px;">The café where I'd been hiding for two years.</h2>
+  <p class="dropcap rv">Before that morning, I had three creams in my bag — the ones I rotated to cover whichever flush was loudest. I was about to reach for the fourth when the woman at the next table leaned over. She told me later she hadn't planned to talk to me — she'd been watching me reach for tubes for two months, and that morning the watching had become its own thing she couldn't ignore.</p>
 
-  <p class="reveal">Before that morning, I had three creams in my bag — the ones I rotated to cover whichever flush was loudest. I was about to reach for the fourth when the woman at the next table leaned over. She told me later she hadn't planned to talk to me — she'd been watching me reach for tubes for two months, and that morning the watching had become its own thing she couldn't ignore.</p>
+  <p class="rv">She asked me one question. <em>"How long have you been flushing like that?"</em> I told her. Ten years. She nodded slowly — the way someone does when you've just confirmed what they already knew.</p>
 
-  <p class="reveal">She asked me one question. <em>"How long have you been flushing like that?"</em> I told her. Ten years. She nodded slowly — the way someone does when you've just confirmed what they already knew.</p>
+  <p class="rv">Her name was Helena. Retired vascular biologist. She'd been writing a novel at the same café for two years — which is how she'd been watching me reach for tubes.</p>
 
-  <p class="reveal">Her name was Helena. Retired vascular biologist. She'd been writing a novel at the same café for two years — which is how she'd been watching me reach for tubes.</p>
-
-  <div class="img-placeholder reveal" style="height:240px;margin:24px 0;">
-    <strong style="color:var(--pink-dark);">Café table — bird's-eye</strong>
-    2 cups, afternoon light · 480×240px
-    <span style="font-style:normal;font-size:12px;">subtle narrative anchor, not hero-sales</span>
+  <div class="plate plate--editorial rv" style="aspect-ratio:2/1;margin:24px 0">
+    <span class="tag">Café table · bird's-eye</span>
+    <span class="spec">2 cups, afternoon light · 480×240 · subtle narrative anchor, not hero-sales</span>
   </div>
 
-  <p class="reveal">She borrowed my napkin. She wrote on it for three minutes. Then she looked up.</p>
+  <p class="rv">She borrowed my napkin. She wrote on it for three minutes. Then she looked up.</p>
 
-  <blockquote class="pink-bar reveal">
-    <p class="serif italic" style="font-size:21px;">"Your face isn't broken."</p>
-    <p class="serif italic" style="font-size:21px;">"It's been running the same five-step routine for a decade. And every product on your shelf has been treating one step — hoping the other four would follow."</p>
-    <p class="serif italic" style="font-size:21px;">"They don't. They can't. That's not how it works."</p>
+  <blockquote class="pullquote rv">
+    <p>"Your face isn't broken."</p>
+    <p>"It's been running the same five-step routine for a decade. And every product on your shelf has been treating one step — hoping the other four would follow."</p>
+    <p>"They don't. They can't. That's not how it works."</p>
   </blockquote>
 
-  <p class="centered serif italic reveal" style="font-size:20px;margin:24px 0;color:var(--pink-dark);">She turned the napkin around.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:24px 0">She turned the napkin around.</p>
 
-  <div class="skip-cta">
-    <a href="#brique-05" data-cta="03"><em>I've lived this</em> · take me to the answer →</a>
-  </div>
+  <div class="skip"><a href="#root" data-cta="03"><em>I've lived this</em> · take me to the answer <span class="arw">→</span></a></div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 04 — PROBLEM AGITATION ========== -->
-<section class="section">
-  <h2 class="reveal" style="margin-bottom:14px;">I walked home from the café trying not to look in shop windows.</h2>
+<!-- ========== 04 — PROBLEM AGITATION ========== -->
+<section class="brique wrap">
+  <h2 class="rv" style="margin-bottom:8px">I walked home from the café trying not to look in shop windows.</h2>
+  <p class="eyebrow muted rv" style="margin:18px 0 6px">Ten years, one face</p>
 
-  <!-- V3 4-panel rosacea progression · regret anticipation · cross-fade -->
-  <p class="rosacea-spec reveal">
-    <strong style="color:var(--pink-dark);font-style:normal;">4-panel collage · rosacea progression</strong> — same woman ages 25 / 28 / 31 / 34 · Stage 1 → Stage 4 severity · editorial documentary style · soft natural lighting · neutral cream background · 1200×400px desktop / 600×600px mobile · <em>function: regret anticipation — what ten years of an uninterrupted loop looks like on a face.</em>
-  </p>
-  <div class="rosacea-stage reveal" id="rosacea" role="img" aria-label="A four-stage progression showing the same woman's face reddening over ten years, from a subtle flush at 25 to persistent deep redness at 34.">
-    <div class="rosacea-panel rp1"><span class="stage-label">Stage 1</span><span class="age-label">Age 25</span><span class="stage-desc">Subtle pink on the cheekbones only.</span></div>
-    <div class="rosacea-panel rp2"><span class="stage-label">Stage 2</span><span class="age-label">Age 28</span><span class="stage-desc">Visible erythema across cheeks and nose.</span></div>
-    <div class="rosacea-panel rp3"><span class="stage-label">Stage 3</span><span class="age-label">Age 31</span><span class="stage-desc">Persistent erythema across the central face.</span></div>
-    <div class="rosacea-panel rp4"><span class="stage-label">Stage 4</span><span class="age-label">Age 34</span><span class="stage-desc">Severe deep redness, faint papular texture.</span></div>
+  <div class="rosacea rv">
+    <div class="rosacea-strip" id="rosacea" role="img" aria-label="A four-plate documentary progression showing the same woman's face reddening over ten years — from a faint flush at 25 to persistent deep redness at 34.">
+      <div class="plate-portrait" style="--flush:0"><div class="skin"></div><div class="flush"></div><div class="cap"><div class="st">Stage 01</div><div class="ag">Age 25</div></div></div>
+      <div class="plate-portrait" style="--flush:0"><div class="skin"></div><div class="flush"></div><div class="cap"><div class="st">Stage 02</div><div class="ag">Age 28</div></div></div>
+      <div class="plate-portrait" style="--flush:0"><div class="skin"></div><div class="flush"></div><div class="cap"><div class="st">Stage 03</div><div class="ag">Age 31</div></div></div>
+      <div class="plate-portrait" style="--flush:0"><div class="skin"></div><div class="flush"></div><div class="cap"><div class="st">Stage 04</div><div class="ag">Age 34</div></div></div>
+    </div>
+    <p class="rosacea-note">4-panel rosacea progression · same woman, ages 25 / 28 / 31 / 34 · editorial documentary · soft natural light · neutral cream ground · 1200×400 desktop / 600×600 mobile. <em>The flush deepens as you read — regret anticipation, what an uninterrupted loop does to a face.</em></p>
   </div>
-  <div class="rosacea-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-  <p class="centered serif italic reveal" style="color:var(--gray);font-size:14px;margin:12px 0 28px;">Ten years on one face. This was mine.</p>
+  <p class="serif italic center soft rv" style="font-size:15px;margin:14px 0 30px">This was mine.</p>
 
-  <p class="centered serif italic reveal" style="color:var(--pink-dark);font-size:18px;margin-bottom:32px;">That's when I started writing the other list. The one I'd never put on paper.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:32px">That's when I started writing the other list. The one I'd never put on paper.</p>
 
-  <!-- V3 6 scenes -->
-  <div class="stagger" style="max-width:580px;margin:0 auto;">
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The mirror checks.</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">Three times before a meeting that doesn't even use video.</p>
-    </div>
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The phone front camera.</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">Opened just to confirm what I already know.</p>
-    </div>
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The Zoom self-view.</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">Has ruined more meetings than any client ever could.</p>
-    </div>
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The « are you okay ? »</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">From a colleague who means well. Who doesn't know that's not what's happening.</p>
-    </div>
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The cancellation.</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">Written while looking at the photos on my fridge.</p>
-    </div>
-    <div style="margin-bottom:22px;padding:0 0 0 18px;border-left:2px solid var(--pink-light);">
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">The foundation before the coffee.</p>
-      <p style="margin:0;color:var(--gray);font-size:15px;line-height:1.55;">Because the order matters.</p>
-    </div>
+  <div class="stg" style="max-width:560px;margin:0 auto">
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The mirror checks.</p><p class="soft small" style="margin:0">Three times before a meeting that doesn't even use video.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The phone front camera.</p><p class="soft small" style="margin:0">Opened just to confirm what I already know.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The Zoom self-view.</p><p class="soft small" style="margin:0">Has ruined more meetings than any client ever could.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The « are you okay ? »</p><p class="soft small" style="margin:0">From a colleague who means well. Who doesn't know that's not what's happening.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The cancellation.</p><p class="soft small" style="margin:0">Written while looking at the photos on my fridge.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The foundation before the coffee.</p><p class="soft small" style="margin:0">Because the order matters.</p></div>
   </div>
 
-  <!-- V3 Terminal -->
-  <div class="pink-bar reveal" style="margin-top:32px;">
-    <p class="serif" style="font-size:19px;margin-bottom:10px;">None of these is the rosacea.</p>
-    <p class="serif italic" style="font-size:19px;color:var(--pink-dark);">These are the things I do because of it. <span class="pink-bold">And they weigh more than the flushing itself.</span></p>
+  <div class="pullquote rv" style="margin-top:32px">
+    <p style="font-style:normal;color:var(--ink);font-family:'Fraunces',serif;font-size:20px">None of these is the rosacea.</p>
+    <p>These are the things I do because of it. <span style="color:var(--rosa);font-weight:500">And they weigh more than the flushing itself.</span></p>
   </div>
 
-  <p class="centered serif italic reveal" style="font-size:18px;color:var(--pink-dark);margin:28px 0 0;">Helena had a shorter list. Five things, instead of mine.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-top:28px">Helena had a shorter list. Five things, instead of mine.</p>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 05 — ROOT CAUSE ========== -->
-<section class="section" id="brique-05">
-  <p class="centered italic reveal" style="margin-bottom:18px;">I leaned in. She'd written five things, in careful handwriting. For five seconds, I forgot how to breathe.</p>
+<!-- ========== 05 — ROOT CAUSE ========== -->
+<section class="brique wrap" id="root">
+  <p class="center italic soft rv" style="margin-bottom:16px">I leaned in. She'd written five things, in careful handwriting. For five seconds, I forgot how to breathe.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:26px">You've felt this for years. You just didn't have the words.</p>
 
-  <p class="centered serif italic reveal" style="font-size:18px;color:var(--pink-dark);margin-bottom:24px;">You've felt this for years. You just didn't have the words.</p>
+  <div class="pullquote rv"><p>She wasn't showing me five separate problems. She was showing me five steps of the same loop.</p></div>
 
-  <div class="pink-bar reveal">
-    <p class="serif italic" style="font-size:19px;">She wasn't showing me five separate problems. She was showing me five steps of the same loop.</p>
-  </div>
+  <p class="rv">Each step made the next worse. Every product I'd ever bought had been treating one — hoping the other four would follow. None of them could.</p>
 
-  <p class="reveal">Each step made the next worse. Every product I'd ever bought had been treating one — hoping the other four would follow. None of them could.</p>
-
-  <!-- V3 The loop · animated SVG -->
-  <figure class="reveal" style="margin:32px 0;">
-    <svg viewBox="0 0 600 130" width="100%" style="max-width:600px;display:block;margin:0 auto;" role="img" aria-label="Five levers arranged in a loop, connected by arrows pulsing clockwise, showing all five active at once.">
-      <line class="loop-pulse" x1="70" y1="65" x2="530" y2="65" stroke="var(--pink)" stroke-width="1.5" fill="none" opacity="0.5"/>
-      <g font-family="Inter, sans-serif" text-anchor="middle">
-        <g class="loop-node"><circle cx="70" cy="65" r="22" fill="#fff" stroke="var(--pink)" stroke-width="1.5"/><circle class="loop-node-glow" cx="70" cy="65" r="22" fill="var(--pink-light)"/><text x="70" y="70" font-size="15" fill="var(--pink-dark)" font-weight="500">01</text></g>
-        <g class="loop-node"><circle cx="185" cy="65" r="22" fill="#fff" stroke="var(--pink)" stroke-width="1.5"/><circle class="loop-node-glow" cx="185" cy="65" r="22" fill="var(--pink-light)" style="animation-delay:.4s"/><text x="185" y="70" font-size="15" fill="var(--pink-dark)" font-weight="500">02</text></g>
-        <g class="loop-node"><circle cx="300" cy="65" r="22" fill="#fff" stroke="var(--pink)" stroke-width="1.5"/><circle class="loop-node-glow" cx="300" cy="65" r="22" fill="var(--pink-light)" style="animation-delay:.8s"/><text x="300" y="70" font-size="15" fill="var(--pink-dark)" font-weight="500">03</text></g>
-        <g class="loop-node"><circle cx="415" cy="65" r="22" fill="#fff" stroke="var(--pink)" stroke-width="1.5"/><circle class="loop-node-glow" cx="415" cy="65" r="22" fill="var(--pink-light)" style="animation-delay:1.2s"/><text x="415" y="70" font-size="15" fill="var(--pink-dark)" font-weight="500">04</text></g>
-        <g class="loop-node"><circle cx="530" cy="65" r="24" fill="var(--pink-dark)"/><text x="530" y="70" font-size="15" fill="#fff" font-weight="500">05</text></g>
+  <figure class="rv">
+    <svg viewBox="0 0 600 128" width="100%" style="max-width:600px;display:block;margin:0 auto" role="img" aria-label="Five levers connected in a loop, pulses travelling clockwise, node 05 emergent — the mechanism, all five active.">
+      <line class="loop-pulse" x1="66" y1="64" x2="534" y2="64" stroke="var(--rosa)" stroke-width="1.5" opacity=".5"/>
+      <g font-family="Inter" text-anchor="middle">
+        <g><circle cx="66" cy="64" r="22" fill="#fff" stroke="var(--rosa)" stroke-width="1.5"/><circle class="loop-glow" cx="66" cy="64" r="22" fill="var(--rosa-wash)"/><text x="66" y="69" font-size="15" fill="var(--rosa-dk)" font-weight="500">01</text></g>
+        <g><circle cx="183" cy="64" r="22" fill="#fff" stroke="var(--rosa)" stroke-width="1.5"/><circle class="loop-glow" cx="183" cy="64" r="22" fill="var(--rosa-wash)" style="animation-delay:.5s"/><text x="183" y="69" font-size="15" fill="var(--rosa-dk)" font-weight="500">02</text></g>
+        <g><circle cx="300" cy="64" r="22" fill="#fff" stroke="var(--rosa)" stroke-width="1.5"/><circle class="loop-glow" cx="300" cy="64" r="22" fill="var(--rosa-wash)" style="animation-delay:1s"/><text x="300" y="69" font-size="15" fill="var(--rosa-dk)" font-weight="500">03</text></g>
+        <g><circle cx="417" cy="64" r="22" fill="#fff" stroke="var(--rosa)" stroke-width="1.5"/><circle class="loop-glow" cx="417" cy="64" r="22" fill="var(--rosa-wash)" style="animation-delay:1.5s"/><text x="417" y="69" font-size="15" fill="var(--rosa-dk)" font-weight="500">04</text></g>
+        <g><circle cx="534" cy="64" r="24" fill="var(--rosa-dk)"/><text x="534" y="69" font-size="15" fill="#fff" font-weight="500">05</text></g>
       </g>
     </svg>
-    <figcaption class="centered" style="font-size:12px;color:var(--gray);font-style:italic;margin-top:8px;">the loop · all 5 active <span style="font-style:normal;">(GIF / Lottie placeholder — 600×120px infinite loop)</span></figcaption>
+    <figcaption>the loop · all five active <span style="font-style:normal">(Lottie placeholder · 600×120 · infinite)</span></figcaption>
   </figure>
 
-  <!-- 5 Root Cause Cards -->
-  <div class="card ingr-card reveal" style="margin-top:20px;">
-    <div class="lever-tag">01 · The Alarm</div>
-    <p class="serif italic" style="color:var(--pink);font-size:15px;margin:0 0 12px;">An immune system calling 911 when nothing was wrong.</p>
-    <p>Your immune system has a smoke detector. In healthy skin, it goes off when there's fire. In mine, it was going off when someone walked past with cologne. When the office got warm. When I drank a glass of wine. When I felt embarrassed. When I felt anything strong — even happy. Every trigger came through this one door.</p>
+  <div class="lever rv"><div class="tag">01 · The Alarm</div><div class="sub">An immune system calling 911 when nothing was wrong.</div><p>Your immune system has a smoke detector. In healthy skin, it goes off when there's fire. In mine, it was going off when someone walked past with cologne. When the office got warm. When I drank a glass of wine. When I felt embarrassed. When I felt anything strong — even happy. Every trigger came through this one door.</p></div>
+
+  <div class="lever rv"><div class="tag">02 · The Nerves</div><div class="sub">Set too sensitive after years of false alarms.</div><p>The nerves had been tuned too sensitive by years of false alarms. They fired at heat I wouldn't notice on my arm. At a thought, sometimes. Before anything had even happened.</p><p style="margin-top:12px">My face had started lying about me. I was calm — it flushed. I was steady — it screamed. People assumed I was nervous. People assumed I was embarrassed. <span id="neither" style="background:var(--rosa-wash);padding:2px 6px;border-radius:3px;color:var(--rosa-dk);font-weight:500">I was neither.</span> The link between what I felt and what my face said had been broken.</p></div>
+
+  <div class="lever rv"><div class="tag">03 · The Door</div><div class="sub">A barrier that stopped keeping anything out.</div><p>Healthy skin has a wall around it. Mine had holes. Things other people would ignore — a colleague's perfume, the office AC, a "gentle" cleanser — went straight through and fed the alarm.</p></div>
+
+  <div class="lever rv"><div class="tag">04 · The Wall</div><div class="sub">Vessels that learned to stay open.</div><p>The blood vessels in my cheeks had been opening for ten years. Closing slower each year. By thirty-four, the redness at 7 AM wasn't a flare. It was the baseline. Vessels that used to come back down — and stopped.</p></div>
+
+  <div class="lever lever--five rv"><div class="tag">05 · The Loop Unwinds</div><div class="sub">What happens when the four above feed each other.</div><p>The fifth one isn't a separate thing. It's what the first four create when they run together. The alarm fires. The nerves overreact. The barrier lets more in. The vessels stay open. And every time it happens, the next time happens easier. The loop teaches itself.</p></div>
+
+  <div class="pullquote rv" style="margin-top:28px">
+    <p style="font-style:normal;font-family:'Fraunces',serif;color:var(--ink)">Five things. One loop.</p>
+    <p style="font-style:normal;font-family:'Fraunces',serif;color:var(--ink)">Treat one — the other four keep running.</p>
   </div>
 
-  <div class="card ingr-card reveal">
-    <div class="lever-tag">02 · The Nerves</div>
-    <p class="serif italic" style="color:var(--pink);font-size:15px;margin:0 0 12px;">Set too sensitive after years of false alarms.</p>
-    <p>The nerves had been tuned too sensitive by years of false alarms. They fired at heat I wouldn't notice on my arm. At a thought, sometimes. Before anything had even happened.</p>
-    <p style="margin-top:12px;">My face had started lying about me. I was calm — it flushed. I was steady — it screamed. People assumed I was nervous. People assumed I was embarrassed. <span class="hl-pulse">I was neither.</span> The link between what I felt and what my face said had been broken.</p>
-  </div>
+  <p class="center italic soft rv" style="margin-top:24px">I sat there reading the napkin twice. Then I exhaled.</p>
 
-  <div class="card ingr-card reveal">
-    <div class="lever-tag">03 · The Door</div>
-    <p class="serif italic" style="color:var(--pink);font-size:15px;margin:0 0 12px;">A barrier that stopped keeping anything out.</p>
-    <p>Healthy skin has a wall around it. Mine had holes. Things other people would ignore — a colleague's perfume, the office AC, a "gentle" cleanser — went straight through and fed the alarm.</p>
-  </div>
-
-  <div class="card ingr-card reveal">
-    <div class="lever-tag">04 · The Wall</div>
-    <p class="serif italic" style="color:var(--pink);font-size:15px;margin:0 0 12px;">Vessels that learned to stay open.</p>
-    <p>The blood vessels in my cheeks had been opening for ten years. Closing slower each year. By thirty-four, the redness at 7 AM wasn't a flare. It was the baseline. Vessels that used to come back down — and stopped.</p>
-  </div>
-
-  <div class="card ingr-card card-05 reveal">
-    <div class="lever-tag">05 · The Loop Unwinds</div>
-    <p class="serif italic" style="color:var(--pink);font-size:15px;margin:0 0 12px;">What happens when the four above feed each other.</p>
-    <p>The fifth one isn't a separate thing. It's what the first four create when they run together. The alarm fires. The nerves overreact. The barrier lets more in. The vessels stay open. And every time it happens, the next time happens easier. The loop teaches itself.</p>
-  </div>
-
-  <div class="pink-bar reveal" style="margin-top:28px;">
-    <p class="serif w500" style="font-size:18px;">Five things. One loop.</p>
-    <p class="serif w500" style="font-size:18px;">Treat one — the other four keep running.</p>
-  </div>
-
-  <p class="centered italic reveal" style="margin-top:24px;">I sat there reading the napkin twice. Then I exhaled.</p>
-
-  <div class="skip-cta">
-    <a href="#brique-07" data-cta="05"><em>I see the loop</em> · show me what stops it →</a>
-  </div>
+  <div class="skip"><a href="#product" data-cta="05"><em>I see the loop</em> · show me what stops it <span class="arw">→</span></a></div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 06 — SOLUTION MECHANISM ========== -->
-<section class="section">
-  <p class="reveal">I looked at the five things on that napkin for a long time. Then I asked Helena the only question that mattered.</p>
+<!-- ========== 06 — MECHANISM ========== -->
+<section class="brique wrap">
+  <p class="rv">I looked at the five things on that napkin for a long time. Then I asked Helena the only question that mattered.</p>
 
-  <div class="pink-bar reveal">
-    <p class="serif italic" style="font-size:22px;">"If the loop runs through five things — what does it take to actually stop it?"</p>
-  </div>
+  <div class="bigquote rv"><p>"If the loop runs through five things — what does it take to actually stop it?"</p></div>
 
-  <p class="reveal">She didn't hesitate.</p>
-  <p class="reveal">You have to <span style="background:#FFE9D9;padding:2px 6px;border-radius:3px;color:var(--pink-dark);font-weight:500;">deal with</span> all five at the same time. Not one at a time. Not one today and another next month. All five.</p>
+  <p class="rv">She didn't hesitate.</p>
+  <p class="rv">You have to <span style="background:#F6E3D6;padding:2px 6px;border-radius:3px;color:var(--rosa-dk);font-weight:500">deal with</span> all five at the same time. Not one at a time. Not one today and another next month. All five.</p>
 
-  <div class="centered" style="margin:18px 0 6px;">
-    <p class="serif italic scale-in" style="font-size:30px;color:var(--pink-dark);border-bottom:1px dashed var(--pink-light);padding-bottom:8px;display:inline-block;">Simultaneously.</p>
-  </div>
+  <p class="center" style="margin:22px 0 8px"><span class="mono-word scalein">Simultaneously.</span></p>
 
-  <div class="pink-bar reveal" style="margin-top:20px;">
-    <p class="serif italic" style="font-size:18px;color:var(--pink-dark);">Because the fifth one isn't something you deal with. It's what happens when the other four stop.</p>
-  </div>
+  <div class="pullquote rv" style="margin-top:20px"><p>Because the fifth one isn't something you deal with. It's what happens when the other four stop.</p></div>
 
-  <!-- V3 Thermostat SVG — master metaphor, before the verbal cards -->
-  <figure class="thermo-wrap reveal">
-    <svg viewBox="0 0 400 200" width="100%" role="img" aria-label="Two gauges side by side. Healthy skin: the needle rises then returns to baseline, over and over. Your skin: the needle only rises and stays up.">
-      <!-- Gauge 1 healthy -->
-      <g transform="translate(0,0)">
-        <path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="rgba(153,53,86,0.25)" stroke-width="2"/>
-        <line class="needle-healthy" x1="100" y1="92" x2="100" y2="42" stroke="var(--pink-dark)" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="100" cy="92" r="4" fill="var(--pink-dark)"/>
-        <text x="100" y="120" text-anchor="middle" font-family="Inter" font-size="10" letter-spacing="1.5" fill="var(--gray)">HEALTHY SKIN</text>
-        <text x="100" y="138" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="14" fill="var(--pink-dark)">rises · returns</text>
-      </g>
-      <!-- Gauge 2 broken -->
-      <g transform="translate(200,0)">
-        <path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="rgba(153,53,86,0.25)" stroke-width="2"/>
-        <line class="needle-broken" x1="100" y1="92" x2="100" y2="42" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round"/>
-        <circle cx="100" cy="92" r="4" fill="var(--pink)"/>
-        <text x="100" y="120" text-anchor="middle" font-family="Inter" font-size="10" letter-spacing="1.5" fill="var(--pink-dark)">YOUR SKIN</text>
-        <text x="100" y="138" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="14" fill="var(--pink-dark)">only rises</text>
-      </g>
+  <figure class="rv">
+    <svg viewBox="0 0 400 160" width="100%" style="max-width:520px;display:block;margin:0 auto" role="img" aria-label="Two gauges. Healthy skin: the needle rises then returns to baseline, repeatedly. Your skin: the needle only rises and stays up — a ratchet.">
+      <g><path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="var(--line)" stroke-width="2"/><line class="needle-h" x1="100" y1="92" x2="100" y2="44" stroke="var(--rosa-dk)" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="92" r="4" fill="var(--rosa-dk)"/><text x="100" y="118" text-anchor="middle" font-family="Inter" font-size="10" letter-spacing="1.5" fill="var(--ink-faint)">HEALTHY SKIN</text><text x="100" y="136" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="14" fill="var(--rosa-dk)">rises · returns</text></g>
+      <g transform="translate(200,0)"><path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="var(--line)" stroke-width="2"/><line class="needle-b" x1="100" y1="92" x2="100" y2="44" stroke="var(--rosa)" stroke-width="2.5" stroke-linecap="round"/><circle cx="100" cy="92" r="4" fill="var(--rosa)"/><text x="100" y="118" text-anchor="middle" font-family="Inter" font-size="10" letter-spacing="1.5" fill="var(--rosa-dk)">YOUR SKIN</text><text x="100" y="136" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="14" fill="var(--rosa-dk)">only rises</text></g>
     </svg>
-    <figcaption class="centered" style="font-size:12px;color:var(--gray);font-style:italic;margin-top:4px;">the thermostat vs the ratchet <span style="font-style:normal;">(SVG placeholder — brand master metaphor, 600×300px)</span></figcaption>
+    <figcaption>the thermostat vs the ratchet <span style="font-style:normal">(SVG placeholder · brand master metaphor · 600×300)</span></figcaption>
   </figure>
 
-  <!-- HEALTHY / YOUR SKIN cards -->
-  <div class="card-grid reveal" style="margin:28px 0;">
-    <div class="card" style="background:var(--beige);">
-      <p class="eyebrow" style="margin-bottom:10px;color:var(--gray);">HEALTHY SKIN</p>
-      <h4 class="serif" style="font-size:20px;margin-bottom:8px;">A thermostat.</h4>
-      <p style="font-size:14px;color:var(--gray);margin:0;line-height:1.6;">It flushes. Then it clicks back down. Every time. The system resets itself.</p>
-    </div>
-    <div class="card" style="background:var(--pink-light);">
-      <p class="eyebrow" style="margin-bottom:10px;color:var(--pink-dark);">YOUR SKIN</p>
-      <h4 class="serif" style="font-size:20px;margin-bottom:8px;color:var(--pink-dark);">A thermostat that only knows heat.</h4>
-      <p style="font-size:14px;color:var(--pink-dark);margin:0;line-height:1.6;">Every trigger turns it up. Nothing turns it down. So it just keeps climbing.</p>
-    </div>
+  <div class="compare rv">
+    <div class="c healthy"><p class="eyebrow muted" style="margin-bottom:6px">Healthy skin</p><h4>A thermostat.</h4><p class="soft small" style="margin:0">It flushes. Then it clicks back down. Every time. The system resets itself.</p></div>
+    <div class="c yours"><p class="eyebrow" style="margin-bottom:6px;color:var(--rosa-dk)">Your skin</p><h4 style="color:var(--rosa-dk)">A thermostat that only knows heat.</h4><p style="color:var(--rosa-dk);margin:0;font-size:14px">Every trigger turns it up. Nothing turns it down. So it just keeps climbing.</p></div>
   </div>
 
-  <p class="reveal">That's what no product I'd ever tried had done. Not because the ingredients were bad. Because each one was treating a single step — while the loop kept running through the other four.</p>
-  <p class="reveal">I stopped asking <em>"what calms redness?"</em> I started asking <em>"what interrupts the loop at all five points — simultaneously?"</em></p>
-  <p class="reveal" style="font-weight:500;">Two years. One question.</p>
+  <p class="rv">That's what no product I'd ever tried had done. Not because the ingredients were bad. Because each one was treating a single step — while the loop kept running through the other four.</p>
+  <p class="rv">I stopped asking <em>"what calms redness?"</em> I started asking <em>"what interrupts the loop at all five points — simultaneously?"</em></p>
+  <p class="rv" style="font-weight:500">Two years. One question.</p>
 
-  <div class="pink-bar reveal">
-    <p class="serif w500" style="font-size:19px;">The Reset Complex™. That's what those five answers became.</p>
-    <p>Not a cream. Not a routine. A system built around one idea: <span class="pink-bold">your face isn't being calmed. It's being given back its ability to calm itself — and to tell the truth about you again.</span></p>
-    <p style="margin-top:10px;">The thermostat. The ability to come back down — and stay accurate.</p>
+  <div class="pullquote rv">
+    <p style="font-style:normal;font-family:'Fraunces',serif;color:var(--ink);font-weight:500">The Reset Complex™. That's what those five answers became.</p>
+    <p style="font-style:normal;font-family:'Inter';font-size:16px;color:var(--ink-soft);font-weight:400">Not a cream. Not a routine. A system built around one idea: <span style="color:var(--rosa);font-weight:500">your face isn't being calmed. It's being given back its ability to calm itself — and to tell the truth about you again.</span></p>
+    <p style="font-style:normal;font-family:'Inter';font-size:16px;color:var(--ink-soft);font-weight:400">The thermostat. The ability to come back down — and stay accurate.</p>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 07 — PRODUCT INTRODUCTION ========== -->
-<section class="section" id="brique-07">
-  <p class="reveal">For two years I'd been trusting one symptom. For two years I tried to find what would deal with all five — simultaneously, at the right concentrations, without ingredients that would feed the loop.</p>
+<!-- ========== 07 — PRODUCT INTRODUCTION ========== -->
+<section class="brique wrap" id="product">
+  <p class="rv">For two years I'd been trusting one symptom. For two years I tried to find what would deal with all five — simultaneously, at the right concentrations, without ingredients that would feed the loop.</p>
 
-  <p class="serif centered reveal" style="font-size:28px;color:var(--pink-dark);font-weight:500;margin:28px 0 36px;">Then I built it.</p>
+  <p class="serif center rosa-dk rv" style="font-size:clamp(26px,5vw,34px);font-weight:500;margin:28px 0 36px">Then I built it.</p>
 
-  <!-- Product reveal -->
-  <div class="centered reveal" style="margin-bottom:18px;">
-    <h3 class="serif" style="font-size:32px;color:var(--pink-dark);margin:0 0 4px;">The Daily Reset Serum.</h3>
-    <p class="eyebrow" style="letter-spacing:0.16em;">WITH THE RESET COMPLEX™</p>
+  <div class="center rv" style="margin-bottom:18px">
+    <h3 class="serif" style="color:var(--rosa-dk)">The Daily Reset Serum.</h3>
+    <p class="eyebrow" style="margin-top:8px">With the Reset Complex™</p>
   </div>
 
-  <div class="img-placeholder reveal" style="height:340px;margin:18px auto 22px;max-width:520px;">
-    <strong style="color:var(--pink-dark);">Editorial packshot — bottle</strong>
-    marble / counter · soft natural light · pink-cream subtle · 600×400px
-    <span style="font-style:normal;font-size:12px;">narrative anchor (NOT hero-sales) — Ken Burns zoom on load</span>
+  <div class="plate plate--editorial rv" style="margin:18px auto 22px;max-width:520px">
+    <span class="tag">Editorial packshot</span>
+    <span class="spec">marble / counter · soft natural window light · pink-cream subtle · 600×400 · narrative anchor, not hero-sales · Ken Burns on load</span>
   </div>
 
-  <div class="centered reveal" style="margin:18px 0 28px;">
-    <span class="pill">Fragrance-free</span>
-    <span class="pill">Alcohol-free</span>
-    <span class="pill">No essential oils</span>
+  <div class="center rv" style="margin:18px 0 30px">
+    <span class="pill">Fragrance-free</span><span class="pill">Alcohol-free</span><span class="pill">No essential oils</span>
   </div>
 
-  <!-- Core claim · word-by-word reveal -->
-  <div class="pink-bar reveal" style="text-align:center;margin:28px 0 14px;">
-    <p class="serif italic word-reveal" style="font-size:23px;color:var(--pink-dark);font-weight:500;margin:0;">It doesn't calm your face. It helps your face calm itself.</p>
+  <div class="bigquote wordrev rv" style="margin:30px auto 14px"><p>It doesn't calm your face. It helps your face calm itself.</p></div>
+  <p class="serif italic center soft rv" style="font-size:15px;margin:0 0 40px">That's not just a different product. It's a different question.</p>
+
+  <div class="center rv" style="margin:36px auto;max-width:520px">
+    <p class="serif rosa-dk" style="font-size:clamp(23px,4vw,28px);font-weight:500;margin:0 0 10px">Five levers. Four actives.</p>
+    <p class="serif italic rosa-dk" style="font-size:17px;margin:0">The fifth lever is what your face does when the first four stop interfering.</p>
+  </div>
+  <p class="serif italic center rosa-dk rv" style="font-size:15px;margin:20px auto 30px;max-width:520px">The work isn't done by any one of them. It's done by the four working at the same time.</p>
+
+  <div class="grid2 stg" style="margin-top:20px">
+    <div class="lever" style="margin:0"><div class="tag">Lever 01 · The Alarm</div><h4>Azelaic Acid <span class="conc">10%</span></h4><p><strong>Helps</strong> the alarm stop firing for nothing. The immune system stops calling 911 — and the cascade behind it slows down.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 02 · The Nerves</div><h4>Centella Asiatica <span class="conc">4%</span></h4><p><strong>Helps</strong> the nerves come back to normal. They stop firing at heat you wouldn't notice on my arm. They stop firing on memory.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 03 · The Door</div><h4>Colloidal Oat + Panthenol (B5) <span class="conc">1% · 5%</span></h4><p><strong>Helps</strong> the wall hold what's inside. Less of what feeds the alarm gets through.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 04 · The Wall</div><h4>Licochalcone A <span class="conc">0.4%</span></h4><p><strong>Helps</strong> the vessels close back down. The redness fades back to normal — instead of riding all day.</p></div>
+  </div>
+  <div class="lever lever--five rv" style="margin-top:14px"><div class="tag">Lever 05 · The Loop Unwinds</div><h4>The fifth lever</h4><p>What your face does when the first four stop interfering.</p><p style="margin-top:10px">The anticipation loop has no fuel without the other four. The flush becomes less inevitable. Less feared. Less triggered.</p></div>
+
+  <div class="wash rv" style="margin:32px 0 18px"><p class="serif italic" style="font-size:16.5px;margin:0;line-height:1.6">If you've spent ten years buying products that didn't work, you have every reason to be skeptical of this one. I built it knowing that.</p></div>
+
+  <div class="rv" style="margin:24px 0">
+    <p class="eyebrow" style="margin-bottom:14px">What we left out — on purpose</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Niacinamide / oxytocin</strong> — induced flushing, documented and infamous</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Retinol / retinoids</strong> — strip the wall</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Alcohol &amp; synthetic fragrance</strong> — strip the wall, wake up the alarm</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Menthol · witch hazel · essential oils</strong> — wake up the TRPV/A1 nerves</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Niacinamide above 5%</strong> — triggers the exact nerves lever 02 calms</p>
   </div>
 
-  <p class="centered serif italic reveal" style="font-size:15px;color:var(--gray);margin:0 0 36px;">That's not just a different product. It's a different question.</p>
+  <div class="wash rv" style="background:var(--rosa-wash);margin:24px 0"><p style="margin-bottom:4px">This isn't for sensitive skin. That's a category.</p><p style="font-weight:500;margin:0">This is for reactive skin — specifically, for the kind that flushes before it asks permission.</p></div>
 
-  <div class="centered reveal" style="margin:36px auto;max-width:520px;">
-    <p class="serif" style="font-size:26px;color:var(--pink-dark);font-weight:500;margin:0 0 10px;">Five levers. Four actives.</p>
-    <p class="serif italic" style="font-size:17px;color:var(--pink-dark);margin:0;border-bottom:1px dashed var(--pink-light);padding-bottom:14px;display:inline-block;">The fifth lever is what your face does when the first four stop interfering.</p>
-  </div>
+  <div class="pullquote rv"><p>You weren't failing. You were fixing one point on a circle. The whole circle had to be fixed at once.</p></div>
 
-  <div class="centered reveal" style="margin:20px auto 28px;max-width:520px;">
-    <p class="serif italic" style="font-size:15px;color:var(--pink-dark);margin:0;">The work isn't done by any one of them. It's done by the four working at the same time.</p>
-  </div>
+  <div class="skip"><a href="#close" data-cta="07"><em>I've seen enough</em> · let's begin <span class="arw">→</span></a></div>
+</section>
 
-  <!-- 5 Ingredient Cards -->
-  <div class="card-grid stagger" style="margin-top:20px;">
-    <div class="card ingr-card">
-      <div class="lever-tag">LEVER 01 · THE ALARM</div>
-      <h4 style="margin-bottom:2px;">Azelaic Acid <span style="font-size:11px;letter-spacing:1px;color:var(--gray);font-weight:400;">10%</span></h4>
-      <p><strong>Helps</strong> the alarm stop firing for nothing. The immune system stops calling 911 — and the cascade behind it slows down.</p>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
+
+<!-- ========== 08 — SOCIAL PROOF ========== -->
+<section class="brique">
+  <div class="wrap">
+    <h2 class="center rv" style="margin-bottom:12px">"I was in the family photo this year."</h2>
+    <p class="center soft rv" style="margin-bottom:22px">Three hundred and twelve women tested this for sixty days before it left my kitchen.</p>
+    <div class="wash rv" style="text-align:center;max-width:480px;margin:0 auto 30px;background:var(--rosa-wash)">
+      <p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">Three of three hundred and twelve.</p>
+      <p class="serif italic rosa-dk" style="font-size:20px;margin:0">They could've been any of us.</p>
     </div>
-    <div class="card ingr-card">
-      <div class="lever-tag">LEVER 02 · THE NERVES</div>
-      <h4 style="margin-bottom:2px;">Centella Asiatica <span style="font-size:11px;letter-spacing:1px;color:var(--gray);font-weight:400;">4%</span></h4>
-      <p><strong>Helps</strong> the nerves come back to normal. They stop firing at heat you wouldn't notice on my arm. They stop firing on memory.</p>
-    </div>
-    <div class="card ingr-card">
-      <div class="lever-tag">LEVER 03 · THE DOOR</div>
-      <h4 style="margin-bottom:2px;">Colloidal Oat + Panthenol (B5) <span style="font-size:11px;letter-spacing:1px;color:var(--gray);font-weight:400;">1% · 5%</span></h4>
-      <p><strong>Helps</strong> the wall hold what's inside. Less of what feeds the alarm gets through.</p>
-    </div>
-    <div class="card ingr-card">
-      <div class="lever-tag">LEVER 04 · THE WALL</div>
-      <h4 style="margin-bottom:2px;">Licochalcone A <span style="font-size:11px;letter-spacing:1px;color:var(--gray);font-weight:400;">0.4%</span></h4>
-      <p><strong>Helps</strong> the vessels close back down. The redness fades back to normal — instead of riding all day.</p>
+    <p class="swipe-hint eyebrow rv">← swipe to see more →</p>
+
+  <div class="carousel nudge" id="carousel">
+    <div class="ctrack">
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video · à importer</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Sarah · 34 · Boston</p><blockquote>"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote></article>
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video · à importer</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Rachel · 41 · Chicago</p><blockquote>"My husband took the picture. I was in it. That was new."</blockquote></article>
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video · à importer</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Maya · 38 · Brooklyn</p><blockquote>"Nobody's asked me if I'm sick in four months."</blockquote></article>
     </div>
   </div>
-  <div class="card ingr-card card-05 reveal">
-    <div class="lever-tag">LEVER 05 · THE LOOP UNWINDS</div>
-    <h4>The fifth lever</h4>
-    <p>What your face does when the first four stop interfering.</p>
-    <p style="margin-top:10px;">The anticipation loop has no fuel without the other four. The flush becomes less inevitable. Less feared. Less triggered.</p>
+  <div class="cdots" id="cdots" role="tablist" aria-label="Testimonials">
+    <button class="on" aria-label="Sarah"></button><button aria-label="Rachel"></button><button aria-label="Maya"></button>
   </div>
 
-  <div class="reveal" style="background:var(--beige);border-radius:8px;padding:22px 26px;margin:32px 0 18px;">
-    <p class="serif italic" style="font-size:16px;color:var(--dark);margin:0;line-height:1.65;">If you've spent ten years buying products that didn't work, you have every reason to be skeptical of this one. I built it knowing that.</p>
-  </div>
+    <div class="rv" style="background:var(--paper-2);border-radius:14px;padding:32px 26px;text-align:center;margin:34px auto 0;max-width:560px">
+      <p class="eyebrow" style="margin-bottom:20px">By week eight</p>
+      <p class="serif" style="font-size:19px;margin:0 0 10px;line-height:1.5"><span class="n" data-count="87" style="font-family:'Fraunces';font-weight:600;color:var(--rosa-dk);font-size:23px">87</span> out of 100 said their flushes were less frequent.</p>
+      <p class="serif" style="font-size:19px;margin:0 0 18px;line-height:1.5"><span class="n" data-count="91" style="font-family:'Fraunces';font-weight:600;color:var(--rosa-dk);font-size:23px">91</span> said their face was coming back down faster on its own.</p>
+      <div style="width:56px;height:1px;background:var(--rosa);opacity:.35;margin:0 auto 18px"></div>
+      <p class="serif italic rosa-dk" style="font-size:16px;margin:0">Sixty days. One email. Full refund if it didn't.</p>
+    </div>
 
-  <!-- What we left out -->
-  <div class="reveal" style="margin:24px 0;">
-    <p class="eyebrow" style="margin-bottom:14px;">WHAT WE LEFT OUT — ON PURPOSE</p>
-    <p style="font-size:14px;color:var(--gray);margin:6px 0;"><strong>✗ Niacinamide / oxytocin</strong> — induced flushing, documented and infamous</p>
-    <p style="font-size:14px;color:var(--gray);margin:6px 0;"><strong>✗ Retinol / retinoids</strong> — strip the wall</p>
-    <p style="font-size:14px;color:var(--gray);margin:6px 0;"><strong>✗ Alcohol &amp; synthetic fragrance</strong> — strip the wall, wake up the alarm</p>
-    <p style="font-size:14px;color:var(--gray);margin:6px 0;"><strong>✗ Menthol · witch hazel · essential oils</strong> — wake up the TRPV/A1 nerves</p>
-    <p style="font-size:14px;color:var(--gray);margin:6px 0;"><strong>✗ Niacinamide above 5%</strong> — triggers the exact nerves lever 02 calms</p>
-  </div>
-
-  <div class="reveal" style="background:var(--pink-light);border-radius:10px;padding:20px;margin:24px 0;">
-    <p style="margin-bottom:4px;">This isn't for sensitive skin. That's a category.</p>
-    <p style="font-weight:500;margin:0;">This is for reactive skin — specifically, for the kind that flushes before it asks permission.</p>
-  </div>
-
-  <div class="pink-bar reveal">
-    <p class="serif italic" style="font-size:19px;">You weren't failing. You were fixing one point on a circle. The whole circle had to be fixed at once.</p>
-  </div>
-
-  <div class="skip-cta">
-    <a href="#brique-11" data-cta="07"><em>I've seen enough</em> · let's begin →</a>
+    <div class="rv" style="background:var(--rosa-wash);border-radius:14px;padding:28px;text-align:center;margin:20px auto 0;max-width:560px">
+      <p class="serif italic rosa-dk" style="font-size:clamp(20px,3.4vw,24px);font-weight:500;margin:0;line-height:1.35">They didn't get a different face. They got their own face back.</p>
+    </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 08 — SOCIAL PROOF ========== -->
-<section class="section">
-  <h2 class="centered reveal" style="margin-bottom:10px;">"I was in the family photo this year."</h2>
-  <p class="centered reveal" style="color:var(--gray);margin-bottom:20px;font-size:15px;">Three hundred and twelve women tested this for sixty days before it left my kitchen.</p>
+<!-- ========== 10 — MAKE IT PERSONAL ========== -->
+<section class="brique wrap">
+  <p class="italic soft rv" style="margin-bottom:24px">Three women. Three things they thought they'd given up. There were others on the panel. Most of them said the same thing — that getting the face back wasn't really the point.</p>
 
-  <div class="reveal" style="text-align:center;margin:0 auto 28px;max-width:480px;padding:16px 18px;background:var(--pink-light);border-radius:6px;">
-    <p class="serif" style="font-size:20px;color:var(--pink-dark);font-weight:500;margin:0 0 4px;">Three of three hundred and twelve.</p>
-    <p class="serif italic" style="font-size:20px;color:var(--pink-dark);margin:0;">They could've been any of us.</p>
-  </div>
+  <h2 class="rv" style="margin-bottom:10px">This was never about the skin.</h2>
+  <p class="center italic soft rv" style="margin-bottom:26px">It was about everything the skin had quietly cancelled.</p>
 
-  <p class="centered eyebrow reveal" style="margin-bottom:14px;">← SWIPE TO SEE MORE →</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:0 auto 30px;max-width:560px">There's one thing I haven't said yet. It's the smaller, harder thing — the one I think you've felt too.</p>
 
-  <!-- Testimonial carousel -->
-  <div class="carousel-outer nudge" id="carousel">
-    <div class="carousel-track">
-      <div class="testi-card card" style="border:0.5px solid rgba(153,53,86,0.15);">
-        <div class="testi-video">
-          <p class="testi-play">▶</p>
-          <p class="eyebrow" style="margin:0;">VIDEO · À IMPORTER</p>
-          <p style="font-size:11px;color:var(--gray);margin:4px 0 0;">30-60s · talking head · 9:16</p>
-        </div>
-        <p class="eyebrow" style="margin-bottom:6px;">SARAH · 34 · BOSTON</p>
-        <blockquote class="serif italic" style="font-size:15px;margin:0;line-height:1.55;color:var(--dark);">"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote>
-      </div>
-      <div class="testi-card card" style="border:0.5px solid rgba(153,53,86,0.15);">
-        <div class="testi-video">
-          <p class="testi-play">▶</p>
-          <p class="eyebrow" style="margin:0;">VIDEO · À IMPORTER</p>
-          <p style="font-size:11px;color:var(--gray);margin:4px 0 0;">30-60s · talking head · 9:16</p>
-        </div>
-        <p class="eyebrow" style="margin-bottom:6px;">RACHEL · 41 · CHICAGO</p>
-        <blockquote class="serif italic" style="font-size:15px;margin:0;line-height:1.55;color:var(--dark);">"My husband took the picture. I was in it. That was new."</blockquote>
-      </div>
-      <div class="testi-card card" style="border:0.5px solid rgba(153,53,86,0.15);">
-        <div class="testi-video">
-          <p class="testi-play">▶</p>
-          <p class="eyebrow" style="margin:0;">VIDEO · À IMPORTER</p>
-          <p style="font-size:11px;color:var(--gray);margin:4px 0 0;">30-60s · talking head · 9:16</p>
-        </div>
-        <p class="eyebrow" style="margin-bottom:6px;">MAYA · 38 · BROOKLYN</p>
-        <blockquote class="serif italic" style="font-size:15px;margin:0;line-height:1.55;color:var(--dark);">"Nobody's asked me if I'm sick in four months."</blockquote>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Testimonial navigation">
-    <button class="on" aria-label="Go to Sarah's testimonial"></button>
-    <button aria-label="Go to Rachel's testimonial"></button>
-    <button aria-label="Go to Maya's testimonial"></button>
-  </div>
-
-  <!-- Stats block BY WEEK EIGHT with count-up -->
-  <div class="reveal" style="background:var(--beige);border-radius:10px;padding:30px 26px;text-align:center;margin:32px 0;">
-    <p class="eyebrow" style="margin-bottom:18px;letter-spacing:0.16em;">BY WEEK EIGHT</p>
-    <p class="serif" style="font-size:19px;color:var(--dark);margin:0 0 10px;line-height:1.55;"><span class="stat-num" data-count="87" style="font-size:22px;">87</span> out of 100 said their flushes were less frequent.</p>
-    <p class="serif" style="font-size:19px;color:var(--dark);margin:0 0 18px;line-height:1.55;"><span class="stat-num" data-count="91" style="font-size:22px;">91</span> said their face was coming back down faster on its own.</p>
-    <div style="width:60px;height:1px;background:var(--pink);opacity:0.3;margin:0 auto 18px;"></div>
-    <p class="serif italic" style="font-size:16px;color:var(--pink-dark);margin:0;">Sixty days. One email. Full refund if it didn't.</p>
-  </div>
-
-  <!-- Mirror terminal -->
-  <div class="reveal" style="background:var(--pink-light);border-radius:8px;padding:26px;text-align:center;margin-top:20px;">
-    <p class="serif italic" style="font-size:22px;color:var(--pink-dark);font-weight:500;margin:0;line-height:1.4;">They didn't get a different face. They got their own face back.</p>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ========== BRIQUE 10 — MAKE IT PERSONAL ========== -->
-<section class="section">
-  <p class="italic reveal" style="color:var(--gray);margin-bottom:24px;">Three women. Three things they thought they'd given up. There were others on the panel. Most of them said the same thing — that getting the face back wasn't really the point.</p>
-
-  <h2 class="reveal" style="font-size:34px;margin-bottom:8px;">This was never about the skin.</h2>
-  <p class="centered italic reveal" style="color:var(--gray);margin-bottom:24px;">It was about everything the skin had quietly cancelled.</p>
-
-  <div class="reveal" style="max-width:560px;margin:0 auto 28px;text-align:center;">
-    <p class="serif italic" style="font-size:18px;color:var(--pink-dark);">There's one thing I haven't said yet. It's the smaller, harder thing — the one I think you've felt too.</p>
-  </div>
-
-  <!-- DECOUPLING CLIMAX · Niveau 4 · line-by-line reveal -->
-  <blockquote class="word-reveal" id="climax" style="background:var(--pink-light);border-left:3px solid var(--pink);padding:26px;margin:0 auto 32px;max-width:580px;border-radius:0 8px 8px 0;">
-    <p style="margin-bottom:10px;">And underneath all of it was this:</p>
-    <p class="serif" style="font-size:20px;color:var(--pink-dark);font-weight:500;margin-bottom:10px;">My face had stopped telling the truth about me.</p>
-    <p style="margin:0;line-height:1.75;">It would flush when I was calm. It would scream when I was steady. People were reading something on my face that wasn't what was happening inside me. <span class="pink-bold">They were being misled. I was being misread.</span></p>
+  <blockquote class="wash linemask rv" id="climax" style="background:var(--rosa-wash);border-left:3px solid var(--rosa);border-radius:0 10px 10px 0;max-width:580px;margin:0 auto 34px">
+    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink-soft);display:block;margin-bottom:10px">And underneath all of it was this:</i></span>
+    <span><i class="serif" style="font-size:clamp(20px,3.4vw,24px);color:var(--rosa-dk);font-weight:500;font-style:normal;display:block;margin-bottom:10px">My face had stopped telling the truth about me.</i></span>
+    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink);line-height:1.8;display:block;font-style:normal">It would flush when I was calm. It would scream when I was steady. People were reading something on my face that wasn't what was happening inside me. <b style="color:var(--rosa);font-weight:600">They were being misled. I was being misread.</b></i></span>
   </blockquote>
 
-  <!-- Paired form desire stack -->
-  <div class="stagger" style="max-width:560px;margin:0 auto;">
-    <div style="margin-bottom:24px;" aria-label="What I gave up, and what I wanted back">
-      <p class="italic" style="color:var(--gray);margin-bottom:4px;font-size:15px;">What I'd quietly given up:</p>
-      <p class="italic" style="color:var(--gray);">the right to feel something without showing it.</p>
-      <p class="serif" style="font-size:19px;color:var(--pink-dark);margin-top:6px;">What I wanted back:</p>
-      <p class="serif italic" style="font-size:19px;color:var(--pink-dark);">a face that doesn't show what I'm not feeling.</p>
+  <div class="pair stg">
+    <div class="row">
+      <p class="loss small">What I'd quietly given up:</p>
+      <p class="loss">the right to feel something without showing it.</p>
+      <p class="label">What I wanted back:</p>
+      <p class="gain">a face that doesn't show what I'm not feeling.</p>
     </div>
-
-    <div style="margin-bottom:24px;">
-      <p class="italic" style="color:var(--gray);">the meetings I'd already won — before I saw myself in the corner of the screen.</p>
-      <p class="serif italic" style="font-size:19px;color:var(--pink-dark);margin-top:6px;">an hour at work without checking the self-view once.</p>
+    <div class="row">
+      <p class="loss">the meetings I'd already won — before I saw myself in the corner of the screen.</p>
+      <p class="gain">an hour at work without checking the self-view once.</p>
     </div>
-
-    <div style="margin-bottom:32px;">
-      <p class="italic" style="color:var(--gray);">the photos I'd quietly stopped being in.</p>
-      <p class="serif italic" style="font-size:19px;color:var(--pink-dark);margin-top:6px;">the small gatherings I attend without rehearsing.</p>
+    <div class="row">
+      <p class="loss">the photos I'd quietly stopped being in.</p>
+      <p class="gain">the small gatherings I attend without rehearsing.</p>
     </div>
   </div>
 
-  <div class="centered reveal" style="max-width:520px;margin:0 auto;">
-    <p class="serif" style="font-size:22px;">To be in my own life again —</p>
-    <p class="serif pink" style="font-size:24px;font-weight:500;margin-top:4px;">with a face that tells the truth about being there.</p>
-    <p class="serif italic" style="font-size:17px;color:var(--gray);margin-top:14px;">Not by forcing it. By letting my face do what it was supposed to do all along.</p>
+  <div class="center rv" style="max-width:520px;margin:8px auto 0">
+    <p class="serif" style="font-size:clamp(20px,3.6vw,24px)">To be in my own life again —</p>
+    <p class="serif rosa" style="font-size:clamp(22px,4vw,26px);font-weight:500;margin-top:4px">with a face that tells the truth about being there.</p>
+    <p class="serif italic soft" style="font-size:17px;margin-top:14px">Not by forcing it. By letting my face do what it was supposed to do all along.</p>
   </div>
 
-  <div class="skip-cta">
-    <a href="#brique-11" data-cta="10"><em>That's what I came for</em> · let's begin →</a>
+  <div class="skip"><a href="#close" data-cta="10"><em>That's what I came for</em> · let's begin <span class="arw">→</span></a></div>
+</section>
+
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
+
+<!-- ========== 10.5 — TRUST STACK ========== -->
+<section class="brique wrap">
+  <h2 class="rosa-dk rv" style="margin-bottom:10px">What's actually in the bottle.</h2>
+  <p class="serif italic center rosa-dk rv" style="font-size:17px;margin-bottom:32px">The five things that, together, give your face back what it lost.</p>
+
+  <div class="plate plate--quiet rv" style="margin:0 auto 14px;max-width:460px">
+    <span class="tag">Quiet packshot</span>
+    <span class="spec">bottle on linen · neutral cream backdrop · soft overhead · 480×400 · a different register from the two others</span>
+  </div>
+  <p class="serif italic center soft rv" style="font-size:14px;margin:0 auto 32px;max-width:460px">This is the bottle 312 of us tested. Eight weeks.</p>
+
+  <div class="stg" style="max-width:560px;margin:0 auto">
+    <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)"><p style="flex:0 0 auto;margin:0"><strong>Azelaic acid</strong> <span class="conc" style="font-size:11px;color:var(--ink-faint)">10%</span></p><p class="soft" style="margin:0;font-size:14px">→ helps the alarm stop firing</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)"><p style="flex:0 0 auto;margin:0"><strong>Centella asiatica</strong> <span class="conc" style="font-size:11px;color:var(--ink-faint)">4%</span></p><p class="soft" style="margin:0;font-size:14px">→ helps the nerves come back to normal</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)"><p style="flex:0 0 auto;margin:0"><strong>Colloidal oat · Panthenol B5</strong> <span class="conc" style="font-size:11px;color:var(--ink-faint)">1% · 5%</span></p><p class="soft" style="margin:0;font-size:14px">→ helps close the door (the barrier holds)</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)"><p style="flex:0 0 auto;margin:0"><strong>Licochalcone A</strong> <span class="conc" style="font-size:11px;color:var(--ink-faint)">0.4%</span></p><p class="soft" style="margin:0;font-size:14px">→ helps the vessels close back down</p></div>
+    <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:2px solid var(--rosa)"><p style="flex:0 0 auto;margin:0;color:var(--rosa-dk)"><strong>The fifth</strong></p><p class="serif italic rosa-dk" style="margin:0;font-size:14px">→ what your face does when the first four stop interfering</p></div>
+  </div>
+
+  <div class="grid3 rv" style="margin:36px 0 24px">
+    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What's in</p><p class="soft small" style="margin:0;line-height:1.55">5 clinically-dosed actives. Formulated in a dermatology lab.</p></div>
+    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What's out</p><p class="soft small" style="margin:0;line-height:1.55">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p></div>
+    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What I promise</p><p class="soft small" style="margin:0;line-height:1.55">Sixty days. One email. Full refund if it didn't.</p></div>
+  </div>
+
+  <p class="italic center soft rv">If any of that makes sense to you — and you've read this far — there's only one thing left.</p>
+</section>
+
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
+
+<!-- ========== 11 — CLOSE ========== -->
+<section class="brique wrap" id="close">
+  <div class="center rv" style="max-width:540px;margin:0 auto 30px">
+    <p>You've carried this longer than you want to remember. The mirror checks. The rehearsed faces. The Zoom self-view that ruined meetings you should've enjoyed. The photos you quietly stopped being in.</p>
+    <p class="serif rosa-dk" style="font-size:clamp(20px,3.6vw,23px);font-weight:500;margin-top:16px">That's the part I'm asking you to put down.</p>
+  </div>
+
+  <div class="bigquote rv" style="margin:0 auto 36px">
+    <p style="font-style:italic">Three hundred and twelve of us put it down.</p>
+    <p class="serif rosa-dk" style="font-size:clamp(20px,3.4vw,24px);font-weight:500;font-style:normal;margin-top:4px">You can put it down too.</p>
+  </div>
+
+  <div class="center rv" style="max-width:520px;margin:0 auto 24px">
+    <p class="eyebrow" style="margin-bottom:10px">Rosalia</p>
+    <h3 class="serif rosa-dk" style="margin-bottom:4px">The Daily Reset Serum</h3>
+    <p class="serif italic soft" style="font-size:17px">With the Reset Complex™.</p>
+  </div>
+
+  <div class="plate plate--drama rv" style="margin:0 auto 30px;max-width:520px">
+    <span class="tag">Hero dramatic packshot</span>
+    <span class="spec">bottle close-up · dramatic side light · wine-pink shadow · 520×380 · the decision moment</span>
+  </div>
+
+  <div class="center rv" style="max-width:520px;margin:0 auto 28px">
+    <p class="serif rosa-dk" style="font-size:clamp(26px,5vw,30px);font-weight:500;margin-bottom:4px">$45</p>
+    <p class="small faint" style="margin:0 0 18px">30ml · Eight-week supply · One bottle.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than a single laser session.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than the tubes I tried that didn't last.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than what I lost rehearsing my face in mirrors.</p>
+  </div>
+
+  <div class="guarantee rv"><p class="serif italic uline" style="font-size:18px;color:var(--rosa-dk);margin:0">Sixty days. One email. Full refund if it didn't.</p></div>
+
+  <div class="future stg" style="margin:0 auto 32px">
+    <p><span class="m">Tomorrow morning</span> · a face I don't have to talk to.</p>
+    <p><span class="m">Next Tuesday's Zoom</span> · the self-view checked once, then forgotten.</p>
+    <p><span class="m">This weekend</span> · the photos I'm in.</p>
+    <p><span class="m">The next "are you okay?"</span> · without the rehearsed reply.</p>
+    <p><span class="m">The next small gathering</span> · without the rehearsing.</p>
+    <p style="margin:0"><span class="m">Sixty days from now</span> · forgetting what this exhaustion felt like.</p>
+  </div>
+
+  <div class="buy"><a href="#checkout" data-cta="main"><em>I want my face back</em> · take me there →</a></div>
+
+  <div class="ps rv">
+    <p style="font-weight:500;margin-bottom:10px">PS — last thing.</p>
+    <p style="line-height:1.8;margin-bottom:10px">If you've been burned by 47 products before this one, you have every right to hesitate. I built it knowing that.</p>
+    <p style="line-height:1.8;margin-bottom:10px">Sixty days to test it. If it doesn't change anything, send me one email — the refund will be on you the same day. No questions. No forms. No story to tell me.</p>
+    <p class="serif italic rosa-dk" style="font-size:17px;margin:14px 0 0">I'm not asking you to trust me. I'm asking you to test me.</p>
+    <p class="soft" style="margin:14px 0 0">— Margot</p>
+  </div>
+
+  <div class="faq rv">
+    <p class="eyebrow" style="margin:14px 0 4px">A few things people ask</p>
+    <div class="faq-item open"><button class="faq-q" aria-expanded="true">Will it work if I have bumps too?<span class="sign">−</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">I built it for subtype 1 (flushing) and subtype 2 (papulopustular). The 312 cohort included both. The bumps stop coming back when the loop unwinds — not because the formula attacks them, because their cause does.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">My skin stings on everything. Will it sting?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">The 312 reported no stinging. I built it specifically without the actives that sting on reactive skin — alcohol, fragrance, essential oils, niacinamide above 5%. If it stings on you, I don't want you to keep using it. Send it back.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need to change my whole routine?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">No. But pause anything that fights against the loop — retinoids, AHAs, high-niacinamide products — for the first four weeks. After that, you'll know what works with it.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What's the refund process if it doesn't work?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">Send it back within 60 days. One email. Full refund, no questions. I'd rather refund 312 women than keep money that didn't help.</p></div></div></div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
-<!-- ========== BRIQUE 10.5 — TRUST STACK ========== -->
-<section class="section">
-  <div class="section-tag reveal">10.5 · Trust stack</div>
-  <h2 class="reveal" style="color:var(--pink-dark);margin-bottom:8px;">What's actually in the bottle.</h2>
-  <p class="centered serif italic reveal" style="color:var(--pink-dark);font-size:17px;margin-bottom:32px;">The five things that, together, give your face back what it lost.</p>
-
-  <div class="img-placeholder reveal" style="height:320px;margin:0 auto 14px;max-width:480px;">
-    <strong style="color:var(--pink-dark);">Quiet hero packshot</strong>
-    bottle on linen · neutral cream backdrop · soft overhead · 480×400px
-    <span style="font-style:normal;font-size:12px;">DIFFERENT from Brique 07 editorial &amp; Brique 11 dramatic</span>
-  </div>
-  <p class="centered serif italic reveal" style="font-size:14px;color:var(--gray);margin:0 auto 32px;max-width:480px;">This is the bottle 312 of us tested. Eight weeks.</p>
-
-  <!-- Active phrasing badges -->
-  <div class="stagger" style="max-width:560px;margin:0 auto;">
-    <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:0.5px solid var(--pink-light);">
-      <p style="flex:0 0 auto;margin:0;"><strong>Azelaic acid</strong> <span style="font-size:11px;letter-spacing:1px;color:var(--gray);">10%</span></p>
-      <p style="color:var(--gray);margin:0;font-size:14px;">→ helps the alarm stop firing</p>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:0.5px solid var(--pink-light);">
-      <p style="flex:0 0 auto;margin:0;"><strong>Centella asiatica</strong> <span style="font-size:11px;letter-spacing:1px;color:var(--gray);">4%</span></p>
-      <p style="color:var(--gray);margin:0;font-size:14px;">→ helps the nerves come back to normal</p>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:0.5px solid var(--pink-light);">
-      <p style="flex:0 0 auto;margin:0;"><strong>Colloidal oat · Panthenol B5</strong> <span style="font-size:11px;letter-spacing:1px;color:var(--gray);">1% · 5%</span></p>
-      <p style="color:var(--gray);margin:0;font-size:14px;">→ helps close the door (the barrier holds)</p>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:0.5px solid var(--pink-light);">
-      <p style="flex:0 0 auto;margin:0;"><strong>Licochalcone A</strong> <span style="font-size:11px;letter-spacing:1px;color:var(--gray);">0.4%</span></p>
-      <p style="color:var(--gray);margin:0;font-size:14px;">→ helps the vessels close back down</p>
-    </div>
-    <div style="display:flex;align-items:baseline;gap:14px;padding:14px 0;border-bottom:1.5px solid var(--pink);">
-      <p style="flex:0 0 auto;margin:0;color:var(--pink-dark);"><strong>The fifth</strong></p>
-      <p class="serif italic" style="color:var(--pink-dark);margin:0;font-size:14px;">→ what your face does when the first four stop interfering</p>
-    </div>
-  </div>
-
-  <!-- Transparency block -->
-  <div class="card-grid-3 reveal" style="margin:36px 0 24px;">
-    <div style="background:var(--beige);border-radius:8px;padding:18px;">
-      <p class="eyebrow" style="margin-bottom:8px;">WHAT'S IN</p>
-      <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.6;">5 clinically-dosed actives. Formulated in a dermatology lab.</p>
-    </div>
-    <div style="background:var(--beige);border-radius:8px;padding:18px;">
-      <p class="eyebrow" style="margin-bottom:8px;">WHAT'S OUT</p>
-      <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.6;">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p>
-    </div>
-    <div style="background:var(--beige);border-radius:8px;padding:18px;">
-      <p class="eyebrow" style="margin-bottom:8px;">WHAT I PROMISE</p>
-      <p style="font-size:13px;color:var(--gray);margin:0;line-height:1.6;">Sixty days. One email. Full refund if it didn't.</p>
-    </div>
-  </div>
-
-  <p class="italic centered reveal" style="color:var(--gray);">If any of that makes sense to you — and you've read this far — there's only one thing left.</p>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ========== BRIQUE 11 — CLOSE ========== -->
-<section class="section" id="brique-11">
-  <div class="section-tag reveal">11 · Close</div>
-
-  <div class="centered reveal" style="max-width:540px;margin:0 auto 28px;">
-    <p style="line-height:1.8;">You've carried this longer than you want to remember. The mirror checks. The rehearsed faces. The Zoom self-view that ruined meetings you should've enjoyed. The photos you quietly stopped being in.</p>
-    <p class="serif" style="font-size:22px;color:var(--pink-dark);font-weight:500;margin-top:16px;">That's the part I'm asking you to put down.</p>
-  </div>
-
-  <div class="pink-bar reveal" style="max-width:520px;margin:0 auto 36px;text-align:center;">
-    <p class="serif italic" style="font-size:20px;color:var(--pink-dark);">Three hundred and twelve of us put it down.</p>
-    <p class="serif" style="font-size:20px;color:var(--pink-dark);font-weight:500;">You can put it down too.</p>
-  </div>
-
-  <div class="centered reveal" style="margin:0 auto 24px;max-width:520px;">
-    <p class="eyebrow" style="margin-bottom:10px;">CALMING THE FLUSH</p>
-    <h3 class="serif" style="font-size:30px;color:var(--pink-dark);margin-bottom:4px;">The Daily Reset Serum</h3>
-    <p class="serif italic" style="font-size:17px;color:var(--gray);">With the Reset Complex™.</p>
-  </div>
-  <div class="img-placeholder reveal" style="height:380px;margin:0 auto 28px;max-width:520px;">
-    <strong style="color:var(--pink-dark);">Hero dramatic packshot</strong>
-    bottle close-up · dramatic side light · wine-pink shadow · 520×380px
-    <span style="font-style:normal;font-size:12px;">intent feel — DIFFERENT from Brique 07 &amp; Brique 10.5</span>
-  </div>
-
-  <div class="centered reveal" style="max-width:520px;margin:0 auto 28px;">
-    <p class="serif" style="font-size:28px;color:var(--pink-dark);font-weight:500;margin-bottom:4px;">$45</p>
-    <p style="font-size:14px;color:var(--gray);margin:0 0 18px;">30ml · Eight-week supply · One bottle.</p>
-    <p style="font-size:15px;color:var(--gray);line-height:1.8;">Less than a single laser session.</p>
-    <p style="font-size:15px;color:var(--gray);line-height:1.8;">Less than the tubes I tried that didn't last.</p>
-    <p style="font-size:15px;color:var(--gray);line-height:1.8;">Less than what I lost rehearsing my face in mirrors.</p>
-  </div>
-
-  <div class="guarantee-block reveal" style="max-width:520px;text-align:center;">
-    <p class="serif italic underline-draw" style="font-size:18px;color:var(--pink-dark);margin:0;">Sixty days. One email. Full refund if it didn't.</p>
-  </div>
-
-  <!-- Future pacing -->
-  <div style="max-width:540px;margin:0 auto 32px;">
-    <p class="eyebrow centered reveal" style="margin-bottom:18px;">WHAT'S COMING BACK</p>
-    <div class="stagger" style="border-left:2px solid var(--pink-light);padding-left:20px;">
-      <p style="margin-bottom:14px;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">Tomorrow morning</span> · a face I don't have to talk to.</p>
-      <p style="margin-bottom:14px;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">Next Tuesday's Zoom</span> · the self-view checked once, then forgotten.</p>
-      <p style="margin-bottom:14px;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">This weekend</span> · the photos I'm in.</p>
-      <p style="margin-bottom:14px;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">The next "are you okay?"</span> · without the rehearsed reply.</p>
-      <p style="margin-bottom:14px;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">The next small gathering</span> · without the rehearsing.</p>
-      <p style="margin:0;line-height:1.6;"><span style="color:var(--pink-dark);font-weight:500;">Sixty days from now</span> · forgetting what this exhaustion felt like.</p>
-    </div>
-  </div>
-
-  <!-- Main CTA -->
-  <div class="main-cta">
-    <a href="#checkout" data-cta="main"><em>I want my face back</em> · take me there →</a>
-  </div>
-
-  <!-- Extended PS -->
-  <div class="reveal" style="max-width:540px;margin:48px auto 0;padding:26px;background:var(--beige);border-radius:10px;">
-    <p style="font-weight:500;margin-bottom:10px;">PS — last thing.</p>
-    <p style="line-height:1.75;margin-bottom:10px;">If you've been burned by 47 products before this one, you have every right to hesitate. I built it knowing that.</p>
-    <p style="line-height:1.75;margin-bottom:10px;">Sixty days to test it. If it doesn't change anything, send me one email — the refund will be on you the same day. No questions. No forms. No story to tell me.</p>
-    <p class="serif italic" style="font-size:17px;color:var(--pink-dark);margin-top:14px;margin-bottom:0;">I'm not asking you to trust me. I'm asking you to test me.</p>
-    <p style="color:var(--gray);margin-top:14px;margin-bottom:0;">— Margot</p>
-  </div>
-
-  <!-- Mini-FAQ accordion -->
-  <div class="faq-block reveal" style="max-width:560px;">
-    <p class="eyebrow" style="margin-bottom:6px;">A FEW THINGS PEOPLE ASK</p>
-    <div class="faq-item open">
-      <button class="faq-q-btn" aria-expanded="true">Will it work if I have bumps too?<span class="sign">−</span></button>
-      <div class="faq-answer"><div><p class="faq-a">I built it for subtype 1 (flushing) and subtype 2 (papulopustular). The 312 cohort included both. The bumps stop coming back when the loop unwinds — not because the formula attacks them, because their cause does.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q-btn" aria-expanded="false">My skin stings on everything. Will it sting?<span class="sign">+</span></button>
-      <div class="faq-answer"><div><p class="faq-a">The 312 reported no stinging. I built it specifically without the actives that sting on reactive skin — alcohol, fragrance, essential oils, niacinamide above 5%. If it stings on you, I don't want you to keep using it. Send it back.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q-btn" aria-expanded="false">Do I need to change my whole routine?<span class="sign">+</span></button>
-      <div class="faq-answer"><div><p class="faq-a">No. But pause anything that fights against the loop — retinoids, AHAs, high-niacinamide products — for the first four weeks. After that, you'll know what works with it.</p></div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q-btn" aria-expanded="false">What's the refund process if it doesn't work?<span class="sign">+</span></button>
-      <div class="faq-answer"><div><p class="faq-a">Send it back within 60 days. One email. Full refund, no questions. I'd rather refund 312 women than keep money that didn't help.</p></div></div>
-    </div>
+<!-- ========== 12 — FINAL WHISPER ========== -->
+<section class="brique wrap">
+  <div class="center rv" style="max-width:500px;margin:0 auto">
+    <p class="serif italic soft" style="font-size:17px">If you're not ready — that's fine.</p>
+    <p class="soft">The flush will still be there tomorrow. So will this page.</p>
+    <p class="soft">When you're ready to stop treating one step at a time —</p>
+    <p class="serif rosa-dk" style="font-size:21px;font-weight:500;margin-top:14px">I'll be here.</p>
+    <p class="serif italic soft" style="font-size:16px;margin-top:8px">So will the women who tested it.</p>
+    <p class="serif italic soft" style="font-size:15px;margin-top:14px">Whenever you're ready.</p>
+    <div class="ornament" style="margin:28px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
+    <div class="plate" style="border:1px dashed var(--line);height:60px;max-width:180px;margin:0 auto 8px;font-size:11px">Signature manuscrite (optional) · 180×60</div>
+    <p class="serif italic rosa-dk" style="font-size:22px">Margot</p>
   </div>
 </section>
 
-<div class="section-divider"></div>
+</div><!-- /feature -->
 
-<!-- ========== BRIQUE 12 — FINAL WHISPER ========== -->
-<section class="section">
-  <div class="centered reveal" style="max-width:500px;margin:0 auto;">
-    <p class="serif italic" style="font-size:17px;color:var(--gray);">If you're not ready — that's fine.</p>
-    <p style="color:var(--gray);">The flush will still be there tomorrow. So will this page.</p>
-    <p style="color:var(--gray);">When you're ready to stop treating one step at a time —</p>
-    <p class="serif" style="font-size:20px;color:var(--pink-dark);font-weight:500;margin-top:14px;">I'll be here.</p>
-    <p class="serif italic" style="font-size:16px;color:var(--gray);margin-top:8px;">So will the women who tested it.</p>
-    <p class="serif italic" style="font-size:15px;color:var(--gray);margin-top:14px;">Whenever you're ready.</p>
-    <div class="section-divider" style="margin:28px auto;"></div>
-    <div class="img-placeholder" style="height:60px;max-width:180px;margin:0 auto 8px;border-style:dotted;font-size:11px;">Signature manuscrite (optional) · 180×60px</div>
-    <p style="color:var(--gray);">— Margot</p>
-  </div>
-</section>
-
-</div><!-- end .lp -->
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div style="margin-bottom:8px;">
-      <p class="serif" style="font-size:20px;color:var(--pink-dark);">Calming the Flush</p>
-      <p class="eyebrow" style="color:var(--gray);font-size:9px;letter-spacing:0.16em;">REACTIVE SKIN, ADDRESSED SIMULTANEOUSLY</p>
+<footer class="foot">
+  <div class="foot-in">
+    <div style="margin-bottom:6px">
+      <p class="wordmark" style="font-size:22px">Rosalia<span class="dot">.</span></p>
+      <p class="eyebrow muted" style="font-size:9px;margin-top:4px">Reactive skin, addressed simultaneously</p>
     </div>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#">Daily Reset Serum</a>
-        <a href="#">Full ingredients</a>
-        <a href="#">How to use</a>
-        <a href="#brique-11">FAQ</a>
-      </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <a href="#">Contact us</a>
-        <a href="#">Shipping &amp; returns</a>
-        <a href="#">60-day guarantee</a>
-        <a href="#">Track order</a>
-      </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <a href="#">Our story</a>
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms of service</a>
-        <a href="#">Accessibility</a>
-      </div>
+    <div class="foot-grid">
+      <div><h4>Product</h4><a href="#">Daily Reset Serum</a><a href="#">Full ingredients</a><a href="#">How to use</a><a href="#close">FAQ</a></div>
+      <div><h4>Support</h4><a href="#">Contact us</a><a href="#">Shipping &amp; returns</a><a href="#">60-day guarantee</a><a href="#">Track order</a></div>
+      <div><h4>Company</h4><a href="#">Our story</a><a href="#">Privacy policy</a><a href="#">Terms of service</a><a href="#">Accessibility</a></div>
     </div>
-    <div class="footer-disclaimer">
+    <div class="disclaimer">
       <p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
-      <p style="margin-top:8px;">© 2026 Calming the Flush. All rights reserved.</p>
+      <p style="margin-top:8px">© 2026 Rosalia. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <script>
-(function () {
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Scroll reveal (reveal / reveal-left / stagger / scale-in / word-reveal / underline-draw) ---------- */
-  var revealEls = document.querySelectorAll('.reveal, .reveal-left, .stagger, .scale-in, .word-reveal, .underline-draw');
-
-  if (reduce || !('IntersectionObserver' in window)) {
-    revealEls.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    // Prepare staggered children
-    document.querySelectorAll('.stagger').forEach(function (grp) {
-      Array.prototype.forEach.call(grp.children, function (child, i) {
-        child.style.transitionDelay = (i * 0.09) + 's';
-      });
-    });
-    // Prepare word-reveal: wrap words in spans
-    document.querySelectorAll('.word-reveal p').forEach(function (p) {
-      var walk = function (node) {
-        var kids = Array.prototype.slice.call(node.childNodes);
-        kids.forEach(function (n) {
-          if (n.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            n.textContent.split(/(\s+)/).forEach(function (tok) {
-              if (tok.trim() === '') { frag.appendChild(document.createTextNode(tok)); }
-              else {
-                var s = document.createElement('span');
-                s.className = 'wr'; s.textContent = tok;
-                frag.appendChild(s);
-              }
-            });
-            node.replaceChild(frag, n);
-          } else if (n.nodeType === 1) { walk(n); }
-        });
-      };
-      walk(p);
-    });
-
-    var io = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        var el = e.target;
-        el.classList.add('in');
-
-        // Word reveal cascade
-        if (el.classList.contains('word-reveal')) {
-          var words = el.querySelectorAll('.wr');
-          words.forEach(function (w, i) { w.style.transitionDelay = (i * 0.045) + 's'; });
-        }
-        obs.unobserve(el);
-      });
-    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
-
-    revealEls.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------- Count-up stats ---------- */
-  var counters = document.querySelectorAll('.stat-num[data-count]');
-  var runCount = function (el) {
-    var target = parseInt(el.getAttribute('data-count'), 10);
-    var suffix = el.getAttribute('data-suffix') || '';
-    if (reduce) { el.innerHTML = target + suffix; return; }
-    var dur = 1200, start = null;
-    var step = function (ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      el.innerHTML = Math.round(target * eased) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
+  /* progress hairline */
+  var bar=document.getElementById('progress');
+  var onScroll=function(){
+    var h=document.documentElement;
+    var max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
   };
-  if ('IntersectionObserver' in window && !reduce) {
-    var cio = new IntersectionObserver(function (entries, obs) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { runCount(e.target); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function (c) { cio.observe(c); });
-  } else {
-    counters.forEach(function (c) {
-      var t = c.getAttribute('data-count'); var s = c.getAttribute('data-suffix') || '';
-      c.innerHTML = t + s;
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var rvEls=document.querySelectorAll('.rv,.stg,.scalein,.wordrev,.linemask');
+  if(reduce||!('IntersectionObserver'in window)){
+    rvEls.forEach(function(e){e.classList.add('in')});
+  }else{
+    document.querySelectorAll('.stg').forEach(function(g){
+      [].forEach.call(g.children,function(c,i){c.style.transitionDelay=(i*0.08)+'s'});
     });
-  }
-
-  /* ---------- "I was neither" highlight pulse ---------- */
-  if (!reduce && 'IntersectionObserver' in window) {
-    var hl = document.querySelector('.hl-pulse');
-    if (hl) {
-      var hio = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            setTimeout(function () { hl.classList.add('pulsing'); }, 300);
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.9 });
-      hio.observe(hl);
-    }
-  }
-
-  /* ---------- 4-panel rosacea cross-fade ---------- */
-  var stage = document.getElementById('rosacea');
-  if (stage) {
-    var panels = stage.querySelectorAll('.rosacea-panel');
-    var dots = document.querySelectorAll('.rosacea-dots span');
-    var showStage = function (idx) {
-      panels.forEach(function (p, i) { p.classList.toggle('show', i === idx); });
-      dots.forEach(function (d, i) { d.classList.toggle('on', i === idx); });
-    };
-    if (reduce) {
-      showStage(3); // final state
-    } else {
-      showStage(0);
-      var played = false;
-      var sio = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting && !played) {
-            played = true;
-            var i = 0;
-            var advance = function () {
-              showStage(i);
-              if (i < 3) { i++; setTimeout(advance, 1500); }
-            };
-            setTimeout(advance, 500);
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      sio.observe(stage);
-    }
-  }
-
-  /* ---------- Testimonial carousel: dots + one-time nudge ---------- */
-  var carousel = document.getElementById('carousel');
-  if (carousel) {
-    var track = carousel.querySelector('.carousel-track');
-    var cards = track.children;
-    var dotBtns = document.querySelectorAll('#carousel-dots button');
-
-    var updateDots = function () {
-      var idx = Math.round(carousel.scrollLeft / (cards[0].offsetWidth + 14));
-      idx = Math.max(0, Math.min(idx, dotBtns.length - 1));
-      dotBtns.forEach(function (b, i) { b.classList.toggle('on', i === idx); });
-    };
-    var scrollTimer;
-    carousel.addEventListener('scroll', function () {
-      window.clearTimeout(scrollTimer);
-      scrollTimer = window.setTimeout(updateDots, 80);
-    }, { passive: true });
-
-    dotBtns.forEach(function (b, i) {
-      b.addEventListener('click', function () {
-        carousel.scrollTo({ left: i * (cards[0].offsetWidth + 14), behavior: reduce ? 'auto' : 'smooth' });
+    // wrap words for word-reveal
+    document.querySelectorAll('.wordrev p').forEach(function(p){
+      var t=p.textContent;p.textContent='';
+      t.split(/(\s+)/).forEach(function(tok){
+        if(tok.trim()===''){p.appendChild(document.createTextNode(tok));}
+        else{var s=document.createElement('span');s.className='w';s.textContent=tok;p.appendChild(s);}
       });
     });
+    var io=new IntersectionObserver(function(en,ob){
+      en.forEach(function(e){
+        if(!e.isIntersecting)return;
+        e.target.classList.add('in');
+        if(e.target.classList.contains('wordrev')){
+          e.target.querySelectorAll('.w').forEach(function(w,i){w.style.transitionDelay=(i*0.05)+'s'});
+        }
+        if(e.target.classList.contains('linemask')){
+          e.target.querySelectorAll('span i').forEach(function(l,i){l.style.transitionDelay=(i*0.22)+'s'});
+        }
+        ob.unobserve(e.target);
+      });
+    },{threshold:0.16,rootMargin:'0px 0px -7% 0px'});
+    rvEls.forEach(function(e){io.observe(e)});
+  }
 
-    // One-time auto-nudge hint (only if untouched)
-    if (!reduce && 'IntersectionObserver' in window) {
-      var interacted = false;
-      carousel.addEventListener('scroll', function () { interacted = true; }, { passive: true, once: true });
-      var nio = new IntersectionObserver(function (entries, obs) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            setTimeout(function () {
-              if (!interacted) { carousel.classList.add('do-nudge'); }
-            }, 3000);
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.6 });
-      nio.observe(carousel);
+  /* count-up */
+  var runCount=function(el){
+    var target=parseInt(el.getAttribute('data-count'),10),suf=el.getAttribute('data-suffix')||'';
+    if(reduce){el.innerHTML=target+suf;return;}
+    var dur=1200,start=null;
+    (function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1),e=1-Math.pow(1-p,3);
+      el.innerHTML=Math.round(target*e)+suf;if(p<1)requestAnimationFrame(step);})(performance.now());
+  };
+  var counters=document.querySelectorAll('[data-count]');
+  if('IntersectionObserver'in window){
+    var cio=new IntersectionObserver(function(en,ob){en.forEach(function(e){if(e.isIntersecting){runCount(e.target);ob.unobserve(e.target);}})},{threshold:0.6});
+    counters.forEach(function(c){cio.observe(c)});
+  }else counters.forEach(function(c){c.innerHTML=c.getAttribute('data-count')+(c.getAttribute('data-suffix')||'')});
+
+  /* rosacea flush progression */
+  var strip=document.getElementById('rosacea');
+  if(strip){
+    var plates=strip.querySelectorAll('.plate-portrait');
+    var levels=[0.28,0.55,0.8,1];
+    var setAll=function(upTo){plates.forEach(function(p,i){p.style.setProperty('--flush', i<=upTo?levels[i]:0)});};
+    if(reduce){plates.forEach(function(p,i){p.style.setProperty('--flush',levels[i])});}
+    else if('IntersectionObserver'in window){
+      var done=false;
+      var sio=new IntersectionObserver(function(en,ob){en.forEach(function(e){
+        if(e.isIntersecting&&!done){done=true;var i=0;(function adv(){setAll(i);if(i<3){i++;setTimeout(adv,900);}})();ob.unobserve(e.target);}
+      })},{threshold:0.4});
+      sio.observe(strip);
+    }else plates.forEach(function(p,i){p.style.setProperty('--flush',levels[i])});
+  }
+
+  /* "I was neither" gentle pulse */
+  var neither=document.getElementById('neither');
+  if(neither&&!reduce&&'IntersectionObserver'in window){
+    var nio=new IntersectionObserver(function(en,ob){en.forEach(function(e){if(e.isIntersecting){
+      neither.animate([{background:'#F8EBEF'},{background:'#C4718E',color:'#fff'},{background:'#F8EBEF',color:'#7A3A54'}],{duration:900,easing:'ease'});
+      ob.unobserve(e.target);}})},{threshold:0.9});
+    nio.observe(neither);
+  }
+
+  /* carousel dots + one-time nudge */
+  var car=document.getElementById('carousel');
+  if(car){
+    var track=car.querySelector('.ctrack'),cards=track.children,dots=document.querySelectorAll('#cdots button');
+    var gap=16;
+    var upd=function(){var w=cards[0].offsetWidth+gap;var idx=Math.round(car.scrollLeft/w);idx=Math.max(0,Math.min(idx,dots.length-1));dots.forEach(function(b,i){b.classList.toggle('on',i===idx)});};
+    var t;car.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(upd,80)},{passive:true});
+    dots.forEach(function(b,i){b.addEventListener('click',function(){car.scrollTo({left:i*(cards[0].offsetWidth+gap),behavior:reduce?'auto':'smooth'})})});
+    if(!reduce&&'IntersectionObserver'in window){
+      var touched=false;car.addEventListener('scroll',function(){touched=true},{passive:true,once:true});
+      var nio2=new IntersectionObserver(function(en,ob){en.forEach(function(e){if(e.isIntersecting){setTimeout(function(){if(!touched)car.classList.add('do-nudge')},3000);ob.unobserve(e.target);}})},{threshold:0.6});
+      nio2.observe(car);
     }
   }
 
-  /* ---------- FAQ accordion ---------- */
-  document.querySelectorAll('.faq-q-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var item = btn.parentElement;
-      var open = item.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      btn.querySelector('.sign').textContent = open ? '−' : '+';
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var it=btn.parentElement,open=it.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open?'true':'false');
+      btn.querySelector('.sign').textContent=open?'−':'+';
     });
   });
 
-  /* ---------- CTA analytics stub (Phase 1: console only) ---------- */
-  document.querySelectorAll('[data-cta]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      var pos = a.getAttribute('data-cta');
-      // Phase 2: wire Meta Pixel (Lead / AddToCart) + GA4 cta_click here
-      if (window.console) console.log('[cta_click]', pos === 'main' ? 'AddToCart' : 'Lead', 'position=' + pos);
-    });
+  /* CTA analytics stub (Phase 2: Meta Pixel Lead/AddToCart + GA4 cta_click) */
+  document.querySelectorAll('[data-cta]').forEach(function(a){
+    a.addEventListener('click',function(){var p=a.getAttribute('data-cta');
+      if(window.console)console.log('[cta_click]',p==='main'?'AddToCart':'Lead','position='+p);});
   });
 })();
 </script>
-
 </body>
 </html>
