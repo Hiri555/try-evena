@@ -43,7 +43,7 @@ body{
   color:var(--ink);
   font-family:'Inter',sans-serif;
   font-size:17px;
-  line-height:1.8;
+  line-height:1.6;
   font-weight:400;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
@@ -68,7 +68,7 @@ h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:-
 h1{font-size:clamp(31px,7.2vw,56px)}
 h2{font-size:clamp(26px,4.6vw,40px);line-height:1.16}
 h3{font-size:clamp(22px,3.4vw,29px);line-height:1.22}
-p{margin-bottom:20px}
+p{margin-bottom:12px}
 .lede{font-family:'Cormorant Garamond',serif;font-size:clamp(19px,2.7vw,23px);line-height:1.5;color:var(--ink-soft)}
 .eyebrow{font-family:'Inter';font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--rosa);font-weight:500}
 .eyebrow.muted{color:var(--ink-faint)}
@@ -82,8 +82,8 @@ p{margin-bottom:20px}
 em{font-style:italic}
 
 /* Sections */
-.brique{padding:44px 0;position:relative}
-@media(max-width:640px){.brique{padding:32px 0}}
+.brique{padding:26px 0;position:relative}
+@media(max-width:640px){.brique{padding:18px 0}}
 
 /* Ornament separator (replaces any label) */
 .ornament{display:flex;align-items:center;justify-content:center;gap:16px;margin:2px auto;color:var(--rosa);opacity:.7}
@@ -101,10 +101,10 @@ em{font-style:italic}
 .byline .sep{opacity:.5;margin:0 8px}
 
 /* Pull quote */
-.pullquote{position:relative;margin:34px 0;padding-left:26px;border-left:2px solid var(--rosa)}
+.pullquote{position:relative;margin:18px 0;padding-left:26px;border-left:2px solid var(--rosa)}
 .pullquote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,3vw,24px);line-height:1.4;color:var(--rosa-dk);margin-bottom:10px}
 .pullquote p:last-child{margin-bottom:0}
-.bigquote{text-align:center;border:0;padding:0;margin:40px auto;max-width:560px}
+.bigquote{text-align:center;border:0;padding:0;margin:22px auto;max-width:560px}
 .bigquote::before{content:"\201C";font-family:'Cormorant Garamond',serif;display:block;font-size:64px;line-height:.6;color:var(--rosa);opacity:.4;margin-bottom:6px}
 .bigquote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,3.6vw,30px);line-height:1.32;color:var(--rosa-dk)}
 
@@ -116,17 +116,17 @@ em{font-style:italic}
 }
 
 /* Wash panel */
-.wash{background:var(--rosa-wash);border-radius:14px;padding:26px 28px}
+.wash{background:var(--rosa-wash);border-radius:14px;padding:18px 22px}
 .paper-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px}
 
 /* Recognition list (I-know) */
-.reco{margin:30px 0}
+.reco{margin:16px 0}
 .reco-line{padding:9px 0 9px 20px;border-left:2px solid var(--rosa-lt);margin:6px 0;font-size:16px;color:var(--ink)}
 .reco-line.pay{border-left:3px solid var(--rosa);background:var(--rosa-wash);padding:16px 20px;font-weight:500;color:var(--rosa-dk);border-radius:0 8px 8px 0}
 
 /* Mirror grid */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:26px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:16px 0}
 @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
 .ledger{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
 .ledger>div{padding:20px 22px 6px;border-left:1px solid var(--line)}
@@ -148,15 +148,21 @@ em{font-style:italic}
 .stat{background:var(--paper-2);border-radius:12px;padding:22px 14px;text-align:center}
 .stat .n{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:27px;color:var(--rosa-dk);letter-spacing:-.02em;display:block;margin-bottom:4px}
 .stat .l{font-size:12px;color:var(--ink-soft);line-height:1.4}
+/* Compact stat row — no bulky boxes */
+.statrow{display:grid;grid-template-columns:1fr 1fr 1fr;margin:18px 0;text-align:center}
+.statrow>div{padding:2px 8px;border-left:1px solid var(--line)}
+.statrow>div:first-child{border-left:0}
+.statrow .n{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(18px,5.2vw,23px);color:var(--rosa-dk);letter-spacing:-.01em;line-height:1.1}
+.statrow .l{display:block;font-size:10.5px;color:var(--ink-soft);line-height:1.35;margin-top:4px}
 
 /* Byline / founder */
-.founder{display:flex;align-items:center;gap:16px;margin:30px 0}
+.founder{display:flex;align-items:center;gap:16px;margin:18px 0}
 .founder-photo{width:56px;height:56px;border-radius:50%;border:1px dashed rgba(122,58,84,.4);display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2);flex:0 0 auto}
 .founder .name{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.2}
 .founder .role{font-size:13px;color:var(--ink-faint)}
 
 /* Lever cards */
-.lever{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:14px;position:relative}
+.lever{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px;position:relative}
 .lever .tag{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--rosa);font-weight:500;margin-bottom:7px}
 .lever .sub{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--rosa);font-size:16px;margin-bottom:12px}
 .lever h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin-bottom:4px}
@@ -184,7 +190,7 @@ em{font-style:italic}
 .plate--drama .spec{color:#c8a3b1}
 .plate .frame-caption{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px}
 /* Real editorial photography */
-.shot{margin:28px auto;overflow:hidden;border-radius:14px}
+.shot{margin:16px auto;overflow:hidden;border-radius:14px}
 .shot img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 24px 60px -30px rgba(75,21,40,.42)}
 .shot video{width:100%;height:auto;display:block;border-radius:14px}
 .shot--kenburns img{animation:kenburns 16s ease-in-out infinite alternate}
@@ -192,7 +198,7 @@ em{font-style:italic}
 @media (prefers-reduced-motion:reduce){.shot--kenburns img{animation:none}}
 
 /* ROSACEA documentary progression */
-.rosacea{margin:26px 0 10px}
+.rosacea{margin:14px 0 10px}
 .rosacea-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:640px){.rosacea-strip{grid-template-columns:1fr 1fr;gap:12px}}
 .rosacea-strip figure{margin:0}
@@ -222,7 +228,7 @@ em{font-style:italic}
 .rosacea-note{font-size:11px;color:var(--ink-faint);font-style:italic;text-align:center;max-width:620px;margin:14px auto 0;line-height:1.5}
 
 /* Comparison cards */
-.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
 @media(max-width:640px){.compare{grid-template-columns:1fr}}
 .compare .c{border-radius:12px;padding:22px}
 .compare .healthy{background:var(--paper-2)}
@@ -230,7 +236,7 @@ em{font-style:italic}
 .compare h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:20px;margin:8px 0}
 
 /* Thermostat + loop figures */
-figure{margin:32px 0}
+figure{margin:16px 0}
 figcaption{text-align:center;font-size:12px;color:var(--ink-faint);font-style:italic;margin-top:8px}
 .needle-h{transform-origin:100px 92px;animation:nH 3.4s var(--ease) infinite}
 .needle-b{transform-origin:100px 92px;animation:nB 3.4s var(--ease) infinite}
@@ -245,7 +251,7 @@ figcaption{text-align:center;font-size:12px;color:var(--ink-faint);font-style:it
 .mono-word{display:inline-block;max-width:100%;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(30px,6vw,46px);color:var(--rosa-dk);letter-spacing:-.01em}
 
 /* CTAs */
-.skip{margin:40px auto 0;max-width:520px;text-align:center;padding-top:26px;border-top:1px solid var(--line)}
+.skip{margin:22px auto 0;max-width:520px;text-align:center;padding-top:26px;border-top:1px solid var(--line)}
 .skip a{display:inline-flex;align-items:center;gap:2px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--rosa-dk);text-decoration:none;padding:13px 26px;background:var(--rosa-wash);border-radius:30px;transition:background .25s var(--ease),transform .25s var(--ease)}
 .skip a em{font-weight:600;font-style:italic;padding-right:4px}
 .skip a .arw{display:inline-block;transition:transform .25s var(--ease)}
@@ -266,7 +272,7 @@ figcaption{text-align:center;font-size:12px;color:var(--ink-faint);font-style:it
 a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offset:3px;border-radius:5px}
 
 /* Guarantee */
-.guarantee{background:var(--rosa-wash);border-radius:14px;padding:24px;max-width:520px;margin:26px auto;text-align:center}
+.guarantee{background:var(--rosa-wash);border-radius:14px;padding:18px 24px;max-width:520px;margin:16px auto;text-align:center}
 .uline{position:relative;display:inline-block}
 .uline::after{content:"";position:absolute;left:0;bottom:-4px;height:1.5px;width:0;background:var(--rosa);transition:width .9s var(--ease)}
 .uline.in::after{width:100%}
@@ -277,10 +283,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 .future .m{color:var(--rosa-dk);font-weight:500}
 
 /* PS */
-.ps{max-width:540px;margin:48px auto 0;padding:26px;background:var(--paper-2);border-radius:12px}
+.ps{max-width:540px;margin:24px auto 0;padding:20px 24px;background:var(--paper-2);border-radius:12px}
 
 /* FAQ */
-.faq{max-width:560px;margin:36px auto 0;background:var(--paper-2);border-radius:14px;padding:12px 30px}
+.faq{max-width:560px;margin:20px auto 0;background:var(--paper-2);border-radius:14px;padding:12px 30px}
 .faq-item{border-bottom:1px solid var(--line)}
 .faq-item:last-child{border-bottom:0}
 .faq-q{width:100%;background:none;border:0;text-align:left;cursor:pointer;font-family:'Inter';font-weight:500;font-size:15.5px;color:var(--ink);padding:20px 34px 20px 0;position:relative;line-height:1.5}
@@ -309,7 +315,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
 /* Paired desire stack */
 .pair{max-width:560px;margin:0 auto}
-.pair .row{margin-bottom:26px}
+.pair .row{margin-bottom:14px}
 .pair .loss{font-style:italic;color:var(--ink-faint);margin-bottom:4px}
 .pair .gain{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--rosa-dk);margin-top:6px}
 .pair .label{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--rosa-dk);margin-top:8px}
@@ -317,12 +323,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 /* Footer */
 .foot{background:var(--paper-3);padding:56px 26px 36px;margin-top:44px;position:relative;z-index:2}
 .foot-in{max-width:var(--measure);margin:0 auto}
-.foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin:28px 0}
+.foot-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;margin:15px 0}
 @media(max-width:640px){.foot-grid{grid-template-columns:1fr;gap:22px}}
 .foot h4{font-size:12.5px;font-weight:600;margin-bottom:12px;letter-spacing:.04em}
 .foot a{display:block;font-size:13px;color:var(--ink-soft);text-decoration:none;margin-bottom:8px}
 .foot a:hover{color:var(--rosa-dk)}
-.disclaimer{font-size:11px;color:var(--ink-faint);margin-top:30px;line-height:1.6}
+.disclaimer{font-size:11px;color:var(--ink-faint);margin-top:16px;line-height:1.6}
 
 /* ===== Scroll reveal ===== */
 .rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -360,15 +366,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 <!-- ========== 01 — HERO ========== -->
 <section class="brique wrap" style="padding-top:40px">
   <p class="eyebrow center rv" style="margin-bottom:24px">If you flinch when you see your own face</p>
-  <h1 class="center rv" style="max-width:640px;margin:0 auto 26px">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="rosa">walk past a mirror</span> without tilting my chin down.</h1>
-  <p class="lede center rv" style="max-width:560px;margin:0 auto 30px">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="rosa-dk" style="font-weight:500">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
-  <figure class="shot rv" style="margin:26px auto;max-width:460px">
+  <h1 class="center rv" style="max-width:640px;margin:0 auto 14px">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="rosa">walk past a mirror</span> without tilting my chin down.</h1>
+  <p class="lede center rv" style="max-width:560px;margin:0 auto 16px">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="rosa-dk" style="font-weight:500">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
+  <figure class="shot rv" style="margin:14px auto;max-width:460px">
     <img src="assets/hero.webp?v=5" width="928" height="1152" alt="A woman turned toward a bathroom mirror in soft morning light, her own face reflected back at her." fetchpriority="high">
   </figure>
   <p class="serif italic center rv" style="font-size:19px;color:var(--rosa-dk);max-width:480px;margin:0 auto">There's one paragraph below that took me ten years to find. Read it carefully. ↓</p>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 02 — LEAD ========== -->
 <section class="brique wrap">
@@ -388,29 +393,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <p class="rv">What follows isn't another serum article. It isn't a sensitive-skin routine. It isn't a list of triggers to avoid. It's the explanation no one bothered to give me in the ten years I was asking for it.</p>
 
-  <div class="grid3 rv" style="margin:32px 0">
-    <div class="stat"><span class="n" data-count="21" data-suffix="&nbsp;months">21&nbsp;months</span><span class="l">in a dermatology lab</span></div>
-    <div class="stat"><span class="n" data-count="43">43</span><span class="l">formulations tested</span></div>
-    <div class="stat"><span class="n" data-count="312" data-suffix="&nbsp;women">312&nbsp;women</span><span class="l">panel · 8 weeks</span></div>
+  <div class="statrow rv">
+    <div><span class="n">21 months</span><span class="l">in a dermatology lab</span></div>
+    <div><span class="n">43</span><span class="l">formulations tested</span></div>
+    <div><span class="n">312 women</span><span class="l">panel · 8 weeks</span></div>
   </div>
 
   <p class="rv" style="margin-top:24px">Two years ago, someone did. <span class="rosa-dk" style="font-weight:500">I stopped looking for a cream. I started looking for a question.</span></p>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:30px auto;max-width:440px">Take the next five minutes. They were it.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:16px auto;max-width:440px">Take the next five minutes. They were it.</p>
 
-  <div class="pullquote rv" style="margin-top:34px">
+  <div class="pullquote rv" style="margin-top:18px">
     <p>Two years ago, at a café, a woman I'd never met leaned over.</p>
     <p>She asked me one question.</p>
     <p style="color:var(--rosa);font-weight:500">I haven't stopped thinking about it since.</p>
   </div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 03 — BACKGROUND STORY ========== -->
 <section class="brique wrap">
   <h2 class="center rv" style="margin-bottom:10px">I wrote this letter for the woman whose Wednesday looks like this.</h2>
-  <p class="center italic soft rv" style="margin-bottom:26px">Pick any three. If three are yours — the rest of this is too.</p>
+  <p class="center italic soft rv" style="margin-bottom:14px">Pick any three. If three are yours — the rest of this is too.</p>
 
   <div class="grid2 stg">
     <div class="mirror"><h4>The 7 AM mirror</h4><p>Where you decide what today will let you do.</p></div>
@@ -421,7 +425,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <div class="mirror"><h4>The bathroom door</h4><p>After the meeting that didn't go well. Sometimes longer than ten minutes.</p></div>
   </div>
 
-  <p class="serif italic center rv" style="font-size:22px;margin:30px auto;max-width:460px">I checked off all six. Every morning. For ten years.</p>
+  <p class="serif italic center rv" style="font-size:22px;margin:16px auto;max-width:460px">I checked off all six. Every morning. For ten years.</p>
 
   <div class="pullquote rv">
     <p style="font-size:clamp(18px,2.8vw,22px)">And the worst part wasn't checking them off. It was the feeling I couldn't put into words — that something had been missed, by every person I'd asked.</p>
@@ -442,16 +446,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <p class="rv"><strong>Niacinamide at 30%.</strong> Two weeks. It flared everything.</p>
   <p class="rv"><strong>Once gotten.</strong> Six months. It worked. Then I stopped — and within two months the flushing was back.</p>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:30px auto;max-width:460px">Twelve thousand dollars. Six tries. Each one answering the wrong question.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:16px auto;max-width:460px">Twelve thousand dollars. Six tries. Each one answering the wrong question.</p>
 
   <div class="wash rv" style="margin:24px 0">
-    <p style="margin:0;line-height:1.8">I was on a Zoom call with a client. I watched my own face in the bottom-right corner redden from collar to hairline while she was telling me about her contract renewal. I missed everything she said. I excused myself after that one. I closed my laptop at five and sat in the bathroom for twenty minutes. I just couldn't do it anymore.</p>
+    <p style="margin:0;line-height:1.6">I was on a Zoom call with a client. I watched my own face in the bottom-right corner redden from collar to hairline while she was telling me about her contract renewal. I missed everything she said. I excused myself after that one. I closed my laptop at five and sat in the bathroom for twenty minutes. I just couldn't do it anymore.</p>
   </div>
 
   <p class="rv">That weekend I stopped looking for the next cream. I started looking for what was actually happening underneath. I read papers I didn't understand. I read Reddit threads at 2 AM. I posted in a forum.</p>
   <p class="rv">Three days later I was back at the café where I'd been writing for two years.</p>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:30px auto;max-width:520px">This was the first time I wished someone had written for me at twenty-eight. Or twenty-three. I'm writing it for you now.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:16px auto;max-width:520px">This was the first time I wished someone had written for me at twenty-eight. Or twenty-three. I'm writing it for you now.</p>
 
   <div class="ornament" style="margin:38px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
 
@@ -481,7 +485,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <div class="skip"><a href="#root" data-cta="03"><em>I've lived this</em> · take me to the answer <span class="arw">→</span></a></div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 04 — PROBLEM AGITATION ========== -->
 <section class="brique wrap">
@@ -496,7 +499,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <p class="rosacea-note">The same woman, ages 25 to 34. The flush deepens as you read: what an uninterrupted loop does to a face.</p>
   <p class="serif italic center soft rv" style="font-size:15px;margin:14px 0 30px">This was mine.</p>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:32px">That's when I started writing the other list. The one I'd never put on paper.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:17px">That's when I started writing the other list. The one I'd never put on paper.</p>
 
   <div class="stg" style="max-width:560px;margin:0 auto">
     <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The mirror checks.</p><p class="soft small" style="margin:0">Three times before a meeting that doesn't even use video.</p></div>
@@ -507,20 +510,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The foundation before the coffee.</p><p class="soft small" style="margin:0">Because the order matters.</p></div>
   </div>
 
-  <div class="pullquote rv" style="margin-top:32px">
+  <div class="pullquote rv" style="margin-top:17px">
     <p style="font-style:normal;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:20px">None of these is the rosacea.</p>
     <p>These are the things I do because of it. <span style="color:var(--rosa);font-weight:500">And they weigh more than the flushing itself.</span></p>
   </div>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-top:28px">Helena had a shorter list. Five things, instead of mine.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-top:15px">Helena had a shorter list. Five things, instead of mine.</p>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 05 — ROOT CAUSE ========== -->
 <section class="brique wrap" id="root">
   <p class="center italic soft rv" style="margin-bottom:16px">I leaned in. She'd written five things, in careful handwriting. For five seconds, I forgot how to breathe.</p>
-  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:26px">You've felt this for years. You just didn't have the words.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:14px">You've felt this for years. You just didn't have the words.</p>
 
   <div class="pullquote rv"><p>She wasn't showing me five separate problems. She was showing me five steps of the same loop.</p></div>
 
@@ -541,7 +543,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <div class="lever lever--five rv"><div class="tag">05 · The Loop Unwinds</div><div class="sub">What happens when the four above feed each other.</div><p>The fifth one isn't a separate thing. It's what the first four create when they run together. The alarm fires. The nerves overreact. The barrier lets more in. The vessels stay open. And every time it happens, the next time happens easier. The loop teaches itself.</p></div>
 
-  <div class="pullquote rv" style="margin-top:28px">
+  <div class="pullquote rv" style="margin-top:15px">
     <p style="font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--ink)">Five things. One loop.</p>
     <p style="font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--ink)">Treat one — the other four keep running.</p>
   </div>
@@ -551,7 +553,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <div class="skip"><a href="#product" data-cta="05"><em>I see the loop</em> · show me what stops it <span class="arw">→</span></a></div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 06 — MECHANISM ========== -->
 <section class="brique wrap">
@@ -566,7 +567,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <div class="pullquote rv" style="margin-top:20px"><p>Because the fifth one isn't something you deal with. It's what happens when the other four stop.</p></div>
 
-  <figure class="rv" style="max-width:560px;margin:30px auto">
+  <figure class="rv" style="max-width:560px;margin:16px auto">
     <div style="background:var(--paper-2);border-radius:16px;padding:30px 18px 24px">
       <svg viewBox="0 0 400 168" width="100%" role="img" aria-label="Two gauges. Healthy skin: the needle rises then returns to baseline, over and over. Your skin: the needle only rises and stays up, a ratchet.">
         <g>
@@ -608,13 +609,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   </div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 07 — PRODUCT INTRODUCTION ========== -->
 <section class="brique wrap" id="product">
   <p class="rv">For two years I'd been trusting one symptom. For two years I tried to find what would deal with all five — simultaneously, at the right concentrations, without ingredients that would feed the loop.</p>
 
-  <p class="serif center rosa-dk rv" style="font-size:clamp(26px,5vw,34px);font-weight:500;margin:28px 0 36px">Then I built it.</p>
+  <p class="serif center rosa-dk rv" style="font-size:clamp(26px,5vw,34px);font-weight:500;margin:15px 0 36px">Then I built it.</p>
 
   <div class="center rv" style="margin-bottom:18px">
     <h3 class="serif" style="color:var(--rosa-dk)">The Daily Reset Serum.</h3>
@@ -629,14 +629,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <span class="pill">Fragrance-free</span><span class="pill">Alcohol-free</span><span class="pill">No essential oils</span>
   </div>
 
-  <div class="bigquote wordrev rv" style="margin:30px auto 14px"><p>It doesn't calm your face. It helps your face calm itself.</p></div>
+  <div class="bigquote wordrev rv" style="margin:16px auto 14px"><p>It doesn't calm your face. It helps your face calm itself.</p></div>
   <p class="serif italic center soft rv" style="font-size:15px;margin:0 0 40px">That's not just a different product. It's a different question.</p>
 
-  <div class="center rv" style="margin:36px auto;max-width:520px">
+  <div class="center rv" style="margin:20px auto;max-width:520px">
     <p class="serif rosa-dk" style="font-size:clamp(23px,4vw,28px);font-weight:500;margin:0 0 10px">Five levers. Four actives.</p>
     <p class="serif italic rosa-dk" style="font-size:17px;margin:0">The fifth lever is what your face does when the first four stop interfering.</p>
   </div>
-  <p class="serif italic center rosa-dk rv" style="font-size:15px;margin:20px auto 30px;max-width:520px">The work isn't done by any one of them. It's done by the four working at the same time.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:15px;margin:20px auto 16px;max-width:520px">The work isn't done by any one of them. It's done by the four working at the same time.</p>
 
   <div class="grid2 stg" style="margin-top:20px">
     <div class="lever" style="margin:0"><div class="tag">Lever 01 · The Alarm</div><h4>Azelaic Acid <span class="conc">10%</span></h4><p><strong>Helps</strong> the alarm stop firing for nothing. The immune system stops calling 911 — and the cascade behind it slows down.</p></div>
@@ -646,7 +646,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   </div>
   <div class="lever lever--five rv" style="margin-top:14px"><div class="tag">Lever 05 · The Loop Unwinds</div><h4>The fifth lever</h4><p>What your face does when the first four stop interfering.</p><p style="margin-top:10px">The anticipation loop has no fuel without the other four. The flush becomes less inevitable. Less feared. Less triggered.</p></div>
 
-  <div class="wash rv" style="margin:32px 0 18px"><p class="serif italic" style="font-size:16.5px;margin:0;line-height:1.6">If you've spent ten years buying products that didn't work, you have every reason to be skeptical of this one. I built it knowing that.</p></div>
+  <div class="wash rv" style="margin:17px 0 18px"><p class="serif italic" style="font-size:16.5px;margin:0;line-height:1.6">If you've spent ten years buying products that didn't work, you have every reason to be skeptical of this one. I built it knowing that.</p></div>
 
   <div class="rv" style="margin:24px 0">
     <p class="eyebrow" style="margin-bottom:14px">What we left out — on purpose</p>
@@ -664,14 +664,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <div class="skip"><a href="#close" data-cta="07"><em>I've seen enough</em> · let's begin <span class="arw">→</span></a></div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 08 — SOCIAL PROOF ========== -->
 <section class="brique">
   <div class="wrap">
     <h2 class="center rv" style="margin-bottom:12px">"I was in the family photo this year."</h2>
     <p class="center soft rv" style="margin-bottom:22px">Three hundred and twelve women tested this for sixty days before it left my kitchen.</p>
-    <div class="wash rv" style="text-align:center;max-width:480px;margin:0 auto 30px;background:var(--rosa-wash)">
+    <div class="wash rv" style="text-align:center;max-width:480px;margin:0 auto 16px;background:var(--rosa-wash)">
       <p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">Three of three hundred and twelve.</p>
       <p class="serif italic rosa-dk" style="font-size:20px;margin:0">They could've been any of us.</p>
     </div>
@@ -688,7 +687,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <button class="on" aria-label="Sarah"></button><button aria-label="Rachel"></button><button aria-label="Maya"></button>
   </div>
 
-    <div class="rv" style="background:var(--paper-2);border-radius:14px;padding:32px 26px;text-align:center;margin:34px auto 0;max-width:560px">
+    <div class="rv" style="background:var(--paper-2);border-radius:14px;padding:32px 26px;text-align:center;margin:18px auto 0;max-width:560px">
       <p class="eyebrow" style="margin-bottom:20px">By week eight</p>
       <p class="serif" style="font-size:19px;margin:0 0 10px;line-height:1.5"><span class="n" data-count="87" style="font-family:'Cormorant Garamond';font-weight:600;color:var(--rosa-dk);font-size:23px">87</span> out of 100 said their flushes were less frequent.</p>
       <p class="serif" style="font-size:19px;margin:0 0 18px;line-height:1.5"><span class="n" data-count="91" style="font-family:'Cormorant Garamond';font-weight:600;color:var(--rosa-dk);font-size:23px">91</span> said their face was coming back down faster on its own.</p>
@@ -702,21 +701,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   </div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 10 — MAKE IT PERSONAL ========== -->
 <section class="brique wrap">
   <p class="italic soft rv" style="margin-bottom:24px">Three women. Three things they thought they'd given up. There were others on the panel. Most of them said the same thing — that getting the face back wasn't really the point.</p>
 
   <h2 class="rv" style="margin-bottom:10px">This was never about the skin.</h2>
-  <p class="center italic soft rv" style="margin-bottom:26px">It was about everything the skin had quietly cancelled.</p>
+  <p class="center italic soft rv" style="margin-bottom:14px">It was about everything the skin had quietly cancelled.</p>
 
-  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:0 auto 30px;max-width:560px">There's one thing I haven't said yet. It's the smaller, harder thing — the one I think you've felt too.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:0 auto 16px;max-width:560px">There's one thing I haven't said yet. It's the smaller, harder thing — the one I think you've felt too.</p>
 
-  <blockquote class="wash linemask rv" id="climax" style="background:var(--rosa-wash);border-left:3px solid var(--rosa);border-radius:0 10px 10px 0;max-width:580px;margin:0 auto 34px">
+  <blockquote class="wash linemask rv" id="climax" style="background:var(--rosa-wash);border-left:3px solid var(--rosa);border-radius:0 10px 10px 0;max-width:580px;margin:0 auto 18px">
     <span><i style="font-family:'Inter';font-size:16px;color:var(--ink-soft);display:block;margin-bottom:10px">And underneath all of it was this:</i></span>
     <span><i class="serif" style="font-size:clamp(20px,3.4vw,24px);color:var(--rosa-dk);font-weight:500;font-style:normal;display:block;margin-bottom:10px">My face had stopped telling the truth about me.</i></span>
-    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink);line-height:1.8;display:block;font-style:normal">It would flush when I was calm. It would scream when I was steady. People were reading something on my face that wasn't what was happening inside me. <b style="color:var(--rosa);font-weight:600">They were being misled. I was being misread.</b></i></span>
+    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink);line-height:1.6;display:block;font-style:normal">It would flush when I was calm. It would scream when I was steady. People were reading something on my face that wasn't what was happening inside me. <b style="color:var(--rosa);font-weight:600">They were being misled. I was being misread.</b></i></span>
   </blockquote>
 
   <div class="pair stg">
@@ -745,17 +743,16 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <div class="skip"><a href="#close" data-cta="10"><em>That's what I came for</em> · let's begin <span class="arw">→</span></a></div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 10.5 — TRUST STACK ========== -->
 <section class="brique wrap">
   <h2 class="rosa-dk rv" style="margin-bottom:10px">What's actually in the bottle.</h2>
-  <p class="serif italic center rosa-dk rv" style="font-size:17px;margin-bottom:32px">The five things that, together, give your face back what it lost.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:17px;margin-bottom:17px">The five things that, together, give your face back what it lost.</p>
 
   <figure class="shot rv" style="margin:0 auto 14px;max-width:460px">
     <img src="assets/packshot-quiet.webp?v=5" width="1152" height="928" alt="The Daily Reset Serum resting on natural linen against a neutral cream backdrop, soft overhead light." loading="lazy">
   </figure>
-  <p class="serif italic center soft rv" style="font-size:14px;margin:0 auto 32px;max-width:460px">This is the bottle 312 of us tested. Eight weeks.</p>
+  <p class="serif italic center soft rv" style="font-size:14px;margin:0 auto 17px;max-width:460px">This is the bottle 312 of us tested. Eight weeks.</p>
 
   <div class="active-list stg" style="max-width:560px;margin:0 auto">
     <div class="active-row"><p class="ing"><strong>Azelaic acid</strong> <span class="conc">10%</span></p><p class="does">helps the alarm stop firing</p></div>
@@ -765,7 +762,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <div class="active-row active-row--five"><p class="ing"><strong>The fifth lever</strong></p><p class="does serif italic">what your face does when the first four stop interfering</p></div>
   </div>
 
-  <div class="ledger rv" style="margin:36px 0 24px">
+  <div class="ledger rv" style="margin:20px 0 24px">
     <div><p class="eyebrow" style="margin-bottom:8px">What's in</p><p class="soft small" style="margin:0;line-height:1.55">5 clinically-dosed actives. Formulated in a dermatology lab.</p></div>
     <div><p class="eyebrow" style="margin-bottom:8px">What's out</p><p class="soft small" style="margin:0;line-height:1.55">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p></div>
     <div><p class="eyebrow" style="margin-bottom:8px">What I promise</p><p class="soft small" style="margin:0;line-height:1.55">Sixty days. One email. Full refund if it didn't.</p></div>
@@ -774,16 +771,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <p class="italic center soft rv">If any of that makes sense to you — and you've read this far — there's only one thing left.</p>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 11 — CLOSE ========== -->
 <section class="brique wrap" id="close">
-  <div class="center rv" style="max-width:540px;margin:0 auto 30px">
+  <div class="center rv" style="max-width:540px;margin:0 auto 16px">
     <p>You've carried this longer than you want to remember. The mirror checks. The rehearsed faces. The Zoom self-view that ruined meetings you should've enjoyed. The photos you quietly stopped being in.</p>
     <p class="serif rosa-dk" style="font-size:clamp(20px,3.6vw,23px);font-weight:500;margin-top:16px">That's the part I'm asking you to put down.</p>
   </div>
 
-  <div class="bigquote rv" style="margin:0 auto 36px">
+  <div class="bigquote rv" style="margin:0 auto 20px">
     <p style="font-style:italic">Three hundred and twelve of us put it down.</p>
     <p class="serif rosa-dk" style="font-size:clamp(20px,3.4vw,24px);font-weight:500;font-style:normal;margin-top:4px">You can put it down too.</p>
   </div>
@@ -794,11 +790,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <p class="serif italic soft" style="font-size:17px">With the Reset Complex™.</p>
   </div>
 
-  <figure class="shot rv" style="margin:0 auto 30px;max-width:520px">
+  <figure class="shot rv" style="margin:0 auto 16px;max-width:520px">
     <img src="assets/packshot-dramatic.webp?v=5" width="1264" height="848" alt="A close-up of the Daily Reset Serum under dramatic side light, deep wine and rose shadows, dropper poised." loading="lazy">
   </figure>
 
-  <div class="center rv" style="max-width:520px;margin:0 auto 28px">
+  <div class="center rv" style="max-width:520px;margin:0 auto 15px">
     <p class="serif rosa-dk" style="font-size:clamp(26px,5vw,30px);font-weight:500;margin-bottom:4px">$45</p>
     <p class="small faint" style="margin:0 0 18px">30ml · Eight-week supply · One bottle.</p>
     <p class="soft" style="margin:0;line-height:1.9">Less than a single laser session.</p>
@@ -808,7 +804,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <div class="guarantee rv"><p class="serif italic uline" style="font-size:18px;color:var(--rosa-dk);margin:0">Sixty days. One email. Full refund if it didn't.</p></div>
 
-  <div class="future stg" style="margin:0 auto 32px">
+  <div class="future stg" style="margin:0 auto 17px">
     <p><span class="m">Tomorrow morning</span> · a face I don't have to talk to.</p>
     <p><span class="m">Next Tuesday's Zoom</span> · the self-view checked once, then forgotten.</p>
     <p><span class="m">This weekend</span> · the photos I'm in.</p>
@@ -821,8 +817,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <div class="ps rv">
     <p style="font-weight:500;margin-bottom:10px">PS — last thing.</p>
-    <p style="line-height:1.8;margin-bottom:10px">If you've been burned by 47 products before this one, you have every right to hesitate. I built it knowing that.</p>
-    <p style="line-height:1.8;margin-bottom:10px">Sixty days to test it. If it doesn't change anything, send me one email — the refund will be on you the same day. No questions. No forms. No story to tell me.</p>
+    <p style="line-height:1.6;margin-bottom:10px">If you've been burned by 47 products before this one, you have every right to hesitate. I built it knowing that.</p>
+    <p style="line-height:1.6;margin-bottom:10px">Sixty days to test it. If it doesn't change anything, send me one email — the refund will be on you the same day. No questions. No forms. No story to tell me.</p>
     <p class="serif italic rosa-dk" style="font-size:17px;margin:14px 0 0">I'm not asking you to trust me. I'm asking you to test me.</p>
     <p class="soft" style="margin:14px 0 0">— Margot</p>
   </div>
@@ -836,7 +832,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   </div>
 </section>
 
-<div class="ornament wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg></div>
 
 <!-- ========== 12 — FINAL WHISPER ========== -->
 <section class="brique wrap">
@@ -847,7 +842,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <p class="serif rosa-dk" style="font-size:21px;font-weight:500;margin-top:14px">I'll be here.</p>
     <p class="serif italic soft" style="font-size:16px;margin-top:8px">So will the women who tested it.</p>
     <p class="serif italic soft" style="font-size:15px;margin-top:14px">Whenever you're ready.</p>
-    <div class="ornament" style="margin:28px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
+    <div class="ornament" style="margin:15px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
     <img src="assets/signature.webp?v=6" alt="Margot, signed by hand" width="220" height="110" loading="lazy" style="display:block;max-width:200px;height:auto;margin:6px auto 0;mix-blend-mode:multiply">
     <p class="serif italic soft" style="font-size:15px;margin-top:6px">Founder, Rosalia</p>
   </div>
