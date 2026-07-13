@@ -345,7 +345,7 @@
 
   <div class="carousel nudge" id="carousel">
     <div class="ctrack">
-      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Sarah · 34 · Boston</p><blockquote>"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote></article>
+      <article class="testi">{%- if section.settings.testi1_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi1_poster != blank %} poster="{{ section.settings.testi1_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi1_video }}" type="video/mp4"></video>{%- else -%}{%- if section.settings.testi2_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi2_poster != blank %} poster="{{ section.settings.testi2_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi2_video }}" type="video/mp4"></video>{%- else -%}{%- if section.settings.testi3_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi3_poster != blank %} poster="{{ section.settings.testi3_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi3_video }}" type="video/mp4"></video>{%- else -%}<div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div>{%- endif -%}{%- endif -%}{%- endif -%}<p class="who">Sarah · 34 · Boston</p><blockquote>"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote></article>
       <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Rachel · 41 · Chicago</p><blockquote>"My husband took the picture. I was in it. That was new."</blockquote></article>
       <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Maya · 38 · Brooklyn</p><blockquote>"Nobody's asked me if I'm sick in four months."</blockquote></article>
     </div>
@@ -575,6 +575,14 @@
     { "type": "header", "content": "The loop animation (Brique 05)" },
     { "type": "image_picker", "id": "loop_poster", "label": "Loop poster / still" },
     { "type": "url", "id": "loop_video", "label": "Loop animation .mp4 URL", "info": "Point to a hosted MP4 (Files upload → copy link). Blank = built-in loop.mp4." },
+
+    { "type": "header", "content": "Testimonials (Brique 08)", "info": "Add a 9:16 MP4 URL (Files → upload → copy link) and a poster to replace each placeholder card." },
+    { "type": "url", "id": "testi1_video", "label": "Sarah — video URL" },
+    { "type": "image_picker", "id": "testi1_poster", "label": "Sarah — poster" },
+    { "type": "url", "id": "testi2_video", "label": "Rachel — video URL" },
+    { "type": "image_picker", "id": "testi2_poster", "label": "Rachel — poster" },
+    { "type": "url", "id": "testi3_video", "label": "Maya — video URL" },
+    { "type": "image_picker", "id": "testi3_poster", "label": "Maya — poster" },
 
     { "type": "header", "content": "Motion" },
     { "type": "checkbox", "id": "enable_motion", "label": "Enable animations", "default": true, "info": "Off = static final states (also respects the visitor's reduced-motion preference either way)." }

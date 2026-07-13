@@ -348,3 +348,5 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 .advertorial-app-gated [class*="fomo-"],
 .advertorial-app-gated [class*="nudgify"],
 .advertorial-app-gated [class*="loox-star"]{display:none!important}
+/* Testimonial video (Brique 08) */
+.testi .testi-vid{width:100%;aspect-ratio:9/16;max-height:360px;object-fit:cover;border-radius:8px;background:#000;display:block;margin-bottom:16px}
