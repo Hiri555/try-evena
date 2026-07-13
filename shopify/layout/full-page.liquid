@@ -18,6 +18,6 @@
   </head>
   <body class="advertorial-body advertorial-app-gated">
     {{ content_for_layout }}
-    {{ 'advertorial.js' | asset_url | script_tag }}
+    <script src="{{ 'advertorial.js' | asset_url }}" defer></script>
   </body>
 </html>
