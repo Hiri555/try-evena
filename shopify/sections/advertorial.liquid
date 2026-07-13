@@ -1,0 +1,589 @@
+{%- comment -%}
+  Rosalia · Daily Reset Serum — long-form advertorial (single-page).
+  Body copy is doctrine-locked and lives inline. Edit MEDIA, COLOURS, the
+  PRODUCT (Add-to-Cart) and MOTION from the theme customizer settings below.
+  Styles: assets/advertorial.css · Behaviour: assets/advertorial.js (loaded by layout/full-page.liquid)
+{%- endcomment -%}
+
+{%- if section.settings.accent != blank or section.settings.accent_dark != blank or section.settings.background != blank -%}
+<style>
+  :root{
+    {% if section.settings.accent != blank %}--rosa:{{ section.settings.accent }};{% endif %}
+    {% if section.settings.accent_dark != blank %}--rosa-dk:{{ section.settings.accent_dark }};{% endif %}
+    {% if section.settings.background != blank %}--paper:{{ section.settings.background }};{% endif %}
+  }
+</style>
+{%- endif -%}
+
+{%- unless section.settings.enable_motion -%}
+<style>
+  /* Motion disabled from theme settings — show final states */
+  .rv,.reveal-left,.stg>*,.scalein{opacity:1!important;transform:none!important}
+  .wordrev .w{opacity:1!important}
+  .linemask span i{transform:none!important}
+  .uline::after{width:100%!important}
+  .buy button.buy-btn,.buy a{animation:none!important}
+  .loop-video{display:none}
+</style>
+{%- endunless -%}
+<div id="progress"></div>
+
+<div class="feature">
+
+<!-- ========== 01 — HERO ========== -->
+<section class="brique wrap" style="padding-top:40px">
+  <p class="eyebrow center rv" style="margin-bottom:24px">If you flinch when you see your own face</p>
+  <h1 class="center rv" style="max-width:640px;margin:0 auto 14px">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="rosa">walk past a mirror</span> without tilting my chin down.</h1>
+  <p class="lede center rv" style="max-width:560px;margin:0 auto 16px">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="rosa-dk" style="font-weight:500">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
+  <figure class="shot rv" style="margin:14px auto;max-width:460px">
+    <img src="{% if section.settings.hero_image != blank %}{{ section.settings.hero_image | image_url: width: 1400 }}{% else %}{{ 'hero.webp' | asset_url }}{% endif %}" width="928" height="1152" alt="A woman turned toward a bathroom mirror in soft morning light, her own face reflected back at her." fetchpriority="high">
+  </figure>
+  <p class="serif italic center rv" style="font-size:19px;color:var(--rosa-dk);max-width:480px;margin:0 auto">There's one paragraph below that took me ten years to find. Read it carefully. ↓</p>
+</section>
+
+
+<!-- ========== 02 — LEAD ========== -->
+<section class="brique wrap">
+  <div class="bigquote rv" style="margin-top:8px"><p>You're tired of reading these. I know. I read fifty before I gave up trying to find the one that wasn't lying to me.</p></div>
+
+  <div class="reco stg">
+    <div class="reco-line">I know the Wednesday morning mirror — the seconds before you decide whether today is bearable.</div>
+    <div class="reco-line">I know the forty-five minutes of makeup that's actually just to come back down to baseline.</div>
+    <div class="reco-line">I know the Zoom self-view you can't stop checking.</div>
+    <div class="reco-line">I know the bathroom door after a meeting that didn't go well.</div>
+    <div class="reco-line">I know the quiet untagging — every photo, without looking.</div>
+    <div class="reco-line pay">I know the moment your face says something you weren't feeling — and you watched yourself be misread.</div>
+  </div>
+
+  <p class="serif italic center soft rv" style="font-size:18px;margin:24px 0">I'm not the only one who knows this. There are a lot of us.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:19px;margin:18px 0">I know because I lived it. For ten years.</p>
+
+  <p class="rv">What follows isn't another serum article. It isn't a sensitive-skin routine. It isn't a list of triggers to avoid. It's the explanation no one bothered to give me in the ten years I was asking for it.</p>
+
+  <div class="statrow rv">
+    <div><span class="n">21 months</span><span class="l">in a dermatology lab</span></div>
+    <div><span class="n">43</span><span class="l">formulations tested</span></div>
+    <div><span class="n">312 women</span><span class="l">panel · 8 weeks</span></div>
+  </div>
+
+  <p class="rv" style="margin-top:24px">Two years ago, someone did. <span class="rosa-dk" style="font-weight:500">I stopped looking for a cream. I started looking for a question.</span></p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:16px auto;max-width:440px">Take the next five minutes. They were it.</p>
+
+  <div class="pullquote rv" style="margin-top:18px">
+    <p>Two years ago, at a café, a woman I'd never met leaned over.</p>
+    <p>She asked me one question.</p>
+    <p style="color:var(--rosa);font-weight:500">I haven't stopped thinking about it since.</p>
+  </div>
+</section>
+
+
+<!-- ========== 03 — BACKGROUND STORY ========== -->
+<section class="brique wrap">
+  <h2 class="center rv" style="margin-bottom:10px">I wrote this letter for the woman whose Wednesday looks like this.</h2>
+  <p class="center italic soft rv" style="margin-bottom:14px">Pick any three. If three are yours — the rest of this is too.</p>
+
+  <div class="grid2 stg">
+    <div class="mirror"><h4>The 7 AM mirror</h4><p>Where you decide what today will let you do.</p></div>
+    <div class="mirror"><h4>The 45-minute makeup</h4><p>Not really makeup. Coverage.</p></div>
+    <div class="mirror"><h4>The Zoom self-view</h4><p>The one you can't stop checking — even while someone is talking to you.</p></div>
+    <div class="mirror"><h4>The family photo</h4><p>Where you're the one taking it. Where you got used to it.</p></div>
+    <div class="mirror"><h4>The quiet untag</h4><p>Every photo. Without looking.</p></div>
+    <div class="mirror"><h4>The bathroom door</h4><p>After the meeting that didn't go well. Sometimes longer than ten minutes.</p></div>
+  </div>
+
+  <p class="serif italic center rv" style="font-size:22px;margin:16px auto;max-width:460px">I checked off all six. Every morning. For ten years.</p>
+
+  <div class="pullquote rv">
+    <p style="font-size:clamp(18px,2.8vw,22px)">And the worst part wasn't checking them off. It was the feeling I couldn't put into words — that something had been missed, by every person I'd asked.</p>
+  </div>
+
+  <div class="founder rv">
+    <div class="founder-photo" title="Margot portrait — replace on Shopify (image_picker)">photo</div>
+    <div>
+      <div class="name">Margot</div>
+      <div class="role">Not a dermatologist. Not a chemist.</div>
+    </div>
+  </div>
+
+  <p class="rv">Me too. Reformulated after the fourth event — worse than what started.</p>
+  <p class="rv"><strong>Esoterics.</strong> Twelve weeks. It didn't address the redness.</p>
+  <p class="rv"><strong>Azelaic acid serums</strong> — The Ordinary, Stem Naturalcare. Both burned. I plateaued.</p>
+  <p class="rv"><strong>IPL.</strong> Four sessions. $1,500 each. The third one made me red for a month.</p>
+  <p class="rv"><strong>Niacinamide at 30%.</strong> Two weeks. It flared everything.</p>
+  <p class="rv"><strong>Once gotten.</strong> Six months. It worked. Then I stopped — and within two months the flushing was back.</p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:16px auto;max-width:460px">Twelve thousand dollars. Six tries. Each one answering the wrong question.</p>
+
+  <div class="wash rv" style="margin:24px 0">
+    <p style="margin:0;line-height:1.6">I was on a Zoom call with a client. I watched my own face in the bottom-right corner redden from collar to hairline while she was telling me about her contract renewal. I missed everything she said. I excused myself after that one. I closed my laptop at five and sat in the bathroom for twenty minutes. I just couldn't do it anymore.</p>
+  </div>
+
+  <p class="rv">That weekend I stopped looking for the next cream. I started looking for what was actually happening underneath. I read papers I didn't understand. I read Reddit threads at 2 AM. I posted in a forum.</p>
+  <p class="rv">Three days later I was back at the café where I'd been writing for two years.</p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:16px auto;max-width:520px">This was the first time I wished someone had written for me at twenty-eight. Or twenty-three. I'm writing it for you now.</p>
+
+  <div class="ornament" style="margin:38px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
+
+  <p class="eyebrow muted rv" style="margin-bottom:12px">Tuesday · 2:47 PM</p>
+  <h2 class="rv" style="text-align:left;margin-bottom:18px">The café where I'd been hiding for two years.</h2>
+
+  <p class="dropcap rv">Before that morning, I had three creams in my bag — the ones I rotated to cover whichever flush was loudest. I was about to reach for the fourth when the woman at the next table leaned over. She told me later she hadn't planned to talk to me — she'd been watching me reach for tubes for two months, and that morning the watching had become its own thing she couldn't ignore.</p>
+
+  <p class="rv">She asked me one question. <em>"How long have you been flushing like that?"</em> I told her. Ten years. She nodded slowly — the way someone does when you've just confirmed what they already knew.</p>
+
+  <p class="rv">Her name was Helena. Retired vascular biologist. She'd been writing a novel at the same café for two years — which is how she'd been watching me reach for tubes.</p>
+
+  <figure class="shot rv" style="margin:24px 0">
+    <img src="{% if section.settings.cafe_image != blank %}{{ section.settings.cafe_image | image_url: width: 1400 }}{% else %}{{ 'cafe.webp' | asset_url }}{% endif %}" width="1376" height="768" alt="Overhead view of a small cafe table in afternoon light: two cups of coffee, a linen napkin, a few dried stems." loading="lazy">
+  </figure>
+
+  <p class="rv">She borrowed my napkin. She wrote on it for three minutes. Then she looked up.</p>
+
+  <blockquote class="pullquote rv">
+    <p>"Your face isn't broken."</p>
+    <p>"It's been running the same five-step routine for a decade. And every product on your shelf has been treating one step — hoping the other four would follow."</p>
+    <p>"They don't. They can't. That's not how it works."</p>
+  </blockquote>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:20px;margin:24px 0">She turned the napkin around.</p>
+
+  <div class="skip"><a href="#root" data-cta="03"><em>I've lived this</em> · take me to the answer <span class="arw">→</span></a></div>
+</section>
+
+
+<!-- ========== 04 — PROBLEM AGITATION ========== -->
+<section class="brique wrap">
+  <h2 class="rv" style="margin-bottom:20px">I walked home from the café trying not to look in shop windows.</h2>
+
+  <figure class="shot rv" style="margin:24px auto 10px">
+    <picture>
+      <source media="(max-width:640px)" srcset="{% if section.settings.rosacea_mobile != blank %}{{ section.settings.rosacea_mobile | image_url: width: 1400 }}{% else %}{{ 'rosacea-mobile.webp' | asset_url }}{% endif %}">
+      <img src="{% if section.settings.rosacea_desktop != blank %}{{ section.settings.rosacea_desktop | image_url: width: 1400 }}{% else %}{{ 'rosacea-desktop.webp' | asset_url }}{% endif %}" width="1376" height="768" alt="The same woman photographed at ages 25, 28, 31 and 34: her facial redness deepens across the four stages, from a faint flush on the cheekbones to persistent deep redness across the face." loading="lazy">
+    </picture>
+  </figure>
+  <p class="rosacea-note">The same woman, ages 25 to 34. The flush deepens as you read: what an uninterrupted loop does to a face.</p>
+  <p class="serif italic center soft rv" style="font-size:15px;margin:14px 0 30px">This was mine.</p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:17px">That's when I started writing the other list. The one I'd never put on paper.</p>
+
+  <div class="stg" style="max-width:560px;margin:0 auto">
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The mirror checks.</p><p class="soft small" style="margin:0">Three times before a meeting that doesn't even use video.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The phone front camera.</p><p class="soft small" style="margin:0">Opened just to confirm what I already know.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The Zoom self-view.</p><p class="soft small" style="margin:0">Has ruined more meetings than any client ever could.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The "are you okay?"</p><p class="soft small" style="margin:0">From a colleague who means well. Who doesn't know that's not what's happening.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The cancellation.</p><p class="soft small" style="margin:0">Written while looking at the photos on my fridge.</p></div>
+    <div style="margin-bottom:24px;padding-left:20px;border-left:2px solid var(--rosa-lt)"><p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">The foundation before the coffee.</p><p class="soft small" style="margin:0">Because the order matters.</p></div>
+  </div>
+
+  <div class="pullquote rv" style="margin-top:17px">
+    <p style="font-style:normal;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:20px">None of these is the rosacea.</p>
+    <p>These are the things I do because of it. <span style="color:var(--rosa);font-weight:500">And they weigh more than the flushing itself.</span></p>
+  </div>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-top:15px">Helena had a shorter list. Five things, instead of mine.</p>
+</section>
+
+
+<!-- ========== 05 — ROOT CAUSE ========== -->
+<section class="brique wrap" id="root">
+  <p class="center italic soft rv" style="margin-bottom:16px">I leaned in. She'd written five things, in careful handwriting. For five seconds, I forgot how to breathe.</p>
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin-bottom:14px">You've felt this for years. You just didn't have the words.</p>
+
+  <div class="pullquote rv"><p>She wasn't showing me five separate problems. She was showing me five steps of the same loop.</p></div>
+
+  <p class="rv">Each step made the next worse. Every product I'd ever bought had been treating one — hoping the other four would follow. None of them could.</p>
+
+  <figure class="shot rv" style="max-width:660px">
+    <video class="loop-video" muted loop playsinline preload="none" poster="{% if section.settings.loop_poster != blank %}{{ section.settings.loop_poster | image_url: width: 1400 }}{% else %}{{ 'loop.webp' | asset_url }}{% endif %}" width="1376" height="768" data-src="{% if section.settings.loop_video != blank %}{{ section.settings.loop_video }}{% else %}{{ 'loop.mp4' | asset_url }}{% endif %}" aria-label="Cross-section of skin showing the five-step loop: the alarm, the nerve sensors, the dilating vessel, the leaking wall, and the fear loop returning to the start."></video>
+    <figcaption>the loop · all five active</figcaption>
+  </figure>
+
+  <div class="lever rv"><div class="tag">01 · The Alarm</div><div class="sub">An immune system calling 911 when nothing was wrong.</div><p>Your immune system has a smoke detector. In healthy skin, it goes off when there's fire. In mine, it was going off when someone walked past with cologne. When the office got warm. When I drank a glass of wine. When I felt embarrassed. When I felt anything strong — even happy. Every trigger came through this one door.</p></div>
+
+  <div class="lever rv"><div class="tag">02 · The Nerves</div><div class="sub">Set too sensitive after years of false alarms.</div><p>The nerves had been tuned too sensitive by years of false alarms. They fired at heat I wouldn't notice on my arm. At a thought, sometimes. Before anything had even happened.</p><p style="margin-top:12px">My face had started lying about me. I was calm — it flushed. I was steady — it screamed. People assumed I was nervous. People assumed I was embarrassed. <span id="neither" style="background:var(--rosa-wash);padding:2px 6px;border-radius:3px;color:var(--rosa-dk);font-weight:500">I was neither.</span> The link between what I felt and what my face said had been broken.</p></div>
+
+  <div class="lever rv"><div class="tag">03 · The Door</div><div class="sub">A barrier that stopped keeping anything out.</div><p>Healthy skin has a wall around it. Mine had holes. Things other people would ignore — a colleague's perfume, the office AC, a "gentle" cleanser — went straight through and fed the alarm.</p></div>
+
+  <div class="lever rv"><div class="tag">04 · The Wall</div><div class="sub">Vessels that learned to stay open.</div><p>The blood vessels in my cheeks had been opening for ten years. Closing slower each year. By thirty-four, the redness at 7 AM wasn't a flare. It was the baseline. Vessels that used to come back down — and stopped.</p></div>
+
+  <div class="lever lever--five rv"><div class="tag">05 · The Loop Unwinds</div><div class="sub">What happens when the four above feed each other.</div><p>The fifth one isn't a separate thing. It's what the first four create when they run together. The alarm fires. The nerves overreact. The barrier lets more in. The vessels stay open. And every time it happens, the next time happens easier. The loop teaches itself.</p></div>
+
+  <div class="pullquote rv" style="margin-top:15px">
+    <p style="font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--ink)">Five things. One loop.</p>
+    <p style="font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--ink)">Treat one — the other four keep running.</p>
+  </div>
+
+  <p class="center italic soft rv" style="margin-top:24px">I sat there reading the napkin twice. Then I exhaled.</p>
+
+  <div class="skip"><a href="#product" data-cta="05"><em>I see the loop</em> · show me what stops it <span class="arw">→</span></a></div>
+</section>
+
+
+<!-- ========== 06 — MECHANISM ========== -->
+<section class="brique wrap">
+  <p class="rv">I looked at the five things on that napkin for a long time. Then I asked Helena the only question that mattered.</p>
+
+  <div class="bigquote rv"><p>"If the loop runs through five things — what does it take to actually stop it?"</p></div>
+
+  <p class="rv">She didn't hesitate.</p>
+  <p class="rv">You have to <span style="background:#F6E3D6;padding:2px 6px;border-radius:3px;color:var(--rosa-dk);font-weight:500">deal with</span> all five at the same time. Not one at a time. Not one today and another next month. All five.</p>
+
+  <p class="center" style="margin:22px 0 8px"><span class="mono-word scalein">Simultaneously.</span></p>
+
+  <div class="pullquote rv" style="margin-top:20px"><p>Because the fifth one isn't something you deal with. It's what happens when the other four stop.</p></div>
+
+  <figure class="rv" style="max-width:560px;margin:16px auto">
+    <div style="background:var(--paper-2);border-radius:16px;padding:30px 18px 24px">
+      <svg viewBox="0 0 400 168" width="100%" role="img" aria-label="Two gauges. Healthy skin: the needle rises then returns to baseline, over and over. Your skin: the needle only rises and stays up, a ratchet.">
+        <g>
+          <path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="var(--rosa-lt)" stroke-width="7" stroke-linecap="round"/>
+          <g stroke="var(--rosa)" stroke-width="1.5" opacity=".45"><line x1="40" y1="92" x2="49" y2="92"/><line x1="57.6" y1="49.6" x2="64.9" y2="55.2"/><line x1="100" y1="32" x2="100" y2="41"/><line x1="142.4" y1="49.6" x2="135.1" y2="55.2"/><line x1="160" y1="92" x2="151" y2="92"/></g>
+          <line class="needle-h" x1="100" y1="92" x2="100" y2="46" stroke="var(--rosa-dk)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="5.5" fill="var(--rosa-dk)"/>
+          <path d="M118 108 a14 14 0 1 1 -6 -11" fill="none" stroke="var(--rosa-dk)" stroke-width="1.6" opacity=".7"/><path d="M112 94 l0 4 4 -1" fill="none" stroke="var(--rosa-dk)" stroke-width="1.6" opacity=".7"/>
+          <text x="100" y="132" text-anchor="middle" font-family="Inter" font-size="10.5" letter-spacing="1.6" fill="var(--ink-faint)">HEALTHY SKIN</text>
+          <text x="100" y="152" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="15" fill="var(--rosa-dk)">rises, then returns</text>
+        </g>
+        <g transform="translate(200,0)">
+          <path d="M40 92 A60 60 0 0 1 160 92" fill="none" stroke="var(--rosa-lt)" stroke-width="7" stroke-linecap="round"/>
+          <g stroke="var(--rosa)" stroke-width="1.5" opacity=".45"><line x1="40" y1="92" x2="49" y2="92"/><line x1="57.6" y1="49.6" x2="64.9" y2="55.2"/><line x1="100" y1="32" x2="100" y2="41"/><line x1="142.4" y1="49.6" x2="135.1" y2="55.2"/><line x1="160" y1="92" x2="151" y2="92"/></g>
+          <line class="needle-b" x1="100" y1="92" x2="100" y2="46" stroke="var(--rosa)" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="100" cy="92" r="5.5" fill="var(--rosa)"/>
+          <path d="M132 108 l0 -16 m-4 5 l4 -5 4 5" fill="none" stroke="var(--rosa)" stroke-width="1.6" opacity=".8"/>
+          <text x="100" y="132" text-anchor="middle" font-family="Inter" font-size="10.5" letter-spacing="1.6" fill="var(--rosa-dk)">YOUR SKIN</text>
+          <text x="100" y="152" text-anchor="middle" font-family="Cormorant Garamond" font-style="italic" font-size="15" fill="var(--rosa-dk)">only ever rises</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption>the thermostat, and the ratchet</figcaption>
+  </figure>
+
+  <div class="compare rv">
+    <div class="c healthy"><p class="eyebrow muted" style="margin-bottom:6px">Healthy skin</p><h4>A thermostat.</h4><p class="soft small" style="margin:0">It flushes. Then it clicks back down. Every time. The system resets itself.</p></div>
+    <div class="c yours"><p class="eyebrow" style="margin-bottom:6px;color:var(--rosa-dk)">Your skin</p><h4 style="color:var(--rosa-dk)">A thermostat that only knows heat.</h4><p style="color:var(--rosa-dk);margin:0;font-size:14px">Every trigger turns it up. Nothing turns it down. So it just keeps climbing.</p></div>
+  </div>
+
+  <p class="rv">That's what no product I'd ever tried had done. Not because the ingredients were bad. Because each one was treating a single step — while the loop kept running through the other four.</p>
+  <p class="rv">I stopped asking <em>"what calms redness?"</em> I started asking <em>"what interrupts the loop at all five points — simultaneously?"</em></p>
+  <p class="rv" style="font-weight:500">Two years. One question.</p>
+
+  <div class="pullquote rv">
+    <p style="font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--ink);font-weight:500">The Reset Complex™. That's what those five answers became.</p>
+    <p style="font-style:normal;font-family:'Inter';font-size:16px;color:var(--ink-soft);font-weight:400">Not a cream. Not a routine. A system built around one idea: <span style="color:var(--rosa);font-weight:500">your face isn't being calmed. It's being given back its ability to calm itself — and to tell the truth about you again.</span></p>
+    <p style="font-style:normal;font-family:'Inter';font-size:16px;color:var(--ink-soft);font-weight:400">The thermostat. The ability to come back down — and stay accurate.</p>
+  </div>
+</section>
+
+
+<!-- ========== 07 — PRODUCT INTRODUCTION ========== -->
+<section class="brique wrap" id="product">
+  <p class="rv">For two years I'd been trusting one symptom. For two years I tried to find what would deal with all five — simultaneously, at the right concentrations, without ingredients that would feed the loop.</p>
+
+  <p class="serif center rosa-dk rv" style="font-size:clamp(26px,5vw,34px);font-weight:500;margin:15px 0 36px">Then I built it.</p>
+
+  <div class="center rv" style="margin-bottom:18px">
+    <h3 class="serif" style="color:var(--rosa-dk)">The Daily Reset Serum.</h3>
+    <p class="eyebrow" style="margin-top:8px">With the Reset Complex™</p>
+  </div>
+
+  <figure class="shot rv" style="margin:18px auto 22px;max-width:540px">
+    <img src="{% if section.settings.packshot_editorial != blank %}{{ section.settings.packshot_editorial | image_url: width: 1400 }}{% else %}{{ 'packshot-editorial.webp' | asset_url }}{% endif %}" width="1264" height="848" alt="The Daily Reset Serum, a frosted-glass dropper bottle, on a marble counter in soft window light." loading="lazy">
+  </figure>
+
+  <div class="center rv" style="margin:18px 0 30px">
+    <span class="pill">Fragrance-free</span><span class="pill">Alcohol-free</span><span class="pill">No essential oils</span>
+  </div>
+
+  <div class="bigquote wordrev rv" style="margin:16px auto 14px"><p>It doesn't calm your face. It helps your face calm itself.</p></div>
+  <p class="serif italic center soft rv" style="font-size:15px;margin:0 0 40px">That's not just a different product. It's a different question.</p>
+
+  <div class="center rv" style="margin:20px auto;max-width:520px">
+    <p class="serif rosa-dk" style="font-size:clamp(23px,4vw,28px);font-weight:500;margin:0 0 10px">Five levers. Four actives.</p>
+    <p class="serif italic rosa-dk" style="font-size:17px;margin:0">The fifth lever is what your face does when the first four stop interfering.</p>
+  </div>
+  <p class="serif italic center rosa-dk rv" style="font-size:15px;margin:20px auto 16px;max-width:520px">The work isn't done by any one of them. It's done by the four working at the same time.</p>
+
+  <div class="grid2 stg" style="margin-top:20px">
+    <div class="lever" style="margin:0"><div class="tag">Lever 01 · The Alarm</div><h4>Azelaic Acid <span class="conc">10%</span></h4><p><strong>Helps</strong> the alarm stop firing for nothing. The immune system stops calling 911 — and the cascade behind it slows down.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 02 · The Nerves</div><h4>Centella Asiatica <span class="conc">4%</span></h4><p><strong>Helps</strong> the nerves come back to normal. They stop firing at heat you wouldn't notice on my arm. They stop firing on memory.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 03 · The Door</div><h4>Colloidal Oat + Panthenol (B5) <span class="conc">1% · 5%</span></h4><p><strong>Helps</strong> the wall hold what's inside. Less of what feeds the alarm gets through.</p></div>
+    <div class="lever" style="margin:0"><div class="tag">Lever 04 · The Wall</div><h4>Licochalcone A <span class="conc">0.4%</span></h4><p><strong>Helps</strong> the vessels close back down. The redness fades back to normal — instead of riding all day.</p></div>
+  </div>
+  <div class="lever lever--five rv" style="margin-top:14px"><div class="tag">Lever 05 · The Loop Unwinds</div><h4>The fifth lever</h4><p>What your face does when the first four stop interfering.</p><p style="margin-top:10px">The anticipation loop has no fuel without the other four. The flush becomes less inevitable. Less feared. Less triggered.</p></div>
+
+  <div class="wash rv" style="margin:17px 0 18px"><p class="serif italic" style="font-size:16.5px;margin:0;line-height:1.6">If you've spent ten years buying products that didn't work, you have every reason to be skeptical of this one. I built it knowing that.</p></div>
+
+  <div class="rv" style="margin:24px 0">
+    <p class="eyebrow" style="margin-bottom:14px">What we left out — on purpose</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Niacinamide / oxytocin</strong> — induced flushing, documented and infamous</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Retinol / retinoids</strong> — strip the wall</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Alcohol &amp; synthetic fragrance</strong> — strip the wall, wake up the alarm</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Menthol · witch hazel · essential oils</strong> — wake up the TRPV/A1 nerves</p>
+    <p class="small soft" style="margin:7px 0"><strong>✗ Niacinamide above 5%</strong> — triggers the exact nerves lever 02 calms</p>
+  </div>
+
+  <div class="wash rv" style="background:var(--rosa-wash);margin:24px 0"><p style="margin-bottom:4px">This isn't for sensitive skin. That's a category.</p><p style="font-weight:500;margin:0">This is for reactive skin — specifically, for the kind that flushes before it asks permission.</p></div>
+
+  <div class="pullquote rv"><p>You weren't failing. You were fixing one point on a circle. The whole circle had to be fixed at once.</p></div>
+
+  <div class="skip"><a href="#close" data-cta="07"><em>I've seen enough</em> · let's begin <span class="arw">→</span></a></div>
+</section>
+
+
+<!-- ========== 08 — SOCIAL PROOF ========== -->
+<section class="brique">
+  <div class="wrap">
+    <h2 class="center rv" style="margin-bottom:12px">"I was in the family photo this year."</h2>
+    <p class="center soft rv" style="margin-bottom:22px">Three hundred and twelve women tested this for sixty days before it left my kitchen.</p>
+    <div class="wash rv" style="text-align:center;max-width:480px;margin:0 auto 16px;background:var(--rosa-wash)">
+      <p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">Three of three hundred and twelve.</p>
+      <p class="serif italic rosa-dk" style="font-size:20px;margin:0">They could've been any of us.</p>
+    </div>
+    <p class="swipe-hint eyebrow rv">← swipe to see more →</p>
+
+  <div class="carousel nudge" id="carousel">
+    <div class="ctrack">
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Sarah · 34 · Boston</p><blockquote>"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote></article>
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Rachel · 41 · Chicago</p><blockquote>"My husband took the picture. I was in it. That was new."</blockquote></article>
+      <article class="testi"><div class="vid"><div class="play">▶</div><span class="eyebrow" style="margin:0">Video</span><span class="small faint" style="margin-top:4px">30–60s · talking head · 9:16</span></div><p class="who">Maya · 38 · Brooklyn</p><blockquote>"Nobody's asked me if I'm sick in four months."</blockquote></article>
+    </div>
+  </div>
+  <div class="cdots" id="cdots" role="tablist" aria-label="Testimonials">
+    <button class="on" aria-label="Sarah"></button><button aria-label="Rachel"></button><button aria-label="Maya"></button>
+  </div>
+
+    <div class="rv" style="background:var(--paper-2);border-radius:14px;padding:32px 26px;text-align:center;margin:18px auto 0;max-width:560px">
+      <p class="eyebrow" style="margin-bottom:20px">By week eight</p>
+      <p class="serif" style="font-size:19px;margin:0 0 10px;line-height:1.5"><span class="n" data-count="87" style="font-family:'Cormorant Garamond';font-weight:600;color:var(--rosa-dk);font-size:23px">87</span> out of 100 said their flushes were less frequent.</p>
+      <p class="serif" style="font-size:19px;margin:0 0 18px;line-height:1.5"><span class="n" data-count="91" style="font-family:'Cormorant Garamond';font-weight:600;color:var(--rosa-dk);font-size:23px">91</span> said their face was coming back down faster on its own.</p>
+      <div style="width:56px;height:1px;background:var(--rosa);opacity:.35;margin:0 auto 18px"></div>
+      <p class="serif italic rosa-dk" style="font-size:16px;margin:0">Sixty days. One email. Full refund if it didn't.</p>
+    </div>
+
+    <div class="rv" style="background:var(--rosa-wash);border-radius:14px;padding:28px;text-align:center;margin:20px auto 0;max-width:560px">
+      <p class="serif italic rosa-dk" style="font-size:clamp(20px,3.4vw,24px);font-weight:500;margin:0;line-height:1.35">They didn't get a different face. They got their own face back.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== 10 — MAKE IT PERSONAL ========== -->
+<section class="brique wrap">
+  <p class="italic soft rv" style="margin-bottom:24px">Three women. Three things they thought they'd given up. There were others on the panel. Most of them said the same thing — that getting the face back wasn't really the point.</p>
+
+  <h2 class="rv" style="margin-bottom:10px">This was never about the skin.</h2>
+  <p class="center italic soft rv" style="margin-bottom:14px">It was about everything the skin had quietly cancelled.</p>
+
+  <p class="serif italic center rosa-dk rv" style="font-size:18px;margin:0 auto 16px;max-width:560px">There's one thing I haven't said yet. It's the smaller, harder thing — the one I think you've felt too.</p>
+
+  <blockquote class="wash linemask rv" id="climax" style="background:var(--rosa-wash);border-left:3px solid var(--rosa);border-radius:0 10px 10px 0;max-width:580px;margin:0 auto 18px">
+    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink-soft);display:block;margin-bottom:10px">And underneath all of it was this:</i></span>
+    <span><i class="serif" style="font-size:clamp(20px,3.4vw,24px);color:var(--rosa-dk);font-weight:500;font-style:normal;display:block;margin-bottom:10px">My face had stopped telling the truth about me.</i></span>
+    <span><i style="font-family:'Inter';font-size:16px;color:var(--ink);line-height:1.6;display:block;font-style:normal">It would flush when I was calm. It would scream when I was steady. People were reading something on my face that wasn't what was happening inside me. <b style="color:var(--rosa);font-weight:600">They were being misled. I was being misread.</b></i></span>
+  </blockquote>
+
+  <div class="pair stg">
+    <div class="row">
+      <p class="loss small">What I'd quietly given up:</p>
+      <p class="loss">the right to feel something without showing it.</p>
+      <p class="label">What I wanted back:</p>
+      <p class="gain">a face that doesn't show what I'm not feeling.</p>
+    </div>
+    <div class="row">
+      <p class="loss">the meetings I'd already won — before I saw myself in the corner of the screen.</p>
+      <p class="gain">an hour at work without checking the self-view once.</p>
+    </div>
+    <div class="row">
+      <p class="loss">the photos I'd quietly stopped being in.</p>
+      <p class="gain">the small gatherings I attend without rehearsing.</p>
+    </div>
+  </div>
+
+  <div class="center rv" style="max-width:520px;margin:8px auto 0">
+    <p class="serif" style="font-size:clamp(20px,3.6vw,24px)">To be in my own life again —</p>
+    <p class="serif rosa" style="font-size:clamp(22px,4vw,26px);font-weight:500;margin-top:4px">with a face that tells the truth about being there.</p>
+    <p class="serif italic soft" style="font-size:17px;margin-top:14px">Not by forcing it. By letting my face do what it was supposed to do all along.</p>
+  </div>
+
+  <div class="skip"><a href="#close" data-cta="10"><em>That's what I came for</em> · let's begin <span class="arw">→</span></a></div>
+</section>
+
+
+<!-- ========== 10.5 — TRUST STACK ========== -->
+<section class="brique wrap">
+  <h2 class="rosa-dk rv" style="margin-bottom:10px">What's actually in the bottle.</h2>
+  <p class="serif italic center rosa-dk rv" style="font-size:17px;margin-bottom:17px">The five things that, together, give your face back what it lost.</p>
+
+  <figure class="shot rv" style="margin:0 auto 14px;max-width:460px">
+    <img src="{% if section.settings.packshot_quiet != blank %}{{ section.settings.packshot_quiet | image_url: width: 1400 }}{% else %}{{ 'packshot-quiet.webp' | asset_url }}{% endif %}" width="1152" height="928" alt="The Daily Reset Serum resting on natural linen against a neutral cream backdrop, soft overhead light." loading="lazy">
+  </figure>
+  <p class="serif italic center soft rv" style="font-size:14px;margin:0 auto 17px;max-width:460px">This is the bottle 312 of us tested. Eight weeks.</p>
+
+  <div class="active-list stg" style="max-width:560px;margin:0 auto">
+    <div class="active-row"><p class="ing"><strong>Azelaic acid</strong> <span class="conc">10%</span></p><p class="does">helps the alarm stop firing</p></div>
+    <div class="active-row"><p class="ing"><strong>Centella asiatica</strong> <span class="conc">4%</span></p><p class="does">helps the nerves come back to normal</p></div>
+    <div class="active-row"><p class="ing"><strong>Colloidal oat · Panthenol B5</strong> <span class="conc">1% · 5%</span></p><p class="does">helps close the door — the barrier holds</p></div>
+    <div class="active-row"><p class="ing"><strong>Licochalcone A</strong> <span class="conc">0.4%</span></p><p class="does">helps the vessels close back down</p></div>
+    <div class="active-row active-row--five"><p class="ing"><strong>The fifth lever</strong></p><p class="does serif italic">what your face does when the first four stop interfering</p></div>
+  </div>
+
+  <div class="ledger rv" style="margin:20px 0 24px">
+    <div><p class="eyebrow" style="margin-bottom:8px">What's in</p><p class="soft small" style="margin:0;line-height:1.55">5 clinically-dosed actives. Formulated in a dermatology lab.</p></div>
+    <div><p class="eyebrow" style="margin-bottom:8px">What's out</p><p class="soft small" style="margin:0;line-height:1.55">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p></div>
+    <div><p class="eyebrow" style="margin-bottom:8px">What I promise</p><p class="soft small" style="margin:0;line-height:1.55">Sixty days. One email. Full refund if it didn't.</p></div>
+  </div>
+
+  <p class="italic center soft rv">If any of that makes sense to you — and you've read this far — there's only one thing left.</p>
+</section>
+
+
+<!-- ========== 11 — CLOSE ========== -->
+<section class="brique wrap" id="close">
+  <div class="center rv" style="max-width:540px;margin:0 auto 16px">
+    <p>You've carried this longer than you want to remember. The mirror checks. The rehearsed faces. The Zoom self-view that ruined meetings you should've enjoyed. The photos you quietly stopped being in.</p>
+    <p class="serif rosa-dk" style="font-size:clamp(20px,3.6vw,23px);font-weight:500;margin-top:16px">That's the part I'm asking you to put down.</p>
+  </div>
+
+  <div class="bigquote rv" style="margin:0 auto 20px">
+    <p style="font-style:italic">Three hundred and twelve of us put it down.</p>
+    <p class="serif rosa-dk" style="font-size:clamp(20px,3.4vw,24px);font-weight:500;font-style:normal;margin-top:4px">You can put it down too.</p>
+  </div>
+
+  <div class="center rv" style="max-width:520px;margin:0 auto 24px">
+    <p class="eyebrow" style="margin-bottom:10px">Rosalia</p>
+    <h3 class="serif rosa-dk" style="margin-bottom:4px">The Daily Reset Serum</h3>
+    <p class="serif italic soft" style="font-size:17px">With the Reset Complex™.</p>
+  </div>
+
+  <figure class="shot rv" style="margin:0 auto 16px;max-width:520px">
+    <img src="{% if section.settings.packshot_dramatic != blank %}{{ section.settings.packshot_dramatic | image_url: width: 1400 }}{% else %}{{ 'packshot-dramatic.webp' | asset_url }}{% endif %}" width="1264" height="848" alt="A close-up of the Daily Reset Serum under dramatic side light, deep wine and rose shadows, dropper poised." loading="lazy">
+  </figure>
+
+  <div class="center rv" style="max-width:520px;margin:0 auto 15px">
+    <p class="serif rosa-dk" style="font-size:clamp(26px,5vw,30px);font-weight:500;margin-bottom:4px">$45</p>
+    <p class="small faint" style="margin:0 0 18px">30ml · Eight-week supply · One bottle.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than a single laser session.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than the tubes I tried that didn't last.</p>
+    <p class="soft" style="margin:0;line-height:1.9">Less than what I lost rehearsing my face in mirrors.</p>
+  </div>
+
+  <div class="guarantee rv"><p class="serif italic uline" style="font-size:18px;color:var(--rosa-dk);margin:0">Sixty days. One email. Full refund if it didn't.</p></div>
+
+  <div class="future stg" style="margin:0 auto 17px">
+    <p><span class="m">Tomorrow morning</span> · a face I don't have to talk to.</p>
+    <p><span class="m">Next Tuesday's Zoom</span> · the self-view checked once, then forgotten.</p>
+    <p><span class="m">This weekend</span> · the photos I'm in.</p>
+    <p><span class="m">The next "are you okay?"</span> · without the rehearsed reply.</p>
+    <p><span class="m">The next small gathering</span> · without the rehearsing.</p>
+    <p style="margin:0"><span class="m">Sixty days from now</span> · forgetting what this exhaustion felt like.</p>
+  </div>
+
+  <div class="buy">
+  {%- assign atc = section.settings.product -%}
+  {%- if atc != blank -%}
+  {%- form 'product', atc, id: 'ctf-atc' -%}
+    <input type="hidden" name="id" value="{{ atc.selected_or_first_available_variant.id }}">
+    <input type="hidden" name="attributes[source]" value="advertorial-v3">
+    <button type="submit" class="buy-btn" data-cta="main"><em>I want my face back</em> · take me there →</button>
+  {%- endform -%}
+  {%- else -%}
+    <a href="#checkout" data-cta="main"><em>I want my face back</em> · take me there →</a>
+  {%- endif -%}
+</div>
+
+  <div class="ps rv">
+    <p style="font-weight:500;margin-bottom:10px">PS — last thing.</p>
+    <p style="line-height:1.6;margin-bottom:10px">If you've been burned by 47 products before this one, you have every right to hesitate. I built it knowing that.</p>
+    <p style="line-height:1.6;margin-bottom:10px">Sixty days to test it. If it doesn't change anything, send me one email — the refund will be on you the same day. No questions. No forms. No story to tell me.</p>
+    <p class="serif italic rosa-dk" style="font-size:17px;margin:14px 0 0">I'm not asking you to trust me. I'm asking you to test me.</p>
+    <p class="soft" style="margin:14px 0 0">— Margot</p>
+  </div>
+
+  <div class="faq rv">
+    <p class="eyebrow" style="margin:14px 0 4px">A few things people ask</p>
+    <div class="faq-item open"><button class="faq-q" aria-expanded="true">Will it work if I have bumps too?<span class="sign">−</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">I built it for subtype 1 (flushing) and subtype 2 (papulopustular). The 312 cohort included both. The bumps stop coming back when the loop unwinds — not because the formula attacks them, because their cause does.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">My skin stings on everything. Will it sting?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">The 312 reported no stinging. I built it specifically without the actives that sting on reactive skin — alcohol, fragrance, essential oils, niacinamide above 5%. If it stings on you, I don't want you to keep using it. Send it back.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need to change my whole routine?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">No. But pause anything that fights against the loop — retinoids, AHAs, high-niacinamide products — for the first four weeks. After that, you'll know what works with it.</p></div></div></div>
+    <div class="faq-item"><button class="faq-q" aria-expanded="false">What's the refund process if it doesn't work?<span class="sign">+</span></button><div class="faq-a"><div><p class="faq-a" style="padding-top:0">Send it back within 60 days. One email. Full refund, no questions. I'd rather refund 312 women than keep money that didn't help.</p></div></div></div>
+  </div>
+</section>
+
+
+<!-- ========== 12 — FINAL WHISPER ========== -->
+<section class="brique wrap">
+  <div class="center rv" style="max-width:500px;margin:0 auto">
+    <p class="serif italic soft" style="font-size:17px">If you're not ready — that's fine.</p>
+    <p class="soft">The flush will still be there tomorrow. So will this page.</p>
+    <p class="soft">When you're ready to stop treating one step at a time —</p>
+    <p class="serif rosa-dk" style="font-size:21px;font-weight:500;margin-top:14px">I'll be here.</p>
+    <p class="serif italic soft" style="font-size:16px;margin-top:8px">So will the women who tested it.</p>
+    <p class="serif italic soft" style="font-size:15px;margin-top:14px">Whenever you're ready.</p>
+    <div class="ornament" style="margin:15px auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/></svg></div>
+    <img src="{% if section.settings.signature_image != blank %}{{ section.settings.signature_image | image_url: width: 1400 }}{% else %}{{ 'signature.webp' | asset_url }}{% endif %}" alt="Margot, signed by hand" width="220" height="110" loading="lazy" style="display:block;max-width:200px;height:auto;margin:6px auto 0;mix-blend-mode:multiply">
+    <p class="serif italic soft" style="font-size:15px;margin-top:6px">Founder, Rosalia</p>
+  </div>
+</section>
+
+</div><!-- /feature -->
+
+{%- if section.blocks.size > 0 -%}
+<div class="wrap" style="padding:6px 26px">{%- for block in section.blocks -%}{%- render block -%}{%- endfor -%}</div>
+{%- endif -%}
+<footer class="foot">
+  <div class="foot-in">
+    <div style="margin-bottom:6px">
+      <p class="wordmark" style="font-size:22px">Rosalia<span class="dot">.</span></p>
+      <p class="eyebrow muted" style="font-size:9px;margin-top:4px">Reactive skin, addressed simultaneously</p>
+    </div>
+    <div class="foot-grid">
+      <div><h4>Product</h4><a href="#">Daily Reset Serum</a><a href="#">Full ingredients</a><a href="#">How to use</a><a href="#close">FAQ</a></div>
+      <div><h4>Support</h4><a href="#">Contact us</a><a href="#">Shipping &amp; returns</a><a href="#">60-day guarantee</a><a href="#">Track order</a></div>
+      <div><h4>Company</h4><a href="#">Our story</a><a href="#">Privacy policy</a><a href="#">Terms of service</a><a href="#">Accessibility</a></div>
+    </div>
+    <div class="disclaimer">
+      <p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+      <p style="margin-top:8px">© 2026 Rosalia. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Rosalia · Advertorial",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Product" },
+    { "type": "product", "id": "product", "label": "Product for Add-to-Cart", "info": "Wires the main CTA to a real Shopify product form. Leave blank to keep the placeholder #checkout link." },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "accent", "label": "Accent (rose)", "default": "#C4718E" },
+    { "type": "color", "id": "accent_dark", "label": "Accent dark (wine-rose)", "default": "#7A3A54" },
+    { "type": "color", "id": "background", "label": "Page background (cream)", "default": "#FAF5F0" },
+
+    { "type": "header", "content": "Photography", "info": "Leave any slot blank to keep the built-in generated image." },
+    { "type": "image_picker", "id": "hero_image", "label": "Hero (Brique 01)" },
+    { "type": "image_picker", "id": "cafe_image", "label": "Café still-life (Brique 03)" },
+    { "type": "image_picker", "id": "rosacea_desktop", "label": "Rosacea progression — desktop 1×4 (Brique 04)" },
+    { "type": "image_picker", "id": "rosacea_mobile", "label": "Rosacea progression — mobile 2×2 (Brique 04)" },
+    { "type": "image_picker", "id": "packshot_editorial", "label": "Packshot — editorial (Brique 07)" },
+    { "type": "image_picker", "id": "packshot_quiet", "label": "Packshot — quiet (Brique 10.5)" },
+    { "type": "image_picker", "id": "packshot_dramatic", "label": "Packshot — dramatic (Brique 11)" },
+    { "type": "image_picker", "id": "signature_image", "label": "Margot signature (Brique 12)" },
+
+    { "type": "header", "content": "The loop animation (Brique 05)" },
+    { "type": "image_picker", "id": "loop_poster", "label": "Loop poster / still" },
+    { "type": "url", "id": "loop_video", "label": "Loop animation .mp4 URL", "info": "Point to a hosted MP4 (Files upload → copy link). Blank = built-in loop.mp4." },
+
+    { "type": "header", "content": "Motion" },
+    { "type": "checkbox", "id": "enable_motion", "label": "Enable animations", "default": true, "info": "Off = static final states (also respects the visitor's reduced-motion preference either way)." }
+  ],
+  "blocks": [
+    { "type": "@app" }
+  ],
+  "presets": [
+    { "name": "Rosalia · Advertorial" }
+  ]
+}
+{% endschema %}
