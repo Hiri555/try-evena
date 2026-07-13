@@ -482,14 +482,18 @@
 
   <div class="buy">
   {%- assign atc = section.settings.product -%}
-  {%- if atc != blank -%}
-  {%- form 'product', atc, id: 'ctf-atc' -%}
-    <input type="hidden" name="id" value="{{ atc.selected_or_first_available_variant.id }}">
-    <input type="hidden" name="attributes[source]" value="advertorial-v3">
-    <button type="submit" class="buy-btn" data-cta="main"><em>I want my face back</em> · take me there →</button>
-  {%- endform -%}
-  {%- else -%}
+  {%- if atc == blank -%}
     <a href="#checkout" data-cta="main"><em>I want my face back</em> · take me there →</a>
+  {%- elsif section.settings.cta_action == 'product_page' -%}
+    <a href="{{ atc.url }}" class="buy-btn" data-cta="main"><em>I want my face back</em> · take me there →</a>
+  {%- else -%}
+    {%- if section.settings.cta_action == 'cart' -%}{%- assign go = '/cart' -%}{%- else -%}{%- assign go = '/checkout' -%}{%- endif -%}
+    {%- form 'product', atc, id: 'ctf-atc' -%}
+      <input type="hidden" name="id" value="{{ atc.selected_or_first_available_variant.id }}">
+      <input type="hidden" name="attributes[source]" value="advertorial-v3">
+      <input type="hidden" name="return_to" value="{{ go }}">
+      <button type="submit" class="buy-btn" data-cta="main"><em>I want my face back</em> · take me there →</button>
+    {%- endform -%}
   {%- endif -%}
 </div>
 
@@ -555,6 +559,11 @@
   "tag": "section",
   "settings": [
     { "type": "header", "content": "Product" },
+    { "type": "select", "id": "cta_action", "label": "Main CTA destination", "default": "checkout", "options": [
+      { "value": "checkout", "label": "Add to cart → straight to checkout (recommended)" },
+      { "value": "cart", "label": "Add to cart → cart page" },
+      { "value": "product_page", "label": "Go to the product page" }
+    ] },
     { "type": "product", "id": "product", "label": "Product for Add-to-Cart", "info": "Wires the main CTA to a real Shopify product form. Leave blank to keep the placeholder #checkout link." },
 
     { "type": "header", "content": "Colours" },
