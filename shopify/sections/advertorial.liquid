@@ -99,7 +99,7 @@
   </div>
 
   <div class="founder rv">
-    <div class="founder-photo" title="Margot portrait — replace on Shopify (image_picker)">photo</div>
+    {%- if section.settings.margot_image != blank -%}<img class="founder-photo-img" src="{{ section.settings.margot_image | image_url: width: 120 }}" alt="Margot" width="56" height="56" loading="lazy">{%- else -%}<div class="founder-photo" title="Margot portrait (optional)">photo</div>{%- endif -%}
     <div>
       <div class="name">Margot</div>
       <div class="role">Not a dermatologist. Not a chemist.</div>
@@ -563,6 +563,7 @@
     { "type": "color", "id": "background", "label": "Page background (cream)", "default": "#FAF5F0" },
 
     { "type": "header", "content": "Photography", "info": "Leave any slot blank to keep the built-in generated image." },
+    { "type": "image_picker", "id": "margot_image", "label": "Margot portrait (Brique 03) — optional" },
     { "type": "image_picker", "id": "hero_image", "label": "Hero (Brique 01)" },
     { "type": "image_picker", "id": "cafe_image", "label": "Café still-life (Brique 03)" },
     { "type": "image_picker", "id": "rosacea_desktop", "label": "Rosacea progression — desktop 1×4 (Brique 04)" },
