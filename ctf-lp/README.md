@@ -39,14 +39,23 @@ python3 -m http.server 8000   # from repo root → http://localhost:8000/ctf-lp/
 Scroll-snap testimonial carousel (progress dots + one-time nudge hint) · FAQ accordion
 (+/−, first pre-open) · skip CTAs with sliding arrow.
 
-## Real photography (generated via Higgsfield, per taste-skill §4.8)
+## Real imagery (generated via Higgsfield, per taste-skill §4.8)
 
-Five section-specific editorial images in `assets/` (WebP, ~270KB total): the hero
-(woman scrolling, face away, dusty-rose light), the café still-life, and the **three
-packshots in three distinct registers** (editorial marble / quiet linen / dramatic
-side-light). Blank labels, no text artifacts. The rosacea progression stays an abstract
-CSS treatment (a consistent-face 4-panel is a photo-shoot asset, not safely generated);
-the thermostat + loop remain the brief-commissioned SVGs.
+All in `assets/`:
+- **Hero** `hero.webp` — a woman at a mirror catching her own reflection (open-loop /
+  pattern-interrupt, not the earlier phone shot).
+- **3 packshots**, each a distinct register (`packshot-editorial` marble / `packshot-quiet`
+  overhead linen / `packshot-dramatic` side-light), generated from the **real branded
+  Rosalia flacon** as reference so the actual label shows.
+- **Rosacea 4-panel** — real consistent-face progression, `rosacea-desktop.webp` (1×4) +
+  `rosacea-mobile.webp` (2×2) via `<picture>`, STAGE/AGE labels baked in.
+- **The loop** — the medical cross-section illustration `loop.webp`, **animated**
+  (`loop.mp4`, muted autoplay loop, lazy-loaded on scroll, poster = the still; paused under
+  reduced-motion).
+- **Café** still-life `cafe.webp`.
+
+The masthead no longer prints "Rosalia" (opens as a letter, byline only). The thermostat
+stays the brief-commissioned animated SVG.
 
 ## Doctrine honoured
 
