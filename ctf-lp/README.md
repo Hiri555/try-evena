@@ -39,6 +39,15 @@ python3 -m http.server 8000   # from repo root → http://localhost:8000/ctf-lp/
 Scroll-snap testimonial carousel (progress dots + one-time nudge hint) · FAQ accordion
 (+/−, first pre-open) · skip CTAs with sliding arrow.
 
+## Real photography (generated via Higgsfield, per taste-skill §4.8)
+
+Five section-specific editorial images in `assets/` (WebP, ~270KB total): the hero
+(woman scrolling, face away, dusty-rose light), the café still-life, and the **three
+packshots in three distinct registers** (editorial marble / quiet linen / dramatic
+side-light). Blank labels, no text artifacts. The rosacea progression stays an abstract
+CSS treatment (a consistent-face 4-panel is a photo-shoot asset, not safely generated);
+the thermostat + loop remain the brief-commissioned SVGs.
+
 ## Doctrine honoured
 
 All **12 verbatim-locked phrases** character-perfect · brand **Rosalia** throughout ·

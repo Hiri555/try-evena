@@ -10,7 +10,7 @@
 <meta property="og:title" content="Rosalia — A letter from Margot">
 <meta property="og:description" content="It doesn't calm your face. It helps your face calm itself.">
 <meta property="og:site_name" content="Rosalia">
-<meta property="og:image" content="og-image.jpg">
+<meta property="og:image" content="assets/hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rosalia — A letter from Margot">
 <meta name="twitter:description" content="It doesn't calm your face. It helps your face calm itself.">
@@ -128,6 +128,10 @@ em{font-style:italic}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
 .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:26px 0}
 @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.ledger{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid var(--line)}
+.ledger>div{padding:20px 22px 6px;border-left:1px solid var(--line)}
+.ledger>div:first-child{border-left:0;padding-left:0}
+@media(max-width:640px){.ledger{grid-template-columns:1fr}.ledger>div{border-left:0;border-top:1px solid var(--line);padding:16px 0 6px}.ledger>div:first-child{border-top:0}}
 .mirror{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px}
 .mirror h4{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:18px;margin-bottom:5px}
 .mirror p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.5}
@@ -171,6 +175,12 @@ em{font-style:italic}
 .plate--drama .tag{color:#f0d3dd}
 .plate--drama .spec{color:#c8a3b1}
 .plate .frame-caption{margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px}
+/* Real editorial photography */
+.shot{margin:28px auto;overflow:hidden;border-radius:14px}
+.shot img{width:100%;height:auto;display:block;border-radius:14px;box-shadow:0 24px 60px -30px rgba(75,21,40,.42)}
+.shot--kenburns img{animation:kenburns 16s ease-in-out infinite alternate}
+@keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.045)}}
+@media (prefers-reduced-motion:reduce){.shot--kenburns img{animation:none}}
 
 /* ROSACEA documentary progression */
 .rosacea{margin:26px 0 10px}
@@ -350,10 +360,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <p class="eyebrow center rv" style="margin-bottom:24px">If you flinch when you see your own face</p>
   <h1 class="center rv" style="max-width:640px;margin:0 auto 26px">I used to untag myself from every photo without looking — then I read one paragraph that made me angry no one had bothered to explain it to me in ten years. Now I <span class="rosa">walk past a mirror</span> without tilting my chin down.</h1>
   <p class="lede center rv" style="max-width:560px;margin:0 auto 30px">For ten years I thought my skin was the problem. It wasn't. It never had been. <span class="rosa-dk" style="font-weight:500">I had a face I no longer recognized as mine, and a feeling about it I couldn't name</span> — and no one had bothered to give me the words.</p>
-  <div class="plate plate--editorial rv" style="margin:26px 0">
-    <span class="tag">Hero · scrolling photo gallery</span>
-    <span class="spec">Woman untagging on her phone · 400×320 · mobile-first · static or a subtle motion loop</span>
-  </div>
+  <figure class="shot shot--kenburns rv" style="margin:26px 0">
+    <img src="assets/hero.webp" width="1152" height="928" alt="A woman sits in soft window light, scrolling a photo gallery on her phone, her face turned away." fetchpriority="high">
+  </figure>
   <p class="serif italic center rv" style="font-size:19px;color:var(--rosa-dk);max-width:480px;margin:0 auto">There's one paragraph below that took me ten years to find. Read it carefully. ↓</p>
 </section>
 
@@ -453,10 +462,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
 
   <p class="rv">Her name was Helena. Retired vascular biologist. She'd been writing a novel at the same café for two years — which is how she'd been watching me reach for tubes.</p>
 
-  <div class="plate plate--editorial rv" style="aspect-ratio:2/1;margin:24px 0">
-    <span class="tag">Café table · bird's-eye</span>
-    <span class="spec">2 cups, afternoon light · 480×240 · subtle narrative anchor, not hero-sales</span>
-  </div>
+  <figure class="shot rv" style="margin:24px 0">
+    <img src="assets/cafe.webp" width="1376" height="768" alt="Overhead view of a small cafe table in afternoon light: two cups of coffee, a linen napkin, a few dried stems." loading="lazy">
+  </figure>
 
   <p class="rv">She borrowed my napkin. She wrote on it for three minutes. Then she looked up.</p>
 
@@ -604,10 +612,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <p class="eyebrow" style="margin-top:8px">With the Reset Complex™</p>
   </div>
 
-  <div class="plate plate--editorial rv" style="margin:18px auto 22px;max-width:520px">
-    <span class="tag">Editorial packshot</span>
-    <span class="spec">marble / counter · soft natural window light · pink-cream subtle · 600×400 · narrative anchor, not hero-sales · Ken Burns on load</span>
-  </div>
+  <figure class="shot shot--kenburns rv" style="margin:18px auto 22px;max-width:540px">
+    <img src="assets/packshot-editorial.webp" width="1264" height="848" alt="The Daily Reset Serum, a frosted-glass dropper bottle, on a marble counter in soft window light." loading="lazy">
+  </figure>
 
   <div class="center rv" style="margin:18px 0 30px">
     <span class="pill">Fragrance-free</span><span class="pill">Alcohol-free</span><span class="pill">No essential oils</span>
@@ -736,10 +743,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
   <h2 class="rosa-dk rv" style="margin-bottom:10px">What's actually in the bottle.</h2>
   <p class="serif italic center rosa-dk rv" style="font-size:17px;margin-bottom:32px">The five things that, together, give your face back what it lost.</p>
 
-  <div class="plate plate--quiet rv" style="margin:0 auto 14px;max-width:460px">
-    <span class="tag">Quiet packshot</span>
-    <span class="spec">bottle on linen · neutral cream backdrop · soft overhead · 480×400 · a different register from the two others</span>
-  </div>
+  <figure class="shot rv" style="margin:0 auto 14px;max-width:460px">
+    <img src="assets/packshot-quiet.webp" width="1152" height="928" alt="The Daily Reset Serum resting on natural linen against a neutral cream backdrop, soft overhead light." loading="lazy">
+  </figure>
   <p class="serif italic center soft rv" style="font-size:14px;margin:0 auto 32px;max-width:460px">This is the bottle 312 of us tested. Eight weeks.</p>
 
   <div class="stg" style="max-width:560px;margin:0 auto">
@@ -750,10 +756,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <div style="display:flex;align-items:baseline;gap:14px;padding:15px 0;border-bottom:2px solid var(--rosa)"><p style="flex:0 0 auto;margin:0;color:var(--rosa-dk)"><strong>The fifth</strong></p><p class="serif italic rosa-dk" style="margin:0;font-size:14px">→ what your face does when the first four stop interfering</p></div>
   </div>
 
-  <div class="grid3 rv" style="margin:36px 0 24px">
-    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What's in</p><p class="soft small" style="margin:0;line-height:1.55">5 clinically-dosed actives. Formulated in a dermatology lab.</p></div>
-    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What's out</p><p class="soft small" style="margin:0;line-height:1.55">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p></div>
-    <div class="stat" style="text-align:left"><p class="eyebrow" style="margin-bottom:8px">What I promise</p><p class="soft small" style="margin:0;line-height:1.55">Sixty days. One email. Full refund if it didn't.</p></div>
+  <div class="ledger rv" style="margin:36px 0 24px">
+    <div><p class="eyebrow" style="margin-bottom:8px">What's in</p><p class="soft small" style="margin:0;line-height:1.55">5 clinically-dosed actives. Formulated in a dermatology lab.</p></div>
+    <div><p class="eyebrow" style="margin-bottom:8px">What's out</p><p class="soft small" style="margin:0;line-height:1.55">Fragrance. Alcohol. Essential oils. Niacinamide above 5%.</p></div>
+    <div><p class="eyebrow" style="margin-bottom:8px">What I promise</p><p class="soft small" style="margin:0;line-height:1.55">Sixty days. One email. Full refund if it didn't.</p></div>
   </div>
 
   <p class="italic center soft rv">If any of that makes sense to you — and you've read this far — there's only one thing left.</p>
@@ -779,10 +785,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--rosa);outline-offse
     <p class="serif italic soft" style="font-size:17px">With the Reset Complex™.</p>
   </div>
 
-  <div class="plate plate--drama rv" style="margin:0 auto 30px;max-width:520px">
-    <span class="tag">Hero dramatic packshot</span>
-    <span class="spec">bottle close-up · dramatic side light · wine-pink shadow · 520×380 · the decision moment</span>
-  </div>
+  <figure class="shot rv" style="margin:0 auto 30px;max-width:520px">
+    <img src="assets/packshot-dramatic.webp" width="1264" height="848" alt="A close-up of the Daily Reset Serum under dramatic side light, deep wine and rose shadows, dropper poised." loading="lazy">
+  </figure>
 
   <div class="center rv" style="max-width:520px;margin:0 auto 28px">
     <p class="serif rosa-dk" style="font-size:clamp(26px,5vw,30px);font-weight:500;margin-bottom:4px">$45</p>
