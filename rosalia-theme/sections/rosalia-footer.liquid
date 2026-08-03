@@ -1,0 +1,194 @@
+{%- render 'rosalia-tokens' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .rosalia-foot {
+    background: {{ section.settings.background | default: 'var(--rosalia-wine)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-cream)' }};
+    padding: 56px 0 28px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-in {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(250, 245, 240, 0.12);
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-wordmark {
+    font-family: var(--rosalia-font-serif);
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-wordmark .dot { color: var(--rosalia-pink-mid); }
+  #shopify-section-{{ section.id }} .rosalia-foot-tagline {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rosalia-pink-mid);
+    margin: 0 0 18px;
+    line-height: 1.5;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-about {
+    font-size: 12.5px;
+    line-height: 1.65;
+    opacity: 0.75;
+    max-width: 340px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot h4 {
+    font-family: var(--rosalia-font-sans);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--rosalia-pink-mid);
+    margin: 0 0 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-links { display: grid; gap: 9px; }
+  #shopify-section-{{ section.id }} .rosalia-foot-links a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 13px;
+    opacity: 0.85;
+    transition: opacity 0.25s var(--rosalia-ease), color 0.25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-links a:hover { opacity: 1; color: var(--rosalia-pink-mid); }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-text {
+    font-size: 12.5px;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin: 0 0 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form { display: flex; }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form input[type="email"] {
+    flex: 1 1 auto;
+    min-width: 0;
+    background: rgba(250, 245, 240, 0.07);
+    border: 1px solid rgba(250, 245, 240, 0.2);
+    border-right: none;
+    border-radius: 100px 0 0 100px;
+    padding: 12px 18px;
+    color: var(--rosalia-cream);
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px;
+    outline: none;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form input[type="email"]::placeholder { color: rgba(250, 245, 240, 0.45); }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form input[type="email"]:focus { border-color: var(--rosalia-pink-mid); }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form button {
+    background: var(--rosalia-pink-mid);
+    color: var(--rosalia-wine);
+    border: none;
+    border-radius: 0 100px 100px 0;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-form button:hover { background: var(--rosalia-pink-light); }
+  #shopify-section-{{ section.id }} .rosalia-foot-news-ok {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--rosalia-pink-mid);
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 22px;
+    font-size: 11px;
+    opacity: 0.6;
+  }
+  #shopify-section-{{ section.id }} .rosalia-foot-trust {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 12px;
+  }
+  @media (max-width: 899px) {
+    #shopify-section-{{ section.id }} .rosalia-foot-in { padding-inline: 24px; }
+    #shopify-section-{{ section.id }} .rosalia-foot-top { grid-template-columns: 1fr; gap: 32px; }
+    #shopify-section-{{ section.id }} .rosalia-foot-bottom { justify-content: center; text-align: center; }
+  }
+</style>
+
+<footer class="rosalia-foot">
+  <div class="rosalia-foot-in">
+    <div class="rosalia-foot-top">
+      <div>
+        <p class="rosalia-foot-wordmark">{{ section.settings.wordmark | default: 'Rosalia' }}<span class="dot">.</span></p>
+        <p class="rosalia-foot-tagline">{{ section.settings.tagline }}</p>
+        <div class="rosalia-foot-about">{{ section.settings.about }}</div>
+      </div>
+
+      <div>
+        <h4>{{ section.settings.menu_title | default: 'Navigate' }}</h4>
+        <div class="rosalia-foot-links">
+          {%- for link in linklists[section.settings.menu].links -%}
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div>
+        {%- if section.settings.show_newsletter -%}
+          <h4>{{ section.settings.newsletter_title | default: 'Join the Reset' }}</h4>
+          <p class="rosalia-foot-news-text">{{ section.settings.newsletter_text }}</p>
+          {%- form 'customer', class: 'rosalia-foot-news' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="rosalia-foot-news-ok">You're in. First note arrives this week.</p>
+            {%- else -%}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="rosalia-foot-news-form">
+                <input type="email" name="contact[email]" placeholder="Your email" required aria-label="Email">
+                <button type="submit">Join</button>
+              </div>
+            {%- endif -%}
+          {%- endform -%}
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="rosalia-foot-bottom">
+      <span>© {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name | default: 'Rosalia' }}. All rights reserved.</span>
+      <span class="rosalia-foot-trust">{{ section.settings.trust_line }}</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Rosalia — Footer",
+  "class": "shopify-section--rosalia-footer",
+  "settings": [
+    { "type": "header", "content": "Brand" },
+    { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Rosalia" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "The daily reset for reactive skin." },
+    { "type": "textarea", "id": "about", "label": "About line", "default": "One serum. Five clinical actives. Built for the skin everything else gave up on." },
+    { "type": "header", "content": "Menu" },
+    { "type": "text", "id": "menu_title", "label": "Menu column title", "default": "Navigate" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" },
+    { "type": "header", "content": "Newsletter" },
+    { "type": "checkbox", "id": "show_newsletter", "label": "Show newsletter", "default": true },
+    { "type": "text", "id": "newsletter_title", "label": "Newsletter title", "default": "Join the Reset" },
+    { "type": "textarea", "id": "newsletter_text", "label": "Newsletter text", "default": "Skincare notes and early access — once a week. No noise." },
+    { "type": "header", "content": "Bottom row" },
+    { "type": "text", "id": "copyright_name", "label": "Copyright name", "default": "Rosalia" },
+    { "type": "text", "id": "trust_line", "label": "Trust line", "default": "60-day guarantee · Free US shipping over $50" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#4B1528" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#FAF5F0" }
+  ],
+  "presets": [
+    { "name": "Rosalia — Footer" }
+  ]
+}
+{% endschema %}

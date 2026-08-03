@@ -3,45 +3,18 @@
   "name": "Footer group",
   "sections": {
     "footer": {
-      "type": "footer",
-      "blocks": {
-        "newsletter": {
-          "type": "newsletter",
-          "settings": {
-            "image_width": 150,
-            "heading_size": "h3",
-            "title": "Join the Reset",
-            "content": "<p>Skincare notes, ingredient science, and early access to new formulas — delivered once a week. No noise. Unsubscribe anytime.</p>"
-          }
-        },
-        "links": {
-          "type": "links",
-          "settings": {
-            "menu": "footer",
-            "show_menu_title": true
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "title": "About Rosalia",
-            "content": "<p><strong>Rosalia — the daily reset for reactive skin.</strong></p><p>Redness isn't a flaw to hide. It's a signal — an overactive immune response your skin is asking you to hear.</p><p>Rosalia was built for the women who've tried everything: cortisone creams that thin the skin, prescription treatments that stop working, drugstore serums that promise calm and deliver burn.</p><p>One serum. Five clinical actives. Formulated for barrier repair, calibrated for daily use, tested on skin that reacts to almost everything.</p><p><strong>You deserve skincare that respects your skin's memory.</strong></p>",
-            "enable_follow_on_shop": true
-          }
-        }
-      },
-      "block_order": [
-        "newsletter",
-        "links",
-        "text"
-      ],
+      "type": "rosalia-footer",
       "settings": {
-        "show_social_media": true,
-        "show_payment_icons": true,
-        "show_country_selector": true,
-        "show_country_flag": true,
-        "show_country_name": true,
-        "show_locale_selector": true
+        "wordmark": "Rosalia",
+        "tagline": "The daily reset for reactive skin.",
+        "about": "One serum. Five clinical actives. Built for the skin everything else gave up on. Formulated with a vascular biologist, tested on reactive skin.",
+        "menu_title": "Navigate",
+        "menu": "footer",
+        "show_newsletter": true,
+        "newsletter_title": "Join the Reset",
+        "newsletter_text": "Skincare notes and early access — once a week. No noise.",
+        "copyright_name": "Rosalia",
+        "trust_line": "60-day guarantee · Free US shipping over $50"
       }
     }
   },

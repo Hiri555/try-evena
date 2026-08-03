@@ -118,7 +118,10 @@
     },
     "mechanism": {
       "type": "rosalia-mechanism",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
         "lever_1": {
           "type": "lever",
@@ -177,7 +180,9 @@
     "ingredients": {
       "type": "rosalia-ingredients",
       "settings": {
-        "data_source": "metafield"
+        "data_source": "metafield",
+        "padding_top": 50,
+        "padding_bottom": 50
       },
       "blocks": {
         "ing_1": {
@@ -306,12 +311,18 @@
     },
     "results": {
       "type": "rosalia-results",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "eyebrow": "Real results",
+        "heading": "They stopped hiding. <em>Here’s what changed.</em>",
+        "lead": "Real customers, in their own words. No filters, no paid endorsements — just skin that finally calmed down."
+      },
       "blocks": {
         "res_1": {
           "type": "result_card",
           "settings": {
-            "quote": "My cheeks stopped burning at 4pm.",
+            "quote": "I stopped checking my face before meetings. By week six the 4pm burn just didn't come. My husband asked if I'd changed foundation — I'd stopped wearing it.",
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
@@ -321,7 +332,7 @@
         "res_2": {
           "type": "result_card",
           "settings": {
-            "quote": "Foundation coverage cut in half.",
+            "quote": "Two pumps of foundation down to half a pump of tinted moisturizer. I'm not 'glowing' — I'm just normal. And normal is everything when you've been red for a decade.",
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
@@ -331,7 +342,7 @@
         "res_3": {
           "type": "result_card",
           "settings": {
-            "quote": "First time in six years my skin doesn't sting.",
+            "quote": "First serum in six years that didn't sting going on. Week three, I stopped bracing before I applied it. Week six, I forgot I ever used to.",
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
@@ -341,7 +352,7 @@
         "res_4": {
           "type": "result_card",
           "settings": {
-            "quote": "The 3pm flush stopped happening.",
+            "quote": "The 3pm flush used to be my office nickname. Twelve weeks in, it shows up maybe once a week — mild, gone in minutes. I don't plan meetings around my face anymore.",
             "name": "Laura",
             "age": "45",
             "duration": "12 weeks",
@@ -351,7 +362,7 @@
         "res_5": {
           "type": "result_card",
           "settings": {
-            "quote": "My dermatologist noticed at my last visit.",
+            "quote": "My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.",
             "name": "Nadia",
             "age": "51",
             "duration": "16 weeks",
@@ -369,7 +380,10 @@
     },
     "ritual": {
       "type": "rosalia-ritual",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
         "step_1": {
           "type": "step",
@@ -407,7 +421,10 @@
     },
     "timeline": {
       "type": "rosalia-timeline",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
         "tl_1": {
           "type": "milestone",
@@ -451,7 +468,10 @@
     },
     "authority": {
       "type": "rosalia-authority",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
         "expert_1": {
           "type": "expert",
@@ -466,7 +486,10 @@
     },
     "faq": {
       "type": "rosalia-faq",
-      "settings": {},
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50
+      },
       "blocks": {
         "qa_1": {
           "type": "qa",
