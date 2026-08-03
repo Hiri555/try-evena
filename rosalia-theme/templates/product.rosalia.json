@@ -27,7 +27,10 @@
         },
         "symptom_picker": {
           "type": "symptom_picker",
-          "settings": {}
+          "settings": {
+            "label": "What is your skin doing?",
+            "hint": "Tap the one you know best — see what's actually happening underneath, and what stops it."
+          }
         },
         "bundle_tiers": {
           "type": "bundle_tiers",
@@ -120,7 +123,10 @@
       "type": "rosalia-mechanism",
       "settings": {
         "padding_top": 50,
-        "padding_bottom": 50
+        "padding_bottom": 50,
+        "eyebrow": "The Reset Complex™",
+        "heading": "Rosacea was never <em>one problem</em>.",
+        "lead": "Your skin doesn't flush because of one broken thing.\nIt flushes because five systems misfire at once.\nThat's why single-active serums plateau — they fix one, the other four keep firing.\nThe Reset Complex pulls all five. At the same time."
       },
       "blocks": {
         "lever_1": {
@@ -129,7 +135,8 @@
             "number": "01",
             "name": "Alarm",
             "emotional_line": "\"The overreaction that finally quiets.\"",
-            "mechanism": "Calms the immune misread at the source — before it cascades into visible redness."
+            "mechanism": "Calms the immune misread at the source — before it cascades into visible redness.",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 3 3 8l9 5 9-5-9-5z\"/><path d=\"M3 13l9 5 9-5\"/><path d=\"M3 17l9 5 9-5\"/></svg>"
           }
         },
         "lever_2": {
@@ -138,7 +145,8 @@
             "number": "02",
             "name": "Nerves",
             "emotional_line": "\"Triggers that stop being triggers.\"",
-            "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire."
+            "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire.",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M13 2 4 14h6l-1 8 9-12h-6l1-8z\"/></svg>"
           }
         },
         "lever_3": {
@@ -147,16 +155,18 @@
             "number": "03",
             "name": "Wall",
             "emotional_line": "\"Vessels that stop broadcasting.\"",
-            "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush."
+            "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush.",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/></svg>"
           }
         },
         "lever_4": {
           "type": "lever",
           "settings": {
             "number": "04",
-            "name": "Barrier",
-            "emotional_line": "\"Skin that stops leaking.\"",
-            "mechanism": "Rebuilds the moisture barrier so irritants stop getting through."
+            "name": "Door",
+            "emotional_line": "\"The barrier harsh actives stole — rebuilt.\"",
+            "mechanism": "Restores the compromised skin barrier. This is what everything else depends on.",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"1.5\"/><circle cx=\"14.2\" cy=\"12\" r=\"0.9\"/></svg>"
           }
         },
         "lever_5": {
@@ -164,8 +174,9 @@
           "settings": {
             "number": "05",
             "name": "Loop",
-            "emotional_line": "\"The cycle that finally breaks.\"",
-            "mechanism": "Breaks the feedback loop where one flare feeds the next."
+            "emotional_line": "\"The cycle finally breaks.\"",
+            "mechanism": "Interrupts the anxiety-flush-anxiety spiral that keeps it going.",
+            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M20 12a8 8 0 1 1-2.34-5.66\"/><path d=\"M20 3v4h-4\"/></svg>"
           }
         }
       },
@@ -248,55 +259,43 @@
       "type": "rosalia-comparison",
       "settings": {
         "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
-        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other.png"
+        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other.png",
+        "heading": "<p>Why nothing else <em>has worked</em>.</p>",
+        "lead": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't.",
+        "rosalia_label": "Rosalia — Daily Reset Serum",
+        "other_label": "Serums built for “sensitive skin”"
       },
       "blocks": {
         "row_1": {
           "type": "row",
           "settings": {
-            "attribute": "Approach",
-            "rosalia_value": "5 root causes addressed simultaneously",
-            "other_value": "1 active ingredient, hope for the best"
+            "attribute": "The design",
+            "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.",
+            "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought."
           }
         },
         "row_2": {
           "type": "row",
           "settings": {
-            "attribute": "Irritants",
-            "rosalia_value": "Zero essential oils. Zero fragrance. Ever.",
-            "other_value": "Fragrance and essential oils often included"
+            "attribute": "The mechanism",
+            "rosalia_value": "Five levers at once — the loop broken from every side.",
+            "other_value": "One hero ingredient. Fingers crossed it addresses your version."
           }
         },
         "row_3": {
           "type": "row",
           "settings": {
-            "attribute": "Niacinamide",
-            "rosalia_value": "3–5% — the safe, effective range",
-            "other_value": "10%+ — can trigger the sensitivity it claims to treat"
+            "attribute": "The proof",
+            "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.",
+            "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names."
           }
         },
         "row_4": {
           "type": "row",
           "settings": {
-            "attribute": "Origin",
-            "rosalia_value": "Built for rosacea from the first molecule",
-            "other_value": "Made for 'normal' skin, relabeled 'sensitive'"
-          }
-        },
-        "row_5": {
-          "type": "row",
-          "settings": {
-            "attribute": "Expertise",
-            "rosalia_value": "Formulated with a vascular biologist",
-            "other_value": "Designed by a marketing department"
-          }
-        },
-        "row_6": {
-          "type": "row",
-          "settings": {
-            "attribute": "Guarantee",
-            "rosalia_value": "60 days. Full refund. No forms.",
-            "other_value": "7-day return window. Unopened only."
+            "attribute": "The promise",
+            "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.",
+            "other_value": "7-day return window. Unopened. Original packaging."
           }
         }
       },
@@ -304,9 +303,7 @@
         "row_1",
         "row_2",
         "row_3",
-        "row_4",
-        "row_5",
-        "row_6"
+        "row_4"
       ]
     },
     "results": {

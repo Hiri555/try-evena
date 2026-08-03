@@ -1,0 +1,137 @@
+{%- render 'rosalia-tokens' -%}
+
+<style>
+  #shopify-section-{{ section.id }} { position: sticky; top: 0; z-index: 90; }
+  #shopify-section-{{ section.id }} .rosalia-head {
+    background: rgba(250, 245, 240, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rosalia-pink-light);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-in {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-wordmark {
+    font-family: var(--rosalia-font-serif);
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--rosalia-dark);
+    text-decoration: none;
+    flex: 0 0 auto;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-wordmark .dot { color: var(--rosalia-pink); }
+  #shopify-section-{{ section.id }} .rosalia-head-nav {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-nav a {
+    font-family: var(--rosalia-font-sans);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--rosalia-dark);
+    text-decoration: none;
+    opacity: 0.75;
+    transition: opacity 0.25s var(--rosalia-ease), color 0.25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-nav a:hover { opacity: 1; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-head-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 auto;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-cta {
+    display: inline-block;
+    background: var(--rosalia-plum);
+    color: var(--rosalia-cream);
+    border-radius: 100px;
+    padding: 9px 18px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-cta:hover { background: var(--rosalia-wine); }
+  #shopify-section-{{ section.id }} .rosalia-head-cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: var(--rosalia-dark);
+    text-decoration: none;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-cart svg { width: 21px; height: 21px; stroke: currentColor; fill: none; stroke-width: 1.6; }
+  #shopify-section-{{ section.id }} .rosalia-head-cart-count {
+    position: absolute;
+    top: -7px; right: -9px;
+    min-width: 16px; height: 16px;
+    border-radius: 100px;
+    background: var(--rosalia-pink);
+    color: var(--rosalia-white);
+    font-size: 9.5px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-head-in { padding: 0 20px; height: 56px; }
+    #shopify-section-{{ section.id }} .rosalia-head-nav { display: none; }
+    #shopify-section-{{ section.id }} .rosalia-head-cta { padding: 8px 14px; font-size: 10px; }
+  }
+</style>
+
+<header class="rosalia-head">
+  <div class="rosalia-head-in">
+    <a class="rosalia-head-wordmark" href="/">{{ section.settings.wordmark | default: 'Rosalia' }}<span class="dot">.</span></a>
+
+    <nav class="rosalia-head-nav" aria-label="Main navigation">
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+
+    <div class="rosalia-head-right">
+      {%- if section.settings.cta_text != blank -%}
+        <a class="rosalia-head-cta" href="{{ section.settings.cta_url | default: '/products/daily-reset-serum' }}">{{ section.settings.cta_text }}</a>
+      {%- endif -%}
+      <a class="rosalia-head-cart" href="{{ routes.cart_url }}" aria-label="Cart ({{ cart.item_count }} items)">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.2 13a1 1 0 0 1-1 1.1H5.8a1 1 0 0 1-1-1.1L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+        {%- if cart.item_count > 0 -%}
+          <span class="rosalia-head-cart-count">{{ cart.item_count }}</span>
+        {%- endif -%}
+      </a>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Rosalia — Header",
+  "class": "shopify-section--rosalia-header",
+  "settings": [
+    { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Rosalia" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Try it for 60 days" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "presets": [
+    { "name": "Rosalia — Header" }
+  ]
+}
+{% endschema %}

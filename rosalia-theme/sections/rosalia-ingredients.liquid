@@ -27,11 +27,18 @@
   }
 
   #shopify-section-{{ section.id }} .rosalia-ing-grid {
-    display: grid;
-    grid-template-columns: repeat(var(--rosalia-ing-cols, 4), 1fr);
-    gap: 16px;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
+  #shopify-section-{{ section.id }} .rosalia-ing-grid::-webkit-scrollbar { display: none; }
   #shopify-section-{{ section.id }} .rosalia-ing-card {
+    flex: 0 0 240px;
+    scroll-snap-align: start;
     background: {{ section.settings.card_background | default: 'var(--rosalia-white)' }};
     border: 1.5px solid {{ section.settings.card_border | default: 'var(--rosalia-pink-light)' }};
     border-radius: 12px;
@@ -79,14 +86,9 @@
   }
   #shopify-section-{{ section.id }} .rosalia-ing-note p { margin: 0; }
 
-  @media (max-width: 999px) {
-    #shopify-section-{{ section.id }} .rosalia-ing-grid { grid-template-columns: repeat(2, 1fr); }
-  }
   @media (max-width: 749px) {
     #shopify-section-{{ section.id }} .rosalia-ing-inner { padding-inline: 24px; }
-  }
-  @media (max-width: 549px) {
-    #shopify-section-{{ section.id }} .rosalia-ing-grid { grid-template-columns: repeat(1, 1fr); }
+    #shopify-section-{{ section.id }} .rosalia-ing-card { flex-basis: 210px; }
   }
 </style>
 

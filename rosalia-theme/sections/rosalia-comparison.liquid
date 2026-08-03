@@ -5,13 +5,13 @@
   #shopify-section-{{ section.id }} .rosalia-comp-outer {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 48px;
+    padding: 24px 48px;
   }
   #shopify-section-{{ section.id }} .rosalia-comp-shell {
     background: {{ section.settings.background | default: 'var(--rosalia-wine)' }};
     color: {{ section.settings.text_color | default: 'var(--rosalia-cream)' }};
     border-radius: 20px;
-    padding: 64px 48px;
+    padding: 56px 48px;
   }
   #shopify-section-{{ section.id }} .rosalia-comp-heading {
     font-family: var(--rosalia-font-serif);
@@ -33,98 +33,101 @@
     font-size: 16px;
     color: {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
     text-align: center;
-    margin: 0 auto 44px;
-    max-width: 520px;
+    margin: 0 auto 40px;
+    max-width: 540px;
     line-height: 1.5;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottles {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 44px;
+  #shopify-section-{{ section.id }} .rosalia-comp-cols {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle { text-align: center; }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle-vis {
-    width: 120px; height: 200px;
-    border-radius: 14px;
+  #shopify-section-{{ section.id }} .rosalia-comp-vs {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: {{ section.settings.background | default: 'var(--rosalia-wine)' }};
+    border: 1.5px solid {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
+    color: {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
     display: flex; align-items: center; justify-content: center;
-    padding: 12px;
     font-family: var(--rosalia-font-serif);
     font-style: italic;
-    font-size: 13px;
-    line-height: 1.4;
-    white-space: pre-line;
-    overflow: hidden;
-    margin: 0 auto 14px;
+    font-size: 16px;
+    z-index: 2;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle-vis img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle--rosalia .rosalia-comp-bottle-vis {
-    background: linear-gradient(160deg, var(--rosalia-pink-light), var(--rosalia-pink-mid));
-    color: var(--rosalia-wine);
+  #shopify-section-{{ section.id }} .rosalia-comp-col {
+    border-radius: 16px;
+    padding: 30px 28px;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle--other .rosalia-comp-bottle-vis {
-    background: linear-gradient(160deg, #C9C3BB, #928C86);
-    color: #3A3632;
+  #shopify-section-{{ section.id }} .rosalia-comp-col--other {
+    background: rgba(250, 245, 240, 0.045);
+    border: 1px solid rgba(250, 245, 240, 0.14);
+    color: rgba(250, 245, 240, 0.72);
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-bottle-label {
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia {
+    background: var(--rosalia-cream);
+    border: 1.5px solid {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
+    color: var(--rosalia-dark);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+  }
+  #shopify-section-{{ section.id }} .rosalia-comp-col-head {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 18px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.18);
+    min-height: 74px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia .rosalia-comp-col-head { border-bottom-color: var(--rosalia-pink-light); }
+  #shopify-section-{{ section.id }} .rosalia-comp-col-bottle {
+    flex: 0 0 52px; width: 52px; height: 66px;
+    border-radius: 8px; overflow: hidden;
+    background: rgba(250, 245, 240, 0.08);
+  }
+  #shopify-section-{{ section.id }} .rosalia-comp-col-bottle img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-comp-col-title {
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 600;
-    opacity: 0.9;
+    line-height: 1.5;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-vs {
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia .rosalia-comp-col-title { color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-comp-row { padding: 15px 0; }
+  #shopify-section-{{ section.id }} .rosalia-comp-row + .rosalia-comp-row { border-top: 1px dashed rgba(128, 128, 128, 0.22); }
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia .rosalia-comp-row + .rosalia-comp-row { border-top-color: var(--rosalia-pink-light); }
+  #shopify-section-{{ section.id }} .rosalia-comp-row-label {
     font-family: var(--rosalia-font-serif);
     font-style: italic;
-    font-size: 22px;
-    color: {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
+    font-size: 12.5px;
+    margin-bottom: 5px;
+    opacity: 0.75;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 6px;
-    font-size: 13px;
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia .rosalia-comp-row-label { color: var(--rosalia-pink); opacity: 1; }
+  #shopify-section-{{ section.id }} .rosalia-comp-row-text {
+    font-size: 13.5px;
+    line-height: 1.5;
   }
-  #shopify-section-{{ section.id }} .rosalia-comp-table th {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: {{ section.settings.accent | default: 'var(--rosalia-pink-mid)' }};
-    text-align: left;
-    padding: 8px 14px;
-  }
-  #shopify-section-{{ section.id }} .rosalia-comp-table td {
-    background: rgba(250, 245, 240, 0.05);
-    padding: 13px 14px;
-    line-height: 1.45;
-    vertical-align: top;
-  }
-  #shopify-section-{{ section.id }} .rosalia-comp-table td:first-child {
-    border-radius: 8px 0 0 8px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  #shopify-section-{{ section.id }} .rosalia-comp-table td:nth-child(2) { background: rgba(227, 161, 182, 0.14); }
-  #shopify-section-{{ section.id }} .rosalia-comp-table td:last-child { border-radius: 0 8px 8px 0; opacity: 0.75; }
-  #shopify-section-{{ section.id }} .rosalia-comp-indicator {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    margin-right: 8px;
-    vertical-align: middle;
-  }
-  #shopify-section-{{ section.id }} .rosalia-comp-indicator--yes { background: #7BB77E; }
-  #shopify-section-{{ section.id }} .rosalia-comp-indicator--no { background: #D97070; }
-  #shopify-section-{{ section.id }} .rosalia-comp-indicator--mid { background: #E0B15C; }
+  #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia .rosalia-comp-row-text { font-weight: 500; }
 
-  @media (max-width: 749px) {
-    #shopify-section-{{ section.id }} .rosalia-comp-outer { padding: 24px 16px; }
+  @media (max-width: 849px) {
+    #shopify-section-{{ section.id }} .rosalia-comp-outer { padding: 16px 16px; }
     #shopify-section-{{ section.id }} .rosalia-comp-shell { padding: 40px 20px; }
-    #shopify-section-{{ section.id }} .rosalia-comp-bottles { gap: 20px; }
-    #shopify-section-{{ section.id }} .rosalia-comp-bottle-vis { width: 96px; height: 160px; }
-    #shopify-section-{{ section.id }} .rosalia-comp-table td:first-child { white-space: normal; }
+    #shopify-section-{{ section.id }} .rosalia-comp-cols { grid-template-columns: 1fr; gap: 26px; }
+    #shopify-section-{{ section.id }} .rosalia-comp-vs {
+      position: static;
+      transform: none;
+      order: 2;
+      margin: -8px auto;
+    }
+    #shopify-section-{{ section.id }} .rosalia-comp-col--other { order: 1; }
+    #shopify-section-{{ section.id }} .rosalia-comp-col--rosalia { order: 3; }
   }
 </style>
 
@@ -138,62 +141,51 @@
         <p class="rosalia-comp-lead">{{ section.settings.lead }}</p>
       {%- endif -%}
 
-      <div class="rosalia-comp-bottles">
-        <div class="rosalia-comp-bottle rosalia-comp-bottle--rosalia">
-          <div class="rosalia-comp-bottle-vis">
-            {%- if section.settings.rosalia_bottle_image != blank -%}
-              {{ section.settings.rosalia_bottle_image | image_url: width: 240 | image_tag: alt: section.settings.rosalia_label }}
-            {%- else -%}
-              <span>{{ section.settings.rosalia_bottle_text | default: 'Rosalia' }}</span>
+      <div class="rosalia-comp-cols">
+        <div class="rosalia-comp-vs" aria-hidden="true">{{ section.settings.vs_label | default: 'vs' }}</div>
+
+        <div class="rosalia-comp-col rosalia-comp-col--other">
+          <div class="rosalia-comp-col-head">
+            {%- if section.settings.other_bottle_image != blank -%}
+              <div class="rosalia-comp-col-bottle">{{ section.settings.other_bottle_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.other_label }}</div>
             {%- endif -%}
+            <div class="rosalia-comp-col-title">{{ section.settings.other_label | default: 'Other serums' }}</div>
           </div>
-          <div class="rosalia-comp-bottle-label">{{ section.settings.rosalia_label | default: 'Rosalia' }}</div>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'row' -%}
+              <div class="rosalia-comp-row" {{ block.shopify_attributes }}>
+                <div class="rosalia-comp-row-label">{{ block.settings.attribute }}</div>
+                <div class="rosalia-comp-row-text">{{ block.settings.other_value }}</div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
 
-        <div class="rosalia-comp-vs">{{ section.settings.vs_label | default: 'vs' }}</div>
-
-        <div class="rosalia-comp-bottle rosalia-comp-bottle--other">
-          <div class="rosalia-comp-bottle-vis">
-            {%- if section.settings.other_bottle_image != blank -%}
-              {{ section.settings.other_bottle_image | image_url: width: 240 | image_tag: alt: section.settings.other_label }}
-            {%- else -%}
-              <span>{{ section.settings.other_bottle_text | default: 'Other serums' }}</span>
+        <div class="rosalia-comp-col rosalia-comp-col--rosalia">
+          <div class="rosalia-comp-col-head">
+            {%- if section.settings.rosalia_bottle_image != blank -%}
+              <div class="rosalia-comp-col-bottle">{{ section.settings.rosalia_bottle_image | image_url: width: 120 | image_tag: loading: 'lazy', alt: section.settings.rosalia_label }}</div>
             {%- endif -%}
+            <div class="rosalia-comp-col-title">{{ section.settings.rosalia_label | default: 'Rosalia' }}</div>
           </div>
-          <div class="rosalia-comp-bottle-label">{{ section.settings.other_label | default: 'Other serums' }}</div>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'row' -%}
+              <div class="rosalia-comp-row">
+                <div class="rosalia-comp-row-label">{{ block.settings.attribute }}</div>
+                <div class="rosalia-comp-row-text">{{ block.settings.rosalia_value }}</div>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
         </div>
       </div>
 
-      <table class="rosalia-comp-table">
-        <thead>
-          <tr>
-            <th>{{ section.settings.col_attr_label | default: 'Attribute' }}</th>
-            <th>{{ section.settings.rosalia_label | default: 'Rosalia' }}</th>
-            <th>{{ section.settings.other_label | default: 'Other serums' }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {%- for block in section.blocks -%}
-            {%- case block.type -%}
-              {%- when 'row' -%}
-                <tr {{ block.shopify_attributes }}>
-                  <td>
-                    {%- assign ind = block.settings.indicator | default: 'yes' -%}
-                    <span class="rosalia-comp-indicator rosalia-comp-indicator--{{ ind }}"></span>
-                    {{ block.settings.attribute }}
-                  </td>
-                  <td>{{ block.settings.rosalia_value }}</td>
-                  <td>{{ block.settings.other_value }}</td>
-                </tr>
-              {%- when 'liquid' -%}
-                <tr {{ block.shopify_attributes }}><td colspan="3">{{ block.settings.custom_liquid }}</td></tr>
-            {%- endcase -%}
-          {%- endfor -%}
-        </tbody>
-      </table>
-
       {%- for block in section.blocks -%}
-        {%- if block.type == '@app' -%}{%- render block -%}{%- endif -%}
+        {%- case block.type -%}
+          {%- when 'liquid' -%}
+            <div {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+          {%- when '@app' -%}
+            {%- render block -%}
+        {%- endcase -%}
       {%- endfor -%}
     </div>
   </div>
@@ -206,17 +198,15 @@
   "settings": [
     { "type": "header", "content": "Content" },
     { "type": "richtext", "id": "heading", "label": "Heading", "default": "<p>Why nothing else <em>has worked</em>.</p>" },
-    { "type": "textarea", "id": "lead", "label": "Lead", "default": "One was designed for your skin. The other was designed for everyone else's." },
-    { "type": "header", "content": "Bottles" },
-    { "type": "text", "id": "rosalia_label", "label": "Rosalia column label", "default": "Rosalia" },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't." },
+    { "type": "header", "content": "Columns" },
+    { "type": "text", "id": "rosalia_label", "label": "Rosalia column label", "default": "Rosalia — Daily Reset Serum" },
     { "type": "image_picker", "id": "rosalia_bottle_image", "label": "Rosalia bottle image" },
-    { "type": "textarea", "id": "rosalia_bottle_text", "label": "Rosalia bottle text (fallback)", "default": "Rosalia\nReset Complex™\n\n5 active levers" },
-    { "type": "text", "id": "vs_label", "label": "Middle label", "default": "vs" },
-    { "type": "text", "id": "other_label", "label": "Other column label", "default": "Other serums" },
+    { "type": "textarea", "id": "rosalia_bottle_text", "label": "Rosalia bottle text (unused fallback)" },
+    { "type": "text", "id": "vs_label", "label": "Middle badge", "default": "vs" },
+    { "type": "text", "id": "other_label", "label": "Other column label", "default": "Serums built for “sensitive skin”" },
     { "type": "image_picker", "id": "other_bottle_image", "label": "Other bottle image" },
-    { "type": "textarea", "id": "other_bottle_text", "label": "Other bottle text (fallback)", "default": "Water + 1 active + Fragrance + Fillers" },
-    { "type": "header", "content": "Table" },
-    { "type": "text", "id": "col_attr_label", "label": "Attribute column label", "default": "Attribute" },
+    { "type": "textarea", "id": "other_bottle_text", "label": "Other bottle text (unused fallback)" },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background", "label": "Shell background", "default": "#4B1528" },
     { "type": "color", "id": "text_color", "label": "Text", "default": "#FAF5F0" },
@@ -228,22 +218,20 @@
       "type": "row",
       "name": "Comparison row",
       "settings": [
-        { "type": "text", "id": "attribute", "label": "Attribute", "default": "Approach" },
-        { "type": "textarea", "id": "rosalia_value", "label": "Rosalia value", "default": "5 root causes addressed simultaneously" },
-        { "type": "textarea", "id": "other_value", "label": "Other value", "default": "1 active ingredient, hope for the best" },
-        { "type": "select", "id": "indicator", "label": "Indicator dot", "options": [{"value":"yes","label":"Positive (green)"},{"value":"no","label":"Negative (red)"},{"value":"mid","label":"Neutral (yellow)"}], "default": "yes" }
+        { "type": "text", "id": "attribute", "label": "Row label", "default": "The design" },
+        { "type": "textarea", "id": "rosalia_value", "label": "Rosalia value", "default": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted." },
+        { "type": "textarea", "id": "other_value", "label": "Other value", "default": "Formulated for normal skin, then labeled 'sensitive' as an afterthought." },
+        { "type": "select", "id": "indicator", "label": "Indicator (legacy, unused)", "options": [{"value":"yes","label":"Positive"},{"value":"no","label":"Negative"},{"value":"mid","label":"Neutral"}], "default": "yes" }
       ]
     },
     { "type": "liquid", "name": "Custom Liquid row", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
   ],
   "presets": [
     { "name": "Rosalia — Comparison (versus)", "blocks": [
-      { "type": "row", "settings": { "attribute": "Approach", "rosalia_value": "5 root causes addressed simultaneously", "other_value": "1 active ingredient, hope for the best" } },
-      { "type": "row", "settings": { "attribute": "Irritants", "rosalia_value": "Zero essential oils. Zero fragrance. Ever.", "other_value": "Fragrance and essential oils often included" } },
-      { "type": "row", "settings": { "attribute": "Niacinamide", "rosalia_value": "3–5% — the safe, effective range", "other_value": "10%+ — can trigger the sensitivity it claims to treat" } },
-      { "type": "row", "settings": { "attribute": "Origin", "rosalia_value": "Built for rosacea from the first molecule", "other_value": "Made for 'normal' skin, relabeled 'sensitive'" } },
-      { "type": "row", "settings": { "attribute": "Expertise", "rosalia_value": "Formulated with a vascular biologist", "other_value": "Designed by a marketing department" } },
-      { "type": "row", "settings": { "attribute": "Guarantee", "rosalia_value": "60 days. Full refund. No forms.", "other_value": "7-day return window. Unopened only." } }
+      { "type": "row", "settings": { "attribute": "The design", "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.", "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought." } },
+      { "type": "row", "settings": { "attribute": "The mechanism", "rosalia_value": "Five levers at once — the loop broken from every side.", "other_value": "One hero ingredient. Fingers crossed it addresses your version." } },
+      { "type": "row", "settings": { "attribute": "The proof", "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.", "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names." } },
+      { "type": "row", "settings": { "attribute": "The promise", "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.", "other_value": "7-day return window. Unopened. Original packaging." } }
     ] }
   ]
 }

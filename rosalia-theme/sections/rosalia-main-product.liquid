@@ -7,6 +7,17 @@
     color: {{ section.settings.section_text_color | default: 'var(--rosalia-dark)' }};
     --rosalia-accent: {{ section.settings.accent_color | default: '#C4718E' }};
     --rosalia-accent-deep: {{ section.settings.accent_deep | default: '#7A3A54' }};
+
+    /* Impact gallery variables — required for the media carousel to lay out horizontally */
+    --product-grid: auto / minmax(0, 1fr);
+    --product-gallery-media-list-grid: auto / auto-flow {% if section.settings.mobile_carousel_control == 'free_scroll' %}{% if section.settings.mobile_media_size == 'expanded' %}84vw{% else %}73vw{% endif %}{% else %}100%{% endif %};
+    --product-gallery-media-list-gap: {% if section.settings.mobile_media_size == 'expanded' %}var(--spacing-0-5){% else %}var(--grid-gutter){% endif %};
+  }
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} {
+      --product-gallery-media-list-grid: {% if section.settings.desktop_media_layout contains 'grid' %}auto-flow dense / repeat(2, minmax(0, 1fr)){% else %}auto / auto-flow 100%{% endif %};
+      --product-gallery-media-list-gap: calc(var(--grid-gutter) / 2);
+    }
   }
   #shopify-section-{{ section.id }} .rosalia-product {
     max-width: 1280px;
@@ -78,7 +89,15 @@
   /* Symptom picker */
   #shopify-section-{{ section.id }} .rosalia-symptom-section { display: block; margin-bottom: 26px; }
   #shopify-section-{{ section.id }} .rosalia-symptom-head {
-    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px;
+    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 4px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-hint {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 12.5px;
+    color: var(--rosalia-gray);
+    margin: 0 0 12px;
+    line-height: 1.45;
   }
   #shopify-section-{{ section.id }} .rosalia-symptom-label {
     font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
@@ -384,11 +403,14 @@
             {%- if symptoms.size > 0 -%}
               <rosalia-symptom-picker class="rosalia-symptom-section" {{ block.shopify_attributes }}>
                 <div class="rosalia-symptom-head">
-                  <span class="rosalia-symptom-label">{{ block.settings.label | default: 'What are you treating?' }}</span>
+                  <span class="rosalia-symptom-label">{{ block.settings.label | default: 'What is your skin doing?' }}</span>
                   {%- if block.settings.link_text != blank -%}
                     <a href="{{ block.settings.link_url }}" class="rosalia-symptom-link">{{ block.settings.link_text }}</a>
                   {%- endif -%}
                 </div>
+                {%- if block.settings.hint != blank -%}
+                  <p class="rosalia-symptom-hint">{{ block.settings.hint }}</p>
+                {%- endif -%}
                 <div class="rosalia-symptom-grid">
                   {%- for sym in symptoms -%}
                     <button class="rosalia-symptom-card" type="button" data-index="{{ forloop.index0 }}" aria-haspopup="dialog">
@@ -596,7 +618,8 @@
       "name": "Symptom picker",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "label", "label": "Label", "default": "What are you treating?" },
+        { "type": "text", "id": "label", "label": "Label", "default": "What is your skin doing?" },
+        { "type": "textarea", "id": "hint", "label": "Hint line", "default": "Tap the one you know best — see what's actually happening underneath, and what stops it." },
         { "type": "text", "id": "link_text", "label": "Link text" },
         { "type": "url", "id": "link_url", "label": "Link URL" },
         { "type": "paragraph", "content": "Reads from product metafield rosalia.symptoms (list of Symptom metaobjects)." }
