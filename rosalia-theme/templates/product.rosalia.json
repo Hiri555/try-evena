@@ -2,8 +2,26 @@
   "name": "Rosalia — Daily Reset Serum",
   "sections": {
     "main_product": {
-      "type": "rosalia-pdp",
-      "settings": {}
+      "type": "rosalia-main-product",
+      "settings": {},
+      "blocks": {
+        "eyebrow": { "type": "eyebrow", "settings": {} },
+        "title": { "type": "title", "settings": {} },
+        "subtitle": { "type": "subtitle", "settings": {} },
+        "tag_pills": { "type": "tag_pills", "settings": {} },
+        "benefits": { "type": "benefits", "settings": {} },
+        "symptom_picker": { "type": "symptom_picker", "settings": {} },
+        "bundle_tiers": { "type": "bundle_tiers", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": {} },
+        "ship_indicators": { "type": "ship_indicators", "settings": {} },
+        "guarantee": { "type": "guarantee", "settings": {} },
+        "app_zone": { "type": "app_zone", "settings": { "label": "Bundle upsell zone — drop your app block here (Catching Bundle, Rebuy, etc.)" } }
+      },
+      "block_order": [
+        "eyebrow", "title", "subtitle", "tag_pills", "benefits",
+        "symptom_picker", "bundle_tiers", "buy_buttons", "ship_indicators",
+        "guarantee", "app_zone"
+      ]
     },
     "marquee": {
       "type": "rosalia-marquee",

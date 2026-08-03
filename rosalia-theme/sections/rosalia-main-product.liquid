@@ -1,0 +1,693 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.section_background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.section_text_color | default: 'var(--rosalia-dark)' }};
+    --rosalia-accent: {{ section.settings.accent_color | default: '#C4718E' }};
+    --rosalia-accent-deep: {{ section.settings.accent_deep | default: '#7A3A54' }};
+  }
+  #shopify-section-{{ section.id }} .rosalia-product {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 48px 72px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+  }
+  @media screen and (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .rosalia-product {
+      {%- assign media_ratio = section.settings.desktop_media_width | default: 50 | divided_by: 50.0 -%}
+      grid-template-columns: minmax(0, {{ media_ratio }}fr) minmax(0, {{ 2.0 | minus: media_ratio }}fr);
+      gap: 56px;
+      align-items: start;
+    }
+    #shopify-section-{{ section.id }} .rosalia-buybox { position: sticky; top: 32px; }
+  }
+
+  /* ── Buy box ─────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .rosalia-eyebrow {
+    font-family: var(--rosalia-font-sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rosalia-accent);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-title {
+    font-family: var(--rosalia-font-serif);
+    font-size: clamp(28px, 4vw, 38px);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-subtitle {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--rosalia-gray);
+    line-height: 1.45;
+    margin: 0 0 22px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-tag-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+  #shopify-section-{{ section.id }} .rosalia-tag-pill {
+    padding: 5px 12px;
+    border: 1px solid var(--rosalia-pink-light);
+    border-radius: 100px;
+    background: var(--rosalia-white);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--rosalia-accent-deep);
+  }
+  #shopify-section-{{ section.id }} .rosalia-benefits { display: grid; gap: 10px; margin-bottom: 26px; }
+  #shopify-section-{{ section.id }} .rosalia-benefit { display: flex; gap: 10px; align-items: flex-start; }
+  #shopify-section-{{ section.id }} .rosalia-benefit-icon {
+    flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%;
+    background: var(--rosalia-pink-light); color: var(--rosalia-accent-deep);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .rosalia-benefit-icon svg { width: 11px; height: 11px; }
+  #shopify-section-{{ section.id }} .rosalia-benefit-text { font-size: 13.5px; line-height: 1.45; }
+  #shopify-section-{{ section.id }} .rosalia-benefit-text p { margin: 0; }
+
+  /* Symptom picker */
+  #shopify-section-{{ section.id }} .rosalia-symptom-section { display: block; margin-bottom: 26px; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-head {
+    display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-link {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 12px;
+    color: var(--rosalia-accent); text-decoration: none;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-card {
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 10px;
+    padding: 10px 6px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-card:hover {
+    border-color: var(--rosalia-accent);
+    transform: translateY(-2px);
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-card-img {
+    width: 48px; height: 48px; border-radius: 8px; margin: 0 auto 8px;
+    background: linear-gradient(135deg, var(--rosalia-beige), var(--rosalia-pink-light));
+    overflow: hidden; display: flex; align-items: center; justify-content: center;
+    font-size: 8px; font-style: italic; color: var(--rosalia-gray-2); line-height: 1.2;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-card-name {
+    font-size: 10.5px; font-weight: 600; letter-spacing: 0.02em;
+  }
+
+  /* Bundle tiers */
+  #shopify-section-{{ section.id }} .rosalia-tiers { display: grid; gap: 10px; margin-bottom: 20px; }
+  #shopify-section-{{ section.id }} .rosalia-tiers-label {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 2px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier {
+    position: relative;
+    display: flex; align-items: center; gap: 12px;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 12px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier:hover { border-color: var(--rosalia-accent); }
+  #shopify-section-{{ section.id }} .rosalia-tier--recommended { border-color: var(--rosalia-accent); }
+  #shopify-section-{{ section.id }} .rosalia-tier input { position: absolute; opacity: 0; pointer-events: none; }
+  #shopify-section-{{ section.id }} .rosalia-tier-radio {
+    flex: 0 0 16px; width: 16px; height: 16px; border-radius: 50%;
+    border: 2px solid var(--rosalia-gray-3); transition: all 0.2s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier input:checked ~ .rosalia-tier-radio {
+    border-color: var(--rosalia-accent-deep);
+    box-shadow: inset 0 0 0 3.5px var(--rosalia-white);
+    background: var(--rosalia-accent-deep);
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier:has(input:checked) {
+    border-color: var(--rosalia-accent-deep);
+    box-shadow: 0 4px 20px rgba(122, 58, 84, 0.08);
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier-badge {
+    position: absolute; top: -9px; right: 14px;
+    background: var(--rosalia-accent-deep); color: var(--rosalia-cream);
+    font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+    padding: 3px 9px; border-radius: 100px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier-body { flex: 1 1 auto; min-width: 0; }
+  #shopify-section-{{ section.id }} .rosalia-tier-name { font-size: 13.5px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .rosalia-tier-sub {
+    font-family: var(--rosalia-font-serif); font-style: italic;
+    font-size: 12px; color: var(--rosalia-gray);
+  }
+  #shopify-section-{{ section.id }} .rosalia-tier-price { text-align: right; }
+  #shopify-section-{{ section.id }} .rosalia-tier-price-current { font-size: 15px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .rosalia-tier-price-compare {
+    font-size: 11.5px; color: var(--rosalia-gray-2); text-decoration: line-through;
+  }
+
+  /* CTA + ship + guarantee */
+  #shopify-section-{{ section.id }} .rosalia-cta {
+    width: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--rosalia-accent-deep);
+    color: var(--rosalia-cream);
+    border: none; border-radius: 100px;
+    padding: 17px 24px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13.5px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s var(--rosalia-ease);
+    margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-cta:hover { background: var(--rosalia-wine); transform: translateY(-1px); }
+  #shopify-section-{{ section.id }} .rosalia-cta[disabled] { opacity: 0.5; cursor: not-allowed; }
+  #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: transform 0.3s var(--rosalia-ease); }
+  #shopify-section-{{ section.id }} .rosalia-cta:hover .rosalia-cta-arrow { transform: translateX(3px); }
+  #shopify-section-{{ section.id }} .rosalia-ship {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ship-item {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--rosalia-gray);
+  }
+  #shopify-section-{{ section.id }} .rosalia-ship-dot {
+    width: 5px; height: 5px; border-radius: 50%; background: var(--rosalia-pink-mid);
+  }
+  #shopify-section-{{ section.id }} .rosalia-guarantee {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--rosalia-pink-light);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 12.5px; line-height: 1.5; color: var(--rosalia-accent-deep);
+    margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-guarantee p { margin: 0; }
+  #shopify-section-{{ section.id }} .rosalia-guarantee-check {
+    flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%;
+    background: var(--rosalia-accent-deep); color: var(--rosalia-cream);
+    display: flex; align-items: center; justify-content: center; font-size: 11px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-app-zone {
+    border: 1.5px dashed var(--rosalia-gray-3);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-app-zone:empty { display: none; }
+  #shopify-section-{{ section.id }} .rosalia-app-zone-label {
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rosalia-gray-2);
+  }
+  #shopify-section-{{ section.id }} .rosalia-richtext { margin-bottom: 18px; font-size: 13.5px; line-height: 1.55; }
+
+  /* ── Symptom modal ───────────────────────────────────── */
+  #shopify-section-{{ section.id }} .rosalia-symptom-modal-overlay {
+    position: fixed; inset: 0; z-index: 9998;
+    background: rgba(31, 26, 28, 0.55);
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-modal-box {
+    background: var(--rosalia-cream);
+    border-radius: 16px;
+    max-width: 680px; width: 100%;
+    max-height: 86vh; overflow-y: auto;
+    padding: 32px;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-modal-x {
+    position: absolute; top: 14px; right: 14px;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--rosalia-pink-light); color: var(--rosalia-accent-deep);
+    border: none; cursor: pointer; font-size: 17px; line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; padding-right: 40px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-tab {
+    padding: 7px 14px; border-radius: 100px;
+    border: 1.5px solid var(--rosalia-pink-light);
+    background: var(--rosalia-white);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.04em;
+    cursor: pointer; transition: all 0.25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-tab[aria-selected="true"] {
+    background: var(--rosalia-accent-deep); color: var(--rosalia-cream); border-color: var(--rosalia-accent-deep);
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-panel[hidden] { display: none; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-panel-title {
+    font-family: var(--rosalia-font-serif); font-size: 26px; font-weight: 600; margin: 0 0 16px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-visuals {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-visual {
+    aspect-ratio: 4 / 3; border-radius: 10px; overflow: hidden;
+    background: linear-gradient(135deg, var(--rosalia-beige), var(--rosalia-pink-light));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-style: italic; color: var(--rosalia-gray-2); text-align: center;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-visual img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-desc { font-size: 13.5px; line-height: 1.6; color: var(--rosalia-gray); margin-bottom: 16px; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-levers { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-lever-tag {
+    padding: 4px 10px; border-radius: 100px;
+    background: var(--rosalia-pink-light); color: var(--rosalia-accent-deep);
+    font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-mech {
+    font-size: 12.5px; line-height: 1.55; margin-bottom: 16px;
+    padding: 12px 14px; border-left: 2px solid var(--rosalia-pink-mid);
+    background: var(--rosalia-white); border-radius: 0 10px 10px 0;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ings { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ing {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--rosalia-white); border: 1px solid var(--rosalia-pink-light);
+    border-radius: 10px; padding: 8px 12px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ing-img {
+    width: 30px; height: 30px; border-radius: 6px; overflow: hidden;
+    background: var(--rosalia-pink-light); flex: 0 0 30px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ing-img img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ing-name { font-size: 11.5px; font-weight: 600; }
+  #shopify-section-{{ section.id }} .rosalia-symptom-ing-role { font-size: 10px; color: var(--rosalia-gray); }
+  #shopify-section-{{ section.id }} .rosalia-symptom-outcome {
+    font-family: var(--rosalia-font-serif); font-style: italic;
+    font-size: 15px; line-height: 1.5; color: var(--rosalia-accent-deep);
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-product { padding: 16px 20px 56px; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-grid { grid-template-columns: repeat(4, 1fr); }
+    #shopify-section-{{ section.id }} .rosalia-symptom-visuals { grid-template-columns: 1fr; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-modal-box { padding: 22px 18px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-symptom-card,
+    #shopify-section-{{ section.id }} .rosalia-tier,
+    #shopify-section-{{ section.id }} .rosalia-cta,
+    #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: none; }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="product rosalia-product">
+    {%- if section.settings.product != blank -%}
+      {%- assign rp_product = section.settings.product -%}
+    {%- else -%}
+      {%- assign rp_product = product -%}
+    {%- endif -%}
+
+    {%- capture product_form_id -%}product-form-{{ rp_product.id }}-{{ section.id }}{%- endcapture -%}
+
+    {%- comment -%} Gallery — reuses Impact's gallery snippet unchanged {%- endcomment -%}
+    <div class="rosalia-gallery-col">
+      {%- if rp_product.media.size > 0 -%}
+        {%- render 'product-gallery', product: rp_product -%}
+      {%- else -%}
+        <div class="product-gallery">
+          {{- 'product-1' | placeholder_svg_tag: 'placeholder rounded' -}}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- comment -%} Buy box {%- endcomment -%}
+    <div class="product-info rosalia-buybox">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+
+          {%- when 'eyebrow' -%}
+            {%- assign eyebrow_text = block.settings.text | default: rp_product.metafields.rosalia.eyebrow -%}
+            {%- if eyebrow_text != blank -%}
+              <div class="rosalia-eyebrow" {{ block.shopify_attributes }}>{{ eyebrow_text }}</div>
+            {%- endif -%}
+
+          {%- when 'title' -%}
+            <h1 class="rosalia-title" {{ block.shopify_attributes }}>{{ rp_product.title }}</h1>
+
+          {%- when 'subtitle' -%}
+            {%- assign subtitle_text = block.settings.text | default: rp_product.metafields.rosalia.subtitle -%}
+            {%- if subtitle_text != blank -%}
+              <p class="rosalia-subtitle" {{ block.shopify_attributes }}>{{ subtitle_text }}</p>
+            {%- endif -%}
+
+          {%- when 'tag_pills' -%}
+            {%- assign pills = rp_product.metafields.rosalia.tag_pills.value -%}
+            {%- if pills.size > 0 -%}
+              <div class="rosalia-tag-pills" {{ block.shopify_attributes }}>
+                {%- for pill in pills -%}
+                  <span class="rosalia-tag-pill">{{ pill }}</span>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+          {%- when 'benefits' -%}
+            {%- assign benefits = rp_product.metafields.rosalia.benefits.value -%}
+            {%- if benefits.size > 0 -%}
+              <div class="rosalia-benefits" {{ block.shopify_attributes }}>
+                {%- for benefit in benefits -%}
+                  <div class="rosalia-benefit">
+                    <div class="rosalia-benefit-icon">
+                      {%- if block.settings.icon_svg != blank -%}
+                        {{ block.settings.icon_svg }}
+                      {%- else -%}
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.2 4.8 9 10 3.2"/></svg>
+                      {%- endif -%}
+                    </div>
+                    <div class="rosalia-benefit-text">{{ benefit }}</div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+          {%- when 'symptom_picker' -%}
+            {%- assign symptoms = rp_product.metafields.rosalia.symptoms.value -%}
+            {%- if symptoms.size > 0 -%}
+              <rosalia-symptom-picker class="rosalia-symptom-section" {{ block.shopify_attributes }}>
+                <div class="rosalia-symptom-head">
+                  <span class="rosalia-symptom-label">{{ block.settings.label | default: 'What are you treating?' }}</span>
+                  {%- if block.settings.link_text != blank -%}
+                    <a href="{{ block.settings.link_url }}" class="rosalia-symptom-link">{{ block.settings.link_text }}</a>
+                  {%- endif -%}
+                </div>
+                <div class="rosalia-symptom-grid">
+                  {%- for sym in symptoms -%}
+                    <button class="rosalia-symptom-card" type="button" data-index="{{ forloop.index0 }}" aria-haspopup="dialog">
+                      <div class="rosalia-symptom-card-img">
+                        {%- if sym.card_photo != blank -%}
+                          {{ sym.card_photo | image_url: width: 96 | image_tag: loading: 'lazy', alt: sym.title }}
+                        {%- else -%}
+                          <span>{{ sym.title }}</span>
+                        {%- endif -%}
+                      </div>
+                      <div class="rosalia-symptom-card-name">{{ sym.title }}</div>
+                    </button>
+                  {%- endfor -%}
+                </div>
+                {%- render 'rosalia-symptom-modal', symptoms: symptoms -%}
+              </rosalia-symptom-picker>
+            {%- endif -%}
+
+          {%- when 'variant_picker' -%}
+            {%- render 'variant-picker', product: rp_product, block: block, product_form_id: product_form_id -%}
+
+          {%- when 'bundle_tiers' -%}
+            <div class="rosalia-tiers" {{ block.shopify_attributes }}>
+              <div class="rosalia-tiers-label">{{ block.settings.label | default: 'Choose your reset' }}</div>
+              {%- assign recommended_id = rp_product.metafields.rosalia.recommended_variant_id.value.id -%}
+              {%- for v in rp_product.variants -%}
+                <label class="rosalia-tier {% if v.id == recommended_id %}rosalia-tier--recommended{% endif %}">
+                  {%- if v.id == recommended_id -%}<div class="rosalia-tier-badge">{{ block.settings.recommended_label | default: 'Recommended' }}</div>{%- endif -%}
+                  <input type="radio" name="id" value="{{ v.id }}" form="{{ product_form_id }}" {% if v.id == rp_product.selected_or_first_available_variant.id %}checked{% endif %}>
+                  <span class="rosalia-tier-radio" aria-hidden="true"></span>
+                  <div class="rosalia-tier-body">
+                    <div class="rosalia-tier-name">{{ v.title }}</div>
+                    {%- assign v_subtitle = v.metafields.rosalia.subtitle -%}
+                    {%- if v_subtitle != blank -%}<div class="rosalia-tier-sub">{{ v_subtitle }}</div>{%- endif -%}
+                  </div>
+                  <div class="rosalia-tier-price">
+                    <div class="rosalia-tier-price-current">{{ v.price | money }}</div>
+                    {%- if v.compare_at_price > v.price -%}
+                      <div class="rosalia-tier-price-compare">{{ v.compare_at_price | money }}</div>
+                    {%- endif -%}
+                  </div>
+                </label>
+              {%- endfor -%}
+            </div>
+
+          {%- when 'buy_buttons' -%}
+            {%- assign sel_variant = rp_product.selected_or_first_available_variant -%}
+            <button
+              type="submit"
+              form="{{ product_form_id }}"
+              class="rosalia-cta"
+              name="add"
+              {% unless sel_variant.available %}disabled{% endunless %}
+              {{ block.shopify_attributes }}
+            >
+              {%- if sel_variant.available -%}
+                {{ block.settings.button_label | default: 'Try it for 60 days' }}
+                <span class="rosalia-cta-arrow" aria-hidden="true">→</span>
+              {%- else -%}
+                {{ 'product.form.sold_out' | t | default: 'Sold out' }}
+              {%- endif -%}
+            </button>
+
+          {%- when 'ship_indicators' -%}
+            <div class="rosalia-ship" {{ block.shopify_attributes }}>
+              {%- for i in (1..3) -%}
+                {%- assign key = 'text_' | append: i -%}
+                {%- assign val = block.settings[key] -%}
+                {%- if val != blank -%}
+                  <span class="rosalia-ship-item"><span class="rosalia-ship-dot"></span>{{ val }}</span>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+
+          {%- when 'guarantee' -%}
+            <div class="rosalia-guarantee" {{ block.shopify_attributes }}>
+              <span class="rosalia-guarantee-check">✓</span>
+              <span>{{ block.settings.text | default: '<p><strong>60 days to feel it shift.</strong> Or we refund. No questions.</p>' }}</span>
+            </div>
+
+          {%- when 'app_zone' -%}
+            <div class="rosalia-app-zone" {{ block.shopify_attributes }}>
+              {%- if block.settings.label != blank -%}
+                <div class="rosalia-app-zone-label">{{ block.settings.label }}</div>
+              {%- endif -%}
+            </div>
+
+          {%- when 'richtext' -%}
+            <div class="rosalia-richtext" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+
+          {%- when 'liquid' -%}
+            <div class="rosalia-liquid" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+
+          {%- when '@app' -%}
+            {%- render block -%}
+
+        {%- endcase -%}
+      {%- endfor -%}
+
+      {%- comment -%} Hidden form for add-to-cart {%- endcomment -%}
+      {%- form 'product', rp_product, id: product_form_id, class: 'rosalia-product-form' -%}
+        <input type="hidden" name="id" value="{{ rp_product.selected_or_first_available_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+<script src="{{ 'rosalia-main-product.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Rosalia — Main product",
+  "class": "shopify-section--main-product",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Leave blank on a product template — it will use the current product."
+    },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "desktop_media_width", "label": "Desktop gallery width (%)", "min": 35, "max": 65, "step": 5, "unit": "%", "default": 50 },
+    {
+      "type": "select",
+      "id": "desktop_media_layout",
+      "label": "Desktop gallery layout",
+      "options": [
+        { "value": "carousel_thumbnails_left", "label": "Carousel + thumbnails left" },
+        { "value": "carousel_thumbnails_bottom", "label": "Carousel + thumbnails bottom" },
+        { "value": "grid", "label": "Grid" }
+      ],
+      "default": "carousel_thumbnails_left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_media_size",
+      "label": "Mobile gallery size",
+      "options": [
+        { "value": "expanded", "label": "Expanded (full bleed)" },
+        { "value": "contained", "label": "Contained" }
+      ],
+      "default": "expanded"
+    },
+    {
+      "type": "select",
+      "id": "mobile_carousel_control",
+      "label": "Mobile carousel control",
+      "options": [
+        { "value": "dots", "label": "Dots" },
+        { "value": "floating_dots", "label": "Floating dots" },
+        { "value": "thumbnails", "label": "Thumbnails" },
+        { "value": "free_scroll", "label": "Free scroll" }
+      ],
+      "default": "floating_dots"
+    },
+    { "type": "checkbox", "id": "enable_image_zoom", "label": "Enable image zoom", "default": true },
+    { "type": "range", "id": "max_image_zoom_level", "label": "Max zoom level", "min": 1, "max": 4, "step": 1, "default": 3 },
+    { "type": "checkbox", "id": "enable_video_autoplay", "label": "Autoplay videos", "default": false },
+    { "type": "checkbox", "id": "enable_video_looping", "label": "Loop videos", "default": false },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "section_background", "label": "Section background", "default": "#FAF5F0" },
+    { "type": "color", "id": "section_text_color", "label": "Section text color", "default": "#1F1A1C" },
+    { "type": "color", "id": "accent_color", "label": "Accent (pink)", "default": "#C4718E" },
+    { "type": "color", "id": "accent_deep", "label": "Accent deep (plum)", "default": "#7A3A54" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Eyebrow text", "info": "Falls back to product metafield rosalia.eyebrow" }
+      ]
+    },
+    { "type": "title", "name": "Title", "limit": 1, "settings": [] },
+    {
+      "type": "subtitle",
+      "name": "Subtitle",
+      "limit": 1,
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Subtitle text", "info": "Falls back to product metafield rosalia.subtitle" }
+      ]
+    },
+    {
+      "type": "tag_pills",
+      "name": "Tag pills",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Reads from product metafield rosalia.tag_pills (list of text)." }
+      ]
+    },
+    {
+      "type": "benefits",
+      "name": "Benefits list",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Reads from product metafield rosalia.benefits (JSON list of HTML strings)." },
+        { "type": "textarea", "id": "icon_svg", "label": "Icon SVG (optional)", "info": "Paste an inline SVG string, or leave blank for default check icon. Applied to every benefit row." }
+      ]
+    },
+    {
+      "type": "symptom_picker",
+      "name": "Symptom picker",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "What are you treating?" },
+        { "type": "text", "id": "link_text", "label": "Link text (e.g., 'See how it works')" },
+        { "type": "url", "id": "link_url", "label": "Link URL" },
+        { "type": "paragraph", "content": "Reads from product metafield rosalia.symptoms (list of Symptom metaobjects)." }
+      ]
+    },
+    {
+      "type": "variant_picker",
+      "name": "Variant picker (default Impact)",
+      "limit": 1,
+      "settings": [
+        { "type": "paragraph", "content": "Impact's default variant picker. Use this OR bundle_tiers, not both." },
+        { "type": "select", "id": "picker_type", "label": "Type", "options": [{"value":"dropdown","label":"Dropdown"},{"value":"button","label":"Button"}], "default": "button" }
+      ]
+    },
+    {
+      "type": "bundle_tiers",
+      "name": "Bundle tiers",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Section label", "default": "Choose your reset" },
+        { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
+        { "type": "paragraph", "content": "Reads variants from the product. Recommended variant + subtitles are set via product/variant metafields." }
+      ]
+    },
+    {
+      "type": "buy_buttons",
+      "name": "Buy button",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "Try it for 60 days" }
+      ]
+    },
+    {
+      "type": "ship_indicators",
+      "name": "Ship indicators",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "text_1", "label": "Indicator 1", "default": "Free shipping over $50" },
+        { "type": "text", "id": "text_2", "label": "Indicator 2", "default": "Ships in 48h" },
+        { "type": "text", "id": "text_3", "label": "Indicator 3" }
+      ]
+    },
+    {
+      "type": "guarantee",
+      "name": "Guarantee card",
+      "limit": 1,
+      "settings": [
+        { "type": "richtext", "id": "text", "label": "Guarantee copy", "default": "<p><strong>60 days to feel it shift.</strong> Or we refund. No questions.</p>" }
+      ]
+    },
+    {
+      "type": "app_zone",
+      "name": "App block zone",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "label", "label": "Zone label (optional)", "info": "Shown in the theme editor to help you find the zone." },
+        { "type": "paragraph", "content": "Drop @app blocks (Catching Bundle, Rebuy, etc.) directly above or below this block. Alternatively, add a Custom Liquid block and paste your app's snippet." }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Rich text",
+      "settings": [
+        { "type": "richtext", "id": "content", "label": "Content", "default": "<p>Free text block — add anything here.</p>" }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Custom Liquid",
+      "settings": [
+        { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rosalia — Main product",
+      "blocks": [
+        { "type": "eyebrow" },
+        { "type": "title" },
+        { "type": "subtitle" },
+        { "type": "tag_pills" },
+        { "type": "benefits" },
+        { "type": "symptom_picker" },
+        { "type": "bundle_tiers" },
+        { "type": "buy_buttons" },
+        { "type": "ship_indicators" },
+        { "type": "guarantee" },
+        { "type": "app_zone" }
+      ]
+    }
+  ]
+}
+{% endschema %}

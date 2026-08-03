@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "rich_text_rosalia": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading": {
+          "type": "subheading",
+          "settings": {
+            "text": "Rosalia"
+          }
+        },
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "text": "The daily reset for reactive skin.",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Coming soon — one serum, five clinical actives, sixty days to feel the shift.</p>"
+          }
+        }
+      },
+      "block_order": ["subheading", "heading", "richtext"],
+      "settings": {
+        "full_width": false,
+        "text_position": "center",
+        "background": "#FAF5F0",
+        "text_color": "#1F1A1C"
+      }
+    }
+  },
+  "order": ["rich_text_rosalia"]
+}

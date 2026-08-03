@@ -1,0 +1,81 @@
+{%- comment -%}
+  Rosalia symptom modal — rendered inside <rosalia-symptom-picker>.
+  Accepts: symptoms (list of Symptom metaobjects).
+  Wired up by assets/rosalia-main-product.js.
+{%- endcomment -%}
+<div class="rosalia-symptom-modal-overlay" data-role="symptom-modal" hidden role="dialog" aria-modal="true" aria-label="Symptom details">
+  <div class="rosalia-symptom-modal-box">
+    <button class="rosalia-symptom-modal-x" type="button" data-role="symptom-modal-close" aria-label="Close">×</button>
+
+    <div class="rosalia-symptom-tabs" role="tablist">
+      {%- for sym in symptoms -%}
+        <button class="rosalia-symptom-tab" type="button" role="tab" data-tab-index="{{ forloop.index0 }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+          {{ sym.title }}
+        </button>
+      {%- endfor -%}
+    </div>
+
+    {%- for sym in symptoms -%}
+      <div class="rosalia-symptom-panel" role="tabpanel" data-panel-index="{{ forloop.index0 }}" {% unless forloop.first %}hidden{% endunless %}>
+        <h3 class="rosalia-symptom-panel-title">{{ sym.title }}</h3>
+
+        <div class="rosalia-symptom-visuals">
+          <div class="rosalia-symptom-visual">
+            {%- if sym.card_photo != blank -%}
+              {{ sym.card_photo | image_url: width: 640 | image_tag: loading: 'lazy', alt: sym.title }}
+            {%- else -%}
+              <span>{{ sym.title }} · real skin photo<br>(placeholder)</span>
+            {%- endif -%}
+          </div>
+          <div class="rosalia-symptom-visual">
+            {%- if sym.cross_illustration != blank -%}
+              {{ sym.cross_illustration | image_url: width: 640 | image_tag: loading: 'lazy', alt: sym.title }}
+            {%- else -%}
+              <span>Cross-section illustration<br>(placeholder)</span>
+            {%- endif -%}
+          </div>
+        </div>
+
+        {%- if sym.description != blank -%}
+          <div class="rosalia-symptom-desc">{{ sym.description | newline_to_br }}</div>
+        {%- endif -%}
+
+        {%- assign lever_list = sym.levers.value -%}
+        {%- if lever_list.size > 0 -%}
+          <div class="rosalia-symptom-levers">
+            {%- for lever in lever_list -%}
+              <span class="rosalia-symptom-lever-tag">{{ lever }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if sym.mechanism_line != blank -%}
+          <div class="rosalia-symptom-mech">{{ sym.mechanism_line }}</div>
+        {%- endif -%}
+
+        {%- assign related = sym.related_ingredients.value -%}
+        {%- if related.size > 0 -%}
+          <div class="rosalia-symptom-ings">
+            {%- for ing in related -%}
+              <div class="rosalia-symptom-ing">
+                <div class="rosalia-symptom-ing-img">
+                  {%- if ing.hero_image != blank -%}
+                    {{ ing.hero_image | image_url: width: 60 | image_tag: loading: 'lazy', alt: ing.name }}
+                  {%- endif -%}
+                </div>
+                <div>
+                  <div class="rosalia-symptom-ing-name">{{ ing.name }}{% if ing.percentage != blank %} · {{ ing.percentage }}{% endif %}</div>
+                  {%- if ing.role != blank -%}<div class="rosalia-symptom-ing-role">{{ ing.role }}</div>{%- endif -%}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if sym.outcome != blank -%}
+          <div class="rosalia-symptom-outcome">{{ sym.outcome | newline_to_br }}</div>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>

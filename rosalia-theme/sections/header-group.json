@@ -1,0 +1,85 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_cqN8RP": {
+          "type": "message",
+          "settings": {
+            "text": "Free US shipping on orders over $50",
+            "url": ""
+          }
+        },
+        "message": {
+          "type": "message",
+          "settings": {
+            "text": "60-day reset guarantee",
+            "url": ""
+          }
+        },
+        "message_VhU9dC": {
+          "type": "message",
+          "settings": {
+            "text": "Formulated for reactive skin",
+            "url": ""
+          }
+        },
+        "message_yTHGFG": {
+          "type": "message",
+          "settings": {
+            "text": "Rosacea-tested • Fragrance-free • No essential oils",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message_cqN8RP",
+        "message",
+        "message_VhU9dC",
+        "message_yTHGFG"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky": false,
+        "text_size": "text-xs",
+        "navigation_mode": "scrolling",
+        "scrolling_speed": 10,
+        "background": "#7A3A54",
+        "background_gradient": "",
+        "text_color": "#FAF5F0"
+      }
+    },
+    "header": {
+      "type": "header",
+      "disabled": true,
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify://shop_images/Logo_1.png",
+        "logo_max_width": 255,
+        "logo_mobile_max_width": 170,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "secondary_menu": "",
+        "menu_open_trigger": "click",
+        "opening_from": "bottom",
+        "layout": "logo_left_navigation_center",
+        "show_social_media": true,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_country_flag": true,
+        "show_country_name": false,
+        "transparent_header_text_color": "#f8f6f3",
+        "reduce_padding": false,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}
