@@ -1,0 +1,227 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    padding-block: {{ section.settings.padding_top | default: 100 }}px {{ section.settings.padding_bottom | default: 100 }}px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-inner {
+    max-width: {{ section.settings.max_width | default: 1200 }}px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-eyebrow {
+    font-family: var(--rosalia-font-sans); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rosalia-pink); font-weight: 500; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading {
+    font-family: var(--rosalia-font-serif); font-size: clamp(28px, 3.5vw, 38px); font-weight: 500;
+    line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading em { font-style: italic; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 17px;
+    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-ing-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--rosalia-ing-cols, 4), 1fr);
+    gap: 16px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card {
+    background: {{ section.settings.card_background | default: 'var(--rosalia-white)' }};
+    border: 1.5px solid {{ section.settings.card_border | default: 'var(--rosalia-pink-light)' }};
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card:hover {
+    border-color: var(--rosalia-pink);
+    box-shadow: 0 8px 32px rgba(122, 58, 84, 0.06);
+    transform: translateY(-3px);
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-img {
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--rosalia-beige), var(--rosalia-pink-light));
+    display: flex; align-items: center; justify-content: center;
+    color: var(--rosalia-gray-2); font-style: italic; font-size: 12px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-body { padding: 18px 16px; }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-name { font-weight: 700; font-size: 13px; }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-pct {
+    font-family: var(--rosalia-font-serif); font-size: 28px; color: var(--rosalia-pink); line-height: 1.2;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-emo {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 13px; margin-top: 4px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-mech {
+    font-size: 11px; color: var(--rosalia-gray); line-height: 1.5;
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--rosalia-pink-light);
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-card-lever {
+    display: inline-block; margin-top: 10px; padding: 3px 9px; border-radius: 100px;
+    background: var(--rosalia-pink-light); color: var(--rosalia-plum);
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-note {
+    margin-top: 28px; padding: 18px 22px; border-radius: 10px;
+    background: var(--rosalia-pink-light);
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 14px;
+    color: var(--rosalia-plum); line-height: 1.5;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-note strong {
+    display: block; font-family: var(--rosalia-font-sans); font-style: normal;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 6px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-ing-note p { margin: 0; }
+
+  @media (max-width: 999px) {
+    #shopify-section-{{ section.id }} .rosalia-ing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-ing-inner { padding-inline: 24px; }
+  }
+  @media (max-width: 549px) {
+    #shopify-section-{{ section.id }} .rosalia-ing-grid { grid-template-columns: repeat(1, 1fr); }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="rosalia-ing-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="rosalia-mechanism-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rosalia-mechanism-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.lead != blank -%}
+      <p class="rosalia-mechanism-lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    {%- assign ingredients = product.metafields.rosalia.ingredients.value -%}
+    {%- if section.settings.data_source == 'metafield' and ingredients.size > 0 -%}
+      {%- comment -%} Data-driven from Ingredient metaobjects {%- endcomment -%}
+      <div class="rosalia-ing-grid" style="--rosalia-ing-cols: {{ section.settings.columns_desktop }};">
+        {%- for ing in ingredients -%}
+          <article class="rosalia-ing-card">
+            <div class="rosalia-ing-card-img">
+              {%- if ing.hero_image != blank -%}
+                {{ ing.hero_image | image_url: width: 400 | image_tag: loading: 'lazy', alt: ing.name }}
+              {%- else -%}
+                <span>{{ ing.name }} · photo</span>
+              {%- endif -%}
+            </div>
+            <div class="rosalia-ing-card-body">
+              <div class="rosalia-ing-card-name">{{ ing.name }}</div>
+              {%- if ing.percentage != blank -%}<div class="rosalia-ing-card-pct">{{ ing.percentage }}</div>{%- endif -%}
+              {%- if ing.emotional_line != blank -%}<div class="rosalia-ing-card-emo">{{ ing.emotional_line }}</div>{%- endif -%}
+              {%- if ing.mechanism != blank -%}<div class="rosalia-ing-card-mech">{{ ing.mechanism }}</div>{%- endif -%}
+              {%- if ing.related_lever != blank -%}<span class="rosalia-ing-card-lever">{{ ing.related_lever }}</span>{%- endif -%}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      {%- comment -%} Data-driven from section blocks (fallback / non-product page) {%- endcomment -%}
+      <div class="rosalia-ing-grid" style="--rosalia-ing-cols: {{ section.settings.columns_desktop }};">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'ingredient' -%}
+              <article class="rosalia-ing-card" {{ block.shopify_attributes }}>
+                <div class="rosalia-ing-card-img">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', alt: block.settings.name }}
+                  {%- else -%}
+                    <span>{{ block.settings.name | default: 'Ingredient' }} · photo</span>
+                  {%- endif -%}
+                </div>
+                <div class="rosalia-ing-card-body">
+                  <div class="rosalia-ing-card-name">{{ block.settings.name }}</div>
+                  {%- if block.settings.percentage != blank -%}<div class="rosalia-ing-card-pct">{{ block.settings.percentage }}</div>{%- endif -%}
+                  {%- if block.settings.emotional_line != blank -%}<div class="rosalia-ing-card-emo">{{ block.settings.emotional_line }}</div>{%- endif -%}
+                  {%- if block.settings.mechanism != blank -%}<div class="rosalia-ing-card-mech">{{ block.settings.mechanism }}</div>{%- endif -%}
+                  {%- if block.settings.related_lever != blank -%}<span class="rosalia-ing-card-lever">{{ block.settings.related_lever }}</span>{%- endif -%}
+                </div>
+              </article>
+
+            {%- when 'richtext' -%}
+              <div class="rosalia-ing-card" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+
+            {%- when 'liquid' -%}
+              <div class="rosalia-ing-card" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+
+            {%- when '@app' -%}
+              {%- render block -%}
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.note != blank -%}
+      <div class="rosalia-ing-note">
+        {%- if section.settings.note_label != blank -%}
+          <strong>{{ section.settings.note_label }}</strong>
+        {%- endif -%}
+        {{ section.settings.note }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Ingredients",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Five Actives" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The <em>full</em> formula." },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "Five clinically-supported actives. Each one at the dose it needs — no more, no less." },
+    { "type": "header", "content": "Data source" },
+    { "type": "select", "id": "data_source", "label": "Read ingredients from", "options": [{"value":"metafield","label":"Product metafield (rosalia.ingredients)"},{"value":"blocks","label":"Section blocks below"}], "default": "metafield" },
+    { "type": "header", "content": "Note (below grid)" },
+    { "type": "text", "id": "note_label", "label": "Note label", "default": "FORMULATION" },
+    { "type": "richtext", "id": "note", "label": "Note content", "default": "<p>Zero essential oils. Zero fragrance. pH-matched to reactive skin.</p>" },
+    { "type": "header", "content": "Layout" },
+    { "type": "select", "id": "columns_desktop", "label": "Desktop columns", "options": [{"value":"2","label":"2"},{"value":"3","label":"3"},{"value":"4","label":"4"},{"value":"6","label":"6"}], "default": "4" },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 900, "max": 1400, "step": 50, "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#F7E4EA" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "ingredient",
+      "name": "Ingredient card",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "Niacinamide" },
+        { "type": "text", "id": "percentage", "label": "Percentage / dose", "default": "3–5%" },
+        { "type": "text", "id": "related_lever", "label": "Related lever", "default": "01 · Alarm" },
+        { "type": "image_picker", "id": "image", "label": "Hero image", "info": "Square recommended. Falls back to placeholder if empty." },
+        { "type": "textarea", "id": "emotional_line", "label": "Emotional line", "default": "\"Calms the alarm.\"" },
+        { "type": "textarea", "id": "mechanism", "label": "Mechanism", "default": "Reduces the inflammatory cascade at the immune level. The dose matters — 10%+ can backfire on reactive skin." }
+      ]
+    },
+    { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Ingredients (fallback blocks)", "blocks": [
+      { "type": "ingredient", "settings": { "name": "Niacinamide", "percentage": "3–5%", "related_lever": "01 · Alarm", "emotional_line": "\"Calms the alarm.\"", "mechanism": "Reduces the inflammatory cascade. The dose matters — 10%+ can trigger the sensitivity it claims to treat." } },
+      { "type": "ingredient", "settings": { "name": "Centella Asiatica", "percentage": "2%", "related_lever": "02 · Nerves", "emotional_line": "\"Quiets the nerves.\"", "mechanism": "Reduces neurogenic inflammation — the mechanism behind trigger-driven flushing." } },
+      { "type": "ingredient", "settings": { "name": "Azelaic Acid", "percentage": "10%", "related_lever": "03 · Wall", "emotional_line": "\"Steadies the flush.\"", "mechanism": "Modulates vascular reactivity and reduces post-inflammatory pigmentation." } },
+      { "type": "ingredient", "settings": { "name": "Bisabolol", "percentage": "0.5%", "related_lever": "04 · Barrier", "emotional_line": "\"Repairs the barrier.\"", "mechanism": "Bacillus-derived, restores the lipid barrier without fragrance." } },
+      { "type": "ingredient", "settings": { "name": "Ceramide Complex", "percentage": "1%", "related_lever": "05 · Loop", "emotional_line": "\"Breaks the loop.\"", "mechanism": "Rebuilds intercellular lipids so the barrier stops leaking, breaking the flare cycle at its root." } }
+    ] }
+  ]
+}
+{% endschema %}

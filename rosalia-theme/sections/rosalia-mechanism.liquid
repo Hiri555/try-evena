@@ -1,0 +1,255 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    padding-block: {{ section.settings.padding_top | default: 100 }}px {{ section.settings.padding_bottom | default: 100 }}px;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-mechanism-inner {
+    max-width: {{ section.settings.max_width | default: 1200 }}px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-mechanism-eyebrow {
+    font-family: var(--rosalia-font-sans);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rosalia-pink);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading {
+    font-family: var(--rosalia-font-serif);
+    font-size: clamp(28px, 3.5vw, 38px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading em {
+    font-style: italic;
+    color: var(--rosalia-plum);
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--rosalia-gray);
+    line-height: 1.5;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  /* Levers horizontal scroll */
+  #shopify-section-{{ section.id }} .rosalia-levers-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  #shopify-section-{{ section.id }} .rosalia-levers-scroll::-webkit-scrollbar { display: none; }
+  #shopify-section-{{ section.id }} .rosalia-lever-card {
+    flex: 0 0 260px;
+    scroll-snap-align: start;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    padding: 28px 20px 24px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-card:hover {
+    border-color: var(--rosalia-pink);
+    box-shadow: 0 8px 32px rgba(122, 58, 84, 0.06);
+    transform: translateY(-3px);
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-bar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--rosalia-pink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-card:hover .rosalia-lever-bar { transform: scaleX(1); }
+  #shopify-section-{{ section.id }} .rosalia-lever-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: var(--rosalia-pink-light);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+    transition: all 0.4s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-card:hover .rosalia-lever-icon { background: var(--rosalia-pink); }
+  #shopify-section-{{ section.id }} .rosalia-lever-icon svg {
+    width: 24px; height: 24px;
+    stroke: var(--rosalia-plum);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s;
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-card:hover .rosalia-lever-icon svg { stroke: var(--rosalia-cream); }
+  #shopify-section-{{ section.id }} .rosalia-lever-num {
+    font-family: var(--rosalia-font-serif);
+    font-size: 12px;
+    font-style: italic;
+    color: var(--rosalia-pink);
+    margin-bottom: 4px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-name {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-emo {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rosalia-dark);
+    line-height: 1.35;
+    margin-bottom: 10px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-lever-mech {
+    font-size: 12px;
+    color: var(--rosalia-gray);
+    line-height: 1.5;
+    padding-top: 10px;
+    border-top: 1px solid var(--rosalia-pink-light);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-lever-card,
+    #shopify-section-{{ section.id }} .rosalia-lever-bar,
+    #shopify-section-{{ section.id }} .rosalia-lever-icon { transition: none; }
+  }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-mechanism-inner { padding-inline: 24px; }
+    #shopify-section-{{ section.id }} .rosalia-lever-card { flex-basis: 220px; }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="rosalia-mechanism-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="rosalia-mechanism-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rosalia-mechanism-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    {%- if section.settings.lead != blank -%}
+      <p class="rosalia-mechanism-lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    <div class="rosalia-levers-scroll">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'lever' -%}
+            <article class="rosalia-lever-card" {{ block.shopify_attributes }}>
+              <div class="rosalia-lever-bar"></div>
+              {%- if block.settings.icon_svg != blank -%}
+                <div class="rosalia-lever-icon">{{ block.settings.icon_svg }}</div>
+              {%- elsif block.settings.icon_image != blank -%}
+                <div class="rosalia-lever-icon">{{ block.settings.icon_image | image_url: width: 48 | image_tag: alt: block.settings.name }}</div>
+              {%- endif -%}
+              <div class="rosalia-lever-num">{{ block.settings.number | default: forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+              <div class="rosalia-lever-name">{{ block.settings.name }}</div>
+              {%- if block.settings.emotional_line != blank -%}
+                <div class="rosalia-lever-emo">{{ block.settings.emotional_line }}</div>
+              {%- endif -%}
+              {%- if block.settings.mechanism != blank -%}
+                <div class="rosalia-lever-mech">{{ block.settings.mechanism }}</div>
+              {%- endif -%}
+            </article>
+
+          {%- when 'richtext' -%}
+            <div class="rosalia-lever-card" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+
+          {%- when 'liquid' -%}
+            <div class="rosalia-lever-card" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+
+          {%- when '@app' -%}
+            {%- render block -%}
+
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Mechanism",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Redness Loop" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Redness is a <em>loop</em>, not a symptom." },
+    { "type": "textarea", "id": "lead", "label": "Lead paragraph", "default": "Five self-feeding mechanisms. Each one triggers the next. Rosalia interrupts them at once — not one at a time." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 900, "max": 1400, "step": 50, "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "lever",
+      "name": "Lever card",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number", "default": "01", "info": "Displayed as an italic prefix (01, 02, …). If blank, the block index is used." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Alarm" },
+        { "type": "textarea", "id": "emotional_line", "label": "Emotional line", "default": "\"The overreaction that finally quiets.\"" },
+        { "type": "textarea", "id": "mechanism", "label": "Mechanism explanation", "default": "Calms the immune misread at the source — before it cascades into visible redness." },
+        { "type": "textarea", "id": "icon_svg", "label": "Icon SVG (inline)", "info": "Paste an inline SVG. Takes priority over the image field." },
+        { "type": "image_picker", "id": "icon_image", "label": "Icon image (fallback)", "info": "Used only if icon SVG is blank. 96×96px recommended." }
+      ]
+    },
+    {
+      "type": "richtext",
+      "name": "Rich text card",
+      "settings": [
+        { "type": "richtext", "id": "content", "label": "Content" }
+      ]
+    },
+    {
+      "type": "liquid",
+      "name": "Custom Liquid card",
+      "settings": [
+        { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rosalia — Mechanism (5 levers)",
+      "blocks": [
+        { "type": "lever", "settings": { "number": "01", "name": "Alarm", "emotional_line": "\"The overreaction that finally quiets.\"", "mechanism": "Calms the immune misread at the source — before it cascades into visible redness." } },
+        { "type": "lever", "settings": { "number": "02", "name": "Nerves", "emotional_line": "\"Triggers that stop being triggers.\"", "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire." } },
+        { "type": "lever", "settings": { "number": "03", "name": "Wall", "emotional_line": "\"Vessels that stop broadcasting.\"", "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush." } },
+        { "type": "lever", "settings": { "number": "04", "name": "Barrier", "emotional_line": "\"Skin that stops leaking.\"", "mechanism": "Rebuilds the moisture barrier so irritants stop getting through." } },
+        { "type": "lever", "settings": { "number": "05", "name": "Loop", "emotional_line": "\"The cycle that finally breaks.\"", "mechanism": "Breaks the feedback loop where one flare feeds the next." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
