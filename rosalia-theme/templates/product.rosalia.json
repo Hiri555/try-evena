@@ -326,7 +326,7 @@
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
-            "image": "shopify://shop_images/rosalia-result-camille.png"
+            "image": "shopify://shop_images/rosalia-review-camille.png"
           }
         },
         "res_2": {
@@ -336,7 +336,7 @@
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
-            "image": "shopify://shop_images/rosalia-result-emily.png"
+            "image": "shopify://shop_images/rosalia-review-emily.png"
           }
         },
         "res_3": {
@@ -346,7 +346,7 @@
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
-            "image": "shopify://shop_images/rosalia-result-sarah.png"
+            "image": "shopify://shop_images/rosalia-review-sarah.png"
           }
         },
         "res_4": {
@@ -356,7 +356,7 @@
             "name": "Laura",
             "age": "45",
             "duration": "12 weeks",
-            "image": "shopify://shop_images/rosalia-result-laura.png"
+            "image": "shopify://shop_images/rosalia-review-laura.png"
           }
         },
         "res_5": {
@@ -366,7 +366,7 @@
             "name": "Nadia",
             "age": "51",
             "duration": "16 weeks",
-            "image": "shopify://shop_images/rosalia-result-nadia.png"
+            "image": "shopify://shop_images/rosalia-review-nadia.png"
           }
         }
       },
