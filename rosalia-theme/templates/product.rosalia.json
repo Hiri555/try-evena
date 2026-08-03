@@ -1,0 +1,120 @@
+{
+  "name": "Rosalia — Daily Reset Serum",
+  "sections": {
+    "main_product": {
+      "type": "rosalia-pdp",
+      "settings": {}
+    },
+    "marquee": {
+      "type": "rosalia-marquee",
+      "settings": {},
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "text": "No essential oils" } },
+        "item_2": { "type": "item", "settings": { "text": "Five mechanisms at once" } },
+        "item_3": { "type": "item", "settings": { "text": "Rosacea-tested" } },
+        "item_4": { "type": "item", "settings": { "text": "Made in France" } },
+        "item_5": { "type": "item", "settings": { "text": "60-day guarantee" } },
+        "item_6": { "type": "item", "settings": { "text": "35,000+ women trust Rosalia" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"]
+    },
+    "mechanism": {
+      "type": "rosalia-mechanism",
+      "settings": {},
+      "blocks": {
+        "lever_1": { "type": "lever", "settings": { "number": "01", "name": "Alarm", "emotional_line": "\"The overreaction that finally quiets.\"", "mechanism": "Calms the immune misread at the source — before it cascades into visible redness." } },
+        "lever_2": { "type": "lever", "settings": { "number": "02", "name": "Nerves", "emotional_line": "\"Triggers that stop being triggers.\"", "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire." } },
+        "lever_3": { "type": "lever", "settings": { "number": "03", "name": "Wall", "emotional_line": "\"Vessels that stop broadcasting.\"", "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush." } },
+        "lever_4": { "type": "lever", "settings": { "number": "04", "name": "Barrier", "emotional_line": "\"Skin that stops leaking.\"", "mechanism": "Rebuilds the moisture barrier so irritants stop getting through." } },
+        "lever_5": { "type": "lever", "settings": { "number": "05", "name": "Loop", "emotional_line": "\"The cycle that finally breaks.\"", "mechanism": "Breaks the feedback loop where one flare feeds the next." } }
+      },
+      "block_order": ["lever_1", "lever_2", "lever_3", "lever_4", "lever_5"]
+    },
+    "ingredients": {
+      "type": "rosalia-ingredients",
+      "settings": { "data_source": "metafield" },
+      "blocks": {
+        "ing_1": { "type": "ingredient", "settings": { "name": "Niacinamide", "percentage": "3–5%", "related_lever": "01 · Alarm", "emotional_line": "\"Calms the alarm.\"", "mechanism": "Reduces the inflammatory cascade. The dose matters — 10%+ can trigger the sensitivity it claims to treat." } },
+        "ing_2": { "type": "ingredient", "settings": { "name": "Centella Asiatica", "percentage": "2%", "related_lever": "02 · Nerves", "emotional_line": "\"Quiets the nerves.\"", "mechanism": "Reduces neurogenic inflammation — the mechanism behind trigger-driven flushing." } },
+        "ing_3": { "type": "ingredient", "settings": { "name": "Azelaic Acid", "percentage": "10%", "related_lever": "03 · Wall", "emotional_line": "\"Steadies the flush.\"", "mechanism": "Modulates vascular reactivity and reduces post-inflammatory pigmentation." } },
+        "ing_4": { "type": "ingredient", "settings": { "name": "Bisabolol", "percentage": "0.5%", "related_lever": "04 · Barrier", "emotional_line": "\"Repairs the barrier.\"", "mechanism": "Bacillus-derived, restores the lipid barrier without fragrance." } },
+        "ing_5": { "type": "ingredient", "settings": { "name": "Ceramide Complex", "percentage": "1%", "related_lever": "05 · Loop", "emotional_line": "\"Breaks the loop.\"", "mechanism": "Rebuilds intercellular lipids so the barrier stops leaking, breaking the flare cycle at its root." } }
+      },
+      "block_order": ["ing_1", "ing_2", "ing_3", "ing_4", "ing_5"]
+    },
+    "comparison": {
+      "type": "rosalia-comparison",
+      "settings": {},
+      "blocks": {
+        "row_1": { "type": "row", "settings": { "attribute": "Approach", "rosalia_value": "5 root causes addressed simultaneously", "other_value": "1 active ingredient, hope for the best" } },
+        "row_2": { "type": "row", "settings": { "attribute": "Irritants", "rosalia_value": "Zero essential oils. Zero fragrance. Ever.", "other_value": "Fragrance and essential oils often included" } },
+        "row_3": { "type": "row", "settings": { "attribute": "Niacinamide", "rosalia_value": "3–5% — the safe, effective range", "other_value": "10%+ — can trigger the sensitivity it claims to treat" } },
+        "row_4": { "type": "row", "settings": { "attribute": "Origin", "rosalia_value": "Built for rosacea from the first molecule", "other_value": "Made for 'normal' skin, relabeled 'sensitive'" } },
+        "row_5": { "type": "row", "settings": { "attribute": "Expertise", "rosalia_value": "Formulated with a vascular biologist", "other_value": "Designed by a marketing department" } },
+        "row_6": { "type": "row", "settings": { "attribute": "Guarantee", "rosalia_value": "60 days. Full refund. No forms.", "other_value": "7-day return window. Unopened only." } }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4", "row_5", "row_6"]
+    },
+    "results": {
+      "type": "rosalia-results",
+      "settings": {},
+      "blocks": {
+        "res_1": { "type": "result_card", "settings": { "quote": "My cheeks stopped burning at 4pm.", "name": "Camille", "age": "34", "duration": "8 weeks" } },
+        "res_2": { "type": "result_card", "settings": { "quote": "Foundation coverage cut in half.", "name": "Emily", "age": "42", "duration": "10 weeks" } },
+        "res_3": { "type": "result_card", "settings": { "quote": "First time in six years my skin doesn't sting.", "name": "Sarah", "age": "38", "duration": "6 weeks" } },
+        "res_4": { "type": "result_card", "settings": { "quote": "The 3pm flush stopped happening.", "name": "Laura", "age": "45", "duration": "12 weeks" } },
+        "res_5": { "type": "result_card", "settings": { "quote": "My dermatologist noticed at my last visit.", "name": "Nadia", "age": "51", "duration": "16 weeks" } }
+      },
+      "block_order": ["res_1", "res_2", "res_3", "res_4", "res_5"]
+    },
+    "ritual": {
+      "type": "rosalia-ritual",
+      "settings": {},
+      "blocks": {
+        "step_1": { "type": "step", "settings": { "number": "01", "title": "Dispense", "description": "3–4 drops from the dropper. That's enough for the full face." } },
+        "step_2": { "type": "step", "settings": { "number": "02", "title": "Apply", "description": "Press gently into cheeks, nose, forehead. Let it absorb 60 seconds." } },
+        "step_3": { "type": "step", "settings": { "number": "03", "title": "Continue", "description": "Follow with moisturizer. The serum works underneath." } }
+      },
+      "block_order": ["step_1", "step_2", "step_3"]
+    },
+    "timeline": {
+      "type": "rosalia-timeline",
+      "settings": {},
+      "blocks": {
+        "tl_1": { "type": "milestone", "settings": { "period": "Week 1–2", "title": "The quiet", "description": "Skin stops stinging. Barrier rebuilds. Nothing dramatic — that's the point." } },
+        "tl_2": { "type": "milestone", "settings": { "period": "Week 3–4", "title": "The first shift", "description": "Baseline redness softens. Flushing episodes shorter. Skin feels less reactive." } },
+        "tl_3": { "type": "milestone", "settings": { "period": "Week 5–6", "title": "Others notice", "description": "Tone evens out. Foundation decreases. The 3pm flare stays manageable." } },
+        "tl_4": { "type": "milestone", "settings": { "period": "Week 7–8", "title": "The new baseline", "description": "Your skin reaches its new normal. The flare cycle shortens dramatically." } }
+      },
+      "block_order": ["tl_1", "tl_2", "tl_3", "tl_4"]
+    },
+    "authority": {
+      "type": "rosalia-authority",
+      "settings": {},
+      "blocks": {
+        "expert_1": { "type": "expert", "settings": {} }
+      },
+      "block_order": ["expert_1"]
+    },
+    "faq": {
+      "type": "rosalia-faq",
+      "settings": {},
+      "blocks": {
+        "qa_1": { "type": "qa", "settings": { "question": "Will this sting my reactive skin?", "answer": "<p>No. Zero essential oils, zero fragrance, zero known irritants. Niacinamide at 3–5%, not the aggressive 10%. If your skin reacts — which it shouldn't — 60-day full refund.</p>" } },
+        "qa_2": { "type": "qa", "settings": { "question": "How is this different from prescriptions?", "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>" } },
+        "qa_3": { "type": "qa", "settings": { "question": "When will I see results?", "answer": "<p>Most customers see a shift between weeks 4 and 8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>" } },
+        "qa_4": { "type": "qa", "settings": { "question": "Can I use with my existing routine?", "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>" } },
+        "qa_5": { "type": "qa", "settings": { "question": "What if it doesn't work?", "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>" } },
+        "qa_6": { "type": "qa", "settings": { "question": "I've tried everything. Why would this be different?", "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>" } },
+        "qa_7": { "type": "qa", "settings": { "question": "Will this make my skin purge or get worse first?", "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>" } },
+        "qa_8": { "type": "qa", "settings": { "question": "Is this safe during perimenopause / menopause?", "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (Nerves) and Lever 03 (Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>" } },
+        "qa_9": { "type": "qa", "settings": { "question": "Why is niacinamide at 3–5% and not 10%?", "answer": "<p>Because 10% niacinamide can trigger the very sensitivity it's supposed to calm in rosacea-prone skin. Research shows 3–5% delivers the same barrier-repair and anti-inflammatory benefits without the irritation risk. More is not better when your skin is already on edge.</p>" } }
+      },
+      "block_order": ["qa_1", "qa_2", "qa_3", "qa_4", "qa_5", "qa_6", "qa_7", "qa_8", "qa_9"]
+    }
+  },
+  "order": [
+    "main_product", "marquee", "mechanism", "ingredients", "comparison",
+    "results", "ritual", "timeline", "authority", "faq"
+  ]
+}

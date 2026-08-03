@@ -1,0 +1,103 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} .rosalia-marq {
+    background: {{ section.settings.background | default: 'var(--rosalia-plum)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-cream)' }};
+    padding: {{ section.settings.padding_y | default: 11 }}px 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  #shopify-section-{{ section.id }} .rosalia-marq-track {
+    display: inline-flex;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    #shopify-section-{{ section.id }} .rosalia-marq-track {
+      animation: rosaliaMarq-{{ section.id }} {{ section.settings.speed_seconds | default: 28 }}s linear infinite;
+      {% if section.settings.direction == 'right' %}animation-direction: reverse;{% endif %}
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-marq-track { animation: none; transform: none; }
+  }
+  {% if section.settings.pause_on_hover %}
+  #shopify-section-{{ section.id }} .rosalia-marq:hover .rosalia-marq-track { animation-play-state: paused; }
+  {% endif %}
+  #shopify-section-{{ section.id }} .rosalia-marq-item {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: {{ section.settings.item_font_size | default: 13 }}px;
+    color: {{ section.settings.text_color | default: 'var(--rosalia-cream)' }};
+    padding: 0 {{ section.settings.item_gap | default: 28 }}px;
+    opacity: .9;
+  }
+  #shopify-section-{{ section.id }} .rosalia-marq-sep {
+    font-size: 7px;
+    color: {{ section.settings.separator_color | default: 'var(--rosalia-pink-mid)' }};
+    padding: 0 2px;
+    opacity: .5;
+    align-self: center;
+  }
+  @keyframes rosaliaMarq-{{ section.id }} {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<div class="rosalia-marq" role="marquee" aria-label="{{ section.settings.aria_label | default: 'Product highlights' }}">
+  <div class="rosalia-marq-track">
+    {%- for i in (1..2) -%}
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'item' -%}
+            <span class="rosalia-marq-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+            <span class="rosalia-marq-sep" aria-hidden="true">{{ section.settings.separator | default: '◆' }}</span>
+          {%- when 'liquid' -%}
+            {{ block.settings.custom_liquid }}
+          {%- when '@app' -%}
+            {%- render block -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Marquee",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "separator", "label": "Separator character", "default": "◆" },
+    { "type": "text", "id": "aria_label", "label": "Accessibility label", "default": "Product highlights" },
+    { "type": "header", "content": "Motion" },
+    { "type": "range", "id": "speed_seconds", "label": "Scroll duration (s)", "min": 10, "max": 120, "step": 2, "default": 28, "unit": "s" },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause on hover", "default": true },
+    { "type": "select", "id": "direction", "label": "Direction", "options": [{"value":"left","label":"Left"},{"value":"right","label":"Right"}], "default": "left" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_y", "label": "Vertical padding (px)", "min": 6, "max": 40, "step": 1, "default": 11 },
+    { "type": "range", "id": "item_font_size", "label": "Item font size (px)", "min": 10, "max": 20, "step": 1, "default": 13 },
+    { "type": "range", "id": "item_gap", "label": "Item gap (px)", "min": 16, "max": 80, "step": 4, "default": 28 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#7A3A54" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#FAF5F0" },
+    { "type": "color", "id": "separator_color", "label": "Separator", "default": "#E3A1B6" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "item", "name": "Marquee item", "settings": [ { "type": "text", "id": "text", "label": "Text", "default": "No essential oils" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Marquee (trust signals)", "blocks": [
+      { "type": "item", "settings": { "text": "No essential oils" } },
+      { "type": "item", "settings": { "text": "Five mechanisms at once" } },
+      { "type": "item", "settings": { "text": "Rosacea-tested" } },
+      { "type": "item", "settings": { "text": "Made in France" } },
+      { "type": "item", "settings": { "text": "60-day guarantee" } },
+      { "type": "item", "settings": { "text": "35,000+ women trust Rosalia" } }
+    ] }
+  ]
+}
+{% endschema %}

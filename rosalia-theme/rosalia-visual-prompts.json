@@ -1,0 +1,229 @@
+{
+  "brand": "Rosalia",
+  "purpose": "Visual asset generation prompts for the Rosalia PDP",
+  "created": "MD7 output",
+  "design_tokens": {
+    "cream": "#FAF5F0",
+    "beige": "#F5EFEA",
+    "pink_light": "#F7E4EA",
+    "pink_mid": "#E3A1B6",
+    "pink": "#C4718E",
+    "plum": "#7A3A54",
+    "wine": "#4B1528",
+    "dark": "#1F1A1C",
+    "font_serif": "Cormorant Garamond",
+    "font_sans": "Inter"
+  },
+  "prompts": [
+    {
+      "id": "dr-helena-portrait",
+      "purpose": "sections/rosalia-authority.liquid → expert block → portrait field",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "min_resolution": "1024x1024",
+      "subject": "A woman in her mid-50s, warm intelligent expression, wearing a soft cream cashmere sweater, hair pulled back, minimal makeup, subtle earrings",
+      "composition": "Head-and-shoulders, subject slightly angled to camera, eyes making soft direct contact, background clean and out of focus",
+      "lighting": "Warm natural window light from front-left, soft shadow on right cheek, no harsh contrast",
+      "palette": ["#FAF5F0 cream background", "#F5EFEA beige undertones", "warm skin tones"],
+      "mood": "editorial, calm authority, trusted expert, warm approachability",
+      "style": "editorial portrait photography, magazine feature aesthetic, shallow depth of field, medium format quality",
+      "avoid": ["stock photo look", "cold clinical lighting", "white lab coat cliché", "corporate headshot", "over-retouched skin", "aggressive smile"],
+      "prompt": "Editorial portrait of a woman in her mid-50s with warm intelligent expression, wearing a soft cream cashmere sweater, hair pulled back with a few natural strands loose. Minimal makeup, subtle pearl earrings. Head-and-shoulders framing, subject slightly angled to camera, soft direct eye contact. Warm natural window light from front-left creates a gentle shadow on the right cheek. Background is a clean out-of-focus cream and beige interior. Editorial magazine aesthetic, shallow depth of field, medium format quality. Palette: cream #FAF5F0, warm beige #F5EFEA, natural skin tones. Avoid: stock photo look, cold clinical lighting, white lab coat, corporate headshot style."
+    },
+    {
+      "id": "symptom-redness-photo",
+      "purpose": "Symptom metaobject 'Redness' → card_photo",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "min_resolution": "512x512",
+      "subject": "Close-up of a woman's cheek showing diffuse rosacea baseline redness (persistent flush, no visible bumps or vessels)",
+      "composition": "Tight crop on cheek only, no full face, subject 25-45 years old, real unretouched skin",
+      "lighting": "Even natural daylight, no dramatic shadows, honest documentation lighting",
+      "palette": ["natural skin tone with pink baseline flush #E8B4B0 to #D89890"],
+      "mood": "editorial documentary, honest, respectful",
+      "style": "clinical-editorial hybrid photography, unretouched skin, natural pores visible",
+      "avoid": ["stock photo aesthetic", "beauty filter", "smooth glass skin", "over-lit studio look", "makeup", "acne (this is rosacea, not acne)"],
+      "prompt": "Close-up macro photograph of a woman's cheek showing diffuse rosacea redness — a soft persistent flush across the cheek, no visible bumps or capillaries. Real unretouched skin, natural pores visible, no makeup. Woman age 30-45. Even natural daylight, honest documentary lighting. Tight crop on the cheek only. Editorial-clinical hybrid style. Respectful, unfiltered, real. Avoid: beauty filters, glass skin, stock photo look, or any acne-adjacent visuals."
+    },
+    {
+      "id": "symptom-redness-cross",
+      "purpose": "Symptom metaobject 'Redness' → cross_illustration",
+      "recommended_model": "higgsfield-illustration",
+      "aspect_ratio": "1:1",
+      "min_resolution": "1024x1024",
+      "subject": "Anatomical cross-section illustration of skin layers with immune cells (represented as small pink dots) overreacting at the surface barrier layer",
+      "composition": "Cross-section view of skin from stratum corneum through dermis, layers labeled subtly, immune activity concentrated near barrier",
+      "lighting": "Flat editorial illustration, no photorealism",
+      "palette": ["#FAF5F0 background", "#E3A1B6 pink for skin layers", "#7A3A54 plum for immune cells", "#C4718E accent"],
+      "mood": "scientific-elegant, editorial medical illustration",
+      "style": "modern editorial medical illustration — think New York Times science section, refined line work, minimal color, tasteful",
+      "avoid": ["cartoonish", "3D render aesthetic", "textbook diagram", "cluttered labels", "stock illustration look"],
+      "prompt": "Modern editorial medical illustration of a skin cross-section showing the epidermal and dermal layers. Small pink and plum dots representing overactive immune cells cluster near the surface barrier layer, suggesting inflammatory overreaction. Refined vector-style illustration with subtle layer labels. Palette limited to cream #FAF5F0 background, soft pink #E3A1B6, plum #7A3A54, accent #C4718E. Style is New York Times science-page editorial illustration — elegant, scientific, minimal, respectful of the subject. Avoid: cartoons, 3D renders, cluttered textbook diagrams, stock illustration aesthetics."
+    },
+    {
+      "id": "symptom-flushing-photo",
+      "purpose": "Symptom metaobject 'Flushing' → card_photo",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "min_resolution": "512x512",
+      "subject": "Woman's face mid-flush — visible warmth spread across cheeks and nose, more intense than baseline redness, no visible vessels or bumps",
+      "composition": "Three-quarter face view, catch the flush pattern across cheeks and nose",
+      "lighting": "Warm indoor light suggesting a triggered environment (dinner, warm room)",
+      "palette": ["#D77070 flush pink", "warm skin tones"],
+      "mood": "documentary, honest, mid-episode",
+      "style": "same clinical-editorial hybrid as symptom-redness-photo",
+      "avoid": ["makeup", "beauty filter", "stock photo look"],
+      "prompt": "Documentary macro photograph capturing a woman mid-rosacea-flush — visible warmth and pink spreading across the cheeks and nose, more intense than her baseline. Three-quarter face view showing the flush pattern. Warm indoor lighting suggests a triggered environment. Real unretouched skin, no makeup, natural pores. Woman age 30-45. Editorial-clinical hybrid. Avoid: beauty filters, stock aesthetics, glass skin."
+    },
+    {
+      "id": "symptom-flushing-cross",
+      "purpose": "Symptom metaobject 'Flushing' → cross_illustration",
+      "recommended_model": "higgsfield-illustration",
+      "aspect_ratio": "1:1",
+      "min_resolution": "1024x1024",
+      "subject": "Cross-section showing nerve endings firing signals to blood vessels in the mid-dermis, vessels shown dilating",
+      "composition": "Same skin cross-section framing as symptom-redness-cross for visual consistency",
+      "palette": ["same Rosalia palette as symptom-redness-cross for cohesion"],
+      "style": "same editorial medical illustration style",
+      "prompt": "Modern editorial medical illustration of a skin cross-section. Fine nerve endings shown in plum color reach down into the mid-dermis where they contact blood vessels that are visibly dilated (drawn thicker than baseline). Small pulse-lines emanate from the vessels to suggest heat release. Same refined vector style, same Rosalia palette (cream, pink, plum, accent) as the Redness illustration. New York Times science page aesthetic. Avoid: cartoonish, 3D, textbook clutter."
+    },
+    {
+      "id": "symptom-vessels-photo",
+      "purpose": "Symptom metaobject 'Visible Vessels' → card_photo",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "subject": "Close-up of cheek surface showing fine red capillary lines (telangiectasia) threading across the skin — visible but not extreme, characteristic of vascular rosacea",
+      "composition": "Tight macro crop on the cheek area next to the nose where telangiectasia typically appears",
+      "style": "same clinical-editorial hybrid",
+      "prompt": "Macro documentary photograph of a woman's cheek showing telangiectasia — fine visible red capillary lines threading across the skin near the nose. Not extreme, medically representative. Real unretouched skin, natural pores, no makeup, no acne. Editorial-clinical style, even natural light. Woman 30-50. Avoid: beauty filters, stock aesthetics."
+    },
+    {
+      "id": "symptom-vessels-cross",
+      "purpose": "Symptom metaobject 'Visible Vessels' → cross_illustration",
+      "recommended_model": "higgsfield-illustration",
+      "aspect_ratio": "1:1",
+      "prompt": "Same-style editorial medical cross-section illustration. Emphasis on visibly dilated blood vessels in the mid-dermis layer, some pushed toward the surface — the chronic vascular signature. Rosalia palette, refined vector style, consistent with the Redness and Flushing illustrations. Avoid: cartoonish, 3D."
+    },
+    {
+      "id": "symptom-bumps-photo",
+      "purpose": "Symptom metaobject 'Bumps & Pustules' → card_photo",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "subject": "Cheek surface showing small inflamed red papules and pustules clustered (papulopustular rosacea subtype). Distinct from acne — bumps without blackheads, no comedones",
+      "style": "same clinical-editorial documentary style",
+      "prompt": "Macro documentary photograph of a woman's cheek showing papulopustular rosacea: a cluster of small inflamed red bumps and occasional pustules on the cheek. Notably NOT acne — no blackheads, no comedones, no whiteheads. Real unretouched skin, no makeup. Editorial-clinical style, even natural light. Woman 30-45. Respectful, honest documentation. Avoid: stock aesthetics, beauty filters, acne visuals (blackheads, comedones)."
+    },
+    {
+      "id": "symptom-bumps-cross",
+      "purpose": "Symptom metaobject 'Bumps & Pustules' → cross_illustration",
+      "recommended_model": "higgsfield-illustration",
+      "aspect_ratio": "1:1",
+      "prompt": "Same-style editorial cross-section illustration. Focus: immune cells (plum dots) misfiring in the upper dermis, creating small inflammatory bumps that rise toward the surface. Show the distinction from bacterial acne — no blackhead formation, no follicle blockage. Rosalia palette consistent with prior illustrations. Refined vector style. Avoid: cartoonish, 3D, medical textbook clutter."
+    },
+    {
+      "id": "ingredient-niacinamide",
+      "purpose": "Ingredient metaobject 'Niacinamide' → hero_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "prompt": "Editorial still life photograph of a small crystalline white powder (niacinamide) piled softly on a cream ceramic dish placed on a beige linen surface. Soft natural morning light from left. Warm shadows. Palette: cream #FAF5F0, beige #F5EFEA, subtle pink #F7E4EA accent. Style: editorial skincare still life, magazine feature quality, medium format aesthetic. Composition: dish centered, powder pile slightly off-center for editorial tension. Avoid: harsh lab lighting, clinical white background, product packaging, stock photo aesthetics."
+    },
+    {
+      "id": "ingredient-centella-asiatica",
+      "purpose": "Ingredient metaobject 'Centella Asiatica' → hero_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "prompt": "Editorial still life of fresh Centella Asiatica leaves (small round green leaves) arranged on a cream ceramic surface with a single water droplet catching light. Soft natural morning light. Palette: cream #FAF5F0, beige #F5EFEA, natural green leaves as the accent. Editorial magazine skincare aesthetic. Medium format quality. Composition: leaves clustered off-center, negative space right. Avoid: white background, harsh lab light, product bottles, stock photo aesthetics."
+    },
+    {
+      "id": "ingredient-azelaic-acid",
+      "purpose": "Ingredient metaobject 'Azelaic Acid' → hero_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "prompt": "Editorial still life of a few grains of raw wheat scattered on a cream ceramic surface with a small vial of clear liquid beside them (representing azelaic acid, derived from wheat/grain). Soft natural morning light from left. Palette: cream #FAF5F0, beige, warm wheat tones, subtle pink accent. Editorial magazine aesthetic, medium format quality. Avoid: lab equipment, harsh clinical lighting, obvious product packaging."
+    },
+    {
+      "id": "ingredient-bisabolol",
+      "purpose": "Ingredient metaobject 'Bisabolol' → hero_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "prompt": "Editorial still life of a small drop of pale amber oil (bisabolol) on a cream ceramic dish, catching soft light. A single chamomile flower placed beside it as a source cue. Soft natural morning light. Palette: cream, beige, warm amber, pale yellow accent. Editorial skincare magazine aesthetic. Medium format quality. Avoid: chemistry lab visuals, harsh lighting, brand-name product bottles."
+    },
+    {
+      "id": "ingredient-ceramide",
+      "purpose": "Ingredient metaobject 'Ceramide Complex' → hero_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "1:1",
+      "prompt": "Editorial still life of pearl-like translucent beads (representing ceramide complex droplets) on a cream ceramic dish, catching soft light. A brick-and-mortar visual metaphor: the beads arranged in a subtle brick pattern to suggest the skin barrier structure. Soft natural morning light. Palette: cream, beige, iridescent pearl highlights, subtle pink accent. Editorial skincare aesthetic, medium format quality. Avoid: 3D render aesthetic, harsh lighting, obvious product packaging."
+    },
+    {
+      "id": "result-camille",
+      "purpose": "sections/rosalia-results.liquid → result_card block → image (Camille · 34 · 8 weeks)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial split-frame diptych. Left half: close-up of a woman's cheek showing baseline redness under warm afternoon light (4pm energy). Right half: same cheek, calm and even-toned, later that same afternoon. Both halves same composition, same subject, same lighting to make the shift visible. Woman age 30-40. Real unretouched skin. Editorial magazine documentary style. Palette: warm afternoon light tones, cream backdrop. Add a subtle vertical thin cream line separating the two halves. Avoid: dramatic before/after graphics, arrows, timers, overlay text, stock aesthetics."
+    },
+    {
+      "id": "result-emily",
+      "purpose": "result_card (Emily · 42 · 10 weeks)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial split-frame diptych. Left: woman age 40-45 applying medium-coverage foundation to hide diffuse redness — foundation compact + brush visible. Right: same woman applying only a thin layer of light tinted moisturizer, redness minimal. Editorial vanity/getting-ready aesthetic. Warm morning bathroom light. Real skin, real product textures. Palette: cream, warm skin, muted rose. Subtle vertical cream separator. Avoid: overt product branding, stock aesthetics, dramatic reveal cliché."
+    },
+    {
+      "id": "result-sarah",
+      "purpose": "result_card (Sarah · 38 · 6 weeks)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial split-frame diptych. Left: close-up of a woman's finger tentatively touching her cheek, subtle wince (skin stings). Right: same finger, relaxed, applying serum smoothly. Woman age 35-40. Bathroom morning light. Editorial documentary style. Palette: cream, natural skin, subtle pink accent. Vertical cream separator. Avoid: dramatic pain cliché, stock aesthetics, overt product branding."
+    },
+    {
+      "id": "result-laura",
+      "purpose": "result_card (Laura · 45 · 12 weeks)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial split-frame diptych. Left: woman age 42-48 in an office setting mid-afternoon, subtle flush across cheeks (the 3pm flush). Right: same woman same setting, same time-of-day light, cheeks calm and even. Documentary editorial style, muted office palette warmed by afternoon window light. Real unretouched skin. Palette: cream, warm office beige, muted rose. Vertical cream separator. Avoid: dramatic corporate stock imagery, aggressive lighting."
+    },
+    {
+      "id": "result-nadia",
+      "purpose": "result_card (Nadia · 51 · 16 weeks)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial split-frame diptych. Left: woman age 50-55 in a dermatology consultation setting, dermatologist gently examining her cheek with a magnifying tool. Right: same setting later visit, dermatologist smiling in approval, notes on tablet. Editorial healthcare documentary style, warm clinical light. Real skin, real interaction, no acting. Palette: cream, warm beige, clinical whites softened. Vertical cream separator. Avoid: stock healthcare aesthetics, staged smiles."
+    },
+    {
+      "id": "ritual-01-dispense-poster",
+      "purpose": "sections/rosalia-ritual.liquid → step block 01 (Dispense) → poster",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial macro photograph: a glass dropper held over a fingertip, releasing a single amber-tinted drop of serum. Cream ceramic surface below out of focus. Soft natural morning bathroom light. Palette: cream #FAF5F0, warm amber serum, natural skin. Editorial skincare magazine aesthetic, medium format quality. Composition: dropper diagonal top-left to fingertip bottom-right, negative space top-right. Avoid: harsh lab lighting, obvious product branding, stock aesthetics."
+    },
+    {
+      "id": "ritual-02-apply-poster",
+      "purpose": "sections/rosalia-ritual.liquid → step block 02 (Apply) → poster",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial macro photograph of fingertips gently pressing a thin layer of serum into a cheek. Woman age 30-45. Soft natural morning bathroom light. Real skin, no dramatic angles. Editorial skincare magazine aesthetic. Palette: cream, warm skin, subtle pink. Medium format quality. Composition: three-quarter view of the cheek + fingertips, negative space on right. Avoid: aggressive massage cliché, stock aesthetics, brand product bottles visible."
+    },
+    {
+      "id": "ritual-03-continue-poster",
+      "purpose": "sections/rosalia-ritual.liquid → step block 03 (Continue) → poster",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial macro photograph of a hand reaching for a moisturizer jar with the Rosalia serum bottle visible in soft focus behind it (suggesting the serum comes first, moisturizer after). Cream ceramic surface, soft natural morning bathroom light. Palette: cream, warm beige, subtle pink accents. Editorial skincare magazine aesthetic. Composition: moisturizer jar in sharp focus foreground, serum bottle blurred background. Avoid: stock product photography aesthetics, harsh lighting, obvious brand-name product logos other than Rosalia."
+    },
+    {
+      "id": "rosalia-bottle-shot",
+      "purpose": "sections/rosalia-comparison.liquid → rosalia_bottle_image",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "3:4",
+      "prompt": "Editorial product photograph of the Rosalia serum bottle: elegant dropper bottle, soft pink-plum gradient glass, minimal label (only 'Rosalia · Reset Complex' in serif italic). Cream ceramic surface, wine-colored background. Soft directional light from left. Editorial skincare magazine aesthetic, medium format quality. Palette: pink-light #F7E4EA to pink-mid #E3A1B6 bottle, wine #4B1528 background, cream surface. Composition: bottle centered vertically, slight tilt suggesting motion. Avoid: harsh commercial product photography, stock aesthetics, cluttered background."
+    },
+    {
+      "id": "other-serums-bottle-shot",
+      "purpose": "sections/rosalia-comparison.liquid → other_bottle_image (represents generic competitor)",
+      "recommended_model": "higgsfield-photo-real",
+      "aspect_ratio": "3:4",
+      "prompt": "Editorial product photograph of a generic, dated-looking serum bottle: plain white plastic, faded label, chunky cap. Cream ceramic surface, wine background. Same lighting as the Rosalia bottle shot for visual pairing. Palette: cool grays #C9C3BB and beige, wine background. The visual should read 'yesterday's skincare' without being a specific brand. Editorial magazine aesthetic. Avoid: any recognizable brand logos, aggressive product mockery, stock aesthetics."
+    }
+  ]
+}

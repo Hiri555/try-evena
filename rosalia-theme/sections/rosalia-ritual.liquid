@@ -1,0 +1,191 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    padding-block: {{ section.settings.padding_top | default: 100 }}px {{ section.settings.padding_bottom | default: 100 }}px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-rit-inner {
+    max-width: {{ section.settings.max_width | default: 1200 }}px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-eyebrow {
+    font-family: var(--rosalia-font-sans); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rosalia-pink); font-weight: 500; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading {
+    font-family: var(--rosalia-font-serif); font-size: clamp(28px, 3.5vw, 38px); font-weight: 500;
+    line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading em { font-style: italic; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 17px;
+    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 48px;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-rit-scroll { display:flex; gap:18px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:16px; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  #shopify-section-{{ section.id }} .rosalia-rit-scroll::-webkit-scrollbar { display:none; }
+  #shopify-section-{{ section.id }} .rosalia-rit-card { flex:0 0 280px; scroll-snap-align:start; text-align:center; background:var(--rosalia-white); border:1.5px solid var(--rosalia-pink-light); border-radius:12px; padding:24px 20px; transition:all .4s var(--rosalia-ease); }
+  #shopify-section-{{ section.id }} .rosalia-rit-card:hover { border-color:var(--rosalia-pink); transform:translateY(-2px); }
+  #shopify-section-{{ section.id }} .rosalia-rit-vis { width:100%; aspect-ratio:4/3; background:var(--rosalia-beige); border-radius:8px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+  #shopify-section-{{ section.id }} .rosalia-rit-vis img, #shopify-section-{{ section.id }} .rosalia-rit-vis video { width:100%; height:100%; object-fit:cover; }
+  #shopify-section-{{ section.id }} .rosalia-rit-play { width:40px; height:40px; border-radius:50%; background:var(--rosalia-plum); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 16px rgba(122,58,84,.2); border:none; }
+  #shopify-section-{{ section.id }} .rosalia-rit-play::after { content:'▶'; color:var(--rosalia-cream); font-size:12px; margin-left:2px; }
+  #shopify-section-{{ section.id }} .rosalia-rit-num { font-family:var(--rosalia-font-serif); font-size:40px; font-weight:600; color:var(--rosalia-pink-light); line-height:1; margin-bottom:10px; }
+  #shopify-section-{{ section.id }} .rosalia-rit-title { font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:600; margin-bottom:8px; }
+  #shopify-section-{{ section.id }} .rosalia-rit-desc { font-family:var(--rosalia-font-serif); font-style:italic; font-size:14px; color:var(--rosalia-gray); line-height:1.45; }
+
+  /* Video modal */
+  #shopify-section-{{ section.id }} .rosalia-rit-modal { position:fixed; inset:0; background:rgba(0,0,0,.75); display:none; z-index:9999; align-items:center; justify-content:center; padding:24px; border:none; width:100%; height:100%; max-width:none; max-height:none; }
+  #shopify-section-{{ section.id }} .rosalia-rit-modal[open] { display:flex; }
+  #shopify-section-{{ section.id }} .rosalia-rit-modal-inner { max-width:900px; width:100%; aspect-ratio:16/9; background:#000; border-radius:8px; overflow:hidden; position:relative; }
+  #shopify-section-{{ section.id }} .rosalia-rit-modal-close { position:absolute; top:12px; right:12px; background:rgba(255,255,255,.15); border:none; color:#fff; width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:20px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-rit-card { transition: none; }
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-rit-inner { padding-inline: 24px; }
+    #shopify-section-{{ section.id }} .rosalia-rit-card { flex-basis: 240px; }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="rosalia-rit-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="rosalia-mechanism-eyebrow">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rosalia-mechanism-heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.lead != blank -%}
+      <p class="rosalia-mechanism-lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    <div class="rosalia-rit-scroll">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'step' -%}
+            <article class="rosalia-rit-card" {{ block.shopify_attributes }}>
+              <div class="rosalia-rit-vis" data-step="{{ forloop.index0 }}">
+                {%- if block.settings.video != blank -%}
+                  {%- if block.settings.poster != blank -%}
+                    {{ block.settings.poster | image_url: width: 560 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                  {%- endif -%}
+                  <button class="rosalia-rit-play" type="button" data-video-src="{{ block.settings.video.sources.first.url }}" aria-label="Play {{ block.settings.title }} video"></button>
+                {%- elsif block.settings.external_video_url != blank -%}
+                  {%- if block.settings.poster != blank -%}
+                    {{ block.settings.poster | image_url: width: 560 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                  {%- endif -%}
+                  <button class="rosalia-rit-play" type="button" data-video-embed="{{ block.settings.external_video_url }}" aria-label="Play {{ block.settings.title }} video"></button>
+                {%- elsif block.settings.poster != blank -%}
+                  {{ block.settings.poster | image_url: width: 560 | image_tag: loading: 'lazy', alt: block.settings.title }}
+                {%- else -%}
+                  <span style="color: var(--rosalia-gray-2); font-style: italic; font-size: 12px;">{{ block.settings.title }} · placeholder</span>
+                {%- endif -%}
+              </div>
+              <div class="rosalia-rit-num">{{ block.settings.number | default: forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+              <div class="rosalia-rit-title">{{ block.settings.title }}</div>
+              {%- if block.settings.description != blank -%}
+                <div class="rosalia-rit-desc">{{ block.settings.description }}</div>
+              {%- endif -%}
+            </article>
+          {%- when 'richtext' -%}
+            <div class="rosalia-rit-card" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+          {%- when 'liquid' -%}
+            <div class="rosalia-rit-card" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+          {%- when '@app' -%}
+            {%- render block -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- comment -%} Video modal — populated by JS on play click {%- endcomment -%}
+    <dialog class="rosalia-rit-modal" data-role="ritual-video-modal">
+      <div class="rosalia-rit-modal-inner" data-role="modal-inner"></div>
+      <button class="rosalia-rit-modal-close" type="button" aria-label="Close video">×</button>
+    </dialog>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    const modal = section.querySelector('[data-role="ritual-video-modal"]');
+    const inner = section.querySelector('[data-role="modal-inner"]');
+    const closeBtn = section.querySelector('.rosalia-rit-modal-close');
+
+    section.querySelectorAll('.rosalia-rit-play').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const src = btn.dataset.videoSrc;
+        const embed = btn.dataset.videoEmbed;
+        if (src) {
+          inner.innerHTML = `<video src="${src}" controls autoplay style="width:100%;height:100%;object-fit:cover"></video>`;
+        } else if (embed) {
+          const embedUrl = embed.includes('youtube.com') ? embed.replace('watch?v=', 'embed/') : embed;
+          inner.innerHTML = `<iframe src="${embedUrl}?autoplay=1" style="width:100%;height:100%;border:0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        }
+        modal.setAttribute('open', '');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      modal.removeAttribute('open');
+      inner.innerHTML = '';
+      document.body.style.overflow = '';
+    }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.hasAttribute('open')) closeModal(); });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rosalia — Ritual",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The ritual" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps. <em>Two minutes.</em>" },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "Morning and evening. On clean, dry skin. Before your moisturizer." },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 900, "max": 1400, "step": 50, "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "step",
+      "name": "Ritual step",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Step number", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Dispense" },
+        { "type": "textarea", "id": "description", "label": "Description", "default": "3–4 drops from the dropper. That's enough for the full face." },
+        { "type": "video", "id": "video", "label": "Video (Shopify upload)", "info": "Preferred. Ignored if empty and external URL is filled." },
+        { "type": "url", "id": "external_video_url", "label": "External video URL (YouTube/Vimeo)", "info": "Used only if Video is empty." },
+        { "type": "image_picker", "id": "poster", "label": "Poster image", "info": "Displayed as thumbnail before video plays." }
+      ]
+    },
+    { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Ritual (3 steps)", "blocks": [
+      { "type": "step", "settings": { "number": "01", "title": "Dispense", "description": "3–4 drops from the dropper. That's enough for the full face." } },
+      { "type": "step", "settings": { "number": "02", "title": "Apply", "description": "Press gently into cheeks, nose, forehead. Let it absorb 60 seconds." } },
+      { "type": "step", "settings": { "number": "03", "title": "Continue", "description": "Follow with moisturizer. The serum works underneath." } }
+    ] }
+  ]
+}
+{% endschema %}
