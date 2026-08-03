@@ -1,0 +1,166 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    padding-block: {{ section.settings.padding_top | default: 100 }}px {{ section.settings.padding_bottom | default: 100 }}px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-eyebrow {
+    font-family: var(--rosalia-font-sans); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rosalia-pink); font-weight: 500; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading {
+    font-family: var(--rosalia-font-serif); font-size: clamp(28px, 3.5vw, 38px); font-weight: 500;
+    line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading em { font-style: italic; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 17px;
+    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 24px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-head { margin-bottom: 32px; }
+
+  #shopify-section-{{ section.id }} .rosalia-faq-list {
+    max-width: {{ section.settings.max_width | default: 680 }}px;
+    margin: 0 auto;
+  }
+  #shopify-section-{{ section.id }} details.rosalia-faq-item {
+    border-bottom: 1px solid var(--rosalia-pink-light);
+  }
+  #shopify-section-{{ section.id }} details.rosalia-faq-item summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 0;
+    font-family: var(--rosalia-font-serif);
+    font-size: 19px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  #shopify-section-{{ section.id }} details.rosalia-faq-item summary::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} .rosalia-faq-plus {
+    font-size: 20px;
+    color: var(--rosalia-pink);
+    flex: 0 0 auto;
+    transition: transform 0.4s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} details.rosalia-faq-item[open] .rosalia-faq-plus {
+    transform: rotate(45deg);
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-answer {
+    font-size: 13px;
+    color: var(--rosalia-gray);
+    line-height: 1.65;
+    max-width: 580px;
+    padding-bottom: 22px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-answer p { margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .rosalia-faq-answer p:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section.id }} .rosalia-faq-item--free { padding: 22px 0; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-faq-plus { transition: none; }
+  }
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-faq-inner { padding-inline: 24px; }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="rosalia-faq-inner">
+    <div class="rosalia-faq-head" style="text-align:{{ section.settings.alignment | default: 'center' }};">
+      {%- if section.settings.eyebrow != blank -%}
+        <div class="rosalia-mechanism-eyebrow">{{ section.settings.eyebrow }}</div>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="rosalia-mechanism-heading">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.lead != blank -%}
+        <p class="rosalia-mechanism-lead" style="margin-inline: auto;">{{ section.settings.lead }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="rosalia-faq-list">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'qa' -%}
+            <details class="rosalia-faq-item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+              <summary class="rosalia-faq-q">
+                <span>{{ block.settings.question }}</span>
+                <span class="rosalia-faq-plus" aria-hidden="true">+</span>
+              </summary>
+              <div class="rosalia-faq-answer">
+                {{ block.settings.answer }}
+              </div>
+            </details>
+
+          {%- when 'richtext' -%}
+            <div class="rosalia-faq-item rosalia-faq-item--free" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+
+          {%- when 'liquid' -%}
+            <div class="rosalia-faq-item rosalia-faq-item--free" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+
+          {%- when '@app' -%}
+            {%- render block -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — FAQ",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Questions" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Before you <em>decide</em>." },
+    { "type": "textarea", "id": "lead", "label": "Lead (optional)" },
+    { "type": "select", "id": "alignment", "label": "Header alignment", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"}], "default": "center" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "List max width (px)", "min": 500, "max": 900, "step": 20, "default": 680 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "qa",
+      "name": "Q&A",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "New question" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Answer to the question.</p>" },
+        { "type": "checkbox", "id": "open_by_default", "label": "Open by default", "default": false }
+      ]
+    },
+    { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — FAQ (9 questions)", "blocks": [
+      { "type": "qa", "settings": { "question": "Will this sting my reactive skin?", "answer": "<p>No. Zero essential oils, zero fragrance, zero known irritants. Niacinamide at 3–5%, not the aggressive 10%. If your skin reacts — which it shouldn't — 60-day full refund.</p>" } },
+      { "type": "qa", "settings": { "question": "How is this different from prescriptions?", "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>" } },
+      { "type": "qa", "settings": { "question": "When will I see results?", "answer": "<p>Most customers see a shift between weeks 4 and 8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>" } },
+      { "type": "qa", "settings": { "question": "Can I use with my existing routine?", "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>" } },
+      { "type": "qa", "settings": { "question": "What if it doesn't work?", "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>" } },
+      { "type": "qa", "settings": { "question": "I've tried everything. Why would this be different?", "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>" } },
+      { "type": "qa", "settings": { "question": "Will this make my skin purge or get worse first?", "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>" } },
+      { "type": "qa", "settings": { "question": "Is this safe during perimenopause / menopause?", "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (Nerves) and Lever 03 (Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>" } },
+      { "type": "qa", "settings": { "question": "Why is niacinamide at 3–5% and not 10%?", "answer": "<p>Because 10% niacinamide can trigger the very sensitivity it's supposed to calm in rosacea-prone skin. Research shows 3–5% delivers the same barrier-repair and anti-inflammatory benefits without the irritation risk. More is not better when your skin is already on edge.</p>" } }
+    ] }
+  ]
+}
+{% endschema %}

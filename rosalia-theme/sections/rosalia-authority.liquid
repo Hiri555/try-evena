@@ -1,0 +1,241 @@
+{%- render 'rosalia-tokens' -%}
+{%- render 'section-spacing-collapsing' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-beige)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    padding-block: {{ section.settings.padding_top | default: 80 }}px {{ section.settings.padding_bottom | default: 80 }}px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-inner {
+    max-width: {{ section.settings.max_width | default: 1200 }}px;
+    margin: 0 auto;
+    padding-inline: 48px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-eyebrow {
+    font-family: var(--rosalia-font-sans); font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--rosalia-pink); font-weight: 500; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading {
+    font-family: var(--rosalia-font-serif); font-size: clamp(28px, 3.5vw, 38px); font-weight: 500;
+    line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading em,
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading p em { font-style: italic; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-heading p { margin: 0; }
+  #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
+    font-family: var(--rosalia-font-serif); font-style: italic; font-size: 17px;
+    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-auth-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  @media (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .rosalia-auth-cards:has(> :nth-child(2)) { grid-template-columns: 1fr 1fr; }
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-card {
+    background: {{ section.settings.card_background | default: 'var(--rosalia-white)' }};
+    border: 1.5px solid {{ section.settings.card_border | default: 'var(--rosalia-pink-light)' }};
+    border-radius: 14px;
+    padding: 36px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-portrait {
+    flex: 0 0 100px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--rosalia-pink-light), var(--rosalia-pink-mid));
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 12px;
+    color: var(--rosalia-plum);
+    line-height: 1.3;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-portrait img { width: 100%; height: 100%; object-fit: cover; }
+  #shopify-section-{{ section.id }} .rosalia-auth-name {
+    font-family: var(--rosalia-font-serif);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-cred {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rosalia-pink);
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-quote {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: var(--rosalia-gray);
+    line-height: 1.55;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-press-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 40px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-press-item {
+    opacity: 0.6;
+    transition: opacity 0.3s var(--rosalia-ease);
+    text-decoration: none;
+    color: var(--rosalia-gray);
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 16px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-auth-press-item:hover { opacity: 1; }
+  #shopify-section-{{ section.id }} .rosalia-auth-press-item img { max-height: 28px; width: auto; }
+  #shopify-section-{{ section.id }} .rosalia-auth-richtext { margin-top: 24px; }
+
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .rosalia-auth-inner { padding-inline: 24px; }
+    #shopify-section-{{ section.id }} .rosalia-auth-card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 22px;
+    }
+  }
+</style>
+
+<div {% render 'section-properties', tight: true %}>
+  <div class="rosalia-auth-inner">
+    {%- if section.settings.eyebrow != blank -%}
+      <div class="rosalia-mechanism-eyebrow" style="text-align:{{ section.settings.alignment | default: 'left' }};">{{ section.settings.eyebrow }}</div>
+    {%- endif -%}
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rosalia-mechanism-heading" style="text-align:{{ section.settings.alignment | default: 'left' }};">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+    {%- if section.settings.lead != blank -%}
+      <p class="rosalia-mechanism-lead">{{ section.settings.lead }}</p>
+    {%- endif -%}
+
+    {%- comment -%} Expert cards {%- endcomment -%}
+    {%- assign has_expert = false -%}
+    {%- for b in section.blocks -%}{%- if b.type == 'expert' -%}{%- assign has_expert = true -%}{%- break -%}{%- endif -%}{%- endfor -%}
+
+    {%- if has_expert -%}
+      <div class="rosalia-auth-cards">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'expert' -%}
+            <article class="rosalia-auth-card" {{ block.shopify_attributes }}>
+              <div class="rosalia-auth-portrait">
+                {%- if block.settings.portrait != blank -%}
+                  {{ block.settings.portrait | image_url: width: 240 | image_tag: loading: 'lazy', alt: block.settings.name }}
+                {%- else -%}
+                  <span>{{ block.settings.name | split: ' ' | first }}<br>portrait</span>
+                {%- endif -%}
+              </div>
+              <div>
+                <div class="rosalia-auth-name">{{ block.settings.name }}</div>
+                {%- if block.settings.credentials != blank -%}
+                  <div class="rosalia-auth-cred">{{ block.settings.credentials }}</div>
+                {%- endif -%}
+                {%- if block.settings.quote != blank -%}
+                  <div class="rosalia-auth-quote">"{{ block.settings.quote }}"</div>
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Press logos row {%- endcomment -%}
+    {%- assign has_press = false -%}
+    {%- for b in section.blocks -%}{%- if b.type == 'press' -%}{%- assign has_press = true -%}{%- break -%}{%- endif -%}{%- endfor -%}
+
+    {%- if has_press -%}
+      <div class="rosalia-auth-press-row">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'press' -%}
+            <a class="rosalia-auth-press-item" {% if block.settings.link != blank %}href="{{ block.settings.link }}" target="_blank" rel="noopener"{% else %}href="#" onclick="return false"{% endif %} {{ block.shopify_attributes }}>
+              {%- if block.settings.logo != blank -%}
+                {{ block.settings.logo | image_url: width: 240 | image_tag: loading: 'lazy', alt: block.settings.name }}
+              {%- else -%}
+                <span>{{ block.settings.name }}</span>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%} Universal blocks {%- endcomment -%}
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'richtext' -%}
+          <div class="rosalia-auth-richtext" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+        {%- when 'liquid' -%}
+          <div class="rosalia-auth-liquid" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+        {%- when '@app' -%}
+          {%- render block -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Authority",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Formulated with expertise" },
+    { "type": "richtext", "id": "heading", "label": "Heading (optional)" },
+    { "type": "textarea", "id": "lead", "label": "Lead (optional)" },
+    { "type": "select", "id": "alignment", "label": "Header alignment", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"}], "default": "left" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 900, "max": 1400, "step": 50, "default": 1200 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 80 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 80 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#F5EFEA" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" },
+    { "type": "color", "id": "card_background", "label": "Card background", "default": "#FFFFFF" },
+    { "type": "color", "id": "card_border", "label": "Card border", "default": "#F7E4EA" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "expert",
+      "name": "Expert card",
+      "settings": [
+        { "type": "image_picker", "id": "portrait", "label": "Portrait", "info": "Square recommended. Falls back to name placeholder." },
+        { "type": "text", "id": "name", "label": "Name", "default": "Dr. Helena Vasquez" },
+        { "type": "text", "id": "credentials", "label": "Credentials line", "default": "Vascular Biologist · 22 years in dermal research" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "Most rosacea formulas address one pathway. The Reset Complex is the first I've seen that targets immune, neural, vascular, barrier, and feedback pathways simultaneously. That's why results compound over time." }
+      ]
+    },
+    {
+      "type": "press",
+      "name": "Press logo",
+      "settings": [
+        { "type": "image_picker", "id": "logo", "label": "Logo" },
+        { "type": "text", "id": "name", "label": "Publication name (fallback + alt)" },
+        { "type": "url", "id": "link", "label": "Link (optional)" }
+      ]
+    },
+    { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Authority (Dr. Helena)", "blocks": [ { "type": "expert" } ] }
+  ]
+}
+{% endschema %}
