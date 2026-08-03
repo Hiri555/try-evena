@@ -242,7 +242,7 @@
     "comparison": {
       "type": "rosalia-comparison",
       "settings": {
-        "rosalia_bottle_image": "shopify://shop_images/rosalia-bottle-rosalia.png",
+        "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
         "other_bottle_image": "shopify://shop_images/rosalia-bottle-other.png"
       },
       "blocks": {
