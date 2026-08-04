@@ -487,7 +487,7 @@
                     <button class="rosalia-symptom-card" type="button" data-index="{{ forloop.index0 }}" aria-haspopup="dialog">
                       <div class="rosalia-symptom-card-img">
                         {%- if sym.card_photo != blank -%}
-                          {{ sym.card_photo | image_url: width: 96 | image_tag: loading: 'lazy', alt: sym.title }}
+                          {{ sym.card_photo | image_url: width: 560 | image_tag: loading: 'lazy', alt: sym.title, widths: '160,240,320,480,560', sizes: '(max-width: 749px) 46vw, 180px' }}
                         {%- else -%}
                           <span>{{ sym.title }}</span>
                         {%- endif -%}
