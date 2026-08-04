@@ -46,17 +46,6 @@
           "type": "buy_buttons",
           "settings": {}
         },
-        "ship_indicators": {
-          "type": "ship_indicators",
-          "settings": {}
-        },
-        "guarantee": {
-          "type": "guarantee",
-          "settings": {
-            "headline": "60-day reset guarantee",
-            "text": "<p>Try Rosalia for 60 days. Full refund if it's not right — no forms, no return shipping.</p>"
-          }
-        },
         "app_zone": {
           "type": "app_zone",
           "settings": {
@@ -77,9 +66,7 @@
         "symptom_picker",
         "bundle_tiers",
         "buy_buttons",
-        "ship_indicators",
         "trust_badges",
-        "guarantee",
         "app_zone"
       ]
     },
@@ -105,12 +92,6 @@
             "text": "Rosacea-tested"
           }
         },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Made in France"
-          }
-        },
         "item_5": {
           "type": "item",
           "settings": {
@@ -128,7 +109,6 @@
         "item_1",
         "item_2",
         "item_3",
-        "item_4",
         "item_5",
         "item_6"
       ]
@@ -207,7 +187,9 @@
       "settings": {
         "data_source": "metafield",
         "padding_top": 50,
-        "padding_bottom": 50
+        "padding_bottom": 50,
+        "note": "",
+        "note_label": ""
       },
       "blocks": {
         "ing_1": {
@@ -425,7 +407,7 @@
             "number": "01",
             "title": "Dispense",
             "description": "3–4 drops from the dropper. That's enough for the full face.",
-            "poster": "shopify://shop_images/rosalia-ritual-01-dispense.png"
+            "poster": "shopify://shop_images/rosalia-ritual-01-dispense-v2.png"
           }
         },
         "step_2": {

@@ -113,15 +113,20 @@
     font-weight: 600;
     color: var(--rosalia-accent-deep);
   }
-  #shopify-section-{{ section.id }} .rosalia-benefits { display: grid; gap: 10px; margin-bottom: 26px; }
-  #shopify-section-{{ section.id }} .rosalia-benefit { display: flex; gap: 10px; align-items: flex-start; }
+  #shopify-section-{{ section.id }} .rosalia-benefits { display: grid; gap: 12px; margin-bottom: 26px; }
+  #shopify-section-{{ section.id }} .rosalia-benefit { display: flex; gap: 11px; align-items: flex-start; }
   #shopify-section-{{ section.id }} .rosalia-benefit-icon {
-    flex: 0 0 20px; width: 20px; height: 20px; border-radius: 50%;
+    flex: 0 0 28px; width: 28px; height: 28px; border-radius: 9px;
     background: var(--rosalia-pink-light); color: var(--rosalia-accent-deep);
     display: flex; align-items: center; justify-content: center;
+    margin-top: -2px;
   }
-  #shopify-section-{{ section.id }} .rosalia-benefit-icon svg { width: 11px; height: 11px; }
-  #shopify-section-{{ section.id }} .rosalia-benefit-text { font-size: 13.5px; line-height: 1.45; }
+  #shopify-section-{{ section.id }} .rosalia-benefit-icon svg {
+    width: 16px; height: 16px;
+    fill: none; stroke: currentColor;
+    stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
+  }
+  #shopify-section-{{ section.id }} .rosalia-benefit-text { font-size: 13.5px; line-height: 1.45; padding-top: 3px; }
   #shopify-section-{{ section.id }} .rosalia-benefit-text p { margin: 0; }
 
   /* Symptom picker */
@@ -307,11 +312,11 @@
     margin-bottom: 3px;
   }
   #shopify-section-{{ section.id }} .rosalia-guarantee-copy p { margin: 0; }
-  #shopify-section-{{ section.id }} .rosalia-app-zone {
+  #shopify-section-{{ section.id }} .rosalia-app-zone { margin-bottom: 18px; }
+  #shopify-section-{{ section.id }} .rosalia-app-zone:has(.rosalia-app-zone-label) {
     border: 1.5px dashed var(--rosalia-gray-3);
     border-radius: 12px;
     padding: 14px 16px;
-    margin-bottom: 18px;
   }
   #shopify-section-{{ section.id }} .rosalia-app-zone:empty { display: none; }
   #shopify-section-{{ section.id }} .rosalia-app-zone-label {
@@ -494,16 +499,30 @@
             {%- assign benefits = rp_product.metafields.rosalia.benefits.value -%}
             {%- if benefits.size > 0 -%}
               <div class="rosalia-benefits" {{ block.shopify_attributes }}>
+                {%- comment -%}
+                  A benefit is either a plain HTML string or an object
+                  { icon: '<svg…>', text: '…' } so each line can carry an icon
+                  that actually illustrates it instead of a row of identical ticks.
+                {%- endcomment -%}
                 {%- for benefit in benefits -%}
+                  {%- if benefit.text -%}
+                    {%- assign b_text = benefit.text -%}
+                    {%- assign b_icon = benefit.icon -%}
+                  {%- else -%}
+                    {%- assign b_text = benefit -%}
+                    {%- assign b_icon = '' -%}
+                  {%- endif -%}
                   <div class="rosalia-benefit">
                     <div class="rosalia-benefit-icon">
-                      {%- if block.settings.icon_svg != blank -%}
+                      {%- if b_icon != blank -%}
+                        {{ b_icon }}
+                      {%- elsif block.settings.icon_svg != blank -%}
                         {{ block.settings.icon_svg }}
                       {%- else -%}
-                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.2 4.8 9 10 3.2"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg>
                       {%- endif -%}
                     </div>
-                    <div class="rosalia-benefit-text">{{ benefit }}</div>
+                    <div class="rosalia-benefit-text">{{ b_text }}</div>
                   </div>
                 {%- endfor -%}
               </div>
@@ -619,7 +638,11 @@
 
           {%- when 'app_zone' -%}
             <div class="rosalia-app-zone" {{ block.shopify_attributes }}>
-              {%- if block.settings.label != blank -%}
+              {%- comment -%}
+                The placeholder is a merchant-facing hint. Customers must never
+                see it, so it only renders inside the theme editor.
+              {%- endcomment -%}
+              {%- if request.design_mode and block.settings.label != blank -%}
                 <div class="rosalia-app-zone-label">{{ block.settings.label }}</div>
               {%- endif -%}
             </div>
