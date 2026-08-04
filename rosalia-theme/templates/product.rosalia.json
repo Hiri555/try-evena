@@ -109,7 +109,7 @@
         "item_6": {
           "type": "item",
           "settings": {
-            "text": "35,000+ women trust Rosalia"
+            "text": "Formulated with a vascular biologist"
           }
         }
       },
@@ -317,10 +317,10 @@
         "padding_bottom": 50,
         "eyebrow": "Real results",
         "heading": "They stopped hiding. <em>Here's what changed.</em>",
-        "lead": "Real customers, in their own words. No filters, no paid endorsements.",
-        "show_aggregate": true,
-        "aggregate_score": "4.8",
-        "aggregate_count": "based on 2,847 verified reviews"
+        "lead": "In their own words.",
+        "show_aggregate": false,
+        "aggregate_score": "",
+        "aggregate_count": ""
       },
       "blocks": {
         "res_1": {
@@ -332,7 +332,7 @@
             "duration": "8 weeks",
             "image": "shopify://shop_images/rosalia-review-camille.png",
             "rating": 5,
-            "verified": true,
+            "verified": false,
             "show_image": true,
             "comment": "<p>I stopped checking my face before meetings. By week six the 4pm burn just didn't come. My husband asked if I'd changed foundation — I'd stopped wearing it.</p>"
           }
@@ -346,7 +346,7 @@
             "duration": "10 weeks",
             "image": "shopify://shop_images/rosalia-review-emily.png",
             "rating": 5,
-            "verified": true,
+            "verified": false,
             "show_image": true,
             "comment": "<p>Two pumps of foundation down to half a pump of tinted moisturizer. I'm not 'glowing' — I'm just normal. And normal is everything when you've been red for a decade.</p>"
           }
@@ -360,7 +360,7 @@
             "duration": "6 weeks",
             "image": "shopify://shop_images/rosalia-review-sarah.png",
             "rating": 5,
-            "verified": true,
+            "verified": false,
             "show_image": true,
             "comment": "<p>First serum in six years that didn't sting going on. Week three, I stopped bracing before I applied it. Week six, I forgot I ever used to.</p>"
           }
@@ -374,7 +374,7 @@
             "duration": "12 weeks",
             "image": "shopify://shop_images/rosalia-review-laura.png",
             "rating": 5,
-            "verified": true,
+            "verified": false,
             "show_image": true,
             "comment": "<p>The 3pm flush used to be my office nickname. Twelve weeks in, it shows up maybe once a week — mild, gone in minutes. I don't plan meetings around my face anymore.</p>"
           }
@@ -388,7 +388,7 @@
             "duration": "16 weeks",
             "image": "shopify://shop_images/rosalia-review-nadia.png",
             "rating": 5,
-            "verified": true,
+            "verified": false,
             "show_image": true,
             "comment": "<p>My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.</p>"
           }

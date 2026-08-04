@@ -91,7 +91,7 @@
         "item_6": {
           "type": "item",
           "settings": {
-            "text": "35,000+ women trust Rosalia"
+            "text": "Formulated with a vascular biologist"
           }
         }
       },
@@ -226,7 +226,10 @@
         "padding_bottom": 50,
         "eyebrow": "Real results",
         "heading": "They stopped hiding. <em>Here's what changed.</em>",
-        "lead": "Real customers, in their own words. No filters, no paid endorsements."
+        "lead": "In their own words.",
+        "show_aggregate": false,
+        "aggregate_score": "",
+        "aggregate_count": ""
       },
       "blocks": {
         "res_1": {
@@ -239,7 +242,7 @@
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
-            "verified": true
+            "verified": false
           }
         },
         "res_2": {
@@ -252,7 +255,7 @@
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
-            "verified": true
+            "verified": false
           }
         },
         "res_3": {
@@ -265,7 +268,7 @@
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
-            "verified": true
+            "verified": false
           }
         },
         "res_4": {
@@ -278,7 +281,7 @@
             "name": "Laura",
             "age": "45",
             "duration": "12 weeks",
-            "verified": true
+            "verified": false
           }
         },
         "res_5": {
@@ -291,7 +294,7 @@
             "name": "Nadia",
             "age": "51",
             "duration": "16 weeks",
-            "verified": true
+            "verified": false
           }
         }
       },
