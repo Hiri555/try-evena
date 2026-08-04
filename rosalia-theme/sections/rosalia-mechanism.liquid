@@ -146,6 +146,8 @@
 </style>
 
 <div {% render 'section-properties', tight: true %}>
+  {%- comment -%} Anchor for "See how it works" CTAs; offset clears the sticky header {%- endcomment -%}
+  <span id="{{ section.settings.anchor_id | default: 'how-it-works' }}" style="display:block; scroll-margin-top: 90px;"></span>
   <div class="rosalia-mechanism-inner">
     {%- if section.settings.eyebrow != blank -%}
       <div class="rosalia-mechanism-eyebrow">{{ section.settings.eyebrow }}</div>
@@ -207,6 +209,7 @@
   "class": "shopify-section--rosalia",
   "settings": [
     { "type": "header", "content": "Content" },
+    { "type": "text", "id": "anchor_id", "label": "Anchor ID", "default": "how-it-works", "info": "Link to this section with /#how-it-works" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Redness Loop" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "Redness is a <em>loop</em>, not a symptom." },
     { "type": "textarea", "id": "lead", "label": "Lead paragraph", "default": "Five self-feeding mechanisms. Each one triggers the next. Rosalia interrupts them at once — not one at a time." },

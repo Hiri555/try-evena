@@ -59,8 +59,8 @@
         "delivery": {
           "type": "delivery_estimate",
           "settings": {
-            "min_days": 3,
-            "max_days": 7
+            "min_days": 4,
+            "max_days": 8
           }
         }
       },

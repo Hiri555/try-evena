@@ -142,3 +142,45 @@
 
   document.addEventListener('shopify:section:load', boot);
 })();
+
+/* ──────────────────────────────────────────────────────────────
+   Delivery estimate — business days, computed client-side.
+   Skips Saturdays and Sundays; replaces the Liquid calendar-day
+   fallback so cached pages still show fresh, honest dates.
+   ────────────────────────────────────────────────────────────── */
+(() => {
+  function addBusinessDays(from, days) {
+    const date = new Date(from);
+    let remaining = days;
+    while (remaining > 0) {
+      date.setDate(date.getDate() + 1);
+      const day = date.getDay();
+      if (day !== 0 && day !== 6) remaining -= 1;
+    }
+    return date;
+  }
+
+  function format(date) {
+    return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+  }
+
+  function init() {
+    document.querySelectorAll('[data-rosalia-delivery]').forEach((el) => {
+      const min = parseInt(el.dataset.minDays, 10);
+      const max = parseInt(el.dataset.maxDays, 10);
+      if (!min || !max) return;
+      const now = new Date();
+      const minEl = el.querySelector('[data-role="date-min"]');
+      const maxEl = el.querySelector('[data-role="date-max"]');
+      if (minEl) minEl.textContent = format(addBusinessDays(now, min));
+      if (maxEl) maxEl.textContent = format(addBusinessDays(now, max));
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  document.addEventListener('shopify:section:load', init);
+})();

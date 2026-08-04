@@ -637,17 +637,18 @@
           {%- when 'delivery_estimate' -%}
             {%- comment -%}
               "Order today — arrives between X and Y" beats "ships in 3-5
-              days". Dates come from real min/max transit settings; keep them
-              honest or the whole page loses credibility.
+              days". Settings are BUSINESS days; the exact weekend-skipping
+              dates are computed client-side (also dodges page caching). The
+              Liquid render is only a calendar-day fallback for no-JS.
             {%- endcomment -%}
-            {%- assign de_min_s = block.settings.min_days | default: 3 | times: 86400 -%}
-            {%- assign de_max_s = block.settings.max_days | default: 7 | times: 86400 -%}
+            {%- assign de_min_days = block.settings.min_days | default: 4 -%}
+            {%- assign de_max_days = block.settings.max_days | default: 8 -%}
             {%- assign de_now = 'now' | date: '%s' | plus: 0 -%}
-            {%- assign de_min = de_now | plus: de_min_s | date: '%B %-d' -%}
-            {%- assign de_max = de_now | plus: de_max_s | date: '%B %-d' -%}
-            <div class="rosalia-delivery" {{ block.shopify_attributes }}>
+            {%- assign de_min_fallback = de_min_days | times: 86400 | plus: de_now | date: '%B %-d' -%}
+            {%- assign de_max_fallback = de_max_days | times: 86400 | plus: de_now | date: '%B %-d' -%}
+            <div class="rosalia-delivery" data-rosalia-delivery data-min-days="{{ de_min_days }}" data-max-days="{{ de_max_days }}" {{ block.shopify_attributes }}>
               <span class="rosalia-delivery-dot" aria-hidden="true"></span>
-              Order today &mdash; arrives between <strong>{{ de_min }}</strong> and <strong>{{ de_max }}</strong>
+              Order today &mdash; arrives between <strong data-role="date-min">{{ de_min_fallback }}</strong> and <strong data-role="date-max">{{ de_max_fallback }}</strong>
             </div>
 
           {%- when 'ship_indicators' -%}
@@ -905,9 +906,9 @@
       "name": "Delivery estimate",
       "limit": 1,
       "settings": [
-        { "type": "range", "id": "min_days", "label": "Fastest delivery (days)", "min": 1, "max": 10, "step": 1, "default": 3 },
-        { "type": "range", "id": "max_days", "label": "Slowest delivery (days)", "min": 2, "max": 21, "step": 1, "default": 7 },
-        { "type": "paragraph", "content": "Dates are computed from today. Keep them matched to your real carrier times." }
+        { "type": "range", "id": "min_days", "label": "Fastest (business days)", "min": 1, "max": 10, "step": 1, "default": 4 },
+        { "type": "range", "id": "max_days", "label": "Slowest (business days)", "min": 2, "max": 21, "step": 1, "default": 8 },
+        { "type": "paragraph", "content": "Business days — weekends are skipped automatically. Keep them matched to your real carrier times." }
       ]
     },
     {
