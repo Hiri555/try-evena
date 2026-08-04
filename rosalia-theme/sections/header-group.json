@@ -3,51 +3,52 @@
   "name": "Header group",
   "sections": {
     "announcement-bar": {
-      "type": "announcement-bar",
+      "type": "rosalia-announcement",
       "blocks": {
-        "message_cqN8RP": {
-          "type": "message",
+        "item_1": {
+          "type": "item",
           "settings": {
-            "text": "Free US shipping on orders over $50",
-            "url": ""
+            "text": "Free US shipping on orders over $50"
           }
         },
-        "message": {
-          "type": "message",
+        "item_2": {
+          "type": "item",
           "settings": {
-            "text": "60-day reset guarantee",
-            "url": ""
+            "text": "60-day reset guarantee"
           }
         },
-        "message_VhU9dC": {
-          "type": "message",
+        "item_3": {
+          "type": "item",
           "settings": {
-            "text": "Formulated for reactive skin",
-            "url": ""
+            "text": "Formulated for reactive skin"
           }
         },
-        "message_yTHGFG": {
-          "type": "message",
+        "item_4": {
+          "type": "item",
           "settings": {
-            "text": "Rosacea-tested • Fragrance-free • No essential oils",
-            "url": ""
+            "text": "Rosacea-tested • Fragrance-free • No essential oils"
           }
         }
       },
       "block_order": [
-        "message_cqN8RP",
-        "message",
-        "message_VhU9dC",
-        "message_yTHGFG"
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4"
       ],
       "settings": {
-        "enable_sticky": false,
-        "text_size": "text-xs",
-        "navigation_mode": "scrolling",
-        "scrolling_speed": 10,
+        "separator": "◆",
+        "aria_label": "Site announcements",
+        "dismissible": false,
+        "speed_seconds": 36,
+        "pause_on_hover": true,
+        "direction": "left",
+        "height": 36,
+        "item_font_size": 11,
+        "item_gap": 36,
         "background": "#7A3A54",
-        "background_gradient": "",
-        "text_color": "#FAF5F0"
+        "text_color": "#FAF5F0",
+        "separator_color": "#E3A1B6"
       }
     },
     "header": {

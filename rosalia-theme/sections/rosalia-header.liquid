@@ -7,16 +7,27 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rosalia-pink-light);
+    transition: background .4s var(--rosalia-ease), box-shadow .4s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head.is-stuck {
+    background: rgba(250, 245, 240, 0.94);
+    backdrop-filter: blur(16px) saturate(1.4);
+    -webkit-backdrop-filter: blur(16px) saturate(1.4);
+    box-shadow: 0 1px 0 rgba(122, 58, 84, .06), 0 4px 24px rgba(31, 26, 28, .05);
   }
   #shopify-section-{{ section.id }} .rosalia-head-in {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 48px;
-    height: 62px;
+    height: {{ section.settings.height | default: 66 }}px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    transition: height .3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head.is-stuck .rosalia-head-in {
+    height: {{ section.settings.height | default: 66 | minus: 10 }}px;
   }
   #shopify-section-{{ section.id }} .rosalia-head-wordmark {
     font-family: var(--rosalia-font-serif);
@@ -26,8 +37,11 @@
     color: var(--rosalia-dark);
     text-decoration: none;
     flex: 0 0 auto;
+    line-height: 1;
   }
   #shopify-section-{{ section.id }} .rosalia-head-wordmark .dot { color: var(--rosalia-pink); }
+
+  /* ── Desktop nav ─────────────────────────────────────── */
   #shopify-section-{{ section.id }} .rosalia-head-nav {
     display: flex;
     align-items: center;
@@ -35,7 +49,8 @@
     flex: 1 1 auto;
     justify-content: center;
   }
-  #shopify-section-{{ section.id }} .rosalia-head-nav a {
+  #shopify-section-{{ section.id }} .rosalia-head-item { position: relative; }
+  #shopify-section-{{ section.id }} .rosalia-head-link {
     font-family: var(--rosalia-font-sans);
     font-size: 12px;
     letter-spacing: 0.08em;
@@ -44,9 +59,86 @@
     color: var(--rosalia-dark);
     text-decoration: none;
     opacity: 0.75;
-    transition: opacity 0.25s var(--rosalia-ease), color 0.25s var(--rosalia-ease);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: opacity .25s var(--rosalia-ease), color .25s var(--rosalia-ease);
   }
-  #shopify-section-{{ section.id }} .rosalia-head-nav a:hover { opacity: 1; color: var(--rosalia-plum); }
+  #shopify-section-{{ section.id }} .rosalia-head-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 1px;
+    background: var(--rosalia-plum);
+    transition: width .3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-link:hover,
+  #shopify-section-{{ section.id }} .rosalia-head-item:hover > .rosalia-head-link {
+    opacity: 1;
+    color: var(--rosalia-plum);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-item:hover > .rosalia-head-link::after { width: 100%; }
+  #shopify-section-{{ section.id }} .rosalia-head-caret {
+    width: 9px; height: 9px; stroke: currentColor; fill: none; stroke-width: 2;
+    transition: transform .25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-item:hover .rosalia-head-caret { transform: rotate(180deg); }
+
+  /* Dropdown panel */
+  #shopify-section-{{ section.id }} .rosalia-head-panel {
+    position: absolute;
+    top: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    min-width: 216px;
+    padding: 10px;
+    background: var(--rosalia-cream);
+    border: 1px solid rgba(122, 58, 84, .09);
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(31, 26, 28, .09);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .22s var(--rosalia-ease), transform .22s var(--rosalia-ease), visibility .22s;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-item:hover .rosalia-head-panel,
+  #shopify-section-{{ section.id }} .rosalia-head-item:focus-within .rosalia-head-panel {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-panel::before {
+    content: '';
+    position: absolute;
+    top: -14px; left: 0; right: 0; height: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-sub {
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px;
+    letter-spacing: .01em;
+    color: var(--rosalia-dark);
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    transition: background .2s var(--rosalia-ease), color .2s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-sub:hover {
+    background: var(--rosalia-pink-light);
+    color: var(--rosalia-plum);
+  }
+
+  /* ── Right side ──────────────────────────────────────── */
   #shopify-section-{{ section.id }} .rosalia-head-right {
     display: flex;
     align-items: center;
@@ -64,6 +156,7 @@
     text-transform: uppercase;
     font-weight: 600;
     text-decoration: none;
+    white-space: nowrap;
     transition: background 0.25s var(--rosalia-ease);
   }
   #shopify-section-{{ section.id }} .rosalia-head-cta:hover { background: var(--rosalia-wine); }
@@ -89,20 +182,139 @@
     justify-content: center;
     padding: 0 4px;
   }
-  @media (max-width: 749px) {
-    #shopify-section-{{ section.id }} .rosalia-head-in { padding: 0 20px; height: 56px; }
+
+  /* ── Burger + mobile panel ───────────────────────────── */
+  #shopify-section-{{ section.id }} .rosalia-head-burger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 6px;
+    margin-left: -6px;
+    cursor: pointer;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-burger span {
+    display: block;
+    width: 20px;
+    height: 1.5px;
+    background: currentColor;
+    border-radius: 2px;
+    transition: transform .3s var(--rosalia-ease), opacity .2s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-burger span + span { margin-top: 5px; }
+  #shopify-section-{{ section.id }} .rosalia-head-burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  #shopify-section-{{ section.id }} .rosalia-head-burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  #shopify-section-{{ section.id }} .rosalia-head-burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  #shopify-section-{{ section.id }} .rosalia-head-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 26, 28, .42);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s var(--rosalia-ease), visibility .3s;
+    z-index: 1;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: min(86vw, 340px);
+    background: var(--rosalia-cream);
+    padding: 22px 22px calc(26px + env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transform: translateX(-100%);
+    transition: transform .34s var(--rosalia-ease);
+    overflow-y: auto;
+    z-index: 2;
+    box-shadow: 0 0 60px rgba(31, 26, 28, .12);
+  }
+  #shopify-section-{{ section.id }}[data-nav-open='true'] .rosalia-head-scrim { opacity: 1; visibility: visible; }
+  #shopify-section-{{ section.id }}[data-nav-open='true'] .rosalia-head-mobile { transform: translateX(0); }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile-x {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--rosalia-pink-light); color: var(--rosalia-plum);
+    border: none; cursor: pointer; font-size: 17px; line-height: 1;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile a {
+    font-family: var(--rosalia-font-serif);
+    font-size: 22px;
+    color: var(--rosalia-dark);
+    text-decoration: none;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(122, 58, 84, .07);
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile a.is-sub {
+    font-family: var(--rosalia-font-sans);
+    font-size: 13.5px;
+    color: var(--rosalia-gray);
+    padding: 8px 0 8px 16px;
+    border-bottom: none;
+  }
+  #shopify-section-{{ section.id }} .rosalia-head-mobile .rosalia-head-cta {
+    margin-top: 22px;
+    text-align: center;
+    padding: 14px 20px;
+    font-size: 12px;
+    border-bottom: none;
+    color: var(--rosalia-cream);
+    font-family: var(--rosalia-font-sans);
+  }
+
+  @media (max-width: 999px) {
+    #shopify-section-{{ section.id }} .rosalia-head-in { padding: 0 20px; height: 58px; }
+    #shopify-section-{{ section.id }} .rosalia-head.is-stuck .rosalia-head-in { height: 54px; }
     #shopify-section-{{ section.id }} .rosalia-head-nav { display: none; }
-    #shopify-section-{{ section.id }} .rosalia-head-cta { padding: 8px 14px; font-size: 10px; }
+    #shopify-section-{{ section.id }} .rosalia-head-burger { display: block; }
+    #shopify-section-{{ section.id }} .rosalia-head-wordmark {
+      position: absolute; left: 50%; transform: translateX(-50%); font-size: 22px;
+    }
+    #shopify-section-{{ section.id }} .rosalia-head-cta { display: none; }
+    #shopify-section-{{ section.id }} .rosalia-head-mobile .rosalia-head-cta { display: block; }
+  }
+  @media (min-width: 1000px) {
+    #shopify-section-{{ section.id }} .rosalia-head-scrim,
+    #shopify-section-{{ section.id }} .rosalia-head-mobile { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-head-mobile,
+    #shopify-section-{{ section.id }} .rosalia-head-in,
+    #shopify-section-{{ section.id }} .rosalia-head-panel { transition: none; }
   }
 </style>
 
+{%- assign nav_links = linklists[section.settings.menu].links -%}
+
 <header class="rosalia-head">
   <div class="rosalia-head-in">
-    <a class="rosalia-head-wordmark" href="/">{{ section.settings.wordmark | default: 'Rosalia' }}<span class="dot">.</span></a>
+    <button type="button" class="rosalia-head-burger" data-role="burger" aria-expanded="false" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="rosalia-head-wordmark" href="{{ routes.root_url }}">{{ section.settings.wordmark | default: 'Rosalia' }}<span class="dot">.</span></a>
 
     <nav class="rosalia-head-nav" aria-label="Main navigation">
-      {%- for link in linklists[section.settings.menu].links -%}
-        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- for link in nav_links -%}
+        <div class="rosalia-head-item">
+          {%- if link.links.size > 0 -%}
+            <a class="rosalia-head-link" href="{{ link.url }}">
+              {{ link.title }}
+              <svg class="rosalia-head-caret" viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+            <div class="rosalia-head-panel">
+              {%- for child in link.links -%}
+                <a class="rosalia-head-sub" href="{{ child.url }}">{{ child.title }}</a>
+              {%- endfor -%}
+            </div>
+          {%- else -%}
+            <a class="rosalia-head-link" href="{{ link.url }}">{{ link.title }}</a>
+          {%- endif -%}
+        </div>
       {%- endfor -%}
     </nav>
 
@@ -110,7 +322,7 @@
       {%- if section.settings.cta_text != blank -%}
         <a class="rosalia-head-cta" href="{{ section.settings.cta_url | default: '/products/daily-reset-serum' }}">{{ section.settings.cta_text }}</a>
       {%- endif -%}
-      <a class="rosalia-head-cart" href="{{ routes.cart_url }}" aria-label="Cart ({{ cart.item_count }} items)">
+      <a class="rosalia-head-cart" href="{{ routes.cart_url }}" aria-controls="cart-drawer" aria-label="Cart ({{ cart.item_count }} items)">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1.2 13a1 1 0 0 1-1 1.1H5.8a1 1 0 0 1-1-1.1L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
         {%- if cart.item_count > 0 -%}
           <span class="rosalia-head-cart-count">{{ cart.item_count }}</span>
@@ -118,7 +330,72 @@
       </a>
     </div>
   </div>
+
+  {%- comment -%} Mobile navigation {%- endcomment -%}
+  <div class="rosalia-head-scrim" data-role="scrim"></div>
+  <nav class="rosalia-head-mobile" data-role="mobile-nav" aria-label="Mobile navigation">
+    <div class="rosalia-head-mobile-top">
+      <span class="rosalia-head-wordmark" style="position:static;transform:none">{{ section.settings.wordmark | default: 'Rosalia' }}<span class="dot">.</span></span>
+      <button type="button" class="rosalia-head-mobile-x" data-role="close" aria-label="Close menu">&times;</button>
+    </div>
+
+    {%- for link in nav_links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- for child in link.links -%}
+        <a class="is-sub" href="{{ child.url }}">{{ child.title }}</a>
+      {%- endfor -%}
+    {%- endfor -%}
+
+    {%- if section.settings.cta_text != blank -%}
+      <a class="rosalia-head-cta" href="{{ section.settings.cta_url | default: '/products/daily-reset-serum' }}">{{ section.settings.cta_text }}</a>
+    {%- endif -%}
+  </nav>
 </header>
+
+<script>
+  (function () {
+    var root = document.getElementById('shopify-section-{{ section.id }}');
+    if (!root) return;
+
+    var head = root.querySelector('.rosalia-head');
+    var burger = root.querySelector('[data-role="burger"]');
+    var scrim = root.querySelector('[data-role="scrim"]');
+    var closeBtn = root.querySelector('[data-role="close"]');
+
+    /* Compact the bar once the page has scrolled past the fold edge */
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        head.classList.toggle('is-stuck', window.scrollY > 12);
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* Mobile drawer */
+    function setNav(open) {
+      root.setAttribute('data-nav-open', open ? 'true' : 'false');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.documentElement.style.overflow = open ? 'hidden' : '';
+    }
+
+    burger.addEventListener('click', function () {
+      setNav(root.getAttribute('data-nav-open') !== 'true');
+    });
+    scrim.addEventListener('click', function () { setNav(false); });
+    closeBtn.addEventListener('click', function () { setNav(false); });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && root.getAttribute('data-nav-open') === 'true') setNav(false);
+    });
+    root.querySelectorAll('.rosalia-head-mobile a').forEach(function (link) {
+      link.addEventListener('click', function () { setNav(false); });
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -126,7 +403,8 @@
   "class": "shopify-section--rosalia-header",
   "settings": [
     { "type": "text", "id": "wordmark", "label": "Wordmark", "default": "Rosalia" },
-    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu" },
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "main-menu", "info": "Nested menu items become a dropdown on desktop and indented links on mobile." },
+    { "type": "range", "id": "height", "label": "Bar height (px)", "min": 56, "max": 88, "step": 2, "default": 66 },
     { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Try it for 60 days" },
     { "type": "url", "id": "cta_url", "label": "CTA link" }
   ],

@@ -157,6 +157,10 @@
       </div>
     </div>
 
+    {%- if section.settings.show_trust_badges -%}
+      {%- render 'rosalia-trust-badges', context: 'footer' -%}
+    {%- endif -%}
+
     <div class="rosalia-foot-bottom">
       <span>© {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name | default: 'Rosalia' }}. All rights reserved.</span>
       <span class="rosalia-foot-trust">{{ section.settings.trust_line }}</span>
@@ -181,6 +185,7 @@
     { "type": "text", "id": "newsletter_title", "label": "Newsletter title", "default": "Join the Reset" },
     { "type": "textarea", "id": "newsletter_text", "label": "Newsletter text", "default": "Skincare notes and early access — once a week. No noise." },
     { "type": "header", "content": "Bottom row" },
+    { "type": "checkbox", "id": "show_trust_badges", "label": "Show trust badge row", "default": true },
     { "type": "text", "id": "copyright_name", "label": "Copyright name", "default": "Rosalia" },
     { "type": "text", "id": "trust_line", "label": "Trust line", "default": "60-day guarantee · Free US shipping over $50" },
     { "type": "header", "content": "Colors" },

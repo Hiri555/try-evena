@@ -1,0 +1,133 @@
+{%- comment -%}
+  Rosalia trust badge row.
+
+  Params:
+    context : 'pdp' (below the buy buttons) | 'footer' (on the dark shell)
+    label_1..label_4 : optional overrides; fall back to theme settings, then to
+                       the hardcoded defaults below.
+
+  Usage: {%- render 'rosalia-trust-badges', context: 'pdp' -%}
+{%- endcomment -%}
+
+{%- assign rtb_context = context | default: 'pdp' -%}
+{%- assign rtb_1 = label_1 | default: settings.trust_badge_1 | default: '60-day guarantee' -%}
+{%- assign rtb_2 = label_2 | default: settings.trust_badge_2 | default: 'Free shipping $50+' -%}
+{%- assign rtb_3 = label_3 | default: settings.trust_badge_3 | default: 'Ships in 48h' -%}
+{%- assign rtb_4 = label_4 | default: settings.trust_badge_4 | default: 'Secure checkout' -%}
+
+<style>
+    .rosalia-trust-badges {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .rosalia-trust-badges--pdp {
+      padding: 18px 0 2px;
+      margin-top: 4px;
+      border-top: 1px solid rgba(122, 58, 84, .08);
+    }
+    .rosalia-trust-badges--footer {
+      padding: 28px 0 0;
+      margin-top: 8px;
+      border-top: 1px solid rgba(250, 245, 240, .12);
+    }
+    .rosalia-trust-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 9px;
+    }
+    .rosalia-trust-badge-icon {
+      width: 46px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(122, 58, 84, .18);
+      border-radius: 13px;
+      background: rgba(247, 228, 234, .32);
+      transition: background .3s var(--rosalia-ease), border-color .3s var(--rosalia-ease);
+    }
+    .rosalia-trust-badge:hover .rosalia-trust-badge-icon {
+      background: rgba(196, 113, 142, .13);
+      border-color: rgba(122, 58, 84, .38);
+    }
+    .rosalia-trust-badge-icon svg {
+      width: 21px;
+      height: 21px;
+      stroke: var(--rosalia-plum);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .rosalia-trust-badge-label {
+      font-family: var(--rosalia-font-sans);
+      font-size: 9.5px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--rosalia-dark);
+      line-height: 1.35;
+      text-wrap: balance;
+    }
+    .rosalia-trust-badges--footer .rosalia-trust-badge-icon {
+      border-color: rgba(250, 245, 240, .18);
+      background: rgba(250, 245, 240, .05);
+    }
+    .rosalia-trust-badges--footer .rosalia-trust-badge-icon svg { stroke: var(--rosalia-pink-light); }
+    .rosalia-trust-badges--footer .rosalia-trust-badge-label { color: var(--rosalia-cream); opacity: .85; }
+
+    @media (max-width: 749px) {
+      .rosalia-trust-badges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 10px; }
+      .rosalia-trust-badge-label { font-size: 10px; }
+    }
+</style>
+
+<div class="rosalia-trust-badges rosalia-trust-badges--{{ rtb_context }}">
+  <div class="rosalia-trust-badge">
+    <div class="rosalia-trust-badge-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3l8 4v5c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z"/>
+        <path d="M9 12l2 2 4-4"/>
+      </svg>
+    </div>
+    <span class="rosalia-trust-badge-label">{{ rtb_1 }}</span>
+  </div>
+
+  <div class="rosalia-trust-badge">
+    <div class="rosalia-trust-badge-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M15 16V6a1 1 0 0 0-1-1H2"/>
+        <path d="M15 9h4l3 3.5V16h-7"/>
+        <circle cx="6" cy="18" r="2"/>
+        <circle cx="18" cy="18" r="2"/>
+        <path d="M8 18h8"/>
+        <path d="M1 9h5M1 12.5h4"/>
+      </svg>
+    </div>
+    <span class="rosalia-trust-badge-label">{{ rtb_2 }}</span>
+  </div>
+
+  <div class="rosalia-trust-badge">
+    <div class="rosalia-trust-badge-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="9"/>
+        <path d="M12 7v5.2l3.4 2"/>
+      </svg>
+    </div>
+    <span class="rosalia-trust-badge-label">{{ rtb_3 }}</span>
+  </div>
+
+  <div class="rosalia-trust-badge">
+    <div class="rosalia-trust-badge-icon">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="3" y="10.5" width="18" height="10.5" rx="2.5"/>
+        <path d="M7.5 10.5V7a4.5 4.5 0 0 1 9 0v3.5"/>
+        <path d="M12 14.5v2.5"/>
+      </svg>
+    </div>
+    <span class="rosalia-trust-badge-label">{{ rtb_4 }}</span>
+  </div>
+</div>

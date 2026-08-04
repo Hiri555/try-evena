@@ -52,13 +52,20 @@
         },
         "guarantee": {
           "type": "guarantee",
-          "settings": {}
+          "settings": {
+            "headline": "60-day reset guarantee",
+            "text": "<p>Try Rosalia for 60 days. Full refund if it's not right — no forms, no return shipping.</p>"
+          }
         },
         "app_zone": {
           "type": "app_zone",
           "settings": {
             "label": "Bundle upsell zone — drop your app block here (Kaching Bundles, Rebuy, etc.)"
           }
+        },
+        "trust_badges": {
+          "type": "trust_badges",
+          "settings": {}
         }
       },
       "block_order": [
@@ -71,6 +78,7 @@
         "bundle_tiers",
         "buy_buttons",
         "ship_indicators",
+        "trust_badges",
         "guarantee",
         "app_zone"
       ]

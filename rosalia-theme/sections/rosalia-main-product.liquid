@@ -227,19 +227,48 @@
 
   /* CTA + ship + guarantee */
   #shopify-section-{{ section.id }} .rosalia-cta {
+    position: relative;
+    overflow: hidden;
     width: 100%;
     display: flex; align-items: center; justify-content: center; gap: 10px;
     background: var(--rosalia-accent-deep);
     color: var(--rosalia-cream);
-    border: none; border-radius: 100px;
-    padding: 17px 24px;
+    border: none;
+    border-radius: {% if section.settings.cta_shape == 'squared' %}4px{% else %}100px{% endif %};
+    padding: 18px 28px;
     font-family: var(--rosalia-font-sans);
     font-size: 13.5px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s var(--rosalia-ease);
+    transition: background .4s var(--rosalia-ease), transform .2s var(--rosalia-ease), box-shadow .3s var(--rosalia-ease);
     margin-bottom: 14px;
   }
-  #shopify-section-{{ section.id }} .rosalia-cta:hover { background: var(--rosalia-wine); transform: translateY(-1px); }
+  /* Soft sheen so the fill doesn't read flat */
+  #shopify-section-{{ section.id }} .rosalia-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, .07) 0%, transparent 62%);
+    pointer-events: none;
+  }
+  #shopify-section-{{ section.id }} .rosalia-cta:hover {
+    background: var(--rosalia-wine);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 26px rgba(75, 21, 40, .18);
+  }
+  #shopify-section-{{ section.id }} .rosalia-cta:active { transform: translateY(0); box-shadow: none; }
+
+  /* Shop Pay / Apple Pay buttons rendered by Shopify */
+  #shopify-section-{{ section.id }} .shopify-payment-button { margin: -4px 0 14px; }
+  #shopify-section-{{ section.id }} .shopify-payment-button__button {
+    border-radius: {% if section.settings.cta_shape == 'squared' %}4px{% else %}100px{% endif %} !important;
+    font-family: var(--rosalia-font-sans) !important;
+    font-size: 14px !important;
+    min-height: 52px !important;
+  }
+  #shopify-section-{{ section.id }} .shopify-payment-button__more-options {
+    font-family: var(--rosalia-font-sans);
+    font-size: 12px;
+    color: var(--rosalia-gray);
+  }
   #shopify-section-{{ section.id }} .rosalia-cta[disabled] { opacity: 0.5; cursor: not-allowed; }
   #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: transform 0.3s var(--rosalia-ease); }
   #shopify-section-{{ section.id }} .rosalia-cta:hover .rosalia-cta-arrow { transform: translateX(3px); }
@@ -255,18 +284,29 @@
   }
   #shopify-section-{{ section.id }} .rosalia-guarantee {
     display: flex; gap: 12px; align-items: flex-start;
-    background: var(--rosalia-pink-light);
+    background: rgba(247, 228, 234, .34);
+    border: 1px solid rgba(196, 113, 142, .22);
     border-radius: 12px;
-    padding: 14px 16px;
-    font-size: 12.5px; line-height: 1.5; color: var(--rosalia-accent-deep);
+    padding: 15px 16px;
     margin-bottom: 18px;
   }
-  #shopify-section-{{ section.id }} .rosalia-guarantee p { margin: 0; }
-  #shopify-section-{{ section.id }} .rosalia-guarantee-check {
-    flex: 0 0 22px; width: 22px; height: 22px; border-radius: 50%;
-    background: var(--rosalia-accent-deep); color: var(--rosalia-cream);
-    display: flex; align-items: center; justify-content: center; font-size: 11px;
+  #shopify-section-{{ section.id }} .rosalia-guarantee-icon {
+    flex: 0 0 36px; width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(122, 58, 84, .08); color: var(--rosalia-accent-deep);
+    display: flex; align-items: center; justify-content: center;
   }
+  #shopify-section-{{ section.id }} .rosalia-guarantee-copy {
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px; line-height: 1.5; color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .rosalia-guarantee-copy strong {
+    display: block;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--rosalia-accent-deep);
+    margin-bottom: 3px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-guarantee-copy p { margin: 0; }
   #shopify-section-{{ section.id }} .rosalia-app-zone {
     border: 1.5px dashed var(--rosalia-gray-3);
     border-radius: 12px;
@@ -556,10 +596,25 @@
               {%- endfor -%}
             </div>
 
+          {%- when 'trust_badges' -%}
+            <div {{ block.shopify_attributes }}>
+              {%- render 'rosalia-trust-badges',
+                  context: 'pdp',
+                  label_1: block.settings.trust_badge_1,
+                  label_2: block.settings.trust_badge_2,
+                  label_3: block.settings.trust_badge_3,
+                  label_4: block.settings.trust_badge_4 -%}
+            </div>
+
           {%- when 'guarantee' -%}
             <div class="rosalia-guarantee" {{ block.shopify_attributes }}>
-              <span class="rosalia-guarantee-check">✓</span>
-              <span>{{ block.settings.text | default: '<p><strong>60 days to feel it shift.</strong> Or we refund. No questions.</p>' }}</span>
+              <span class="rosalia-guarantee-icon">
+                {%- render 'rosalia-icons', icon: 'shield-check', size: 20 -%}
+              </span>
+              <div class="rosalia-guarantee-copy">
+                <strong>{{ block.settings.headline | default: '60-day reset guarantee' }}</strong>
+                <span>{{ block.settings.text }}</span>
+              </div>
             </div>
 
           {%- when 'app_zone' -%}
@@ -581,10 +636,19 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      {%- comment -%} Hidden form for add-to-cart {%- endcomment -%}
+      {%- comment -%}
+        Hidden form for add-to-cart.
+
+        `after_add_to_cart: checkout` sends the buyer straight to payment via
+        Shopify's own `return_to` — no JS timer, so a failed add can't redirect
+        anyway. `cart_page` keeps the standard cart step.
+      {%- endcomment -%}
       {%- form 'product', rp_product, id: product_form_id, class: 'rosalia-product-form' -%}
         <input type="hidden" name="id" value="{{ rp_product.selected_or_first_available_variant.id }}">
         <input type="hidden" name="quantity" value="1">
+        {%- if section.settings.after_add_to_cart == 'checkout' -%}
+          <input type="hidden" name="return_to" value="/checkout">
+        {%- endif -%}
       {%- endform -%}
     </div>
   </div>
@@ -642,6 +706,29 @@
     { "type": "range", "id": "max_image_zoom_level", "label": "Max zoom level", "min": 1, "max": 4, "step": 1, "default": 3 },
     { "type": "checkbox", "id": "enable_video_autoplay", "label": "Autoplay videos", "default": false },
     { "type": "checkbox", "id": "enable_video_looping", "label": "Loop videos", "default": false },
+    { "type": "header", "content": "Add to cart button" },
+    {
+      "type": "select",
+      "id": "cta_shape",
+      "label": "Button shape",
+      "info": "Pill matches the header CTA and the rest of the site.",
+      "options": [
+        { "value": "pill", "label": "Pill" },
+        { "value": "squared", "label": "Squared (4px)" }
+      ],
+      "default": "pill"
+    },
+    {
+      "type": "select",
+      "id": "after_add_to_cart",
+      "label": "After add to cart",
+      "info": "Skip cart is the highest-converting option for a single-product store — the buyer goes from intent to payment with nothing in between.",
+      "options": [
+        { "value": "checkout", "label": "Skip cart → checkout" },
+        { "value": "cart_page", "label": "Go to the cart page" }
+      ],
+      "default": "checkout"
+    },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "section_background", "label": "Section background", "default": "#FAF5F0" },
     { "type": "color", "id": "section_text_color", "label": "Section text color", "default": "#1F1A1C" },
@@ -738,7 +825,19 @@
       "name": "Guarantee card",
       "limit": 1,
       "settings": [
-        { "type": "richtext", "id": "text", "label": "Guarantee copy", "default": "<p><strong>60 days to feel it shift.</strong> Or we refund. No questions.</p>" }
+        { "type": "text", "id": "headline", "label": "Headline", "default": "60-day reset guarantee" },
+        { "type": "richtext", "id": "text", "label": "Guarantee copy", "default": "<p>Try Rosalia for 60 days. Full refund if it's not right — no forms, no return shipping.</p>" }
+      ]
+    },
+    {
+      "type": "trust_badges",
+      "name": "Trust badge row",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "trust_badge_1", "label": "Badge 1", "default": "60-day guarantee" },
+        { "type": "text", "id": "trust_badge_2", "label": "Badge 2", "default": "Free shipping $50+" },
+        { "type": "text", "id": "trust_badge_3", "label": "Badge 3", "default": "Ships in 48h" },
+        { "type": "text", "id": "trust_badge_4", "label": "Badge 4", "default": "Secure checkout" }
       ]
     },
     {
@@ -778,6 +877,7 @@
         { "type": "bundle_tiers" },
         { "type": "buy_buttons" },
         { "type": "ship_indicators" },
+        { "type": "trust_badges" },
         { "type": "guarantee" },
         { "type": "app_zone" }
       ]
