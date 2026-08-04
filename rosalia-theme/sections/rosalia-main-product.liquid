@@ -19,21 +19,26 @@
       --product-gallery-media-list-gap: calc(var(--grid-gutter) / 2);
     }
   }
-  /* ── Gallery: thumbnails + tap-to-fullscreen ─────────── */
+  /* ── Gallery: thumbnails + tap-to-fullscreen ───────────
+     Impact lays the thumbnails out as a grid with fixed
+     `grid-auto-columns`, so the track width — not the button
+     width — is what sizes a thumbnail. */
   #shopify-section-{{ section.id }} .product-gallery__thumbnail-list {
+    grid-auto-columns: 60px;
     gap: 8px;
-    padding-block-start: 12px;
+    align-items: start;
   }
   #shopify-section-{{ section.id }} .product-gallery__thumbnail {
-    width: 62px;
-    height: 62px;
+    height: 60px;
     border-radius: 10px;
     overflow: hidden;
     background: var(--rosalia-white);
     border: 1px solid rgba(122, 58, 84, .12);
     opacity: .58;
-    transition: opacity .28s var(--rosalia-ease), border-color .28s var(--rosalia-ease), transform .28s var(--rosalia-ease);
+    transition: opacity .28s var(--rosalia-ease), border-color .28s var(--rosalia-ease);
   }
+  /* Impact underlines the active thumbnail; we use a ring instead */
+  #shopify-section-{{ section.id }} .product-gallery__thumbnail::after { display: none; }
   #shopify-section-{{ section.id }} .product-gallery__thumbnail:hover { opacity: .85; }
   #shopify-section-{{ section.id }} .product-gallery__thumbnail[aria-current='true'] {
     opacity: 1;
@@ -48,7 +53,8 @@
   }
   #shopify-section-{{ section.id }} .product-gallery__media[data-media-type='image'] img { cursor: zoom-in; }
   @media screen and (min-width: 1000px) {
-    #shopify-section-{{ section.id }} .product-gallery__thumbnail { width: 72px; height: 72px; }
+    #shopify-section-{{ section.id }} .product-gallery__thumbnail-list { grid-auto-columns: 68px; gap: 8px; }
+    #shopify-section-{{ section.id }} .product-gallery__thumbnail { height: 68px; }
   }
 
   #shopify-section-{{ section.id }} .rosalia-product {
