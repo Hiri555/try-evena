@@ -235,7 +235,7 @@
         "res_1": {
           "type": "result_card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-review-camille.png",
+            "image": "shopify://shop_images/Camille_34.png",
             "rating": 5,
             "quote": "My cheeks stopped burning at 4pm.",
             "comment": "<p>I stopped checking my face before meetings. By week six the 4pm burn just didn't come. My husband asked if I'd changed foundation — I'd stopped wearing it.</p>",
@@ -248,7 +248,7 @@
         "res_2": {
           "type": "result_card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-review-emily.png",
+            "image": "shopify://shop_images/Emily_42.png",
             "rating": 5,
             "quote": "Foundation coverage cut in half.",
             "comment": "<p>Two pumps of foundation down to half a pump of tinted moisturizer. I'm not 'glowing' — I'm just normal. And normal is everything when you've been red for a decade.</p>",
@@ -261,7 +261,7 @@
         "res_3": {
           "type": "result_card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-review-sarah.png",
+            "image": "shopify://shop_images/Sarah_38.png",
             "rating": 5,
             "quote": "First serum that didn't sting.",
             "comment": "<p>First serum in six years that didn't sting going on. Week three, I stopped bracing before I applied it. Week six, I forgot I ever used to.</p>",
@@ -274,12 +274,12 @@
         "res_4": {
           "type": "result_card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-review-laura.png",
+            "image": "shopify://shop_images/Julie_48.png",
             "rating": 5,
             "quote": "The 3pm flush stopped happening.",
             "comment": "<p>The 3pm flush used to be my office nickname. Twelve weeks in, it shows up maybe once a week — mild, gone in minutes. I don't plan meetings around my face anymore.</p>",
-            "name": "Laura",
-            "age": "45",
+            "name": "Julie",
+            "age": "48",
             "duration": "12 weeks",
             "verified": false
           }
@@ -287,14 +287,28 @@
         "res_5": {
           "type": "result_card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-review-nadia.png",
+            "image": "shopify://shop_images/Sophie_40.png",
             "rating": 5,
             "quote": "My dermatologist noticed.",
             "comment": "<p>My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.</p>",
-            "name": "Nadia",
-            "age": "51",
+            "name": "Sophie",
+            "age": "40",
             "duration": "16 weeks",
             "verified": false
+          }
+        },
+        "res_6": {
+          "type": "result_card",
+          "settings": {
+            "quote": "The bumps stopped coming back.",
+            "name": "Ana",
+            "age": "29",
+            "duration": "9 weeks",
+            "image": "shopify://shop_images/Ana_29.png",
+            "rating": 5,
+            "verified": false,
+            "show_image": true,
+            "comment": "<p>I'd stopped counting the ones on my chin. Around week seven I realised I hadn't looked closely in the mirror in days — because there was nothing to check.</p>"
           }
         }
       },
@@ -303,7 +317,8 @@
         "res_2",
         "res_3",
         "res_4",
-        "res_5"
+        "res_5",
+        "res_6"
       ]
     },
     "authority": {

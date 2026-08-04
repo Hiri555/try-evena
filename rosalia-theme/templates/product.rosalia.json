@@ -330,7 +330,7 @@
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
-            "image": "shopify://shop_images/rosalia-review-camille.png",
+            "image": "shopify://shop_images/Camille_34.png",
             "rating": 5,
             "verified": false,
             "show_image": true,
@@ -344,7 +344,7 @@
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
-            "image": "shopify://shop_images/rosalia-review-emily.png",
+            "image": "shopify://shop_images/Emily_42.png",
             "rating": 5,
             "verified": false,
             "show_image": true,
@@ -358,7 +358,7 @@
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
-            "image": "shopify://shop_images/rosalia-review-sarah.png",
+            "image": "shopify://shop_images/Sarah_38.png",
             "rating": 5,
             "verified": false,
             "show_image": true,
@@ -369,10 +369,10 @@
           "type": "result_card",
           "settings": {
             "quote": "The 3pm flush stopped happening.",
-            "name": "Laura",
-            "age": "45",
+            "name": "Julie",
+            "age": "48",
             "duration": "12 weeks",
-            "image": "shopify://shop_images/rosalia-review-laura.png",
+            "image": "shopify://shop_images/Julie_48.png",
             "rating": 5,
             "verified": false,
             "show_image": true,
@@ -383,14 +383,28 @@
           "type": "result_card",
           "settings": {
             "quote": "My dermatologist noticed.",
-            "name": "Nadia",
-            "age": "51",
+            "name": "Sophie",
+            "age": "40",
             "duration": "16 weeks",
-            "image": "shopify://shop_images/rosalia-review-nadia.png",
+            "image": "shopify://shop_images/Sophie_40.png",
             "rating": 5,
             "verified": false,
             "show_image": true,
             "comment": "<p>My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.</p>"
+          }
+        },
+        "res_6": {
+          "type": "result_card",
+          "settings": {
+            "quote": "The bumps stopped coming back.",
+            "name": "Ana",
+            "age": "29",
+            "duration": "9 weeks",
+            "image": "shopify://shop_images/Ana_29.png",
+            "rating": 5,
+            "verified": false,
+            "show_image": true,
+            "comment": "<p>I'd stopped counting the ones on my chin. Around week seven I realised I hadn't looked closely in the mirror in days — because there was nothing to check.</p>"
           }
         }
       },
@@ -399,7 +413,8 @@
         "res_2",
         "res_3",
         "res_4",
-        "res_5"
+        "res_5",
+        "res_6"
       ]
     },
     "ritual": {
