@@ -237,8 +237,8 @@
           "settings": {
             "image": "shopify://shop_images/Camille_34.png",
             "rating": 5,
-            "quote": "My cheeks stopped burning at 4pm.",
-            "comment": "<p>I stopped checking my face before meetings. By week six the 4pm burn just didn't come. My husband asked if I'd changed foundation — I'd stopped wearing it.</p>",
+            "quote": "I keep forgetting to check my face.",
+            "comment": "<p>Ok so the 4pm thing. My cheeks would start burning around then pretty much every day at work and I'd go sit in the bathroom for ten minutes until it passed. I realised last week I hadn't done that in a while. I couldn't tell you when it stopped, which is kind of the strange part — you don't notice the day it happens.</p>",
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
@@ -250,8 +250,8 @@
           "settings": {
             "image": "shopify://shop_images/Emily_42.png",
             "rating": 5,
-            "quote": "Foundation coverage cut in half.",
-            "comment": "<p>Two pumps of foundation down to half a pump of tinted moisturizer. I'm not 'glowing' — I'm just normal. And normal is everything when you've been red for a decade.</p>",
+            "quote": "Down to tinted moisturiser most days.",
+            "comment": "<p>I used to put on two pumps of full coverage before leaving the house. Now it's tinted moisturiser, and some days nothing. My skin isn't perfect, I still go red after a hot shower or a glass of wine, but it's not the first thing I see in the mirror anymore.</p><p>Took about six weeks before I noticed much, so don't panic if week two feels like nothing is happening.</p>",
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
@@ -262,9 +262,9 @@
           "type": "result_card",
           "settings": {
             "image": "shopify://shop_images/Sarah_38.png",
-            "rating": 5,
-            "quote": "First serum that didn't sting.",
-            "comment": "<p>First serum in six years that didn't sting going on. Week three, I stopped bracing before I applied it. Week six, I forgot I ever used to.</p>",
+            "rating": 4,
+            "quote": "It doesn't sting. That's why I kept going.",
+            "comment": "<p>Honestly I bought this half expecting to return it. Everything stings. This one didn't, first time in years, so I stuck with it. Six weeks in and the redness is calmer, especially around my nose.</p><p>Taking a star off for the dropper — it dribbles down the side of the bottle every time. Small thing but it bugs me.</p>",
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
@@ -276,8 +276,8 @@
           "settings": {
             "image": "shopify://shop_images/Julie_48.png",
             "rating": 5,
-            "quote": "The 3pm flush stopped happening.",
-            "comment": "<p>The 3pm flush used to be my office nickname. Twelve weeks in, it shows up maybe once a week — mild, gone in minutes. I don't plan meetings around my face anymore.</p>",
+            "quote": "I stopped scheduling around my face.",
+            "comment": "<p>For years I avoided afternoon meetings because I knew what my face would look like by then. I don't really think about that now. It still happens sometimes, usually when I'm stressed or it's warm out, but it's mild and it fades in a few minutes instead of sticking around all evening.</p>",
             "name": "Julie",
             "age": "48",
             "duration": "12 weeks",
@@ -289,8 +289,8 @@
           "settings": {
             "image": "shopify://shop_images/Sophie_40.png",
             "rating": 5,
-            "quote": "My dermatologist noticed.",
-            "comment": "<p>My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.</p>",
+            "quote": "My dermatologist asked what I'd changed.",
+            "comment": "<p>Went in for a routine check and she stopped halfway through and asked what I was using. I told her it was just this, and she wrote the name down.</p><p>I've been on and off prescriptions since my twenties. Nothing has held like this has.</p>",
             "name": "Sophie",
             "age": "40",
             "duration": "16 weeks",
@@ -300,15 +300,15 @@
         "res_6": {
           "type": "result_card",
           "settings": {
-            "quote": "The bumps stopped coming back.",
+            "quote": "the bumps are what actually changed",
             "name": "Ana",
             "age": "29",
             "duration": "9 weeks",
             "image": "shopify://shop_images/Ana_29.png",
-            "rating": 5,
+            "rating": 4,
             "verified": false,
             "show_image": true,
-            "comment": "<p>I'd stopped counting the ones on my chin. Around week seven I realised I hadn't looked closely in the mirror in days — because there was nothing to check.</p>"
+            "comment": "<p>the redness got better but honestly the bumps are the thing that changed for me. i had them along my jaw and chin constantly, like a whole cluster. now there's maybe one or two.</p><p>wish it was a bit cheaper tbh. but i've repurchased twice so.</p>"
           }
         }
       },
