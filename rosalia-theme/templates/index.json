@@ -1,36 +1,134 @@
 {
+  "name": "Rosalia — Homepage",
   "sections": {
-    "rich_text_rosalia": {
-      "type": "rich-text",
-      "blocks": {
-        "subheading": {
-          "type": "subheading",
-          "settings": {
-            "text": "Rosalia"
-          }
-        },
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "text": "The daily reset for reactive skin.",
-            "heading_tag": "h1"
-          }
-        },
-        "richtext": {
-          "type": "richtext",
-          "settings": {
-            "content": "<p>Coming soon — one serum, five clinical actives, sixty days to feel the shift.</p>"
-          }
-        }
-      },
-      "block_order": ["subheading", "heading", "richtext"],
+    "brand_hero": {
+      "type": "rosalia-brand-hero",
       "settings": {
-        "full_width": false,
-        "text_position": "center",
-        "background": "#FAF5F0",
-        "text_color": "#1F1A1C"
-      }
+        "background_image": "shopify://shop_images/rosalia-hero-homepage-01.png",
+        "overlay_opacity": 45,
+        "min_height_desktop": 720,
+        "min_height_mobile": 560,
+        "vertical_align": "center",
+        "horizontal_align": "center",
+        "text_align": "center"
+      },
+      "blocks": {
+        "eyebrow": { "type": "eyebrow", "settings": { "text": "Rosalia · Anti-Redness Serum" } },
+        "headline": { "type": "headline", "settings": { "text": "<p>Skin that stops <em>reacting</em>.</p>" } },
+        "subline": { "type": "subline", "settings": { "text": "Five clinical actives. Sixty days to feel the shift. Made for skin nothing else has been able to calm." } },
+        "ctas": { "type": "ctas", "settings": {
+          "primary_label": "Shop the serum",
+          "primary_url": "/products/daily-reset-serum",
+          "secondary_label": "See how it works",
+          "secondary_url": "/products/daily-reset-serum"
+        } },
+        "trust": { "type": "trust_row", "settings": {
+          "text_1": "No essential oils", "text_2": "Rosacea-tested", "text_3": "60-day guarantee", "text_4": "Made in France"
+        } }
+      },
+      "block_order": ["eyebrow", "headline", "subline", "ctas", "trust"]
+    },
+
+    "marquee": {
+      "type": "rosalia-marquee",
+      "settings": { "speed_seconds": 40 },
+      "blocks": {
+        "item_1": { "type": "item", "settings": { "text": "No essential oils" } },
+        "item_2": { "type": "item", "settings": { "text": "Five mechanisms at once" } },
+        "item_3": { "type": "item", "settings": { "text": "Rosacea-tested" } },
+        "item_4": { "type": "item", "settings": { "text": "Made in France" } },
+        "item_5": { "type": "item", "settings": { "text": "60-day guarantee" } },
+        "item_6": { "type": "item", "settings": { "text": "35,000+ women trust Rosalia" } }
+      },
+      "block_order": ["item_1", "item_2", "item_3", "item_4", "item_5", "item_6"]
+    },
+
+    "mechanism": {
+      "type": "rosalia-mechanism",
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "eyebrow": "The Reset Complex™",
+        "heading": "Rosacea was never <em>one problem</em>.",
+        "lead": "Your skin doesn't flush because of one broken thing.\nIt flushes because five systems misfire at once.\nThe Reset Complex pulls all five. At the same time."
+      },
+      "blocks": {
+        "lever_1": { "type": "lever", "settings": { "number": "01", "name": "Alarm", "emotional_line": "\"The overreaction that finally quiets.\"", "mechanism": "Calms the immune misread at the source — before it cascades into visible redness.", "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 3 3 8l9 5 9-5-9-5z\"/><path d=\"M3 13l9 5 9-5\"/><path d=\"M3 17l9 5 9-5\"/></svg>" } },
+        "lever_2": { "type": "lever", "settings": { "number": "02", "name": "Nerves", "emotional_line": "\"Triggers that stop being triggers.\"", "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire.", "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M13 2 4 14h6l-1 8 9-12h-6l1-8z\"/></svg>" } },
+        "lever_3": { "type": "lever", "settings": { "number": "03", "name": "Wall", "emotional_line": "\"Vessels that stop broadcasting.\"", "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush.", "icon_svg": "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/></svg>" } },
+        "lever_4": { "type": "lever", "settings": { "number": "04", "name": "Door", "emotional_line": "\"The barrier harsh actives stole — rebuilt.\"", "mechanism": "Restores the compromised skin barrier. This is what everything else depends on.", "icon_svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"1.5\"/><circle cx=\"14.2\" cy=\"12\" r=\"0.9\"/></svg>" } },
+        "lever_5": { "type": "lever", "settings": { "number": "05", "name": "Loop", "emotional_line": "\"The cycle finally breaks.\"", "mechanism": "Interrupts the anxiety-flush-anxiety spiral that keeps it going.", "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M20 12a8 8 0 1 1-2.34-5.66\"/><path d=\"M20 3v4h-4\"/></svg>" } }
+      },
+      "block_order": ["lever_1", "lever_2", "lever_3", "lever_4", "lever_5"]
+    },
+
+    "comparison": {
+      "type": "rosalia-comparison",
+      "settings": {
+        "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
+        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other.png"
+      },
+      "blocks": {
+        "row_1": { "type": "row", "settings": { "attribute": "The design", "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.", "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought." } },
+        "row_2": { "type": "row", "settings": { "attribute": "The mechanism", "rosalia_value": "Five levers at once — the loop broken from every side.", "other_value": "One hero ingredient. Fingers crossed it addresses your version." } },
+        "row_3": { "type": "row", "settings": { "attribute": "The proof", "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.", "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names." } },
+        "row_4": { "type": "row", "settings": { "attribute": "The promise", "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.", "other_value": "7-day return window. Unopened. Original packaging." } }
+      },
+      "block_order": ["row_1", "row_2", "row_3", "row_4"]
+    },
+
+    "results": {
+      "type": "rosalia-results",
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "eyebrow": "Real results",
+        "heading": "They stopped hiding. <em>Here's what changed.</em>",
+        "lead": "Real customers, in their own words. No filters, no paid endorsements."
+      },
+      "blocks": {
+        "res_1": { "type": "result_card", "settings": { "image": "shopify://shop_images/rosalia-review-camille.png", "rating": 5, "quote": "My cheeks stopped burning at 4pm.", "comment": "<p>I stopped checking my face before meetings. By week six the 4pm burn just didn't come. My husband asked if I'd changed foundation — I'd stopped wearing it.</p>", "name": "Camille", "age": "34", "duration": "8 weeks", "verified": true } },
+        "res_2": { "type": "result_card", "settings": { "image": "shopify://shop_images/rosalia-review-emily.png", "rating": 5, "quote": "Foundation coverage cut in half.", "comment": "<p>Two pumps of foundation down to half a pump of tinted moisturizer. I'm not 'glowing' — I'm just normal. And normal is everything when you've been red for a decade.</p>", "name": "Emily", "age": "42", "duration": "10 weeks", "verified": true } },
+        "res_3": { "type": "result_card", "settings": { "image": "shopify://shop_images/rosalia-review-sarah.png", "rating": 5, "quote": "First serum that didn't sting.", "comment": "<p>First serum in six years that didn't sting going on. Week three, I stopped bracing before I applied it. Week six, I forgot I ever used to.</p>", "name": "Sarah", "age": "38", "duration": "6 weeks", "verified": true } },
+        "res_4": { "type": "result_card", "settings": { "image": "shopify://shop_images/rosalia-review-laura.png", "rating": 5, "quote": "The 3pm flush stopped happening.", "comment": "<p>The 3pm flush used to be my office nickname. Twelve weeks in, it shows up maybe once a week — mild, gone in minutes. I don't plan meetings around my face anymore.</p>", "name": "Laura", "age": "45", "duration": "12 weeks", "verified": true } },
+        "res_5": { "type": "result_card", "settings": { "image": "shopify://shop_images/rosalia-review-nadia.png", "rating": 5, "quote": "My dermatologist noticed.", "comment": "<p>My dermatologist paused mid-exam and asked what I'd changed. Sixteen weeks of this, nothing else. She wrote the name down.</p>", "name": "Nadia", "age": "51", "duration": "16 weeks", "verified": true } }
+      },
+      "block_order": ["res_1", "res_2", "res_3", "res_4", "res_5"]
+    },
+
+    "authority": {
+      "type": "rosalia-authority",
+      "settings": { "padding_top": 50, "padding_bottom": 50 },
+      "blocks": {
+        "expert_1": { "type": "expert", "settings": { "portrait": "shopify://shop_images/rosalia-dr-helena-portrait.png" } }
+      },
+      "block_order": ["expert_1"]
+    },
+
+    "faq_home": {
+      "type": "rosalia-faq",
+      "settings": {
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "eyebrow": "Common questions",
+        "heading": "Before you <em>decide</em>."
+      },
+      "blocks": {
+        "q1": { "type": "qa", "settings": { "question": "Will this sting my reactive skin?", "answer": "<p>No. Zero essential oils, zero fragrance, zero known irritants. If your skin reacts — which it shouldn't — 60-day full refund.</p>" } },
+        "q2": { "type": "qa", "settings": { "question": "When will I see results?", "answer": "<p>Most customers see a shift between weeks 4 and 8. Full effect stabilizes around week 10–12.</p>" } },
+        "q3": { "type": "qa", "settings": { "question": "What if it doesn't work?", "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms.</p>" } },
+        "q4": { "type": "qa", "settings": { "question": "Is this safe during perimenopause?", "answer": "<p>Yes. Hormonal flushing is one of the specific patterns Rosalia was designed for. Several of our longest-term users are perimenopausal women.</p>" } }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"]
     }
   },
-  "order": ["rich_text_rosalia"]
+  "order": [
+    "brand_hero",
+    "marquee",
+    "mechanism",
+    "comparison",
+    "results",
+    "authority",
+    "faq_home"
+  ]
 }

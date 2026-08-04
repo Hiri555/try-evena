@@ -1,0 +1,55 @@
+{%- comment -%}
+  Rosalia utility icon set (Iconoir-derived, MIT).
+  Usage: {% render 'rosalia-icons', icon: 'check', size: 20, color: 'var(--rosalia-plum)' %}
+{%- endcomment -%}
+
+{%- assign size = size | default: 20 -%}
+{%- assign color = color | default: 'currentColor' -%}
+{%- assign stroke_width = stroke_width | default: 1.5 -%}
+
+{%- case icon -%}
+  {%- when 'check' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
+
+  {%- when 'arrow-right' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+
+  {%- when 'plus' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+
+  {%- when 'minus' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/></svg>
+
+  {%- when 'close' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+
+  {%- when 'chevron-down' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+
+  {%- when 'dropper' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v6M8 6h8M9 9v6a3 3 0 006 0V9"/></svg>
+
+  {%- when 'shield-check' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 9-8 10-4.5-1-8-5-8-10V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+
+  {%- when 'star' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="{{ color }}" aria-hidden="true"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5L7 14.5l-5-5 7-1L12 2z"/></svg>
+
+  {%- when 'cart' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l1.2 13a1 1 0 0 1-1 1.1H5.8a1 1 0 0 1-1-1.1L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
+
+  {%- when 'search' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+
+  {%- when 'user' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg>
+
+  {%- when 'heart' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-8-4.6-8-10a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.4-8 10-8 10z"/></svg>
+
+  {%- when 'share' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>
+
+  {%- when 'info' -%}
+    <svg xmlns="http://www.w3.org/2000/svg" width="{{ size }}" height="{{ size }}" viewBox="0 0 24 24" fill="none" stroke="{{ color }}" stroke-width="{{ stroke_width }}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.8v.4"/></svg>
+{%- endcase -%}

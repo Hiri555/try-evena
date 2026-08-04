@@ -1,0 +1,56 @@
+{%- comment -%}
+  Rosalia meta tags — Open Graph, Twitter Card, domain verification.
+  Rendered once from <head> in layout/theme.liquid.
+{%- endcomment -%}
+
+{%- assign meta_domain_verification = settings.meta_domain_verification | default: '' -%}
+{%- if meta_domain_verification != blank -%}
+  <meta name="facebook-domain-verification" content="{{ meta_domain_verification }}">
+{%- endif -%}
+
+{%- if template contains 'product' and product -%}
+  {%- assign og_title = product.title | append: ' — Rosalia' -%}
+  {%- assign og_description = product.description | strip_html | truncate: 160 -%}
+  {%- assign og_image = product.featured_image | image_url: width: 1200 -%}
+  {%- assign og_type = 'product' -%}
+{%- elsif template contains 'article' and article -%}
+  {%- assign og_title = article.title | append: ' — Rosalia Journal' -%}
+  {%- assign og_description = article.excerpt_or_content | strip_html | truncate: 160 -%}
+  {%- assign og_image = article.image | image_url: width: 1200 -%}
+  {%- assign og_type = 'article' -%}
+{%- elsif template contains 'page' and page -%}
+  {%- assign og_title = page.title | append: ' — Rosalia' -%}
+  {%- assign og_description = page.content | strip_html | truncate: 160 -%}
+  {%- assign og_type = 'website' -%}
+{%- else -%}
+  {%- assign og_title = 'Rosalia — Skin that stops reacting.' -%}
+  {%- assign og_description = 'The daily reset for reactive skin. Five clinical actives, sixty days to feel the shift.' -%}
+  {%- assign og_type = 'website' -%}
+{%- endif -%}
+
+{%- if og_image == blank and settings.social_share_image != blank -%}
+  {%- assign og_image = settings.social_share_image | image_url: width: 1200 -%}
+{%- endif -%}
+
+<meta property="og:site_name" content="Rosalia">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:description" content="{{ og_description | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:url" content="{{ canonical_url }}">
+{%- if og_image != blank -%}
+  <meta property="og:image" content="{{ og_image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+{%- endif -%}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_description | escape }}">
+{%- if og_image != blank -%}
+  <meta name="twitter:image" content="{{ og_image }}">
+{%- endif -%}
+{%- if settings.twitter_handle != blank -%}
+  <meta name="twitter:site" content="{{ settings.twitter_handle }}">
+{%- endif -%}
+
+<meta name="msapplication-TileColor" content="#7A3A54">

@@ -5,7 +5,7 @@
   #shopify-section-{{ section.id }} {
     background: {{ section.settings.background | default: 'var(--rosalia-beige)' }};
     color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
-    padding-block: {{ section.settings.padding_top | default: 100 }}px {{ section.settings.padding_bottom | default: 100 }}px;
+    padding-block: {{ section.settings.padding_top | default: 50 }}px {{ section.settings.padding_bottom | default: 50 }}px;
   }
   #shopify-section-{{ section.id }} .rosalia-res-wrap {
     max-width: {{ section.settings.max_width | default: 1200 }}px;
@@ -23,61 +23,110 @@
   #shopify-section-{{ section.id }} .rosalia-mechanism-heading em { font-style: italic; color: var(--rosalia-plum); }
   #shopify-section-{{ section.id }} .rosalia-mechanism-lead {
     font-family: var(--rosalia-font-serif); font-style: italic; font-size: 17px;
-    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 48px;
+    color: var(--rosalia-gray); line-height: 1.5; max-width: 540px; margin-bottom: 12px;
   }
+
+  /* Aggregate rating strip */
+  #shopify-section-{{ section.id }} .rosalia-res-agg {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 32px; flex-wrap: wrap;
+  }
+  #shopify-section-{{ section.id }} .rosalia-res-agg-stars { display: inline-flex; gap: 2px; }
+  #shopify-section-{{ section.id }} .rosalia-res-agg-stars svg { width: 15px; height: 15px; fill: var(--rosalia-pink); }
+  #shopify-section-{{ section.id }} .rosalia-res-agg-score {
+    font-family: var(--rosalia-font-serif); font-size: 19px; font-weight: 600; color: var(--rosalia-plum);
+  }
+  #shopify-section-{{ section.id }} .rosalia-res-agg-count { font-size: 12px; color: var(--rosalia-gray); }
 
   #shopify-section-{{ section.id }} .rosalia-res-scroll {
     display: flex;
-    gap: 18px;
+    gap: 16px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 16px;
+    padding-bottom: 14px;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
   #shopify-section-{{ section.id }} .rosalia-res-scroll::-webkit-scrollbar { display: none; }
   #shopify-section-{{ section.id }} .rosalia-res-card {
-    flex: 0 0 340px;
+    flex: 0 0 330px;
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
     background: var(--rosalia-white);
-    border: 1.5px solid var(--rosalia-pink-light);
-    border-radius: 12px;
+    border: 1px solid var(--rosalia-pink-light);
+    border-radius: 14px;
     overflow: hidden;
-    transition: all 0.4s var(--rosalia-ease);
+    transition: border-color 0.4s var(--rosalia-ease), box-shadow 0.4s var(--rosalia-ease);
   }
   #shopify-section-{{ section.id }} .rosalia-res-card:hover {
     border-color: var(--rosalia-pink);
-    box-shadow: 0 8px 32px rgba(122, 58, 84, 0.08);
+    box-shadow: 0 10px 34px rgba(122, 58, 84, 0.07);
   }
   #shopify-section-{{ section.id }} .rosalia-res-card-img {
-    height: 280px;
+    aspect-ratio: 4 / 3;
     background: linear-gradient(135deg, var(--rosalia-beige), var(--rosalia-pink-light));
     display: flex; align-items: center; justify-content: center;
     color: var(--rosalia-gray-2); font-style: italic; font-size: 12px;
     text-align: center; padding: 12px;
   }
   #shopify-section-{{ section.id }} .rosalia-res-card-img img { width: 100%; height: 100%; object-fit: cover; }
-  #shopify-section-{{ section.id }} .rosalia-res-card-body { padding: 20px 22px; }
+  #shopify-section-{{ section.id }} .rosalia-res-card-body { padding: 18px 20px 20px; flex: 1 1 auto; display: flex; flex-direction: column; }
+  #shopify-section-{{ section.id }} .rosalia-res-card-stars { display: inline-flex; gap: 2px; margin-bottom: 10px; }
+  #shopify-section-{{ section.id }} .rosalia-res-card-stars svg { width: 13px; height: 13px; fill: var(--rosalia-pink); }
+  #shopify-section-{{ section.id }} .rosalia-res-card-stars svg.is-empty { fill: var(--rosalia-pink-light); }
   #shopify-section-{{ section.id }} .rosalia-res-card-quote {
     font-family: var(--rosalia-font-serif);
-    font-style: italic;
-    font-size: 16px;
+    font-size: 17px;
+    line-height: 1.3;
     color: var(--rosalia-wine);
-    line-height: 1.4;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-res-card-comment {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--rosalia-gray);
+    margin-bottom: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-res-card-comment p { margin: 0 0 8px; }
+  #shopify-section-{{ section.id }} .rosalia-res-card-comment p:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section.id }} .rosalia-res-card-foot {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid var(--rosalia-pink-light);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
   #shopify-section-{{ section.id }} .rosalia-res-card-meta {
     font-size: 12px;
-    color: var(--rosalia-gray);
+    color: var(--rosalia-dark);
     font-weight: 600;
   }
+  #shopify-section-{{ section.id }} .rosalia-res-card-meta span { font-weight: 400; color: var(--rosalia-gray); }
+  #shopify-section-{{ section.id }} .rosalia-res-card-verified {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+    color: var(--rosalia-plum);
+    background: var(--rosalia-pink-light);
+    border-radius: 100px;
+    padding: 4px 9px;
+    white-space: nowrap;
+  }
+  #shopify-section-{{ section.id }} .rosalia-res-card-verified svg { width: 10px; height: 10px; stroke: currentColor; fill: none; stroke-width: 2.4; }
 
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-res-card { transition: none; }
+  }
   @media (max-width: 749px) {
     #shopify-section-{{ section.id }} .rosalia-res-wrap { padding-inline: 24px; }
     #shopify-section-{{ section.id }} .rosalia-res-card { flex-basis: 280px; }
-    #shopify-section-{{ section.id }} .rosalia-res-card-img { height: 230px; }
   }
 </style>
+
+{%- capture star_full -%}<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5L7 14.5l-5-5 7-1L12 2z"/></svg>{%- endcapture -%}
+{%- capture star_empty -%}<svg viewBox="0 0 24 24" class="is-empty" aria-hidden="true"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5L7 14.5l-5-5 7-1L12 2z"/></svg>{%- endcapture -%}
 
 <div {% render 'section-properties', tight: true %}>
   <div class="rosalia-res-wrap">
@@ -91,33 +140,66 @@
       <p class="rosalia-mechanism-lead">{{ section.settings.lead }}</p>
     {%- endif -%}
 
-    <div class="rosalia-res-scroll" role="region" aria-label="Customer results">
+    {%- if section.settings.show_aggregate -%}
+      <div class="rosalia-res-agg">
+        <span class="rosalia-res-agg-stars">
+          {%- for i in (1..5) -%}{{ star_full }}{%- endfor -%}
+        </span>
+        <span class="rosalia-res-agg-score">{{ section.settings.aggregate_score | default: '4.8' }}</span>
+        <span class="rosalia-res-agg-count">{{ section.settings.aggregate_count }}</span>
+      </div>
+    {%- endif -%}
+
+    <div class="rosalia-res-scroll" role="region" aria-label="Customer reviews">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'result_card' -%}
             <article class="rosalia-res-card" {{ block.shopify_attributes }}>
-              <div class="rosalia-res-card-img">
-                {%- if block.settings.image != blank -%}
-                  {{ block.settings.image | image_url: width: 680 | image_tag: loading: 'lazy', alt: block.settings.name }}
-                {%- else -%}
-                  <span>{{ block.settings.name | default: 'Customer' }} · Before/After placeholder</span>
-                {%- endif -%}
-              </div>
+              {%- if block.settings.show_image -%}
+                <div class="rosalia-res-card-img">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 680 | image_tag: loading: 'lazy', alt: block.settings.name }}
+                  {%- else -%}
+                    <span>{{ block.settings.name | default: 'Customer' }} · add a photo</span>
+                  {%- endif -%}
+                </div>
+              {%- endif -%}
               <div class="rosalia-res-card-body">
-                <div class="rosalia-res-card-quote">"{{ block.settings.quote }}"</div>
-                <div class="rosalia-res-card-meta">
-                  {{- block.settings.name -}}
-                  {%- if block.settings.age != blank -%} · {{ block.settings.age }}{%- endif -%}
-                  {%- if block.settings.duration != blank -%} · {{ block.settings.duration }}{%- endif -%}
+                {%- assign rating = block.settings.rating | default: 5 | plus: 0 -%}
+                <span class="rosalia-res-card-stars" aria-label="{{ rating }} out of 5 stars">
+                  {%- for i in (1..5) -%}
+                    {%- if i <= rating -%}{{ star_full }}{%- else -%}{{ star_empty }}{%- endif -%}
+                  {%- endfor -%}
+                </span>
+
+                {%- if block.settings.quote != blank -%}
+                  <div class="rosalia-res-card-quote">{{ block.settings.quote }}</div>
+                {%- endif -%}
+                {%- if block.settings.comment != blank -%}
+                  <div class="rosalia-res-card-comment">{{ block.settings.comment }}</div>
+                {%- endif -%}
+
+                <div class="rosalia-res-card-foot">
+                  <div class="rosalia-res-card-meta">
+                    {{- block.settings.name -}}
+                    {%- if block.settings.age != blank -%}<span> · {{ block.settings.age }}</span>{%- endif -%}
+                    {%- if block.settings.duration != blank -%}<span> · {{ block.settings.duration }}</span>{%- endif -%}
+                  </div>
+                  {%- if block.settings.verified -%}
+                    <span class="rosalia-res-card-verified">
+                      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+                      {{ block.settings.verified_label | default: 'Verified' }}
+                    </span>
+                  {%- endif -%}
                 </div>
               </div>
             </article>
 
           {%- when 'richtext' -%}
-            <div class="rosalia-res-card" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+            <div class="rosalia-res-card" {{ block.shopify_attributes }}><div class="rosalia-res-card-body">{{ block.settings.content }}</div></div>
 
           {%- when 'liquid' -%}
-            <div class="rosalia-res-card" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+            <div class="rosalia-res-card" {{ block.shopify_attributes }}><div class="rosalia-res-card-body">{{ block.settings.custom_liquid }}</div></div>
 
           {%- when '@app' -%}
             {%- render block -%}
@@ -134,12 +216,16 @@
   "settings": [
     { "type": "header", "content": "Content" },
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real results" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "What <em>eight weeks</em> looks like." },
-    { "type": "textarea", "id": "lead", "label": "Lead", "default": "Actual customers. No filters. No paid endorsements." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "They stopped hiding. <em>Here's what changed.</em>" },
+    { "type": "textarea", "id": "lead", "label": "Lead", "default": "Real customers, in their own words. No filters, no paid endorsements." },
+    { "type": "header", "content": "Aggregate rating" },
+    { "type": "checkbox", "id": "show_aggregate", "label": "Show rating summary", "default": true },
+    { "type": "text", "id": "aggregate_score", "label": "Score", "default": "4.8" },
+    { "type": "text", "id": "aggregate_count", "label": "Count label", "default": "based on 2,847 verified reviews" },
     { "type": "header", "content": "Layout" },
     { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 900, "max": 1400, "step": 50, "default": 1200 },
-    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
-    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 20, "max": 200, "step": 10, "default": 50 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 20, "max": 200, "step": 10, "default": 50 },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background", "label": "Background", "default": "#F5EFEA" },
     { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" }
@@ -148,20 +234,26 @@
     { "type": "@app" },
     {
       "type": "result_card",
-      "name": "Result card",
+      "name": "Review card",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Before/After image", "info": "Recommended: 680×560px. Split composition. Falls back to gradient placeholder if empty." },
-        { "type": "textarea", "id": "quote", "label": "Quote", "default": "My cheeks stopped burning at 4pm." },
+        { "type": "paragraph", "content": "Add one block per review. Duplicate this block to add as many reviews as you want." },
+        { "type": "checkbox", "id": "show_image", "label": "Show photo", "default": true },
+        { "type": "image_picker", "id": "image", "label": "Customer photo", "info": "Recommended 4:3 (e.g. 680×510). Before/after or lifestyle." },
+        { "type": "range", "id": "rating", "label": "Star rating", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "quote", "label": "Headline quote", "info": "One short punchy line, shown large in serif.", "default": "My cheeks stopped burning at 4pm." },
+        { "type": "richtext", "id": "comment", "label": "Full review", "info": "The longer comment, below the headline.", "default": "<p>I'd tried everything before this. Six weeks in, the 4pm burn just stopped coming.</p>" },
         { "type": "text", "id": "name", "label": "Name", "default": "Camille" },
         { "type": "text", "id": "age", "label": "Age", "default": "34" },
-        { "type": "text", "id": "duration", "label": "Duration", "default": "8 weeks" }
+        { "type": "text", "id": "duration", "label": "Duration of use", "default": "8 weeks" },
+        { "type": "checkbox", "id": "verified", "label": "Show verified badge", "default": true },
+        { "type": "text", "id": "verified_label", "label": "Verified badge text", "default": "Verified buyer" }
       ]
     },
     { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
     { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
   ],
   "presets": [
-    { "name": "Rosalia — Results (5 cards)", "blocks": [
+    { "name": "Rosalia — Results (5 reviews)", "blocks": [
       { "type": "result_card", "settings": { "quote": "My cheeks stopped burning at 4pm.", "name": "Camille", "age": "34", "duration": "8 weeks" } },
       { "type": "result_card", "settings": { "quote": "Foundation coverage cut in half.", "name": "Emily", "age": "42", "duration": "10 weeks" } },
       { "type": "result_card", "settings": { "quote": "First time in six years my skin doesn't sting.", "name": "Sarah", "age": "38", "duration": "6 weeks" } },

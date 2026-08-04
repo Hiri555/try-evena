@@ -1,0 +1,144 @@
+{%- render 'rosalia-tokens' -%}
+
+{%- if section.blocks.size > 0 -%}
+  <style>
+    #shopify-section-{{ section.id }} .rosalia-ann {
+      background: {{ section.settings.background | default: '#4B1528' }};
+      color: {{ section.settings.text_color | default: '#FAF5F0' }};
+      overflow: hidden;
+      white-space: nowrap;
+      height: {{ section.settings.height | default: 36 }}px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    #shopify-section-{{ section.id }} .rosalia-ann-track {
+      display: inline-flex;
+      align-items: center;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #shopify-section-{{ section.id }} .rosalia-ann-track {
+        animation: rosaliaAnn-{{ section.id }} {{ section.settings.speed_seconds | default: 35 }}s linear infinite;
+        {% if section.settings.direction == 'right' %}animation-direction: reverse;{% endif %}
+      }
+    }
+    {% if section.settings.pause_on_hover %}
+    #shopify-section-{{ section.id }} .rosalia-ann:hover .rosalia-ann-track { animation-play-state: paused; }
+    {% endif %}
+    #shopify-section-{{ section.id }} .rosalia-ann-item {
+      font-family: var(--rosalia-font-sans);
+      font-size: {{ section.settings.item_font_size | default: 11 }}px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: inherit;
+      padding: 0 {{ section.settings.item_gap | default: 36 }}px;
+      font-weight: 500;
+      opacity: .9;
+    }
+    #shopify-section-{{ section.id }} .rosalia-ann-sep {
+      font-size: 6px;
+      color: {{ section.settings.separator_color | default: '#E3A1B6' }};
+      padding: 0 4px;
+      opacity: .4;
+    }
+    #shopify-section-{{ section.id }} .rosalia-ann-close {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: {{ section.settings.text_color | default: '#FAF5F0' }};
+      opacity: .6;
+      cursor: pointer;
+      padding: 6px;
+      font-size: 12px;
+      line-height: 1;
+    }
+    #shopify-section-{{ section.id }} .rosalia-ann-close:hover { opacity: 1; }
+    #shopify-section-{{ section.id }} .rosalia-ann.rosalia-ann--hidden { display: none; }
+
+    @keyframes rosaliaAnn-{{ section.id }} {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+
+  <div class="rosalia-ann" role="marquee" aria-label="{{ section.settings.aria_label | default: 'Announcements' }}">
+    <div class="rosalia-ann-track">
+      {%- for i in (1..2) -%}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'item' -%}
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="rosalia-ann-item" style="text-decoration:none;color:inherit" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
+              {%- else -%}
+                <span class="rosalia-ann-item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+              {%- endif -%}
+              <span class="rosalia-ann-sep" aria-hidden="true">{{ section.settings.separator | default: '◆' }}</span>
+          {%- endcase -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.dismissible -%}
+      <button type="button" class="rosalia-ann-close" data-role="dismiss" aria-label="Dismiss announcement">×</button>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.dismissible -%}
+    <script>
+      (function() {
+        const section = document.getElementById('shopify-section-{{ section.id }}');
+        if (!section) return;
+        const bar = section.querySelector('.rosalia-ann');
+        const btn = section.querySelector('[data-role="dismiss"]');
+        const key = 'rosalia_ann_dismissed_{{ section.id }}';
+        if (sessionStorage.getItem(key) === '1') { bar.classList.add('rosalia-ann--hidden'); return; }
+        btn.addEventListener('click', () => {
+          bar.classList.add('rosalia-ann--hidden');
+          try { sessionStorage.setItem(key, '1'); } catch(e) {}
+        });
+      })();
+    </script>
+  {%- endif -%}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Rosalia — Announcement bar",
+  "class": "shopify-section--announcement-bar shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "separator", "label": "Separator character", "default": "◆" },
+    { "type": "text", "id": "aria_label", "label": "Accessibility label", "default": "Site announcements" },
+    { "type": "checkbox", "id": "dismissible", "label": "Dismissible (close button)", "default": false },
+    { "type": "header", "content": "Motion" },
+    { "type": "range", "id": "speed_seconds", "label": "Scroll duration (s)", "min": 10, "max": 120, "step": 2, "default": 35, "unit": "s" },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause on hover", "default": true },
+    { "type": "select", "id": "direction", "label": "Direction", "options": [{"value":"left","label":"Left"},{"value":"right","label":"Right"}], "default": "left" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "height", "label": "Bar height (px)", "min": 28, "max": 72, "step": 2, "default": 36 },
+    { "type": "range", "id": "item_font_size", "label": "Item font size (px)", "min": 10, "max": 16, "step": 1, "default": 11 },
+    { "type": "range", "id": "item_gap", "label": "Item gap (px)", "min": 20, "max": 80, "step": 4, "default": 36 },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#4B1528" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#FAF5F0" },
+    { "type": "color", "id": "separator_color", "label": "Separator", "default": "#E3A1B6" }
+  ],
+  "blocks": [
+    { "type": "item", "name": "Announcement item", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "Free shipping over $50" },
+      { "type": "url", "id": "link", "label": "Link (optional)" }
+    ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Announcement bar", "blocks": [
+      { "type": "item", "settings": { "text": "Free shipping over $50" } },
+      { "type": "item", "settings": { "text": "60-day reset guarantee" } },
+      { "type": "item", "settings": { "text": "Formulated for reactive skin" } },
+      { "type": "item", "settings": { "text": "Rosacea-tested · Fragrance-free · No essential oils" } }
+    ] }
+  ]
+}
+{% endschema %}

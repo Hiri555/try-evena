@@ -1,0 +1,307 @@
+{%- render 'rosalia-tokens' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    --hero-min-height-desktop: {{ section.settings.min_height_desktop | default: 640 }}px;
+    --hero-min-height-mobile: {{ section.settings.min_height_mobile | default: 520 }}px;
+    --hero-overlay-opacity: {{ section.settings.overlay_opacity | default: 40 | divided_by: 100.0 }};
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-hero {
+    position: relative;
+    width: 100%;
+    min-height: var(--hero-min-height-mobile);
+    display: flex;
+    align-items: {{ section.settings.vertical_align | default: 'center' }};
+    justify-content: {{ section.settings.horizontal_align | default: 'center' }};
+    overflow: hidden;
+    background: {{ section.settings.background_color | default: '#F5EFEA' }};
+    color: {{ section.settings.text_color | default: '#1F1A1C' }};
+    padding: {{ section.settings.padding_y | default: 80 }}px 32px;
+    isolation: isolate;
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-bg img,
+  #shopify-section-{{ section.id }} .rosalia-hero-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: {{ section.settings.image_focal | default: 'center' }};
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(31, 26, 28, 0) 0%, rgba(75, 21, 40, var(--hero-overlay-opacity)) 100%);
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-hero-inner {
+    max-width: {{ section.settings.content_max_width | default: 720 }}px;
+    text-align: {{ section.settings.text_align | default: 'center' }};
+    {%- if section.settings.background_image != blank or section.settings.background_video != blank or section.settings.background_video_url != blank -%}
+    color: {{ section.settings.text_color_on_bg | default: '#FAF5F0' }};
+    {%- endif -%}
+    animation: rosaliaHeroIn 1.2s var(--rosalia-ease) both;
+  }
+  @keyframes rosaliaHeroIn {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-hero-inner { animation: none; }
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-hero-eyebrow {
+    font-family: var(--rosalia-font-sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: {{ section.settings.accent_color | default: '#E3A1B6' }};
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-headline {
+    font-family: var(--rosalia-font-serif);
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-headline p { margin: 0; }
+  #shopify-section-{{ section.id }} .rosalia-hero-headline em {
+    font-style: italic;
+    color: {{ section.settings.accent_color | default: '#E3A1B6' }};
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-subline {
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.4;
+    margin: 0 0 36px;
+    opacity: 0.92;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-ctas {
+    display: inline-flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    text-decoration: none;
+    border-radius: 100px;
+    font-family: var(--rosalia-font-serif);
+    font-style: italic;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.4s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-cta--primary {
+    background: {{ section.settings.cta_primary_bg | default: '#7A3A54' }};
+    color: {{ section.settings.cta_primary_text | default: '#FAF5F0' }};
+    border: 1px solid {{ section.settings.cta_primary_bg | default: '#7A3A54' }};
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-cta--primary:hover {
+    background: #4B1528;
+    border-color: #4B1528;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-cta--secondary {
+    background: transparent;
+    color: inherit;
+    border: 1px solid currentColor;
+    font-family: var(--rosalia-font-sans);
+    font-style: normal;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 17px 26px;
+    font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-cta--secondary:hover {
+    background: {{ section.settings.cta_primary_bg | default: '#7A3A54' }};
+    border-color: {{ section.settings.cta_primary_bg | default: '#7A3A54' }};
+    color: {{ section.settings.cta_primary_text | default: '#FAF5F0' }};
+  }
+
+  #shopify-section-{{ section.id }} .rosalia-hero-trust {
+    display: inline-flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: var(--rosalia-font-sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-hero-trust-item::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: {{ section.settings.accent_color | default: '#E3A1B6' }};
+    transform: rotate(45deg);
+    display: inline-block;
+  }
+
+  @media (min-width: 750px) {
+    #shopify-section-{{ section.id }} .rosalia-hero {
+      min-height: var(--hero-min-height-desktop);
+      padding: {{ section.settings.padding_y_desktop | default: 120 }}px 48px;
+    }
+  }
+</style>
+
+<section class="rosalia-hero" role="region" aria-label="{{ section.settings.aria_label | default: 'Homepage hero' }}">
+  {%- if section.settings.background_image != blank or section.settings.background_video != blank or section.settings.background_video_url != blank -%}
+    <div class="rosalia-hero-bg">
+      {%- if section.settings.background_video != blank -%}
+        <video autoplay muted loop playsinline>
+          <source src="{{ section.settings.background_video.sources.first.url }}" type="video/mp4">
+        </video>
+      {%- elsif section.settings.background_video_url != blank -%}
+        <video autoplay muted loop playsinline>
+          <source src="{{ section.settings.background_video_url }}" type="video/mp4">
+        </video>
+      {%- elsif section.settings.background_image != blank -%}
+        {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.aria_label, sizes: '100vw' }}
+      {%- endif -%}
+    </div>
+    <div class="rosalia-hero-overlay"></div>
+  {%- endif -%}
+
+  <div class="rosalia-hero-inner">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when 'eyebrow' -%}
+          {%- if block.settings.text != blank -%}
+            <div class="rosalia-hero-eyebrow" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+          {%- endif -%}
+
+        {%- when 'headline' -%}
+          {%- if block.settings.text != blank -%}
+            <h1 class="rosalia-hero-headline" {{ block.shopify_attributes }}>{{ block.settings.text }}</h1>
+          {%- endif -%}
+
+        {%- when 'subline' -%}
+          {%- if block.settings.text != blank -%}
+            <p class="rosalia-hero-subline" {{ block.shopify_attributes }}>{{ block.settings.text }}</p>
+          {%- endif -%}
+
+        {%- when 'ctas' -%}
+          <div class="rosalia-hero-ctas" {{ block.shopify_attributes }}>
+            {%- if block.settings.primary_label != blank and block.settings.primary_url != blank -%}
+              <a href="{{ block.settings.primary_url }}" class="rosalia-hero-cta rosalia-hero-cta--primary">
+                {{ block.settings.primary_label }}
+                <span aria-hidden="true">→</span>
+              </a>
+            {%- endif -%}
+            {%- if block.settings.secondary_label != blank and block.settings.secondary_url != blank -%}
+              <a href="{{ block.settings.secondary_url }}" class="rosalia-hero-cta rosalia-hero-cta--secondary">
+                {{ block.settings.secondary_label }}
+              </a>
+            {%- endif -%}
+          </div>
+
+        {%- when 'trust_row' -%}
+          <div class="rosalia-hero-trust" {{ block.shopify_attributes }}>
+            {%- for i in (1..4) -%}
+              {%- assign key = 'text_' | append: i -%}
+              {%- assign val = block.settings[key] -%}
+              {%- if val != blank -%}
+                <span class="rosalia-hero-trust-item">{{ val }}</span>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+
+        {%- when 'richtext' -%}
+          <div class="rosalia-hero-richtext" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+
+        {%- when 'liquid' -%}
+          <div class="rosalia-hero-liquid" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+
+        {%- when '@app' -%}
+          {%- render block -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Rosalia — Brand hero",
+  "class": "shopify-section--rosalia",
+  "settings": [
+    { "type": "header", "content": "Background" },
+    { "type": "image_picker", "id": "background_image", "label": "Background image", "info": "Recommended: 2400×1200. Falls back to color if empty." },
+    { "type": "video", "id": "background_video", "label": "Background video (Shopify upload)", "info": "Muted looped autoplay. Takes priority over image." },
+    { "type": "url", "id": "background_video_url", "label": "Background video URL (MP4 direct link)", "info": "Used only if Video is empty." },
+    { "type": "select", "id": "image_focal", "label": "Image focal point", "options": [
+      {"value":"center","label":"Center"},{"value":"top","label":"Top"},{"value":"bottom","label":"Bottom"},{"value":"left","label":"Left"},{"value":"right","label":"Right"}
+    ], "default": "center" },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay darkness (%)", "min": 0, "max": 80, "step": 5, "default": 40 },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "min_height_desktop", "label": "Min height desktop (px)", "min": 400, "max": 900, "step": 20, "default": 640 },
+    { "type": "range", "id": "min_height_mobile", "label": "Min height mobile (px)", "min": 300, "max": 800, "step": 20, "default": 520 },
+    { "type": "range", "id": "padding_y", "label": "Mobile vertical padding (px)", "min": 40, "max": 160, "step": 8, "default": 80 },
+    { "type": "range", "id": "padding_y_desktop", "label": "Desktop vertical padding (px)", "min": 60, "max": 240, "step": 8, "default": 120 },
+    { "type": "range", "id": "content_max_width", "label": "Content max width (px)", "min": 480, "max": 1000, "step": 20, "default": 720 },
+    { "type": "select", "id": "vertical_align", "label": "Vertical align", "options": [{"value":"flex-start","label":"Top"},{"value":"center","label":"Center"},{"value":"flex-end","label":"Bottom"}], "default": "center" },
+    { "type": "select", "id": "horizontal_align", "label": "Horizontal align", "options": [{"value":"flex-start","label":"Left"},{"value":"center","label":"Center"},{"value":"flex-end","label":"Right"}], "default": "center" },
+    { "type": "select", "id": "text_align", "label": "Text align", "options": [{"value":"left","label":"Left"},{"value":"center","label":"Center"},{"value":"right","label":"Right"}], "default": "center" },
+    { "type": "text", "id": "aria_label", "label": "Accessibility label", "default": "Rosalia — Daily Reset Serum" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "background_color", "label": "Background color (if no image)", "default": "#F5EFEA" },
+    { "type": "color", "id": "text_color", "label": "Text color (no bg image)", "default": "#1F1A1C" },
+    { "type": "color", "id": "text_color_on_bg", "label": "Text color (over image)", "default": "#FAF5F0" },
+    { "type": "color", "id": "accent_color", "label": "Accent", "default": "#E3A1B6" },
+    { "type": "color", "id": "cta_primary_bg", "label": "Primary CTA background", "default": "#7A3A54" },
+    { "type": "color", "id": "cta_primary_text", "label": "Primary CTA text", "default": "#FAF5F0" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "eyebrow", "name": "Eyebrow", "limit": 1, "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "Rosalia · Anti-Redness Serum" }
+    ] },
+    { "type": "headline", "name": "Headline", "limit": 1, "settings": [
+      { "type": "richtext", "id": "text", "label": "Headline", "default": "<p>Skin that stops <em>reacting</em>.</p>" }
+    ] },
+    { "type": "subline", "name": "Subline", "limit": 1, "settings": [
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Five clinical actives. Sixty days to feel the shift. Made for skin nothing else has been able to calm." }
+    ] },
+    { "type": "ctas", "name": "CTAs", "limit": 1, "settings": [
+      { "type": "text", "id": "primary_label", "label": "Primary CTA label", "default": "Shop the serum" },
+      { "type": "url", "id": "primary_url", "label": "Primary CTA URL" },
+      { "type": "text", "id": "secondary_label", "label": "Secondary CTA label", "default": "Read the science" },
+      { "type": "url", "id": "secondary_url", "label": "Secondary CTA URL" }
+    ] },
+    { "type": "trust_row", "name": "Trust signals row", "limit": 1, "settings": [
+      { "type": "text", "id": "text_1", "label": "Signal 1", "default": "No essential oils" },
+      { "type": "text", "id": "text_2", "label": "Signal 2", "default": "Rosacea-tested" },
+      { "type": "text", "id": "text_3", "label": "Signal 3", "default": "60-day guarantee" },
+      { "type": "text", "id": "text_4", "label": "Signal 4", "default": "Made in France" }
+    ] },
+    { "type": "richtext", "name": "Rich text", "settings": [ { "type": "richtext", "id": "content", "label": "Content" } ] },
+    { "type": "liquid", "name": "Custom Liquid", "settings": [ { "type": "liquid", "id": "custom_liquid", "label": "Liquid code" } ] }
+  ],
+  "presets": [
+    { "name": "Rosalia — Brand hero", "blocks": [
+      { "type": "eyebrow" }, { "type": "headline" }, { "type": "subline" }, { "type": "ctas" }, { "type": "trust_row" }
+    ] }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,69 @@
+{%- comment -%}
+  Rosalia custom event tracking.
+  Rendered before </body> in layout/theme.liquid.
+  Fires ONLY custom events — standard events (ViewContent, AddToCart…) are handled
+  by Shopify's Facebook/TikTok/Google sales channels. No double-fire.
+{%- endcomment -%}
+
+<script data-rosalia-datalayer>
+  (function() {
+    window.dataLayer = window.dataLayer || [];
+
+    function track(eventName, properties) {
+      window.dataLayer.push(Object.assign({ event: eventName }, properties));
+      if (typeof fbq === 'function') { fbq('trackCustom', eventName, properties); }
+      if (typeof ttq === 'object' && ttq && typeof ttq.track === 'function') { ttq.track(eventName, properties); }
+    }
+
+    window.rosaliaTrack = track;
+
+    document.addEventListener('click', function(e) {
+      var symCard = e.target.closest && e.target.closest('.rosalia-symptom-card');
+      if (symCard) {
+        var nameEl = symCard.querySelector('.rosalia-symptom-card-name');
+        track('SymptomOpened', {
+          symptom_index: symCard.dataset.index,
+          symptom_name: nameEl ? nameEl.textContent.trim() : 'unknown'
+        });
+        return;
+      }
+
+      var playBtn = e.target.closest && e.target.closest('.rosalia-rit-play');
+      if (playBtn) {
+        var card = e.target.closest('.rosalia-rit-card');
+        var titleEl = card && card.querySelector('.rosalia-rit-title');
+        track('RitualVideoPlayed', { step_title: titleEl ? titleEl.textContent.trim() : 'unknown' });
+        return;
+      }
+
+      var cta = e.target.closest && e.target.closest('.rosalia-hero-cta');
+      if (cta) {
+        var isPrimary = cta.classList.contains('rosalia-hero-cta--primary');
+        track(isPrimary ? 'HeroPrimaryCTAClicked' : 'HeroSecondaryCTAClicked', {
+          label: cta.textContent.trim(),
+          href: cta.getAttribute('href')
+        });
+      }
+    });
+
+    document.addEventListener('change', function(e) {
+      var tierEl = e.target.closest && e.target.closest('.rosalia-tier');
+      if (tierEl && e.target.matches('input[type="radio"]')) {
+        var nameEl = tierEl.querySelector('.rosalia-tier-name');
+        var priceEl = tierEl.querySelector('.rosalia-tier-price-current');
+        track('TierSelected', {
+          tier_name: nameEl ? nameEl.textContent.trim() : 'unknown',
+          tier_price: priceEl ? priceEl.textContent.trim() : null,
+          variant_id: e.target.value
+        });
+      }
+    });
+
+    document.addEventListener('toggle', function(e) {
+      if (e.target.matches && e.target.matches('details.rosalia-faq-item') && e.target.open) {
+        var q = e.target.querySelector('.rosalia-faq-q span');
+        track('FAQOpened', { question: q ? q.textContent.trim() : 'unknown' });
+      }
+    }, true);
+  })();
+</script>

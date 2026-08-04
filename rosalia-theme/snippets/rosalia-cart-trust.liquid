@@ -1,0 +1,8 @@
+{%- comment -%}
+  Rosalia cart trust row. Rendered inside sections/cart-drawer.liquid after the free-shipping bar.
+{%- endcomment -%}
+<div class="rosalia-cart-trust" role="list">
+  <div class="rosalia-cart-trust-item" role="listitem">{{ settings.cart_trust_item_1 | default: '60-day guarantee' }}</div>
+  <div class="rosalia-cart-trust-item" role="listitem">{{ settings.cart_trust_item_2 | default: 'Ships in 48h' }}</div>
+  <div class="rosalia-cart-trust-item" role="listitem">{{ settings.cart_trust_item_3 | default: 'Secure checkout' }}</div>
+</div>
