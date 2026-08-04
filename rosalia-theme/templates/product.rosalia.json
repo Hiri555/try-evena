@@ -55,6 +55,13 @@
         "trust_badges": {
           "type": "trust_badges",
           "settings": {}
+        },
+        "delivery": {
+          "type": "delivery_estimate",
+          "settings": {
+            "min_days": 3,
+            "max_days": 7
+          }
         }
       },
       "block_order": [
@@ -66,6 +73,7 @@
         "symptom_picker",
         "bundle_tiers",
         "buy_buttons",
+        "delivery",
         "trust_badges",
         "app_zone"
       ]
@@ -504,7 +512,9 @@
       "type": "rosalia-faq",
       "settings": {
         "padding_top": 50,
-        "padding_bottom": 50
+        "padding_bottom": 50,
+        "show_guarantee": true,
+        "guarantee_cta_url": "/policies/refund-policy"
       },
       "blocks": {
         "qa_1": {

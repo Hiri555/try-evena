@@ -73,6 +73,44 @@
   @media (max-width: 749px) {
     #shopify-section-{{ section.id }} .rosalia-faq-inner { padding-inline: 24px; }
   }
+
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee {
+    display: flex; align-items: flex-start; gap: 13px;
+    max-width: {{ section.settings.max_width | default: 680 }}px;
+    margin: 34px auto 0;
+    background: rgba(247, 228, 234, .34);
+    border: 1px solid rgba(196, 113, 142, .22);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee-icon {
+    flex: 0 0 36px; width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(122, 58, 84, .08); color: var(--rosalia-plum);
+    display: flex; align-items: center; justify-content: center;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee-copy {
+    flex: 1 1 auto;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px; line-height: 1.5; color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee-copy strong {
+    display: block;
+    font-weight: 600; font-size: 11px;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--rosalia-plum);
+    margin-bottom: 3px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee-link {
+    flex: 0 0 auto; align-self: center;
+    font-family: var(--rosalia-font-serif); font-style: italic;
+    font-size: 14px; color: var(--rosalia-plum); text-decoration: none;
+    white-space: nowrap;
+  }
+  #shopify-section-{{ section.id }} .rosalia-faq-guarantee-link:hover { text-decoration: underline; }
+  @media (max-width: 599px) {
+    #shopify-section-{{ section.id }} .rosalia-faq-guarantee { flex-wrap: wrap; }
+    #shopify-section-{{ section.id }} .rosalia-faq-guarantee-link { margin-left: 49px; }
+  }
 </style>
 
 <div {% render 'section-properties', tight: true %}>
@@ -114,6 +152,21 @@
         {%- endcase -%}
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.show_guarantee -%}
+      <div class="rosalia-faq-guarantee">
+        <div class="rosalia-faq-guarantee-icon">
+          {%- render 'rosalia-icons', icon: 'shield-check', size: 20 -%}
+        </div>
+        <div class="rosalia-faq-guarantee-copy">
+          <strong>{{ section.settings.guarantee_headline | default: '60-day reset guarantee' }}</strong>
+          <span>{{ section.settings.guarantee_text | default: "Full refund if it's not right. No forms, no return shipping, no questions." }}</span>
+        </div>
+        {%- if section.settings.guarantee_cta_url != blank -%}
+          <a class="rosalia-faq-guarantee-link" href="{{ section.settings.guarantee_cta_url }}">{{ section.settings.guarantee_cta_label | default: 'See our policy' }} &rarr;</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -131,6 +184,12 @@
     { "type": "range", "id": "max_width", "label": "List max width (px)", "min": 500, "max": 900, "step": 20, "default": 680 },
     { "type": "range", "id": "padding_top", "label": "Padding top (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
     { "type": "range", "id": "padding_bottom", "label": "Padding bottom (px)", "min": 40, "max": 200, "step": 10, "default": 100 },
+    { "type": "header", "content": "Guarantee (bottom repeat)" },
+    { "type": "checkbox", "id": "show_guarantee", "label": "Show guarantee below FAQ", "default": true },
+    { "type": "text", "id": "guarantee_headline", "label": "Headline", "default": "60-day reset guarantee" },
+    { "type": "textarea", "id": "guarantee_text", "label": "Copy", "default": "Full refund if it's not right. No forms, no return shipping, no questions." },
+    { "type": "url", "id": "guarantee_cta_url", "label": "Policy link" },
+    { "type": "text", "id": "guarantee_cta_label", "label": "Policy link text", "default": "See our policy" },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
     { "type": "color", "id": "text_color", "label": "Text", "default": "#1F1A1C" }

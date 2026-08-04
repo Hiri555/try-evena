@@ -220,9 +220,13 @@
   }
   #shopify-section-{{ section.id }} .rosalia-tier-body { flex: 1 1 auto; min-width: 0; }
   #shopify-section-{{ section.id }} .rosalia-tier-name { font-size: 13.5px; font-weight: 600; }
+  /* Per-unit price — the strongest lever on multi-bottle tiers, so it
+     reads as data, not as a whispered aside */
   #shopify-section-{{ section.id }} .rosalia-tier-sub {
-    font-family: var(--rosalia-font-serif); font-style: italic;
-    font-size: 12px; color: var(--rosalia-gray);
+    font-family: var(--rosalia-font-sans);
+    font-size: 11px; font-weight: 600; letter-spacing: .02em;
+    color: var(--rosalia-accent);
+    margin-top: 2px;
   }
   #shopify-section-{{ section.id }} .rosalia-tier-price { text-align: right; }
   #shopify-section-{{ section.id }} .rosalia-tier-price-current { font-size: 15px; font-weight: 600; }
@@ -277,6 +281,26 @@
   #shopify-section-{{ section.id }} .rosalia-cta[disabled] { opacity: 0.5; cursor: not-allowed; }
   #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: transform 0.3s var(--rosalia-ease); }
   #shopify-section-{{ section.id }} .rosalia-cta:hover .rosalia-cta-arrow { transform: translateX(3px); }
+  #shopify-section-{{ section.id }} .rosalia-delivery {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 12px; color: var(--rosalia-gray);
+    margin: -4px 0 16px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-delivery strong { color: var(--rosalia-dark); font-weight: 600; }
+  #shopify-section-{{ section.id }} .rosalia-delivery-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #4F7A5A;
+    box-shadow: 0 0 0 3px rgba(79, 122, 90, .16);
+  }
+  #shopify-section-{{ section.id }} .rosalia-review-stars { margin: -2px 0 14px; }
+  #shopify-section-{{ section.id }} .rosalia-review-stars .jdgm-prev-badge {
+    display: flex; align-items: center; gap: 8px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px; color: var(--rosalia-gray);
+  }
+  #shopify-section-{{ section.id }} .rosalia-review-stars .jdgm-prev-badge__stars { color: var(--rosalia-accent) !important; }
+
   #shopify-section-{{ section.id }} .rosalia-ship {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-bottom: 18px;
   }
@@ -478,6 +502,12 @@
 
           {%- when 'title' -%}
             <h1 class="rosalia-title" {{ block.shopify_attributes }}>{{ rp_product.title }}</h1>
+            {%- if section.settings.enable_judgeme -%}
+              {%- comment -%} Renders only once the Judge.me app is installed {%- endcomment -%}
+              <div class="rosalia-review-stars">
+                {%- render 'judgeme_widgets', widget_type: 'judgeme_preview_badge', jm_style: '', concierge_install: true, product: rp_product -%}
+              </div>
+            {%- endif -%}
 
           {%- when 'subtitle' -%}
             {%- assign subtitle_text = block.settings.text | default: rp_product.metafields.rosalia.subtitle -%}
@@ -603,6 +633,22 @@
                 {{ 'product.form.sold_out' | t | default: 'Sold out' }}
               {%- endif -%}
             </button>
+
+          {%- when 'delivery_estimate' -%}
+            {%- comment -%}
+              "Order today — arrives between X and Y" beats "ships in 3-5
+              days". Dates come from real min/max transit settings; keep them
+              honest or the whole page loses credibility.
+            {%- endcomment -%}
+            {%- assign de_min_s = block.settings.min_days | default: 3 | times: 86400 -%}
+            {%- assign de_max_s = block.settings.max_days | default: 7 | times: 86400 -%}
+            {%- assign de_now = 'now' | date: '%s' | plus: 0 -%}
+            {%- assign de_min = de_now | plus: de_min_s | date: '%B %-d' -%}
+            {%- assign de_max = de_now | plus: de_max_s | date: '%B %-d' -%}
+            <div class="rosalia-delivery" {{ block.shopify_attributes }}>
+              <span class="rosalia-delivery-dot" aria-hidden="true"></span>
+              Order today &mdash; arrives between <strong>{{ de_min }}</strong> and <strong>{{ de_max }}</strong>
+            </div>
 
           {%- when 'ship_indicators' -%}
             <div class="rosalia-ship" {{ block.shopify_attributes }}>
@@ -752,6 +798,8 @@
       ],
       "default": "checkout"
     },
+    { "type": "header", "content": "Reviews" },
+    { "type": "checkbox", "id": "enable_judgeme", "label": "Show Judge.me stars under title", "info": "Turn on AFTER installing the Judge.me app, or the page will error.", "default": false },
     { "type": "header", "content": "Colors" },
     { "type": "color", "id": "section_background", "label": "Section background", "default": "#FAF5F0" },
     { "type": "color", "id": "section_text_color", "label": "Section text color", "default": "#1F1A1C" },
@@ -850,6 +898,16 @@
       "settings": [
         { "type": "text", "id": "headline", "label": "Headline", "default": "60-day reset guarantee" },
         { "type": "richtext", "id": "text", "label": "Guarantee copy", "default": "<p>Try Rosalia for 60 days. Full refund if it's not right — no forms, no return shipping.</p>" }
+      ]
+    },
+    {
+      "type": "delivery_estimate",
+      "name": "Delivery estimate",
+      "limit": 1,
+      "settings": [
+        { "type": "range", "id": "min_days", "label": "Fastest delivery (days)", "min": 1, "max": 10, "step": 1, "default": 3 },
+        { "type": "range", "id": "max_days", "label": "Slowest delivery (days)", "min": 2, "max": 21, "step": 1, "default": 7 },
+        { "type": "paragraph", "content": "Dates are computed from today. Keep them matched to your real carrier times." }
       ]
     },
     {
