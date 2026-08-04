@@ -263,7 +263,7 @@
       "type": "rosalia-comparison",
       "settings": {
         "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
-        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other.png",
+        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other-v2.png",
         "heading": "<p>Why nothing else <em>has worked</em>.</p>",
         "lead": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't.",
         "rosalia_label": "Rosalia — Daily Reset Serum",
