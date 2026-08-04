@@ -57,7 +57,7 @@
         "app_zone": {
           "type": "app_zone",
           "settings": {
-            "label": "Bundle upsell zone — drop your app block here (Catching Bundle, Rebuy, etc.)"
+            "label": "Bundle upsell zone — drop your app block here (Kaching Bundles, Rebuy, etc.)"
           }
         }
       },
