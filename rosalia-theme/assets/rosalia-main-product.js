@@ -70,3 +70,75 @@
 
   customElements.define('rosalia-symptom-picker', RosaliaSymptomPicker);
 })();
+
+/* ──────────────────────────────────────────────────────────────
+   Gallery — tap an image to open it fullscreen (photoswipe).
+   Forwards the click to Impact's own zoom button so the lightbox,
+   its index and its keyboard handling stay native to the theme.
+   ────────────────────────────────────────────────────────────── */
+(() => {
+  const DRAG_THRESHOLD = 8;
+
+  function initGallery(gallery) {
+    if (gallery.dataset.rosaliaFullscreen === '1') return;
+
+    const zoomButton = gallery.querySelector('[is="product-zoom-button"]');
+    const mediaList = gallery.querySelector('.product-gallery__media-list');
+    if (!zoomButton || !mediaList) return;
+
+    gallery.dataset.rosaliaFullscreen = '1';
+
+    let startX = 0;
+    let startY = 0;
+    let dragged = false;
+
+    mediaList.addEventListener(
+      'pointerdown',
+      (event) => {
+        startX = event.clientX;
+        startY = event.clientY;
+        dragged = false;
+      },
+      true
+    );
+
+    mediaList.addEventListener(
+      'pointermove',
+      (event) => {
+        if (dragged) return;
+        if (Math.abs(event.clientX - startX) > DRAG_THRESHOLD || Math.abs(event.clientY - startY) > DRAG_THRESHOLD) {
+          dragged = true;
+        }
+      },
+      true
+    );
+
+    mediaList.addEventListener(
+      'click',
+      (event) => {
+        if (dragged) return;
+
+        const media = event.target.closest('.product-gallery__media');
+        if (!media || media.dataset.mediaType !== 'image') return;
+        if (event.target.closest('button, a, video, model-viewer')) return;
+
+        event.preventDefault();
+        event.stopPropagation();
+        zoomButton.click();
+      },
+      true
+    );
+  }
+
+  function boot() {
+    document.querySelectorAll('product-gallery').forEach(initGallery);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+
+  document.addEventListener('shopify:section:load', boot);
+})();

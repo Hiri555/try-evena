@@ -3,7 +3,13 @@
   "sections": {
     "main_product": {
       "type": "rosalia-main-product",
-      "settings": {},
+      "settings": {
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "mobile_carousel_control": "thumbnails",
+        "mobile_media_size": "expanded",
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      },
       "blocks": {
         "eyebrow": {
           "type": "eyebrow",
