@@ -55,12 +55,12 @@
           "signature_image": "shopify://shop_images/signature.webp",
           "loop_poster": "shopify://shop_images/loop-ezgif.com-video-to-gif-converter.gif",
           "loop_video": "",
-          "testi1_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-sarah.mp4?v=1785933858",
-          "testi1_poster": "shopify://shop_images/rosalia-testi-sarah-poster.png",
-          "testi2_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-rachel.mp4?v=1785933858",
-          "testi2_poster": "shopify://shop_images/rosalia-testi-rachel-poster.png",
-          "testi3_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-maya.mp4?v=1785933858",
-          "testi3_poster": "shopify://shop_images/rosalia-testi-maya-poster.png",
+          "testi1_video": "https://cdn.shopify.com/videos/c/vp/283290330c7b457ab9f94cc58f194fbc/283290330c7b457ab9f94cc58f194fbc.HD-720p-1.6Mbps-90827431.mp4",
+          "testi1_poster": "",
+          "testi2_video": "https://cdn.shopify.com/videos/c/vp/c78be4e12ec848eeb0ae91d6b813fe30/c78be4e12ec848eeb0ae91d6b813fe30.HD-720p-1.6Mbps-90827432.mp4",
+          "testi2_poster": "",
+          "testi3_video": "",
+          "testi3_poster": "",
           "enable_motion": true
         }
       }
