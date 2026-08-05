@@ -282,14 +282,21 @@
   #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: transform 0.3s var(--rosalia-ease); }
   #shopify-section-{{ section.id }} .rosalia-cta:hover .rosalia-cta-arrow { transform: translateX(3px); }
   #shopify-section-{{ section.id }} .rosalia-delivery {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    display: flex; align-items: flex-start; justify-content: center; gap: 9px;
     font-family: var(--rosalia-font-sans);
-    font-size: 12px; color: var(--rosalia-gray);
+    font-size: 12px; line-height: 1.5; color: var(--rosalia-gray);
     margin: -4px 0 16px;
+    text-align: center;
   }
-  #shopify-section-{{ section.id }} .rosalia-delivery strong { color: var(--rosalia-dark); font-weight: 600; }
+  #shopify-section-{{ section.id }} .rosalia-delivery-text { text-wrap: balance; }
+  #shopify-section-{{ section.id }} .rosalia-delivery strong {
+    color: var(--rosalia-dark); font-weight: 600;
+    white-space: nowrap; /* never split "August 10" across lines */
+  }
   #shopify-section-{{ section.id }} .rosalia-delivery-dot {
+    flex: 0 0 7px;
     width: 7px; height: 7px; border-radius: 50%;
+    margin-top: 6px;
     background: #4F7A5A;
     box-shadow: 0 0 0 3px rgba(79, 122, 90, .16);
   }
@@ -648,7 +655,12 @@
             {%- assign de_max_fallback = de_max_days | times: 86400 | plus: de_now | date: '%B %-d' -%}
             <div class="rosalia-delivery" data-rosalia-delivery data-min-days="{{ de_min_days }}" data-max-days="{{ de_max_days }}" {{ block.shopify_attributes }}>
               <span class="rosalia-delivery-dot" aria-hidden="true"></span>
-              Order today &mdash; arrives between <strong data-role="date-min">{{ de_min_fallback }}</strong> and <strong data-role="date-max">{{ de_max_fallback }}</strong>
+              {%- comment -%}
+                One text node, not three flex children — otherwise the dates
+                become their own flex items and the sentence breaks apart on
+                narrow screens.
+              {%- endcomment -%}
+              <span class="rosalia-delivery-text">Order today &mdash; arrives between <strong data-role="date-min">{{ de_min_fallback }}</strong> and <strong data-role="date-max">{{ de_max_fallback }}</strong></span>
             </div>
 
           {%- when 'ship_indicators' -%}

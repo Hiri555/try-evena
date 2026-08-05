@@ -79,9 +79,17 @@
     .rosalia-trust-badges--footer .rosalia-trust-badge-icon svg { stroke: var(--rosalia-pink-light); }
     .rosalia-trust-badges--footer .rosalia-trust-badge-label { color: var(--rosalia-cream); opacity: .85; }
 
+    /* Mobile keeps all four in one tight row. A 2x2 grid of 46px tiles ate
+       176px of vertical space for four words and read as filler, not proof. */
     @media (max-width: 749px) {
-      .rosalia-trust-badges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 10px; }
-      .rosalia-trust-badge-label { font-size: 10px; }
+      .rosalia-trust-badges { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; }
+      .rosalia-trust-badge { gap: 7px; }
+      .rosalia-trust-badge-icon { width: 38px; height: 38px; border-radius: 11px; }
+      .rosalia-trust-badge-icon svg { width: 18px; height: 18px; }
+      .rosalia-trust-badge-label { font-size: 8.5px; letter-spacing: .04em; line-height: 1.3; }
+    }
+    @media (max-width: 359px) {
+      .rosalia-trust-badges { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 8px; }
     }
 </style>
 
