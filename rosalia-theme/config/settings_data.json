@@ -1,0 +1,122 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "section_vertical_spacing": "medium",
+    "button_border_radius": 60,
+    "input_border_radius": 8,
+    "block_border_radius": 24,
+    "block_shadow_opacity": 10,
+    "block_shadow_vertical_offset": 18,
+    "background": "#f0f0f0",
+    "text_color": "#1a1a1a",
+    "header_background": "#f0f0f0",
+    "header_text_color": "#1a1a1a",
+    "footer_background": "#ffffff",
+    "footer_text_color": "#1a1a1a",
+    "primary_button_background": "#f0c417",
+    "primary_button_text_color": "#1a1a1a",
+    "secondary_button_background": "#f0c417",
+    "secondary_button_text_color": "#1a1a1a",
+    "product_card_text_color": "#1a1a1a",
+    "product_primary_badge_background": "#803cee",
+    "heading_font": "din_next_n7",
+    "heading_font_size": "large",
+    "heading_letter_spacing": -2,
+    "text_font": "din_next_n4",
+    "show_page_transition": true,
+    "heading_apparition": "split_fade",
+    "show_quick_buy": true,
+    "show_sold_out_badge": true,
+    "show_discount": true,
+    "product_color_display": "swatch",
+    "product_info_alignment": "start",
+    "checkout_accent_color": "#f0c417",
+    "checkout_button_color": "#1a1a1a",
+    "sections": {
+      "advertorial": {
+        "type": "advertorial",
+        "settings": {
+          "product": "daily-reset-serum",
+          "cta_action": "product_page",
+          "accent": "#c4718e",
+          "accent_dark": "#7a3a54",
+          "background": "#faf5f0",
+          "hero_image": "shopify://shop_images/hero.webp",
+          "cafe_image": "shopify://shop_images/cafe.webp",
+          "rosacea_desktop": "shopify://shop_images/rosacea-desktop.webp",
+          "rosacea_mobile": "shopify://shop_images/rosacea-mobile.webp",
+          "packshot_editorial": "shopify://shop_images/packshot-editorial.webp",
+          "packshot_quiet": "shopify://shop_images/packshot-quiet.webp",
+          "packshot_dramatic": "shopify://shop_images/packshot-dramatic.webp",
+          "signature_image": "shopify://shop_images/signature.webp",
+          "loop_poster": "shopify://shop_images/loop-ezgif.com-video-to-gif-converter.gif",
+          "loop_video": "",
+          "testi1_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-sarah.mp4?v=1785933858",
+          "testi1_poster": "shopify://shop_images/rosalia-testi-sarah-poster.png",
+          "testi2_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-rachel.mp4?v=1785933858",
+          "testi2_poster": "shopify://shop_images/rosalia-testi-rachel-poster.png",
+          "testi3_video": "https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-testi-maya.mp4?v=1785933858",
+          "testi3_poster": "shopify://shop_images/rosalia-testi-maya-poster.png",
+          "enable_motion": true
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "11532412952436166569": {
+        "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+        "disabled": false,
+        "settings": {}
+      },
+      "13223602749629917723": {
+        "type": "shopify://apps/kaching-cart/blocks/embed/7705621e-3c0f-4e97-9d29-5c8528b19fb7",
+        "disabled": true,
+        "settings": {}
+      },
+      "15557474716127144420": {
+        "type": "shopify://apps/kaching-bundles/blocks/app-embed-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+        "disabled": false,
+        "settings": {}
+      },
+      "2567389343055140935": {
+        "type": "shopify://apps/microsoft-clarity/blocks/clarity_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": true,
+        "settings": {}
+      },
+      "613153413642846875": {
+        "type": "shopify://apps/gempages-cro/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
+      "pagefly-page-builder": {
+        "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
+        "disabled": false,
+        "settings": {}
+      },
+      "2200952712151285029": {
+        "type": "shopify://apps/microsoft-clarity/blocks/brandAgents_js/31c3d126-8116-4b4a-8ba1-baeda7c4aeea",
+        "disabled": false,
+        "settings": {}
+      },
+      "15683396631634586217": {
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "greeting_message": "",
+          "button_color": "#000000",
+          "secondary_color": "#ffffff",
+          "ternary_color": "#6a6a6a",
+          "button_icon": "chat_bubble",
+          "button_text": "need_help",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "higher"
+        }
+      }
+    }
+  },
+  "presets": {}
+}
