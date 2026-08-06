@@ -1,12 +1,13 @@
 /**
- * Reddit Comment Scraper - Popup Script
+ * Reddit & Quora Scraper - Popup Script
  * Manages UI interactions, triggers scraping, and handles exports.
  */
 
 (() => {
   "use strict";
 
-  let scrapedData = null; // { post: {...}, comments: [...] }
+  let scrapedData = null; // { post: {...}, comments: [...], site: "reddit"|"quora" }
+  let currentSite = "unknown";
 
   /* ---- DOM References ---- */
   const scrapeBtn = document.getElementById("scrape-btn");
@@ -21,6 +22,13 @@
   const postAuthor = document.getElementById("post-author");
   const postContent = document.getElementById("post-content");
   const postImages = document.getElementById("post-images");
+  const transcriptBlock = document.getElementById("transcript-block");
+  const transcriptList = document.getElementById("transcript-list");
+  const transcriptToggle = document.getElementById("transcript-toggle");
+  const transcriptCopy = document.getElementById("transcript-copy");
+  const siteIndicator = document.getElementById("site-indicator");
+  const siteIcon = document.getElementById("site-icon");
+  const siteName = document.getElementById("site-name");
 
   // Insight elements
   const totalCommentsEl = document.getElementById("total-comments");
@@ -48,16 +56,56 @@
     });
   });
 
+  /* ---- Site Detection on Popup Open ---- */
+  (async () => {
+    try {
+      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+      if (tab && tab.url) {
+        if (tab.url.includes("reddit.com")) {
+          currentSite = "reddit";
+          showSiteIndicator("reddit");
+        } else if (tab.url.includes("quora.com")) {
+          currentSite = "quora";
+          showSiteIndicator("quora");
+        } else if (tab.url.includes("youtube.com")) {
+          currentSite = "youtube";
+          showSiteIndicator("youtube");
+        }
+      }
+    } catch (_) {}
+  })();
+
+  function showSiteIndicator(site) {
+    siteIndicator.classList.remove("hidden");
+    if (site === "reddit") {
+      siteIcon.textContent = "🔴";
+      siteName.textContent = "Reddit detected";
+      siteIndicator.className = "site-indicator reddit";
+    } else if (site === "quora") {
+      siteIcon.textContent = "🔵";
+      siteName.textContent = "Quora detected";
+      siteIndicator.className = "site-indicator quora";
+    } else if (site === "youtube") {
+      siteIcon.textContent = "🔴";
+      siteName.textContent = "YouTube detected";
+      siteIndicator.className = "site-indicator youtube";
+    }
+  }
+
   /* ---- Scrape Action ---- */
   scrapeBtn.addEventListener("click", async () => {
     setLoading(true);
-    showStatus("Scraping comments...", false);
+    showStatus("Scraping content...", false);
 
     try {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-      if (!tab || !tab.url || !tab.url.includes("reddit.com")) {
-        showStatus("Please navigate to a Reddit post first.", true);
+      const isReddit = tab && tab.url && tab.url.includes("reddit.com");
+      const isQuora = tab && tab.url && tab.url.includes("quora.com");
+      const isYouTube = tab && tab.url && tab.url.includes("youtube.com");
+
+      if (!tab || !tab.url || (!isReddit && !isQuora && !isYouTube)) {
+        showStatus("Please navigate to Reddit, Quora, or YouTube first.", true);
         setLoading(false);
         return;
       }
@@ -87,8 +135,10 @@
         }
 
         scrapedData = response.data;
+        currentSite = scrapedData.site || (isYouTube ? "youtube" : isQuora ? "quora" : "reddit");
         const count = flattenComments(scrapedData.comments).length;
-        showStatus(`Scraped ${count} comments!`, false);
+        const label = currentSite === "quora" ? "answers" : "comments";
+        showStatus(`Scraped ${count} ${label}!`, false);
         renderPost(scrapedData.post);
         renderComments(scrapedData.comments);
         renderInsights(scrapedData.comments);
@@ -118,6 +168,44 @@
       img.alt = "Post image";
       postImages.appendChild(img);
     });
+
+    renderTranscript(post.transcript);
+  }
+
+  function renderTranscript(transcript) {
+    transcriptList.innerHTML = "";
+    if (!transcript || !transcript.available || !transcript.segments.length) {
+      transcriptBlock.classList.add("hidden");
+      return;
+    }
+    transcriptBlock.classList.remove("hidden");
+    transcript.segments.forEach((seg) => {
+      const line = document.createElement("div");
+      line.className = "transcript-line";
+      const t = document.createElement("span");
+      t.className = "transcript-time";
+      t.textContent = seg.time || "";
+      const txt = document.createElement("span");
+      txt.className = "transcript-text";
+      txt.textContent = seg.text;
+      line.append(t, txt);
+      transcriptList.appendChild(line);
+    });
+  }
+
+  if (transcriptToggle) {
+    transcriptToggle.addEventListener("click", () => {
+      const hidden = transcriptList.classList.toggle("hidden");
+      transcriptToggle.textContent = hidden ? "Show" : "Hide";
+    });
+  }
+  if (transcriptCopy) {
+    transcriptCopy.addEventListener("click", () => {
+      const t = scrapedData?.post?.transcript;
+      if (!t || !t.available) return showStatus("No transcript to copy.", true);
+      const text = t.segments.map((s) => `[${s.time}] ${s.text}`).join("\n");
+      navigator.clipboard.writeText(text).then(() => showStatus("Transcript copied!", false));
+    });
   }
 
   function renderComments(comments) {
@@ -143,7 +231,9 @@
 
     const numSpan = document.createElement("span");
     numSpan.className = "comment-number";
-    numSpan.textContent = `Comment ${number}`;
+    const siteLabels = { quora: "Answer", youtube: "Comment", reddit: "Comment" };
+    const itemLabel = siteLabels[currentSite] || "Comment";
+    numSpan.textContent = `${itemLabel} ${number}`;
 
     const authorSpan = document.createElement("span");
     authorSpan.className = "comment-author";
@@ -225,14 +315,31 @@
       (c) => `"${csvEscape(c.author)}","${c.score}","${csvEscape(c.text)}"`
     );
     const csv = [header, ...rows].join("\n");
-    downloadFile(csv, "reddit_comments.csv", "text/csv");
+    const prefixes = { quora: "quora_answers", youtube: "youtube_comments", reddit: "reddit_comments" };
+    const prefix = prefixes[currentSite] || "scraped_data";
+    downloadFile(csv, `${prefix}.csv`, "text/csv");
+
+    // Also download transcript on YouTube when available
+    const t = scrapedData?.post?.transcript;
+    if (currentSite === "youtube" && t && t.available && t.segments.length) {
+      const tHeader = "Time,Text";
+      const tRows = t.segments.map(
+        (s) => `"${csvEscape(s.time)}","${csvEscape(s.text)}"`
+      );
+      const tCsv = [tHeader, ...tRows].join("\n");
+      downloadFile(tCsv, "youtube_transcript.csv", "text/csv");
+      showStatus("CSV + transcript downloaded!", false);
+      return;
+    }
     showStatus("CSV downloaded!", false);
   });
 
   jsonBtn.addEventListener("click", () => {
     if (!scrapedData) return showStatus("Nothing to export. Scrape first!", true);
     const json = JSON.stringify(scrapedData, null, 2);
-    downloadFile(json, "reddit_comments.json", "application/json");
+    const prefixes = { quora: "quora_answers", youtube: "youtube_comments", reddit: "reddit_comments" };
+    const prefix = prefixes[currentSite] || "scraped_data";
+    downloadFile(json, `${prefix}.json`, "application/json");
     showStatus("JSON downloaded!", false);
   });
 
