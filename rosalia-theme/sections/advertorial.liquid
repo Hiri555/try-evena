@@ -341,18 +341,247 @@
       <p class="serif rosa-dk" style="font-size:20px;font-weight:500;margin:0 0 4px">Three of three hundred and twelve.</p>
       <p class="serif italic rosa-dk" style="font-size:20px;margin:0">They could've been any of us.</p>
     </div>
-    <p class="swipe-hint eyebrow rv">← swipe to see more →</p>
+    {%- assign accent = section.settings.accent | default: '#c4718e' -%}
+    {%- assign accent_dk = section.settings.accent_dark | default: '#7a3a54' -%}
+    {%- capture testi_items -%}
+      {%- for i in (1..5) -%}
+        {%- assign k_video = 'testi' | append: i | append: '_video' -%}
+        {%- assign k_poster = 'testi' | append: i | append: '_poster' -%}
+        {%- assign k_name = 'testi' | append: i | append: '_name' -%}
+        {%- assign k_quote = 'testi' | append: i | append: '_quote' -%}
+        {%- assign v = section.settings[k_video] -%}
+        {%- assign p = section.settings[k_poster] -%}
+        {%- assign n = section.settings[k_name] -%}
+        {%- assign q = section.settings[k_quote] -%}
+        {%- if v != blank -%}
+          {%- if p contains '://' -%}{%- assign poster_src = p -%}{%- else -%}{%- assign poster_src = p | image_url: width: 720 -%}{%- endif -%}
+<button type="button" class="ros-testi" data-video="{{ v | escape }}"{% if poster_src != blank %} style="background-image:url('{{ poster_src }}')"{% endif %} aria-label="Play {{ n | default: 'testimonial' | escape }}">
+  <span class="ros-testi-scrim" aria-hidden="true"></span>
+  <span class="ros-testi-play" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+  {%- if n != blank or q != blank -%}
+  <span class="ros-testi-meta">
+    {%- if n != blank %}<span class="ros-testi-who">{{ n }}</span>{% endif -%}
+    {%- if q != blank %}<span class="ros-testi-quote">&ldquo;{{ q }}&rdquo;</span>{% endif -%}
+  </span>
+  {%- endif -%}
+</button>
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    {%- assign testi_items = testi_items | strip -%}
 
-  <div class="carousel nudge" id="carousel">
-    <div class="ctrack">
-      <article class="testi">{%- if section.settings.testi1_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi1_poster != blank %} poster="{{ section.settings.testi1_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi1_video }}" type="video/mp4"></video>{%- elsif section.settings.testi1_poster != blank -%}<img class="testi-vid" src="{{ section.settings.testi1_poster | image_url: width: 640 }}" alt="Sarah&rsquo;s story" loading="lazy">{%- else -%}<div class="vid" style="justify-content:center"><span style="font-family:var(--serif),Georgia,serif;font-style:italic;font-size:64px;line-height:1;color:var(--accent,#c4718e);opacity:.85">&ldquo;</span><span class="eyebrow" style="margin:6px 0 0">Sarah&rsquo;s story</span></div>{%- endif -%}<p class="who">Sarah · 34 · Boston</p><blockquote>"I sat through a 90-minute client meeting last month and forgot to check the self-view."</blockquote></article>
-      <article class="testi">{%- if section.settings.testi2_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi2_poster != blank %} poster="{{ section.settings.testi2_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi2_video }}" type="video/mp4"></video>{%- elsif section.settings.testi2_poster != blank -%}<img class="testi-vid" src="{{ section.settings.testi2_poster | image_url: width: 640 }}" alt="Rachel&rsquo;s story" loading="lazy">{%- else -%}<div class="vid" style="justify-content:center"><span style="font-family:var(--serif),Georgia,serif;font-style:italic;font-size:64px;line-height:1;color:var(--accent,#c4718e);opacity:.85">&ldquo;</span><span class="eyebrow" style="margin:6px 0 0">Rachel&rsquo;s story</span></div>{%- endif -%}<p class="who">Rachel · 41 · Chicago</p><blockquote>"My husband took the picture. I was in it. That was new."</blockquote></article>
-      <article class="testi">{%- if section.settings.testi3_video != blank -%}<video class="testi-vid" muted controls playsinline preload="none"{% if section.settings.testi3_poster != blank %} poster="{{ section.settings.testi3_poster | image_url: width: 640 }}"{% endif %}><source src="{{ section.settings.testi3_video }}" type="video/mp4"></video>{%- elsif section.settings.testi3_poster != blank -%}<img class="testi-vid" src="{{ section.settings.testi3_poster | image_url: width: 640 }}" alt="Maya&rsquo;s story" loading="lazy">{%- else -%}<div class="vid" style="justify-content:center"><span style="font-family:var(--serif),Georgia,serif;font-style:italic;font-size:64px;line-height:1;color:var(--accent,#c4718e);opacity:.85">&ldquo;</span><span class="eyebrow" style="margin:6px 0 0">Maya&rsquo;s story</span></div>{%- endif -%}<p class="who">Maya · 38 · Brooklyn</p><blockquote>"Nobody's asked me if I'm sick in four months."</blockquote></article>
+    {%- if testi_items != blank -%}
+    <div class="ros-testi-grid rv">
+      {{ testi_items }}
     </div>
-  </div>
-  <div class="cdots" id="cdots" role="tablist" aria-label="Testimonials">
-    <button class="on" aria-label="Sarah"></button><button aria-label="Rachel"></button><button aria-label="Maya"></button>
-  </div>
+
+    <div class="ros-testi-lb" id="rosTestiLb" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+      <button type="button" class="ros-testi-lb-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+      </button>
+      <button type="button" class="ros-testi-lb-mute" aria-label="Toggle sound" hidden>
+        <svg class="ros-mute-off" viewBox="0 0 24 24" width="22" height="22"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M15 8a5 5 0 010 8M18 5a9 9 0 010 14" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+        <svg class="ros-mute-on" viewBox="0 0 24 24" width="22" height="22" hidden><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M17 9l5 5M22 9l-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+      </button>
+      <div class="ros-testi-lb-stage">
+        <video class="ros-testi-lb-vid" playsinline preload="metadata"></video>
+      </div>
+    </div>
+    {%- endif -%}
+
+    <style>
+      .ros-testi-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+        gap:14px;
+        max-width:1040px;
+        margin:6px auto 0;
+      }
+      @media (max-width:640px){
+        .ros-testi-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+      }
+      .ros-testi{
+        position:relative;
+        display:block;
+        width:100%;
+        aspect-ratio:9/16;
+        border:0; padding:0; margin:0;
+        border-radius:16px;
+        overflow:hidden;
+        cursor:pointer;
+        background:#1a1a1a center/cover no-repeat;
+        box-shadow:0 6px 26px rgba(122,58,84,.14),0 2px 8px rgba(0,0,0,.06);
+        transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;
+        isolation:isolate;
+        color:#fff;
+      }
+      .ros-testi:hover{transform:translateY(-3px);box-shadow:0 14px 42px rgba(122,58,84,.22),0 4px 14px rgba(0,0,0,.1)}
+      .ros-testi:focus-visible{outline:2px solid {{ accent }};outline-offset:3px}
+      .ros-testi-scrim{
+        position:absolute;inset:0;
+        background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.55) 100%);
+        pointer-events:none;
+      }
+      .ros-testi-play{
+        position:absolute; left:50%; top:50%;
+        transform:translate(-50%,-50%);
+        width:58px; height:58px; border-radius:50%;
+        background:rgba(255,255,255,.92);
+        color:{{ accent_dk }};
+        display:flex; align-items:center; justify-content:center;
+        box-shadow:0 8px 26px rgba(0,0,0,.28);
+        transition:transform .3s ease, background .3s ease;
+      }
+      .ros-testi-play svg{margin-left:2px}
+      .ros-testi:hover .ros-testi-play{transform:translate(-50%,-50%) scale(1.06);background:#fff}
+      .ros-testi-meta{
+        position:absolute; left:12px; right:12px; bottom:12px;
+        display:flex; flex-direction:column; gap:4px;
+        font-family:var(--sans),system-ui,sans-serif;
+        text-shadow:0 1px 6px rgba(0,0,0,.55);
+      }
+      .ros-testi-who{
+        font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+        font-weight:600; opacity:.92;
+      }
+      .ros-testi-quote{
+        font-family:var(--serif),'Cormorant Garamond',Georgia,serif;
+        font-style:italic;
+        font-size:14px; line-height:1.35;
+        display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+        overflow:hidden;
+      }
+
+      .ros-testi-lb{
+        position:fixed; inset:0; z-index:2147483647;
+        background:rgba(10,8,10,.92);
+        backdrop-filter:blur(6px);
+        -webkit-backdrop-filter:blur(6px);
+        display:flex; align-items:center; justify-content:center;
+        padding:18px;
+        opacity:0; pointer-events:none;
+        transition:opacity .25s ease;
+      }
+      .ros-testi-lb.is-open{opacity:1;pointer-events:auto}
+      .ros-testi-lb[hidden]{display:none}
+      .ros-testi-lb-stage{
+        position:relative;
+        width:min(94vw, calc(92vh * 9 / 16));
+        aspect-ratio:9/16;
+        border-radius:18px; overflow:hidden;
+        background:#000;
+        box-shadow:0 30px 80px rgba(0,0,0,.5);
+      }
+      .ros-testi-lb-vid{
+        width:100%; height:100%;
+        object-fit:cover;
+        display:block;
+        background:#000;
+      }
+      .ros-testi-lb-close,.ros-testi-lb-mute{
+        position:absolute;
+        width:42px; height:42px;
+        border-radius:50%;
+        border:0; padding:0;
+        background:rgba(255,255,255,.14);
+        color:#fff;
+        display:flex; align-items:center; justify-content:center;
+        cursor:pointer;
+        backdrop-filter:blur(6px);
+        -webkit-backdrop-filter:blur(6px);
+        transition:background .2s ease, transform .2s ease;
+      }
+      .ros-testi-lb-close{top:18px; right:18px}
+      .ros-testi-lb-mute{bottom:22px; right:22px}
+      .ros-testi-lb-close:hover,.ros-testi-lb-mute:hover{background:rgba(255,255,255,.24);transform:scale(1.05)}
+      @media (max-width:640px){
+        .ros-testi-lb{padding:0}
+        .ros-testi-lb-stage{width:100vw;height:100vh;border-radius:0;aspect-ratio:auto}
+        .ros-testi-lb-close{top:14px;right:14px}
+        .ros-testi-lb-mute{bottom:22px;right:14px}
+      }
+      @media (prefers-reduced-motion:reduce){
+        .ros-testi,.ros-testi-play,.ros-testi-lb-close,.ros-testi-lb-mute{transition:none}
+      }
+    </style>
+
+    <script>
+    (function(){
+      var lb = document.getElementById('rosTestiLb');
+      if(!lb) return;
+      var vid = lb.querySelector('.ros-testi-lb-vid');
+      var closeBtn = lb.querySelector('.ros-testi-lb-close');
+      var muteBtn = lb.querySelector('.ros-testi-lb-mute');
+      var muteOff = muteBtn && muteBtn.querySelector('.ros-mute-off');
+      var muteOn  = muteBtn && muteBtn.querySelector('.ros-mute-on');
+      var lastFocus = null;
+
+      function openLb(src, trigger){
+        lastFocus = trigger || document.activeElement;
+        vid.src = src;
+        vid.muted = false;
+        vid.currentTime = 0;
+        lb.hidden = false;
+        // force reflow so the transition can play
+        void lb.offsetWidth;
+        lb.classList.add('is-open');
+        lb.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+        var p = vid.play();
+        if(p && p.catch){
+          p.catch(function(){
+            // Autoplay-with-sound blocked → fall back to muted
+            vid.muted = true;
+            if(muteBtn){ muteBtn.hidden = false; if(muteOff) muteOff.hidden = true; if(muteOn) muteOn.hidden = false; }
+            vid.play().catch(function(){});
+          });
+        }
+        if(muteBtn) muteBtn.hidden = false;
+        updateMuteBtn();
+        closeBtn.focus({preventScroll:true});
+      }
+
+      function updateMuteBtn(){
+        if(!muteBtn) return;
+        if(vid.muted){ if(muteOff) muteOff.hidden = true; if(muteOn) muteOn.hidden = false; }
+        else { if(muteOff) muteOff.hidden = false; if(muteOn) muteOn.hidden = true; }
+      }
+
+      function closeLb(){
+        lb.classList.remove('is-open');
+        lb.setAttribute('aria-hidden','true');
+        try { vid.pause(); } catch(e){}
+        vid.removeAttribute('src'); vid.load();
+        document.body.style.overflow = '';
+        setTimeout(function(){ lb.hidden = true; }, 260);
+        if(lastFocus && lastFocus.focus) lastFocus.focus({preventScroll:true});
+      }
+
+      document.querySelectorAll('.ros-testi').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var src = btn.getAttribute('data-video');
+          if(src) openLb(src, btn);
+        });
+      });
+
+      closeBtn.addEventListener('click', closeLb);
+      lb.addEventListener('click', function(e){ if(e.target === lb) closeLb(); });
+      document.addEventListener('keydown', function(e){
+        if(!lb.classList.contains('is-open')) return;
+        if(e.key === 'Escape') closeLb();
+      });
+      if(muteBtn){
+        muteBtn.addEventListener('click', function(){
+          vid.muted = !vid.muted;
+          updateMuteBtn();
+        });
+      }
+      // Tap on video toggles play/pause
+      vid.addEventListener('click', function(){
+        if(vid.paused) vid.play(); else vid.pause();
+      });
+    })();
+    </script>
 
     <div class="rv" style="background:var(--paper-2);border-radius:14px;padding:32px 26px;text-align:center;margin:18px auto 0;max-width:560px">
       <p class="eyebrow" style="margin-bottom:20px">By week eight</p>
@@ -586,13 +815,31 @@
     { "type": "image_picker", "id": "loop_poster", "label": "Loop poster / still" },
     { "type": "url", "id": "loop_video", "label": "Loop animation .mp4 URL", "info": "Point to a hosted MP4 (Files upload → copy link). Blank = built-in loop.mp4." },
 
-    { "type": "header", "content": "Testimonials (Brique 08)", "info": "Add a 9:16 MP4 URL (Files → upload → copy link) and a poster to replace each placeholder card." },
-    { "type": "url", "id": "testi1_video", "label": "Sarah — video URL" },
-    { "type": "image_picker", "id": "testi1_poster", "label": "Sarah — poster" },
-    { "type": "url", "id": "testi2_video", "label": "Rachel — video URL" },
-    { "type": "image_picker", "id": "testi2_poster", "label": "Rachel — poster" },
-    { "type": "url", "id": "testi3_video", "label": "Maya — video URL" },
-    { "type": "image_picker", "id": "testi3_poster", "label": "Maya — poster" },
+    { "type": "header", "content": "Testimonials (Brique 08)", "info": "Up to 5 cards. Each empty slot is hidden. Video URL is required; poster URL, name, and quote are optional." },
+    { "type": "url", "id": "testi1_video",  "label": "Card 1 — video URL (9:16 mp4)" },
+    { "type": "url", "id": "testi1_poster", "label": "Card 1 — poster URL" },
+    { "type": "text", "id": "testi1_name",  "label": "Card 1 — name/label" },
+    { "type": "text", "id": "testi1_quote", "label": "Card 1 — short quote" },
+
+    { "type": "url", "id": "testi2_video",  "label": "Card 2 — video URL (9:16 mp4)" },
+    { "type": "url", "id": "testi2_poster", "label": "Card 2 — poster URL" },
+    { "type": "text", "id": "testi2_name",  "label": "Card 2 — name/label" },
+    { "type": "text", "id": "testi2_quote", "label": "Card 2 — short quote" },
+
+    { "type": "url", "id": "testi3_video",  "label": "Card 3 — video URL (9:16 mp4)" },
+    { "type": "url", "id": "testi3_poster", "label": "Card 3 — poster URL" },
+    { "type": "text", "id": "testi3_name",  "label": "Card 3 — name/label" },
+    { "type": "text", "id": "testi3_quote", "label": "Card 3 — short quote" },
+
+    { "type": "url", "id": "testi4_video",  "label": "Card 4 — video URL (9:16 mp4)" },
+    { "type": "url", "id": "testi4_poster", "label": "Card 4 — poster URL" },
+    { "type": "text", "id": "testi4_name",  "label": "Card 4 — name/label" },
+    { "type": "text", "id": "testi4_quote", "label": "Card 4 — short quote" },
+
+    { "type": "url", "id": "testi5_video",  "label": "Card 5 — video URL (9:16 mp4)" },
+    { "type": "url", "id": "testi5_poster", "label": "Card 5 — poster URL" },
+    { "type": "text", "id": "testi5_name",  "label": "Card 5 — name/label" },
+    { "type": "text", "id": "testi5_quote", "label": "Card 5 — short quote" },
 
     { "type": "header", "content": "Motion" },
     { "type": "checkbox", "id": "enable_motion", "label": "Enable animations", "default": true, "info": "Off = static final states (also respects the visitor's reduced-motion preference either way)." }
