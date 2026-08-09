@@ -398,7 +398,28 @@
         margin:6px auto 0;
       }
       @media (max-width:640px){
-        .ros-testi-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+        .ros-testi-grid{
+          display:flex;
+          grid-template-columns:none;
+          gap:12px;
+          overflow-x:auto;
+          overflow-y:hidden;
+          scroll-snap-type:x mandatory;
+          -webkit-overflow-scrolling:touch;
+          scrollbar-width:none;
+          padding:2px 16px 6px;
+          margin:6px -16px 0;
+          scroll-padding-left:16px;
+        }
+        .ros-testi-grid::-webkit-scrollbar{display:none}
+        .ros-testi-grid > .ros-testi{
+          flex:0 0 62%;
+          max-width:62%;
+          scroll-snap-align:start;
+        }
+      }
+      @media (max-width:380px){
+        .ros-testi-grid > .ros-testi{flex-basis:70%;max-width:70%}
       }
       .ros-testi{
         position:relative;
