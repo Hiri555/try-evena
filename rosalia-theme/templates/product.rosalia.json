@@ -8,7 +8,8 @@
         "mobile_carousel_control": "thumbnails",
         "mobile_media_size": "expanded",
         "enable_image_zoom": true,
-        "max_image_zoom_level": 3
+        "max_image_zoom_level": 3,
+        "after_add_to_cart": "cart_page"
       },
       "blocks": {
         "eyebrow": {
