@@ -1,20 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "name": "Rosalia — Daily Reset Serum",
   "sections": {
     "main_product": {
       "type": "rosalia-main-product",
-      "settings": {
-        "desktop_media_layout": "carousel_thumbnails_bottom",
-        "mobile_carousel_control": "thumbnails",
-        "mobile_media_size": "expanded",
-        "enable_image_zoom": true,
-        "max_image_zoom_level": 3,
-        "after_add_to_cart": "cart_page"
-      },
       "blocks": {
         "eyebrow": {
           "type": "eyebrow",
-          "settings": {}
+          "settings": {
+            "text": ""
+          }
         },
         "title": {
           "type": "title",
@@ -22,7 +24,9 @@
         },
         "subtitle": {
           "type": "subtitle",
-          "settings": {}
+          "settings": {
+            "text": ""
+          }
         },
         "tag_pills": {
           "type": "tag_pills",
@@ -30,38 +34,60 @@
         },
         "benefits": {
           "type": "benefits",
-          "settings": {}
+          "settings": {
+            "icon_svg": ""
+          }
         },
         "symptom_picker": {
           "type": "symptom_picker",
           "settings": {
             "label": "What is your skin doing?",
-            "hint": "Tap the one you know best — see what's actually happening underneath, and what stops it."
+            "hint": "Tap the one you know best — see what's actually happening underneath, and what stops it.",
+            "link_text": "",
+            "link_url": ""
+          }
+        },
+        "kaching_bundles_app_block_9NUzqQ": {
+          "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
+          "settings": {
+            "product": "daily-reset-serum",
+            "manual_deal_block_id": ""
           }
         },
         "bundle_tiers": {
           "type": "bundle_tiers",
-          "settings": {}
+          "disabled": true,
+          "settings": {
+            "label": "Choose your reset",
+            "recommended_label": "Recommended"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": {}
-        },
-        "app_zone": {
-          "type": "app_zone",
           "settings": {
-            "label": "Bundle upsell zone — drop your app block here (Kaching Bundles, Rebuy, etc.)"
+            "button_label": "Try it for 60 days"
           }
-        },
-        "trust_badges": {
-          "type": "trust_badges",
-          "settings": {}
         },
         "delivery": {
           "type": "delivery_estimate",
           "settings": {
             "min_days": 4,
             "max_days": 8
+          }
+        },
+        "trust_badges": {
+          "type": "trust_badges",
+          "settings": {
+            "trust_badge_1": "60-day guarantee",
+            "trust_badge_2": "Free shipping $50+",
+            "trust_badge_3": "Ships in 48h",
+            "trust_badge_4": "Secure checkout"
+          }
+        },
+        "app_zone": {
+          "type": "app_zone",
+          "settings": {
+            "label": "Bundle upsell zone — drop your app block here (Kaching Bundles, Rebuy, etc.)"
           }
         }
       },
@@ -72,16 +98,34 @@
         "tag_pills",
         "benefits",
         "symptom_picker",
+        "kaching_bundles_app_block_9NUzqQ",
         "bundle_tiers",
         "buy_buttons",
         "delivery",
         "trust_badges",
         "app_zone"
-      ]
+      ],
+      "settings": {
+        "product": "",
+        "desktop_media_width": 50,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "mobile_media_size": "expanded",
+        "mobile_carousel_control": "thumbnails",
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3,
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "cta_shape": "pill",
+        "after_add_to_cart": "cart_page",
+        "enable_judgeme": false,
+        "section_background": "#faf5f0",
+        "section_text_color": "#1f1a1c",
+        "accent_color": "#c4718e",
+        "accent_deep": "#7a3a54"
+      }
     },
     "marquee": {
       "type": "rosalia-marquee",
-      "settings": {},
       "blocks": {
         "item_1": {
           "type": "item",
@@ -120,17 +164,23 @@
         "item_3",
         "item_5",
         "item_6"
-      ]
+      ],
+      "settings": {
+        "separator": "◆",
+        "aria_label": "Product highlights",
+        "speed_seconds": 28,
+        "pause_on_hover": true,
+        "direction": "left",
+        "padding_y": 11,
+        "item_font_size": 13,
+        "item_gap": 28,
+        "background": "#7a3a54",
+        "text_color": "#faf5f0",
+        "separator_color": "#e3a1b6"
+      }
     },
     "mechanism": {
       "type": "rosalia-mechanism",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "eyebrow": "The Reset Complex™",
-        "heading": "Rosacea was never <em>one problem</em>.",
-        "lead": "Your skin doesn't flush because of one broken thing.\nIt flushes because five systems misfire at once.\nThat's why single-active serums plateau — they fix one, the other four keep firing.\nThe Reset Complex pulls all five. At the same time."
-      },
       "blocks": {
         "lever_1": {
           "type": "lever",
@@ -139,7 +189,7 @@
             "name": "Alarm",
             "emotional_line": "\"The overreaction that finally quiets.\"",
             "mechanism": "Calms the immune misread at the source — before it cascades into visible redness.",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M12 3 3 8l9 5 9-5-9-5z\"/><path d=\"M3 13l9 5 9-5\"/><path d=\"M3 17l9 5 9-5\"/></svg>"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\"><path d=\"M12 3 3 8l9 5 9-5-9-5z\"></path><path d=\"M3 13l9 5 9-5\"></path><path d=\"M3 17l9 5 9-5\"></path></svg>"
           }
         },
         "lever_2": {
@@ -149,7 +199,7 @@
             "name": "Nerves",
             "emotional_line": "\"Triggers that stop being triggers.\"",
             "mechanism": "Reduces nerve hypersensitivity so heat, stress, wine no longer set the fire.",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M13 2 4 14h6l-1 8 9-12h-6l1-8z\"/></svg>"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\"><path d=\"M13 2 4 14h6l-1 8 9-12h-6l1-8z\"></path></svg>"
           }
         },
         "lever_3": {
@@ -159,7 +209,7 @@
             "name": "Wall",
             "emotional_line": "\"Vessels that stop broadcasting.\"",
             "mechanism": "Steadies the vascular amplifier — the physical mechanism behind the flush.",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"/></svg>"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"8\"></circle><path d=\"M12 2v4M12 18v4M2 12h4M18 12h4\"></path></svg>"
           }
         },
         "lever_4": {
@@ -169,7 +219,7 @@
             "name": "Door",
             "emotional_line": "\"The barrier harsh actives stole — rebuilt.\"",
             "mechanism": "Restores the compromised skin barrier. This is what everything else depends on.",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\"><rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"1.5\"/><circle cx=\"14.2\" cy=\"12\" r=\"0.9\"/></svg>"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\"><rect x=\"6\" y=\"3\" width=\"12\" height=\"18\" rx=\"1.5\"></rect><circle cx=\"14.2\" cy=\"12\" r=\"0.9\"></circle></svg>"
           }
         },
         "lever_5": {
@@ -179,7 +229,7 @@
             "name": "Loop",
             "emotional_line": "\"The cycle finally breaks.\"",
             "mechanism": "Interrupts the anxiety-flush-anxiety spiral that keeps it going.",
-            "icon_svg": "<svg viewBox=\"0 0 24 24\"><path d=\"M20 12a8 8 0 1 1-2.34-5.66\"/><path d=\"M20 3v4h-4\"/></svg>"
+            "icon_svg": "<svg viewbox=\"0 0 24 24\"><path d=\"M20 12a8 8 0 1 1-2.34-5.66\"></path><path d=\"M20 3v4h-4\"></path></svg>"
           }
         }
       },
@@ -189,17 +239,21 @@
         "lever_3",
         "lever_4",
         "lever_5"
-      ]
+      ],
+      "settings": {
+        "anchor_id": "how-it-works",
+        "eyebrow": "The Reset Complex™",
+        "heading": "Rosacea was never <em>one problem</em>.",
+        "lead": "Your skin doesn't flush because of one broken thing.\nIt flushes because five systems misfire at once.\nThat's why single-active serums plateau — they fix one, the other four keep firing.\nThe Reset Complex pulls all five. At the same time.",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c"
+      }
     },
     "ingredients": {
       "type": "rosalia-ingredients",
-      "settings": {
-        "data_source": "metafield",
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "note": "",
-        "note_label": ""
-      },
       "blocks": {
         "ing_1": {
           "type": "ingredient",
@@ -258,25 +312,34 @@
         "ing_3",
         "ing_4",
         "ing_5"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Five Actives",
+        "heading": "The <em>full</em> formula.",
+        "lead": "Five clinically-supported actives. Each one at the dose it needs — no more, no less.",
+        "data_source": "metafield",
+        "note_label": "",
+        "note": "",
+        "columns_desktop": "4",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c",
+        "card_background": "#ffffff",
+        "card_border": "#f7e4ea"
+      }
     },
     "comparison": {
       "type": "rosalia-comparison",
-      "settings": {
-        "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
-        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other-v2.png",
-        "heading": "<p>Why nothing else <em>has worked</em>.</p>",
-        "lead": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't.",
-        "rosalia_label": "Rosalia — Daily Reset Serum",
-        "other_label": "Serums built for “sensitive skin”"
-      },
       "blocks": {
         "row_1": {
           "type": "row",
           "settings": {
             "attribute": "The design",
             "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.",
-            "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought."
+            "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought.",
+            "indicator": "yes"
           }
         },
         "row_2": {
@@ -284,7 +347,8 @@
           "settings": {
             "attribute": "The mechanism",
             "rosalia_value": "Five levers at once — the loop broken from every side.",
-            "other_value": "One hero ingredient. Fingers crossed it addresses your version."
+            "other_value": "One hero ingredient. Fingers crossed it addresses your version.",
+            "indicator": "yes"
           }
         },
         "row_3": {
@@ -292,7 +356,8 @@
           "settings": {
             "attribute": "The proof",
             "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.",
-            "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names."
+            "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names.",
+            "indicator": "yes"
           }
         },
         "row_4": {
@@ -300,7 +365,8 @@
           "settings": {
             "attribute": "The promise",
             "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.",
-            "other_value": "7-day return window. Unopened. Original packaging."
+            "other_value": "7-day return window. Unopened. Original packaging.",
+            "indicator": "yes"
           }
         }
       },
@@ -309,103 +375,113 @@
         "row_2",
         "row_3",
         "row_4"
-      ]
+      ],
+      "settings": {
+        "heading": "<p>Why nothing else <em>has worked</em>.</p>",
+        "lead": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't.",
+        "rosalia_label": "Rosalia — Daily Reset Serum",
+        "rosalia_bottle_image": "shopify://shop_images/product_image1.png",
+        "rosalia_bottle_text": "",
+        "vs_label": "vs",
+        "other_label": "Serums built for “sensitive skin”",
+        "other_bottle_image": "shopify://shop_images/rosalia-bottle-other-v2.png",
+        "other_bottle_text": "",
+        "background": "#4b1528",
+        "text_color": "#faf5f0",
+        "accent": "#e3a1b6"
+      }
     },
     "results": {
       "type": "rosalia-results",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "eyebrow": "Real results",
-        "heading": "They stopped hiding. <em>Here's what changed.</em>",
-        "lead": "In their own words.",
-        "show_aggregate": false,
-        "aggregate_score": "",
-        "aggregate_count": ""
-      },
       "blocks": {
         "res_1": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Camille_34.png",
+            "rating": 5,
             "quote": "I keep forgetting to check my face.",
+            "comment": "<p>Ok so the 4pm thing. My cheeks would start burning around then pretty much every day at work and I'd go sit in the bathroom for ten minutes until it passed. I realised last week I hadn't done that in a while. I couldn't tell you when it stopped, which is kind of the strange part — you don't notice the day it happens.</p>",
             "name": "Camille",
             "age": "34",
             "duration": "8 weeks",
-            "image": "shopify://shop_images/Camille_34.png",
-            "rating": 5,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>Ok so the 4pm thing. My cheeks would start burning around then pretty much every day at work and I'd go sit in the bathroom for ten minutes until it passed. I realised last week I hadn't done that in a while. I couldn't tell you when it stopped, which is kind of the strange part — you don't notice the day it happens.</p>"
+            "verified_label": "Verified buyer"
           }
         },
         "res_2": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Emily_42.png",
+            "rating": 5,
             "quote": "Down to tinted moisturiser most days.",
+            "comment": "<p>I used to put on two pumps of full coverage before leaving the house. Now it's tinted moisturiser, and some days nothing. My skin isn't perfect, I still go red after a hot shower or a glass of wine, but it's not the first thing I see in the mirror anymore.</p><p>Took about six weeks before I noticed much, so don't panic if week two feels like nothing is happening.</p>",
             "name": "Emily",
             "age": "42",
             "duration": "10 weeks",
-            "image": "shopify://shop_images/Emily_42.png",
-            "rating": 5,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>I used to put on two pumps of full coverage before leaving the house. Now it's tinted moisturiser, and some days nothing. My skin isn't perfect, I still go red after a hot shower or a glass of wine, but it's not the first thing I see in the mirror anymore.</p><p>Took about six weeks before I noticed much, so don't panic if week two feels like nothing is happening.</p>"
+            "verified_label": "Verified buyer"
           }
         },
         "res_3": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Sarah_38.png",
+            "rating": 4,
             "quote": "It doesn't sting. That's why I kept going.",
+            "comment": "<p>Honestly I bought this half expecting to return it. Everything stings. This one didn't, first time in years, so I stuck with it. Six weeks in and the redness is calmer, especially around my nose.</p><p>Taking a star off for the dropper — it dribbles down the side of the bottle every time. Small thing but it bugs me.</p>",
             "name": "Sarah",
             "age": "38",
             "duration": "6 weeks",
-            "image": "shopify://shop_images/Sarah_38.png",
-            "rating": 4,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>Honestly I bought this half expecting to return it. Everything stings. This one didn't, first time in years, so I stuck with it. Six weeks in and the redness is calmer, especially around my nose.</p><p>Taking a star off for the dropper — it dribbles down the side of the bottle every time. Small thing but it bugs me.</p>"
+            "verified_label": "Verified buyer"
           }
         },
         "res_4": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Julie_48.png",
+            "rating": 5,
             "quote": "I stopped scheduling around my face.",
+            "comment": "<p>For years I avoided afternoon meetings because I knew what my face would look like by then. I don't really think about that now. It still happens sometimes, usually when I'm stressed or it's warm out, but it's mild and it fades in a few minutes instead of sticking around all evening.</p>",
             "name": "Julie",
             "age": "48",
             "duration": "12 weeks",
-            "image": "shopify://shop_images/Julie_48.png",
-            "rating": 5,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>For years I avoided afternoon meetings because I knew what my face would look like by then. I don't really think about that now. It still happens sometimes, usually when I'm stressed or it's warm out, but it's mild and it fades in a few minutes instead of sticking around all evening.</p>"
+            "verified_label": "Verified buyer"
           }
         },
         "res_5": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Sophie_40.png",
+            "rating": 5,
             "quote": "My dermatologist asked what I'd changed.",
+            "comment": "<p>Went in for a routine check and she stopped halfway through and asked what I was using. I told her it was just this, and she wrote the name down.</p><p>I've been on and off prescriptions since my twenties. Nothing has held like this has.</p>",
             "name": "Sophie",
             "age": "40",
             "duration": "16 weeks",
-            "image": "shopify://shop_images/Sophie_40.png",
-            "rating": 5,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>Went in for a routine check and she stopped halfway through and asked what I was using. I told her it was just this, and she wrote the name down.</p><p>I've been on and off prescriptions since my twenties. Nothing has held like this has.</p>"
+            "verified_label": "Verified buyer"
           }
         },
         "res_6": {
           "type": "result_card",
           "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Ana_29.png",
+            "rating": 4,
             "quote": "the bumps are what actually changed",
+            "comment": "<p>the redness got better but honestly the bumps are the thing that changed for me. i had them along my jaw and chin constantly, like a whole cluster. now there's maybe one or two.</p><p>wish it was a bit cheaper tbh. but i've repurchased twice so.</p>",
             "name": "Ana",
             "age": "29",
             "duration": "9 weeks",
-            "image": "shopify://shop_images/Ana_29.png",
-            "rating": 4,
             "verified": false,
-            "show_image": true,
-            "comment": "<p>the redness got better but honestly the bumps are the thing that changed for me. i had them along my jaw and chin constantly, like a whole cluster. now there's maybe one or two.</p><p>wish it was a bit cheaper tbh. but i've repurchased twice so.</p>"
+            "verified_label": "Verified buyer"
           }
         }
       },
@@ -416,14 +492,23 @@
         "res_4",
         "res_5",
         "res_6"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Real results",
+        "heading": "They stopped hiding. <em>Here's what changed.</em>",
+        "lead": "In their own words.",
+        "show_aggregate": false,
+        "aggregate_score": "",
+        "aggregate_count": "",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#f5efea",
+        "text_color": "#1f1a1c"
+      }
     },
     "ritual": {
       "type": "rosalia-ritual",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50
-      },
       "blocks": {
         "step_1": {
           "type": "step",
@@ -431,6 +516,7 @@
             "number": "01",
             "title": "Dispense",
             "description": "3–4 drops from the dropper. That's enough for the full face.",
+            "external_video_url": "",
             "poster": "shopify://shop_images/video1-ezgif.com-video-to-gif-converter.gif"
           }
         },
@@ -440,6 +526,7 @@
             "number": "02",
             "title": "Apply",
             "description": "Press gently into cheeks, nose, forehead. Let it absorb 60 seconds.",
+            "external_video_url": "",
             "poster": "shopify://shop_images/video3-ezgif.com-video-to-gif-converter.gif"
           }
         },
@@ -449,6 +536,7 @@
             "number": "03",
             "title": "Continue",
             "description": "Follow with moisturizer. The serum works underneath.",
+            "external_video_url": "",
             "poster": "shopify://shop_images/video2-ezgif.com-video-to-gif-converter_1.gif"
           }
         }
@@ -457,14 +545,20 @@
         "step_1",
         "step_2",
         "step_3"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "The ritual",
+        "heading": "Three steps. <em>Two minutes.</em>",
+        "lead": "Morning and evening. On clean, dry skin. Before your moisturizer.",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c"
+      }
     },
     "timeline": {
       "type": "rosalia-timeline",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50
-      },
       "blocks": {
         "tl_1": {
           "type": "milestone",
@@ -504,96 +598,121 @@
         "tl_2",
         "tl_3",
         "tl_4"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "What to expect",
+        "heading": "Your first <em>eight weeks</em>.",
+        "lead": "So you know what's happening — and when to stop worrying.",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c"
+      }
     },
     "authority": {
       "type": "rosalia-authority",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50
-      },
       "blocks": {
         "expert_1": {
           "type": "expert",
           "settings": {
-            "portrait": "shopify://shop_images/rosalia-dr-helena-portrait.png"
+            "portrait": "shopify://shop_images/rosalia-dr-helena-portrait.png",
+            "name": "Dr. Helena Vasquez",
+            "credentials": "Vascular Biologist · 22 years in dermal research",
+            "quote": "Most rosacea formulas address one pathway. The Reset Complex is the first I've seen that targets immune, neural, vascular, barrier, and feedback pathways simultaneously. That's why results compound over time."
           }
         }
       },
       "block_order": [
         "expert_1"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Formulated with expertise",
+        "heading": "",
+        "lead": "",
+        "alignment": "left",
+        "max_width": 1200,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "background": "#f5efea",
+        "text_color": "#1f1a1c",
+        "card_background": "#ffffff",
+        "card_border": "#f7e4ea"
+      }
     },
     "faq": {
       "type": "rosalia-faq",
-      "settings": {
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "show_guarantee": true,
-        "guarantee_cta_url": "/policies/refund-policy"
-      },
       "blocks": {
         "qa_1": {
           "type": "qa",
           "settings": {
             "question": "Will this sting my reactive skin?",
-            "answer": "<p>No. Zero essential oils, zero fragrance, zero known irritants. Niacinamide at 3–5%, not the aggressive 10%. If your skin reacts — which it shouldn't — 60-day full refund.</p>"
+            "answer": "<p>No. Zero essential oils, zero fragrance, zero known irritants. Niacinamide at 3–5%, not the aggressive 10%. If your skin reacts — which it shouldn't — 60-day full refund.</p>",
+            "open_by_default": false
           }
         },
         "qa_2": {
           "type": "qa",
           "settings": {
             "question": "How is this different from prescriptions?",
-            "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>"
+            "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>",
+            "open_by_default": false
           }
         },
         "qa_3": {
           "type": "qa",
           "settings": {
             "question": "When will I see results?",
-            "answer": "<p>Most customers see a shift between weeks 4 and 8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>"
+            "answer": "<p>Most customers see a shift between weeks 4 and 8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>",
+            "open_by_default": false
           }
         },
         "qa_4": {
           "type": "qa",
           "settings": {
             "question": "Can I use with my existing routine?",
-            "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>"
+            "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>",
+            "open_by_default": false
           }
         },
         "qa_5": {
           "type": "qa",
           "settings": {
             "question": "What if it doesn't work?",
-            "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>"
+            "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>",
+            "open_by_default": false
           }
         },
         "qa_6": {
           "type": "qa",
           "settings": {
             "question": "I've tried everything. Why would this be different?",
-            "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>"
+            "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>",
+            "open_by_default": false
           }
         },
         "qa_7": {
           "type": "qa",
           "settings": {
             "question": "Will this make my skin purge or get worse first?",
-            "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>"
+            "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>",
+            "open_by_default": false
           }
         },
         "qa_8": {
           "type": "qa",
           "settings": {
             "question": "Is this safe during perimenopause / menopause?",
-            "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (Nerves) and Lever 03 (Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>"
+            "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (Nerves) and Lever 03 (Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>",
+            "open_by_default": false
           }
         },
         "qa_9": {
           "type": "qa",
           "settings": {
             "question": "Why is niacinamide at 3–5% and not 10%?",
-            "answer": "<p>Because 10% niacinamide can trigger the very sensitivity it's supposed to calm in rosacea-prone skin. Research shows 3–5% delivers the same barrier-repair and anti-inflammatory benefits without the irritation risk. More is not better when your skin is already on edge.</p>"
+            "answer": "<p>Because 10% niacinamide can trigger the very sensitivity it's supposed to calm in rosacea-prone skin. Research shows 3–5% delivers the same barrier-repair and anti-inflammatory benefits without the irritation risk. More is not better when your skin is already on edge.</p>",
+            "open_by_default": false
           }
         }
       },
@@ -607,7 +726,23 @@
         "qa_7",
         "qa_8",
         "qa_9"
-      ]
+      ],
+      "settings": {
+        "eyebrow": "Questions",
+        "heading": "Before you <em>decide</em>.",
+        "lead": "",
+        "alignment": "center",
+        "max_width": 680,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_guarantee": true,
+        "guarantee_headline": "60-day reset guarantee",
+        "guarantee_text": "Full refund if it's not right. No forms, no return shipping, no questions.",
+        "guarantee_cta_url": "/policies/refund-policy",
+        "guarantee_cta_label": "See our policy",
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c"
+      }
     }
   },
   "order": [
