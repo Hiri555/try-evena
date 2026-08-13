@@ -279,6 +279,7 @@
     color: var(--rosalia-gray);
   }
   #shopify-section-{{ section.id }} .rosalia-cta[disabled] { opacity: 0.5; cursor: not-allowed; }
+  #shopify-section-{{ section.id }} .rosalia-cta.is-loading { opacity: 0.7; cursor: wait; }
   #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: transform 0.3s var(--rosalia-ease); }
   #shopify-section-{{ section.id }} .rosalia-cta:hover .rosalia-cta-arrow { transform: translateX(3px); }
   #shopify-section-{{ section.id }} .rosalia-delivery {
@@ -630,11 +631,12 @@
               form="{{ product_form_id }}"
               class="rosalia-cta"
               name="add"
+              data-rosalia-atc
               {% unless sel_variant.available %}disabled{% endunless %}
               {{ block.shopify_attributes }}
             >
               {%- if sel_variant.available -%}
-                {{ block.settings.button_label | default: 'Try it for 60 days' }}
+                <span class="rosalia-cta-label">{{ block.settings.button_label | default: 'Try it for 60 days' }}</span>
                 <span class="rosalia-cta-arrow" aria-hidden="true">→</span>
               {%- else -%}
                 {{ 'product.form.sold_out' | t | default: 'Sold out' }}
@@ -719,24 +721,68 @@
       {%- endfor -%}
 
       {%- comment -%}
-        Hidden form for add-to-cart.
-
-        `after_add_to_cart: checkout` sends the buyer straight to payment via
-        Shopify's own `return_to` — no JS timer, so a failed add can't redirect
-        anyway. `cart_page` keeps the standard cart step.
+        Hidden ATC form. The <script> below hijacks the submit as AJAX and
+        opens the cart drawer instead of reloading to /cart.
       {%- endcomment -%}
       {%- form 'product', rp_product, id: product_form_id, class: 'rosalia-product-form' -%}
         <input type="hidden" name="id" value="{{ rp_product.selected_or_first_available_variant.id }}">
         <input type="hidden" name="quantity" value="1">
-        {%- if section.settings.after_add_to_cart == 'checkout' -%}
-          <input type="hidden" name="return_to" value="/checkout">
-        {%- endif -%}
       {%- endform -%}
     </div>
   </div>
 </div>
 
 <script src="{{ 'rosalia-main-product.js' | asset_url }}" defer="defer"></script>
+
+<script>
+  /* ── Cart drawer opener ────────────────────────────────
+     Impact's <product-form> hijacks the submit as AJAX and dispatches
+     "cart:refresh". We listen once, refresh the drawer's contents, and
+     open it. Falls back to a hard navigate to /cart if the drawer is
+     absent (e.g. cart_type != 'drawer'/'popover'). */
+  (function() {
+    var section = document.getElementById('shopify-section-{{ section.id }}');
+    if (!section) return;
+    var form = section.querySelector('form[id^="product-form-"]');
+    if (!form) return;
+    var btn = section.querySelector('[data-rosalia-atc]');
+    var origLabel = btn ? btn.querySelector('.rosalia-cta-label') : null;
+    var origText = origLabel ? origLabel.textContent : '';
+
+    function openDrawer() {
+      /* Impact + Rosalia both ship a <cart-drawer> — open whichever exists. */
+      var drawer = document.querySelector('cart-drawer, cart-notification-drawer, [id="cart-drawer"]');
+      if (drawer && typeof drawer.open === 'function') { drawer.open(); return true; }
+      /* Fallback: click the header cart trigger to open Impact's drawer. */
+      var trigger = document.querySelector('[href="#cart-drawer"], [data-cart-drawer-trigger], a[href$="/cart"][data-drawer-trigger]');
+      if (trigger) { trigger.click(); return true; }
+      return false;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (btn) { btn.classList.add('is-loading'); btn.disabled = true; if (origLabel) origLabel.textContent = 'Adding…'; }
+      var body = new FormData(form);
+      body.append('sections', 'cart-drawer,cart-notification-drawer,header');
+      fetch('{{ routes.cart_add_url }}', {
+        method: 'POST',
+        headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
+        body: body
+      })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+          if (res.status && res.status >= 400) { throw new Error(res.description || res.message || 'ATC failed'); }
+          document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+          document.dispatchEvent(new CustomEvent('cart:update', { bubbles: true, detail: res }));
+          if (!openDrawer()) { window.location.href = '{{ routes.cart_url }}'; }
+        })
+        .catch(function() { window.location.href = '{{ routes.cart_url }}'; })
+        .finally(function() {
+          if (btn) { btn.classList.remove('is-loading'); btn.disabled = false; if (origLabel) origLabel.textContent = origText; }
+        });
+    });
+  })();
+</script>
 
 {% schema %}
 {
@@ -804,12 +850,13 @@
       "type": "select",
       "id": "after_add_to_cart",
       "label": "After add to cart",
-      "info": "Skip cart is the highest-converting option for a single-product store — the buyer goes from intent to payment with nothing in between.",
+      "info": "Drawer keeps the buyer on the page and opens the cart drawer — this is the setting we run in production.",
       "options": [
-        { "value": "checkout", "label": "Skip cart → checkout" },
-        { "value": "cart_page", "label": "Go to the cart page" }
+        { "value": "drawer", "label": "Open cart drawer (recommended)" },
+        { "value": "cart_page", "label": "Go to the cart page" },
+        { "value": "checkout", "label": "Skip cart → checkout" }
       ],
-      "default": "checkout"
+      "default": "drawer"
     },
     { "type": "header", "content": "Reviews" },
     { "type": "checkbox", "id": "enable_judgeme", "label": "Show Judge.me stars under title", "info": "Turn on AFTER installing the Judge.me app, or the page will error.", "default": false },
