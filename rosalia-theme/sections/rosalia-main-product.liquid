@@ -736,11 +736,74 @@
 
 <script>
   /* ── Cart drawer opener ────────────────────────────────
-     Impact's <product-form> hijacks the submit as AJAX and dispatches
-     "cart:refresh". We listen once, refresh the drawer's contents, and
-     open it. Falls back to a hard navigate to /cart if the drawer is
-     absent (e.g. cart_type != 'drawer'/'popover'). */
+     Two layers so ANY add-to-cart on this page ends in the drawer opening,
+     no matter who fired it (this section's own form, Kaching Bundles,
+     Rebuy, Loox, quick-add cards, /cart/add form posts from apps):
+
+       1. Global fetch monkey-patch — every POST to /cart/add(.js) is
+          watched; on 2xx we refresh the cart sections and open the drawer.
+       2. Our own <button> submit — hijacked as AJAX (drawer opens through
+          the same path as layer 1).
+
+     Falls back to a hard navigate to /cart if the drawer element is
+     genuinely absent from the DOM. */
   (function() {
+    if (window.__rosaliaDrawerHook) return;    /* mount once per document */
+    window.__rosaliaDrawerHook = true;
+
+    function openDrawer() {
+      var drawer = document.querySelector('cart-drawer, cart-notification-drawer, [id="cart-drawer"], .cart-drawer, .drawer--cart');
+      if (drawer) {
+        if (typeof drawer.open === 'function') { try { drawer.open(); return true; } catch (e) {} }
+        drawer.setAttribute('open', '');
+        drawer.classList.add('is-open', 'active', 'drawer--visible');
+      }
+      var trigger = document.querySelector('[href="#cart-drawer"], [data-cart-drawer-trigger], a[href$="/cart"][data-drawer-trigger], .cart-drawer-trigger');
+      if (trigger) { trigger.click(); return true; }
+      return !!drawer;
+    }
+
+    function afterAdd() {
+      document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      document.dispatchEvent(new CustomEvent('cart:update', { bubbles: true }));
+      document.dispatchEvent(new CustomEvent('cart:build', { bubbles: true }));
+      openDrawer();
+    }
+
+    /* Layer 1 — global fetch interceptor for /cart/add[.js] */
+    var origFetch = window.fetch;
+    if (typeof origFetch === 'function') {
+      window.fetch = function(input, init) {
+        var url = typeof input === 'string' ? input : (input && input.url) || '';
+        var method = (init && init.method) || (input && input.method) || 'GET';
+        var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(url) && String(method).toUpperCase() === 'POST';
+        var p = origFetch.apply(this, arguments);
+        if (isAdd) {
+          p.then(function(res) {
+            if (res && res.ok) { setTimeout(afterAdd, 60); }
+          }).catch(function() {});
+        }
+        return p;
+      };
+    }
+
+    /* Layer 1b — same for XHR (Kaching / Loox / older apps sometimes use it) */
+    var origOpen = XMLHttpRequest.prototype.open;
+    var origSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.open = function(method, url) {
+      this.__rosMethod = method; this.__rosUrl = url || '';
+      return origOpen.apply(this, arguments);
+    };
+    XMLHttpRequest.prototype.send = function() {
+      var xhr = this;
+      var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(xhr.__rosUrl || '') && String(xhr.__rosMethod || '').toUpperCase() === 'POST';
+      if (isAdd) {
+        xhr.addEventListener('load', function() { if (xhr.status >= 200 && xhr.status < 300) setTimeout(afterAdd, 60); });
+      }
+      return origSend.apply(this, arguments);
+    };
+
+    /* Layer 2 — this section's own form submit */
     var section = document.getElementById('shopify-section-{{ section.id }}');
     if (!section) return;
     var form = section.querySelector('form[id^="product-form-"]');
@@ -749,32 +812,23 @@
     var origLabel = btn ? btn.querySelector('.rosalia-cta-label') : null;
     var origText = origLabel ? origLabel.textContent : '';
 
-    function openDrawer() {
-      /* Impact + Rosalia both ship a <cart-drawer> — open whichever exists. */
-      var drawer = document.querySelector('cart-drawer, cart-notification-drawer, [id="cart-drawer"]');
-      if (drawer && typeof drawer.open === 'function') { drawer.open(); return true; }
-      /* Fallback: click the header cart trigger to open Impact's drawer. */
-      var trigger = document.querySelector('[href="#cart-drawer"], [data-cart-drawer-trigger], a[href$="/cart"][data-drawer-trigger]');
-      if (trigger) { trigger.click(); return true; }
-      return false;
-    }
-
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       if (btn) { btn.classList.add('is-loading'); btn.disabled = true; if (origLabel) origLabel.textContent = 'Adding…'; }
       var body = new FormData(form);
       body.append('sections', 'cart-drawer,cart-notification-drawer,header');
+      /* Uses the patched fetch, so layer 1 fires afterAdd() on success. */
       fetch('{{ routes.cart_add_url }}', {
         method: 'POST',
         headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
         body: body
       })
-        .then(function(r) { return r.json(); })
+        .then(function(r) { return r.json().then(function(j) { return { ok: r.ok, body: j }; }); })
         .then(function(res) {
-          if (res.status && res.status >= 400) { throw new Error(res.description || res.message || 'ATC failed'); }
-          document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
-          document.dispatchEvent(new CustomEvent('cart:update', { bubbles: true, detail: res }));
-          if (!openDrawer()) { window.location.href = '{{ routes.cart_url }}'; }
+          if (!res.ok || (res.body && res.body.status >= 400)) {
+            throw new Error((res.body && (res.body.description || res.body.message)) || 'ATC failed');
+          }
+          /* Drawer opens through the fetch hook above; no double-call needed. */
         })
         .catch(function() { window.location.href = '{{ routes.cart_url }}'; })
         .finally(function() {
