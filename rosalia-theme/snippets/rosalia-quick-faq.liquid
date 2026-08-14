@@ -1,0 +1,229 @@
+{%- comment -%}
+  Rosalia · Quick FAQ block content (Musely pattern)
+
+  Called from rosalia-main-product.liquid as:
+    {% render 'rosalia-quick-faq', block: block, section_id: section.id %}
+
+  Renders inline: scoped CSS + HTML markup + accordion JS.
+  CSS is scoped to `#shopify-section-{{ section_id }}` so multiple
+  section instances don't collide. The JS custom element is registered
+  once per document (guarded), safe to render on every block.
+{%- endcomment -%}
+
+<style>
+  #shopify-section-{{ section_id }} .rosalia-qf {
+    margin: 4px 0 18px;
+    display: block;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-title {
+    font-family: var(--rosalia-font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--rosalia-dark);
+    margin: 0 0 12px;
+    letter-spacing: -.005em;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-search {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 0 0 12px;
+    cursor: pointer;
+    color: var(--rosalia-gray-2);
+    font-size: 13px;
+    text-decoration: none;
+    transition: border-color .25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-search:hover { border-color: var(--rosalia-accent-deep); }
+  #shopify-section-{{ section_id }} .rosalia-qf-search svg {
+    flex: 0 0 16px; width: 16px; height: 16px;
+    stroke: var(--rosalia-accent-deep);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-search-input { flex: 1; }
+  #shopify-section-{{ section_id }} .rosalia-qf-search-arrow {
+    flex: 0 0 22px; width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--rosalia-pink-light);
+    color: var(--rosalia-accent-deep);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quicks {
+    display: grid; gap: 6px; margin: 0 0 18px;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quick {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    width: 100%;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--rosalia-dark);
+    line-height: 1.4;
+    transition: all .25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quick:hover {
+    border-color: var(--rosalia-accent-deep);
+    background: color-mix(in srgb, var(--rosalia-pink-light) 40%, var(--rosalia-white));
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quick[aria-expanded="true"] {
+    border-color: var(--rosalia-accent-deep);
+    background: var(--rosalia-pink-light);
+    color: var(--rosalia-accent-deep);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quick-plus {
+    flex: 0 0 18px; width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--rosalia-pink-light); color: var(--rosalia-accent-deep);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; line-height: 1;
+    transition: transform .3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-quick[aria-expanded="true"] .rosalia-qf-quick-plus {
+    transform: rotate(45deg);
+    background: var(--rosalia-accent-deep);
+    color: var(--rosalia-cream);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-answer {
+    background: color-mix(in srgb, var(--rosalia-pink-light) 35%, var(--rosalia-white));
+    border-left: 3px solid var(--rosalia-accent-deep);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 16px;
+    margin: -2px 0 4px 10px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-answer[hidden] { display: none; }
+  #shopify-section-{{ section_id }} .rosalia-qf-answer p { margin: 0 0 8px; }
+  #shopify-section-{{ section_id }} .rosalia-qf-answer p:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section_id }} .rosalia-qf-answer strong { color: var(--rosalia-accent-deep); font-weight: 600; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drops {
+    display: grid; gap: 0;
+    border-top: 1px solid var(--rosalia-pink-light);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop { border-bottom: 1px solid var(--rosalia-pink-light); }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop summary {
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 2px;
+    cursor: pointer;
+    font-family: var(--rosalia-font-sans);
+    font-size: 14px;
+    color: var(--rosalia-dark);
+    font-weight: 500;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop summary::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop summary::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-right: 1.5px solid var(--rosalia-accent-deep);
+    border-bottom: 1.5px solid var(--rosalia-accent-deep);
+    transform: rotate(45deg);
+    transition: transform .25s var(--rosalia-ease);
+    margin-top: -3px;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop[open] summary::after {
+    transform: rotate(-135deg);
+    margin-top: 3px;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body {
+    padding: 2px 2px 16px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body p { margin: 0 0 8px; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body p:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body strong {
+    color: var(--rosalia-accent-deep); font-weight: 600;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body dl { margin: 0; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body dt {
+    font-weight: 600; color: var(--rosalia-accent-deep); margin-top: 10px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body dt:first-child { margin-top: 0; }
+  #shopify-section-{{ section_id }} .rosalia-qf-drop-body dd { margin: 4px 0 10px; }
+</style>
+
+{%- assign qf_id = 'qf-' | append: section_id | append: '-' | append: block.id -%}
+<rosalia-quick-faq class="rosalia-qf" {{ block.shopify_attributes }}>
+  {%- if block.settings.title != blank -%}
+    <div class="rosalia-qf-title">{{ block.settings.title }}</div>
+  {%- endif -%}
+  {%- if block.settings.contact_url != blank -%}
+    <a class="rosalia-qf-search" href="{{ block.settings.contact_url }}" aria-label="{{ block.settings.search_placeholder | default: 'Have questions? Ask here' | escape }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <span class="rosalia-qf-search-input">{{ block.settings.search_placeholder | default: 'Have questions? Ask here' }}</span>
+      <span class="rosalia-qf-search-arrow" aria-hidden="true">↑</span>
+    </a>
+  {%- endif -%}
+  <div class="rosalia-qf-quicks">
+    {%- for i in (1..3) -%}
+      {%- assign q_key = 'q' | append: i | append: '_question' -%}
+      {%- assign a_key = 'q' | append: i | append: '_answer' -%}
+      {%- assign q_text = block.settings[q_key] -%}
+      {%- assign a_text = block.settings[a_key] -%}
+      {%- if q_text != blank and a_text != blank -%}
+        <button class="rosalia-qf-quick" type="button" aria-expanded="false" aria-controls="{{ qf_id }}-a{{ i }}">
+          <span>{{ q_text }}</span>
+          <span class="rosalia-qf-quick-plus" aria-hidden="true">+</span>
+        </button>
+        <div class="rosalia-qf-answer" id="{{ qf_id }}-a{{ i }}" role="region" hidden>
+          {{ a_text }}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+  <div class="rosalia-qf-drops">
+    {%- for i in (1..4) -%}
+      {%- assign t_key = 'd' | append: i | append: '_title' -%}
+      {%- assign b_key = 'd' | append: i | append: '_body' -%}
+      {%- assign t_text = block.settings[t_key] -%}
+      {%- assign b_text = block.settings[b_key] -%}
+      {%- if t_text != blank -%}
+        <details class="rosalia-qf-drop">
+          <summary>{{ t_text }}</summary>
+          <div class="rosalia-qf-drop-body">{{ b_text }}</div>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</rosalia-quick-faq>
+
+<script>
+  (function() {
+    if (customElements.get('rosalia-quick-faq')) return;
+    class RosaliaQuickFaq extends HTMLElement {
+      connectedCallback() {
+        this.addEventListener('click', function(e) {
+          var btn = e.target.closest('.rosalia-qf-quick');
+          if (!btn || !this.contains(btn)) return;
+          var pid = btn.getAttribute('aria-controls');
+          var panel = document.getElementById(pid);
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          this.querySelectorAll('.rosalia-qf-quick[aria-expanded="true"]').forEach(function(b) {
+            if (b !== btn) {
+              b.setAttribute('aria-expanded', 'false');
+              var p = document.getElementById(b.getAttribute('aria-controls'));
+              if (p) p.setAttribute('hidden', '');
+            }
+          });
+          btn.setAttribute('aria-expanded', String(!open));
+          if (panel) { if (open) panel.setAttribute('hidden', ''); else panel.removeAttribute('hidden'); }
+        }.bind(this));
+      }
+    }
+    customElements.define('rosalia-quick-faq', RosaliaQuickFaq);
+  })();
+</script>
