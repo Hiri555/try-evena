@@ -1,0 +1,338 @@
+{%- comment -%}
+  Rosalia · Quick FAQ (Musely pattern)
+
+  Placement: directly below the buy-box on product.rosalia. Contains:
+    • Heading + a fake input that routes to /pages/contact on click
+    • 3 quick-question buttons, each with an inline accordion answer
+      (Option B — keeps the buyer in visual context with the bundle above)
+    • 4 traditional dropdowns (Formulations, How & why it works,
+      How to use, The 60-day guarantee)
+
+  Every block above the fold on rosalia-main-product stays untouched; this
+  is a standalone section that renders as a full-width row.
+{%- endcomment -%}
+
+{%- render 'rosalia-tokens' -%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background | default: 'var(--rosalia-cream)' }};
+    color: {{ section.settings.text_color | default: 'var(--rosalia-dark)' }};
+    --qf-accent: {{ section.settings.accent | default: '#7A3A54' }};
+    --qf-accent-soft: {{ section.settings.accent_soft | default: '#F7E4EA' }};
+  }
+  #shopify-section-{{ section.id }} .qf-wrap {
+    max-width: {{ section.settings.max_width | default: 720 }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.padding_top | default: 32 }}px 24px {{ section.settings.padding_bottom | default: 48 }}px;
+  }
+  #shopify-section-{{ section.id }} .qf-eyebrow {
+    font-family: var(--rosalia-font-sans);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--qf-accent);
+    font-weight: 600;
+    margin: 0 0 10px;
+  }
+  #shopify-section-{{ section.id }} .qf-title {
+    font-family: var(--rosalia-font-serif);
+    font-size: clamp(26px, 3.4vw, 34px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -.018em;
+    margin: 0 0 22px;
+    color: var(--rosalia-dark);
+    text-wrap: balance;
+  }
+  #shopify-section-{{ section.id }} .qf-title em { font-style: italic; color: var(--qf-accent); font-weight: 400; }
+
+  /* Fake input → click routes to /pages/contact */
+  #shopify-section-{{ section.id }} .qf-search {
+    display: flex; align-items: center;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin: 0 0 20px;
+    cursor: pointer;
+    transition: border-color .25s var(--rosalia-ease), box-shadow .25s var(--rosalia-ease);
+    text-decoration: none;
+    color: var(--rosalia-gray-2);
+    font-size: 14px;
+  }
+  #shopify-section-{{ section.id }} .qf-search:hover {
+    border-color: var(--qf-accent);
+    box-shadow: 0 6px 18px rgba(122, 58, 84, .08);
+  }
+  #shopify-section-{{ section.id }} .qf-search svg {
+    flex: 0 0 18px; width: 18px; height: 18px;
+    margin-right: 12px;
+    stroke: var(--qf-accent);
+  }
+  #shopify-section-{{ section.id }} .qf-search-placeholder {
+    flex: 1;
+    font-family: var(--rosalia-font-sans);
+  }
+  #shopify-section-{{ section.id }} .qf-search-arrow {
+    color: var(--qf-accent);
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity .25s, transform .25s;
+  }
+  #shopify-section-{{ section.id }} .qf-search:hover .qf-search-arrow { opacity: 1; transform: translateX(0); }
+
+  /* Quick-question buttons */
+  #shopify-section-{{ section.id }} .qf-quicks {
+    display: grid; gap: 8px;
+    margin: 0 0 28px;
+  }
+  #shopify-section-{{ section.id }} .qf-quick {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 14px;
+    width: 100%;
+    background: var(--rosalia-white);
+    border: 1.5px solid var(--rosalia-pink-light);
+    border-radius: 12px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--rosalia-font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--rosalia-dark);
+    transition: all .25s var(--rosalia-ease);
+    line-height: 1.4;
+  }
+  #shopify-section-{{ section.id }} .qf-quick:hover {
+    border-color: var(--qf-accent);
+    background: color-mix(in srgb, var(--qf-accent-soft) 50%, var(--rosalia-white));
+  }
+  #shopify-section-{{ section.id }} .qf-quick[aria-expanded="true"] {
+    border-color: var(--qf-accent);
+    background: var(--qf-accent-soft);
+    color: var(--qf-accent);
+  }
+  #shopify-section-{{ section.id }} .qf-quick-icon {
+    flex: 0 0 22px;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--qf-accent-soft);
+    color: var(--qf-accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+    transition: transform .3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .qf-quick[aria-expanded="true"] .qf-quick-icon {
+    transform: rotate(45deg);
+    background: var(--qf-accent);
+    color: var(--rosalia-cream);
+  }
+  #shopify-section-{{ section.id }} .qf-answer {
+    background: color-mix(in srgb, var(--qf-accent-soft) 45%, var(--rosalia-white));
+    border-left: 3px solid var(--qf-accent);
+    border-radius: 0 10px 10px 0;
+    padding: 18px 22px;
+    margin: -2px 0 8px 12px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .qf-answer[hidden] { display: none; }
+  #shopify-section-{{ section.id }} .qf-answer p { margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .qf-answer p:last-child { margin-bottom: 0; }
+  #shopify-section-{{ section.id }} .qf-answer strong { color: var(--qf-accent); font-weight: 600; }
+
+  /* Traditional dropdowns */
+  #shopify-section-{{ section.id }} .qf-dropdowns {
+    display: grid; gap: 0;
+    border-top: 1px solid var(--rosalia-pink-light);
+    margin-top: 8px;
+  }
+  #shopify-section-{{ section.id }} .qf-drop { border-bottom: 1px solid var(--rosalia-pink-light); }
+  #shopify-section-{{ section.id }} .qf-drop summary {
+    list-style: none;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 4px;
+    cursor: pointer;
+    font-family: var(--rosalia-font-serif);
+    font-size: 17px;
+    color: var(--rosalia-dark);
+    font-weight: 500;
+    letter-spacing: -.005em;
+  }
+  #shopify-section-{{ section.id }} .qf-drop summary::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} .qf-drop summary::after {
+    content: '';
+    width: 10px; height: 10px;
+    border-right: 1.5px solid var(--qf-accent);
+    border-bottom: 1.5px solid var(--qf-accent);
+    transform: rotate(45deg);
+    transition: transform .25s var(--rosalia-ease);
+    margin-top: -4px;
+  }
+  #shopify-section-{{ section.id }} .qf-drop[open] summary::after {
+    transform: rotate(-135deg);
+    margin-top: 4px;
+  }
+  #shopify-section-{{ section.id }} .qf-drop-body {
+    padding: 4px 4px 22px;
+    font-family: var(--rosalia-font-sans);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .qf-drop-body p { margin: 0 0 10px; }
+  #shopify-section-{{ section.id }} .qf-drop-body p:last-child { margin: 0; }
+  #shopify-section-{{ section.id }} .qf-drop-body strong { color: var(--qf-accent); font-weight: 600; }
+  #shopify-section-{{ section.id }} .qf-drop-body ul {
+    margin: 6px 0 12px; padding-left: 18px;
+  }
+  #shopify-section-{{ section.id }} .qf-drop-body li { margin-bottom: 6px; }
+  #shopify-section-{{ section.id }} .qf-drop-body dl { margin: 0; }
+  #shopify-section-{{ section.id }} .qf-drop-body dt {
+    font-weight: 600; color: var(--qf-accent); margin-top: 12px;
+    font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
+  }
+  #shopify-section-{{ section.id }} .qf-drop-body dt:first-child { margin-top: 0; }
+  #shopify-section-{{ section.id }} .qf-drop-body dd { margin: 4px 0 12px; }
+
+  @media (max-width: 600px) {
+    #shopify-section-{{ section.id }} .qf-wrap { padding: 24px 16px 40px; }
+    #shopify-section-{{ section.id }} .qf-quick { font-size: 13.5px; padding: 13px 15px; }
+    #shopify-section-{{ section.id }} .qf-drop summary { font-size: 15.5px; padding: 16px 4px; }
+    #shopify-section-{{ section.id }} .qf-answer { padding: 15px 18px; font-size: 13.5px; margin-left: 8px; }
+  }
+</style>
+
+<section class="qf-wrap" aria-labelledby="qf-title-{{ section.id }}">
+  {%- if section.settings.eyebrow != blank -%}
+    <div class="qf-eyebrow">{{ section.settings.eyebrow }}</div>
+  {%- endif -%}
+
+  <h2 id="qf-title-{{ section.id }}" class="qf-title">{{ section.settings.title | default: 'Looking for <em>more answers</em>?' }}</h2>
+
+  {%- if section.settings.contact_url != blank -%}
+    <a class="qf-search" href="{{ section.settings.contact_url }}" role="button" aria-label="{{ section.settings.search_placeholder | default: 'Have questions? Ask here' | escape }}">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <span class="qf-search-placeholder">{{ section.settings.search_placeholder | default: 'Have questions? Ask here' }}</span>
+      <span class="qf-search-arrow" aria-hidden="true">→</span>
+    </a>
+  {%- endif -%}
+
+  {%- comment -%} 3 quick questions with inline accordion answers {%- endcomment -%}
+  <rosalia-quick-faq class="qf-quicks">
+    {%- for i in (1..3) -%}
+      {%- assign q_key = 'q' | append: i | append: '_question' -%}
+      {%- assign a_key = 'q' | append: i | append: '_answer' -%}
+      {%- assign q_text = section.settings[q_key] -%}
+      {%- assign a_text = section.settings[a_key] -%}
+      {%- if q_text != blank and a_text != blank -%}
+        <button class="qf-quick" type="button" aria-expanded="false" aria-controls="qf-a-{{ section.id }}-{{ i }}">
+          <span>{{ q_text }}</span>
+          <span class="qf-quick-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="qf-answer" id="qf-a-{{ section.id }}-{{ i }}" role="region" hidden>
+          {{ a_text }}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </rosalia-quick-faq>
+
+  {%- comment -%} 4 traditional dropdowns {%- endcomment -%}
+  <div class="qf-dropdowns">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'dropdown' and block.settings.title != blank -%}
+        <details class="qf-drop" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.title }}</summary>
+          <div class="qf-drop-body">{{ block.settings.body }}</div>
+        </details>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<script>
+  (function () {
+    if (customElements.get('rosalia-quick-faq')) return;
+    class RosaliaQuickFaq extends HTMLElement {
+      connectedCallback() {
+        this.addEventListener('click', (e) => {
+          const btn = e.target.closest('.qf-quick');
+          if (!btn) return;
+          const panelId = btn.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId);
+          const open = btn.getAttribute('aria-expanded') === 'true';
+          /* Close siblings within this same picker */
+          this.querySelectorAll('.qf-quick[aria-expanded="true"]').forEach((b) => {
+            if (b !== btn) {
+              b.setAttribute('aria-expanded', 'false');
+              const pid = b.getAttribute('aria-controls');
+              const p = document.getElementById(pid);
+              if (p) p.setAttribute('hidden', '');
+            }
+          });
+          btn.setAttribute('aria-expanded', String(!open));
+          if (panel) {
+            if (open) panel.setAttribute('hidden', '');
+            else panel.removeAttribute('hidden');
+          }
+        });
+      }
+    }
+    customElements.define('rosalia-quick-faq', RosaliaQuickFaq);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rosalia — Quick FAQ",
+  "class": "shopify-section--rosalia-quick-faq",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "" },
+    { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Looking for <em>more answers</em>?</p>" },
+    { "type": "text", "id": "search_placeholder", "label": "Search bar placeholder", "default": "Have questions? Ask here" },
+    { "type": "url", "id": "contact_url", "label": "Contact URL", "info": "Where the search bar routes on click.", "default": "/pages/contact" },
+    { "type": "header", "content": "Quick question 1" },
+    { "type": "text", "id": "q1_question", "label": "Question 1", "default": "Why do you recommend 2 bottles minimum?" },
+    { "type": "richtext", "id": "q1_answer",  "label": "Answer 1" },
+    { "type": "header", "content": "Quick question 2" },
+    { "type": "text", "id": "q2_question", "label": "Question 2", "default": "Will this actually work if nothing else has?" },
+    { "type": "richtext", "id": "q2_answer",  "label": "Answer 2" },
+    { "type": "header", "content": "Quick question 3" },
+    { "type": "text", "id": "q3_question", "label": "Question 3", "default": "Is Rosalia safe if I'm pregnant or nursing?" },
+    { "type": "richtext", "id": "q3_answer",  "label": "Answer 3" },
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "max_width", "label": "Max width (px)", "min": 560, "max": 960, "step": 20, "default": 720 },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 96, "step": 4, "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 96, "step": 4, "default": 48 },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text color", "default": "#1F1A1C" },
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#7A3A54" },
+    { "type": "color", "id": "accent_soft", "label": "Accent soft", "default": "#F7E4EA" }
+  ],
+  "blocks": [
+    {
+      "type": "dropdown",
+      "name": "Dropdown",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rosalia — Quick FAQ",
+      "blocks": [
+        { "type": "dropdown" },
+        { "type": "dropdown" },
+        { "type": "dropdown" },
+        { "type": "dropdown" }
+      ]
+    }
+  ]
+}
+{% endschema %}

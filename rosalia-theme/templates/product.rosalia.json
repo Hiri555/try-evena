@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main_product": {
@@ -65,7 +56,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
-            "button_label": "Try it for 60 days"
+            "button_label": "GET MY FACE BACK"
           }
         },
         "delivery": {
@@ -116,7 +107,7 @@
         "enable_video_autoplay": false,
         "enable_video_looping": false,
         "cta_shape": "pill",
-        "after_add_to_cart": "cart_page",
+        "after_add_to_cart": "drawer",
         "enable_judgeme": false,
         "section_background": "#faf5f0",
         "section_text_color": "#1f1a1c",
@@ -124,34 +115,80 @@
         "accent_deep": "#7a3a54"
       }
     },
+    "quick_faq": {
+      "type": "rosalia-quick-faq",
+      "blocks": {
+        "d_form": {
+          "type": "dropdown",
+          "settings": {
+            "title": "Formulations",
+            "body": "<p><strong>Five clinically-supported actives, each at the dose reactive skin can actually tolerate.</strong></p><p>Niacinamide 3–5%, Centella Asiatica 2%, Azelaic Acid 10%, Bisabolol 0.5%, Ceramide Complex 1% — chosen because more isn't better when your skin is already on edge. Full breakdown with the mechanism per active is right below in the Ingredients section.</p><p><strong>What we left out on purpose:</strong> essential oils, fragrance, alcohol, high-dose acids, retinoids. Every ingredient was audited against the top-100 rosacea trigger list.</p>"
+          }
+        },
+        "d_how": {
+          "type": "dropdown",
+          "settings": {
+            "title": "How & why it works",
+            "body": "<p>Rosacea isn't one thing misfiring — it's five systems firing at once: the immune alarm, the nerves, the vessels, the barrier, and the feedback loop that keeps them all going.</p><p><strong>The Reset Complex targets all five simultaneously.</strong> That's why single-active serums plateau. You fix one; the other four keep the loop running.</p><p>The full mechanism (with the five levers and what each active does) is in the “Rosacea was never one problem” section below.</p>"
+          }
+        },
+        "d_use": {
+          "type": "dropdown",
+          "settings": {
+            "title": "How to use",
+            "body": "<p><strong>Morning and evening, on clean dry skin, before your moisturizer.</strong></p><dl><dt>01 · Dispense</dt><dd>3–4 drops from the dropper. Enough for the full face.</dd><dt>02 · Apply</dt><dd>Press gently into cheeks, nose, forehead. Let it absorb for 60 seconds.</dd><dt>03 · Continue</dt><dd>Follow with moisturizer. The serum works underneath.</dd></dl><p>Compatible with most routines. The only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>"
+          }
+        },
+        "d_guarantee": {
+          "type": "dropdown",
+          "settings": {
+            "title": "The 60-day guarantee",
+            "body": "<dl><dt>What it covers</dt><dd>Every bottle, even half-used ones. Buy 1, buy 3 — same guarantee.</dd><dt>How to claim</dt><dd>One email to <strong>contact@try-rosalia.com</strong> within 60 days of your order. That's it. No forms, no return shipping, no photos, no story to tell us.</dd><dt>When you're refunded</dt><dd>Full refund back to your original payment method within 24 hours of your email.</dd><dt>Why 60 days</dt><dd>Because our panel saw the shift at week 7–8. A 30-day guarantee on a product that needs 8 weeks to work would be dishonest. 60 days is the minimum floor for you to actually judge.</dd></dl>"
+          }
+        }
+      },
+      "block_order": [
+        "d_form",
+        "d_how",
+        "d_use",
+        "d_guarantee"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "title": "<p>Looking for <em>more answers</em>?</p>",
+        "search_placeholder": "Have questions? Ask here",
+        "contact_url": "/pages/contact",
+        "q1_question": "Why do you recommend 2 bottles minimum?",
+        "q1_answer": "<p>Our 312-woman clinical panel saw the shift at <strong>week 7–8</strong>. Not week 3. Not week 4.</p><p>The flush loop that keeps your face reactive doesn't unwind in 30 days. It needs 56 days for the alarm to stop firing, the nerves to reset, and the barrier to fully rebuild — and closer to 84 days for that new baseline to hold on its own.</p><p><strong>One bottle</strong> tests whether your skin tolerates the formula. <strong>Two bottles</strong> tests whether it works. <strong>Three bottles</strong> is where the panel said the shift stabilizes.</p><p>If it doesn't shift for you — every bottle, even the half-used ones, is refunded within 60 days. One email. No forms. That's why the guarantee is 60 days, not 30.</p>",
+        "q2_question": "Will this actually work if nothing else has?",
+        "q2_answer": "<p>A fair question given what you've probably tried already.</p><p>Most rosacea products target one mechanism — either the immune alarm, or the vessels, or the barrier. That's why single-active serums plateau. Your face has five things misfiring at once, and treating one of them just lets the other four keep running the loop.</p><p><strong>The Reset Complex targets the five simultaneously</strong> — that's the mechanical difference. It's why our panel saw shifts in cases where prescriptions, IPL, and every “sensitive skin” line had failed.</p><p>That said, we're honest about one thing: 4 out of 100 women in our panel saw no change at all. If you're in that 4 out of 100, the 60-day refund is why.</p>",
+        "q3_question": "Is Rosalia safe if I'm pregnant or nursing?",
+        "q3_answer": "<p><strong>Yes.</strong> Every active in Rosalia was chosen with pregnancy- and nursing-compatibility in mind, using standard OB and lactation references.</p><p><strong>Azelaic Acid</strong> — one of our five actives — is specifically recommended by dermatologists during pregnancy for exactly the kind of hormonal flushing that shows up postpartum.</p><p>We still recommend confirming with your OB or lactation consultant before starting anything new — every body is different, and we're not your doctor. But we built the formula so you wouldn't have to wait until you're done nursing to start.</p>",
+        "max_width": 720,
+        "padding_top": 32,
+        "padding_bottom": 48,
+        "background": "#faf5f0",
+        "text_color": "#1f1a1c",
+        "accent": "#7a3a54",
+        "accent_soft": "#f7e4ea"
+      }
+    },
     "marquee": {
       "type": "rosalia-marquee",
       "blocks": {
-        "item_1": {
+        "item_ship": {
           "type": "item",
           "settings": {
-            "text": "No essential oils"
+            "text": "Free US shipping on orders over $50"
           }
         },
-        "item_2": {
+        "item_refund": {
           "type": "item",
           "settings": {
-            "text": "Five mechanisms at once"
+            "text": "60-day full refund · Half-used bottles accepted"
           }
         },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "text": "Rosacea-tested"
-          }
-        },
-        "item_5": {
-          "type": "item",
-          "settings": {
-            "text": "60-day guarantee"
-          }
-        },
-        "item_6": {
+        "item_authority": {
           "type": "item",
           "settings": {
             "text": "Formulated with a vascular biologist"
@@ -159,11 +196,9 @@
         }
       },
       "block_order": [
-        "item_1",
-        "item_2",
-        "item_3",
-        "item_5",
-        "item_6"
+        "item_ship",
+        "item_refund",
+        "item_authority"
       ],
       "settings": {
         "separator": "◆",
@@ -747,6 +782,7 @@
   },
   "order": [
     "main_product",
+    "quick_faq",
     "marquee",
     "mechanism",
     "ingredients",
