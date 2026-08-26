@@ -1,0 +1,810 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "settings": {
+        "show_trust": true,
+        "show_masthead": true,
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "brand_url": "/",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": ""
+      },
+      "blocks": {
+        "trust1": {
+          "type": "trust",
+          "settings": {
+            "text": "Five levers at once",
+            "icon": "check"
+          }
+        },
+        "trust2": {
+          "type": "trust",
+          "settings": {
+            "text": "Zero fragrance",
+            "icon": "check"
+          }
+        },
+        "trust3": {
+          "type": "trust",
+          "settings": {
+            "text": "Every percentage printed",
+            "icon": "check"
+          }
+        },
+        "trust4": {
+          "type": "trust",
+          "settings": {
+            "text": "60-day full refund",
+            "icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "trust1",
+        "trust2",
+        "trust3",
+        "trust4"
+      ]
+    },
+    "blk1": {
+      "type": "rosalia-funnel-hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Every 45 minutes, you go and check if it's started.",
+        "as_h1": true,
+        "standfirst": "Not vanity. Vigilance. And you've never told anyone you do it.",
+        "lead": "<p>Five things are happening in your face at the same time. Almost everything you've tried was built for one of them.</p>",
+        "image_alt": "A woman leaning close to a corporate bathroom mirror under fluorescent light, pulling her cheek taut with two fingers, no makeup.",
+        "placeholder_note": "Upload the asset for: img/n01-mirror.jpg",
+        "caption": "",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "meta1": {
+          "type": "meta",
+          "settings": {
+            "text": "By Margot Vidal , founder",
+            "strong": true
+          }
+        },
+        "meta2": {
+          "type": "meta",
+          "settings": {
+            "text": "4 min read",
+            "strong": false
+          }
+        }
+      },
+      "block_order": [
+        "meta1",
+        "meta2"
+      ]
+    },
+    "blk1kick": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "kick1": {
+          "type": "kick",
+          "settings": {
+            "text": "The fifth one is the one you're doing yourself. Start there if you only have a minute."
+          }
+        }
+      },
+      "block_order": [
+        "kick1"
+      ]
+    },
+    "blk2": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason One",
+        "eyebrow": "",
+        "heading": "Everyone on the call saw it <em>before you did</em>.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "Seen from behind, a woman at a desk reaching up to tilt her laptop screen downward during a video call, the call grid blurred.",
+            "placeholder_note": "Upload the asset for: img/n09-screen.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You tilt the screen so they only see the top of your head. Self-view stays off — because the second you watch it happen, it happens faster.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You sit by the window all year. They think you're cold. You're managing a condition none of them know you have.</p>",
+            "is_lead": false
+          }
+        },
+        "kick4": {
+          "type": "kick",
+          "settings": {
+            "text": "None of that is about beauty. It's infrastructure — and it runs during every meeting you've ever had."
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "kick4"
+      ]
+    },
+    "blk3": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Two",
+        "eyebrow": "",
+        "heading": "Six products failed. <em>Every one of them worked.</em>",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "Overhead view into an open bathroom drawer holding eleven abandoned skincare products: creased tubes, a jar crusted at the rim, clogged pumps, torn sachets. All unbranded, all used, none finished.",
+            "placeholder_note": "Upload the asset for: img/n02-drawer.jpg",
+            "caption": "<p>Not one of these was cheap. Not one of them was finished.</p>",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Thousands spent. Laser, prescriptions, the expensive barrier cream. And always the same pattern: what works one week won't the next.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>They weren't bad products. Each one did its job — <strong>on one lever out of five.</strong> Pull one while the other four keep running, and you get exactly what you got.</p>",
+            "is_lead": false
+          }
+        },
+        "pairs4": {
+          "type": "pairs",
+          "settings": {
+            "rows": "Soolantra, Metrogel | Alarm only\nDoxycycline | Alarm only\nThe cream that rebounded | Vessels, forced\nLaser, IPL | Vessels, already built\nCeramide moisturizers | Barrier only\nCutting wine, heat, spice | Nerves, avoided",
+            "variant": "label"
+          }
+        },
+        "kick5": {
+          "type": "kick",
+          "settings": {
+            "text": "The villain was never in the bottle. It was the assumption that this has one point of attack."
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "pairs4",
+        "kick5"
+      ]
+    },
+    "blk4": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "And the loop doesn't wait.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Every year the alarm fires a little easier. The nerves get a little quicker. The vessels stay open a little longer. That's how a face that used to flush and settle becomes a face with a background level it never drops below.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1"
+      ]
+    },
+    "quiz1": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Before you keep reading",
+        "heading": "Which of the five is loudest in yours?",
+        "body": "Sixteen questions about when it starts, how long it stays, what it does after. 60 seconds. You see your profile before we ask for an email.",
+        "button_label": "Find out which of the five is yours →",
+        "button_url": "/pages/quiz-flush",
+        "fine_print": "",
+        "full_width": false,
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "blk5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Three",
+        "eyebrow": "",
+        "heading": "Trying to stop it is <em>what keeps it going</em>.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "Extreme macro of a cheek: unretouched skin showing diffuse redness and fine branching telangiectasia — thin red vessels just under the surface.",
+            "placeholder_note": "Upload the asset for: img/n04-macro.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You get so anxious about flushing in the meeting that it happens. They notice. You lose your sentence. It climbs.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That's not willpower failing. It's a feedback path — attention recruits the flush. <strong>Four of the five levers are physical. This one can't go in a bottle, which is why no brand has ever mentioned it to you.</strong></p>",
+            "is_lead": false
+          }
+        },
+        "diagram4": {
+          "type": "diagram",
+          "settings": {
+            "which": "loop",
+            "aria_label": "A loop: it starts, you watch it, it climbs, and back to the beginning.",
+            "narrow": true,
+            "legend": "",
+            "caption": ""
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<ul><li><b>Alarm.</b> Fires at things it shouldn't. Doesn't switch off after.</li><li><b>Nerves.</b> Recalibrated by the alarm. Now they fire at heat you'd never feel on your arm.</li><li><b>Vessels.</b> Open on cue, and no longer close all the way behind them.</li><li><b>Barrier.</b> Thin enough that everything you apply becomes a new trigger.</li><li><b>Loop.</b> Watching for it recruits it.</li></ul>",
+            "is_lead": false
+          }
+        },
+        "kick6": {
+          "type": "kick",
+          "settings": {
+            "text": "Pull all five at once and the face does the rest. That's the Reset Complex™ — our reading of it, not a trial result."
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "diagram4",
+        "paragraph5",
+        "kick6"
+      ]
+    },
+    "blk6": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Four",
+        "eyebrow": "",
+        "heading": "The “gentle” ingredient that <em>was burning you</em>.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "Five shallow ceramic dishes in a row on warm plaster, each holding one raw material: white crystalline powder, a clear gel drop, a pale yellow liquid, dried green leaf, a piece of dried root.",
+            "placeholder_note": "Upload the asset for: img/n11-dishes.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You read a hundred times that niacinamide is gentle. Then you checked the primer you'd used for two years, and there it was.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><strong>The molecule was never the problem. The dose was.</strong> The category pushes 10% because it photographs well on a label. Here it's held at 3–5%, on purpose.</p>",
+            "is_lead": false
+          }
+        },
+        "pairs4": {
+          "type": "pairs",
+          "settings": {
+            "rows": "Azelaic acid | 10%\nPanthenol B5 | 5%\nCentella asiatica | 4%\nNiacinamide | 3–5%\nColloidal oat | 1%\nLicochalcone A | 0.4%",
+            "variant": "figure"
+          }
+        },
+        "kick5": {
+          "type": "kick",
+          "settings": {
+            "text": "Zero fragrance. Zero essential oils. Zero alcohol. Zero menthol. No vessel-constrictor."
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "pairs4",
+        "kick5"
+      ]
+    },
+    "blk7": {
+      "type": "rosalia-funnel-refusal",
+      "settings": {
+        "eyebrow": "Reason Five",
+        "heading": "Four reasons to <em>close this tab</em>.",
+        "intro": "<p>If any of these is you, a serum isn't your next step — and saying otherwise would cost you months.</p>",
+        "outro": "<p>After six products, you already know what it's worth when a company says <em>not this, not yet</em> — because none of them have.</p>",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "item1": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Eyes burn, itch or feel gritty.</strong> Ocular rosacea. Ophthalmologist, and never near the eyelid.</p>"
+          }
+        },
+        "item2": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Your nose has thickened.</strong> Structural. No topical reverses it.</p>"
+          }
+        },
+        "item3": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Widespread painful pustules.</strong> Prescription first.</p>"
+          }
+        },
+        "item4": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>You're on a topical steroid.</strong> Get the taper supervised before adding anything.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item1",
+        "item2",
+        "item3",
+        "item4"
+      ]
+    },
+    "blk8": {
+      "type": "rosalia-funnel-proof",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Look at the right-hand frame. <em>She's still pink.</em>",
+        "intro": "<p>Cheeks still warmer than the rest of her face. What's gone is the layer on top — the bumps, the rawness, the patches that made strangers ask.</p><p><strong>That's what eight to twelve weeks looks like.</strong> Not a different face. The same one, with the loud part turned down.</p>",
+        "empty_state": "<p>Real ones, or this space stays empty.</p>",
+        "show_media_slots": true,
+        "before_alt": "The same woman before and after in identical lighting: heavy flushing across forehead, nose and both cheeks with visible papules, then calmer skin with residual redness still present.",
+        "after_alt": "[PLACEHOLDER — real five-star review card. Real verified customer only, never a fabricated quote.]",
+        "before_note": "Upload the asset for: img/rosalia-ba-flush.jpg",
+        "after_note": "Upload the asset for: img/rosalia-review.jpg",
+        "before_caption": "<p>Week 0 and Week 10. Same bathroom, same time of day, no makeup either time.</p>",
+        "after_caption": "",
+        "panel_note": "<p>[PLACEHOLDER — real verified-customer quote, her own words, unedited. Until there is a real one, leave it out rather than invent it.] [First name · verified purchase · week X of 8]</p>",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "blk9": {
+      "type": "rosalia-funnel-timeline",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Eight weeks, with <em>real dates</em>.",
+        "intro": "",
+        "footnote": "Promise you fourteen days and we'd be the seventh product to lie to you.",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "ms1": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 0,
+            "day_offset_end": 13,
+            "date_prefix": "",
+            "body": "<p>Nothing visible. The barrier moves first, underneath. Things stop stinging on application.</p>"
+          }
+        },
+        "ms2": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 14,
+            "day_offset_end": 27,
+            "date_prefix": "",
+            "body": "<p>Not less redness — <strong>shorter</strong>. It still arrives, and it leaves in forty minutes instead of two hours.</p>"
+          }
+        },
+        "ms3": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 28,
+            "day_offset_end": 41,
+            "date_prefix": "",
+            "body": "<p>The background level starts to drop. The one you see rather than feel.</p>"
+          }
+        },
+        "ms4": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 42,
+            "day_offset_end": 55,
+            "date_prefix": "",
+            "body": "<p>Honest checkpoint. Nothing moved? It hasn't worked on you, and the refund window is open two more weeks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ms1",
+        "ms2",
+        "ms3",
+        "ms4"
+      ]
+    },
+    "blk10": {
+      "type": "rosalia-funnel-offer",
+      "settings": {
+        "layout": "bundles",
+        "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. A two-week supply would be us selling you a disappointment.</p>",
+        "heading": "Eight weeks is <em>the unit</em>.",
+        "eyebrow": "",
+        "product_name": "",
+        "size_line": "",
+        "price": "",
+        "button_label": "Start the 8 weeks →",
+        "button_url": "/products/daily-reset-serum",
+        "secondary_label": "",
+        "secondary_url": "/pages/quiz-flush",
+        "reassurance": "",
+        "guarantee": "",
+        "footnote": "about $10 a week. The comparison that matters isn't $82 against $45 — it's $82 against another year of the forty minutes.",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "tier1": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The Tolerance Check — 1 bottle · 30 ml · 4 weeks",
+            "price": "$45",
+            "promise": "See whether your skin takes it.",
+            "featured": false,
+            "badge_text": "",
+            "url": ""
+          }
+        },
+        "tier2": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The 8-Week Reset — 2 bottles · 8 weeks",
+            "price": "$82",
+            "promise": "A workday where nobody mentions your face.",
+            "featured": true,
+            "badge_text": "Most chosen",
+            "url": ""
+          }
+        },
+        "tier3": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The Full Reset — 3 bottles · 12 weeks",
+            "price": "$114",
+            "promise": "Through a full trigger season.",
+            "featured": false,
+            "badge_text": "",
+            "url": ""
+          }
+        },
+        "badge1": {
+          "type": "badge",
+          "settings": {
+            "text": "60-day full refund"
+          }
+        },
+        "badge2": {
+          "type": "badge",
+          "settings": {
+            "text": "Opened bottles count"
+          }
+        },
+        "badge3": {
+          "type": "badge",
+          "settings": {
+            "text": "No forms"
+          }
+        },
+        "badge4": {
+          "type": "badge",
+          "settings": {
+            "text": "Free US shipping"
+          }
+        }
+      },
+      "block_order": [
+        "tier1",
+        "tier2",
+        "tier3",
+        "badge1",
+        "badge2",
+        "badge3",
+        "badge4"
+      ]
+    },
+    "blk11": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "Not a different face. <em>Yours.</em>",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "A woman in her late thirties laughing at something out of frame by a sunlit window, holding a mug. Her cheeks and nose are still clearly red, skin unretouched.",
+            "placeholder_note": "Upload the asset for: img/n10-laugh.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It doesn't get cured. It gets managed, and anyone promising otherwise is counting on you being desperate.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>No more moving the screen down. No more sitting by the window in January. No more forty minutes before a nine o'clock. No more rehearsing what to say when someone asks.</p>",
+            "is_lead": false
+          }
+        },
+        "kick4": {
+          "type": "kick",
+          "settings": {
+            "text": "You have nothing to lose except the flush that walks into the room before you do."
+          }
+        },
+        "button5": {
+          "type": "button",
+          "settings": {
+            "label": "Not sure yet? Find your loop first →",
+            "url": "/pages/quiz-flush",
+            "style": "quiet"
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "kick4",
+        "button5"
+      ]
+    },
+    "blk12": {
+      "type": "rosalia-funnel-faq",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Eight questions people ask us",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "qa1": {
+          "type": "qa",
+          "settings": {
+            "question": "$82 is more than I want to risk on a maybe.",
+            "answer": "<p>Right objection after six failures. It's about $10 a week against what you already spend on concealer and on the products you abandon half-used.</p><p>And the 60-day refund means the money isn't at risk — no forms, no return shipping, opened bottles count. The only real commitment is eight weeks of two minutes a day.</p>",
+            "open": false
+          }
+        },
+        "qa2": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it burn? Everything burns.",
+            "answer": "<p>We can't promise it won't, and any brand promising that about a face it's never seen is guessing. What we can tell you is what came out: zero fragrance, zero essential oils, zero alcohol, zero menthol, niacinamide held at 3–5% instead of 10%.</p><p>Azelaic acid at 10% can tingle for the first minute in week one — expected, and it settles. Patch test along the jaw for three days. Stings past the first minute? Stop and take the refund.</p>",
+            "open": false
+          }
+        },
+        "qa3": {
+          "type": "qa",
+          "settings": {
+            "question": "How is this different from the vessel-constricting creams?",
+            "answer": "<p>Opposite mechanism. Those force the vessels shut from outside — which is why they act within the hour, and why they rebound wider once the active clears. There's none of that here. This works on the four levers that keep the vessels reactive in the first place.</p>",
+            "open": false
+          }
+        },
+        "qa4": {
+          "type": "qa",
+          "settings": {
+            "question": "Isn't azelaic acid what my dermatologist already gave me?",
+            "answer": "<p>Possibly — and if prescription azelaic acid alone is working, stay on it. The difference isn't the molecule. On its own it pulls one lever. The other four are what it's paired with here, at doses chosen not to fight it.</p>",
+            "open": false
+          }
+        },
+        "qa5": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use it with my prescription?",
+            "answer": "<p>Usually, and many people do — but ask whoever prescribed it. Take them the percentages above. Apply them at different times of day rather than layering.</p>",
+            "open": false
+          }
+        },
+        "qa6": {
+          "type": "qa",
+          "settings": {
+            "question": "I'm pregnant or breastfeeding.",
+            "answer": "<p>Ask your doctor or OB first and take them the percentages. We're not going to tell you it's safe — that's not a claim we're in a position to make about a leave-on used twice daily for months.</p>",
+            "open": false
+          }
+        },
+        "qa7": {
+          "type": "qa",
+          "settings": {
+            "question": "Does it work on the visible veins I already have?",
+            "answer": "<p>No. Vessels already structurally built don't get reversed by a serum — that's a laser conversation. This acts on the reactivity: how easily it starts, how high it goes, how long it takes to leave.</p>",
+            "open": false
+          }
+        },
+        "qa8": {
+          "type": "qa",
+          "settings": {
+            "question": "What happens at week eight if it worked?",
+            "answer": "<p>Most people move to once daily and stay there. It isn't a course you finish — the loop has no permanent off switch, and we'd rather say that now than at the point you'd feel misled. What changes is where it sits when you stop paying attention to it.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "qa1",
+        "qa2",
+        "qa3",
+        "qa4",
+        "qa5",
+        "qa6",
+        "qa7",
+        "qa8"
+      ]
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p>Rosalia How we think about facial flushing. Not medical advice, and no substitute for a diagnosis. Rosacea is chronic; nothing here treats, cures or prevents disease. Corpus IDs in this page's source refer to publicly posted comments, quoted unedited.</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      }
+    }
+  },
+  "order": [
+    "chrome",
+    "blk1",
+    "blk1kick",
+    "blk2",
+    "blk3",
+    "blk4",
+    "quiz1",
+    "blk5",
+    "blk6",
+    "blk7",
+    "blk8",
+    "blk9",
+    "blk10",
+    "blk11",
+    "blk12",
+    "footer"
+  ]
+}

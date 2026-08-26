@@ -1,0 +1,213 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — Offer
+  ══════════════════════════════════════════════════════════════════════
+  Two shapes, one section:
+
+    "single"  — the advertorial close. One price ($45), one CTA. Longer
+                supply is discovered at checkout, not merchandised here.
+    "bundles" — the listicle PDP. Three tiers, one marked "most chosen".
+
+  Deliberate omissions, and they are not oversights:
+    · There is NO compare-at / "was" / "save %" setting anywhere in this
+      schema. The offer has no anchor price, so one cannot be typed in.
+    · There is no countdown, no stock counter and no scarcity string.
+
+  Buying: add a Kaching app block for the real bundle mechanics, or point
+  the button at the PDP / cart. Both paths are supported; neither is
+  hardcoded.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign tiers = section.blocks | where: 'type', 'tier'
+  assign badges = section.blocks | where: 'type', 'badge'
+  assign app_blocks = section.blocks | where: 'type', '@app'
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+
+    {%- if s.intro != blank -%}
+      <div class="rf-prose">{{ s.intro }}</div>
+    {%- endif -%}
+
+    {%- if s.layout == 'single' -%}
+
+      <div class="rf-buy">
+        {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        {%- if s.product_name != blank -%}<h3 class="rf-h3">{{ s.product_name }}</h3>{%- endif -%}
+        {%- if s.size_line != blank -%}<p class="rf-small">{{ s.size_line }}</p>{%- endif -%}
+        {%- if s.price != blank -%}<p class="rf-price">{{ s.price }}</p>{%- endif -%}
+        {%- if s.button_label != blank -%}
+          <a class="rf-btn rf-btn--block" href="{{ s.button_url | default: routes.root_url }}">{{ s.button_label }}</a>
+        {%- endif -%}
+        {%- if s.reassurance != blank -%}
+          <p class="rf-small" style="margin-top:14px;">{{ s.reassurance }}</p>
+        {%- endif -%}
+      </div>
+
+    {%- else -%}
+
+      {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+
+      {%- if tiers.size > 0 -%}
+        <div class="rf-bundles">
+          {%- for block in tiers -%}
+            {%- assign b = block.settings -%}
+            {%- if b.url != blank -%}{%- assign tag = 'a' -%}{%- else -%}{%- assign tag = 'div' -%}{%- endif -%}
+            <{{ tag }} class="rf-bd{% if b.featured %} rf-bd--star{% endif %}"
+              {% if b.url != blank %}href="{{ b.url }}" style="text-decoration:none;color:inherit;"{% endif %}
+              {{ block.shopify_attributes }}>
+              {%- if b.featured and b.badge_text != blank -%}
+                <span class="rf-bd-badge">{{ b.badge_text }}</span>
+              {%- endif -%}
+              {%- if b.qty_label != blank -%}<span class="rf-qty">{{ b.qty_label }}</span>{%- endif -%}
+              {%- if b.price != blank -%}<span class="rf-bd-price">{{ b.price }}</span>{%- endif -%}
+              {%- if b.promise != blank -%}<span class="rf-promise">{{ b.promise }}</span>{%- endif -%}
+            </{{ tag }}>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.button_label != blank -%}
+        <a class="rf-btn rf-btn--block" href="{{ s.button_url | default: routes.root_url }}">{{ s.button_label }}</a>
+      {%- endif -%}
+
+    {%- endif -%}
+
+    {%- comment -%} The low-commitment alternative, for readers not ready to buy. {%- endcomment -%}
+    {%- if s.secondary_label != blank -%}
+      <a class="rf-btn-quiet" href="{{ s.secondary_url | default: routes.root_url }}">{{ s.secondary_label }}</a>
+    {%- endif -%}
+
+    {%- comment -%}
+      App blocks — this is where the Kaching Bundles / Kaching Cart widget
+      goes, so the real purchase mechanics live in the app rather than in
+      hardcoded markup.
+    {%- endcomment -%}
+    {%- if app_blocks.size > 0 -%}
+      <div class="rf-offer-apps" style="margin-top:20px;">
+        {%- for block in app_blocks -%}
+          {%- render block -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if badges.size > 0 -%}
+      <div class="rf-badges">
+        {%- for block in badges -%}
+          <span {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.guarantee != blank -%}
+      <div class="rf-prose" style="margin-top:24px;">{{ s.guarantee }}</div>
+    {%- endif -%}
+
+    {%- if s.footnote != blank -%}
+      <p class="rf-small" style="margin-top:12px;">{{ s.footnote }}</p>
+    {%- endif -%}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel offer",
+  "class": "shopify-section--rosalia-funnel shopify-section--rosalia-funnel-offer",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "No anchor price, no \"save %\", no timer. That is deliberate — the fields do not exist." },
+    {
+      "type": "select", "id": "layout", "label": "Shape", "default": "single",
+      "options": [
+        { "value": "single", "label": "Single price — advertorial close" },
+        { "value": "bundles", "label": "Bundles — listicle PDP" }
+      ]
+    },
+
+    { "type": "header", "content": "Intro" },
+    { "type": "richtext", "id": "intro", "label": "Lead-in" },
+    { "type": "text", "id": "heading", "label": "Heading (bundles)" },
+
+    { "type": "header", "content": "Single price card" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Rosalia" },
+    { "type": "text", "id": "product_name", "label": "Product name", "default": "Daily Reset Serum" },
+    { "type": "text", "id": "size_line", "label": "Size line" },
+    { "type": "text", "id": "price", "label": "Price", "default": "$45" },
+
+    { "type": "header", "content": "Call to action" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_url", "label": "Button link", "info": "The product page or cart. Leave the buying mechanics to Kaching where it is installed." },
+    { "type": "text", "id": "secondary_label", "label": "Secondary link label", "info": "The lower-commitment option, e.g. the quiz." },
+    { "type": "url", "id": "secondary_url", "label": "Secondary link" },
+    { "type": "richtext", "id": "reassurance", "label": "Reassurance line" },
+    { "type": "richtext", "id": "guarantee", "label": "Guarantee" },
+    { "type": "text", "id": "footnote", "label": "Footnote" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "tier", "name": "Bundle tier", "limit": 4,
+      "settings": [
+        { "type": "text", "id": "qty_label", "label": "Quantity label" },
+        { "type": "text", "id": "price", "label": "Price" },
+        { "type": "text", "id": "promise", "label": "Promise line" },
+        { "type": "checkbox", "id": "featured", "label": "Most chosen", "default": false },
+        { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Most chosen" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    },
+    {
+      "type": "badge", "name": "Reassurance badge", "limit": 5,
+      "settings": [ { "type": "text", "id": "text", "label": "Text" } ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rosalia — Offer (single)",
+      "settings": { "layout": "single" }
+    },
+    {
+      "name": "Rosalia — Offer (bundles)",
+      "settings": { "layout": "bundles" },
+      "blocks": [
+        { "type": "tier", "settings": { "qty_label": "1 bottle", "price": "$45" } },
+        { "type": "tier", "settings": { "qty_label": "2 bottles", "price": "$82", "featured": true, "badge_text": "Most chosen" } },
+        { "type": "tier", "settings": { "qty_label": "3 bottles", "price": "$114" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

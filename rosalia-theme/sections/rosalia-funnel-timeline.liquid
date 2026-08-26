@@ -1,0 +1,106 @@
+{%- comment -%}
+  Rosalia · Funnel — Timeline
+  Four milestones. Each row can render a real date computed from today
+  (data-rf-offset, in days) so the timeline reads as "your weeks".
+
+  The Liquid prints a static fallback inside the node first, so:
+    - nothing is empty before the script runs (no flash, no layout shift)
+    - if JS never runs, the row still says something sensible
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+    <div class="rf-tl">
+      {%- for block in section.blocks -%}
+        {%- assign b = block.settings -%}
+        <div class="rf-tl-row" {{ block.shopify_attributes }}>
+          <div class="rf-tl-date"
+               {%- if b.use_date %} data-rf-offset="{{ b.day_offset }}"
+                 {%- if b.day_offset_end > b.day_offset %} data-rf-offset-end="{{ b.day_offset_end }}"{% endif -%}
+                 {%- if b.date_prefix != blank %} data-rf-prefix="{{ b.date_prefix | escape }}"{% endif -%}
+               {%- endif -%}>
+            {{- b.static_label -}}
+          </div>
+          <div class="rf-tl-body">{{ b.body }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if s.footnote != blank -%}<p class="rf-small" style="margin-top:18px;">{{ s.footnote }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel timeline",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Heading" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "text", "id": "footnote", "label": "Footnote" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "milestone", "name": "Milestone", "limit": 8,
+      "settings": [
+        { "type": "text", "id": "static_label", "label": "Label", "info": "Always shown. Also the fallback if the live date is switched off or JavaScript fails." },
+        { "type": "checkbox", "id": "use_date", "label": "Replace with a live date", "default": false },
+        { "type": "range", "id": "day_offset", "label": "Starts — days from today", "min": 0, "max": 120, "step": 1, "default": 0 },
+        { "type": "range", "id": "day_offset_end", "label": "Ends — days from today", "min": 0, "max": 120, "step": 1, "default": 0, "info": "Leave at or below the start to show a single date instead of a range." },
+        { "type": "text", "id": "date_prefix", "label": "Date prefix", "info": "e.g. \"from\" renders as \"from Sep 14\"." },
+        { "type": "richtext", "id": "body", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rosalia — Funnel timeline",
+      "blocks": [
+        { "type": "milestone" }, { "type": "milestone" },
+        { "type": "milestone" }, { "type": "milestone" }
+      ]
+    }
+  ]
+}
+{% endschema %}

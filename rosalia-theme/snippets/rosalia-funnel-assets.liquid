@@ -1,0 +1,16 @@
+{%- comment -%}
+  Rosalia · Funnel asset loader
+  ------------------------------------------------------------------
+  Rendered at the top of every rosalia-funnel-* section, so each section
+  is self-contained: it can be added, moved, duplicated or hidden in the
+  editor and still bring its own styles.
+
+  No stock theme file is modified to make the funnel work.
+
+  Duplicate inclusion is safe:
+    - the <link> resolves to one URL, so the browser fetches it once
+    - the script is guarded by window.__rosaliaFunnelBooted
+{%- endcomment -%}
+{%- render 'rosalia-funnel-tokens' -%}
+{{ 'rosalia-funnel.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'rosalia-funnel.js' | asset_url }}" defer></script>

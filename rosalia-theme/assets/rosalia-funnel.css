@@ -1,0 +1,740 @@
+/* ==========================================================================
+   Rosalia · Funnel pages — shared styles
+   Advertorial · prelanders · listicles
+   --------------------------------------------------------------------------
+   Mobile-first. Base is 360–390px; enhancements are min-width.
+   Every class is prefixed .rf- so nothing leaks into stock Impact sections.
+   Colour comes exclusively from the tokens in `rosalia-funnel-tokens`.
+   ========================================================================== */
+
+/* ---------- Shell -------------------------------------------------------- */
+
+.rf {
+  font-family: var(--rf-sans);
+  color: var(--rf-body);
+  font-size: 17px;
+  line-height: 1.68;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.rf * { box-sizing: border-box; }
+.rf img { max-width: 100%; height: auto; display: block; }
+.rf a { color: var(--rf-accent); }
+
+/* The editorial column. Sections that want the full bleed opt out. */
+.rf-w {
+  max-width: var(--rf-measure);
+  margin-inline: auto;
+  padding-inline: var(--rf-gutter);
+}
+.rf-w--wide { max-width: 960px; }
+
+/* Prose rhythm — shared by every rich-text field so the slide stays even. */
+.rf-prose > p { margin: 0 0 20px; }
+.rf-prose > p:last-child { margin-bottom: 0; }
+.rf-prose strong, .rf-prose b { font-weight: 600; color: var(--rf-ink); }
+.rf-prose em { font-style: italic; }
+.rf-prose a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- Type --------------------------------------------------------- */
+
+.rf-eyebrow {
+  font-family: var(--rf-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+  margin: 0 0 10px;
+}
+
+.rf-h1 {
+  font-family: var(--rf-serif);
+  font-size: 30px;
+  line-height: 1.16;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--rf-ink);
+  margin: 12px 0 16px;
+}
+.rf-h1 em { font-style: italic; color: var(--rf-accent-2); }
+
+.rf-h2 {
+  font-family: var(--rf-serif);
+  font-size: 25px;
+  line-height: 1.24;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--rf-ink);
+  margin: 34px 0 14px;
+}
+.rf-h2 em { font-style: italic; color: var(--rf-accent-2); }
+.rf-h2:first-child { margin-top: 0; }
+
+.rf-h3 {
+  font-family: var(--rf-serif);
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--rf-ink);
+  margin: 0 0 8px;
+}
+
+.rf-standfirst {
+  font-family: var(--rf-serif);
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--rf-muted);
+  margin: 0 0 24px;
+}
+
+.rf-lead { font-size: 18px; line-height: 1.62; }
+.rf-lead-in { font-weight: 600; color: var(--rf-ink); }
+
+.rf-small {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--rf-muted);
+}
+
+/* The "weight" line — punctuation of the slide. Never a card. */
+.rf-weight {
+  font-family: var(--rf-serif);
+  font-size: 23px;
+  line-height: 1.34;
+  font-weight: 600;
+  color: var(--rf-ink);
+  margin: 30px 0;
+  letter-spacing: -0.01em;
+}
+.rf-weight em { font-style: italic; }
+.rf-weight--accent { color: var(--rf-accent); }
+
+/* ---------- Chrome (trust bar · masthead · byline) ----------------------- */
+
+.rf-trust {
+  background: var(--rf-accent);
+  color: var(--rf-paper);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+.rf-trust .rf-w {
+  display: flex;
+  gap: 14px 22px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 38px;
+  padding-block: 9px;
+  text-align: center;
+}
+.rf-trust-item { display: inline-flex; align-items: center; gap: 7px; }
+.rf-trust-item svg { width: 14px; height: 14px; flex: none; }
+
+.rf-masthead {
+  border-bottom: 1px solid var(--rf-rule);
+  background: var(--rf-paper);
+}
+.rf-masthead .rf-w {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 56px;
+  padding-block: 12px;
+}
+.rf-brand {
+  font-family: var(--rf-serif);
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--rf-ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.rf-brand span { color: var(--rf-accent-2); }
+
+.rf-nav { display: none; gap: 20px; font-size: 13.5px; }
+.rf-nav a {
+  color: var(--rf-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.rf-nav a[aria-current="true"] { color: var(--rf-ink); font-weight: 600; }
+
+.rf-subnav { border-bottom: 1px solid var(--rf-rule-2); background: var(--rf-wash); }
+.rf-subnav .rf-w {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  overflow-x: auto;
+  font-size: 12.5px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.rf-subnav .rf-w::-webkit-scrollbar { display: none; }
+.rf-subnav a {
+  color: var(--rf-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.rf-subnav a[aria-current="true"] { color: var(--rf-accent); font-weight: 600; }
+
+.rf-crumb { font-size: 12px; color: var(--rf-faint); letter-spacing: 0.02em; padding: 24px 0 0; margin: 0; }
+.rf-crumb a { color: var(--rf-faint); text-decoration: none; }
+.rf-crumb b { color: var(--rf-accent); font-weight: 600; }
+
+.rf-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 15px 0;
+  border-top: 1px solid var(--rf-rule);
+  border-bottom: 1px solid var(--rf-rule);
+  font-size: 13px;
+  color: var(--rf-muted);
+}
+.rf-byline .rf-who { color: var(--rf-ink); font-weight: 600; }
+.rf-byline .rf-dot { color: var(--rf-rule-firm); }
+
+/* ---------- Figures + images -------------------------------------------- */
+
+.rf-figure { margin: 26px 0 28px; }
+.rf-figure img { width: 100%; }
+.rf-figcap {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--rf-muted);
+}
+.rf-figcap em { font-style: normal; color: var(--rf-faint); }
+
+/* Empty image slot — reserves its box so nothing shifts when the real
+   asset lands (CLS 0). Only visible while the setting is unfilled. */
+.rf-slot {
+  background: var(--rf-wash);
+  border: 1px dashed var(--rf-rule-firm);
+  aspect-ratio: 3 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  text-align: center;
+}
+.rf-slot span {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--rf-faint);
+  max-width: 380px;
+}
+
+/* ---------- Inline editorial devices ------------------------------------ */
+
+/* Quoted forum lines */
+.rf-said { list-style: none; margin: 18px 0 20px; padding: 0; }
+.rf-said li {
+  position: relative;
+  padding: 7px 0 7px 16px;
+  margin: 0 0 4px;
+  border-left: 2px solid var(--rf-rule-firm);
+  font-size: 16.5px;
+  line-height: 1.5;
+  color: var(--rf-ink);
+  font-style: italic;
+}
+
+/* Pull quote */
+.rf-pull {
+  margin: 30px 0;
+  padding: 22px 0;
+  border-top: 2px solid var(--rf-ink);
+  border-bottom: 1px solid var(--rf-rule);
+}
+.rf-pull p {
+  font-family: var(--rf-serif);
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: var(--rf-ink);
+  margin: 0;
+}
+
+/* Voice — a real post, on the deep-wine ground. Kept rare. */
+.rf-voice {
+  background: var(--rf-dark-bg);
+  color: var(--rf-dark-text);
+  padding: 22px 20px;
+  margin: 26px 0;
+}
+.rf-voice p {
+  font-family: var(--rf-serif);
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--rf-dark-text);
+}
+.rf-voice .rf-who {
+  font-family: var(--rf-sans);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rf-dark-muted);
+  margin-top: 12px;
+}
+.rf-voice--plus { border-left: 3px solid var(--rosalia-pink-mid, #E3A1B6); }
+
+/* Note — the science aside */
+.rf-note {
+  background: var(--rf-wash);
+  border-left: 3px solid var(--rf-accent-2);
+  padding: 18px 20px;
+  margin: 26px 0;
+}
+.rf-note p { margin: 0 0 12px; font-size: 16px; line-height: 1.6; }
+.rf-note p:last-child { margin-bottom: 0; }
+.rf-note .rf-src { font-size: 13px; color: var(--rf-muted); }
+
+/* Diagram wrapper */
+.rf-dgm {
+  margin: 26px 0 8px;
+  border: 1px solid var(--rf-rule);
+  background: var(--rf-wash);
+  padding: 20px 14px 8px;
+}
+.rf-dgm svg { width: 100%; height: auto; display: block; margin-inline: auto; }
+.rf-dgm--narrow svg { max-width: 360px; }
+.rf-leg {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--rf-muted);
+  margin: 12px 2px 0;
+}
+.rf-leg b { color: var(--rf-accent); font-weight: 700; font-variant-numeric: tabular-nums; }
+.rf-cap {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--rf-muted);
+  margin: 12px 2px 0;
+}
+
+/* Two-column definition list — treatments and their scope, actives and
+   their percentage. Collapses to one column on the narrowest phones. */
+.rf-pairs {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rf-rule);
+  font-size: 15.5px;
+}
+.rf-pairs li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 12px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rf-rule);
+}
+.rf-pairs .rf-pair-r { text-align: right; white-space: nowrap; }
+.rf-pairs--label .rf-pair-r {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rf-accent-2);
+}
+.rf-pairs--figure .rf-pair-r {
+  font-family: var(--rf-serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--rf-accent);
+}
+/* Stage rows read the other way round: the marker leads, the copy follows. */
+.rf-pairs--stage li {
+  grid-template-columns: 82px 1fr;
+  align-items: start;
+  line-height: 1.45;
+}
+.rf-pairs--stage li > span:first-child {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rf-accent-2);
+  font-weight: 600;
+  padding-top: 3px;
+}
+.rf-pairs--stage .rf-pair-r {
+  text-align: left;
+  white-space: normal;
+  font-size: 15.5px;
+}
+.rf-pairs--stage .rf-pair-r b { color: var(--rf-accent); font-weight: 600; }
+
+@media (max-width: 400px) {
+  .rf-pairs li,
+  .rf-pairs--stage li { grid-template-columns: 1fr; gap: 2px; }
+  .rf-pairs .rf-pair-r { text-align: left; }
+}
+
+/* Ingredient list */
+.rf-inci {
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 22px 0 0;
+}
+.rf-inci strong { color: var(--rf-accent); font-weight: 600; }
+
+/* Bonus card */
+.rf-bonus {
+  background: var(--rf-wash);
+  border: 1px solid var(--rf-rule);
+  padding: 20px;
+  margin: 28px 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Reason number — listicle */
+.rf-rnum {
+  font-family: var(--rf-serif);
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--rosalia-pink-mid, #E3A1B6);
+  margin: 0 0 6px;
+}
+
+/* Curiosity-gap kicker that closes a reason */
+.rf-kick {
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 600;
+  color: var(--rf-accent);
+  margin: 18px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--rf-rule);
+}
+
+/* Tags + related */
+.rf-tags { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--rf-rule); display: flex; flex-wrap: wrap; gap: 8px; }
+.rf-tags span { font-size: 12px; color: var(--rf-muted); border: 1px solid var(--rf-rule); padding: 6px 11px; }
+
+.rf-more { margin: 34px 0 0; padding-top: 24px; border-top: 3px solid var(--rf-ink); }
+.rf-more h4 { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--rf-ink); margin: 0 0 14px; }
+.rf-more ul { list-style: none; margin: 0; padding: 0; }
+.rf-more li { padding: 12px 0; border-bottom: 1px solid var(--rf-rule-2); }
+.rf-more .rf-cat { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--rf-accent-2); margin-bottom: 4px; }
+.rf-more a { color: var(--rf-ink); text-decoration: none; font-size: 16.5px; font-weight: 600; line-height: 1.4; display: inline-block; min-height: 44px; }
+
+/* ---------- Buttons ------------------------------------------------------ */
+
+.rf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rf-accent);
+  color: var(--rf-paper);
+  text-decoration: none;
+  padding: 15px 28px;
+  min-height: 48px;
+  font-family: var(--rf-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.18s var(--rosalia-ease, ease);
+}
+.rf-btn:hover { background: var(--rf-accent-2); }
+.rf-btn:focus-visible { outline: 2px solid var(--rf-accent-2); outline-offset: 3px; }
+.rf-btn--block { display: flex; width: 100%; }
+.rf-fine { display: block; margin-top: 10px; font-size: 12.5px; color: var(--rf-faint); }
+
+/* ---------- Quiz CTA ----------------------------------------------------- */
+
+.rf-quiz {
+  margin: 32px 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--rf-ink);
+  border-bottom: 1px solid var(--rf-rule);
+}
+.rf-quiz .rf-eyebrow { margin-bottom: 9px; }
+.rf-quiz p { font-size: 15px; line-height: 1.6; color: var(--rf-muted); margin: 0 0 16px; }
+
+/* ---------- Offer -------------------------------------------------------- */
+
+.rf-buy {
+  background: var(--rf-wash);
+  border: 1px solid var(--rf-rule);
+  padding: 26px 22px;
+  margin: 30px 0;
+  text-align: center;
+}
+.rf-price {
+  font-family: var(--rf-serif);
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 600;
+  color: var(--rf-ink);
+  margin: 10px 0 18px;
+}
+
+.rf-bundles { display: grid; gap: 12px; margin: 24px 0; }
+.rf-bd {
+  border: 1px solid var(--rf-rule-firm);
+  background: var(--rf-paper);
+  padding: 18px;
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.rf-bd--star { border-color: var(--rf-accent); border-width: 2px; }
+.rf-bd-badge {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  background: var(--rf-accent);
+  color: var(--rf-paper);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+.rf-bd .rf-qty { font-family: var(--rf-serif); font-size: 20px; font-weight: 600; color: var(--rf-ink); }
+.rf-bd .rf-bd-price { font-family: var(--rf-serif); font-size: 26px; font-weight: 600; color: var(--rf-accent); }
+.rf-bd .rf-promise { flex-basis: 100%; font-size: 13.5px; color: var(--rf-muted); line-height: 1.5; }
+
+.rf-badges { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: center; margin-top: 18px; font-size: 12.5px; color: var(--rf-muted); }
+.rf-badges span { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ---------- Timeline ----------------------------------------------------- */
+
+.rf-tl { margin: 24px 0 0; }
+.rf-tl-row {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--rf-rule-2);
+  align-items: start;
+}
+.rf-tl-row:last-child { border-bottom: 0; }
+.rf-tl-date {
+  font-family: var(--rf-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rf-accent-2);
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  /* The live date is written in by script. Reserving the line here means
+     the row never jumps when it lands, and never collapses if it doesn't. */
+  min-height: 1.4em;
+}
+.rf-tl-body { font-size: 16px; line-height: 1.6; }
+.rf-tl-body strong { color: var(--rf-ink); font-weight: 600; }
+
+/* ---------- Medical refusal / not-for --------------------------------- */
+
+.rf-notfor { list-style: none; margin: 18px 0 0; padding: 0; }
+.rf-notfor li {
+  position: relative;
+  padding: 12px 0 12px 26px;
+  border-bottom: 1px solid var(--rf-rule-2);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.rf-notfor li:last-child { border-bottom: 0; }
+.rf-notfor li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  color: var(--rf-accent-2);
+  font-weight: 600;
+}
+
+/* ---------- Social proof ------------------------------------------------- */
+
+.rf-proof { margin: 30px 0; }
+.rf-review { border-top: 1px solid var(--rf-rule); padding: 18px 0; }
+.rf-stars { color: var(--rf-accent-2); letter-spacing: 0.16em; font-size: 14px; margin: 0 0 8px; }
+.rf-rtext { font-size: 16.5px; line-height: 1.6; margin: 0 0 8px; }
+.rf-rwho { font-size: 13px; color: var(--rf-muted); margin: 0; }
+.rf-ba { display: grid; gap: 12px; margin: 22px 0 0; }
+.rf-empty {
+  border: 1px dashed var(--rf-rule-firm);
+  background: var(--rf-wash);
+  padding: 22px;
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--rf-muted);
+}
+
+/* ---------- FAQ ---------------------------------------------------------- */
+
+.rf-faq { margin: 20px 0 0; }
+.rf-faq details { border-bottom: 1px solid var(--rf-rule); }
+.rf-faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 34px 16px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-family: var(--rf-serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--rf-ink);
+}
+.rf-faq summary::-webkit-details-marker { display: none; }
+.rf-faq summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--rf-sans);
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--rf-accent-2);
+  line-height: 1;
+}
+.rf-faq details[open] summary::after { content: "\2013"; }
+.rf-faq summary:focus-visible { outline: 2px solid var(--rf-accent-2); outline-offset: -2px; }
+.rf-faq-body { padding: 0 0 18px; font-size: 16px; line-height: 1.65; color: var(--rf-body); }
+.rf-faq-body p { margin: 0 0 12px; }
+.rf-faq-body p:last-child { margin-bottom: 0; }
+
+/* ---------- Sticky CTA --------------------------------------------------- */
+
+.rf-ctabar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--rf-paper);
+  border-top: 1px solid var(--rf-rule);
+  box-shadow: 0 -6px 20px -12px rgba(31, 26, 28, 0.4);
+  transform: translateY(105%);
+  transition: transform 0.24s var(--rosalia-ease, ease);
+  visibility: hidden;
+}
+.rf-ctabar.is-visible { transform: translateY(0); visibility: visible; }
+.rf-ctabar-text {
+  font-family: var(--rf-serif);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--rf-ink);
+  line-height: 1.3;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.rf-ctabar .rf-btn { flex: 0 0 auto; padding-inline: 20px; font-size: 14px; }
+@media (prefers-reduced-motion: reduce) {
+  .rf-ctabar { transition: none; }
+}
+
+/* ---------- Editorial footer -------------------------------------------- */
+
+.rf-foot {
+  background: var(--rf-wash);
+  border-top: 1px solid var(--rf-rule);
+  padding: 32px 0 40px;
+}
+.rf-foot .rf-brand { font-size: 19px; }
+.rf-foot-tag { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rf-faint); margin: 6px 0 0; }
+.rf-foot-cols { display: grid; gap: 22px; margin: 22px 0; }
+.rf-foot-cols h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rf-ink); margin: 0 0 10px; }
+.rf-foot-cols a { display: block; color: var(--rf-muted); text-decoration: none; font-size: 14px; padding: 7px 0; min-height: 44px; display: flex; align-items: center; }
+.rf-flinks { display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 14px 0; font-size: 13px; }
+.rf-flinks a { color: var(--rf-muted); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+.rf-legal {
+  font-size: 11.5px;
+  line-height: 1.75;
+  color: var(--rf-faint);
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rf-rule);
+}
+.rf-legal b { color: var(--rf-muted); font-weight: 600; }
+.rf-legal p { margin: 0 0 10px; }
+.rf-legal p:last-child { margin-bottom: 0; }
+.rf-sign {
+  font-family: var(--rf-serif);
+  font-size: 19px;
+  font-style: italic;
+  color: var(--rf-accent);
+  margin: 28px 0 0;
+}
+
+/* ==========================================================================
+   Breakpoints
+   ========================================================================== */
+
+@media (min-width: 481px) {
+  .rf-ba { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 661px) {
+  .rf { font-size: 18px; line-height: 1.72; }
+  .rf-h1 { font-size: 40px; }
+  .rf-h2 { font-size: 29px; margin-top: 42px; }
+  .rf-standfirst { font-size: 22px; }
+  .rf-lead { font-size: 19px; }
+  .rf-weight { font-size: 27px; margin: 36px 0; }
+  .rf-nav { display: flex; }
+  .rf-price { font-size: 50px; }
+  .rf-rnum { font-size: 54px; }
+  .rf-voice { padding: 26px 26px; }
+  .rf-voice p { font-size: 20px; }
+  .rf-foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rf-tl-row { grid-template-columns: 104px 1fr; gap: 20px; }
+}
+
+@media (min-width: 1025px) {
+  .rf-h1 { font-size: 46px; }
+  .rf-bundles { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+  .rf-bd { flex-direction: column; align-items: flex-start; }
+  /* The sticky bar is a phone affordance; the desktop offer is always in view. */
+  .rf-ctabar { display: none; }
+}
+
+/* The quiet alternative under a primary CTA — a real link, not a second button. */
+.rf-btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 14px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--rf-accent-2);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.rf-btn-quiet:focus-visible { outline: 2px solid var(--rf-accent-2); outline-offset: 3px; }

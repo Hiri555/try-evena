@@ -1,0 +1,117 @@
+{%- comment -%}
+  Rosalia · Funnel — Editorial footer
+  Serves both footers in the sources: the publication footer on the
+  prelanders and the Rosalia footer on the advertorial.
+
+  The legal disclaimer is a setting so you can keep the exact wording each
+  page needs — the defaults are empty on purpose, because the two pages
+  carry different, deliberately worded disclaimers.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign cols = section.blocks | where: 'type', 'column'
+  assign links = section.blocks | where: 'type', 'link'
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    padding-block: 0;
+  }
+  #shopify-section-{{ section.id }} .rf-foot {
+    background: {{ s.background | default: '#F3EDE7' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <footer class="rf-foot">
+    <div class="rf-w rf-w--wide">
+
+      {%- if s.brand_name != blank -%}
+        <p class="rf-brand">{{ s.brand_name }}{% if s.brand_accent != blank %}<span>{{ s.brand_accent }}</span>{% endif %}</p>
+      {%- endif -%}
+      {%- if s.tagline != blank -%}
+        <p class="rf-foot-tag">{{ s.tagline }}</p>
+      {%- endif -%}
+
+      {%- if links.size > 0 -%}
+        <nav class="rf-flinks" aria-label="{{ s.links_label | default: 'Footer' | escape }}">
+          {%- for block in links -%}
+            <a href="{{ block.settings.url | default: '#' }}" {{ block.shopify_attributes }}>{{ block.settings.text }}</a>
+          {%- endfor -%}
+        </nav>
+      {%- endif -%}
+
+      {%- if cols.size > 0 -%}
+        <div class="rf-foot-cols">
+          {%- for block in cols -%}
+            {%- assign b = block.settings -%}
+            <div {{ block.shopify_attributes }}>
+              {%- if b.heading != blank -%}<h4>{{ b.heading }}</h4>{%- endif -%}
+              {%- if b.link_1_text != blank -%}<a href="{{ b.link_1_url | default: '#' }}">{{ b.link_1_text }}</a>{%- endif -%}
+              {%- if b.link_2_text != blank -%}<a href="{{ b.link_2_url | default: '#' }}">{{ b.link_2_text }}</a>{%- endif -%}
+              {%- if b.link_3_text != blank -%}<a href="{{ b.link_3_url | default: '#' }}">{{ b.link_3_text }}</a>{%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.legal != blank -%}
+        <div class="rf-legal">{{ s.legal }}</div>
+      {%- endif -%}
+
+    </div>
+  </footer>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel footer",
+  "class": "shopify-section--rosalia-funnel shopify-section--rosalia-funnel-footer",
+  "settings": [
+    { "type": "header", "content": "Identity" },
+    { "type": "text", "id": "brand_name", "label": "Name" },
+    { "type": "text", "id": "brand_accent", "label": "Accent half" },
+    { "type": "text", "id": "tagline", "label": "Tagline" },
+    { "type": "text", "id": "links_label", "label": "Links ARIA label", "default": "Footer" },
+
+    { "type": "header", "content": "Legal" },
+    { "type": "richtext", "id": "legal", "label": "Disclaimer", "info": "Keep the page's exact wording. The FDA sentence and the publisher disclosure are not optional." },
+
+    { "type": "header", "content": "Layout" },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "default": 40 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#F3EDE7" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "link", "name": "Inline link", "limit": 8,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Label" },
+        { "type": "url", "id": "url", "label": "Link" }
+      ]
+    },
+    {
+      "type": "column", "name": "Column", "limit": 4,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "text", "id": "link_1_text", "label": "Link 1" },
+        { "type": "url", "id": "link_1_url", "label": "Link 1 URL" },
+        { "type": "text", "id": "link_2_text", "label": "Link 2" },
+        { "type": "url", "id": "link_2_url", "label": "Link 2 URL" },
+        { "type": "text", "id": "link_3_text", "label": "Link 3" },
+        { "type": "url", "id": "link_3_url", "label": "Link 3 URL" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Funnel footer" } ]
+}
+{% endschema %}

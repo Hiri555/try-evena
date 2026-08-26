@@ -1,0 +1,58 @@
+{%- comment -%}
+  Rosalia · Funnel — Sticky CTA bar
+  Phone affordance for the advertorial. Appears past the first screen and
+  gets out of the way whenever a real CTA is on screen.
+
+  It yields to whatever CSS selector you give it (default: the offer
+  section and the footer), so the bar keeps behaving correctly no matter
+  where you move those sections in the editor. Nothing depends on order.
+
+  Hidden entirely at >= 1025px, where the offer is never far away.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign yield = s.yield_selector | default: '.shopify-section--rosalia-funnel-offer, .shopify-section--rosalia-funnel-footer'
+-%}
+
+{%- if s.enabled -%}
+  <div class="rf">
+    <div class="rf-ctabar"
+         data-rf-sticky
+         data-rf-sticky-yield="{{ yield | escape }}"
+         data-rf-sticky-after="{{ s.reveal_after }}"
+         aria-hidden="true">
+      {%- if s.text != blank -%}
+        <span class="rf-ctabar-text">{{ s.text }}</span>
+      {%- endif -%}
+      {%- if s.button_label != blank -%}
+        <a class="rf-btn" href="{{ s.button_url | default: routes.root_url }}">{{ s.button_label }}</a>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Rosalia — Sticky CTA",
+  "class": "shopify-section--rosalia-funnel shopify-section--rosalia-funnel-sticky",
+  "settings": [
+    { "type": "checkbox", "id": "enabled", "label": "Enable sticky bar", "default": true },
+    { "type": "text", "id": "text", "label": "Text" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_url", "label": "Button link" },
+    {
+      "type": "range", "id": "reveal_after", "label": "Reveal after", "min": 0.3, "max": 2, "step": 0.1, "default": 0.9,
+      "unit": "scr", "info": "Screens of scrolling before the bar appears."
+    },
+    {
+      "type": "text", "id": "yield_selector", "label": "Hide when these are visible",
+      "info": "CSS selectors, comma separated. Leave as-is unless you rename the offer or footer sections.",
+      "default": ".shopify-section--rosalia-funnel-offer, .shopify-section--rosalia-funnel-footer"
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Sticky CTA" } ]
+}
+{% endschema %}

@@ -1,0 +1,57 @@
+{%- comment -%}
+  Rosalia · Funnel design tokens
+  ------------------------------------------------------------------
+  Layered on top of `rosalia-tokens` (the site-wide DA palette).
+  Adds the editorial-article tokens used by every rosalia-funnel-*
+  section (advertorial, prelanders, listicles).
+
+  Every value below was contrast-checked against the cream paper
+  (#FAF5F0). Small-text tokens are >= 4.5:1 (WCAG AA):
+
+    --rf-ink    #1F1A1C  15.85:1  AAA
+    --rf-body   #2B2620  13.84:1  AAA
+    --rf-muted  #6E6367   5.32:1  AA
+    --rf-faint  #7A6E72   4.51:1  AA
+    --rf-accent #4B1528  13.49:1  AAA
+    --rf-kick   #7A3A54   7.57:1  AAA
+
+  NOTE: --rosalia-pink (#C4718E) is 3.18:1 on cream — large text only.
+  It is used here for rules and decoration, never for body copy.
+
+  Idempotent: including it twice is harmless.
+{%- endcomment -%}
+{%- render 'rosalia-tokens' -%}
+<style>
+  :root {
+    /* Paper + ink */
+    --rf-paper:      var(--rosalia-cream, #FAF5F0);
+    --rf-wash:       #F3EDE7;
+    --rf-ink:        #1F1A1C;
+    --rf-body:       #2B2620;
+    --rf-muted:      #6E6367;
+    --rf-faint:      #7A6E72;
+
+    /* Accent — mapped from the source clay/accent/pink onto the DA */
+    --rf-accent:     var(--rosalia-wine, #4B1528);
+    --rf-accent-2:   var(--rosalia-plum, #7A3A54);
+    --rf-kick:       var(--rosalia-plum, #7A3A54);
+
+    /* Voice blocks — deep wine replaces the source #151C23 night */
+    --rf-dark-bg:    #26101A;
+    --rf-dark-text:  #ECE8E0;
+    --rf-dark-muted: #C9A9B5;
+
+    /* Rules */
+    --rf-rule:       #E4DAD2;
+    --rf-rule-2:     #EFE7E0;
+    --rf-rule-firm:  #C9BAB0;
+
+    /* Type */
+    --rf-serif:      var(--rosalia-font-serif, 'Cormorant Garamond', Georgia, serif);
+    --rf-sans:       var(--rosalia-font-sans, 'Inter', -apple-system, sans-serif);
+
+    /* Measure — the editorial column */
+    --rf-measure:    680px;
+    --rf-gutter:     22px;
+  }
+</style>

@@ -1,0 +1,579 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "settings": {
+        "show_trust": false,
+        "show_masthead": true,
+        "brand_name": "The Skin",
+        "brand_accent": " File",
+        "brand_url": "",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": "<p><a href=\"#\">Skin</a> › <a href=\"#\">Research</a> › <b>Flushing</b></p>"
+      },
+      "blocks": {
+        "nav1": {
+          "type": "nav",
+          "settings": {
+            "text": "Skin",
+            "url": "",
+            "current": true
+          }
+        },
+        "nav2": {
+          "type": "nav",
+          "settings": {
+            "text": "Triggers",
+            "url": "",
+            "current": false
+          }
+        },
+        "nav3": {
+          "type": "nav",
+          "settings": {
+            "text": "Research",
+            "url": "",
+            "current": false
+          }
+        },
+        "nav4": {
+          "type": "nav",
+          "settings": {
+            "text": "Postpartum",
+            "url": "",
+            "current": false
+          }
+        },
+        "nav5": {
+          "type": "nav",
+          "settings": {
+            "text": "About",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub1": {
+          "type": "subnav",
+          "settings": {
+            "text": "Flushing",
+            "url": "",
+            "current": true
+          }
+        },
+        "sub2": {
+          "type": "subnav",
+          "settings": {
+            "text": "Barrier",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub3": {
+          "type": "subnav",
+          "settings": {
+            "text": "Ingredients",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub4": {
+          "type": "subnav",
+          "settings": {
+            "text": "Hormonal skin",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub5": {
+          "type": "subnav",
+          "settings": {
+            "text": "What we don't recommend",
+            "url": "",
+            "current": false
+          }
+        }
+      },
+      "block_order": [
+        "nav1",
+        "nav2",
+        "nav3",
+        "nav4",
+        "nav5",
+        "sub1",
+        "sub2",
+        "sub3",
+        "sub4",
+        "sub5"
+      ]
+    },
+    "hero": {
+      "type": "rosalia-funnel-hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "The flush isn’t the problem. What happens after it is.",
+        "as_h1": true,
+        "standfirst": "Redness that outlasts its trigger works differently from a blush. The difference isn’t severity — it’s structural.",
+        "lead": "<p><span class=\"lede-in\">You’ve been told it’s a trigger problem.</span> So you cut the wine, the heat, the long hot showers.</p><p>And it still stays. Through the meeting. Through the drive home. Into the evening.</p><p>One woman put it plainly: <em>“background redness that just won’t go away, no matter what I do.”</em></p><p>That part — the staying — isn’t what the trigger lists are about.</p>",
+        "image_alt": "An empty desk beside an office window in late afternoon light",
+        "placeholder_note": "[ HERO ]Empty desk beside an office window, late afternoon, cold light from the left. Cardigan over the chair back, chair turned toward the glass. No face, no product. See PRELANDER_VISUAL_BRIEF.md §2.",
+        "caption": "<p>The window seat is one of the most commonly reported adaptations. <em>Photograph posed by a model.</em></p>",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "meta1": {
+          "type": "meta",
+          "settings": {
+            "text": "The Skin File editorial desk",
+            "strong": true
+          }
+        },
+        "meta3": {
+          "type": "meta",
+          "settings": {
+            "text": "25 August 2026",
+            "strong": false
+          }
+        },
+        "meta5": {
+          "type": "meta",
+          "settings": {
+            "text": "3 min read",
+            "strong": false
+          }
+        }
+      },
+      "block_order": [
+        "meta1",
+        "meta3",
+        "meta5"
+      ]
+    },
+    "body1": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "It isn’t that you flush harder",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The usual explanation is that some people simply flush harder. It’s why the advice is always a longer list of triggers.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It doesn’t hold up.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>People whose flush fades and people whose flush stays react to the same things. Heat. Wine. A hard question in a meeting.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>What differs is what happens next.</b></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>In a face that settles, one system opens the vessels and another closes them. In one that doesn’t, that second half is delayed — or overridden.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Overridden by what? Trigger lists never say.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "paragraph6"
+      ]
+    },
+    "body2": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "It behaves less like a symptom than a circuit",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Dermatology has moved toward describing lasting flushing as a loop, not an event.</p>",
+            "is_lead": false
+          }
+        },
+        "diagram2": {
+          "type": "diagram",
+          "settings": {
+            "which": "loop",
+            "aria_label": "Five points arranged in a loop; each lowers the threshold of the next; the fifth is hidden",
+            "narrow": true,
+            "legend": "<p><b>1</b> Vessel tone — how fully vessels close again. <b>2</b> Nerve signal — the threshold to react at all. <b>3</b> Inflammation — more inputs start it than stop it. <b>4</b> Barrier — when thin, it exposes the nerves beneath. <b>5</b> — not on the skin. It comes later.</p>",
+            "caption": ""
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Each point lowers the threshold of the next.</b> Treat one and leave four, and the four pull the treated one back.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>There’s a fifth. It rarely shows up in a treatment plan. It’s the reason the other four keep resetting.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "diagram2",
+        "paragraph3",
+        "paragraph4"
+      ]
+    },
+    "body3": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "Why one at a time produces the pattern you know",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Almost every treatment addresses one point, and does it well. A barrier cream does barrier work. A laser does vessel work. A prescription calms inflammation.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Each leaves the other four exactly where it found them.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Read enough accounts and the same lines repeat:</p>",
+            "is_lead": false
+          }
+        },
+        "said4": {
+          "type": "said",
+          "settings": {
+            "lines": "“It worked, then it just stopped.”\n“What helps one week does nothing the next.”\n“I’ve spent thousands — lasers, derm visits, monthly meds.”"
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Read as personal failures, that history is crushing. Read as a loop, it’s just arithmetic.</p>",
+            "is_lead": false
+          }
+        },
+        "pull6": {
+          "type": "pull",
+          "settings": {
+            "content": "<p>“It works, then it stops working” sounds like bad luck. In a five-point loop, it’s the expected result.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "said4",
+        "paragraph5",
+        "pull6"
+      ]
+    },
+    "quiz1": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Interactive",
+        "heading": "Which of the five points are active on your skin?",
+        "body": "A 60-second check built on the five-point framework. It maps your triggers and timing to each one.",
+        "button_label": "Find my flush profile →",
+        "button_url": "https://try-rosalia.com/quiz/flush?src=v4-tool1",
+        "fine_print": "About 60 seconds. No email or account required.",
+        "full_width": false,
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "body4": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "The fifth point isn’t on your skin",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Four of the five you could measure. The fifth you can’t — which is why it’s usually left out.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Expecting a flush produces the same vascular response as the flush itself.</b></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Learn to brace for it, and you hand the loop a live signal. Continuously. Even in rooms that aren’t warm.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One account says it best: <em>“even when the room isn’t warm, I get so anxious about flushing that it happens.”</em></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It arrives <em>before</em> the trigger. Not imagined — predicted. And the prediction is itself the input.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>There’s no cream for anticipation.</b> So the useful question isn’t what to apply. It’s which of the five is doing the most work. That differs for every face.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "paragraph6"
+      ]
+    },
+    "quiz2": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Interactive",
+        "heading": "Find which point is driving the others",
+        "body": "Your five-point profile in 60 seconds — including whether the fifth one is active for you.",
+        "button_label": "Find my flush profile →",
+        "button_url": "https://try-rosalia.com/quiz/flush?src=v4-tool2",
+        "fine_print": "About 60 seconds. No email or account required.",
+        "full_width": false,
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "body5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "What this doesn’t cover",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Two things sit outside all of this, and both matter.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Your eyes.</b> Burning, watering or blurring eyes point to ocular rosacea. That’s for an eye doctor — no cream reaches it, and waiting carries real risk.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Steroid rebound.</b> Redness that started after long steroid use follows a different course. Stopping suddenly is usually worse than the flare, and it needs a doctor’s supervision.</p>",
+            "is_lead": false
+          }
+        },
+        "tags4": {
+          "type": "tags",
+          "settings": {
+            "tags": "Flushing, Vascular, Barrier, Rosacea, Research"
+          }
+        },
+        "more5": {
+          "type": "more",
+          "settings": {
+            "heading": "More from Research",
+            "cat_1": "Postpartum",
+            "title_1": "They told you to wait. What weaning actually returns, and what it doesn’t",
+            "url_1": "",
+            "cat_2": "Flushing",
+            "title_2": "Five reasons a flush stops coming back down",
+            "url_2": "",
+            "cat_3": "Ingredients",
+            "title_3": "Reading an ingredient list when half of it is off the table",
+            "url_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "tags4",
+        "more5"
+      ]
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "The Skin File",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p><b>The Skin File is published by Rosalia</b> (try-rosalia.com), which sells skincare products. Articles are produced by the Rosalia editorial desk. Quoted experiences are drawn from public forum posts and are individual accounts, not typical results.</p><p>This article is for information only and is not a medical consultation. Speak to a clinician about symptoms. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2026 The Skin File · contact@try-rosalia.com</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "flink1": {
+          "type": "link",
+          "settings": {
+            "text": "About us",
+            "url": ""
+          }
+        },
+        "flink2": {
+          "type": "link",
+          "settings": {
+            "text": "Contact",
+            "url": ""
+          }
+        },
+        "flink3": {
+          "type": "link",
+          "settings": {
+            "text": "Editorial standards",
+            "url": ""
+          }
+        },
+        "flink4": {
+          "type": "link",
+          "settings": {
+            "text": "Privacy policy",
+            "url": ""
+          }
+        },
+        "flink5": {
+          "type": "link",
+          "settings": {
+            "text": "Terms & conditions",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "flink1",
+        "flink2",
+        "flink3",
+        "flink4",
+        "flink5"
+      ]
+    }
+  },
+  "order": [
+    "chrome",
+    "hero",
+    "body1",
+    "body2",
+    "body3",
+    "quiz1",
+    "body4",
+    "quiz2",
+    "body5",
+    "footer"
+  ]
+}

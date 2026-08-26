@@ -1,0 +1,85 @@
+{%- comment -%}
+  Rosalia · Funnel — Medical refusal
+  "What this doesn't cover" / "not for you".
+
+  This is a safety block: ocular rosacea and steroid rebound are real risks
+  and the referral is non-negotiable. Do not delete it from a page. If you
+  need it out of the way temporarily, hide it in the editor instead.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+    {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="rf-notfor">
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+
+    {%- if s.outro != blank -%}
+      <div class="rf-prose" style="margin-top:20px;">{{ s.outro }}</div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel refusal",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Safety block. Keep it on every funnel page — hide it rather than delete it." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "What this doesn't cover" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "richtext", "id": "outro", "label": "Outro" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    {
+      "type": "item", "name": "Item", "limit": 8,
+      "settings": [ { "type": "richtext", "id": "text", "label": "Text" } ]
+    }
+  ],
+  "presets": [
+    { "name": "Rosalia — Funnel refusal", "blocks": [ { "type": "item" }, { "type": "item" } ] }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,71 @@
+{%- comment -%}
+  Rosalia · Funnel — Quiz CTA
+  The interactive tool card. Destination is a setting, never hardcoded,
+  so the same section serves the flusher and the postpartum quiz.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    <aside class="rf-quiz">
+      {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h3 class="rf-h3">{{ s.heading }}</h3>{%- endif -%}
+      {%- if s.body != blank -%}<p>{{ s.body }}</p>{%- endif -%}
+      {%- if s.button_label != blank -%}
+        <a class="rf-btn{% if s.full_width %} rf-btn--block{% endif %}" href="{{ s.button_url | default: '#' }}">{{ s.button_label }}</a>
+      {%- endif -%}
+      {%- if s.fine_print != blank -%}<span class="rf-fine">{{ s.fine_print }}</span>{%- endif -%}
+    </aside>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel quiz CTA",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "header", "content": "Content" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Interactive" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "body", "label": "Body" },
+    { "type": "text", "id": "button_label", "label": "Button label" },
+    { "type": "url", "id": "button_url", "label": "Button link", "info": "The quiz. Set it per avatar — flusher or postpartum." },
+    { "type": "text", "id": "fine_print", "label": "Fine print" },
+    { "type": "checkbox", "id": "full_width", "label": "Full-width button", "default": false },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 8 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 8 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "presets": [ { "name": "Rosalia — Funnel quiz CTA" } ]
+}
+{% endschema %}

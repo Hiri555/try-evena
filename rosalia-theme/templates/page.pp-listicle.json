@@ -1,0 +1,788 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "settings": {
+        "show_trust": true,
+        "show_masthead": true,
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "brand_url": "/",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": ""
+      },
+      "blocks": {
+        "trust1": {
+          "type": "trust",
+          "settings": {
+            "text": "Every percentage printed",
+            "icon": "check"
+          }
+        },
+        "trust2": {
+          "type": "trust",
+          "settings": {
+            "text": "Zero fragrance",
+            "icon": "check"
+          }
+        },
+        "trust3": {
+          "type": "trust",
+          "settings": {
+            "text": "Two minutes, one hand",
+            "icon": "check"
+          }
+        },
+        "trust4": {
+          "type": "trust",
+          "settings": {
+            "text": "60-day full refund",
+            "icon": "check"
+          }
+        }
+      },
+      "block_order": [
+        "trust1",
+        "trust2",
+        "trust3",
+        "trust4"
+      ]
+    },
+    "blk1": {
+      "type": "rosalia-funnel-hero",
+      "settings": {
+        "eyebrow": "",
+        "heading": "You had great skin your whole life. Now you don't recognize yourself.",
+        "as_h1": true,
+        "standfirst": "Nobody warned you about this part.",
+        "lead": "<p>They warned you about the sleep and the hair. Not that your face might change, and stay changed, and that nobody would be able to tell you why.</p>",
+        "image_alt": "A woman in a dark hallway at three in the morning, her face lit only by the phone she is holding. Tired eyes, visible redness across the cheeks, no makeup.",
+        "placeholder_note": "Upload the asset for: img/n05-3am.jpg",
+        "caption": "",
+        "padding_top": 28,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "meta1": {
+          "type": "meta",
+          "settings": {
+            "text": "By Margot Vidal , founder",
+            "strong": true
+          }
+        },
+        "meta2": {
+          "type": "meta",
+          "settings": {
+            "text": "3 min read",
+            "strong": false
+          }
+        }
+      },
+      "block_order": [
+        "meta1",
+        "meta2"
+      ]
+    },
+    "blk1kick": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "kick1": {
+          "type": "kick",
+          "settings": {
+            "text": "It isn't “hormones.” It's four specific things, and they happened in a specific order."
+          }
+        }
+      },
+      "block_order": [
+        "kick1"
+      ]
+    },
+    "blk2": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason One",
+        "eyebrow": "",
+        "heading": "For two weeks it was perfect. <em>That was the warning.</em>",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Right after the birth your face cleared. Properly clear — maybe for the first time in your adult life. You thought it might be over. Then it came back full force.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Those two weeks were the last of something your body had switched off on purpose.</p>",
+            "is_lead": false
+          }
+        },
+        "pairs3": {
+          "type": "pairs",
+          "settings": {
+            "rows": "During | <b>The alarm went down.</b> Not for your skin — so your body wouldn't treat the pregnancy as an intruder. Inflammation went quiet as a side effect.\nAfter | <b>That's the two weeks.</b> Still down, nothing back yet.\nWeaning | <b>Then it came back on.</b> A bit better while you fed — and when you stopped, so much worse. Low on estrogen, immune response returning, same week.\nSince | <b>It never switched itself back off.</b> Women who developed this after a birth are still describing it twenty-one years later.",
+            "variant": "stage"
+          }
+        },
+        "kick4": {
+          "type": "kick",
+          "settings": {
+            "text": "Not something you did. Not something that resolves by waiting long enough."
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "pairs3",
+        "kick4"
+      ]
+    },
+    "blk3": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Two",
+        "eyebrow": "",
+        "heading": "Your doctor was right. <em>That's the problem.</em>",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "A woman sitting on the edge of a bathtub in an ordinary bathroom in soft daylight, elbows on knees, looking down and away. Visible redness across the cheeks and chin, no makeup.",
+            "placeholder_note": "Upload the asset for: img/n08-bathtub.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>She said she couldn't do anything until you were done breastfeeding. She wasn't dismissing you — almost everything in the standard toolkit really is off the table in that window.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The thing that saved your skin before, you can't use now. Tret, hydroquinone, the oral antibiotics — all shelved.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><strong>But “wait” treats those months as empty.</strong> They're the months your barrier is thinnest and every gentle thing you try burns anyway.</p>",
+            "is_lead": false
+          }
+        },
+        "kick5": {
+          "type": "kick",
+          "settings": {
+            "text": "What you needed wasn't a stronger prescription. It was something you could check yourself."
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "paragraph4",
+        "kick5"
+      ]
+    },
+    "blk4": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "And it doesn't hold still.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Every month the alarm fires a little easier. The vessels stay open a little longer. That's how a face that flushed and settled becomes a face with a background level it never drops below — and it's why the women describing this at twenty-one years out say it got worse before it got predictable.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1"
+      ]
+    },
+    "quiz1": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Before you keep reading",
+        "heading": "Yours started at a specific point. Which one?",
+        "body": "During, straight after, at weaning, or later. It changes what's driving it. Twelve questions, thumb-sized answers.",
+        "button_label": "90 seconds. One hand. →",
+        "button_url": "/pages/quiz-postpartum",
+        "fine_print": "",
+        "full_width": false,
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "blk5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Three",
+        "eyebrow": "",
+        "heading": "Screenshot this. Ask <em>someone who knows you</em>.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "One hand holding a phone up to warm morning bathroom light, the screen showing a pale document with blurred illegible text. No face in frame.",
+            "placeholder_note": "Upload the asset for: img/n06-phone.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The question you actually came here with is whether this is even safe for you, feeding.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Every brand answers with an adjective. Gentle. Clean. Suitable. So women end up writing <em>I'll probably just get it anyway, lol</em> — worn down into a decision they aren't comfortable with.</p>",
+            "is_lead": false
+          }
+        },
+        "pairs4": {
+          "type": "pairs",
+          "settings": {
+            "rows": "Azelaic acid | 10%\nPanthenol B5 | 5%\nCentella asiatica | 4%\nNiacinamide | 3–5%\nColloidal oat | 1%\nLicochalcone A | 0.4%",
+            "variant": "figure"
+          }
+        },
+        "note5": {
+          "type": "note",
+          "settings": {
+            "content": "<p><strong>Screenshot that and take it to your OB, doctor, or lactation consultant.</strong> They can tell you whether it's right for you. We can't, and we're not going to pretend otherwise — which is why it's printed here instead of behind a click.</p>",
+            "source": ""
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "pairs4",
+        "note5"
+      ]
+    },
+    "blk6": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "Reason Four",
+        "eyebrow": "",
+        "heading": "There is <em>no second bottle</em>.",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You're not doing a five-step routine. Three drops, press into cheeks, nose, forehead. Sixty seconds. Then whatever moisturizer you already own.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><strong>Two minutes. One hand, if the other one is busy.</strong></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>No companion cleanser, no sealing balm, no step you'll discover you were missing in week four — because in this category the second product always turns up around week four.</p>",
+            "is_lead": false
+          }
+        },
+        "kick4": {
+          "type": "kick",
+          "settings": {
+            "text": "Diapers already cost a fortune. That's not an objection to handle, it's why the routine is two minutes."
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "kick4"
+      ]
+    },
+    "blk7": {
+      "type": "rosalia-funnel-refusal",
+      "settings": {
+        "eyebrow": "Reason Five",
+        "heading": "Don't buy this if <em>any of these is you</em>.",
+        "intro": "<p>You've been sold to a lot lately by people who knew exactly how tired you are. This part is the opposite.</p>",
+        "outro": "<p>We'd rather lose the sale than lose your trust. Especially now, when your tolerance for one more letdown is somewhere near zero.</p>",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "item1": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Burning, gritty or itching eyes.</strong> Ocular rosacea — ophthalmologist, never near the eyelid.</p>"
+          }
+        },
+        "item2": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Widespread painful pustules.</strong> Prescription first, once you're able.</p>"
+          }
+        },
+        "item3": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>You're on a topical steroid.</strong> Get the taper supervised before adding anything.</p>"
+          }
+        },
+        "item4": {
+          "type": "item",
+          "settings": {
+            "text": "<p><strong>Small bumps clustered round the mouth.</strong> Often perioral dermatitis — very common after a birth, treated differently.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item1",
+        "item2",
+        "item3",
+        "item4"
+      ]
+    },
+    "blk8": {
+      "type": "rosalia-funnel-proof",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Look at the right frame. <em>She's still pink.</em>",
+        "intro": "<p>Cheeks still warmer than the rest of her face. What's gone is the layer on top — the bumps, the rawness, the patches that made strangers ask.</p>",
+        "empty_state": "<p>Real ones, or this space stays empty.</p>",
+        "show_media_slots": true,
+        "before_alt": "[PLACEHOLDER — real five-star review card. Real verified customer only, never a fabricated quote.]",
+        "after_alt": "",
+        "before_note": "Upload the asset for: img/rosalia-review.jpg",
+        "after_note": "",
+        "before_caption": "<p>Week 0 and Week 10. Same bathroom, same time of day, no makeup either time.</p>",
+        "after_caption": "",
+        "panel_note": "<p>[PLACEHOLDER — real verified-customer quote, her own words, unedited. Until there is a real one, leave it out rather than invent it.] [First name · verified purchase · week X of 8]</p>",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "blk9": {
+      "type": "rosalia-funnel-timeline",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Eight weeks, with <em>real dates</em>.",
+        "intro": "",
+        "footnote": "Promise you fourteen days and we'd be one more voice telling you something about your own body that turns out not to be true.",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "ms1": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 0,
+            "day_offset_end": 13,
+            "date_prefix": "",
+            "body": "<p>Nothing you can see. The barrier repairs first, quietly. Things stop stinging on application.</p>"
+          }
+        },
+        "ms2": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 14,
+            "day_offset_end": 27,
+            "date_prefix": "",
+            "body": "<p>Not less redness — <strong>shorter</strong>. It still arrives, and it leaves faster.</p>"
+          }
+        },
+        "ms3": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 28,
+            "day_offset_end": 41,
+            "date_prefix": "",
+            "body": "<p>The background level starts to drop. The one you see rather than feel.</p>"
+          }
+        },
+        "ms4": {
+          "type": "milestone",
+          "settings": {
+            "static_label": "",
+            "use_date": true,
+            "day_offset": 42,
+            "day_offset_end": 55,
+            "date_prefix": "",
+            "body": "<p>Honest checkpoint. Nothing moved? It hasn't worked on you, and the refund window is open two more weeks.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ms1",
+        "ms2",
+        "ms3",
+        "ms4"
+      ]
+    },
+    "blk10": {
+      "type": "rosalia-funnel-offer",
+      "settings": {
+        "layout": "bundles",
+        "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. The eight-week option works out at <strong>about $10 a week</strong> — because $82 is a decision and about $10 a week is a comparison.</p>",
+        "heading": "The arithmetic, <em>in weeks</em>.",
+        "eyebrow": "",
+        "product_name": "",
+        "size_line": "",
+        "price": "",
+        "button_label": "Start the 8 weeks →",
+        "button_url": "/products/daily-reset-serum",
+        "secondary_label": "",
+        "secondary_url": "/pages/quiz-postpartum",
+        "reassurance": "",
+        "guarantee": "",
+        "footnote": "",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "tier1": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The Tolerance Check — 1 bottle · 30 ml · 4 weeks",
+            "price": "$45",
+            "promise": "See whether your skin takes it.",
+            "featured": false,
+            "badge_text": "",
+            "url": ""
+          }
+        },
+        "tier2": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The 8-Week Reset — 2 bottles · 8 weeks",
+            "price": "$82",
+            "promise": "The full window, at about $10 a week.",
+            "featured": true,
+            "badge_text": "Most chosen",
+            "url": ""
+          }
+        },
+        "tier3": {
+          "type": "tier",
+          "settings": {
+            "qty_label": "The Full Reset — 3 bottles · 12 weeks",
+            "price": "$114",
+            "promise": "Through weaning and past it.",
+            "featured": false,
+            "badge_text": "",
+            "url": ""
+          }
+        },
+        "badge1": {
+          "type": "badge",
+          "settings": {
+            "text": "60-day full refund"
+          }
+        },
+        "badge2": {
+          "type": "badge",
+          "settings": {
+            "text": "Opened bottles count"
+          }
+        },
+        "badge3": {
+          "type": "badge",
+          "settings": {
+            "text": "No forms"
+          }
+        },
+        "badge4": {
+          "type": "badge",
+          "settings": {
+            "text": "Free US shipping"
+          }
+        }
+      },
+      "block_order": [
+        "tier1",
+        "tier2",
+        "tier3",
+        "badge1",
+        "badge2",
+        "badge3",
+        "badge4"
+      ]
+    },
+    "blk11": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "Not before-baby. <em>Yours.</em>",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "image1": {
+          "type": "image",
+          "settings": {
+            "alt": "A woman in her early thirties in a bathroom in warm morning light, no makeup, visible redness across her cheeks, looking away from the camera.",
+            "placeholder_note": "Upload the asset for: img/pp-08-portrait.jpg",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It isn't a cure, and you've had enough of being told things about your own body that turn out softer than the truth.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Your body turned something down to protect someone else, then turned it back on louder. Four specific things — and four specific things can be worked on.</p>",
+            "is_lead": false
+          }
+        },
+        "kick4": {
+          "type": "kick",
+          "settings": {
+            "text": "You have nothing to lose except the face you stopped recognizing."
+          }
+        },
+        "button5": {
+          "type": "button",
+          "settings": {
+            "label": "Not sure yet? 90 seconds, one hand →",
+            "url": "/pages/quiz-postpartum",
+            "style": "quiet"
+          }
+        }
+      },
+      "block_order": [
+        "image1",
+        "paragraph2",
+        "paragraph3",
+        "kick4",
+        "button5"
+      ]
+    },
+    "blk12": {
+      "type": "rosalia-funnel-faq",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Eight questions people ask us",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "qa1": {
+          "type": "qa",
+          "settings": {
+            "question": "Is this safe while I'm breastfeeding?",
+            "answer": "<p>We're not going to answer that with a yes, because we're not in a position to. What we've done instead is print every active and every percentage — everything your OB, doctor, or lactation consultant needs to answer it about you specifically.</p><p>Screenshot it and ask them. If a brand tells you flatly that a leave-on used twice daily for months is safe while you're feeding, they're going further than they can support.</p>",
+            "open": false
+          }
+        },
+        "qa2": {
+          "type": "qa",
+          "settings": {
+            "question": "$82 is money I'd rather spend on the baby.",
+            "answer": "<p>Fair, and we're not going to argue you out of it. It's about $10 a week — check that against what you've already spent on things you stopped using. And the 60-day refund means the money isn't at risk.</p><p>If it's still not the right month, the article will be here.</p>",
+            "open": false
+          }
+        },
+        "qa3": {
+          "type": "qa",
+          "settings": {
+            "question": "Will it burn? Everything burns right now.",
+            "answer": "<p>We can't promise it won't. What we can tell you is what came out: zero fragrance, zero essential oils, zero alcohol, zero menthol, niacinamide held at 3–5% rather than 10%.</p><p>Azelaic acid at 10% can tingle for the first minute in week one. Patch test along the jaw for three days. Stings past the first minute? Stop and take the refund.</p>",
+            "open": false
+          }
+        },
+        "qa4": {
+          "type": "qa",
+          "settings": {
+            "question": "Will this go away on its own once I've weaned?",
+            "answer": "<p>For some people it settles. For a lot it doesn't — the forum corpus behind this article includes women seventeen and twenty-one years past the birth still dealing with it. We'd rather tell you that than let you wait another year on a maybe.</p>",
+            "open": false
+          }
+        },
+        "qa5": {
+          "type": "qa",
+          "settings": {
+            "question": "My skin got worse when I stopped feeding. Did I cause that?",
+            "answer": "<p>No. That's the third step in Reason One and it's one of the most commonly described patterns in the whole corpus. Estrogen drops and the immune response returns at the same time. It's the most predictable moment for this to worsen.</p>",
+            "open": false
+          }
+        },
+        "qa6": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use it with a prescription, once I'm able?",
+            "answer": "<p>Usually, and many people do — but ask whoever prescribed it. Take them the percentages. Apply at different times of day rather than layering.</p>",
+            "open": false
+          }
+        },
+        "qa7": {
+          "type": "qa",
+          "settings": {
+            "question": "How long does one bottle last?",
+            "answer": "<p>30 ml, three drops twice daily, is about four weeks. The eight-week option is two bottles because eight weeks is the shortest window in which the timeline above means anything.</p>",
+            "open": false
+          }
+        },
+        "qa8": {
+          "type": "qa",
+          "settings": {
+            "question": "What if I'm one of the four you said not to buy it for?",
+            "answer": "<p>Then please don't, yet. Get that dealt with and come back if it's still relevant. We'd rather that than you spending $45 finding out we meant it.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "qa1",
+        "qa2",
+        "qa3",
+        "qa4",
+        "qa5",
+        "qa6",
+        "qa7",
+        "qa8"
+      ]
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p>Rosalia How we think about post-pregnancy facial redness. Not medical advice, and no substitute for a diagnosis. Ask your doctor or OB before using any skincare product if you are pregnant or breastfeeding. Corpus IDs in this page's source refer to publicly posted comments, quoted unedited.</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      }
+    }
+  },
+  "order": [
+    "chrome",
+    "blk1",
+    "blk1kick",
+    "blk2",
+    "blk3",
+    "blk4",
+    "quiz1",
+    "blk5",
+    "blk6",
+    "blk7",
+    "blk8",
+    "blk9",
+    "blk10",
+    "blk11",
+    "blk12",
+    "footer"
+  ]
+}

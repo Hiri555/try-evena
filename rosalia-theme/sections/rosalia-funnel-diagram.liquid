@@ -1,0 +1,87 @@
+{%- comment -%}
+  Rosalia · Funnel — Diagram (standalone)
+  The same four SVGs the editorial block can inline, but as a section you
+  can drop anywhere — including between two stock Impact sections.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+    {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+    <div class="rf-dgm{% if s.narrow %} rf-dgm--narrow{% endif %}">
+      {%- case s.which -%}
+        {%- when 'collapse' -%}
+          {%- render 'rosalia-svg-collapse-chart', label: s.aria_label -%}
+        {%- when 'mechanism' -%}
+          {%- render 'rosalia-svg-mechanism-3jobs', label: s.aria_label -%}
+        {%- when 'loop' -%}
+          {%- render 'rosalia-svg-loop-5points', label: s.aria_label -%}
+        {%- when 'stores' -%}
+          {%- render 'rosalia-svg-stores-4', label: s.aria_label -%}
+      {%- endcase -%}
+      {%- if s.legend != blank -%}<p class="rf-leg">{{ s.legend }}</p>{%- endif -%}
+    </div>
+
+    {%- if s.caption != blank -%}<p class="rf-cap">{{ s.caption }}</p>{%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel diagram",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select", "id": "which", "label": "Diagram", "default": "collapse",
+      "options": [
+        { "value": "collapse", "label": "Endocrine collapse (advertorial)" },
+        { "value": "mechanism", "label": "Three jobs / mechanism (advertorial)" },
+        { "value": "loop", "label": "Five-point loop (flusher)" },
+        { "value": "stores", "label": "Four depleted stores (postpartum)" }
+      ]
+    },
+    { "type": "text", "id": "aria_label", "label": "Description for screen readers" },
+    { "type": "checkbox", "id": "narrow", "label": "Narrow (360px max)", "default": false },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "richtext", "id": "legend", "label": "Legend (inside the frame)" },
+    { "type": "richtext", "id": "caption", "label": "Caption (below the frame)" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 16 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "presets": [ { "name": "Rosalia — Funnel diagram" } ]
+}
+{% endschema %}

@@ -1,0 +1,178 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — Social proof
+  ══════════════════════════════════════════════════════════════════════
+  Real proof only. The rules this section enforces structurally:
+
+    · No review ships with default text. Every review block is empty until
+      a real, verified customer sentence is pasted into it.
+    · Reviews are meant to come from the review app (add its app block).
+      The manual blocks exist because the source page reserves the slots.
+    · Before/after are image_pickers whose help text says REAL asset only.
+    · With nothing filled in, the section renders an honest empty state
+      rather than inventing anything — which is what the page copy
+      promises the reader: "real ones, or this space stays empty".
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign reviews = section.blocks | where: 'type', 'review'
+  assign app_blocks = section.blocks | where: 'type', '@app'
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+
+  assign filled = 0
+  for r in reviews
+    if r.settings.text != blank
+      assign filled = filled | plus: 1
+    endif
+  endfor
+  assign has_media = false
+  if s.before_image != blank or s.after_image != blank
+    assign has_media = true
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    <div class="rf-proof">
+
+      {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+      {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+      {%- comment -%} The review app goes here. {%- endcomment -%}
+      {%- if app_blocks.size > 0 -%}
+        {%- for block in app_blocks -%}
+          <div {{ block.shopify_attributes }}>{%- render block -%}</div>
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- if filled > 0 -%}
+        {%- for block in reviews -%}
+          {%- assign b = block.settings -%}
+          {%- if b.text != blank -%}
+            <article class="rf-review" {{ block.shopify_attributes }}>
+              {%- if b.rating != blank -%}
+                <p class="rf-stars" aria-label="{{ b.rating_label | default: b.rating | escape }}">{{ b.rating }}</p>
+              {%- endif -%}
+              <p class="rf-rtext">{{ b.text }}</p>
+              {%- if b.attribution != blank -%}<p class="rf-rwho">{{ b.attribution }}</p>{%- endif -%}
+            </article>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- elsif app_blocks.size == 0 -%}
+        <p class="rf-empty">{{ s.empty_state }}</p>
+      {%- endif -%}
+
+      {%- if has_media or s.show_media_slots -%}
+        <div class="rf-ba">
+          {%- if s.before_image != blank -%}
+            <figure class="rf-figure" style="margin:0;">
+              {{ s.before_image | image_url: width: 800 | image_tag:
+                   widths: '400, 600, 800', sizes: '(min-width: 481px) 340px, 100vw',
+                   loading: 'lazy', alt: s.before_alt }}
+              {%- if s.before_caption != blank -%}<figcaption class="rf-figcap">{{ s.before_caption }}</figcaption>{%- endif -%}
+            </figure>
+          {%- elsif s.show_media_slots -%}
+            <div class="rf-slot" role="img" aria-label="{{ s.before_alt | default: 'Before image placeholder' | escape }}">
+              <span>{{ s.before_note }}</span>
+            </div>
+          {%- endif -%}
+
+          {%- if s.after_image != blank -%}
+            <figure class="rf-figure" style="margin:0;">
+              {{ s.after_image | image_url: width: 800 | image_tag:
+                   widths: '400, 600, 800', sizes: '(min-width: 481px) 340px, 100vw',
+                   loading: 'lazy', alt: s.after_alt }}
+              {%- if s.after_caption != blank -%}<figcaption class="rf-figcap">{{ s.after_caption }}</figcaption>{%- endif -%}
+            </figure>
+          {%- elsif s.show_media_slots -%}
+            <div class="rf-slot" role="img" aria-label="{{ s.after_alt | default: 'After image placeholder' | escape }}">
+              <span>{{ s.after_note }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.panel_note != blank -%}
+        <p class="rf-small" style="margin-top:18px;">{{ s.panel_note }}</p>
+      {%- endif -%}
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Funnel proof",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Real proof only. Add your review app's block here. Never type a review that a customer did not write." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    {
+      "type": "richtext", "id": "empty_state", "label": "Empty state",
+      "info": "Shown when there is no review app block and no review has been filled in.",
+      "default": "<p>Real ones, or this space stays empty.</p>"
+    },
+
+    { "type": "header", "content": "Before / after" },
+    { "type": "checkbox", "id": "show_media_slots", "label": "Show the empty slots", "default": true, "info": "Turn off to hide the pair entirely until you have the assets." },
+    { "type": "image_picker", "id": "before_image", "label": "Before", "info": "REAL customer asset only. No stock, no generated face." },
+    { "type": "text", "id": "before_alt", "label": "Before — alt text" },
+    { "type": "textarea", "id": "before_note", "label": "Before — brief" },
+    { "type": "richtext", "id": "before_caption", "label": "Before — caption" },
+    { "type": "image_picker", "id": "after_image", "label": "After", "info": "REAL customer asset only. Same woman, honestly shot." },
+    { "type": "text", "id": "after_alt", "label": "After — alt text" },
+    { "type": "textarea", "id": "after_note", "label": "After — brief" },
+    { "type": "richtext", "id": "after_caption", "label": "After — caption" },
+
+    { "type": "header", "content": "Panel data" },
+    { "type": "richtext", "id": "panel_note", "label": "Panel note", "info": "Only if a real panel exists. State sample size, duration and what was measured. Never a promise." },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Column width", "default": "measure",
+      "options": [
+        { "value": "measure", "label": "Editorial column (680px)" },
+        { "value": "wide", "label": "Wide (960px)" }
+      ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "default": 24 },
+
+    { "type": "header", "content": "Colours" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "review", "name": "Review (verified only)", "limit": 6,
+      "settings": [
+        { "type": "paragraph", "content": "Paste a real, verified customer sentence. If you have none yet, leave it blank — the empty state is honest and the page copy promises exactly that." },
+        { "type": "textarea", "id": "text", "label": "Their words" },
+        { "type": "text", "id": "attribution", "label": "Attribution" },
+        { "type": "text", "id": "rating", "label": "Rating glyphs", "info": "e.g. ★★★★★ — leave blank if you do not display ratings." },
+        { "type": "text", "id": "rating_label", "label": "Rating — screen-reader text", "info": "e.g. 5 out of 5 stars" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Funnel proof" } ]
+}
+{% endschema %}

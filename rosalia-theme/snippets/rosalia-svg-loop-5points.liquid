@@ -1,0 +1,31 @@
+{%- comment -%}
+  Rosalia · SVG — the five-point loop (the fifth withheld)
+  Flusher prelander + flusher listicle. The dashed node 5 is the open loop
+  the copy pays off later — it must stay dashed and unlabelled.
+{%- endcomment -%}
+<svg viewBox="0 0 340 300" role="img" xmlns="http://www.w3.org/2000/svg"
+     aria-label="{{ label | default: 'Five points arranged in a loop; each lowers the threshold of the next; the fifth is hidden.' | escape }}">
+  <circle cx="170" cy="150" r="105" fill="none" stroke="#E4DAD2" stroke-width="1.5" stroke-dasharray="2 6"/>
+  <path d="M184 150 A16 16 0 1 1 170 134" fill="none" stroke="#7A3A54" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M164 130 L172 134 L163 138 Z" fill="#7A3A54"/>
+  <g font-family="Inter, -apple-system, sans-serif" text-anchor="middle">
+    <circle cx="170" cy="45" r="25" fill="#FAF5F0" stroke="#7A3A54" stroke-width="1.6"/>
+    <text x="170" y="51" font-size="16" font-weight="700" fill="#4B1528">1</text>
+    <text x="170" y="88" font-size="11.5" fill="#6E6367">Vessel tone</text>
+
+    <circle cx="270" cy="118" r="25" fill="#FAF5F0" stroke="#7A3A54" stroke-width="1.6"/>
+    <text x="270" y="124" font-size="16" font-weight="700" fill="#4B1528">2</text>
+    <text x="270" y="160" font-size="11.5" fill="#6E6367">Nerve signal</text>
+
+    <circle cx="232" cy="235" r="25" fill="#FAF5F0" stroke="#7A3A54" stroke-width="1.6"/>
+    <text x="232" y="241" font-size="16" font-weight="700" fill="#4B1528">3</text>
+    <text x="232" y="277" font-size="11.5" fill="#6E6367">Inflammation</text>
+
+    <circle cx="108" cy="235" r="25" fill="#FAF5F0" stroke="#7A3A54" stroke-width="1.6"/>
+    <text x="108" y="241" font-size="16" font-weight="700" fill="#4B1528">4</text>
+    <text x="108" y="277" font-size="11.5" fill="#6E6367">Barrier</text>
+
+    <circle cx="70" cy="118" r="25" fill="#FAF5F0" stroke="#A89A93" stroke-width="1.6" stroke-dasharray="3 4"/>
+    <text x="70" y="126" font-size="18" font-weight="700" fill="#8A7F82">?</text>
+  </g>
+</svg>

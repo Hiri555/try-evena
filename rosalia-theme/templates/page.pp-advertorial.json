@@ -1,0 +1,998 @@
+{
+  "sections": {
+    "hero": {
+      "type": "rosalia-funnel-hero",
+      "settings": {
+        "eyebrow": "Written by the woman who built it",
+        "heading": "The gentlest thing in the store was the one that burned my face the most. <em>It took me four months, and two thousand strangers, to find out why.</em>",
+        "as_h1": true,
+        "standfirst": "",
+        "lead": "<p>I want to start where it actually started — which isn't with my skin. It's with a bag of frozen peas, held against my own cheek in the dark, at three in the morning, so the crinkle of it wouldn't wake him.</p><p>My son was a few months old. I hadn't slept more than three hours in a row in weeks. And somewhere in the second month my face began to <strong>burn</strong> — not sting, burn — the kind of heat you ice at midnight because the cold is the only thing that lets you think.</p><p>I used to do user research for a living, which mostly means I read what people write when they think nobody official is listening. So when my own doctor had nothing for me, I did the only thing I knew how to do. I went and read everyone else's. Two thousand nine hundred and ninety-eight women, across twenty-seven threads, all asking about their face after giving birth. Most into the dark. Most never answered.</p><p>One of them, at eighteen months, wrote a long careful post and buried the real sentence at the very end, behind an apology, the way you hide the thing you're most ashamed of wanting. I couldn't close the tab. I'll tell you exactly what she wrote — but not yet. You have to see the rest first, or it won't land the way it landed on me.</p><p>And it took me four days to find the nine words that explain all of it. Nine words no doctor had said to me, or to any of them. When I found them, everything I'd been living rearranged itself into something with a cause, a shape, and an end. I'm going to walk you down to them.</p>",
+        "image_alt": "",
+        "placeholder_note": "HERO — a phone screen lit in a dark room, seen from above at an angle, a bag of frozen peas and a corner of a cot blanket in frame. No face, no product. (Generated asset — placeholder for the image pipeline.)",
+        "caption": "",
+        "padding_top": 40,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "step1": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>My first question was the same one you probably typed, badly, into a search bar at two in the morning: <em>what even is this? I've never had it before.</em></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Most likely it's rosacea — the flushing kind, not the spotty kind. It behaves like something brand new because it arrived overnight. But in most cases it isn't new at all. It was already there, quietly. It was being held down.</p>",
+            "is_lead": false
+          }
+        },
+        "weight3": {
+          "type": "weight",
+          "settings": {
+            "text": "And what was holding it down walked out the day I gave birth.",
+            "accent": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which is the whole of why it chose that exact day — and I'll get you there in a second. First, one thing, because I'd want it said to me before I spent a cent: it might not be rosacea. Postpartum acne and perioral dermatitis look close enough to fool people who do this for a living, and they're treated in opposite directions — a steroid cream on the wrong one makes it worse. If yours is mostly bumps, or ringed around the mouth and nose, get a doctor to look first — this page included.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "weight3",
+        "paragraph4"
+      ]
+    },
+    "step2": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Because for nine months, my body had been running my face on settings I never chose. Estrogen up around a thousandfold. Progesterone tenfold. Between them, three quiet jobs, all day, without telling me: keeping the vessels in my face calm, sealing the barrier, holding down the immune cells that turn skin red. Three things, held down, for the better part of a year.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It's why roughly one woman in six with existing rosacea watches it fade while she's pregnant. Nobody explains that to her either, so she credits the water she finally started drinking.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Then the placenta left. And here are the nine words I found on the fourth day, in the discussion section of a paper, that no one had said to me:</p>",
+            "is_lead": false
+          }
+        },
+        "note4": {
+          "type": "note",
+          "settings": {
+            "content": "<p><em>\"One of the most abrupt endocrine collapses in human physiology.\"</em></p>",
+            "source": "Nine words, about the morning I gave birth — and about yours."
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Ninety-five percent of that estrogen, gone inside twenty-four hours. Not tapered. Gone. Whatever had been holding the three things down let go at once. Mechanically it's a menopausal hot flush — the same withdrawal, the same loss of the body's temperature setting — compressed from a decade into about a week.</p>",
+            "is_lead": false
+          }
+        },
+        "diagram6": {
+          "type": "diagram",
+          "settings": {
+            "which": "collapse",
+            "aria_label": "A line showing skin held steady across nine months of pregnancy, collapsing within 24 hours of birth, then slowly recovering over the following year.",
+            "narrow": false,
+            "legend": "",
+            "caption": "<p>What pregnancy was doing for your skin, and how fast it stopped. The shaded stretch on the right is the year your body spends climbing back — and the part a serum can help hold.</p>"
+          }
+        },
+        "paragraph7": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One woman found this out by accident, in a way that should never have been an accident:</p>",
+            "is_lead": false
+          }
+        },
+        "voice8": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I'm still breastfeeding at two years old and my estrogen just tested at menopause levels — I thought I must be perimenopausal — and my nurse didn't mention this is normal?\"",
+            "attribution": "Reddit · two years postpartum",
+            "emphasis": false
+          }
+        },
+        "weight9": {
+          "type": "weight",
+          "settings": {
+            "text": "Her bloodwork came back at menopause levels, and nobody in the room said <em>that's expected.</em>",
+            "accent": true
+          }
+        },
+        "paragraph10": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>But that isn't the cruel part. The cruel part is what happened the first time I tried to be gentle with it.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "note4",
+        "paragraph5",
+        "diagram6",
+        "paragraph7",
+        "voice8",
+        "weight9",
+        "paragraph10"
+      ]
+    },
+    "step3": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>You go gentler and gentler. I ended up in the baby aisle, holding the most inoffensive tub in the building — the one they let you put on a newborn — and <strong>it burned.</strong></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Not stung. Burned. It's the word that comes back most in the whole corpus, with no variation. The cream that burns. The face iced at midnight. The cheek you can't lay against the pillow. Women sleeping three hours a night with a fan on and a wet compress, because the skin will not cool down. That was me, and the peas.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Here's why. The second thing those hormones were doing was sealing my barrier — and that reverses within days of the birth. Oils drop. Water starts leaving through the surface faster than it comes back. The barrier goes porous. A gentle formula is still a formula, arriving at an open door.</p>",
+            "is_lead": false
+          }
+        },
+        "weight4": {
+          "type": "weight",
+          "settings": {
+            "text": "The cream didn't fail because it was harsh. It failed because it walked in through a door that isn't there any more.",
+            "accent": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And that's the trap. When the gentle thing stings, you go gentler still — and the gentler thing burns worse. That is the exact moment a great many women quietly conclude the problem is them.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It isn't. Nothing on that shelf was built for skin that was sealed nine months ago and isn't now. That shelf is built for skin that's been the same for years. Which left me lying awake with the only question that actually scared me.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "weight4",
+        "paragraph5",
+        "paragraph6"
+      ]
+    },
+    "step4": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "weight1": {
+          "type": "weight",
+          "settings": {
+            "text": "Is this permanent now? Is this just my face?",
+            "accent": true
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>For most women — and this is the true answer, so hold onto it — no. It isn’t permanent. It improves substantially on its own, usually across six to twelve months, and often turns when your period returns — the hormonal side signaling it’s done. A minority find it doesn’t fully go, and manage it rather than beat it.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The best answer to this I found in three thousand posts wasn't written by a doctor. It was one line, from a woman on her third baby, and four hundred people had read it before I did:</p>",
+            "is_lead": false
+          }
+        },
+        "voice4": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I did 18 months with my third and it took my face a full year to recover.\"",
+            "attribution": "Reddit · 133 upvotes",
+            "emphasis": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>A full year. Said plainly, without drama, by someone already out the other side. I read that and cried, honestly — half from relief, half because of the part they always leave out. The part that made me stop reading and start building.</p>",
+            "is_lead": false
+          }
+        },
+        "note6": {
+          "type": "note",
+          "settings": {
+            "content": "<p><strong>Your hormones finish on their own schedule. Your barrier doesn't.</strong></p><p>Skin that spends a year being set off by ordinary things gets <em>better</em> at being set off by ordinary things — the reactions grow easier to trigger, not harder. And you're running that year on broken sleep, which directly raises the enzyme sitting at the center of all of this. That has been measured. It isn't a wellness metaphor.</p>",
+            "source": ""
+          }
+        },
+        "weight7": {
+          "type": "weight",
+          "settings": {
+            "text": "So the real question was never <em>treat it</em> versus <em>wait it out.</em> It's what your face spends the waiting doing.",
+            "accent": false
+          }
+        },
+        "paragraph8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which is the exact moment I stopped reading, and started asking a different question altogether: was there any way to put back what left?</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "weight1",
+        "paragraph2",
+        "paragraph3",
+        "voice4",
+        "paragraph5",
+        "note6",
+        "weight7",
+        "paragraph8"
+      ]
+    },
+    "step5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And here is the thing that turned the whole problem over for me, in one sentence, once I stopped assuming it worked like everything on the shelf.</p>",
+            "is_lead": false
+          }
+        },
+        "weight2": {
+          "type": "weight",
+          "settings": {
+            "text": "Nothing was attacking my face. Something had stopped defending it.",
+            "accent": true
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Every product in that aisle assumes something is attacking you, and fights it. That's why the fighting ones burn. But you don't need something stronger to win a fight that isn't happening. You need to put back, from the outside, a little of what walked out the day you gave birth — only until your body makes it again.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That's the whole idea, and it has a name I use instead of the word <em>cure,</em> because it isn't one. <strong>Holding the line.</strong> Standing in, from the outside, for a share of the three things the placenta stopped doing — so your face isn't running open all the way through the year it takes your body to take the job back.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That was the part that gave me myself back: not being rescued — my face slowly relearning how to come down on its own. Then the boring logic that convinced the researcher in me: one ingredient for each of the three jobs, nothing extra.</p>",
+            "is_lead": false
+          }
+        },
+        "diagram6": {
+          "type": "diagram",
+          "settings": {
+            "which": "mechanism",
+            "aria_label": "Diagram: the three jobs pregnancy did for your skin — calm vessels, seal the barrier, quiet the flare — and the ingredients that prop each one from the outside during recovery.",
+            "narrow": false,
+            "legend": "",
+            "caption": "<p>The three things the placenta was doing — and the ingredient behind each, propping it from the outside. The serum doesn't rebuild these; your body does, on its own schedule. It just holds them up through the gap.</p>"
+          }
+        },
+        "weight7": {
+          "type": "weight",
+          "settings": {
+            "text": "Not a cure. A cover you hold over the raw part of the year — for the exact stretch when the strong options are off the table, and doing nothing means spending the wait learning to inflame more easily.",
+            "accent": false
+          }
+        },
+        "paragraph8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One thing I got stuck on, so you might too: prescriptions come at 15% azelaic — so isn't 10% the weaker choice? On skin that's already open, it's the other way round. The prescription strength is the one that stings a barrier with the door off. Ten percent, well-buffered, is what most of them landed on after 15% burned. And if azelaic burned you before, that was very likely the barrier — not the molecule.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph9": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>But none of that mattered to me until I'd answered the one question that came before all of it — the one I asked with my son at my chest.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "weight2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "diagram6",
+        "weight7",
+        "paragraph8",
+        "paragraph9"
+      ]
+    },
+    "step6": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Could I even put anything on my face while I was still feeding him? A hundred and fifty-nine women asked that — more than any other question in three thousand — and under it, every time, the same fear: that a cream on her face could reach her baby. That fear isn't irrational. It's love doing its job — it was doing its job in me, hard.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>I can't answer it for you, and I want to be exact about why. Not legal caution — I don't know you, I don't know your baby, and I'm not your OB. One woman put the objection better than I could, and she was talking about companies exactly like the one I'd end up building:</p>",
+            "is_lead": false
+          }
+        },
+        "voice3": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I don't trust when companies say that it may be safe. They don't know YOUR body.\"",
+            "attribution": "Reddit",
+            "emphasis": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>She's right, and that ends the argument. So here is what I can do instead of arguing with her.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The most-recommended ingredient across every community I read was azelaic acid — not by us, by them, to each other, for years. The US National Library of Medicine runs a lactation database. On topical azelaic acid it records that roughly four percent is absorbed, and that it is not a reason to stop breastfeeding.</p>",
+            "is_lead": false
+          }
+        },
+        "weight6": {
+          "type": "weight",
+          "settings": {
+            "text": "That's their sentence, not ours. It's public, it's free, and it took me under a minute to find.",
+            "accent": true
+          }
+        },
+        "paragraph7": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That's what made me angry, four days in. Not that the answer was complicated — that it was one search away, and a hundred and fifty-nine women asked into the dark anyway. The other five follow the same rule: centella, colloidal oat, panthenol, licochalcone, a low-dose niacinamide — all topical and local, none a systemic drug. Don't take my word for it. I'm going to put the whole list in your hand so you can ask with it.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And then there was the harder version of the question — the one I heard from a woman who'd already been to her dermatologist:</p>",
+            "is_lead": false
+          }
+        },
+        "voice9": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"My derm says nothing can be done until I stop breastfeeding. I hate to stop breastfeeding to control my rosacea.\"",
+            "attribution": "The Rosacea Forum",
+            "emphasis": false
+          }
+        },
+        "paragraph10": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It looks like choosing your face over your baby. It isn't. It's a false choice, handed to her by someone with six minutes, then left in her lap. Some of it's true — several strong prescriptions genuinely do wait until you've weaned. But <em>nothing can be done</em> and <em>I can't give you the strong thing today</em> are not the same sentence, and only one of them was said to her.</p>",
+            "is_lead": false
+          }
+        },
+        "weight11": {
+          "type": "weight",
+          "settings": {
+            "text": "Nobody should be weaning a baby to fix a cheek.",
+            "accent": false
+          }
+        },
+        "small12": {
+          "type": "small",
+          "settings": {
+            "text": "Two honest limits, while I'm here: not for sore or gritty eyelids — that wants an eye doctor, this week — and not in the first six weeks after birth; your skin has enough happening."
+          }
+        },
+        "paragraph13": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which leaves one last question. I almost left it out, because only eight women in three thousand were brave enough to type it. It's the one I'd read nine hundred posts before I understood.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "voice3",
+        "paragraph4",
+        "paragraph5",
+        "weight6",
+        "paragraph7",
+        "paragraph8",
+        "voice9",
+        "paragraph10",
+        "weight11",
+        "small12",
+        "paragraph13"
+      ]
+    },
+    "step7": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Eight. Out of two thousand nine hundred and ninety-eight. Not because the others don't feel it — because it's the one thing you can't ask without sounding like the woman you're most afraid of turning into. So it doesn't get asked. It gets folded into the end of a long post, in half a sentence, with an apology bolted to the front. <em>It's horrible,</em> one wrote, <em>to worry about something as trivial as your skin when you've just had a baby.</em></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Once you know to look for it, it's in hundreds of them. And this is the sentence I told you about at the very start — the one, at eighteen months, I couldn't close the tab on. Here it is, exactly, apology and all:</p>",
+            "is_lead": false
+          }
+        },
+        "voice3": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"…which is so vain and unlike me. But I'm honestly spiraling — like, is he going to look back and only see this exhausted depleted version of me?\"",
+            "attribution": "Reddit · 18 months postpartum",
+            "emphasis": true
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Read it again, because it's the sentence I couldn't stop thinking about for four days. She isn't asking to be beautiful. She's asking to be recognizable in the photographs of the year she gave him. Some of these women stopped leaving the house. Some wouldn't let anyone take a picture of them holding their own baby.</p>",
+            "is_lead": false
+          }
+        },
+        "weight5": {
+          "type": "weight",
+          "settings": {
+            "text": "I would struggle to name a less vain thing anyone has wanted this year.",
+            "accent": true
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And there's something underneath it almost nobody knows — I only found it because I went looking for why the apology has to exist at all.</p>",
+            "is_lead": false
+          }
+        },
+        "note7": {
+          "type": "note",
+          "settings": {
+            "content": "<p>The blush region of your face carries adrenaline receptors the rest of your skin doesn't have. They open the vessels in response to <strong>being looked at.</strong></p><p>Not to embarrassment. To observation.</p>",
+            "source": ""
+          }
+        },
+        "paragraph8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Every visitor. Every photograph. Every person who leaned over the pram and then looked up at you. There has not been another year of your life with this many people looking at your face. Your face reacts to the room — and then the room reacts to your face.</p>",
+            "is_lead": false
+          }
+        },
+        "weight9": {
+          "type": "weight",
+          "settings": {
+            "text": "You have spent months believing you were being oversensitive about a room. You weren't. It was measurable the whole time.",
+            "accent": false
+          }
+        },
+        "paragraph10": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>So when eight women finally dare to ask whether it's even allowed to matter — yes. It was always allowed. And that's the only honest place I can stand while I show you what I actually built.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "voice3",
+        "paragraph4",
+        "weight5",
+        "paragraph6",
+        "note7",
+        "paragraph8",
+        "weight9",
+        "paragraph10"
+      ]
+    },
+    "step8": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Because the question underneath all eight was the one this woman typed three and a half months postpartum, and never got a single reply to:</p>",
+            "is_lead": false
+          }
+        },
+        "voice2": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I know this is an old post, but did this end up getting better for you over time when your hormones leveled back out?\"",
+            "attribution": "Reddit · 3.5 months postpartum · no reply",
+            "emphasis": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>So here’s the reply she was owed. Across every community, what worked was the same, and it was boring: one gentle active, barrier support, and time. Not ten products. Not a protocol. Azelaic came up more than anything, by a distance — then centella, then colloidal oat and panthenol, the two nobody gets excited about and everybody keeps using.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Some of you have moved past topicals entirely — the gut, histamine, a naturopath. I'm not going to argue you out of that; it's a real long-term lever, and the inside work is slow. But the barrier and the flush are the two things you can calm from the outside <em>while</em> that slow work happens. One doesn't cancel the other.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>So I built the bottle I couldn't find — those actives, in the doses the corpus kept landing on, and nothing extra. And before I show it to you, two things I won't dress up.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>I'm not going to show you three strangers with babies and five stars each. I won't borrow other mothers to sell you this — you get me, the women whose posts I couldn't close, and nothing dressed up. Telling you that plainly is the opposite of what sells a bottle. I'm doing it because the other move — dressing something up as a promise about your year — is exactly what taught you to stop believing pages like this one. I'd rather keep the one thing those pages spent.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph7": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And the second: it was first built for a different woman — flushing since her twenties, a decade of it, no baby in the story. Her barrier problem and mine turned out to be the same problem by two roads: hers over ten years, mine in a single day, with a newborn attached. The molecules don't know which road you took. They just hold the line.</p>",
+            "is_lead": false
+          }
+        },
+        "image8": {
+          "type": "image",
+          "settings": {
+            "alt": "",
+            "placeholder_note": "PRODUCT — the real Rosalia bottle, single, plain surface, morning window light. No props, no hands, no bathroom shelf. (Generated asset — placeholder for the image pipeline.)",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "inci9": {
+          "type": "inci",
+          "settings": {
+            "content": "<p><strong>Azelaic acid 10%</strong> — the one they recommend to each other, for redness that won't sit back down.<br/> <strong>Centella asiatica 4%</strong> — for skin that's been on a false alarm for a year.<br/> <strong>Licochalcone A 0.4%</strong> — for the flush that won't come down on its own.<br/> <strong>Colloidal oat 1%</strong> — for the barrier that opened in week one.<br/> <strong>Panthenol B5 5%</strong> — to hold it together while it closes.<br/> <strong>Niacinamide 3.5%</strong> — kept deliberately under five; higher tends to bother the exact skin the rest is trying to settle.</p>",
+            "free_from": ""
+          }
+        },
+        "small10": {
+          "type": "small",
+          "settings": {
+            "text": "No fragrance. No alcohol. No essential oils. No retinol. No steroids. No vasoconstrictor — nothing here hides redness for four hours and hands it back worse at six."
+          }
+        },
+        "paragraph11": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One drop after you wash your face. Another before bed, on the nights you remember. There's no second product, and nothing to do at four in the morning. It's the thing that got my own face through the months I couldn't do anything else — and I mean that as one mother's experience, not a promise about your skin.</p>",
+            "is_lead": false
+          }
+        },
+        "image12": {
+          "type": "image",
+          "settings": {
+            "alt": "",
+            "placeholder_note": "LABEL — back of the bottle, full INCI, shot square-on and legible on a phone. This one genuinely has to be readable, or the next line fails. (Generated asset — placeholder for the image pipeline.)",
+            "caption": "",
+            "loading": "lazy"
+          }
+        },
+        "weight13": {
+          "type": "weight",
+          "settings": {
+            "text": "Screenshot that label. Take it to whoever you see next.",
+            "accent": false
+          }
+        },
+        "paragraph14": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Your OB, your doctor, your pharmacist or a lactation consultant can tell you whether it's right for you and for him. I can't, and I won't pretend otherwise to close a sale. If she says no, you've lost a screenshot.</p>",
+            "is_lead": false
+          }
+        },
+        "bonus15": {
+          "type": "bonus",
+          "settings": {
+            "eyebrow": "Included with every order",
+            "content": "<p>A one-page card: the six actives, each with its lactation-database line, laid out to screenshot and hand across a desk. It's the thing I wish I'd walked in already holding.</p>",
+            "alt": "",
+            "placeholder_note": "CARD MOCKUP — the one-page ingredient card, flat, square-on: six actives in a column, each with its LactMed line beside it, \"Rosalia\" small at the foot. Legible on a phone. (Generated asset — placeholder for the image pipeline.)"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "voice2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "paragraph6",
+        "paragraph7",
+        "image8",
+        "inci9",
+        "small10",
+        "paragraph11",
+        "image12",
+        "weight13",
+        "paragraph14",
+        "bonus15"
+      ]
+    },
+    "proof": {
+      "type": "rosalia-funnel-proof",
+      "settings": {
+        "eyebrow": "In their own words",
+        "heading": "Mothers who actually used it — the day they're ready to show their face, they're here.",
+        "intro": "<p>Not borrowed strangers, not stock, not a number I made up. Real ones, or this space stays empty. <span style=\"color:var(--faint);\">[PLACEHOLDER — real reviews + images go in the blocks below.]</span></p>",
+        "empty_state": "<p>Real ones, or this space stays empty.</p>",
+        "show_media_slots": true,
+        "before_alt": "",
+        "after_alt": "",
+        "before_note": "BEFORE — real customer · harsh bathroom light · tired, neutral · iPhone UGC. REAL asset only.",
+        "after_note": "AFTER — same woman · warm morning light · a real shift, not the same face · different outfit/hair/setting · iPhone UGC. REAL asset only.",
+        "before_caption": "",
+        "after_caption": "",
+        "panel_note": "<p>SUBSTANTIATED STAT (optional) — real panel only, framed as mechanism proof (sample · weeks · what was measured), never a promise about her year. No panel? Leave empty. Never invent a number.</p>",
+        "container": "measure",
+        "padding_top": 16,
+        "padding_bottom": 16,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "review1": {
+          "type": "review",
+          "settings": {
+            "text": "",
+            "attribution": "",
+            "rating": "",
+            "rating_label": ""
+          }
+        },
+        "review2": {
+          "type": "review",
+          "settings": {
+            "text": "",
+            "attribution": "",
+            "rating": "",
+            "rating_label": ""
+          }
+        },
+        "review3": {
+          "type": "review",
+          "settings": {
+            "text": "",
+            "attribution": "",
+            "rating": "",
+            "rating_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "review1",
+        "review2",
+        "review3"
+      ]
+    },
+    "offer": {
+      "type": "rosalia-funnel-offer",
+      "settings": {
+        "layout": "single",
+        "intro": "<p>So, what it's worth. Add up this year, honestly. The \"sensitive\" products that made it worse. The tub from the baby aisle that burned and went in the bin. The evenings spent reading into the dark for a sentence nobody would say to you. This isn't a laser series you pay for by the session, or a hormone panel out of pocket, or a six-minute visit that ends in <em>wait until you've weaned.</em> It's one bottle — and a way to ask the right people the right question.</p>",
+        "heading": "",
+        "eyebrow": "Rosalia",
+        "product_name": "Daily Reset Serum",
+        "size_line": "30ml · four weeks",
+        "price": "$45",
+        "button_label": "Get my face back",
+        "button_url": "/products/daily-reset-serum",
+        "reassurance": "<p>Free shipping over $60 · Secure checkout · longer supply at checkout</p>",
+        "guarantee": "",
+        "footnote": "",
+        "container": "measure",
+        "padding_top": 16,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    },
+    "close": {
+      "type": "rosalia-funnel-close",
+      "settings": {
+        "button_label": "Get my face back",
+        "button_url": "/products/daily-reset-serum",
+        "signature": "Margot · Rosalia",
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 40,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><strong>Sixty days, and you don't have to justify it.</strong> One email to contact@try-rosalia.com and you're refunded inside a day. No form, nothing to ship back, and no photograph of your own face required to prove anything. The alternative is asking you to take one more gamble, and you've taken enough of those this year.</p>"
+          }
+        },
+        "small2": {
+          "type": "small",
+          "settings": {
+            "text": "That's about eleven dollars a week — less than the tub from the baby aisle that burned."
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And if you want the plain reason to decide tonight rather than after three more months of reading: the photographs are being taken now. The year he'll look back on is happening now. Being recognizable in it is the least vain thing anyone has wanted this year — and it's the one thing the waiting quietly spends.</p>"
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The woman whose question I answered a moment ago never got a reply. She's two years past it now, and whatever happened to her face happened without anyone explaining a word of this to her. You've just had the reply she was owed. It took a few minutes and cost nothing.</p>"
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>If tonight the honest thing is that you haven't slept properly in three days and can't take on one more decision — that isn't avoidance, and I won't pretend it is. One woman in the corpus decided to do nothing drastic to her face until she'd had a decent night's sleep, and of all of them she was the most sensible. Sleep first. Then decide with the list in your hand — because the weeks in between aren't neutral. They're the ones your face spends either healing, or learning to flush more easily.</p>"
+          }
+        },
+        "weight6": {
+          "type": "weight",
+          "settings": {
+            "text": "Whether you buy a bottle is a much smaller question than the one you typed at three in the morning — and you have that answer now, either way.",
+            "accent": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "small2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "weight6"
+      ]
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "tagline": "For the face that changed on one specific day",
+        "links_label": "Footer",
+        "legal": "<p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. \"Postpartum rosacea\" is not a formal diagnosis, and the hormonal science described here is genuinely contested — both high and low estrogen are implicated in the literature, depending on which receptor is examined. What is well supported is the volatility, the barrier change and the sleep loss arriving together. Quoted posts are real and unedited except for length and spelling; they were written by women who have no connection to Rosalia and no knowledge of it. If your skin is painful, weeping, or affecting your eyes, see a doctor rather than a landing page. Nothing here is medical advice or a substitute for your doctor, OB, or lactation consultant. © 2026 Rosalia. All rights reserved.</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "heading": "The bottle",
+            "link_1_text": "Daily Reset Serum",
+            "link_1_url": "",
+            "link_2_text": "Full ingredient list",
+            "link_2_url": "",
+            "link_3_text": "How to use it",
+            "link_3_url": ""
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "heading": "Anything else",
+            "link_1_text": "contact@try-rosalia.com",
+            "link_1_url": "",
+            "link_2_text": "Delivery & refunds",
+            "link_2_url": "",
+            "link_3_text": "The sixty days",
+            "link_3_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "col1",
+        "col2"
+      ]
+    },
+    "sticky": {
+      "type": "rosalia-funnel-sticky-cta",
+      "settings": {
+        "enabled": true,
+        "text": "The Daily Reset Serum",
+        "button_label": "Get my face back",
+        "button_url": "/products/daily-reset-serum",
+        "reveal_after": 0.9,
+        "yield_selector": ".shopify-section--rosalia-funnel-offer, .shopify-section--rosalia-funnel-footer"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "step1",
+    "step2",
+    "step3",
+    "step4",
+    "step5",
+    "step6",
+    "step7",
+    "step8",
+    "proof",
+    "offer",
+    "close",
+    "footer",
+    "sticky"
+  ]
+}
