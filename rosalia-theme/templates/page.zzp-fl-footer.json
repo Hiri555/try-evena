@@ -1,0 +1,65 @@
+{
+  "sections": {
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "The Skin File",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p><b>The Skin File is published by Rosalia</b> (try-rosalia.com), which sells skincare products. Articles are produced by the Rosalia editorial desk. Quoted experiences are drawn from public forum posts and are individual accounts, not typical results.</p><p>This article is for information only and is not a medical consultation. Speak to a clinician about symptoms. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2026 The Skin File · contact@try-rosalia.com</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "flink1": {
+          "type": "link",
+          "settings": {
+            "text": "About us",
+            "url": ""
+          }
+        },
+        "flink2": {
+          "type": "link",
+          "settings": {
+            "text": "Contact",
+            "url": ""
+          }
+        },
+        "flink3": {
+          "type": "link",
+          "settings": {
+            "text": "Editorial standards",
+            "url": ""
+          }
+        },
+        "flink4": {
+          "type": "link",
+          "settings": {
+            "text": "Privacy policy",
+            "url": ""
+          }
+        },
+        "flink5": {
+          "type": "link",
+          "settings": {
+            "text": "Terms & conditions",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "flink1",
+        "flink2",
+        "flink3",
+        "flink4",
+        "flink5"
+      ]
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "step6": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Could I even put anything on my face while I was still feeding him? A hundred and fifty-nine women asked that — more than any other question in three thousand — and under it, every time, the same fear: that a cream on her face could reach her baby. That fear isn't irrational. It's love doing its job — it was doing its job in me, hard.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>I can't answer it for you, and I want to be exact about why. Not legal caution — I don't know you, I don't know your baby, and I'm not your OB. One woman put the objection better than I could, and she was talking about companies exactly like the one I'd end up building:</p>",
+            "is_lead": false
+          }
+        },
+        "voice3": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I don't trust when companies say that it may be safe. They don't know YOUR body.\"",
+            "attribution": "Reddit",
+            "emphasis": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>She's right, and that ends the argument. So here is what I can do instead of arguing with her.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The most-recommended ingredient across every community I read was azelaic acid — not by us, by them, to each other, for years. The US National Library of Medicine runs a lactation database. On topical azelaic acid it records that roughly four percent is absorbed, and that it is not a reason to stop breastfeeding.</p>",
+            "is_lead": false
+          }
+        },
+        "weight6": {
+          "type": "weight",
+          "settings": {
+            "text": "That's their sentence, not ours. It's public, it's free, and it took me under a minute to find.",
+            "accent": true
+          }
+        },
+        "paragraph7": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That's what made me angry, four days in. Not that the answer was complicated — that it was one search away, and a hundred and fifty-nine women asked into the dark anyway. The other five follow the same rule: centella, colloidal oat, panthenol, licochalcone, a low-dose niacinamide — all topical and local, none a systemic drug. Don't take my word for it. I'm going to put the whole list in your hand so you can ask with it.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And then there was the harder version of the question — the one I heard from a woman who'd already been to her dermatologist:</p>",
+            "is_lead": false
+          }
+        },
+        "voice9": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"My derm says nothing can be done until I stop breastfeeding. I hate to stop breastfeeding to control my rosacea.\"",
+            "attribution": "The Rosacea Forum",
+            "emphasis": false
+          }
+        },
+        "paragraph10": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It looks like choosing your face over your baby. It isn't. It's a false choice, handed to her by someone with six minutes, then left in her lap. Some of it's true — several strong prescriptions genuinely do wait until you've weaned. But <em>nothing can be done</em> and <em>I can't give you the strong thing today</em> are not the same sentence, and only one of them was said to her.</p>",
+            "is_lead": false
+          }
+        },
+        "weight11": {
+          "type": "weight",
+          "settings": {
+            "text": "Nobody should be weaning a baby to fix a cheek.",
+            "accent": false
+          }
+        },
+        "small12": {
+          "type": "small",
+          "settings": {
+            "text": "Two honest limits, while I'm here: not for sore or gritty eyelids — that wants an eye doctor, this week — and not in the first six weeks after birth; your skin has enough happening."
+          }
+        },
+        "paragraph13": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which leaves one last question. I almost left it out, because only eight women in three thousand were brave enough to type it. It's the one I'd read nine hundred posts before I understood.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "voice3",
+        "paragraph4",
+        "paragraph5",
+        "weight6",
+        "paragraph7",
+        "paragraph8",
+        "voice9",
+        "paragraph10",
+        "weight11",
+        "small12",
+        "paragraph13"
+      ]
+    }
+  },
+  "order": [
+    "step6"
+  ]
+}

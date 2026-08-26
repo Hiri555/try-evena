@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "body3": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "Why one at a time produces the pattern you know",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Almost every treatment addresses one point, and does it well. A barrier cream does barrier work. A laser does vessel work. A prescription calms inflammation.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Each leaves the other four exactly where it found them.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Read enough accounts and the same lines repeat:</p>",
+            "is_lead": false
+          }
+        },
+        "said4": {
+          "type": "said",
+          "settings": {
+            "lines": "“It worked, then it just stopped.”\n“What helps one week does nothing the next.”\n“I’ve spent thousands — lasers, derm visits, monthly meds.”"
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Read as personal failures, that history is crushing. Read as a loop, it’s just arithmetic.</p>",
+            "is_lead": false
+          }
+        },
+        "pull6": {
+          "type": "pull",
+          "settings": {
+            "content": "<p>“It works, then it stops working” sounds like bad luck. In a five-point loop, it’s the expected result.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "said4",
+        "paragraph5",
+        "pull6"
+      ]
+    }
+  },
+  "order": [
+    "body3"
+  ]
+}

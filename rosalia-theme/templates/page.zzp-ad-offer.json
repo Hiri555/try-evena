@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "offer": {
+      "type": "rosalia-funnel-offer",
+      "settings": {
+        "layout": "single",
+        "intro": "<p>So, what it's worth. Add up this year, honestly. The \"sensitive\" products that made it worse. The tub from the baby aisle that burned and went in the bin. The evenings spent reading into the dark for a sentence nobody would say to you. This isn't a laser series you pay for by the session, or a hormone panel out of pocket, or a six-minute visit that ends in <em>wait until you've weaned.</em> It's one bottle — and a way to ask the right people the right question.</p>",
+        "heading": "",
+        "eyebrow": "Rosalia",
+        "product_name": "Daily Reset Serum",
+        "size_line": "30ml · four weeks",
+        "price": "$45",
+        "button_label": "Get my face back",
+        "button_url": "/products/daily-reset-serum",
+        "reassurance": "<p>Free shipping over $60 · Secure checkout · longer supply at checkout</p>",
+        "guarantee": "",
+        "footnote": "",
+        "container": "measure",
+        "padding_top": 16,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
+    }
+  },
+  "order": [
+    "offer"
+  ]
+}

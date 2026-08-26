@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "step2": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Because for nine months, my body had been running my face on settings I never chose. Estrogen up around a thousandfold. Progesterone tenfold. Between them, three quiet jobs, all day, without telling me: keeping the vessels in my face calm, sealing the barrier, holding down the immune cells that turn skin red. Three things, held down, for the better part of a year.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It's why roughly one woman in six with existing rosacea watches it fade while she's pregnant. Nobody explains that to her either, so she credits the water she finally started drinking.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Then the placenta left. And here are the nine words I found on the fourth day, in the discussion section of a paper, that no one had said to me:</p>",
+            "is_lead": false
+          }
+        },
+        "note4": {
+          "type": "note",
+          "settings": {
+            "content": "<p><em>\"One of the most abrupt endocrine collapses in human physiology.\"</em></p>",
+            "source": "Nine words, about the morning I gave birth — and about yours."
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Ninety-five percent of that estrogen, gone inside twenty-four hours. Not tapered. Gone. Whatever had been holding the three things down let go at once. Mechanically it's a menopausal hot flush — the same withdrawal, the same loss of the body's temperature setting — compressed from a decade into about a week.</p>",
+            "is_lead": false
+          }
+        },
+        "diagram6": {
+          "type": "diagram",
+          "settings": {
+            "which": "collapse",
+            "aria_label": "A line showing skin held steady across nine months of pregnancy, collapsing within 24 hours of birth, then slowly recovering over the following year.",
+            "narrow": false,
+            "legend": "",
+            "caption": "<p>What pregnancy was doing for your skin, and how fast it stopped. The shaded stretch on the right is the year your body spends climbing back — and the part a serum can help hold.</p>"
+          }
+        },
+        "paragraph7": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One woman found this out by accident, in a way that should never have been an accident:</p>",
+            "is_lead": false
+          }
+        },
+        "voice8": {
+          "type": "voice",
+          "settings": {
+            "quote": "\"I'm still breastfeeding at two years old and my estrogen just tested at menopause levels — I thought I must be perimenopausal — and my nurse didn't mention this is normal?\"",
+            "attribution": "Reddit · two years postpartum",
+            "emphasis": false
+          }
+        },
+        "weight9": {
+          "type": "weight",
+          "settings": {
+            "text": "Her bloodwork came back at menopause levels, and nobody in the room said <em>that's expected.</em>",
+            "accent": true
+          }
+        },
+        "paragraph10": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>But that isn't the cruel part. The cruel part is what happened the first time I tried to be gentle with it.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "note4",
+        "paragraph5",
+        "diagram6",
+        "paragraph7",
+        "voice8",
+        "weight9",
+        "paragraph10"
+      ]
+    }
+  },
+  "order": [
+    "step2"
+  ]
+}

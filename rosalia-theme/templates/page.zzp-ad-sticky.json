@@ -1,0 +1,18 @@
+{
+  "sections": {
+    "sticky": {
+      "type": "rosalia-funnel-sticky-cta",
+      "settings": {
+        "enabled": true,
+        "text": "The Daily Reset Serum",
+        "button_label": "Get my face back",
+        "button_url": "/products/daily-reset-serum",
+        "reveal_after": 0.9,
+        "yield_selector": ".shopify-section--rosalia-funnel-offer, .shopify-section--rosalia-funnel-footer"
+      }
+    }
+  },
+  "order": [
+    "sticky"
+  ]
+}

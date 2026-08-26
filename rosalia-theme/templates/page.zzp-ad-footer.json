@@ -1,0 +1,51 @@
+{
+  "sections": {
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "settings": {
+        "brand_name": "Rosalia",
+        "brand_accent": "",
+        "tagline": "For the face that changed on one specific day",
+        "links_label": "Footer",
+        "legal": "<p>These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. \"Postpartum rosacea\" is not a formal diagnosis, and the hormonal science described here is genuinely contested — both high and low estrogen are implicated in the literature, depending on which receptor is examined. What is well supported is the volatility, the barrier change and the sleep loss arriving together. Quoted posts are real and unedited except for length and spelling; they were written by women who have no connection to Rosalia and no knowledge of it. If your skin is painful, weeping, or affecting your eyes, see a doctor rather than a landing page. Nothing here is medical advice or a substitute for your doctor, OB, or lactation consultant. © 2026 Rosalia. All rights reserved.</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "col1": {
+          "type": "column",
+          "settings": {
+            "heading": "The bottle",
+            "link_1_text": "Daily Reset Serum",
+            "link_1_url": "",
+            "link_2_text": "Full ingredient list",
+            "link_2_url": "",
+            "link_3_text": "How to use it",
+            "link_3_url": ""
+          }
+        },
+        "col2": {
+          "type": "column",
+          "settings": {
+            "heading": "Anything else",
+            "link_1_text": "contact@try-rosalia.com",
+            "link_1_url": "",
+            "link_2_text": "Delivery & refunds",
+            "link_2_url": "",
+            "link_3_text": "The sixty days",
+            "link_3_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "col1",
+        "col2"
+      ]
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

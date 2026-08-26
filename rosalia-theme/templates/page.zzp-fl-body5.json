@@ -1,0 +1,73 @@
+{
+  "sections": {
+    "body5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "What this doesn’t cover",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Two things sit outside all of this, and both matter.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Your eyes.</b> Burning, watering or blurring eyes point to ocular rosacea. That’s for an eye doctor — no cream reaches it, and waiting carries real risk.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Steroid rebound.</b> Redness that started after long steroid use follows a different course. Stopping suddenly is usually worse than the flare, and it needs a doctor’s supervision.</p>",
+            "is_lead": false
+          }
+        },
+        "tags4": {
+          "type": "tags",
+          "settings": {
+            "tags": "Flushing, Vascular, Barrier, Rosacea, Research"
+          }
+        },
+        "more5": {
+          "type": "more",
+          "settings": {
+            "heading": "More from Research",
+            "cat_1": "Postpartum",
+            "title_1": "They told you to wait. What weaning actually returns, and what it doesn’t",
+            "url_1": "",
+            "cat_2": "Flushing",
+            "title_2": "Five reasons a flush stops coming back down",
+            "url_2": "",
+            "cat_3": "Ingredients",
+            "title_3": "Reading an ingredient list when half of it is off the table",
+            "url_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "tags4",
+        "more5"
+      ]
+    }
+  },
+  "order": [
+    "body5"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "sections": {
+    "step1": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>My first question was the same one you probably typed, badly, into a search bar at two in the morning: <em>what even is this? I've never had it before.</em></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Most likely it's rosacea — the flushing kind, not the spotty kind. It behaves like something brand new because it arrived overnight. But in most cases it isn't new at all. It was already there, quietly. It was being held down.</p>",
+            "is_lead": false
+          }
+        },
+        "weight3": {
+          "type": "weight",
+          "settings": {
+            "text": "And what was holding it down walked out the day I gave birth.",
+            "accent": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which is the whole of why it chose that exact day — and I'll get you there in a second. First, one thing, because I'd want it said to me before I spent a cent: it might not be rosacea. Postpartum acne and perioral dermatitis look close enough to fool people who do this for a living, and they're treated in opposite directions — a steroid cream on the wrong one makes it worse. If yours is mostly bumps, or ringed around the mouth and nose, get a doctor to look first — this page included.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "weight3",
+        "paragraph4"
+      ]
+    }
+  },
+  "order": [
+    "step1"
+  ]
+}

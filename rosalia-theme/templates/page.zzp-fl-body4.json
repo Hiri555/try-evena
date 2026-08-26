@@ -1,0 +1,74 @@
+{
+  "sections": {
+    "body4": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "The fifth point isn’t on your skin",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Four of the five you could measure. The fifth you can’t — which is why it’s usually left out.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Expecting a flush produces the same vascular response as the flush itself.</b></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Learn to brace for it, and you hand the loop a live signal. Continuously. Even in rooms that aren’t warm.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One account says it best: <em>“even when the room isn’t warm, I get so anxious about flushing that it happens.”</em></p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>It arrives <em>before</em> the trigger. Not imagined — predicted. And the prediction is itself the input.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>There’s no cream for anticipation.</b> So the useful question isn’t what to apply. It’s which of the five is doing the most work. That differs for every face.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "paragraph6"
+      ]
+    }
+  },
+  "order": [
+    "body4"
+  ]
+}

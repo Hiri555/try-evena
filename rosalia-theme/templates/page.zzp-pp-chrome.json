@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "settings": {
+        "show_trust": false,
+        "show_masthead": true,
+        "brand_name": "The Skin",
+        "brand_accent": " File",
+        "brand_url": "",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": "<p><a href=\"#\">Skin</a> › <a href=\"#\">Research</a> › <b>Postpartum</b></p>"
+      },
+      "blocks": {
+        "nav1": {
+          "type": "nav",
+          "settings": {
+            "text": "Skin",
+            "url": "",
+            "current": true
+          }
+        },
+        "nav2": {
+          "type": "nav",
+          "settings": {
+            "text": "Triggers",
+            "url": "",
+            "current": false
+          }
+        },
+        "nav3": {
+          "type": "nav",
+          "settings": {
+            "text": "Research",
+            "url": "",
+            "current": false
+          }
+        },
+        "nav4": {
+          "type": "nav",
+          "settings": {
+            "text": "Postpartum",
+            "url": "",
+            "current": true
+          }
+        },
+        "nav5": {
+          "type": "nav",
+          "settings": {
+            "text": "About",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub1": {
+          "type": "subnav",
+          "settings": {
+            "text": "After birth",
+            "url": "",
+            "current": true
+          }
+        },
+        "sub2": {
+          "type": "subnav",
+          "settings": {
+            "text": "Feeding",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub3": {
+          "type": "subnav",
+          "settings": {
+            "text": "Hormonal skin",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub4": {
+          "type": "subnav",
+          "settings": {
+            "text": "Ingredients",
+            "url": "",
+            "current": false
+          }
+        },
+        "sub5": {
+          "type": "subnav",
+          "settings": {
+            "text": "What we don't recommend",
+            "url": "",
+            "current": false
+          }
+        }
+      },
+      "block_order": [
+        "nav1",
+        "nav2",
+        "nav3",
+        "nav4",
+        "nav5",
+        "sub1",
+        "sub2",
+        "sub3",
+        "sub4",
+        "sub5"
+      ]
+    }
+  },
+  "order": [
+    "chrome"
+  ]
+}

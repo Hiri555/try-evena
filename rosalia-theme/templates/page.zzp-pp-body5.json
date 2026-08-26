@@ -1,0 +1,89 @@
+{
+  "sections": {
+    "body5": {
+      "type": "rosalia-funnel-block",
+      "settings": {
+        "rnum": "",
+        "eyebrow": "",
+        "heading": "Read the list, not the page",
+        "anchor_id": "",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      },
+      "blocks": {
+        "paragraph1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>One practical note, because it changes what’s worth your time.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>A lot of what you’d have been offered before pregnancy now carries a caution. As one woman put it: <em>tret and hydroquinone are off the table for now.</em> That narrows the field, and makes ingredient lists matter more.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Whatever you use, take the full list to your OB or a lactation consultant.</b> Let them read it — the list itself, not the marketing page.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>If a brand makes that list hard to find, treat that as an answer.</p>",
+            "is_lead": false
+          }
+        },
+        "paragraph5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Two things also sit outside anything here. Redness with burning or blurring eyes belongs with an eye doctor. Redness that began after long steroid use follows a different course — stopping suddenly is usually worse than the flare.</p>",
+            "is_lead": false
+          }
+        },
+        "tags6": {
+          "type": "tags",
+          "settings": {
+            "tags": "Postpartum, Breastfeeding, Barrier, Rosacea, Research"
+          }
+        },
+        "more7": {
+          "type": "more",
+          "settings": {
+            "heading": "More from Research",
+            "cat_1": "Flushing",
+            "title_1": "The flush isn’t the problem. What happens after it is.",
+            "url_1": "",
+            "cat_2": "Ingredients",
+            "title_2": "Reading an ingredient list when half of it is off the table",
+            "url_2": "",
+            "cat_3": "Flushing",
+            "title_3": "Five reasons a flush stops coming back down",
+            "url_3": ""
+          }
+        }
+      },
+      "block_order": [
+        "paragraph1",
+        "paragraph2",
+        "paragraph3",
+        "paragraph4",
+        "paragraph5",
+        "tags6",
+        "more7"
+      ]
+    }
+  },
+  "order": [
+    "body5"
+  ]
+}
