@@ -1,0 +1,17 @@
+{%- comment -%}
+  Rosalia · Funnel behaviour loader
+  ------------------------------------------------------------------
+  Only two sections need JavaScript at all:
+
+    rosalia-funnel-sticky-cta  — show/hide the bar
+    rosalia-funnel-timeline    — write the live dates
+
+  So only those two render this. Every other funnel section ships with
+  no script of its own, which keeps a long advertorial down to a single
+  <script> tag instead of one per section.
+
+  If both sections are on the same page the tag appears twice; the file
+  guards itself with window.__rosaliaFunnelBooted, so the second one is
+  a no-op rather than a second set of listeners.
+{%- endcomment -%}
+<script src="{{ 'rosalia-funnel.js' | asset_url }}" defer></script>
