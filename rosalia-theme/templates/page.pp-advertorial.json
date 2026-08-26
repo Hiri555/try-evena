@@ -790,7 +790,7 @@
       "settings": {
         "eyebrow": "In their own words",
         "heading": "Mothers who actually used it — the day they're ready to show their face, they're here.",
-        "intro": "<p>Not borrowed strangers, not stock, not a number I made up. Real ones, or this space stays empty. <span style=\"color:var(--faint);\">[PLACEHOLDER — real reviews + images go in the blocks below.]</span></p>",
+        "intro": "<p>Not borrowed strangers, not stock, not a number I made up. Real ones, or this space stays empty. [PLACEHOLDER — real reviews + images go in the blocks below.]</p>",
         "empty_state": "<p>Real ones, or this space stays empty.</p>",
         "show_media_slots": true,
         "before_alt": "",
