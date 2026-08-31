@@ -1,0 +1,156 @@
+{%- comment -%}
+  Rosalia · ClarFlow funnel embed
+  ------------------------------------------------------------------
+  A whole page that is nothing but one ClarFlow funnel.
+
+  How the embed actually behaves, from reading embed.min.js — this
+  drives every decision below:
+
+    · In fullscreen mode (the default) it injects its own stylesheet
+      that hides `body > *:not([data-clarflow-id])`, zeroes html/body
+      margins, and sets `overflow: hidden`.
+    · It then moves our container to `document.body` and pins it
+      `position: fixed; inset: 0; z-index: 999999`.
+    · The funnel itself is an iframe pointed at data-clarflow-src, and
+      it manages its own scrolling.
+
+  So the container needs no height, no width, and no wrapper. Anything
+  we style around it is thrown away the moment the script lands.
+
+  Two things that are NOT thrown away, and are the reason this is a
+  normal Shopify page rather than `{% layout none %}`:
+
+    · The funnel posts `clarflow-add-to-cart` and `clarflow-checkout`
+      back to the host, and the host resolves the variant against
+      /products/<handle>.js and posts to /cart/add.js. Those are
+      same-origin calls — they only work from a real storefront page.
+    · layout/theme.liquid carries the ClarFlow attribution script that
+      writes cf_sid onto the cart. Dropping the layout would break
+      attribution on the exact page the funnel runs on.
+
+  The store header, announcement bar and footer are already stripped
+  server-side for these templates in layout/theme.liquid, so nothing
+  ships and then gets hidden.
+
+  Everything here before the script lands is one job: paint the right
+  background immediately, so the reader never sees a white flash
+  between our page and the funnel.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign bg = s.background | default: '#FAF5F0'
+-%}
+
+{%- style -%}
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    background: {{ bg }};
+  }
+
+  /* Held until the script pins its own container over the top. */
+  .cf-boot {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: {{ bg }};
+    z-index: 1;
+  }
+  .cf-boot span {
+    width: 26px;
+    height: 26px;
+    border: 2px solid rgba(75, 21, 40, 0.22);
+    border-top-color: #4B1528;
+    border-radius: 50%;
+    animation: cf-spin 0.7s linear infinite;
+  }
+  @keyframes cf-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .cf-boot span { animation-duration: 2.4s; }
+  }
+
+  .cf-fallback {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: {{ bg }};
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    color: #2B2620;
+    text-align: center;
+  }
+  .cf-fallback a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 14px 26px;
+    background: #4B1528;
+    color: #FAF5F0;
+    border-radius: 2px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+{%- endstyle -%}
+
+{%- if s.flow_id != blank and s.flow_src != blank -%}
+
+  <div class="cf-boot" aria-hidden="true"><span></span></div>
+
+  <div data-clarflow-id="{{ s.flow_id | escape }}"
+       data-clarflow-src="{{ s.flow_src | escape }}"></div>
+
+  <script src="https://www.clarflow.com/embed.min.js" async></script>
+
+  <noscript>
+    <div class="cf-fallback">
+      <p>{{ s.noscript_text | default: 'This quiz needs JavaScript.' }}</p>
+      <a href="{{ s.flow_src }}">{{ s.noscript_label | default: 'Open the quiz' }}</a>
+    </div>
+  </noscript>
+
+{%- else -%}
+
+  {%- comment -%} Editor-only: an unconfigured embed should say so, not sit blank. {%- endcomment -%}
+  {%- if request.design_mode -%}
+    <div class="cf-fallback">
+      <p>Add the ClarFlow funnel ID and URL in this section's settings.</p>
+    </div>
+  {%- endif -%}
+
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Rosalia — ClarFlow funnel",
+  "class": "shopify-section--rosalia-clarflow",
+  "settings": [
+    {
+      "type": "text", "id": "flow_id", "label": "Funnel ID",
+      "info": "The data-clarflow-id value from the ClarFlow embed snippet."
+    },
+    {
+      "type": "text", "id": "flow_src", "label": "Funnel URL",
+      "info": "The data-clarflow-src value — the full https:// address of the funnel."
+    },
+    {
+      "type": "color", "id": "background", "label": "Page background", "default": "#FAF5F0",
+      "info": "Match the funnel's own background so there is no flash while it loads."
+    },
+    { "type": "text", "id": "noscript_text", "label": "No-JavaScript message", "default": "This quiz needs JavaScript." },
+    { "type": "text", "id": "noscript_label", "label": "No-JavaScript button", "default": "Open the quiz" }
+  ],
+  "presets": [ { "name": "Rosalia — ClarFlow funnel" } ]
+}
+{% endschema %}
