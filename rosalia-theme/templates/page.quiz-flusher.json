@@ -1,0 +1,241 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "blocks": {
+        "nav0": {
+          "type": "nav",
+          "settings": {
+            "text": "Skin",
+            "url": "/blogs/the-skin-file",
+            "current": true
+          }
+        },
+        "nav1": {
+          "type": "nav",
+          "settings": {
+            "text": "Triggers",
+            "url": "/blogs/the-skin-file/tagged/triggers",
+            "current": false
+          }
+        },
+        "nav2": {
+          "type": "nav",
+          "settings": {
+            "text": "Research",
+            "url": "/blogs/the-skin-file/tagged/research",
+            "current": false
+          }
+        },
+        "nav3": {
+          "type": "nav",
+          "settings": {
+            "text": "Postpartum",
+            "url": "/blogs/the-skin-file/tagged/postpartum",
+            "current": false
+          }
+        },
+        "nav4": {
+          "type": "nav",
+          "settings": {
+            "text": "About",
+            "url": "/pages/skin-file-about",
+            "current": false
+          }
+        }
+      },
+      "block_order": [
+        "nav0",
+        "nav1",
+        "nav2",
+        "nav3",
+        "nav4"
+      ],
+      "settings": {
+        "show_trust": false,
+        "show_masthead": true,
+        "brand_name": "The Skin",
+        "brand_accent": " File",
+        "brand_url": "/blogs/the-skin-file",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": ""
+      }
+    },
+    "quiz": {
+      "type": "rosalia-quiz",
+      "blocks": {
+        "q0": {
+          "type": "question",
+          "settings": {
+            "text": "When your face goes red, how long does it take to come back down?",
+            "a1_label": "Under an hour, and it comes all the way down",
+            "a1_key": "barrier",
+            "a2_label": "Several hours, or the rest of the day",
+            "a2_key": "mixed",
+            "a3_label": "It doesn't fully come down any more",
+            "a3_key": "vessels"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "text": "In daylight, can you see fine visible threads on the cheeks or around the nose?",
+            "a1_label": "No",
+            "a1_key": "barrier",
+            "a2_label": "I'm not sure",
+            "a2_key": "mixed",
+            "a3_label": "Yes, clearly",
+            "a3_key": "vessels"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "text": "Does a product you used to tolerate now sting?",
+            "a1_label": "Often, and it starts within seconds",
+            "a1_key": "barrier",
+            "a2_label": "Sometimes",
+            "a2_key": "mixed",
+            "a3_label": "No",
+            "a3_key": "vessels"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "text": "Over the past year, has your list of triggers been getting longer?",
+            "a1_label": "Yes — things that were fine now aren't",
+            "a1_key": "barrier",
+            "a2_label": "A little",
+            "a2_key": "mixed",
+            "a3_label": "No, it's been stable",
+            "a3_key": "vessels"
+          }
+        },
+        "r0": {
+          "type": "result",
+          "settings": {
+            "key": "mixed",
+            "title": "Some of both — which is the most common answer",
+            "body": "<p>Your answers point at a face doing two things at once: inflammation that shifts day to day, and vessels that may have started to hold open. That combination is the norm, not the exception.</p><p>It matters because the two halves need different things. The inflammatory half responds to a small, well-buffered routine held steady over weeks. The vascular half does not, and no serum will tell you otherwise.</p>",
+            "clinician_note": "Worth having the visible vessels looked at before you spend money on topicals for them. That is a clinician conversation, and usually a light-based treatment one.",
+            "cta_label": "Read the five reasons a flush stops coming down",
+            "cta_url": "/pages/flusher-5-reasons",
+            "link_label": "Or start with what the barrier actually is →",
+            "link_url": "/blogs/the-skin-file/barrier"
+          }
+        },
+        "r1": {
+          "type": "result",
+          "settings": {
+            "key": "barrier",
+            "title": "Barrier-led — your threshold has dropped",
+            "body": "<p>Stinging from products that used to be fine, a trigger list that keeps growing, redness that still comes back down: this is the pattern that responds to treatment.</p><p>It usually means the barrier has thinned, and a thinner barrier flushes at a lower threshold than it used to. Which is why the trigger list grows without anything new being introduced.</p><p>The move is subtraction before addition — shrink the routine, stop exfoliating, and hold one gentle, well-buffered active steady for eight weeks rather than eight days.</p>",
+            "clinician_note": "",
+            "cta_label": "Read the five reasons a flush stops coming down",
+            "cta_url": "/pages/flusher-5-reasons",
+            "link_label": "Or read what we tell people to stop using →",
+            "link_url": "/blogs/the-skin-file/what-we-dont-recommend"
+          }
+        },
+        "r2": {
+          "type": "result",
+          "settings": {
+            "key": "vessels",
+            "title": "Mostly structural — and we want to be straight with you",
+            "body": "<p>Redness that no longer comes down, visible threads, and a trigger list that has stayed stable points more at the vessels themselves than at inflammation.</p><p>Once a vessel is structurally changed, no topical product closes it. Anyone telling you otherwise is selling. We would rather lose the sale than have you spend twelve weeks on the wrong thing.</p>",
+            "clinician_note": "The honest next step here is a clinician, and usually light-based treatment — not a serum.",
+            "cta_label": "Read what a topical can and cannot do",
+            "cta_url": "/blogs/the-skin-file/what-we-dont-recommend",
+            "link_label": "And why the color stays after the trigger has gone →",
+            "link_url": "/blogs/the-skin-file/flushing"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "q3",
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "settings": {
+        "eyebrow": "The Skin File · Self-assessment",
+        "heading": "Find my flush profile",
+        "intro": "<p>Four questions. They separate the part of facial redness that responds to what you put on your face from the part that doesn't — because those two need different things, and being told the wrong one is how people lose a year.</p>",
+        "privacy_note": "Your answers are scored in your browser. Nothing you select is sent anywhere, saved, or attached to you.",
+        "submit_label": "See my result",
+        "incomplete_note": "Answer every question to see a result.",
+        "disclaimer": "<p>This is a self-assessment, not a diagnosis and not a medical consultation. Persistent facial redness has several possible causes — including rosacea, seborrheic dermatitis and contact dermatitis — and they are not treated the same way. Speak to a clinician about symptoms.</p><p>If you are pregnant or breastfeeding, show any ingredient list to your OB or a lactation consultant before use.</p>",
+        "fallback_label": "Read the five reasons a flush stops coming down",
+        "fallback_url": "/pages/flusher-5-reasons"
+      }
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "blocks": {
+        "l0": {
+          "type": "link",
+          "settings": {
+            "text": "About us",
+            "url": "/pages/skin-file-about"
+          }
+        },
+        "l1": {
+          "type": "link",
+          "settings": {
+            "text": "Contact",
+            "url": "/pages/contact"
+          }
+        },
+        "l2": {
+          "type": "link",
+          "settings": {
+            "text": "Editorial standards",
+            "url": "/pages/editorial-standards"
+          }
+        },
+        "l3": {
+          "type": "link",
+          "settings": {
+            "text": "Privacy policy",
+            "url": "/policies/privacy-policy"
+          }
+        },
+        "l4": {
+          "type": "link",
+          "settings": {
+            "text": "Terms & conditions",
+            "url": "/policies/terms-of-service"
+          }
+        }
+      },
+      "block_order": [
+        "l0",
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "settings": {
+        "brand_name": "The Skin File",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p><b>The Skin File is published by Rosalia</b> (try-rosalia.com), which sells skincare products. Articles are produced by the Rosalia editorial desk.</p><p>This self-assessment is for information only and is not a medical consultation. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2026 The Skin File · contact@try-rosalia.com</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      }
+    }
+  },
+  "order": [
+    "chrome",
+    "quiz",
+    "footer"
+  ]
+}

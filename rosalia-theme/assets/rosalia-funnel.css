@@ -738,3 +738,137 @@
   text-underline-offset: 3px;
 }
 .rf-btn-quiet:focus-visible { outline: 2px solid var(--rf-accent-2); outline-offset: 3px; }
+
+/* ---------- Self-assessment page ----------------------------------------
+   Distinct from .rf-quiz, which is the inline CTA card inside an article.
+   This is the destination that card points at, so it gets its own scale.  */
+
+.rfq { padding: 28px 0 56px; }
+
+.rfq-head { padding-bottom: 8px; border-bottom: 1px solid var(--rf-rule); }
+.rfq-eyebrow {
+  margin: 0 0 10px;
+  font-family: var(--rf-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+}
+.rfq-title { font-family: var(--rf-serif); font-size: 31px; line-height: 1.18; margin: 0 0 14px; color: var(--rf-ink); }
+.rfq-intro > p { margin: 0 0 14px; color: var(--rf-body); }
+.rfq-intro > p:last-child { margin-bottom: 0; }
+.rfq-privacy {
+  margin: 16px 0 20px;
+  font-family: var(--rf-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--rf-muted);
+}
+
+/* Questions ------------------------------------------------------------- */
+
+.rfq-q { border: 0; margin: 0; padding: 26px 0 0; }
+.rfq-q + .rfq-q { border-top: 1px solid var(--rf-rule); margin-top: 26px; }
+.rfq-q-legend {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  padding: 0;
+  margin-bottom: 14px;
+  font-family: var(--rf-serif);
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--rf-ink);
+}
+.rfq-q-num {
+  flex: 0 0 auto;
+  font-family: var(--rf-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--rf-kick);
+}
+.rfq-q-opts { display: grid; gap: 8px; }
+
+/* The whole row is the target — 48px minimum, so it works with a thumb. */
+.rfq-q-opt {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  min-height: 48px;
+  padding: 12px 14px;
+  border: 1px solid var(--rf-rule-firm);
+  border-radius: 3px;
+  background: var(--rf-paper);
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--rf-body);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.rfq-q-opt:hover { border-color: var(--rf-accent); }
+.rfq-q-opt input { flex: 0 0 auto; margin: 3px 0 0; width: 18px; height: 18px; accent-color: var(--rf-accent); }
+.rfq-q-opt:has(input:checked) { border-color: var(--rf-accent); background: var(--rf-wash); }
+.rfq-q-opt:focus-within { outline: 2px solid var(--rf-accent-2); outline-offset: 2px; }
+
+/* Actions --------------------------------------------------------------- */
+
+.rfq-actions { margin-top: 30px; }
+.rfq-submit { width: 100%; }
+.rfq-warn {
+  margin: 12px 0 0;
+  font-family: var(--rf-sans);
+  font-size: 14px;
+  color: var(--rf-kick);
+}
+
+/* Result ---------------------------------------------------------------- */
+
+.rfq-results:focus { outline: none; }
+.rfq-result {
+  margin-top: 34px;
+  padding: 24px 20px;
+  border: 1px solid var(--rf-accent);
+  border-radius: 3px;
+  background: var(--rf-wash);
+}
+.rfq-result h2 { font-family: var(--rf-serif); font-size: 25px; line-height: 1.22; margin: 0 0 14px; color: var(--rf-ink); }
+.rfq-result-body > p { margin: 0 0 16px; color: var(--rf-body); }
+.rfq-result-body > p:last-child { margin-bottom: 0; }
+.rfq-result-body a { text-decoration: underline; text-underline-offset: 2px; }
+.rfq-result .rf-btn { margin-top: 20px; width: 100%; }
+
+/* The line that says a serum is not the answer here. It must not read as
+   fine print, so it keeps body size and a rule of its own. */
+.rfq-flag {
+  margin: 18px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--rf-kick);
+  background: var(--rf-paper);
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--rf-body);
+}
+
+.rfq-readnext { margin: 16px 0 0; font-family: var(--rf-sans); font-size: 15px; }
+.rfq-readnext a { color: var(--rf-accent-2); text-decoration: underline; text-underline-offset: 3px; }
+
+.rfq-legal {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rf-rule);
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--rf-muted);
+}
+.rfq-legal > p { margin: 0 0 10px; }
+.rfq-legal > p:last-child { margin-bottom: 0; }
+
+@media (min-width: 661px) {
+  .rfq-title { font-size: 38px; }
+  .rfq-q-legend { font-size: 22px; }
+  .rfq-submit { width: auto; min-width: 260px; }
+  .rfq-result { padding: 30px 30px; }
+  .rfq-result .rf-btn { width: auto; min-width: 280px; }
+}

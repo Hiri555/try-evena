@@ -49,6 +49,10 @@
     {{ content_for_header }}
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+    <!-- Clarflow Attribution -->
+<script>
+(function(){try{var p=new URLSearchParams(location.search),s=p.get('cf_sid'),W='dd5190c9-930c-4181-b25c-f74bb4b61c47';function sc(sid,fid,wid){try{fetch('/cart/update.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({attributes:{cf_sid:sid,cf_fid:fid,cf_wid:wid}}),keepalive:true}).catch(function(){})}catch(e){}}if(s){var fid=p.get('cf_fid')||'',wid=p.get('cf_wid')||W,a=JSON.stringify({cf_sid:s,cf_fid:fid,cf_wid:wid}),x=';max-age=2592000;path=/',h=location.hostname.replace(/^www\./,''),d=h.split('.'),dm=';domain=.'+(d.length>2?d.slice(-2).join('.'):h);document.cookie='_cf_attr='+encodeURIComponent(a)+x+dm;document.cookie='_cf_land='+encodeURIComponent(location.href)+x+dm;sc(s,fid,wid)}else{try{if(!sessionStorage.getItem('_cf_cart')){var m=document.cookie.match(/(?:^|; )_cf_attr=([^;]*)/);if(m){var o=JSON.parse(decodeURIComponent(m[1]));if(o&&o.cf_sid){sc(o.cf_sid,o.cf_fid||'',o.cf_wid||W);sessionStorage.setItem('_cf_cart','1')}}}}catch(e){}}}catch(e){}})();
+</script>
   </head>
 
   <body class=" {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
@@ -56,8 +60,40 @@
 
     <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
+    {%- comment -%}
+      The funnel pages publish under "The Skin File" and carry their own
+      masthead and footer. Stacking the store header on top of that puts a
+      shop nav and a cart badge above an article — it breaks the frame, and
+      it hands the reader four ways out before the first paragraph.
+
+      Stripped rather than hidden with CSS: hiding still ships the markup,
+      still boots the cart, and flashes it before the rule lands.
+
+      The suffix list is exact, comma-fenced on both sides, so 'advertorial'
+      (the older standalone page, which has its own layout) does not match
+      'pp-advertorial'.
+    {%- endcomment -%}
+    {%- liquid
+      assign rf_funnel = ',pp-advertorial,pp-prelander,flusher-prelander,pp-listicle,flusher-listicle,quiz-flusher,quiz-postpartum,'
+      assign rf_bare = false
+      assign rf_suffix = template.suffix | default: ''
+      if rf_suffix != ''
+        assign rf_key = ',' | append: rf_suffix | append: ','
+        if rf_funnel contains rf_key
+          assign rf_bare = true
+        endif
+      endif
+    -%}
+
     {%- if request.page_type != 'password' -%}
-      {%- sections 'header-group' -%}
+      {%- unless rf_bare -%}
+        {%- sections 'header-group' -%}
+      {%- endunless -%}
+
+      {%- comment -%}
+        The overlay group stays everywhere — it carries the cart drawer, and
+        a funnel page can still add to cart from an offer block.
+      {%- endcomment -%}
       {%- sections 'overlay-group' -%}
 
       {%- if settings.cart_type == 'popover' -%}
@@ -74,7 +110,7 @@
     <main role="main" id="main" class="anchor">
       {{ content_for_layout }}
 
-      {%- if request.page_type != 'password' -%}
+      {%- if request.page_type != 'password' and rf_bare == false -%}
         {%- sections 'footer-group' -%}
       {%- endif -%}
     </main>

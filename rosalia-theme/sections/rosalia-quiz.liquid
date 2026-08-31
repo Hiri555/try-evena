@@ -1,0 +1,246 @@
+{%- comment -%}
+  Rosalia · Funnel — Self-assessment
+
+  The prelanders promise "find my profile" and then need somewhere to
+  send that click. This is that page, and it is deliberately modest: a
+  handful of multiple-choice questions, scored in the browser, that tell
+  the reader which pattern they are in and which of the two things it
+  points at — an article, or a clinician.
+
+  Two rules this file keeps:
+
+    · Nothing the reader selects leaves the browser. No fetch, no
+      beacon, no storage, no hidden field, no query string on the
+      outbound CTA. The answers exist for as long as the tab does.
+      Several of these questions touch on health, and the honest way to
+      ask them is to ask them without collecting them.
+
+    · It scores, it does not diagnose. Every result carries the same
+      boundary: this is not a medical consultation.
+
+  Scoring is a plain vote. Each answer carries a result key; the key with
+  the most votes wins, and the first-declared result breaks a tie.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign questions = section.blocks | where: 'type', 'question'
+  assign results = section.blocks | where: 'type', 'result'
+-%}
+
+<div class="rf">
+  <section class="rfq" id="rfq-{{ section.id }}">
+    <div class="rf-w">
+
+      <header class="rfq-head">
+        {%- if s.eyebrow != blank -%}<p class="rfq-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        {%- if s.heading != blank -%}<h1 class="rfq-title">{{ s.heading }}</h1>{%- endif -%}
+        {%- if s.intro != blank -%}<div class="rfq-intro">{{ s.intro }}</div>{%- endif -%}
+        {%- if s.privacy_note != blank -%}
+          <p class="rfq-privacy">{{ s.privacy_note }}</p>
+        {%- endif -%}
+      </header>
+
+      {%- if questions.size > 0 and results.size > 0 -%}
+        <form class="rfq-form" data-rfq novalidate>
+          {%- for block in questions -%}
+            {%- assign q = block.settings -%}
+            <fieldset class="rfq-q" data-rfq-q {{ block.shopify_attributes }}>
+              <legend class="rfq-q-legend">
+                <span class="rfq-q-num">{{ forloop.index }}</span>
+                <span>{{ q.text }}</span>
+              </legend>
+              <div class="rfq-q-opts">
+                {%- for i in (1..4) -%}
+                  {%- assign l_key = 'a' | append: i | append: '_label' -%}
+                  {%- assign k_key = 'a' | append: i | append: '_key' -%}
+                  {%- assign label = q[l_key] -%}
+                  {%- if label != blank -%}
+                    {%- assign input_id = section.id | append: '-' | append: block.id | append: '-' | append: i -%}
+                    <label class="rfq-q-opt" for="{{ input_id }}">
+                      <input type="radio"
+                             id="{{ input_id }}"
+                             name="q-{{ block.id }}"
+                             value="{{ q[k_key] | escape }}">
+                      <span>{{ label }}</span>
+                    </label>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+
+          <div class="rfq-actions">
+            <button type="submit" class="rf-btn rfq-submit">
+              {{ s.submit_label | default: 'See my result' }}
+            </button>
+            <p class="rfq-warn" data-rfq-warn hidden role="status">
+              {{ s.incomplete_note | default: 'Answer every question to see a result.' }}
+            </p>
+          </div>
+        </form>
+
+        <div class="rfq-results" data-rfq-results role="region" aria-live="polite" tabindex="-1">
+          {%- for block in results -%}
+            {%- assign r = block.settings -%}
+            <article class="rfq-result"
+                     data-rf-result="{{ r.key | escape }}"
+                     hidden
+                     {{ block.shopify_attributes }}>
+              {%- if r.title != blank -%}<h2>{{ r.title }}</h2>{%- endif -%}
+              {%- if r.body != blank -%}<div class="rfq-result-body">{{ r.body }}</div>{%- endif -%}
+
+              {%- if r.clinician_note != blank -%}
+                <p class="rfq-flag">{{ r.clinician_note }}</p>
+              {%- endif -%}
+
+              {%- if r.cta_label != blank and r.cta_url != blank -%}
+                <a class="rf-btn" href="{{ r.cta_url }}">{{ r.cta_label }}</a>
+              {%- endif -%}
+
+              {%- if r.link_label != blank and r.link_url != blank -%}
+                <p class="rfq-readnext">
+                  <a href="{{ r.link_url }}">{{ r.link_label }}</a>
+                </p>
+              {%- endif -%}
+            </article>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if s.disclaimer != blank -%}
+        <div class="rfq-legal">{{ s.disclaimer }}</div>
+      {%- endif -%}
+
+      {%- if s.fallback_label != blank and s.fallback_url != blank -%}
+        <noscript>
+          <p class="rfq-readnext">
+            <a href="{{ s.fallback_url }}">{{ s.fallback_label }}</a>
+          </p>
+        </noscript>
+      {%- endif -%}
+
+    </div>
+  </section>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('rfq-{{ section.id }}');
+    if (!root) return;
+
+    var form = root.querySelector('[data-rfq]');
+    var panel = root.querySelector('[data-rfq-results]');
+    var warn = root.querySelector('[data-rfq-warn]');
+    if (!form || !panel) return;
+
+    var cards = Array.prototype.slice.call(panel.querySelectorAll('[data-rf-result]'));
+    // Declaration order is the tie-break, so keep it.
+    var order = cards.map(function (c) { return c.getAttribute('data-rf-result'); });
+
+    function hideAll() {
+      cards.forEach(function (c) { c.hidden = true; });
+    }
+
+    form.addEventListener('change', function () {
+      if (warn) warn.hidden = true;
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var groups = Array.prototype.slice.call(form.querySelectorAll('[data-rfq-q]'));
+      var votes = {};
+      var answered = 0;
+
+      groups.forEach(function (group) {
+        var picked = group.querySelector('input[type="radio"]:checked');
+        if (!picked) return;
+        answered++;
+        var key = picked.value;
+        if (!key) return;
+        votes[key] = (votes[key] || 0) + 1;
+      });
+
+      if (answered < groups.length) {
+        if (warn) warn.hidden = false;
+        var firstMissing = groups.filter(function (g) {
+          return !g.querySelector('input[type="radio"]:checked');
+        })[0];
+        if (firstMissing) {
+          var input = firstMissing.querySelector('input[type="radio"]');
+          if (input) input.focus();
+        }
+        return;
+      }
+
+      var winner = null;
+      var best = -1;
+      order.forEach(function (key) {
+        var n = votes[key] || 0;
+        if (n > best) { best = n; winner = key; }
+      });
+
+      hideAll();
+      var card = panel.querySelector('[data-rf-result="' + winner + '"]');
+      if (!card) return;
+      card.hidden = false;
+      panel.focus();
+      if (card.scrollIntoView) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rosalia — Self-assessment",
+  "class": "shopify-section--rosalia-funnel shopify-section--rosalia-quiz",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    {
+      "type": "text", "id": "privacy_note", "label": "Privacy line",
+      "info": "Shown above the questions. Answers are scored in the browser and never sent anywhere — say so."
+    },
+    { "type": "text", "id": "submit_label", "label": "Submit button", "default": "See my result" },
+    { "type": "text", "id": "incomplete_note", "label": "Unanswered-question note", "default": "Answer every question to see a result." },
+    { "type": "richtext", "id": "disclaimer", "label": "Disclaimer" },
+    { "type": "text", "id": "fallback_label", "label": "No-JavaScript link label" },
+    { "type": "url", "id": "fallback_url", "label": "No-JavaScript link" }
+  ],
+  "blocks": [
+    {
+      "type": "question", "name": "Question", "limit": 8,
+      "settings": [
+        { "type": "text", "id": "text", "label": "Question" },
+        { "type": "text", "id": "a1_label", "label": "Answer 1" },
+        { "type": "text", "id": "a1_key", "label": "Answer 1 — result key" },
+        { "type": "text", "id": "a2_label", "label": "Answer 2" },
+        { "type": "text", "id": "a2_key", "label": "Answer 2 — result key" },
+        { "type": "text", "id": "a3_label", "label": "Answer 3" },
+        { "type": "text", "id": "a3_key", "label": "Answer 3 — result key" },
+        { "type": "text", "id": "a4_label", "label": "Answer 4" },
+        { "type": "text", "id": "a4_key", "label": "Answer 4 — result key" }
+      ]
+    },
+    {
+      "type": "result", "name": "Result", "limit": 5,
+      "settings": [
+        { "type": "text", "id": "key", "label": "Result key", "info": "Must match the keys used on the answers. First result declared wins a tie." },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "richtext", "id": "body", "label": "Body" },
+        { "type": "text", "id": "clinician_note", "label": "Clinician line", "info": "Use when the result points at something a product cannot address." },
+        { "type": "text", "id": "cta_label", "label": "Button label" },
+        { "type": "url", "id": "cta_url", "label": "Button link" },
+        { "type": "text", "id": "link_label", "label": "Read-next label" },
+        { "type": "url", "id": "link_url", "label": "Read-next link" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Self-assessment" } ]
+}
+{% endschema %}

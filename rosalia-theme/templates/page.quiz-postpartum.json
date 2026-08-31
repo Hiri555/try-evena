@@ -1,0 +1,228 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "blocks": {
+        "nav0": {
+          "type": "nav",
+          "settings": {
+            "text": "Skin",
+            "url": "/blogs/the-skin-file",
+            "current": false
+          }
+        },
+        "nav1": {
+          "type": "nav",
+          "settings": {
+            "text": "Triggers",
+            "url": "/blogs/the-skin-file/tagged/triggers",
+            "current": false
+          }
+        },
+        "nav2": {
+          "type": "nav",
+          "settings": {
+            "text": "Research",
+            "url": "/blogs/the-skin-file/tagged/research",
+            "current": false
+          }
+        },
+        "nav3": {
+          "type": "nav",
+          "settings": {
+            "text": "Postpartum",
+            "url": "/blogs/the-skin-file/tagged/postpartum",
+            "current": true
+          }
+        },
+        "nav4": {
+          "type": "nav",
+          "settings": {
+            "text": "About",
+            "url": "/pages/skin-file-about",
+            "current": false
+          }
+        }
+      },
+      "block_order": [
+        "nav0",
+        "nav1",
+        "nav2",
+        "nav3",
+        "nav4"
+      ],
+      "settings": {
+        "show_trust": false,
+        "show_masthead": true,
+        "brand_name": "The Skin",
+        "brand_accent": " File",
+        "brand_url": "/blogs/the-skin-file",
+        "nav_label": "Sections",
+        "subnav_label": "Topics",
+        "breadcrumb": ""
+      }
+    },
+    "quiz": {
+      "type": "rosalia-quiz",
+      "blocks": {
+        "q0": {
+          "type": "question",
+          "settings": {
+            "text": "How long has it been since you gave birth?",
+            "a1_label": "Under three months",
+            "a1_key": "early",
+            "a2_label": "Three to twelve months",
+            "a2_key": "later",
+            "a3_label": "Over a year, or I've weaned",
+            "a3_key": "weaning"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "text": "When did your skin change most?",
+            "a1_label": "Straight after the birth",
+            "a1_key": "early",
+            "a2_label": "A few months in, seemingly out of nowhere",
+            "a2_key": "later",
+            "a3_label": "Around weaning, or after it",
+            "a3_key": "weaning"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "text": "Which describes it best right now?",
+            "a1_label": "Tight, dull, drier than it was",
+            "a1_key": "early",
+            "a2_label": "Reacting to things that used to be fine, and the list keeps growing",
+            "a2_key": "later",
+            "a3_label": "It settled, then changed again later",
+            "a3_key": "weaning"
+          }
+        },
+        "r0": {
+          "type": "result",
+          "settings": {
+            "key": "later",
+            "title": "The later flare — and it is not your routine’s fault",
+            "body": "<p>A skin change that arrives three to eight months after a birth almost never gets connected back to it, because by then the birth is months behind you.</p><p>So the routine gets blamed, then replaced, then replaced again. The escalation is usually what does the damage: each addition thins the barrier a little further, and a thinner barrier reacts at a lower threshold than it used to.</p><p>Shrink the routine back down, protect the barrier before you treat the redness, and introduce one thing at a time over weeks.</p>",
+            "clinician_note": "If the skin change comes with fatigue, hair loss beyond the usual shedding, or mood changes, that deserves a real appointment rather than a serum. Postpartum thyroid changes and postpartum depression are both common and both treatable.",
+            "cta_label": "Read the five reasons your skin changed",
+            "cta_url": "/pages/postpartum-5-reasons",
+            "link_label": "Or what a hormone shift actually changes →",
+            "link_url": "/blogs/the-skin-file/hormonal-skin"
+          }
+        },
+        "r1": {
+          "type": "result",
+          "settings": {
+            "key": "early",
+            "title": "You are in the first window",
+            "body": "<p>Hormone levels fall steeply in the days after delivery, and what most people notice first is tightness and dullness rather than redness.</p><p>This is the window where doing less genuinely wins. A cleanser, one simple moisturizer, and daily sun protection — particularly if you have melasma, where sun exposure is the single biggest variable you control.</p><p>If something is going to flare, it more often arrives later. Knowing that in advance is most of the benefit of reading this now.</p>",
+            "clinician_note": "",
+            "cta_label": "Read the five reasons your skin changed",
+            "cta_url": "/pages/postpartum-5-reasons",
+            "link_label": "Or the postpartum skin timeline in full →",
+            "link_url": "/blogs/the-skin-file/after-birth"
+          }
+        },
+        "r2": {
+          "type": "result",
+          "settings": {
+            "key": "weaning",
+            "title": "The post-weaning shift",
+            "body": "<p>Weaning is a second hormonal shift, and for a lot of people it is the one that changes the face most and keeps it changed. It arrives late enough that nobody warns you about it.</p><p>The approach does not change: one gentle active, real barrier support, and a timeline measured in weeks. Eight, not eight days.</p><p>What does change is that the ingredient constraints of feeding no longer apply, which widens what is available to you.</p>",
+            "clinician_note": "",
+            "cta_label": "Read the five reasons your skin changed",
+            "cta_url": "/pages/postpartum-5-reasons",
+            "link_label": "Or the postpartum skin timeline in full →",
+            "link_url": "/blogs/the-skin-file/after-birth"
+          }
+        }
+      },
+      "block_order": [
+        "q0",
+        "q1",
+        "q2",
+        "r0",
+        "r1",
+        "r2"
+      ],
+      "settings": {
+        "eyebrow": "The Skin File · Self-assessment",
+        "heading": "Find which anchor to put back first",
+        "intro": "<p>Three questions. Postpartum skin changes arrive on a timeline, and which point of it you are on changes what is worth doing next — and what is worth not doing.</p>",
+        "privacy_note": "Your answers are scored in your browser. Nothing you select is sent anywhere, saved, or attached to you.",
+        "submit_label": "See my result",
+        "incomplete_note": "Answer every question to see a result.",
+        "disclaimer": "<p>This is a self-assessment, not a diagnosis and not a medical consultation. Postpartum changes can include conditions that need real care, including postpartum thyroiditis and postpartum depression. Speak to your clinician.</p><p>If you are feeding, show any ingredient list to your OB or a lactation consultant before use. There is <a href=\"/blogs/the-skin-file/feeding\">a free public database</a> for looking ingredients up yourself.</p>",
+        "fallback_label": "Read the five reasons your skin changed",
+        "fallback_url": "/pages/postpartum-5-reasons"
+      }
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "blocks": {
+        "l0": {
+          "type": "link",
+          "settings": {
+            "text": "About us",
+            "url": "/pages/skin-file-about"
+          }
+        },
+        "l1": {
+          "type": "link",
+          "settings": {
+            "text": "Contact",
+            "url": "/pages/contact"
+          }
+        },
+        "l2": {
+          "type": "link",
+          "settings": {
+            "text": "Editorial standards",
+            "url": "/pages/editorial-standards"
+          }
+        },
+        "l3": {
+          "type": "link",
+          "settings": {
+            "text": "Privacy policy",
+            "url": "/policies/privacy-policy"
+          }
+        },
+        "l4": {
+          "type": "link",
+          "settings": {
+            "text": "Terms & conditions",
+            "url": "/policies/terms-of-service"
+          }
+        }
+      },
+      "block_order": [
+        "l0",
+        "l1",
+        "l2",
+        "l3",
+        "l4"
+      ],
+      "settings": {
+        "brand_name": "The Skin File",
+        "brand_accent": "",
+        "tagline": "",
+        "links_label": "Footer",
+        "legal": "<p><b>The Skin File is published by Rosalia</b> (try-rosalia.com), which sells skincare products. Articles are produced by the Rosalia editorial desk.</p><p>This self-assessment is for information only and is not a medical consultation. If you are pregnant or breastfeeding, show any ingredient list to your OB or a lactation consultant before use. These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure or prevent any disease.</p><p>© 2026 The Skin File · contact@try-rosalia.com</p>",
+        "padding_top": 32,
+        "padding_bottom": 40,
+        "background": "#F3EDE7",
+        "text_color": "#2B2620"
+      }
+    }
+  },
+  "order": [
+    "chrome",
+    "quiz",
+    "footer"
+  ]
+}

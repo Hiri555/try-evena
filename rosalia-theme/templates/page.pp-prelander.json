@@ -7,17 +7,17 @@
         "show_masthead": true,
         "brand_name": "The Skin",
         "brand_accent": " File",
-        "brand_url": "",
+        "brand_url": "/blogs/the-skin-file",
         "nav_label": "Sections",
         "subnav_label": "Topics",
-        "breadcrumb": "<p><a href=\"#\">Skin</a> › <a href=\"#\">Research</a> › <b>Postpartum</b></p>"
+        "breadcrumb": "<p><a href=\"/blogs/the-skin-file\">Skin</a> › <a href=\"/blogs/the-skin-file/tagged/research\">Research</a> › <b>Postpartum</b></p>"
       },
       "blocks": {
         "nav1": {
           "type": "nav",
           "settings": {
             "text": "Skin",
-            "url": "",
+            "url": "/blogs/the-skin-file",
             "current": true
           }
         },
@@ -25,7 +25,7 @@
           "type": "nav",
           "settings": {
             "text": "Triggers",
-            "url": "",
+            "url": "/blogs/the-skin-file/tagged/triggers",
             "current": false
           }
         },
@@ -33,7 +33,7 @@
           "type": "nav",
           "settings": {
             "text": "Research",
-            "url": "",
+            "url": "/blogs/the-skin-file/tagged/research",
             "current": false
           }
         },
@@ -41,7 +41,7 @@
           "type": "nav",
           "settings": {
             "text": "Postpartum",
-            "url": "",
+            "url": "/blogs/the-skin-file/tagged/postpartum",
             "current": true
           }
         },
@@ -49,7 +49,7 @@
           "type": "nav",
           "settings": {
             "text": "About",
-            "url": "",
+            "url": "/pages/skin-file-about",
             "current": false
           }
         },
@@ -57,7 +57,7 @@
           "type": "subnav",
           "settings": {
             "text": "After birth",
-            "url": "",
+            "url": "/blogs/the-skin-file/after-birth",
             "current": true
           }
         },
@@ -65,7 +65,7 @@
           "type": "subnav",
           "settings": {
             "text": "Feeding",
-            "url": "",
+            "url": "/blogs/the-skin-file/feeding",
             "current": false
           }
         },
@@ -73,7 +73,7 @@
           "type": "subnav",
           "settings": {
             "text": "Hormonal skin",
-            "url": "",
+            "url": "/blogs/the-skin-file/hormonal-skin",
             "current": false
           }
         },
@@ -81,7 +81,7 @@
           "type": "subnav",
           "settings": {
             "text": "Ingredients",
-            "url": "",
+            "url": "/blogs/the-skin-file/ingredients",
             "current": false
           }
         },
@@ -89,7 +89,7 @@
           "type": "subnav",
           "settings": {
             "text": "What we don't recommend",
-            "url": "",
+            "url": "/blogs/the-skin-file/what-we-dont-recommend",
             "current": false
           }
         }
@@ -352,7 +352,7 @@
         "heading": "Which of the four is furthest down on your skin?",
         "body": "A 90-second check on the four-part framework — timing, feeding history, current symptoms.",
         "button_label": "Find which anchor to put back first →",
-        "button_url": "https://try-rosalia.com/quiz/postpartum?src=v4-tool1",
+        "button_url": "/pages/quiz-postpartum?src=v4-tool1",
         "fine_print": "About 90 seconds. One-handed, thumb-sized answers. No email or account required.",
         "full_width": false,
         "container": "measure",
@@ -436,7 +436,7 @@
         "heading": "Find which anchor to put back first",
         "body": "Your four-part profile in 90 seconds, in order — and where sleep, not a cream, is the limit.",
         "button_label": "Find which anchor to put back first →",
-        "button_url": "https://try-rosalia.com/quiz/postpartum?src=v4-tool2",
+        "button_url": "/pages/quiz-postpartum?src=v4-tool2",
         "fine_print": "About 90 seconds. No email or account required.",
         "full_width": false,
         "container": "measure",
@@ -508,13 +508,13 @@
             "heading": "More from Research",
             "cat_1": "Flushing",
             "title_1": "The flush isn’t the problem. What happens after it is.",
-            "url_1": "",
+            "url_1": "/pages/after-the-flush",
             "cat_2": "Ingredients",
             "title_2": "Reading an ingredient list when half of it is off the table",
-            "url_2": "",
+            "url_2": "/blogs/the-skin-file/ingredients",
             "cat_3": "Flushing",
             "title_3": "Five reasons a flush stops coming back down",
-            "url_3": ""
+            "url_3": "/pages/flusher-5-reasons"
           }
         }
       },
@@ -546,35 +546,35 @@
           "type": "link",
           "settings": {
             "text": "About us",
-            "url": ""
+            "url": "/pages/skin-file-about"
           }
         },
         "flink2": {
           "type": "link",
           "settings": {
             "text": "Contact",
-            "url": ""
+            "url": "/pages/contact"
           }
         },
         "flink3": {
           "type": "link",
           "settings": {
             "text": "Editorial standards",
-            "url": ""
+            "url": "/pages/editorial-standards"
           }
         },
         "flink4": {
           "type": "link",
           "settings": {
             "text": "Privacy policy",
-            "url": ""
+            "url": "/policies/privacy-policy"
           }
         },
         "flink5": {
           "type": "link",
           "settings": {
             "text": "Terms & conditions",
-            "url": ""
+            "url": "/policies/terms-of-service"
           }
         }
       },
