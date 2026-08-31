@@ -92,6 +92,38 @@
             "url": "/blogs/the-skin-file/what-we-dont-recommend",
             "current": false
           }
+        },
+        "subnav_pp0": {
+          "type": "subnav",
+          "settings": {
+            "text": "Postpartum acne",
+            "url": "/blogs/the-skin-file/postpartum-acne",
+            "current": false
+          }
+        },
+        "subnav_pp1": {
+          "type": "subnav",
+          "settings": {
+            "text": "Melasma",
+            "url": "/blogs/the-skin-file/melasma",
+            "current": false
+          }
+        },
+        "subnav_pp2": {
+          "type": "subnav",
+          "settings": {
+            "text": "Weaning",
+            "url": "/blogs/the-skin-file/weaning",
+            "current": false
+          }
+        },
+        "subnav_pp3": {
+          "type": "subnav",
+          "settings": {
+            "text": "Routine",
+            "url": "/blogs/the-skin-file/postpartum-routine",
+            "current": false
+          }
         }
       },
       "block_order": [
@@ -104,7 +136,11 @@
         "sub2",
         "sub3",
         "sub4",
-        "sub5"
+        "sub5",
+        "subnav_pp0",
+        "subnav_pp1",
+        "subnav_pp2",
+        "subnav_pp3"
       ]
     },
     "hero": {
@@ -509,9 +545,9 @@
             "cat_1": "Flushing",
             "title_1": "The flush isn’t the problem. What happens after it is.",
             "url_1": "/pages/after-the-flush",
-            "cat_2": "Ingredients",
-            "title_2": "Reading an ingredient list when half of it is off the table",
-            "url_2": "/blogs/the-skin-file/ingredients",
+            "cat_2": "Postpartum",
+            "title_2": "Weaning: the second hormonal shift nobody warns you about",
+            "url_2": "/blogs/the-skin-file/weaning",
             "cat_3": "Flushing",
             "title_3": "Five reasons a flush stops coming back down",
             "url_3": "/pages/flusher-5-reasons"
