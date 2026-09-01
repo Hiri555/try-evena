@@ -1121,15 +1121,19 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 26px 0;
-  margin: 26px 0 0;
+  /* Pulled out by the item padding so the first image lines up with the
+     heading above it while every column keeps the same width. Padding
+     the first item to zero instead would have made column one wider
+     than the other three, which is visible and looks like a mistake. */
+  margin: 26px -14px 0;
   padding: 0;
 }
 .rf-sw {
   margin: 0;
-  padding: 0 16px;
+  padding: 0 14px;
   border-left: 1px solid var(--rf-rule);
 }
-.rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 0; padding-left: 0; }
+.rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 0; }
 .rf-sw-img {
   aspect-ratio: 1 / 1;
   background: var(--rf-wash);
@@ -1273,9 +1277,9 @@
 }
 
 @media (min-width: 900px) {
-  .rf-swatch { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
-  .rf-sw { padding: 0 20px; }
-  .rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 1px solid var(--rf-rule); padding-left: 20px; }
-  .rf-swatch > .rf-sw:first-child { border-left: 0; padding-left: 0; }
+  .rf-swatch { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-inline: -18px; }
+  .rf-sw { padding: 0 18px; }
+  .rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 1px solid var(--rf-rule); }
+  .rf-swatch > .rf-sw:first-child { border-left: 0; }
   .rf-sw-fig { font-size: 38px; }
 }
