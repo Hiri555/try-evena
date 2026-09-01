@@ -32,8 +32,12 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ART = ROOT / 'art'
-API = 'https://api.kie.ai/api/v1/jobs'
-MODEL = os.environ.get('KIE_MODEL', 'google/nano-banana-pro')
+API = 'https://api.kie.ai/api/v1'
+# Probed against the live account: google/nano-banana-pro is rejected 422,
+# the id that works is bare. 18 credits and ~18s per image, against 4 for
+# google/nano-banana — worth it here, the photographs carry the pages.
+MODEL = os.environ.get('KIE_MODEL', 'nano-banana-pro')
+CREDITS_PER_IMAGE = 18
 
 # --------------------------------------------------------------------------
 # House style
@@ -255,17 +259,23 @@ SLOTS = [
 ]
 
 # --------------------------------------------------------------------------
-REFUSED = [
-    ('page.pp-advertorial.json / step8 / image12',
-     'LABEL — back of the bottle with the full INCI list, "readable on a phone".',
-     'A generated label carries a generated ingredient list. The page then '
-     'shows a fabricated formula document as if it were the product\'s own '
-     'label. Photograph the real bottle.'),
-    ('page.pp-advertorial.json / step8 / bonus15',
-     'CARD MOCKUP — six actives with a LactMed line beside each.',
-     'The LactMed lines are claims about a public medical database. Generating '
-     'them invents citations. Build this card from verified copy — it wants to '
-     'be real HTML or a designed PDF anyway, not a raster image.'),
+# The two slots that carry a formula are typeset, not generated. A diffusion
+# model asked for "a readable ingredient label" will produce a readable
+# ingredient label — of a formula it invented. Both are rendered instead by
+# scripts/rosalia_cards.py from the doses the brand already publishes on
+# try-rosalia.com/pages/daily-reset, so the text is exact and checkable.
+
+TYPESET = [
+    {
+        'name': 'actives-panel',
+        'target': ('page.pp-advertorial.json', 'step8', 'image12', 'image'),
+        'alt': 'The actives panel: six ingredients with the dose of each',
+    },
+    {
+        'name': 'ingredient-card',
+        'target': ('page.pp-advertorial.json', 'step8', 'bonus15', 'image'),
+        'alt': 'A one-page card listing the six actives and their doses, to take to a clinician',
+    },
 ]
 
 
@@ -292,7 +302,13 @@ def _get(path, key):
 
 
 def generate(only=None):
-    key = os.environ.get('KIE_API_KEY')
+    """Queue every pending slot at once, then poll them all at once.
+
+    Sixteen images take about as long as one. Never generate serially and
+    never block on a single long wait — a task that is already finished
+    should be collected on the next five-second tick, not after a timeout.
+    """
+    key = os.environ.get('KIE_API_KEY') or os.environ.get('KIE_AI_API_KEY')
     if not key:
         sys.exit('KIE_API_KEY is not set.')
     ART.mkdir(exist_ok=True)
@@ -304,6 +320,18 @@ def generate(only=None):
         print('Nothing to generate — every requested slot already has a file.')
         return
 
+    # Never start a batch the balance cannot cover.
+    try:
+        bal = (_get('/chat/credit', key) or {}).get('data')
+        need = len(todo) * CREDITS_PER_IMAGE
+        print('credits %.2f · this batch needs ~%d' % (bal, need))
+        if bal is not None and bal < need:
+            sys.exit('Not enough credits.')
+    except SystemExit:
+        raise
+    except Exception as exc:                           # noqa: BLE001
+        print('credit check skipped (%s)' % exc)
+
     tasks = []
     for slot in todo:
         payload = {
@@ -314,47 +342,52 @@ def generate(only=None):
                 'output_format': 'png',
             },
         }
-        try:
-            res = _post('/createTask', payload, key)
-        except Exception as exc:                       # noqa: BLE001
-            print('  !! %-18s createTask failed: %s' % (slot['name'], exc))
-            continue
-        if res.get('code') != 200:
+        for attempt in range(3):
+            try:
+                res = _post('/jobs/createTask', payload, key)
+            except Exception as exc:                   # noqa: BLE001
+                res = {'code': 0, 'msg': str(exc)}
+            if res.get('code') == 200:
+                tid = res['data']['taskId']
+                tasks.append([slot, tid])
+                print('  queued  %-18s %s' % (slot['name'], tid))
+                break
+            time.sleep(2 * (attempt + 1))
+        else:
             print('  !! %-18s %s' % (slot['name'], res.get('msg')))
-            continue
-        tid = (res.get('data') or {}).get('taskId')
-        tasks.append((slot, tid))
-        print('  submitted %-18s %s' % (slot['name'], tid))
 
-    print('\nPolling %d task(s)…' % len(tasks))
+    print('\n%d tasks running in parallel…' % len(tasks))
     pending = list(tasks)
     deadline = time.time() + 900
     while pending and time.time() < deadline:
-        time.sleep(10)
+        time.sleep(5)
         still = []
         for slot, tid in pending:
             try:
-                res = _get('/recordInfo?taskId=' + tid, key)
+                data = (_get('/jobs/recordInfo?taskId=' + tid, key)
+                        or {}).get('data') or {}
             except Exception:                          # noqa: BLE001
-                still.append((slot, tid))
+                still.append([slot, tid])              # a flaky poll is not a failure
                 continue
-            data = res.get('data') or {}
-            state = str(data.get('state') or data.get('status') or '').lower()
-            if state in ('success', 'succeeded', 'completed'):
+            state = str(data.get('state') or '').lower()
+            if state == 'success':
                 url = _first_url(data)
                 if not url:
-                    print('  !! %-18s finished with no image url: %s'
-                          % (slot['name'], json.dumps(data)[:200]))
+                    print('  !! %-18s success with no url' % slot['name'])
                     continue
                 dest = ART / (slot['name'] + '.png')
                 urllib.request.urlretrieve(url, dest)
-                print('  ok  %-18s %d KB' % (slot['name'],
-                                             dest.stat().st_size // 1024))
+                if dest.stat().st_size < 10_000:       # truncated, not done
+                    dest.unlink()
+                    print('  !! %-18s download truncated' % slot['name'])
+                    continue
+                print('  ok      %-18s %3ds  %s cr  %d KB'
+                      % (slot['name'], data.get('costTime') or 0,
+                         data.get('creditsConsumed'), dest.stat().st_size // 1024))
             elif state in ('fail', 'failed', 'error'):
-                print('  !! %-18s %s' % (slot['name'],
-                                         data.get('failMsg') or data.get('msg')))
+                print('  !! %-18s %s' % (slot['name'], data.get('failMsg')))
             else:
-                still.append((slot, tid))
+                still.append([slot, tid])
         pending = still
         if pending:
             print('  … %d still running' % len(pending))
@@ -364,9 +397,14 @@ def generate(only=None):
 
 
 def _first_url(data):
-    """kie.ai has moved this field around; take the first https png/jpg we see."""
-    blob = json.dumps(data)
-    hits = re.findall(r'https://[^"\\ ]+\.(?:png|jpe?g|webp)', blob)
+    """resultJson is a JSON *string* holding resultUrls."""
+    try:
+        urls = json.loads(data.get('resultJson') or '{}').get('resultUrls') or []
+        if urls:
+            return urls[0]
+    except (ValueError, TypeError):
+        pass
+    hits = re.findall(r'https://[^"\\ ]+\.(?:png|jpe?g|webp)', json.dumps(data))
     return hits[0] if hits else None
 
 
@@ -379,7 +417,7 @@ def wire(map_path):
     mapping = json.loads(Path(map_path).read_text())
     touched = {}
 
-    for slot in SLOTS:
+    for slot in SLOTS + TYPESET:
         ref = mapping.get(slot['name'])
         if not ref:
             continue
@@ -408,7 +446,7 @@ def wire(map_path):
 
 def audit():
     print('%-18s %-8s %-8s %s' % ('SLOT', 'FILE', 'WIRED', 'TARGET'))
-    for slot in SLOTS:
+    for slot in SLOTS + TYPESET:
         tpl, sid, bid, key = slot['target']
         doc = json.loads((ROOT / 'templates' / tpl).read_text(encoding='utf-8'))
         sec = doc['sections'][sid]
@@ -418,9 +456,8 @@ def audit():
         print('%-18s %-8s %-8s %s/%s%s'
               % (slot['name'], 'yes' if on_disk else '—',
                  'yes' if wired else '—', tpl, sid, '/' + bid if bid else ''))
-    print('\nDeliberately not generated:')
-    for where, what, why in REFUSED:
-        print('  %s\n    %s\n    %s' % (where, what, why))
+    print('\nThe last two are typeset by scripts/rosalia_cards.py, not generated —\n'
+          'they carry a formula, and an invented formula is a fabricated document.')
 
 
 if __name__ == '__main__':
