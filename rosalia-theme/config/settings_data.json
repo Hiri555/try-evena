@@ -75,7 +75,12 @@
           "testi5_poster": "",
           "testi5_name": "",
           "testi5_quote": "",
-          "enable_motion": true
+          "enable_motion": true,
+          "sticky_enabled": true,
+          "sticky_text": "The Daily Reset Serum · $45",
+          "sticky_label": "Get my face back",
+          "sticky_url": "/products/daily-reset-serum",
+          "sticky_after": 0.9
         }
       }
     },

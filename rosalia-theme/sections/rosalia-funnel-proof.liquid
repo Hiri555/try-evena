@@ -9,9 +9,27 @@
     · Reviews are meant to come from the review app (add its app block).
       The manual blocks exist because the source page reserves the slots.
     · Before/after are image_pickers whose help text says REAL asset only.
-    · With nothing filled in, the section renders an honest empty state
-      rather than inventing anything — which is what the page copy
-      promises the reader: "real ones, or this space stays empty".
+    · With nothing filled in, the section invents nothing.
+
+  What "renders nothing" has to mean, because it did not:
+
+    The empty state was shipping to shoppers. Dashed grey boxes reading
+    "Upload the asset for: img/rosalia-review.jpg", and under them the
+    bracketed note "[PLACEHOLDER - real verified-customer quote...]".
+    Those are production notes for whoever fills the slot. On a live page
+    they read as a broken site, and they are worse than an absent section.
+
+    So every one of them is now editor-only: request.design_mode gates the
+    slots, the briefs and the empty-state line. A shopper sees a filled
+    section or no section at all — never the scaffolding.
+
+    The section still refuses to invent anything. That has not changed and
+    is not going to: a fabricated before/after is an efficacy claim about
+    a face nobody photographed, and a written-in five-star quote is a
+    testimonial from a customer who does not exist. Both are illegal to
+    publish in the US market this store sells into, and the store's own
+    editorial-standards page - linked from the footer of every funnel
+    page - says it publishes neither.
 {%- endcomment -%}
 
 {%- render 'rosalia-funnel-assets' -%}
@@ -35,7 +53,23 @@
   if s.before_image != blank or s.after_image != blank
     assign has_media = true
   endif
+
+  comment
+    Scaffolding is for the person filling the slot, not for the shopper.
+    Everything below that has no real content behind it is gated on this.
+  endcomment
+  assign editing = false
+  if request.design_mode
+    assign editing = true
+  endif
+
+  assign has_anything = false
+  if has_media or filled > 0 or app_blocks.size > 0
+    assign has_anything = true
+  endif
 -%}
+
+{%- comment -%} Nothing real to show and nobody editing: emit no markup. {%- endcomment -%}
 
 <style>
   #shopify-section-{{ section.id }} {
@@ -45,6 +79,7 @@
   }
 </style>
 
+{%- if has_anything or editing -%}
 <div class="rf">
   <div class="rf-w{{ wide }}">
     <div class="rf-proof">
@@ -73,11 +108,14 @@
             </article>
           {%- endif -%}
         {%- endfor -%}
-      {%- elsif app_blocks.size == 0 -%}
+      {%- elsif app_blocks.size == 0 and editing -%}
         <p class="rf-empty">{{ s.empty_state }}</p>
       {%- endif -%}
 
-      {%- if has_media or s.show_media_slots -%}
+      {%- assign show_pair = false -%}
+      {%- if has_media -%}{%- assign show_pair = true -%}{%- endif -%}
+      {%- if s.show_media_slots and editing -%}{%- assign show_pair = true -%}{%- endif -%}
+      {%- if show_pair -%}
         <div class="rf-ba">
           {%- if s.before_image != blank -%}
             <figure class="rf-figure" style="margin:0;">
@@ -86,7 +124,7 @@
                    loading: 'lazy', alt: s.before_alt }}
               {%- if s.before_caption != blank -%}<figcaption class="rf-figcap">{{ s.before_caption }}</figcaption>{%- endif -%}
             </figure>
-          {%- elsif s.show_media_slots -%}
+          {%- elsif s.show_media_slots and editing -%}
             <div class="rf-slot" role="img" aria-label="{{ s.before_alt | default: 'Before image placeholder' | escape }}">
               <span>{{ s.before_note }}</span>
             </div>
@@ -99,7 +137,7 @@
                    loading: 'lazy', alt: s.after_alt }}
               {%- if s.after_caption != blank -%}<figcaption class="rf-figcap">{{ s.after_caption }}</figcaption>{%- endif -%}
             </figure>
-          {%- elsif s.show_media_slots -%}
+          {%- elsif s.show_media_slots and editing -%}
             <div class="rf-slot" role="img" aria-label="{{ s.after_alt | default: 'After image placeholder' | escape }}">
               <span>{{ s.after_note }}</span>
             </div>
@@ -107,13 +145,14 @@
         </div>
       {%- endif -%}
 
-      {%- if s.panel_note != blank -%}
+      {%- if s.panel_note != blank and editing -%}
         <p class="rf-small" style="margin-top:18px;">{{ s.panel_note }}</p>
       {%- endif -%}
 
     </div>
   </div>
 </div>
+{%- endif -%}
 
 {% schema %}
 {
