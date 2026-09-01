@@ -254,23 +254,6 @@
         "paragraph1"
       ]
     },
-    "quiz1": {
-      "type": "rosalia-funnel-quiz-cta",
-      "settings": {
-        "eyebrow": "Before you keep reading",
-        "heading": "Which of the five is loudest in yours?",
-        "body": "Sixteen questions about when it starts, how long it stays, what it does after. 60 seconds. You see your profile before we ask for an email.",
-        "button_label": "Find out which of the five is yours →",
-        "button_url": "shopify://products/daily-reset-serum",
-        "fine_print": "",
-        "full_width": false,
-        "container": "measure",
-        "padding_top": 8,
-        "padding_bottom": 8,
-        "background": "#FAF5F0",
-        "text_color": "#2B2620"
-      }
-    },
     "blk5": {
       "type": "rosalia-funnel-block",
       "settings": {
@@ -780,6 +763,93 @@
         "background": "#F3EDE7",
         "text_color": "#2B2620"
       }
+    },
+    "panel": {
+      "type": "rosalia-funnel-panel",
+      "blocks": {
+        "s0": {
+          "type": "stat",
+          "settings": {
+            "figure": "4 in 100",
+            "label": "women on the panel saw no change at all. If you are one of them, that is what the 60-day refund is for.",
+            "source": "Published on the product page",
+            "is_counter": true
+          }
+        },
+        "s1": {
+          "type": "stat",
+          "settings": {
+            "figure": "312",
+            "label": "women on the panel, over eight weeks",
+            "source": "Product page · founder's letter",
+            "is_counter": false
+          }
+        },
+        "s2": {
+          "type": "stat",
+          "settings": {
+            "figure": "43",
+            "label": "formulations tested before this one",
+            "source": "Founder's letter",
+            "is_counter": false
+          }
+        },
+        "s3": {
+          "type": "stat",
+          "settings": {
+            "figure": "21 months",
+            "label": "in a dermatology lab",
+            "source": "Founder's letter",
+            "is_counter": false
+          }
+        },
+        "p1": {
+          "type": "phase",
+          "settings": {
+            "when": "Week 3–4",
+            "title": "The first shift.",
+            "body": "Baseline redness softens. Flushing episodes shorter. Skin feels less reactive."
+          }
+        },
+        "p2": {
+          "type": "phase",
+          "settings": {
+            "when": "Week 5–6",
+            "title": "Others notice.",
+            "body": "Tone evens out. Foundation decreases. The 3pm flare stays manageable."
+          }
+        },
+        "p3": {
+          "type": "phase",
+          "settings": {
+            "when": "Week 7–8",
+            "title": "The new baseline.",
+            "body": "The panel saw the shift here. Not week 3. Not week 4."
+          }
+        }
+      },
+      "block_order": [
+        "s0",
+        "s1",
+        "s2",
+        "s3",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "settings": {
+        "eyebrow": "The panel, in full",
+        "heading": "Four in a hundred saw <em>nothing at all</em>.",
+        "intro": "<p>Every brand publishes the number that flatters it. Here is the whole readout, starting with the one that doesn't — because a company that hides its failure rate is not a company you can check.</p>",
+        "quote": "<p>I'd rather refund 312 women than keep money that didn't help.</p>",
+        "quote_who": "Margot Vidal, founder",
+        "provenance": "<p>Every figure on this card is already published on the product page and in the founder's letter. Nothing here is new, and nothing here is a customer quote — we don't print those until a real customer has written one.</p>",
+        "container": "measure",
+        "padding_top": 24,
+        "padding_bottom": 24,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
     }
   },
   "order": [
@@ -789,10 +859,10 @@
     "blk2",
     "blk3",
     "blk4",
-    "quiz1",
     "blk5",
     "blk6",
     "blk7",
+    "panel",
     "blk9",
     "blk10",
     "blk11",

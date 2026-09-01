@@ -1,0 +1,165 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — The panel readout
+  ══════════════════════════════════════════════════════════════════════
+  Proof without a single testimonial.
+
+  Every figure this section can display already exists on the brand's own
+  live pages — the advertorial masthead and the product page FAQ. Nothing
+  here is new evidence; it is evidence the store already publishes,
+  gathered into one card instead of scattered across two pages and hidden
+  inside an accordion.
+
+  The idea it is built around:
+
+    "4 out of 100 women in our panel saw no change at all. If you're in
+     that 4 out of 100, the 60-day refund is why."
+
+  That sentence is currently the ninth answer in a collapsed FAQ. It is
+  the most credible thing on the entire store, because a brand that
+  publishes the number that did not go its way has no reason to be lying
+  about the ones that did. So this section leads with it, and says out
+  loud that it is leading with it.
+
+  What the schema will not let you do, on purpose:
+
+    · There is no star rating, no review text, no attribution field.
+      This is not a testimonial block and cannot be turned into one.
+    · Every stat carries a required `source` — where on the store the
+      figure is published. A number with nowhere to point does not belong
+      on this card.
+    · There is no "up to", no "results may vary" hedge and no rounding
+      field. The figures go up exactly as the store states them.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign stats = section.blocks | where: 'type', 'stat'
+  assign phases = section.blocks | where: 'type', 'phase'
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+<div class="rf">
+  <div class="rf-w{{ wide }}">
+    <section class="rf-panel">
+
+      {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+      {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+      {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+      {%- if stats.size > 0 -%}
+        <dl class="rf-panel-grid">
+          {%- for block in stats -%}
+            {%- assign b = block.settings -%}
+            <div class="rf-panel-stat{% if b.is_counter %} rf-panel-stat--counter{% endif %}"
+                 {{ block.shopify_attributes }}>
+              <dt class="rf-panel-fig">{{ b.figure }}</dt>
+              <dd class="rf-panel-lab">
+                {{ b.label }}
+                {%- if b.source != blank -%}
+                  <span class="rf-panel-src">{{ b.source }}</span>
+                {%- endif -%}
+              </dd>
+            </div>
+          {%- endfor -%}
+        </dl>
+      {%- endif -%}
+
+      {%- if phases.size > 0 -%}
+        <ol class="rf-panel-phases">
+          {%- for block in phases -%}
+            {%- assign b = block.settings -%}
+            <li {{ block.shopify_attributes }}>
+              <span class="rf-panel-when">{{ b.when }}</span>
+              <span class="rf-panel-what">
+                {%- if b.title != blank -%}<b>{{ b.title }}</b> {% endif -%}
+                {{ b.body }}
+              </span>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+
+      {%- if s.quote != blank -%}
+        <figure class="rf-panel-quote">
+          <blockquote>{{ s.quote }}</blockquote>
+          {%- if s.quote_who != blank -%}
+            <figcaption>{{ s.quote_who }}</figcaption>
+          {%- endif -%}
+        </figure>
+      {%- endif -%}
+
+      {%- if s.provenance != blank -%}
+        <div class="rf-panel-note rf-prose">{{ s.provenance }}</div>
+      {%- endif -%}
+
+    </section>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Rosalia — Panel readout",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Figures the store already publishes elsewhere. Every stat needs a source. No reviews, no ratings, no quotes from customers — this is not a testimonial block." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+
+    { "type": "header", "content": "Founder line" },
+    { "type": "richtext", "id": "quote", "label": "Quote", "info": "The founder's own words, already published. Never a customer's." },
+    { "type": "text", "id": "quote_who", "label": "Attribution" },
+
+    { "type": "header", "content": "Provenance" },
+    {
+      "type": "richtext", "id": "provenance", "label": "Where these come from",
+      "info": "Say where a reader can check the figures. If you cannot say, do not run the card."
+    },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Width", "default": "measure",
+      "options": [ { "value": "measure", "label": "Article column" }, { "value": "wide", "label": "Wide" } ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 80, "step": 4, "default": 24, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 80, "step": 4, "default": 24, "unit": "px" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    {
+      "type": "stat", "name": "Figure", "limit": 6,
+      "settings": [
+        { "type": "text", "id": "figure", "label": "Figure" },
+        { "type": "text", "id": "label", "label": "What it counts" },
+        { "type": "text", "id": "source", "label": "Published where", "info": "Required. The page a reader can check this on." },
+        { "type": "checkbox", "id": "is_counter", "label": "This is the one that did not go our way", "default": false, "info": "Marks the figure as the counter-evidence. Use it on at most one." }
+      ]
+    },
+    {
+      "type": "phase", "name": "Phase", "limit": 5,
+      "settings": [
+        { "type": "text", "id": "when", "label": "When" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "body", "label": "Body" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Panel readout" } ]
+}
+{% endschema %}

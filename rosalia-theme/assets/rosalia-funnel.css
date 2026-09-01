@@ -930,3 +930,123 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* ---------- Panel readout ------------------------------------------------
+   Proof made of figures rather than faces. The counter-figure — the one
+   that did not go the brand's way — is the only one given the accent, and
+   it sits first. That inversion is the whole point of the card: a page
+   that leads with its own failure rate is making a claim about its
+   honesty that a five-star row cannot make. */
+
+.rf-panel { margin: 8px 0; }
+
+.rf-panel-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin: 24px 0 0;
+  padding: 0;
+  background: var(--rf-rule);
+  border: 1px solid var(--rf-rule);
+}
+.rf-panel-stat {
+  margin: 0;
+  padding: 18px 16px;
+  background: var(--rf-paper);
+}
+/* The counter-figure. Accent, and it spans the row so nothing sits beside
+   it competing for the eye. */
+.rf-panel-stat--counter {
+  grid-column: 1 / -1;
+  background: var(--rf-wash);
+  border-left: 3px solid var(--rf-accent);
+}
+.rf-panel-fig {
+  font-family: var(--rf-serif);
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--rf-ink);
+  margin: 0;
+}
+.rf-panel-stat--counter .rf-panel-fig { color: var(--rf-accent); font-size: 34px; }
+.rf-panel-lab {
+  margin: 7px 0 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--rf-body);
+}
+.rf-panel-src {
+  display: block;
+  margin-top: 5px;
+  font-family: var(--rf-sans);
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  color: var(--rf-faint);
+}
+
+/* Phases ---------------------------------------------------------------- */
+
+.rf-panel-phases { list-style: none; margin: 26px 0 0; padding: 0; }
+.rf-panel-phases li {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-top: 1px solid var(--rf-rule);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+.rf-panel-phases li:last-child { border-bottom: 1px solid var(--rf-rule); }
+.rf-panel-when {
+  font-family: var(--rf-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+  padding-top: 3px;
+}
+.rf-panel-what { color: var(--rf-body); }
+.rf-panel-what b { color: var(--rf-ink); font-weight: 600; }
+
+/* Founder line ---------------------------------------------------------- */
+
+.rf-panel-quote { margin: 28px 0 0; padding: 0; }
+.rf-panel-quote blockquote {
+  margin: 0;
+  padding: 0 0 0 18px;
+  border-left: 2px solid var(--rf-accent);
+  font-family: var(--rf-serif);
+  font-size: 21px;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--rf-ink);
+}
+.rf-panel-quote blockquote p { margin: 0; }
+.rf-panel-quote figcaption {
+  margin: 10px 0 0 20px;
+  font-family: var(--rf-sans);
+  font-size: 13px;
+  color: var(--rf-muted);
+}
+
+.rf-panel-note {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rf-rule);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--rf-muted);
+}
+.rf-panel-note > p { margin: 0 0 8px; }
+.rf-panel-note > p:last-child { margin-bottom: 0; }
+
+@media (min-width: 661px) {
+  .rf-panel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .rf-panel-fig { font-size: 34px; }
+  .rf-panel-stat--counter .rf-panel-fig { font-size: 40px; }
+  .rf-panel-phases li { grid-template-columns: 104px 1fr; }
+  .rf-panel-quote blockquote { font-size: 23px; }
+}
