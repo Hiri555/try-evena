@@ -749,6 +749,64 @@
         "background": "#FAF5F0",
         "text_color": "#2B2620"
       }
+    },
+    "grid": {
+      "type": "rosalia-funnel-grid",
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/rosalia-life-shelf.jpg",
+            "alt": "The Rosalia serum on a cluttered bathroom shelf beside a toothbrush glass in morning light",
+            "line": "Six actives, and the dose of every one printed on the bottle.",
+            "label": "The formula"
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/rosalia-life-bedside.jpg",
+            "alt": "The Rosalia serum on a bedside table beside a paperback and a water glass under lamp light",
+            "line": "Eight weeks of two minutes a night. Not a fourteen-day promise.",
+            "label": "The timeline"
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/rosalia-life-sink.jpg",
+            "alt": "The Rosalia serum on the lip of a white ceramic bathroom sink in cool daylight",
+            "line": "Sixty days. Opened bottles count. No forms, no return shipping.",
+            "label": "The refund"
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/rosalia-life-bag.jpg",
+            "alt": "The Rosalia serum inside an open handbag on a kitchen counter beside keys",
+            "line": "Four women in a hundred saw nothing at all. We print that one too.",
+            "label": "The panel"
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "settings": {
+        "eyebrow": "No stock photography",
+        "heading": "The bottle, and four things you can check.",
+        "intro": "<p>Not borrowed strangers and not a number anyone made up. Every line under these four is published somewhere you can go and read it.</p>",
+        "footnote": "<p>Customer photographs and reviews appear here as soon as there are real ones. Until then this space carries what we can stand behind.</p>",
+        "container": "wide",
+        "padding_top": 28,
+        "padding_bottom": 28,
+        "background": "#FAF5F0",
+        "text_color": "#2B2620"
+      }
     }
   },
   "order": [
@@ -762,6 +820,7 @@
     "blk6",
     "blk7",
     "panel",
+    "grid",
     "blk9",
     "blk11",
     "blk12",
