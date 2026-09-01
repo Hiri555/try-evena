@@ -128,9 +128,9 @@ SLOTS = [
             "embossing. No props, no hands, no bathroom shelf, no water droplets, "
             "no foliage. Square-on, eye level, centred low in a wide frame.",
         'note':
-            "Generated stand-in, deliberately unlabelled so it can never read as "
-            "the real packaging. Replace with a photograph of the actual bottle "
-            "before this page carries paid traffic.",
+            "Superseded by bottle-ledge, which carries the real label. The "
+            "unlabelled version stays in the manifest as the safe default: "
+            "generate a bare bottle until the branding is described exactly.",
     },
 
     # ---- flusher listicle --------------------------------------------------

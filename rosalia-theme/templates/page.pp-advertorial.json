@@ -709,11 +709,11 @@
         "image8": {
           "type": "image",
           "settings": {
-            "alt": "A single amber glass serum bottle on a plain surface in morning window light",
-            "placeholder_note": "PRODUCT — the real Rosalia bottle, single, plain surface, morning window light. No props, no hands, no bathroom shelf. (Generated asset — placeholder for the image pipeline.)",
+            "alt": "The Rosalia Anti-Redness Serum bottle standing alone on a plaster ledge in hard morning light",
+            "placeholder_note": "PRODUCT — the Rosalia bottle, single, plain surface, morning window light. No props, no hands, no bathroom shelf.",
             "caption": "",
             "loading": "lazy",
-            "image": "shopify://shop_images/rosalia-product-bottle.jpg"
+            "image": "shopify://shop_images/rosalia-bottle-ledge.jpg"
           }
         },
         "inci9": {
