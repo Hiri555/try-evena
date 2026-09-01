@@ -8,10 +8,28 @@
                 supply is discovered at checkout, not merchandised here.
     "bundles" — the listicle PDP. Three tiers, one marked "most chosen".
 
-  Deliberate omissions, and they are not oversights:
-    · There is NO compare-at / "was" / "save %" setting anywhere in this
-      schema. The offer has no anchor price, so one cannot be typed in.
-    · There is no countdown, no stock counter and no scarcity string.
+  On the "was" price, because this changed and the reason matters:
+
+    This schema originally had no compare-at field at all — no "was", no
+    "save %". With no verified anchor to point at, the only thing such a
+    field can hold is a number invented to flatter the discount, and the
+    safest schema is one you cannot type that into.
+
+    The store then turned out to run a real bundle. Two bottles are two
+    times forty-five, ninety dollars, and the cart charges seventy-two:
+    an eighteen-dollar discount titled "The 8-Week Reset · 2 bottles",
+    confirmed by reading /cart.js back after a real add. The anchor is
+    arithmetic on the single-bottle price, not a marketing number, so the
+    fields exist now — and their schema info says exactly what they are
+    allowed to hold.
+
+    Before changing any of these, add the quantity to a real cart and
+    read the total back. If the page and the cart disagree, the page is
+    wrong.
+
+  Still deliberately absent, and these are not oversights:
+    · No countdown, no stock counter, no scarcity string.
+    · No "only N left", no fake urgency of any kind.
 
   Buying: add a Kaching app block for the real bundle mechanics, or point
   the button at the PDP / cart. Both paths are supported; neither is
@@ -77,8 +95,17 @@
                 <span class="rf-bd-badge">{{ b.badge_text }}</span>
               {%- endif -%}
               {%- if b.qty_label != blank -%}<span class="rf-qty">{{ b.qty_label }}</span>{%- endif -%}
-              {%- if b.price != blank -%}<span class="rf-bd-price">{{ b.price }}</span>{%- endif -%}
+
+              <span class="rf-bd-money">
+                {%- if b.price != blank -%}<span class="rf-bd-price">{{ b.price }}</span>{%- endif -%}
+                {%- if b.compare_price != blank -%}
+                  <s class="rf-bd-was"><span class="rf-sr">Regular price </span>{{ b.compare_price }}</s>
+                {%- endif -%}
+              </span>
+
+              {%- if b.save_text != blank -%}<span class="rf-bd-save">{{ b.save_text }}</span>{%- endif -%}
               {%- if b.promise != blank -%}<span class="rf-promise">{{ b.promise }}</span>{%- endif -%}
+              {%- if b.perk != blank -%}<span class="rf-bd-perk">{{ b.perk }}</span>{%- endif -%}
             </{{ tag }}>
           {%- endfor -%}
         </div>
@@ -182,8 +209,17 @@
       "type": "tier", "name": "Bundle tier", "limit": 4,
       "settings": [
         { "type": "text", "id": "qty_label", "label": "Quantity label" },
-        { "type": "text", "id": "price", "label": "Price" },
+        { "type": "text", "id": "price", "label": "Price", "info": "What the cart actually charges. Check it against /cart.js before shipping a change." },
+        {
+          "type": "text", "id": "compare_price", "label": "Was",
+          "info": "ONLY for a discount the cart really applies — quantity × single-bottle price. Leave empty on the single-bottle tier. Never a number invented to make the saving look bigger."
+        },
+        {
+          "type": "text", "id": "save_text", "label": "Saving",
+          "info": "Must agree with the two prices above. If Was and Price do not produce this percentage, the page is lying."
+        },
         { "type": "text", "id": "promise", "label": "Promise line" },
+        { "type": "text", "id": "perk", "label": "Perk line", "info": "e.g. free shipping — only where the tier genuinely earns it." },
         { "type": "checkbox", "id": "featured", "label": "Most chosen", "default": false },
         { "type": "text", "id": "badge_text", "label": "Badge text", "default": "Most chosen" },
         { "type": "url", "id": "url", "label": "Link" }

@@ -518,7 +518,7 @@
       "type": "rosalia-funnel-offer",
       "settings": {
         "layout": "bundles",
-        "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. The eight-week option works out at <strong>about $10 a week</strong> — because $82 is a decision and about $10 a week is a comparison.</p>",
+        "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. The eight-week option works out at <strong>about $9 a week</strong> — because $72 is a decision and about $9 a week is a comparison.</p>",
         "heading": "The arithmetic, <em>in weeks</em>.",
         "eyebrow": "",
         "product_name": "",
@@ -541,34 +541,43 @@
         "tier1": {
           "type": "tier",
           "settings": {
-            "qty_label": "The Tolerance Check — 1 bottle · 30 ml · 4 weeks",
-            "price": "$45",
+            "qty_label": "Starter · 1 bottle",
+            "price": "$45.00",
             "promise": "See whether your skin takes it.",
             "featured": false,
             "badge_text": "",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=1",
+            "compare_price": "",
+            "save_text": "",
+            "perk": ""
           }
         },
         "tier2": {
           "type": "tier",
           "settings": {
-            "qty_label": "The 8-Week Reset — 2 bottles · 8 weeks",
-            "price": "$82",
-            "promise": "The full window, at about $10 a week.",
+            "qty_label": "The 8-Week Reset · 2 bottles",
+            "price": "$72.00",
+            "promise": "The full window, at about $9 a week.",
             "featured": true,
             "badge_text": "Most chosen",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=2",
+            "compare_price": "$90.00",
+            "save_text": "Save 20%",
+            "perk": "Free shipping"
           }
         },
         "tier3": {
           "type": "tier",
           "settings": {
-            "qty_label": "The Full Reset — 3 bottles · 12 weeks",
-            "price": "$114",
+            "qty_label": "The Full Reset · 3 bottles",
+            "price": "$95.00",
             "promise": "Through weaning and past it.",
             "featured": false,
             "badge_text": "",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=3",
+            "compare_price": "$135.00",
+            "save_text": "Save 30%",
+            "perk": "Free shipping"
           }
         },
         "badge1": {
@@ -592,7 +601,7 @@
         "badge4": {
           "type": "badge",
           "settings": {
-            "text": "Free US shipping"
+            "text": "Free shipping over $60"
           }
         }
       },
@@ -691,8 +700,8 @@
         "qa2": {
           "type": "qa",
           "settings": {
-            "question": "$82 is money I'd rather spend on the baby.",
-            "answer": "<p>Fair, and we're not going to argue you out of it. It's about $10 a week — check that against what you've already spent on things you stopped using. And the 60-day refund means the money isn't at risk.</p><p>If it's still not the right month, the article will be here.</p>",
+            "question": "$72 is money I'd rather spend on the baby.",
+            "answer": "<p>Fair, and we're not going to argue you out of it. It's about $9 a week — check that against what you've already spent on things you stopped using. And the 60-day refund means the money isn't at risk.</p><p>If it's still not the right month, the article will be here.</p>",
             "open": false
           }
         },

@@ -261,7 +261,7 @@
         "heading": "Which of the five is loudest in yours?",
         "body": "Sixteen questions about when it starts, how long it stays, what it does after. 60 seconds. You see your profile before we ask for an email.",
         "button_label": "Find out which of the five is yours →",
-        "button_url": "/pages/quiz-flush",
+        "button_url": "/pages/quiz-flusher",
         "fine_print": "",
         "full_width": false,
         "container": "measure",
@@ -551,10 +551,10 @@
         "button_label": "Start the 8 weeks →",
         "button_url": "/products/daily-reset-serum",
         "secondary_label": "",
-        "secondary_url": "/pages/quiz-flush",
+        "secondary_url": "/pages/quiz-flusher",
         "reassurance": "",
         "guarantee": "",
-        "footnote": "about $10 a week. The comparison that matters isn't $82 against $45 — it's $82 against another year of the forty minutes.",
+        "footnote": "about $9 a week. The comparison that matters isn't $72 against $45 — it's $72 against another year of the forty minutes.",
         "container": "measure",
         "padding_top": 24,
         "padding_bottom": 24,
@@ -565,34 +565,43 @@
         "tier1": {
           "type": "tier",
           "settings": {
-            "qty_label": "The Tolerance Check — 1 bottle · 30 ml · 4 weeks",
-            "price": "$45",
+            "qty_label": "Starter · 1 bottle",
+            "price": "$45.00",
             "promise": "See whether your skin takes it.",
             "featured": false,
             "badge_text": "",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=1",
+            "compare_price": "",
+            "save_text": "",
+            "perk": ""
           }
         },
         "tier2": {
           "type": "tier",
           "settings": {
-            "qty_label": "The 8-Week Reset — 2 bottles · 8 weeks",
-            "price": "$82",
+            "qty_label": "The 8-Week Reset · 2 bottles",
+            "price": "$72.00",
             "promise": "A workday where nobody mentions your face.",
             "featured": true,
             "badge_text": "Most chosen",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=2",
+            "compare_price": "$90.00",
+            "save_text": "Save 20%",
+            "perk": "Free shipping"
           }
         },
         "tier3": {
           "type": "tier",
           "settings": {
-            "qty_label": "The Full Reset — 3 bottles · 12 weeks",
-            "price": "$114",
+            "qty_label": "The Full Reset · 3 bottles",
+            "price": "$95.00",
             "promise": "Through a full trigger season.",
             "featured": false,
             "badge_text": "",
-            "url": ""
+            "url": "/cart/add?id=45899540791340&quantity=3",
+            "compare_price": "$135.00",
+            "save_text": "Save 30%",
+            "perk": "Free shipping"
           }
         },
         "badge1": {
@@ -616,7 +625,7 @@
         "badge4": {
           "type": "badge",
           "settings": {
-            "text": "Free US shipping"
+            "text": "Free shipping over $60"
           }
         }
       },
@@ -679,7 +688,7 @@
           "type": "button",
           "settings": {
             "label": "Not sure yet? Find your loop first →",
-            "url": "/pages/quiz-flush",
+            "url": "/pages/quiz-flusher",
             "style": "quiet"
           }
         }
@@ -707,8 +716,8 @@
         "qa1": {
           "type": "qa",
           "settings": {
-            "question": "$82 is more than I want to risk on a maybe.",
-            "answer": "<p>Right objection after six failures. It's about $10 a week against what you already spend on concealer and on the products you abandon half-used.</p><p>And the 60-day refund means the money isn't at risk — no forms, no return shipping, opened bottles count. The only real commitment is eight weeks of two minutes a day.</p>",
+            "question": "$72 is more than I want to risk on a maybe.",
+            "answer": "<p>Right objection after six failures. It's about $9 a week against what you already spend on concealer and on the products you abandon half-used.</p><p>And the 60-day refund means the money isn't at risk — no forms, no return shipping, opened bottles count. The only real commitment is eight weeks of two minutes a day.</p>",
             "open": false
           }
         },

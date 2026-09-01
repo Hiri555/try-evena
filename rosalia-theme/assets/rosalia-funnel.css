@@ -880,3 +880,53 @@
   .rfq-result { padding: 30px 30px; }
   .rfq-result .rf-btn { width: auto; min-width: 280px; }
 }
+
+/* Bundle tier — the real saving ------------------------------------------
+   Price and struck "was" sit on one baseline; the saving, the promise and
+   the perk each take their own row. The "was" is only ever quantity times
+   the single-bottle price, so it stays quiet — it is arithmetic the reader
+   can do, not a claim to shout. */
+
+.rf-bd-money { display: inline-flex; align-items: baseline; gap: 10px; }
+.rf-bd-was {
+  font-family: var(--rf-sans);
+  font-size: 15px;
+  color: var(--rf-faint);
+  text-decoration-thickness: 1px;
+}
+.rf-bd-save {
+  flex-basis: 100%;
+  align-self: flex-start;
+  margin-top: 6px;
+  padding: 3px 9px;
+  border-radius: 2px;
+  background: var(--rf-wash);
+  font-family: var(--rf-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--rf-accent);
+}
+/* Save is a badge, so it must not stretch the full row width. */
+.rf-bd-save { flex-basis: auto; }
+.rf-bd-perk {
+  flex-basis: 100%;
+  margin-top: 4px;
+  font-family: var(--rf-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+}
+
+/* Screen-reader-only, for the "Regular price" prefix on a struck figure. */
+.rf-sr {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
