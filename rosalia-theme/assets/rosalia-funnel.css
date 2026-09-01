@@ -210,7 +210,15 @@
 /* ---------- Figures + images -------------------------------------------- */
 
 .rf-figure { margin: 26px 0 28px; }
-.rf-figure img { width: 100%; }
+/* image_tag emits real width/height attributes, which is what reserves the
+   box and keeps CLS at zero. Without height:auto those attributes win and
+   the picture is stretched to its intrinsic height at 100% width — invisible
+   while the slots were empty, obvious the moment a real asset lands. */
+.rf-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .rf-figcap {
   margin-top: 10px;
   font-size: 13px;
