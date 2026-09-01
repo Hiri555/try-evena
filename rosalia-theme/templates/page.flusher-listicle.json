@@ -261,7 +261,7 @@
         "heading": "Which of the five is loudest in yours?",
         "body": "Sixteen questions about when it starts, how long it stays, what it does after. 60 seconds. You see your profile before we ask for an email.",
         "button_label": "Find out which of the five is yours →",
-        "button_url": "/pages/quiz-flusher",
+        "button_url": "shopify://products/daily-reset-serum",
         "fine_print": "",
         "full_width": false,
         "container": "measure",
@@ -450,28 +450,6 @@
         "item4"
       ]
     },
-    "blk8": {
-      "type": "rosalia-funnel-proof",
-      "settings": {
-        "eyebrow": "",
-        "heading": "Look at the right-hand frame. <em>She's still pink.</em>",
-        "intro": "<p>Cheeks still warmer than the rest of her face. What's gone is the layer on top — the bumps, the rawness, the patches that made strangers ask.</p><p><strong>That's what eight to twelve weeks looks like.</strong> Not a different face. The same one, with the loud part turned down.</p>",
-        "empty_state": "<p>Real ones, or this space stays empty.</p>",
-        "show_media_slots": true,
-        "before_alt": "The same woman before and after in identical lighting: heavy flushing across forehead, nose and both cheeks with visible papules, then calmer skin with residual redness still present.",
-        "after_alt": "[PLACEHOLDER — real five-star review card. Real verified customer only, never a fabricated quote.]",
-        "before_note": "Upload the asset for: img/rosalia-ba-flush.jpg",
-        "after_note": "Upload the asset for: img/rosalia-review.jpg",
-        "before_caption": "<p>Week 0 and Week 10. Same bathroom, same time of day, no makeup either time.</p>",
-        "after_caption": "",
-        "panel_note": "<p>[PLACEHOLDER — real verified-customer quote, her own words, unedited. Until there is a real one, leave it out rather than invent it.] [First name · verified purchase · week X of 8]</p>",
-        "container": "measure",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "background": "#FAF5F0",
-        "text_color": "#2B2620"
-      }
-    },
     "blk9": {
       "type": "rosalia-funnel-timeline",
       "settings": {
@@ -543,7 +521,7 @@
       "settings": {
         "layout": "bundles",
         "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. A two-week supply would be us selling you a disappointment.</p>",
-        "heading": "Eight weeks is <em>the unit</em>.",
+        "heading": "Eight weeks is the unit.",
         "eyebrow": "",
         "product_name": "",
         "size_line": "",
@@ -551,10 +529,10 @@
         "button_label": "Start the 8 weeks →",
         "button_url": "/products/daily-reset-serum",
         "secondary_label": "",
-        "secondary_url": "/pages/quiz-flusher",
+        "secondary_url": "shopify://products/daily-reset-serum",
         "reassurance": "",
         "guarantee": "",
-        "footnote": "about $9 a week. The comparison that matters isn't $72 against $45 — it's $72 against another year of the forty minutes.",
+        "footnote": "",
         "container": "measure",
         "padding_top": 24,
         "padding_bottom": 24,
@@ -815,7 +793,6 @@
     "blk5",
     "blk6",
     "blk7",
-    "blk8",
     "blk9",
     "blk10",
     "blk11",

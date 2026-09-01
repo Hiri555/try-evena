@@ -426,28 +426,6 @@
         "item4"
       ]
     },
-    "blk8": {
-      "type": "rosalia-funnel-proof",
-      "settings": {
-        "eyebrow": "",
-        "heading": "Look at the right frame. <em>She's still pink.</em>",
-        "intro": "<p>Cheeks still warmer than the rest of her face. What's gone is the layer on top — the bumps, the rawness, the patches that made strangers ask.</p>",
-        "empty_state": "<p>Real ones, or this space stays empty.</p>",
-        "show_media_slots": true,
-        "before_alt": "[PLACEHOLDER — real five-star review card. Real verified customer only, never a fabricated quote.]",
-        "after_alt": "",
-        "before_note": "Upload the asset for: img/rosalia-review.jpg",
-        "after_note": "",
-        "before_caption": "<p>Week 0 and Week 10. Same bathroom, same time of day, no makeup either time.</p>",
-        "after_caption": "",
-        "panel_note": "<p>[PLACEHOLDER — real verified-customer quote, her own words, unedited. Until there is a real one, leave it out rather than invent it.] [First name · verified purchase · week X of 8]</p>",
-        "container": "measure",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "background": "#FAF5F0",
-        "text_color": "#2B2620"
-      }
-    },
     "blk9": {
       "type": "rosalia-funnel-timeline",
       "settings": {
@@ -791,7 +769,6 @@
     "blk5",
     "blk6",
     "blk7",
-    "blk8",
     "blk9",
     "blk10",
     "blk11",
