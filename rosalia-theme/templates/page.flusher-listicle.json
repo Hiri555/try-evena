@@ -499,107 +499,6 @@
         "ms4"
       ]
     },
-    "blk10": {
-      "type": "rosalia-funnel-offer",
-      "settings": {
-        "layout": "bundles",
-        "intro": "<p>Six actives at clinical doses, in a base built to carry azelaic acid without stinging. A two-week supply would be us selling you a disappointment.</p>",
-        "heading": "Eight weeks is the unit.",
-        "eyebrow": "",
-        "product_name": "",
-        "size_line": "",
-        "price": "",
-        "button_label": "Start the 8 weeks →",
-        "button_url": "/products/daily-reset-serum",
-        "secondary_label": "",
-        "secondary_url": "shopify://products/daily-reset-serum",
-        "reassurance": "",
-        "guarantee": "",
-        "footnote": "",
-        "container": "measure",
-        "padding_top": 24,
-        "padding_bottom": 24,
-        "background": "#FAF5F0",
-        "text_color": "#2B2620"
-      },
-      "blocks": {
-        "tier1": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "Starter · 1 bottle",
-            "price": "$45.00",
-            "promise": "See whether your skin takes it.",
-            "featured": false,
-            "badge_text": "",
-            "url": "/cart/add?id=45899540791340&quantity=1",
-            "compare_price": "",
-            "save_text": "",
-            "perk": ""
-          }
-        },
-        "tier2": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "The 8-Week Reset · 2 bottles",
-            "price": "$72.00",
-            "promise": "A workday where nobody mentions your face.",
-            "featured": true,
-            "badge_text": "Most chosen",
-            "url": "/cart/add?id=45899540791340&quantity=2",
-            "compare_price": "$90.00",
-            "save_text": "Save 20%",
-            "perk": "Free shipping"
-          }
-        },
-        "tier3": {
-          "type": "tier",
-          "settings": {
-            "qty_label": "The Full Reset · 3 bottles",
-            "price": "$95.00",
-            "promise": "Through a full trigger season.",
-            "featured": false,
-            "badge_text": "",
-            "url": "/cart/add?id=45899540791340&quantity=3",
-            "compare_price": "$135.00",
-            "save_text": "Save 30%",
-            "perk": "Free shipping"
-          }
-        },
-        "badge1": {
-          "type": "badge",
-          "settings": {
-            "text": "60-day full refund"
-          }
-        },
-        "badge2": {
-          "type": "badge",
-          "settings": {
-            "text": "Opened bottles count"
-          }
-        },
-        "badge3": {
-          "type": "badge",
-          "settings": {
-            "text": "No forms"
-          }
-        },
-        "badge4": {
-          "type": "badge",
-          "settings": {
-            "text": "Free shipping over $60"
-          }
-        }
-      },
-      "block_order": [
-        "tier1",
-        "tier2",
-        "tier3",
-        "badge1",
-        "badge2",
-        "badge3",
-        "badge4"
-      ]
-    },
     "blk11": {
       "type": "rosalia-funnel-block",
       "settings": {
@@ -864,7 +763,6 @@
     "blk7",
     "panel",
     "blk9",
-    "blk10",
     "blk11",
     "blk12",
     "footer"

@@ -1,0 +1,133 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — Card grid
+  ══════════════════════════════════════════════════════════════════════
+  The four-up card grid: square image, a line under it, a small label.
+
+  It is built to hold two different things, and the difference matters.
+
+  1. REVIEWS. Add the review app's block and real customer photo reviews
+     render here in this layout. That is the version with faces, stars
+     and first names, and it fills the day there are real ones. Loox is
+     already installed on this store and produces exactly this shape.
+
+  2. CARDS. Until then, the same grid carries the product in real
+     conditions with one true line under each: what is in the bottle,
+     how long it takes, what the refund is, what the panel found.
+
+  What it will not hold is the third thing: invented customers. There is
+  no field in this schema for a star rating or a person's name, because
+  a testimonial from someone who does not exist is a fabricated
+  endorsement — illegal to publish in the US market this store sells
+  into, and against the editorial-standards page linked from the footer
+  of every funnel page. Real reviews come through the app block, which
+  can only show reviews somebody actually wrote.
+{%- endcomment -%}
+
+{%- render 'rosalia-funnel-assets' -%}
+
+{%- liquid
+  assign s = section.settings
+  assign cards = section.blocks | where: 'type', 'card'
+  assign app_blocks = section.blocks | where: 'type', '@app'
+  assign wide = ''
+  if s.container == 'wide'
+    assign wide = ' rf-w--wide'
+  endif
+-%}
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background: {{ s.background | default: '#FAF5F0' }};
+    color: {{ s.text_color | default: '#2B2620' }};
+    padding-block: {{ s.padding_top }}px {{ s.padding_bottom }}px;
+  }
+</style>
+
+{%- if cards.size > 0 or app_blocks.size > 0 -%}
+  <div class="rf">
+    <div class="rf-w{{ wide }}">
+      <section class="rf-grid-sec">
+
+        {%- if s.eyebrow != blank -%}<p class="rf-eyebrow">{{ s.eyebrow }}</p>{%- endif -%}
+        {%- if s.heading != blank -%}<h2 class="rf-h2">{{ s.heading }}</h2>{%- endif -%}
+        {%- if s.intro != blank -%}<div class="rf-prose">{{ s.intro }}</div>{%- endif -%}
+
+        {%- comment -%} Real reviews, when the app has some. {%- endcomment -%}
+        {%- if app_blocks.size > 0 -%}
+          <div class="rf-grid-app">
+            {%- for block in app_blocks -%}
+              <div {{ block.shopify_attributes }}>{%- render block -%}</div>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if cards.size > 0 -%}
+          <ul class="rf-grid">
+            {%- for block in cards -%}
+              {%- assign b = block.settings -%}
+              <li class="rf-card" {{ block.shopify_attributes }}>
+                {%- if b.image != blank -%}
+                  <div class="rf-card-img">
+                    {{ b.image
+                       | image_url: width: 800
+                       | image_tag:
+                           widths: '300, 460, 600, 800',
+                           sizes: '(min-width: 900px) 260px, (min-width: 560px) 44vw, 88vw',
+                           loading: 'lazy',
+                           alt: b.alt }}
+                  </div>
+                {%- endif -%}
+                {%- if b.line != blank -%}<p class="rf-card-line">{{ b.line }}</p>{%- endif -%}
+                {%- if b.label != blank -%}<p class="rf-card-label">{{ b.label }}</p>{%- endif -%}
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        {%- if s.footnote != blank -%}
+          <div class="rf-grid-note rf-prose">{{ s.footnote }}</div>
+        {%- endif -%}
+
+      </section>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Rosalia — Card grid",
+  "class": "shopify-section--rosalia-funnel",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Add your review app's block for real photo reviews. The cards below are for the product in real conditions — one true line each. Never a quote from a customer who did not write it." },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "richtext", "id": "intro", "label": "Intro" },
+    { "type": "richtext", "id": "footnote", "label": "Footnote" },
+
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "select", "id": "container", "label": "Width", "default": "wide",
+      "options": [ { "value": "measure", "label": "Article column" }, { "value": "wide", "label": "Wide" } ]
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding top", "min": 0, "max": 80, "step": 4, "default": 28, "unit": "px" },
+    { "type": "range", "id": "padding_bottom", "label": "Padding bottom", "min": 0, "max": 80, "step": 4, "default": 28, "unit": "px" },
+    { "type": "color", "id": "background", "label": "Background", "default": "#FAF5F0" },
+    { "type": "color", "id": "text_color", "label": "Text", "default": "#2B2620" }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "card", "name": "Card", "limit": 4,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image", "info": "Square. The product in a real setting — not a person, unless it is a real customer who gave permission." },
+        { "type": "text", "id": "alt", "label": "Alt text" },
+        { "type": "text", "id": "line", "label": "Line", "info": "Something true and checkable. Not a quote attributed to anybody." },
+        { "type": "text", "id": "label", "label": "Label" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Rosalia — Card grid" } ]
+}
+{% endschema %}
