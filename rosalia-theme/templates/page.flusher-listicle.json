@@ -756,37 +756,41 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-shelf.jpg",
-            "alt": "The Rosalia serum on a cluttered bathroom shelf beside a toothbrush glass in morning light",
-            "line": "Six actives, and the dose of every one printed on the bottle.",
-            "label": "The formula"
+            "image": "shopify://shop_images/rosalia-grid-mat-azelaic.png",
+            "alt": "A shallow dark dish of fine white azelaic acid powder on a slate surface",
+            "figure": "10%",
+            "label": "Azelaic acid",
+            "line": "The one your dermatologist writes down. The prescription is 15% or 20%; this is the highest you can buy without one."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-bedside.jpg",
-            "alt": "The Rosalia serum on a bedside table beside a paperback and a water glass under lamp light",
-            "line": "Eight weeks of two minutes a night. Not a fourteen-day promise.",
-            "label": "The timeline"
+            "image": "shopify://shop_images/rosalia-grid-mat-centella.png",
+            "alt": "Dried centella asiatica leaves on dark slate",
+            "figure": "4%",
+            "label": "Centella asiatica",
+            "line": "For the barrier that stopped holding. Four percent is a working dose, not a trace for the label."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-sink.jpg",
-            "alt": "The Rosalia serum on the lip of a white ceramic bathroom sink in cool daylight",
-            "line": "Sixty days. Opened bottles count. No forms, no return shipping.",
-            "label": "The refund"
+            "image": "shopify://shop_images/rosalia-grid-mat-oat.png",
+            "alt": "A pale ceramic dish of finely milled colloidal oat powder on slate",
+            "figure": "1%",
+            "label": "Colloidal oat",
+            "line": "For the sting in the ninety seconds after you wash. It is the reason there is no menthol in here."
           }
         },
         "c4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-bag.jpg",
-            "alt": "The Rosalia serum inside an open handbag on a kitchen counter beside keys",
-            "line": "Four women in a hundred saw nothing at all. We print that one too.",
-            "label": "The panel"
+            "image": "shopify://shop_images/rosalia-grid-mat-root.png",
+            "alt": "Cut lengths of dried licorice root on a dark slate slab",
+            "figure": "0.4%",
+            "label": "Licochalcone A",
+            "line": "Drawn from licorice root. It does not constrict a vessel, so it cannot hide the red — it works on the heat underneath."
           }
         }
       },
@@ -797,10 +801,11 @@
         "c4"
       ],
       "settings": {
-        "eyebrow": "No stock photography",
-        "heading": "The bottle, and four things you can check.",
-        "intro": "<p>Not borrowed strangers and not a number anyone made up. Every line under these four is published somewhere you can go and read it.</p>",
-        "footnote": "<p>Customer photographs and reviews appear here as soon as there are real ones. Until then this space carries what we can stand behind.</p>",
+        "variant": "swatch",
+        "eyebrow": "Four of the six, unmixed",
+        "heading": "Every one of these is on the label, at this number.",
+        "intro": "<p>Not a blend, not a complex, not a proprietary anything. Six actives, each at a stated percentage, and no hyaluronic acid — the ingredient nearly every serum you have already tried leads with.</p>",
+        "footnote": "<p>The other two are panthenol B5 at 5% and niacinamide held at 3–5%, deliberately low. The full list and every percentage are on the product page.</p>",
         "container": "wide",
         "padding_top": 28,
         "padding_bottom": 28,

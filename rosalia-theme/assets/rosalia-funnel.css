@@ -1106,3 +1106,176 @@
   .rf-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
   .rf-card-line { font-size: 16.5px; }
 }
+
+/* ── Card grid · alternate shapes ─────────────────────────────────────
+   The four-up above is one of four. The other three exist because the
+   three funnel pages have three different readers, and running the same
+   tiled grid on all of them made the pages look generated. Each shape
+   below is a different reading rhythm, not a different colour.        */
+
+/* SWATCH — a spec sheet. Material photograph, the dose as a figure, the
+   name, one line. Column rules instead of card borders: this should
+   read like a printed table, not like four boxes.                    */
+.rf-swatch {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 0;
+  margin: 26px 0 0;
+  padding: 0;
+}
+.rf-sw {
+  margin: 0;
+  padding: 0 16px;
+  border-left: 1px solid var(--rf-rule);
+}
+.rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 0; padding-left: 0; }
+.rf-sw-img {
+  aspect-ratio: 1 / 1;
+  background: var(--rf-wash);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rf-sw-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rf-sw-fig {
+  margin: 14px 0 0;
+  font-family: var(--rf-serif);
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--rf-accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.rf-sw-lab {
+  margin: 7px 0 0;
+  font-family: var(--rf-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rf-ink);
+}
+.rf-sw-line {
+  margin: 8px 0 0;
+  font-family: var(--rf-serif);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--rf-muted);
+}
+
+/* ESSAY — two or three big photographs with the text beside them,
+   sides alternating. Fewer things, larger, more air. Stacks on a phone
+   with the image first every time; the alternation is a desktop
+   pleasure and a mobile annoyance.                                    */
+.rf-essay { margin: 26px 0 0; display: grid; gap: 30px; }
+.rf-es { display: grid; gap: 16px; margin: 0; }
+.rf-es-img {
+  aspect-ratio: 4 / 3;
+  background: var(--rf-wash);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rf-es-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rf-es-txt { align-self: center; }
+.rf-es-fig {
+  margin: 0 0 6px;
+  font-family: var(--rf-serif);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--rf-accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.rf-es-lab {
+  margin: 0 0 8px;
+  font-family: var(--rf-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+}
+.rf-es-line {
+  margin: 0;
+  font-family: var(--rf-serif);
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--rf-ink);
+}
+
+/* LEDGER — a vertical log. Marker, thumbnail, line, hairline rule.
+   Deliberately not a grid: this is the making-of, and a list reads as a
+   sequence of things that happened in an order.                       */
+.rf-ledger {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rf-rule);
+}
+.rf-led {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  grid-template-areas: 'mark txt' 'img img';
+  align-items: start;
+  gap: 12px 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--rf-rule);
+}
+.rf-led-mark {
+  grid-area: mark;
+  font-family: var(--rf-serif);
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--rf-accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.rf-led-img {
+  grid-area: img;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: var(--rf-wash);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.rf-led-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.rf-led-txt { grid-area: txt; display: block; }
+.rf-led-lab {
+  display: block;
+  font-family: var(--rf-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--rf-kick);
+}
+.rf-led-line {
+  display: block;
+  margin-top: 6px;
+  font-family: var(--rf-serif);
+  font-size: 17px;
+  line-height: 1.42;
+  color: var(--rf-ink);
+}
+
+@media (min-width: 760px) {
+  .rf-es { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; }
+  .rf-es--r .rf-es-img { order: 2; }
+  .rf-es-line { font-size: 21px; }
+
+  .rf-led {
+    grid-template-columns: 84px 168px 1fr;
+    grid-template-areas: 'mark img txt';
+    align-items: center;
+    gap: 0 20px;
+    padding: 20px 0;
+  }
+  .rf-led-img { aspect-ratio: 1 / 1; }
+}
+
+@media (min-width: 900px) {
+  .rf-swatch { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
+  .rf-sw { padding: 0 20px; }
+  .rf-swatch > .rf-sw:nth-child(2n + 1) { border-left: 1px solid var(--rf-rule); padding-left: 20px; }
+  .rf-swatch > .rf-sw:first-child { border-left: 0; padding-left: 0; }
+  .rf-sw-fig { font-size: 38px; }
+}

@@ -932,37 +932,41 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-shelf.jpg",
-            "alt": "The Rosalia serum on a cluttered bathroom shelf beside a toothbrush glass in morning light",
-            "line": "Six actives, and the dose of every one printed on the bottle.",
-            "label": "The formula"
+            "image": "shopify://shop_images/rosalia-grid-lab-notes.png",
+            "alt": "An open notebook of handwritten formulation notes on a workbench beside a pen",
+            "figure": "21 months",
+            "label": "In a dermatology lab",
+            "line": "Not a white-label bottle with a name put on it. Twenty-one months of it, most of them spent on things that did not work."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-bedside.jpg",
-            "alt": "The Rosalia serum on a bedside table beside a paperback and a water glass under lamp light",
-            "line": "Eight weeks of two minutes a night. Not a fourteen-day promise.",
-            "label": "The timeline"
+            "image": "shopify://shop_images/rosalia-grid-lab-scale.png",
+            "alt": "A precision laboratory balance on a white bench with a pinch of powder in the weighing dish and tweezers beside it",
+            "figure": "43",
+            "label": "Formulations before this one",
+            "line": "Forty-two of them are not for sale. Six actives survived, and the percentage of each is printed where you can read it."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-sink.jpg",
-            "alt": "The Rosalia serum on the lip of a white ceramic bathroom sink in cool daylight",
-            "line": "Sixty days. Opened bottles count. No forms, no return shipping.",
-            "label": "The refund"
+            "image": "shopify://shop_images/rosalia-grid-lab-batch.png",
+            "alt": "A row of small amber and clear sample jars with blank paper tags tied on, on a worn wooden bench",
+            "figure": "312",
+            "label": "Women, over eight weeks",
+            "line": "Not fourteen days. The panel saw the shift somewhere in week seven or eight, which is why nothing here promises you a fortnight."
           }
         },
         "c4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-bag.jpg",
-            "alt": "The Rosalia serum inside an open handbag on a kitchen counter beside keys",
-            "line": "Four women in a hundred saw nothing at all. We print that one too.",
-            "label": "The panel"
+            "image": "shopify://shop_images/rosalia-grid-lab-bench.png",
+            "alt": "A wooden rack of small glass sample vials on a laboratory bench with a spatula set down beside it",
+            "figure": "4 in 100",
+            "label": "Saw no change at all",
+            "line": "We print that one too. A company that hides its failure rate is not a company you can check — and if you are one of the four, the sixty-day refund is what it is for."
           }
         }
       },
@@ -973,11 +977,12 @@
         "c4"
       ],
       "settings": {
-        "eyebrow": "No stock photography",
-        "heading": "The bottle, and four things you can check.",
-        "intro": "<p>Not borrowed strangers and not a number anyone made up. Every line under these four is published somewhere you can go and read it.</p>",
-        "footnote": "<p>Customer photographs and reviews appear here as soon as there are real ones. Until then this space carries what we can stand behind.</p>",
-        "container": "wide",
+        "variant": "ledger",
+        "eyebrow": "The log",
+        "heading": "What it took, including the part that failed.",
+        "intro": "<p>Every figure below is one we have published elsewhere on this site and would rather you checked. The last one is the one most brands leave out.</p>",
+        "footnote": "<p>Sources: the founder's letter and the product page. If a number here does not match one there, the number there is the correct one and we want to know.</p>",
+        "container": "measure",
         "padding_top": 28,
         "padding_bottom": 28,
         "background": "#FAF5F0",

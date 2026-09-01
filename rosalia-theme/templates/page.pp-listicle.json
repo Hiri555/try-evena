@@ -732,51 +732,45 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-shelf.jpg",
-            "alt": "The Rosalia serum on a cluttered bathroom shelf beside a toothbrush glass in morning light",
-            "line": "Six actives, and the dose of every one printed on the bottle.",
-            "label": "The formula"
+            "image": "shopify://shop_images/rosalia-grid-pp-night.png",
+            "alt": "A bedside table at night: a phone face-up and glowing, a small unlabelled bottle and a folded muslin cloth",
+            "figure": "",
+            "label": "One step, at night",
+            "line": "It goes on last, on a clean face, and that is the entire instruction. There is no morning half and nothing to buy alongside it."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-bedside.jpg",
-            "alt": "The Rosalia serum on a bedside table beside a paperback and a water glass under lamp light",
-            "line": "Eight weeks of two minutes a night. Not a fourteen-day promise.",
-            "label": "The timeline"
+            "image": "shopify://shop_images/rosalia-grid-pp-counter.png",
+            "alt": "A kitchen table at night: a half-drunk glass of water, a burp cloth, a pacifier and a small dropper bottle under lamplight",
+            "figure": "",
+            "label": "Nothing in it that stings",
+            "line": "Zero fragrance. Zero essential oils. Zero alcohol. Zero menthol. Niacinamide held at 3–5% instead of the 10% that set your face off two years ago."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/rosalia-life-sink.jpg",
-            "alt": "The Rosalia serum on the lip of a white ceramic bathroom sink in cool daylight",
-            "line": "Sixty days. Opened bottles count. No forms, no return shipping.",
-            "label": "The refund"
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "image": "shopify://shop_images/rosalia-life-bag.jpg",
-            "alt": "The Rosalia serum inside an open handbag on a kitchen counter beside keys",
-            "line": "Four women in a hundred saw nothing at all. We print that one too.",
-            "label": "The panel"
+            "image": "shopify://shop_images/rosalia-grid-pp-basket.png",
+            "alt": "A woven basket of folded muslin cloths on bedroom floorboards with a small bottle resting on top",
+            "figure": "60 days",
+            "label": "And if it does nothing",
+            "line": "Sixty days from the day it arrives. Opened bottles count, there is no form to fill in, and you do not ship anything back — which matters when leaving the house is the hard part."
           }
         }
       },
       "block_order": [
         "c1",
         "c2",
-        "c3",
-        "c4"
+        "c3"
       ],
       "settings": {
-        "eyebrow": "No stock photography",
-        "heading": "The bottle, and four things you can check.",
-        "intro": "<p>Not borrowed strangers and not a number anyone made up. Every line under these four is published somewhere you can go and read it.</p>",
-        "footnote": "<p>Customer photographs and reviews appear here as soon as there are real ones. Until then this space carries what we can stand behind.</p>",
+        "variant": "essay",
+        "eyebrow": "What it actually asks of you",
+        "heading": "Two minutes, once, at the end of the day.",
+        "intro": "<p>You do not have a routine and nobody sensible is going to sell you one. Here is the whole of what this is, so you can decide whether it fits in a day that has nothing left in it.</p>",
+        "footnote": "<p>Ask your doctor or OB before using any skincare product if you are pregnant or breastfeeding. Take them the percentages — they are all on the product page.</p>",
         "container": "wide",
         "padding_top": 28,
         "padding_bottom": 28,
