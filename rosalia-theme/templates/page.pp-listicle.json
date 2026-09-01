@@ -63,7 +63,8 @@
         "padding_top": 28,
         "padding_bottom": 8,
         "background": "#FAF5F0",
-        "text_color": "#2B2620"
+        "text_color": "#2B2620",
+        "image": "shopify://shop_images/rosalia-n05-3am.jpg"
       },
       "blocks": {
         "meta1": {
@@ -183,7 +184,8 @@
             "alt": "A woman sitting on the edge of a bathtub in an ordinary bathroom in soft daylight, elbows on knees, looking down and away. Visible redness across the cheeks and chin, no makeup.",
             "placeholder_note": "Upload the asset for: img/n08-bathtub.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n08-bathtub.jpg"
           }
         },
         "paragraph2": {
@@ -287,7 +289,8 @@
             "alt": "One hand holding a phone up to warm morning bathroom light, the screen showing a pale document with blurred illegible text. No face in frame.",
             "placeholder_note": "Upload the asset for: img/n06-phone.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n06-phone.jpg"
           }
         },
         "paragraph2": {
@@ -624,7 +627,8 @@
             "alt": "A woman in her early thirties in a bathroom in warm morning light, no makeup, visible redness across her cheeks, looking away from the camera.",
             "placeholder_note": "Upload the asset for: img/pp-08-portrait.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-pp-08-portrait.jpg"
           }
         },
         "paragraph2": {

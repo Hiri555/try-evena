@@ -8,13 +8,14 @@
         "as_h1": true,
         "standfirst": "",
         "lead": "<p>I want to start where it actually started — which isn't with my skin. It's with a bag of frozen peas, held against my own cheek in the dark, at three in the morning, so the crinkle of it wouldn't wake him.</p><p>My son was a few months old. I hadn't slept more than three hours in a row in weeks. And somewhere in the second month my face began to <strong>burn</strong> — not sting, burn — the kind of heat you ice at midnight because the cold is the only thing that lets you think.</p><p>I used to do user research for a living, which mostly means I read what people write when they think nobody official is listening. So when my own doctor had nothing for me, I did the only thing I knew how to do. I went and read everyone else's. Two thousand nine hundred and ninety-eight women, across twenty-seven threads, all asking about their face after giving birth. Most into the dark. Most never answered.</p><p>One of them, at eighteen months, wrote a long careful post and buried the real sentence at the very end, behind an apology, the way you hide the thing you're most ashamed of wanting. I couldn't close the tab. I'll tell you exactly what she wrote — but not yet. You have to see the rest first, or it won't land the way it landed on me.</p><p>And it took me four days to find the nine words that explain all of it. Nine words no doctor had said to me, or to any of them. When I found them, everything I'd been living rearranged itself into something with a cause, a shape, and an end. I'm going to walk you down to them.</p>",
-        "image_alt": "",
+        "image_alt": "A phone lying screen-up on a dark bed, its screen the only light in the room",
         "placeholder_note": "HERO — a phone screen lit in a dark room, seen from above at an angle, a bag of frozen peas and a corner of a cot blanket in frame. No face, no product. (Generated asset — placeholder for the image pipeline.)",
         "caption": "",
         "padding_top": 40,
         "padding_bottom": 8,
         "background": "#FAF5F0",
-        "text_color": "#2B2620"
+        "text_color": "#2B2620",
+        "image": "shopify://shop_images/rosalia-pp-hero-phone.jpg"
       }
     },
     "step1": {
@@ -708,10 +709,11 @@
         "image8": {
           "type": "image",
           "settings": {
-            "alt": "",
+            "alt": "A single amber glass serum bottle on a plain surface in morning window light",
             "placeholder_note": "PRODUCT — the real Rosalia bottle, single, plain surface, morning window light. No props, no hands, no bathroom shelf. (Generated asset — placeholder for the image pipeline.)",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-product-bottle.jpg"
           }
         },
         "inci9": {
@@ -737,10 +739,11 @@
         "image12": {
           "type": "image",
           "settings": {
-            "alt": "",
+            "alt": "The actives panel: six ingredients with the dose of each",
             "placeholder_note": "LABEL — back of the bottle, full INCI, shot square-on and legible on a phone. This one genuinely has to be readable, or the next line fails. (Generated asset — placeholder for the image pipeline.)",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-actives-panel.png"
           }
         },
         "weight13": {
@@ -762,8 +765,9 @@
           "settings": {
             "eyebrow": "Included with every order",
             "content": "<p>A one-page card: the six actives, each with its lactation-database line, laid out to screenshot and hand across a desk. It's the thing I wish I'd walked in already holding.</p>",
-            "alt": "",
-            "placeholder_note": "CARD MOCKUP — the one-page ingredient card, flat, square-on: six actives in a column, each with its LactMed line beside it, \"Rosalia\" small at the foot. Legible on a phone. (Generated asset — placeholder for the image pipeline.)"
+            "alt": "A one-page card listing the six actives and their doses, to take to a clinician",
+            "placeholder_note": "CARD MOCKUP — the one-page ingredient card, flat, square-on: six actives in a column, each with its LactMed line beside it, \"Rosalia\" small at the foot. Legible on a phone. (Generated asset — placeholder for the image pipeline.)",
+            "image": "shopify://shop_images/rosalia-ingredient-card.png"
           }
         }
       },

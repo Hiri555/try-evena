@@ -452,7 +452,8 @@ def audit():
         sec = doc['sections'][sid]
         node = sec['blocks'][bid] if bid else sec
         wired = bool((node.get('settings') or {}).get(key))
-        on_disk = (ART / (slot['name'] + '.png')).exists()
+        on_disk = any((ART / (slot['name'] + e)).exists()
+                      for e in ('.png', '.jpg'))
         print('%-18s %-8s %-8s %s/%s%s'
               % (slot['name'], 'yes' if on_disk else '—',
                  'yes' if wired else '—', tpl, sid, '/' + bid if bid else ''))

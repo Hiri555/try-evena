@@ -157,7 +157,8 @@
         "padding_top": 28,
         "padding_bottom": 8,
         "background": "#FAF5F0",
-        "text_color": "#2B2620"
+        "text_color": "#2B2620",
+        "image": "shopify://shop_images/rosalia-pp-hero-bedroom.jpg"
       },
       "blocks": {
         "meta1": {

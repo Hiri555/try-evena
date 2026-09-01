@@ -63,7 +63,8 @@
         "padding_top": 28,
         "padding_bottom": 8,
         "background": "#FAF5F0",
-        "text_color": "#2B2620"
+        "text_color": "#2B2620",
+        "image": "shopify://shop_images/rosalia-n01-mirror.jpg"
       },
       "blocks": {
         "meta1": {
@@ -133,7 +134,8 @@
             "alt": "Seen from behind, a woman at a desk reaching up to tilt her laptop screen downward during a video call, the call grid blurred.",
             "placeholder_note": "Upload the asset for: img/n09-screen.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n09-screen.jpg"
           }
         },
         "paragraph2": {
@@ -185,7 +187,8 @@
             "alt": "Overhead view into an open bathroom drawer holding eleven abandoned skincare products: creased tubes, a jar crusted at the rim, clogged pumps, torn sachets. All unbranded, all used, none finished.",
             "placeholder_note": "Upload the asset for: img/n02-drawer.jpg",
             "caption": "<p>Not one of these was cheap. Not one of them was finished.</p>",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n02-drawer.jpg"
           }
         },
         "paragraph2": {
@@ -289,7 +292,8 @@
             "alt": "Extreme macro of a cheek: unretouched skin showing diffuse redness and fine branching telangiectasia — thin red vessels just under the surface.",
             "placeholder_note": "Upload the asset for: img/n04-macro.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n04-macro.jpg"
           }
         },
         "paragraph2": {
@@ -360,7 +364,8 @@
             "alt": "Five shallow ceramic dishes in a row on warm plaster, each holding one raw material: white crystalline powder, a clear gel drop, a pale yellow liquid, dried green leaf, a piece of dried root.",
             "placeholder_note": "Upload the asset for: img/n11-dishes.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n11-dishes.jpg"
           }
         },
         "paragraph2": {
@@ -646,7 +651,8 @@
             "alt": "A woman in her late thirties laughing at something out of frame by a sunlit window, holding a mug. Her cheeks and nose are still clearly red, skin unretouched.",
             "placeholder_note": "Upload the asset for: img/n10-laugh.jpg",
             "caption": "",
-            "loading": "lazy"
+            "loading": "lazy",
+            "image": "shopify://shop_images/rosalia-n10-laugh.jpg"
           }
         },
         "paragraph2": {
