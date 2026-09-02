@@ -19,7 +19,16 @@
 }
 .rf * { box-sizing: border-box; }
 .rf img { max-width: 100%; height: auto; display: block; }
-.rf a { color: var(--rf-accent); }
+/* The default link colour, deliberately at ZERO class specificity.
+   Written as `.rf a` this was (0,1,1) and beat every single-class rule
+   below it — so `.rf-btn { color: var(--rf-paper) }` lost, and every
+   primary CTA on every funnel page rendered wine text on a wine
+   background: a solid blank rectangle with an invisible label. It also
+   silently overrode .rf-btn-quiet and .rf-brand.
+   `:where()` contributes nothing to specificity, making this (0,0,1) —
+   a bare type selector any component class now wins against, which is
+   what the rest of this file was written assuming. */
+:where(.rf) a { color: var(--rf-accent); }
 
 /* The editorial column. Sections that want the full bleed opt out. */
 .rf-w {
@@ -749,6 +758,8 @@
     transform: translate(-50%, 140%);
   }
   .rf-ctabar.is-visible { transform: translate(-50%, 0); }
+  /* Square corners inside a pill read as a mistake. */
+  .rf-ctabar .rf-btn { border-radius: 999px; }
 }
 
 /* The quiet alternative under a primary CTA — a real link, not a second button. */
