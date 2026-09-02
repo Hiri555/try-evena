@@ -729,8 +729,26 @@
   .rf-h1 { font-size: 46px; }
   .rf-bundles { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
   .rf-bd { flex-direction: column; align-items: flex-start; }
-  /* The sticky bar is a phone affordance; the desktop offer is always in view. */
-  .rf-ctabar { display: none; }
+  /* The bar used to be hidden here on the theory that the desktop offer is
+     always in view. It is not: on a long advertorial a desktop reader who
+     has scrolled past the buy block has nothing to click either, and that
+     is exactly where people leave. So it shows at every width now — as a
+     centred pill rather than a full-bleed bar, which at 1400px would read
+     as a cookie notice. It still yields whenever a real CTA is on screen,
+     so it never competes with the offer itself. */
+  .rf-ctabar {
+    left: 50%;
+    right: auto;
+    bottom: 20px;
+    width: auto;
+    max-width: min(680px, 92vw);
+    padding: 10px 12px 10px 22px;
+    border: 1px solid var(--rf-rule);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px -12px rgba(31, 26, 28, 0.45);
+    transform: translate(-50%, 140%);
+  }
+  .rf-ctabar.is-visible { transform: translate(-50%, 0); }
 }
 
 /* The quiet alternative under a primary CTA — a real link, not a second button. */

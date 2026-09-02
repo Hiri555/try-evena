@@ -1,13 +1,17 @@
 {%- comment -%}
   Rosalia · Funnel — Sticky CTA bar
-  Phone affordance for the advertorial. Appears past the first screen and
-  gets out of the way whenever a real CTA is on screen.
+  Appears past the first screen and gets out of the way whenever a real
+  CTA is on screen.
 
   It yields to whatever CSS selector you give it (default: the offer
   section and the footer), so the bar keeps behaving correctly no matter
   where you move those sections in the editor. Nothing depends on order.
 
-  Hidden entirely at >= 1025px, where the offer is never far away.
+  It used to be hidden at >= 1025px on the theory that the desktop offer
+  is never far away. On a long advertorial that is false — a desktop
+  reader who has scrolled past the buy block has nothing to click, and
+  that is where people leave. It now shows at every width, as a centred
+  pill on desktop rather than a full-bleed bar.
 {%- endcomment -%}
 
 {%- render 'rosalia-funnel-assets' -%}
