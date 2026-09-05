@@ -320,6 +320,7 @@
     width: 5px; height: 5px; border-radius: 50%; background: var(--rosalia-pink-mid);
   }
   #shopify-section-{{ section.id }} .rosalia-guarantee {
+    color: inherit; text-decoration: none; -webkit-tap-highlight-color: rgba(0,0,0,.05);
     display: flex; gap: 12px; align-items: flex-start;
     background: rgba(247, 228, 234, .34);
     border: 1px solid rgba(196, 113, 142, .22);
@@ -435,46 +436,165 @@
   }
 
   @media (max-width: 749px) {
-    #shopify-section-{{ section.id }} .rosalia-product { padding: 10px 20px 36px; }
+    /* ── Mission 3 — epuration mobile (CRO V2, 2026-08-18) ──────────
+       Objectif : remonter le bundle et l ATC. Rien ici ne sort de cette
+       media query, le desktop est donc strictement inchange. */
+    #shopify-section-{{ section.id }} .rosalia-product { padding: 10px 20px 20px; gap: 16px; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-section { margin-bottom: 14px; }
+    #shopify-section-{{ section.id }} .rosalia-benefits { gap: 10px; margin-bottom: 14px; }
+    #shopify-section-{{ section.id }} .rosalia-ship { gap: 12px; margin-bottom: 10px; }
 
-    /* Symptom picker — two generous cards per row instead of four cramped ones */
-    #shopify-section-{{ section.id }} .rosalia-symptom-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-card { padding: 9px 9px 14px; gap: 10px; border-radius: 16px; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-card-name { font-size: 13px; }
+    /* ── Mission 1 — symptom picker : rangee de pills a scroll horizontal ──
+       La grille 2x2 avec photos coutait ~330px de hauteur et repoussait le
+       bundle et l ATC hors ecran. Les pills tiennent sur 40px, une ligne.
+       Le markup et le JS de selection sont conserves : seul le rendu change. */
+    #shopify-section-{{ section.id }} .rosalia-symptom-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 8px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      /* plein bord a bord, mais la 1re pill reste alignee sur le contenu (20px) */
+      margin-inline: -20px;
+      padding: 2px 20px;
+    }
+    #shopify-section-{{ section.id }} .rosalia-symptom-grid::-webkit-scrollbar { display: none; }
 
-    /* Modal becomes a bottom sheet */
+    #shopify-section-{{ section.id }} .rosalia-symptom-card {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      text-align: left;
+      white-space: nowrap;
+      touch-action: manipulation;
+    }
+    #shopify-section-{{ section.id }} .rosalia-symptom-card:hover { transform: none; box-shadow: none; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-card-img {
+      flex: 0 0 22px; width: 22px; height: 22px;
+      aspect-ratio: auto; border-radius: 50%; font-size: 0;
+    }
+    #shopify-section-{{ section.id }} .rosalia-symptom-card-name {
+      font-size: 13px; line-height: 1; margin-top: 0;
+    }
+    /* pill selectionnee — plum sur cream */
+    #shopify-section-{{ section.id }} .rosalia-symptom-card[aria-pressed="true"] {
+      background: var(--rosalia-accent-deep, #7A3A54);
+      border-color: var(--rosalia-accent-deep, #7A3A54);
+    }
+    #shopify-section-{{ section.id }} .rosalia-symptom-card[aria-pressed="true"] .rosalia-symptom-card-name {
+      color: var(--rosalia-cream, #FAF5F0);
+    }
+
+    /* Le detail s ouvre en panneau SOUS les pills, plus en modale plein ecran.
+       La modale est deja rendue apres la grille dans le markup : il suffit de
+       la sortir du flux fixe. L attribut [hidden] continue de piloter
+       l affichage via la regle globale [hidden]{display:none!important}. */
     #shopify-section-{{ section.id }} .rosalia-symptom-modal-overlay {
-      padding: 0; align-items: flex-end;
+      position: static; inset: auto; z-index: auto;
+      display: block; background: none; padding: 0;
     }
     #shopify-section-{{ section.id }} .rosalia-symptom-modal-box {
-      border-radius: 20px 20px 0 0;
-      max-height: 92vh;
-      padding: 26px 20px calc(28px + env(safe-area-inset-bottom));
+      border-radius: 14px;
+      max-height: none; overflow: visible;
+      padding: 16px 16px 18px;
+      animation: rosalia-symptom-reveal 220ms var(--rosalia-ease) both;
     }
-    #shopify-section-{{ section.id }} .rosalia-symptom-modal-x { top: 16px; right: 16px; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-tabs {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      margin: 0 -20px 20px;
-      padding: 0 20px 2px;
-      padding-right: 48px;
+    /* Croix de fermeture — 44x44, plum sur cream. Elle etait a 28px en
+       pink-light sur fond cream : invisible et sous la cible tactile. */
+    #shopify-section-{{ section.id }} .rosalia-symptom-modal-x {
+      top: 12px; right: 12px;
+      width: 44px; height: 44px;
+      border: none; border-radius: 50%;
+      background: var(--rosalia-accent-deep, #7A3A54);
+      color: var(--rosalia-cream, #FAF5F0);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; line-height: 1; padding: 0;
+      cursor: pointer;
     }
-    #shopify-section-{{ section.id }} .rosalia-symptom-tabs::-webkit-scrollbar { display: none; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-tab { flex: 0 0 auto; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-panel-title { font-size: 23px; }
-    #shopify-section-{{ section.id }} .rosalia-symptom-visuals { gap: 10px; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-modal-x:hover,
+    #shopify-section-{{ section.id }} .rosalia-symptom-modal-x:focus-visible {
+      background: #4B1528;
+      outline: 2px solid #C4718E;
+      outline-offset: 2px;
+    }
+    /* les onglets font doublon avec les pills */
+    #shopify-section-{{ section.id }} .rosalia-symptom-tabs { display: none; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-panel-title { font-size: 21px; margin-bottom: 12px; padding-right: 60px; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-visuals { grid-template-columns: 1fr; gap: 10px; }
+    #shopify-section-{{ section.id }} .rosalia-symptom-visual { aspect-ratio: 4 / 3; }
     #shopify-section-{{ section.id }} .rosalia-symptom-ings { gap: 8px; }
     #shopify-section-{{ section.id }} .rosalia-symptom-ing { flex: 1 1 100%; }
+
+    @keyframes rosalia-symptom-reveal {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: none; }
+    }
   }
   @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-symptom-modal-box { animation: none; }
     #shopify-section-{{ section.id }} .rosalia-symptom-card,
     #shopify-section-{{ section.id }} .rosalia-tier,
     #shopify-section-{{ section.id }} .rosalia-cta,
     #shopify-section-{{ section.id }} .rosalia-cta-arrow { transition: none; }
   }
-  /* Quick FAQ block styles live in snippets/rosalia-quick-faq.liquid */
+
+  /* ── "Looking for more answers?" ───────────────────────
+     Sits directly under the guarantee card, still inside the buy box, so the
+     three biggest objections are answered without leaving the CTA behind. */
+  #shopify-section-{{ section.id }} .rosalia-more {
+    margin-top: 14px;
+    padding: 18px 18px 12px;
+    background: var(--rosalia-white);
+    border: 1px solid rgba(196, 113, 142, .22);
+    border-radius: 14px;
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-heading {
+    font-family: var(--rosalia-font-serif);
+    font-size: 17px; font-weight: 500; margin: 0 0 12px;
+    color: var(--rosalia-dark);
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-input {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 11px 15px; border-radius: 100px;
+    border: 1px solid var(--rosalia-pink-light); background: var(--rosalia-cream);
+    color: var(--rosalia-gray); text-decoration: none; font-size: 13.5px;
+    transition: border-color .25s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-input:hover { border-color: var(--rosalia-pink); }
+  #shopify-section-{{ section.id }} .rosalia-more-input span { min-width: 0; overflow-wrap: anywhere; }
+  #shopify-section-{{ section.id }} .rosalia-more-quick { margin-top: 10px; }
+  #shopify-section-{{ section.id }} .rosalia-more-item { border-top: 1px solid var(--rosalia-pink-light); }
+  #shopify-section-{{ section.id }} .rosalia-more-item:first-child { border-top: 0; }
+  #shopify-section-{{ section.id }} .rosalia-more-q {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 12px 0; cursor: pointer; list-style: none;
+    font-size: 13.5px; font-weight: 500; color: var(--rosalia-plum);
+    overflow-wrap: anywhere;
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-q::-webkit-details-marker { display: none; }
+  #shopify-section-{{ section.id }} .rosalia-more-plus {
+    flex: 0 0 auto; font-size: 17px; color: var(--rosalia-pink);
+    transition: transform .3s var(--rosalia-ease);
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-item[open] .rosalia-more-plus { transform: rotate(45deg); }
+  #shopify-section-{{ section.id }} .rosalia-more-a {
+    padding: 0 0 12px; font-size: 13px; line-height: 1.6; color: var(--rosalia-gray);
+  }
+  #shopify-section-{{ section.id }} .rosalia-more-a p { margin: 0 0 9px; }
+  #shopify-section-{{ section.id }} .rosalia-more-a p:last-child { margin-bottom: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .rosalia-more-plus { transition: none; }
+  }
 </style>
 
 <div {% render 'section-properties', tight: true %}>
@@ -499,7 +619,12 @@
     </div>
 
     {%- comment -%} Buy box {%- endcomment -%}
-    <div class="product-info rosalia-buybox">
+    {%- comment -%}
+      Anchor target. The header CTA points here so that clicking it on the
+      product page scrolls to the buy box instead of re-navigating to the
+      page you are already on (which looked like a dead button).
+    {%- endcomment -%}
+    <div class="product-info rosalia-buybox" id="rosalia-buybox">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
 
@@ -649,7 +774,7 @@
               {{ block.shopify_attributes }}
             >
               {%- if sel_variant.available -%}
-                <span class="rosalia-cta-label">{{ block.settings.button_label | default: 'Try it for 60 days' }}</span>
+                <span class="rosalia-cta-label">{{ block.settings.button_label | default: 'GET MY FACE BACK' }}</span>
                 <span class="rosalia-cta-arrow" aria-hidden="true">→</span>
               {%- else -%}
                 {{ 'product.form.sold_out' | t | default: 'Sold out' }}
@@ -700,7 +825,17 @@
             </div>
 
           {%- when 'guarantee' -%}
-            <div class="rosalia-guarantee" {{ block.shopify_attributes }}>
+            {%- comment -%}
+              CRO V2 - 2026-08-18 - dead clicks sur le bloc garantie (3 en 30 j, Clarity).
+              Le bloc etait un <div> inerte : les visiteurs le tapaient pour lire les
+              conditions et rien ne se passait. Il devient un lien vers la politique de
+              remboursement. Le markup interne et les classes sont inchanges, donc le
+              rendu est identique ; seule la balise change (div -> a), avec un reset de
+              couleur/decoration dans le CSS pour neutraliser le style de lien par defaut.
+              NB : on ne passe volontairement PAS en <details>/<summary> - la copy de
+              garantie est actuellement visible, la replier la cacherait derriere un tap.
+            {%- endcomment -%}
+            <a class="rosalia-guarantee" href="{{ shop.refund_policy.url | default: '/policies/refund-policy' }}" {{ block.shopify_attributes }}>
               <span class="rosalia-guarantee-icon">
                 {%- render 'rosalia-icons', icon: 'shield-check', size: 20 -%}
               </span>
@@ -708,10 +843,41 @@
                 <strong>{{ block.settings.headline | default: '60-day reset guarantee' }}</strong>
                 <span>{{ block.settings.text }}</span>
               </div>
-            </div>
+            </a>
 
-          {%- when 'quick_faq' -%}
-            {%- render 'rosalia-quick-faq', block: block, section_id: section.id -%}
+          {%- when 'more_answers' -%}
+            {%- comment -%}
+              The input is deliberately not a live search — it routes to
+              contact so the prospect never hits a dead end.
+            {%- endcomment -%}
+            <div class="rosalia-more" {{ block.shopify_attributes }}>
+              {%- if block.settings.heading != blank -%}
+                <p class="rosalia-more-heading">{{ block.settings.heading }}</p>
+              {%- endif -%}
+
+              <a class="rosalia-more-input" href="{{ block.settings.input_url | default: '/pages/contact' }}">
+                <span>{{ block.settings.input_placeholder | default: 'Have questions? Ask here' }}</span>
+                {%- render 'rosalia-icons', icon: 'arrow-right', size: 15 -%}
+              </a>
+
+              <div class="rosalia-more-quick">
+                {%- for i in (1..3) -%}
+                  {%- assign more_label_key = 'q' | append: i | append: '_label' -%}
+                  {%- assign more_answer_key = 'q' | append: i | append: '_answer' -%}
+                  {%- assign more_label = block.settings[more_label_key] -%}
+                  {%- assign more_answer = block.settings[more_answer_key] -%}
+                  {%- if more_label != blank -%}
+                    <details class="rosalia-more-item">
+                      <summary class="rosalia-more-q">
+                        <span>{{ more_label }}</span>
+                        <span class="rosalia-more-plus" aria-hidden="true">+</span>
+                      </summary>
+                      <div class="rosalia-more-a">{{ more_answer }}</div>
+                    </details>
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            </div>
 
           {%- when 'app_zone' -%}
             <div class="rosalia-app-zone" {{ block.shopify_attributes }}>
@@ -740,7 +906,12 @@
         Hidden ATC form. The <script> below hijacks the submit as AJAX and
         opens the cart drawer instead of reloading to /cart.
       {%- endcomment -%}
-      {%- form 'product', rp_product, id: product_form_id, class: 'rosalia-product-form' -%}
+      {%- comment -%}
+        `is: 'product-form'` is what wires this form into Impact's own AJAX
+        add-to-cart controller. Without it the form does a plain POST and the
+        browser navigates to /cart — no drawer, ever.
+      {%- endcomment -%}
+      {%- form 'product', rp_product, is: 'product-form', id: product_form_id, class: 'rosalia-product-form' -%}
         <input type="hidden" name="id" value="{{ rp_product.selected_or_first_available_variant.id }}">
         <input type="hidden" name="quantity" value="1">
       {%- endform -%}
@@ -750,7 +921,166 @@
 
 <script src="{{ 'rosalia-main-product.js' | asset_url }}" defer="defer"></script>
 
-{% render 'rosalia-drawer-hook', section_id: section.id %}
+<script>
+  /* ── Cart drawer opener ────────────────────────────────
+     This section's own add-to-cart is handled natively: the form carries
+     is="product-form", so Impact submits it over AJAX and opens the drawer.
+     Two prerequisites, both of which were missing and are now fixed:
+       - settings_data.json must set cart_type to "drawer" (default is
+         "popover", which disables the drawer entirely);
+       - the drawer element is opened with show(), not open().
+
+     What remains below covers add-to-cart fired by THIRD PARTIES that
+     bypass the theme form (Kaching Bundles, Rebuy, Loox, quick-add cards):
+
+       1.  Global fetch monkey-patch — every POST to /cart/add(.js).
+       1b. Same for XMLHttpRequest.
+       2.  CTA loading state only — no preventDefault, Impact owns the submit. */
+  (function() {
+    if (window.__rosaliaDrawerHook) return;    /* mount once per document */
+    window.__rosaliaDrawerHook = true;
+
+    var ctaBtn = null, ctaLabel = null, ctaText = null;
+
+    function resetCta() {
+      if (!ctaBtn) return;
+      ctaBtn.classList.remove('is-loading');
+      if (ctaLabel && ctaText !== null) ctaLabel.textContent = ctaText;
+    }
+
+    function openDrawer() {
+      var drawer = document.getElementById('cart-drawer') ||
+                   document.querySelector('cart-drawer, cart-notification-drawer');
+      if (!drawer) return false;
+      /* Impact's drawer element exposes show()/hide(). open() does not exist —
+         calling it was why the drawer never appeared. */
+      if (typeof drawer.show === 'function') { try { drawer.show(); return true; } catch (e) {} }
+      if (typeof drawer.open === 'function') { try { drawer.open(); return true; } catch (e) {} }
+      drawer.setAttribute('open', '');
+      return true;
+    }
+
+    /* Impact's own product-form also opens the drawer, and the interceptors
+       below see its /cart/add call too. Debounce so one add = one open. */
+    var lastAdd = 0;
+
+    function afterAdd() {
+      var now = new Date().getTime();
+      if (now - lastAdd < 700) return;
+      lastAdd = now;
+      resetCta();
+      document.dispatchEvent(new CustomEvent('cart:refresh', { bubbles: true }));
+      openDrawer();
+    }
+
+    /* Layer 1 — global fetch interceptor for /cart/add[.js] */
+    var origFetch = window.fetch;
+    if (typeof origFetch === 'function') {
+      window.fetch = function(input, init) {
+        var url = typeof input === 'string' ? input : (input && input.url) || '';
+        var method = (init && init.method) || (input && input.method) || 'GET';
+        var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(url) && String(method).toUpperCase() === 'POST';
+        var p = origFetch.apply(this, arguments);
+        if (isAdd) {
+          p.then(function(res) {
+            if (res && res.ok) { setTimeout(afterAdd, 60); }
+          }).catch(function() {});
+        }
+        return p;
+      };
+    }
+
+    /* Layer 1b — same for XHR (Kaching / Loox / older apps sometimes use it) */
+    var origOpen = XMLHttpRequest.prototype.open;
+    var origSend = XMLHttpRequest.prototype.send;
+    XMLHttpRequest.prototype.open = function(method, url) {
+      this.__rosMethod = method; this.__rosUrl = url || '';
+      return origOpen.apply(this, arguments);
+    };
+    XMLHttpRequest.prototype.send = function() {
+      var xhr = this;
+      var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(xhr.__rosUrl || '') && String(xhr.__rosMethod || '').toUpperCase() === 'POST';
+      if (isAdd) {
+        xhr.addEventListener('load', function() { if (xhr.status >= 200 && xhr.status < 300) setTimeout(afterAdd, 60); });
+      }
+      return origSend.apply(this, arguments);
+    };
+
+    /* Layer 2 — CTA loading state only.
+       We deliberately do NOT preventDefault here: the form now carries
+       is="product-form", so Impact owns the AJAX submit. Hijacking it a
+       second time would fire two /cart/add calls for one click. */
+    document.addEventListener('submit', function(e) {
+      /* CRO V2 fix - 2026-08-18 - form.id DOM clobbering.
+         Shopify's form tag emits <input name="id"> inside the product form.
+         HTMLFormElement named-property access makes `form.id` resolve to that
+         INPUT element instead of the id string, so `form.id.indexOf(...)` threw
+         TypeError on every buy-button click (100% of the site's Clarity click
+         errors over 30 days). getAttribute('id') is always a string and is
+         immune to clobbering, whatever markup an app injects into the form.
+         The body is wrapped in try/catch on purpose: this layer only paints a
+         loading state, so it must never be able to throw inside a buyer's
+         add-to-cart submit. */
+      try {
+        var form = e.target;
+        var formId = (form && typeof form.getAttribute === 'function')
+          ? String(form.getAttribute('id') || '')
+          : '';
+        if (formId.indexOf('product-form-') !== 0) return;
+        var btn = document.querySelector('[data-rosalia-atc]');
+        if (!btn) return;
+        ctaBtn = btn;
+        ctaLabel = btn.querySelector('.rosalia-cta-label');
+        if (ctaLabel && ctaText === null) ctaText = ctaLabel.textContent;
+        btn.classList.add('is-loading');
+        if (ctaLabel) ctaLabel.textContent = 'Adding…';
+        /* Safety net: never leave the button stuck if nothing comes back. */
+        setTimeout(resetCta, 6000);
+      } catch (err) {
+        if (window.console && console.warn) console.warn('[rosalia] CTA loading state skipped:', err);
+      }
+    }, true);
+
+    /* Layer 3 — header CTA delegation.
+       On the product page the header button linked to the page you were
+       already on, so it read as dead. This script ships with this section, so
+       it only runs here; on every other page the header link still navigates
+       to the product normally.
+
+       We strip the href rather than relying on preventDefault: the theme uses
+       an instant-navigation helper that acts on the click before a bubbled
+       listener can cancel it. With no href there is nothing to navigate to,
+       and the click is forwarded to the real add-to-cart button so both CTAs
+       take the exact same Impact AJAX path. */
+    function wireHeaderCta() {
+      var head = document.querySelector('.rosalia-head-cta');
+      if (!head || head.dataset.rosaliaProxy) return;
+      head.dataset.rosaliaProxy = '1';
+      head.setAttribute('data-no-instant', '');
+      head.removeAttribute('href');
+      head.setAttribute('role', 'button');
+      head.setAttribute('tabindex', '0');
+      head.style.cursor = 'pointer';
+
+      function fire(e) {
+        var atc = document.querySelector('[data-rosalia-atc]');
+        if (!atc || atc.disabled) return;
+        e.preventDefault();
+        atc.click();
+      }
+      head.addEventListener('click', fire);
+      head.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') fire(e);
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', wireHeaderCta);
+    } else {
+      wireHeaderCta();
+    }
+  })();
+</script>
 
 {% schema %}
 {
@@ -896,7 +1226,7 @@
       "name": "Buy button",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "button_label", "label": "Button label", "default": "Try it for 60 days" }
+        { "type": "text", "id": "button_label", "label": "Button label", "default": "GET MY FACE BACK" }
       ]
     },
     {
@@ -919,34 +1249,22 @@
       ]
     },
     {
-      "type": "quick_faq",
-      "name": "Quick FAQ (Musely pattern)",
+      "type": "more_answers",
+      "name": "Looking for more answers?",
       "limit": 1,
       "settings": [
-        { "type": "text", "id": "title", "label": "Heading", "default": "Looking for more answers?" },
-        { "type": "text", "id": "search_placeholder", "label": "Search bar placeholder", "default": "Have questions? Ask here" },
-        { "type": "url", "id": "contact_url", "label": "Contact URL", "info": "Where the search bar routes on click.", "default": "/pages/contact" },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Looking for more answers?" },
+        { "type": "text", "id": "input_placeholder", "label": "Input placeholder", "default": "Have questions? Ask here" },
+        { "type": "url", "id": "input_url", "label": "Input destination", "info": "The field is not a live search — clicking it sends the visitor here. Defaults to /pages/contact." },
         { "type": "header", "content": "Quick question 1" },
-        { "type": "text", "id": "q1_question", "label": "Q1", "default": "Why do you recommend 2 bottles minimum?" },
-        { "type": "richtext", "id": "q1_answer", "label": "A1" },
+        { "type": "text", "id": "q1_label", "label": "Question" },
+        { "type": "richtext", "id": "q1_answer", "label": "Answer" },
         { "type": "header", "content": "Quick question 2" },
-        { "type": "text", "id": "q2_question", "label": "Q2", "default": "Will this actually work if nothing else has?" },
-        { "type": "richtext", "id": "q2_answer", "label": "A2" },
+        { "type": "text", "id": "q2_label", "label": "Question" },
+        { "type": "richtext", "id": "q2_answer", "label": "Answer" },
         { "type": "header", "content": "Quick question 3" },
-        { "type": "text", "id": "q3_question", "label": "Q3", "default": "Is Rosalia safe if I'm pregnant or nursing?" },
-        { "type": "richtext", "id": "q3_answer", "label": "A3" },
-        { "type": "header", "content": "Dropdown 1 · Formulations" },
-        { "type": "text", "id": "d1_title", "label": "Title", "default": "Formulations" },
-        { "type": "richtext", "id": "d1_body", "label": "Body" },
-        { "type": "header", "content": "Dropdown 2 · How & why it works" },
-        { "type": "text", "id": "d2_title", "label": "Title", "default": "How & why it works" },
-        { "type": "richtext", "id": "d2_body", "label": "Body" },
-        { "type": "header", "content": "Dropdown 3 · How to use" },
-        { "type": "text", "id": "d3_title", "label": "Title", "default": "How to use" },
-        { "type": "richtext", "id": "d3_body", "label": "Body" },
-        { "type": "header", "content": "Dropdown 4 · The 60-day guarantee" },
-        { "type": "text", "id": "d4_title", "label": "Title", "default": "The 60-day guarantee" },
-        { "type": "richtext", "id": "d4_body", "label": "Body" }
+        { "type": "text", "id": "q3_label", "label": "Question" },
+        { "type": "richtext", "id": "q3_answer", "label": "Answer" }
       ]
     },
     {
@@ -1009,6 +1327,7 @@
         { "type": "ship_indicators" },
         { "type": "trust_badges" },
         { "type": "guarantee" },
+        { "type": "more_answers" },
         { "type": "app_zone" }
       ]
     }
