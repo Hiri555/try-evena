@@ -902,6 +902,41 @@
       {%- form 'product', rp_product, is: 'product-form', id: product_form_id, class: 'rosalia-product-form' -%}
         <input type="hidden" name="id" value="{{ rp_product.selected_or_first_available_variant.id }}">
         <input type="hidden" name="quantity" value="1">
+        {%- comment -%}
+          ══════════════════════════════════════════════════════════════
+          DO NOT REMOVE — this is the only reason Kaching Bundles works.
+          ══════════════════════════════════════════════════════════════
+          The visible CTA lives OUTSIDE this form and is attached to it
+          with the form="…" attribute. That is valid HTML and the form
+          submits correctly — but Kaching's _findAddToCartButtonElement()
+          looks for the button with form.querySelectorAll('button'),
+          i.e. inside the form's DOM SUBTREE, not in form.elements. Our
+          form contained zero buttons, so Kaching logged
+
+            [Kaching Bundles] Add to cart button not found.
+
+          on every product page load, never installed its hook, and never
+          rewrote the /cart/add payload. Result: every order since the
+          deal was created went out with quantity 1 and no line-item
+          properties, and the app dashboard read 0% conversion and $0
+          revenue against hundreds of visitors.
+
+          Their fallback is a customSelectors.addToCartButton setting,
+          which this plan does not expose anywhere in the app UI.
+
+          So this button exists purely to be found. It is never clicked:
+          it is 1px, clipped, aria-hidden and out of the tab order. The
+          visible CTA still drives the submit; Kaching rewrites the
+          payload globally once it has a button to hook.
+
+          Verified in a real browser before shipping — with it, the
+          console warning is gone and the cart comes back as
+          quantity 3 / $59.99 / properties.__kaching_bundles for
+          "Buy 2 Get 1 FREE". Without it, quantity 1 / $39.99 / {}.
+        {%- endcomment -%}
+        <button type="submit" name="add" tabindex="-1" aria-hidden="true"
+                style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);border:0;padding:0"
+        >Add to cart</button>
       {%- endform -%}
     </div>
   </div>
