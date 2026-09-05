@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "header",
   "name": "Header group",
@@ -14,32 +23,27 @@
         "item_2": {
           "type": "item",
           "settings": {
-            "text": "60-day reset guarantee"
+            "text": "60-day full refund · Half-used bottles accepted"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
-            "text": "Formulated for reactive skin"
-          }
-        },
-        "item_4": {
-          "type": "item",
-          "settings": {
-            "text": "Rosacea-tested • Fragrance-free • No essential oils"
+            "text": "Formulated with a vascular biologist"
           }
         }
       },
       "block_order": [
         "item_1",
         "item_2",
-        "item_3",
-        "item_4"
+        "item_3"
       ],
       "settings": {
         "separator": "◆",
         "aria_label": "Site announcements",
         "dismissible": false,
+        "display_mode": "rotate",
+        "rotate_seconds": 4,
         "speed_seconds": 36,
         "pause_on_hover": true,
         "direction": "left",
@@ -56,7 +60,7 @@
       "settings": {
         "wordmark": "Rosalia",
         "menu": "main-menu",
-        "cta_text": "Try it for 60 days",
+        "cta_text": "Get my face back",
         "cta_url": "/products/daily-reset-serum"
       }
     }
