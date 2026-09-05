@@ -576,8 +576,8 @@
         "qa1": {
           "type": "qa",
           "settings": {
-            "question": "$72 is more than I want to risk on a maybe.",
-            "answer": "<p>Right objection after six failures. It's about $9 a week against what you already spend on concealer and on the products you abandon half-used.</p><p>And the 60-day refund means the money isn't at risk — no forms, no return shipping, opened bottles count. The only real commitment is eight weeks of two minutes a day.</p>",
+            "question": "$59.99 is more than I want to risk on a maybe.",
+            "answer": "<p>Right objection after six failures. It's about $5 a week against what you already spend on concealer and on the products you abandon half-used.</p><p>And the 60-day refund means the money isn't at risk — no forms, no return shipping, opened bottles count. The only real commitment is eight weeks of two minutes a day.</p>",
             "open": false
           }
         },

@@ -601,6 +601,18 @@
           {%- when 'variant_picker' -%}
             {%- render 'variant-picker', product: rp_product, block: block, product_form_id: product_form_id -%}
 
+          {%- comment -%}
+            'bundle_tiers' is intentionally no longer offered in the schema.
+            It rendered a second offer ladder next to the Kaching Bundles
+            app block — two pickers for the same purchase — and its radios
+            could overwrite the deal the customer had chosen in Kaching.
+            It also could not work as built: the product has a single
+            variant, so it only ever drew one radio labelled "Default
+            Title". The offer ladder belongs to Kaching, which owns the
+            deals, the per-offer stats and the A/B test.
+            The branch below stays only so any theme still carrying the
+            block in its template does not hard-error while rendering.
+          {%- endcomment -%}
           {%- when 'bundle_tiers' -%}
             <div class="rosalia-tiers" {{ block.shopify_attributes }}>
               <div class="rosalia-tiers-label">{{ block.settings.label | default: 'Choose your reset' }}</div>
@@ -877,16 +889,6 @@
       "settings": [
         { "type": "paragraph", "content": "Impact's default variant picker. Use this OR bundle_tiers, not both." },
         { "type": "select", "id": "picker_type", "label": "Type", "options": [{"value":"dropdown","label":"Dropdown"},{"value":"button","label":"Button"}], "default": "button" }
-      ]
-    },
-    {
-      "type": "bundle_tiers",
-      "name": "Bundle tiers",
-      "limit": 1,
-      "settings": [
-        { "type": "text", "id": "label", "label": "Section label", "default": "Choose your reset" },
-        { "type": "text", "id": "recommended_label", "label": "Recommended badge text", "default": "Recommended" },
-        { "type": "paragraph", "content": "Reads variants from the product. Recommended variant + subtitles are set via product/variant metafields." }
       ]
     },
     {

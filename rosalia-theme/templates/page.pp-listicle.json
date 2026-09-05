@@ -560,8 +560,8 @@
         "qa2": {
           "type": "qa",
           "settings": {
-            "question": "$72 is money I'd rather spend on the baby.",
-            "answer": "<p>Fair, and we're not going to argue you out of it. It's about $9 a week — check that against what you've already spent on things you stopped using. And the 60-day refund means the money isn't at risk.</p><p>If it's still not the right month, the article will be here.</p>",
+            "question": "$59.99 is money I'd rather spend on the baby.",
+            "answer": "<p>Fair, and we're not going to argue you out of it. It's about $5 a week — check that against what you've already spent on things you stopped using. And the 60-day refund means the money isn't at risk.</p><p>If it's still not the right month, the article will be here.</p>",
             "open": false
           }
         },
@@ -609,7 +609,7 @@
           "type": "qa",
           "settings": {
             "question": "What if I'm one of the four you said not to buy it for?",
-            "answer": "<p>Then please don't, yet. Get that dealt with and come back if it's still relevant. We'd rather that than you spending $45 finding out we meant it.</p>",
+            "answer": "<p>Then please don't, yet. Get that dealt with and come back if it's still relevant. We'd rather that than you spending $39.99 finding out we meant it.</p>",
             "open": false
           }
         }

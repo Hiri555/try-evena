@@ -1,25 +1,48 @@
 {%- comment -%}
-  Rosalia · Cart drawer opener + Kaching Bundle wiring
+  Rosalia · Cart drawer opener
 
-  Called from rosalia-main-product.liquid as:
-    {% render 'rosalia-drawer-hook', section_id: section.id %}
+  This snippet used to do three things. Two of them were wrong and are
+  gone. What is left is the one that was safe.
 
-  Three layers:
+  WHAT WAS REMOVED, AND WHY IT MATTERED
 
-    1. Global fetch + XHR interceptor on /cart/add[.js]. Whoever posts
-       — theme form, Kaching Bundle app, Rebuy, Loox — we watch the
-       response; on 2xx we dispatch cart:refresh and open the drawer.
+  1. A submit hijack on the product form. It called preventDefault()
+     and posted the cart itself with fetch(). Two consequences:
 
-    2. Kaching-Bundle sync. On every buy-box click and on our own form
-       submit, we scan for the currently-selected bundle in the Kaching
-       UI (multiple selector strategies for resilience), pull its
-       variant id + quantity + any Kaching line-item properties, and
-       inject them into our own hidden form.
+     a) Kaching Bundles never ran its own add-to-cart path, which is
+        what fires its conversion tracking. Its script still loaded and
+        counted page views, so the dashboard showed visitors with 0%
+        conversion and $0 revenue while orders were coming in. Proof:
+        every line item on every order since the deal was created had
+        an empty customAttributes — not one Kaching property, ever.
 
-    3. Form submit fallback. If Kaching's own JS is loaded and hijacks
-       the submit (its default when properly hydrated), we let it. If
-       not, we AJAX-post ourselves so the buyer still lands in the
-       drawer instead of on /cart.
+     b) The preventDefault() was inside a setTimeout(..., 0), which
+        runs AFTER the event has finished dispatching. Calling it there
+        does nothing at all. So the browser performed the native form
+        submit as well — a full-page POST to /cart — while the fetch()
+        fired in parallel. That is almost certainly the "customers
+        click and nothing happens" behaviour: a full page navigation
+        instead of a drawer, and a race between two competing adds.
+
+  2. A DOM scraper that tried to read Kaching's selected deal out of the
+     page and copy it into our own form. Its last fallback selector was
+     `input[type="radio"][name="id"]:checked`, which matched the
+     hand-built bundle_tiers radio sitting right next to the Kaching
+     widget — so it could overwrite the offer the customer had actually
+     chosen. That radio block has been removed from the product
+     template too; the offer ladder belongs to Kaching alone.
+
+  WHAT IS LEFT
+
+  A passive observer on fetch and XHR. It does not intercept, redirect,
+  cancel or modify anything — it wraps the call, returns the original
+  promise untouched, and only watches whether a POST to /cart/add came
+  back 2xx so it can open the cart drawer afterwards. Whoever performed
+  the add — Kaching, the theme's own product-form element, an upsell
+  app — the drawer opens and nothing about their request changes.
+
+  If the drawer ever needs to go away too, deleting this whole snippet
+  is safe: add-to-cart does not depend on it.
 {%- endcomment -%}
 
 <script>
@@ -27,7 +50,6 @@
     if (window.__rosaliaDrawerHook) return;
     window.__rosaliaDrawerHook = true;
 
-    /* ── openDrawer ─────────────────────────────────────── */
     function openDrawer() {
       var drawer = document.querySelector('cart-drawer, cart-notification-drawer, [id="cart-drawer"], .cart-drawer, .drawer--cart');
       if (drawer) {
@@ -47,7 +69,8 @@
       openDrawer();
     }
 
-    /* ── Layer 1: global fetch + XHR interceptors ────────── */
+    /* Passive observers. Pass-through only — the original promise and
+       the original response are returned untouched. */
     var origFetch = window.fetch;
     if (typeof origFetch === 'function') {
       window.fetch = function (input, init) {
@@ -55,12 +78,14 @@
         var method = (init && init.method) || (input && input.method) || 'GET';
         var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(url) && String(method).toUpperCase() === 'POST';
         var p = origFetch.apply(this, arguments);
-        if (isAdd) {
-          p.then(function (res) { if (res && res.ok) setTimeout(afterAdd, 60); }).catch(function () {});
+        if (isAdd && p && typeof p.then === 'function') {
+          p.then(function (res) { if (res && res.ok) setTimeout(afterAdd, 60); })
+           .catch(function () {});
         }
         return p;
       };
     }
+
     var origOpen = XMLHttpRequest.prototype.open;
     var origSend = XMLHttpRequest.prototype.send;
     XMLHttpRequest.prototype.open = function (method, url) {
@@ -69,134 +94,14 @@
     };
     XMLHttpRequest.prototype.send = function () {
       var xhr = this;
-      var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(xhr.__rosUrl || '') && String(xhr.__rosMethod || '').toUpperCase() === 'POST';
-      if (isAdd) xhr.addEventListener('load', function () { if (xhr.status >= 200 && xhr.status < 300) setTimeout(afterAdd, 60); });
+      var isAdd = /\/cart\/add(\.js)?(\?|$)/.test(xhr.__rosUrl || '')
+               && String(xhr.__rosMethod || '').toUpperCase() === 'POST';
+      if (isAdd) {
+        xhr.addEventListener('load', function () {
+          if (xhr.status >= 200 && xhr.status < 300) setTimeout(afterAdd, 60);
+        });
+      }
       return origSend.apply(this, arguments);
     };
-
-    /* ── Layer 2: Kaching Bundle sync ────────────────────── */
-    var section = document.getElementById('shopify-section-{{ section_id }}');
-    if (!section) return;
-    var form = section.querySelector('form[id^="product-form-"]');
-    if (!form) return;
-    var hiddenId  = form.querySelector('input[name="id"]');
-    var hiddenQty = form.querySelector('input[name="quantity"]');
-
-    /* Ordered by specificity: Kaching-flavored selectors first, then
-       any standard Shopify radio in the buy-box. */
-    var VARIANT_SELECTORS = [
-      '.kaching-bundles-block input[name="id"]:checked',
-      '.kaching-bundle-deal--selected input[name="id"]',
-      '[data-kaching] input[name="id"]:checked',
-      '.kaching-bundles-deal.kaching-bundles-deal--selected [data-variant-id]',
-      '.rosalia-buybox .kaching-bundles-deal--selected [data-variant-id]',
-      '.kaching-bundles-deal--selected',
-      '[data-selected-variant-id]',
-      '.rosalia-buybox input[name="id"]:checked',
-      'input[type="radio"][name="id"]:checked',
-    ];
-
-    function readSelectedVariant() {
-      for (var i = 0; i < VARIANT_SELECTORS.length; i++) {
-        var el = document.querySelector(VARIANT_SELECTORS[i]);
-        if (!el) continue;
-        var vid = el.value || el.getAttribute('data-variant-id') || el.getAttribute('data-selected-variant-id');
-        if (vid && /^\d{5,}$/.test(String(vid))) {
-          var qty = el.getAttribute('data-quantity');
-          if (!qty) {
-            var parent = el.closest('[data-quantity]');
-            if (parent) qty = parent.getAttribute('data-quantity');
-          }
-          return { id: String(vid), qty: qty ? String(qty) : null, source: VARIANT_SELECTORS[i] };
-        }
-      }
-      return null;
-    }
-
-    /* Any line-item properties Kaching sets on the page (input names
-       like "properties[_kaching_bundle_id]") — reflect them into our
-       form so the server-side deal is applied. */
-    function copyKachingProperties() {
-      var found = document.querySelectorAll('input[name^="properties["]');
-      var addedCount = 0;
-      Array.prototype.forEach.call(found, function (src) {
-        if (form.contains(src)) return;
-        if (!src.value) return;
-        var name = src.name;
-        var existing = form.querySelector('input[name="' + name.replace(/"/g, '\\"') + '"]');
-        if (existing) { existing.value = src.value; return; }
-        var clone = document.createElement('input');
-        clone.type = 'hidden'; clone.name = name; clone.value = src.value;
-        form.appendChild(clone);
-        addedCount++;
-      });
-      return addedCount;
-    }
-
-    function syncFromKaching() {
-      var picked = readSelectedVariant();
-      if (picked && hiddenId) {
-        if (hiddenId.value !== picked.id) hiddenId.value = picked.id;
-      }
-      if (picked && picked.qty && hiddenQty) {
-        if (hiddenQty.value !== picked.qty) hiddenQty.value = picked.qty;
-      }
-      copyKachingProperties();
-      return picked;
-    }
-
-    /* Sync on any interaction in the buy-box + on ext events Kaching
-       or the theme may dispatch. */
-    var buyBox = section.querySelector('.rosalia-buybox') || section;
-    buyBox.addEventListener('click', function () { setTimeout(syncFromKaching, 50); }, true);
-    buyBox.addEventListener('change', function () { setTimeout(syncFromKaching, 20); }, true);
-    document.addEventListener('kaching:variant:change', syncFromKaching);
-    document.addEventListener('variant:change', syncFromKaching);
-    document.addEventListener('product:variant-change', syncFromKaching);
-
-    /* First-render sync (in case a bundle is pre-selected). */
-    setTimeout(syncFromKaching, 400);
-    setTimeout(syncFromKaching, 1500);
-
-    /* ── Layer 3: submit fallback ────────────────────────── */
-    var btn = section.querySelector('[data-rosalia-atc]');
-    var origLabel = btn ? btn.querySelector('.rosalia-cta-label') : null;
-    var origText = origLabel ? origLabel.textContent : '';
-
-    /* Set a marker so we can tell whether an external hijacker
-       (Kaching, another app) preventDefault'd our submit. */
-    form.addEventListener('submit', function (e) {
-      /* Always sync one last time before anyone else sees the submit. */
-      syncFromKaching();
-
-      /* Wait one microtask to see if another listener stops propagation.
-         If nobody prevents default we take over: AJAX + drawer. */
-      var stopped = false;
-      var check = function () { stopped = e.defaultPrevented; };
-      queueMicrotask ? queueMicrotask(check) : setTimeout(check, 0);
-
-      setTimeout(function () {
-        if (stopped) return; /* Kaching/other took the wheel — we're done. */
-        e.preventDefault();
-        if (btn) { btn.classList.add('is-loading'); btn.disabled = true; if (origLabel) origLabel.textContent = 'Adding…'; }
-        var body = new FormData(form);
-        body.append('sections', 'cart-drawer,cart-notification-drawer,header');
-        fetch('{{ routes.cart_add_url }}', {
-          method: 'POST',
-          headers: { 'Accept': 'application/javascript', 'X-Requested-With': 'XMLHttpRequest' },
-          body: body
-        })
-          .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, body: j }; }); })
-          .then(function (res) {
-            if (!res.ok || (res.body && res.body.status >= 400)) {
-              throw new Error((res.body && (res.body.description || res.body.message)) || 'ATC failed');
-            }
-          })
-          .catch(function () { window.location.href = '{{ routes.cart_url }}'; })
-          .finally(function () {
-            if (btn) { btn.classList.remove('is-loading'); btn.disabled = false; if (origLabel) origLabel.textContent = origText; }
-          });
-      }, 0);
-    }, false);
   })();
 </script>
