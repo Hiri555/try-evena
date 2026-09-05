@@ -1,13 +1,43 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main_product": {
       "type": "rosalia-main-product",
       "blocks": {
-        "eyebrow": { "type": "eyebrow", "settings": { "text": "" } },
-        "title": { "type": "title", "settings": {} },
-        "subtitle": { "type": "subtitle", "settings": { "text": "" } },
-        "tag_pills": { "type": "tag_pills", "settings": {} },
-        "benefits": { "type": "benefits", "settings": { "icon_svg": "" } },
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": ""
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "subtitle": {
+          "type": "subtitle",
+          "settings": {
+            "text": ""
+          }
+        },
+        "tag_pills": {
+          "type": "tag_pills",
+          "settings": {}
+        },
+        "benefits": {
+          "type": "benefits",
+          "settings": {
+            "icon_svg": ""
+          }
+        },
         "symptom_picker": {
           "type": "symptom_picker",
           "settings": {
@@ -19,28 +49,53 @@
         },
         "kaching_bundles_app_block_9NUzqQ": {
           "type": "shopify://apps/kaching-bundles/blocks/app-block/6c637362-a106-4a32-94ac-94dcfd68cdb8",
-          "settings": { "product": "daily-reset-serum", "manual_deal_block_id": "" }
+          "settings": {
+            "product": "daily-reset-serum",
+            "manual_deal_block_id": ""
+          }
         },
         "bundle_tiers": {
           "type": "bundle_tiers",
           "disabled": true,
-          "settings": { "label": "Choose your reset", "recommended_label": "Recommended" }
+          "settings": {
+            "label": "Choose your reset",
+            "recommended_label": "Recommended"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
-          "settings": { "button_label": "GET MY FACE BACK" }
+          "settings": {
+            "button_label": "GET MY FACE BACK"
+          }
         },
         "delivery": {
           "type": "delivery_estimate",
-          "settings": { "min_days": 4, "max_days": 8 }
+          "settings": {
+            "min_days": 4,
+            "max_days": 8
+          }
         },
         "trust_badges": {
           "type": "trust_badges",
           "settings": {
             "trust_badge_1": "60-day guarantee",
-            "trust_badge_2": "Free shipping $50+",
+            "trust_badge_2": "Free shipping $60+",
             "trust_badge_3": "Ships in 48h",
             "trust_badge_4": "Secure checkout"
+          }
+        },
+        "more_answers": {
+          "type": "more_answers",
+          "settings": {
+            "heading": "Looking for more answers?",
+            "input_placeholder": "Have questions? Ask here",
+            "input_url": "/pages/contact",
+            "q1_label": "Why do you recommend 2 bottles minimum?",
+            "q1_answer": "<p>Our 312-woman clinical panel saw the shift at week 7–8. Not week 3. Not week 4.</p><p>The flush loop that keeps your face reactive doesn't unwind in 30 days. It needs 56 days for the alarm to stop firing, the nerves to reset, and the barrier to fully rebuild — and closer to 84 days for that new baseline to hold on its own.</p><p>One bottle tests whether your skin tolerates the formula. Two bottles tests whether it works. Three bottles is where the panel said the shift stabilizes.</p><p>If it doesn't shift for you — every bottle, even the half-used ones, is refunded within 60 days. One email. No forms. That's why the guarantee is 60 days, not 30.</p>",
+            "q2_label": "Will this actually work if nothing else has?",
+            "q2_answer": "<p>A fair question given what you've probably tried already.</p><p>Most rosacea products target one mechanism — either the immune alarm, or the vessels, or the barrier. That's why single-active serums plateau. Your face has five things misfiring at once, and treating one of them just lets the other four keep running the loop.</p><p>The Reset Complex targets the five simultaneously — that's the mechanical difference. It's why our panel saw shifts in cases where prescriptions, IPL, and every “sensitive skin” line had failed.</p><p>That said, we're honest about one thing: 4 out of 100 women in our panel saw no change at all. If you're in that 4 out of 100, the 60-day refund is why.</p>",
+            "q3_label": "Is Rosalia safe if I'm pregnant or nursing?",
+            "q3_answer": "<p>Yes. Every active in Rosalia was chosen with pregnancy- and nursing-compatibility in mind, using standard OB and lactation references.</p><p>Azelaic Acid — one of our four actives — is specifically recommended by dermatologists during pregnancy for exactly the kind of hormonal flushing that shows up postpartum.</p><p>We still recommend confirming with your OB or lactation consultant before starting anything new — every body is different, and we're not your doctor. But we built the formula so you wouldn't have to wait until you're done nursing to start.</p>"
           }
         },
         "guarantee_wxPehp": {
@@ -48,28 +103,6 @@
           "settings": {
             "headline": "60-day reset guarantee",
             "text": "<p>Try Rosalia for 60 days. Full refund if it's not right — no forms, no return shipping.</p>"
-          }
-        },
-        "quick_faq": {
-          "type": "quick_faq",
-          "settings": {
-            "title": "Looking for more answers?",
-            "search_placeholder": "Have questions? Ask here",
-            "contact_url": "/pages/contact",
-            "q1_question": "Why do you recommend 2 bottles minimum?",
-            "q1_answer": "<p>Our 312-woman clinical panel saw the shift at <strong>week 7–8</strong>. Not week 3. Not week 4.</p><p>The flush loop that keeps your face reactive doesn't unwind in 30 days. It needs 56 days for the alarm to stop firing, the nerves to reset, and the barrier to fully rebuild — and closer to 84 days for that new baseline to hold on its own.</p><p><strong>One bottle</strong> tests whether your skin tolerates the formula. <strong>Two bottles</strong> tests whether it works. <strong>Three bottles</strong> is where the panel said the shift stabilizes.</p><p>If it doesn't shift for you — every bottle, even the half-used ones, is refunded within 60 days. One email. No forms. That's why the guarantee is 60 days, not 30.</p>",
-            "q2_question": "Will this actually work if nothing else has?",
-            "q2_answer": "<p>A fair question given what you've probably tried already.</p><p>Most rosacea products target one mechanism — either the immune alarm, or the vessels, or the barrier. That's why single-active serums plateau. Your face has five things misfiring at once, and treating one of them just lets the other four keep running the loop.</p><p><strong>The Reset Complex targets the five simultaneously</strong> — that's the mechanical difference. It's why our panel saw shifts in cases where prescriptions, IPL, and every “sensitive skin” line had failed.</p><p>That said, we're honest about one thing: 4 out of 100 women in our panel saw no change at all. If you're in that 4 out of 100, the 60-day refund is why.</p>",
-            "q3_question": "Is Rosalia safe if I'm pregnant or nursing?",
-            "q3_answer": "<p><strong>Yes.</strong> Every active in Rosalia was chosen with pregnancy- and nursing-compatibility in mind, using standard OB and lactation references.</p><p><strong>Azelaic Acid</strong> — one of our four actives — is specifically recommended by dermatologists during pregnancy for exactly the kind of hormonal flushing that shows up postpartum.</p><p>We still recommend confirming with your OB or lactation consultant before starting anything new — every body is different, and we're not your doctor. But we built the formula so you wouldn't have to wait until you're done nursing to start.</p>",
-            "d1_title": "Formulations",
-            "d1_body": "<p><strong>Four clinically-supported actives, each at the dose reactive skin can actually tolerate.</strong></p><p>Azelaic Acid 10%, Centella Asiatica 4%, Colloidal Oat 1% + Panthenol (B5) 5%, Licochalcone A 0.4%. Chosen because more isn't better when your skin is already on edge. The fifth lever isn't an ingredient — it's what your face does when the first four stop interfering.</p><p><strong>What we left out on purpose:</strong> essential oils, fragrance, alcohol, menthol, niacinamide (one of the most common inducers of flushing in reactive skin), retinoids.</p>"
-          , "d2_title": "How & why it works",
-            "d2_body": "<p>Rosacea isn't one thing misfiring — it's five systems firing at once: <strong>the alarm</strong> (immune overreaction), <strong>the nerves</strong> (heat/stress hypersensitivity), <strong>the door</strong> (barrier leak that feeds the alarm), <strong>the wall</strong> (vessels that stay dilated), and <strong>the loop</strong> that keeps them all going.</p><p>The Reset Complex targets four of the five with actives. The fifth (the loop) unwinds on its own once the first four stop interfering. That's why single-active serums plateau — they fix one, the other four keep the loop running.</p><p>Full mechanism in the “Rosacea was never one problem” section below.</p>",
-            "d3_title": "How to use",
-            "d3_body": "<p><strong>Morning and evening, on clean dry skin, before your moisturizer.</strong></p><dl><dt>01 · Dispense</dt><dd>3–4 drops from the dropper. Enough for the full face.</dd><dt>02 · Apply</dt><dd>Press gently into cheeks, nose, forehead. Let it absorb for 60 seconds.</dd><dt>03 · Continue</dt><dd>Follow with moisturizer. The serum works underneath.</dd></dl><p>Compatible with most routines. The only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>",
-            "d4_title": "The 60-day guarantee",
-            "d4_body": "<dl><dt>What it covers</dt><dd>Every bottle, even half-used ones. Buy 1, buy 3 — same guarantee.</dd><dt>How to claim</dt><dd>One email to <strong>contact@try-rosalia.com</strong> within 60 days of your order. That's it. No forms, no return shipping, no photos, no story to tell us.</dd><dt>When you're refunded</dt><dd>Full refund back to your original payment method within 24 hours of your email.</dd><dt>Why 60 days</dt><dd>Because our panel saw the shift at week 7–8. A 30-day guarantee on a product that needs 8 weeks to work would be dishonest. 60 days is the minimum floor for you to actually judge.</dd></dl>"
           }
         }
       },
@@ -85,8 +118,8 @@
         "buy_buttons",
         "delivery",
         "trust_badges",
-        "guarantee_wxPehp",
-        "quick_faq"
+        "more_answers",
+        "guarantee_wxPehp"
       ],
       "settings": {
         "product": "",
@@ -99,7 +132,7 @@
         "enable_video_autoplay": false,
         "enable_video_looping": false,
         "cta_shape": "pill",
-        "after_add_to_cart": "drawer",
+        "after_add_to_cart": "checkout",
         "enable_judgeme": false,
         "section_background": "#faf5f0",
         "section_text_color": "#1f1a1c",
@@ -110,11 +143,44 @@
     "marquee": {
       "type": "rosalia-marquee",
       "blocks": {
-        "item_ship": { "type": "item", "settings": { "text": "Free US shipping on orders over $50" } },
-        "item_refund": { "type": "item", "settings": { "text": "60-day full refund · Half-used bottles accepted" } },
-        "item_authority": { "type": "item", "settings": { "text": "Formulated with a vascular biologist" } }
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "No essential oils"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Five mechanisms at once"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Rosacea-tested"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "text": "60-day guarantee"
+          }
+        },
+        "item_6": {
+          "type": "item",
+          "settings": {
+            "text": "Formulated with a vascular biologist"
+          }
+        }
       },
-      "block_order": ["item_ship", "item_refund", "item_authority"],
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_5",
+        "item_6"
+      ],
       "settings": {
         "separator": "◆",
         "aria_label": "Product highlights",
@@ -183,7 +249,13 @@
           }
         }
       },
-      "block_order": ["lever_1", "lever_2", "lever_3", "lever_4", "lever_5"],
+      "block_order": [
+        "lever_1",
+        "lever_2",
+        "lever_3",
+        "lever_4",
+        "lever_5"
+      ],
       "settings": {
         "anchor_id": "how-it-works",
         "eyebrow": "The Reset Complex™",
@@ -240,7 +312,12 @@
           }
         }
       },
-      "block_order": ["ing_1", "ing_2", "ing_3", "ing_4"],
+      "block_order": [
+        "ing_1",
+        "ing_2",
+        "ing_3",
+        "ing_4"
+      ],
       "settings": {
         "eyebrow": "Four Actives",
         "heading": "The <em>full</em> formula.",
@@ -261,12 +338,49 @@
     "comparison": {
       "type": "rosalia-comparison",
       "blocks": {
-        "row_1": { "type": "row", "settings": { "attribute": "The design", "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.", "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought.", "indicator": "yes" } },
-        "row_2": { "type": "row", "settings": { "attribute": "The mechanism", "rosalia_value": "Five levers at once — the loop broken from every side.", "other_value": "One hero ingredient. Fingers crossed it addresses your version.", "indicator": "yes" } },
-        "row_3": { "type": "row", "settings": { "attribute": "The proof", "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.", "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names.", "indicator": "yes" } },
-        "row_4": { "type": "row", "settings": { "attribute": "The promise", "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.", "other_value": "7-day return window. Unopened. Original packaging.", "indicator": "yes" } }
+        "row_1": {
+          "type": "row",
+          "settings": {
+            "attribute": "The design",
+            "rosalia_value": "Built ground-up for reactive, rosacea-prone skin. Nothing retrofitted.",
+            "other_value": "Formulated for normal skin, then labeled 'sensitive' as an afterthought.",
+            "indicator": "yes"
+          }
+        },
+        "row_2": {
+          "type": "row",
+          "settings": {
+            "attribute": "The mechanism",
+            "rosalia_value": "Five levers at once — the loop broken from every side.",
+            "other_value": "One hero ingredient. Fingers crossed it addresses your version.",
+            "indicator": "yes"
+          }
+        },
+        "row_3": {
+          "type": "row",
+          "settings": {
+            "attribute": "The proof",
+            "rosalia_value": "Formulated with a vascular biologist. Rosacea-tested. Named names.",
+            "other_value": "'Clinically inspired.' 'Dermatologist recommended.' No names.",
+            "indicator": "yes"
+          }
+        },
+        "row_4": {
+          "type": "row",
+          "settings": {
+            "attribute": "The promise",
+            "rosalia_value": "60 days to feel it shift. Opened, half-used, doesn't matter.",
+            "other_value": "7-day return window. Unopened. Original packaging.",
+            "indicator": "yes"
+          }
+        }
       },
-      "block_order": ["row_1", "row_2", "row_3", "row_4"],
+      "block_order": [
+        "row_1",
+        "row_2",
+        "row_3",
+        "row_4"
+      ],
       "settings": {
         "heading": "<p>Why nothing else <em>has worked</em>.</p>",
         "lead": "Most serums are built for skin that already behaves. Rosalia was built for skin that doesn't.",
@@ -285,14 +399,105 @@
     "results": {
       "type": "rosalia-results",
       "blocks": {
-        "res_1": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Camille_34.png", "rating": 5, "quote": "I keep forgetting to check my face.", "comment": "<p>Ok so the 4pm thing. My cheeks would start burning around then pretty much every day at work and I'd go sit in the bathroom for ten minutes until it passed. I realised last week I hadn't done that in a while. I couldn't tell you when it stopped, which is kind of the strange part — you don't notice the day it happens.</p>", "name": "Camille", "age": "34", "duration": "8 weeks", "verified": false, "verified_label": "Verified buyer" } },
-        "res_2": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Emily_42.png", "rating": 5, "quote": "Down to tinted moisturiser most days.", "comment": "<p>I used to put on two pumps of full coverage before leaving the house. Now it's tinted moisturiser, and some days nothing. My skin isn't perfect, I still go red after a hot shower or a glass of wine, but it's not the first thing I see in the mirror anymore.</p><p>Took about six weeks before I noticed much, so don't panic if week two feels like nothing is happening.</p>", "name": "Emily", "age": "42", "duration": "10 weeks", "verified": false, "verified_label": "Verified buyer" } },
-        "res_3": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Sarah_38.png", "rating": 4, "quote": "It doesn't sting. That's why I kept going.", "comment": "<p>Honestly I bought this half expecting to return it. Everything stings. This one didn't, first time in years, so I stuck with it. Six weeks in and the redness is calmer, especially around my nose.</p><p>Taking a star off for the dropper — it dribbles down the side of the bottle every time. Small thing but it bugs me.</p>", "name": "Sarah", "age": "38", "duration": "6 weeks", "verified": false, "verified_label": "Verified buyer" } },
-        "res_4": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Julie_48.png", "rating": 5, "quote": "I stopped scheduling around my face.", "comment": "<p>For years I avoided afternoon meetings because I knew what my face would look like by then. I don't really think about that now. It still happens sometimes, usually when I'm stressed or it's warm out, but it's mild and it fades in a few minutes instead of sticking around all evening.</p>", "name": "Julie", "age": "48", "duration": "12 weeks", "verified": false, "verified_label": "Verified buyer" } },
-        "res_5": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Sophie_40.png", "rating": 5, "quote": "My dermatologist asked what I'd changed.", "comment": "<p>Went in for a routine check and she stopped halfway through and asked what I was using. I told her it was just this, and she wrote the name down.</p><p>I've been on and off prescriptions since my twenties. Nothing has held like this has.</p>", "name": "Sophie", "age": "40", "duration": "16 weeks", "verified": false, "verified_label": "Verified buyer" } },
-        "res_6": { "type": "result_card", "settings": { "show_image": true, "image": "shopify://shop_images/Ana_29.png", "rating": 4, "quote": "the bumps are what actually changed", "comment": "<p>the redness got better but honestly the bumps are the thing that changed for me. i had them along my jaw and chin constantly, like a whole cluster. now there's maybe one or two.</p><p>wish it was a bit cheaper tbh. but i've repurchased twice so.</p>", "name": "Ana", "age": "29", "duration": "9 weeks", "verified": false, "verified_label": "Verified buyer" } }
+        "res_1": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Camille_34.png",
+            "rating": 5,
+            "quote": "I keep forgetting to check my face.",
+            "comment": "<p>Ok so the 4pm thing. My cheeks would start burning around then pretty much every day at work and I'd go sit in the bathroom for ten minutes until it passed. I realised last week I hadn't done that in a while. I couldn't tell you when it stopped, which is kind of the strange part — you don't notice the day it happens.</p>",
+            "name": "Camille",
+            "age": "34",
+            "duration": "8 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        },
+        "res_2": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Emily_42.png",
+            "rating": 5,
+            "quote": "Down to tinted moisturiser most days.",
+            "comment": "<p>I used to put on two pumps of full coverage before leaving the house. Now it's tinted moisturiser, and some days nothing. My skin isn't perfect, I still go red after a hot shower or a glass of wine, but it's not the first thing I see in the mirror anymore.</p><p>Took about six weeks before I noticed much, so don't panic if week two feels like nothing is happening.</p>",
+            "name": "Emily",
+            "age": "42",
+            "duration": "10 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        },
+        "res_3": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Sarah_38.png",
+            "rating": 4,
+            "quote": "It doesn't sting. That's why I kept going.",
+            "comment": "<p>Honestly I bought this half expecting to return it. Everything stings. This one didn't, first time in years, so I stuck with it. Six weeks in and the redness is calmer, especially around my nose.</p><p>Taking a star off for the dropper — it dribbles down the side of the bottle every time. Small thing but it bugs me.</p>",
+            "name": "Sarah",
+            "age": "38",
+            "duration": "6 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        },
+        "res_4": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Julie_48.png",
+            "rating": 5,
+            "quote": "I stopped scheduling around my face.",
+            "comment": "<p>For years I avoided afternoon meetings because I knew what my face would look like by then. I don't really think about that now. It still happens sometimes, usually when I'm stressed or it's warm out, but it's mild and it fades in a few minutes instead of sticking around all evening.</p>",
+            "name": "Julie",
+            "age": "48",
+            "duration": "12 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        },
+        "res_5": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Sophie_40.png",
+            "rating": 5,
+            "quote": "My dermatologist asked what I'd changed.",
+            "comment": "<p>Went in for a routine check and she stopped halfway through and asked what I was using. I told her it was just this, and she wrote the name down.</p><p>I've been on and off prescriptions since my twenties. Nothing has held like this has.</p>",
+            "name": "Sophie",
+            "age": "40",
+            "duration": "16 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        },
+        "res_6": {
+          "type": "result_card",
+          "settings": {
+            "show_image": true,
+            "image": "shopify://shop_images/Ana_29.png",
+            "rating": 4,
+            "quote": "the bumps are what actually changed",
+            "comment": "<p>the redness got better but honestly the bumps are the thing that changed for me. i had them along my jaw and chin constantly, like a whole cluster. now there's maybe one or two.</p><p>wish it was a bit cheaper tbh. but i've repurchased twice so.</p>",
+            "name": "Ana",
+            "age": "29",
+            "duration": "9 weeks",
+            "verified": false,
+            "verified_label": "Verified buyer"
+          }
+        }
       },
-      "block_order": ["res_1", "res_2", "res_3", "res_4", "res_5", "res_6"],
+      "block_order": [
+        "res_1",
+        "res_2",
+        "res_3",
+        "res_4",
+        "res_5",
+        "res_6"
+      ],
       "settings": {
         "eyebrow": "Real results",
         "heading": "They stopped hiding. <em>Here's what changed.</em>",
@@ -310,11 +515,42 @@
     "ritual": {
       "type": "rosalia-ritual",
       "blocks": {
-        "step_1": { "type": "step", "settings": { "number": "01", "title": "Dispense", "description": "3–4 drops from the dropper. That's enough for the full face.", "external_video_url": "", "poster": "shopify://shop_images/video1-ezgif.com-video-to-gif-converter.gif" } },
-        "step_2": { "type": "step", "settings": { "number": "02", "title": "Apply", "description": "Press gently into cheeks, nose, forehead. Let it absorb 60 seconds.", "external_video_url": "", "poster": "shopify://shop_images/video3-ezgif.com-video-to-gif-converter.gif" } },
-        "step_3": { "type": "step", "settings": { "number": "03", "title": "Continue", "description": "Follow with moisturizer. The serum works underneath.", "external_video_url": "", "poster": "shopify://shop_images/video2-ezgif.com-video-to-gif-converter_1.gif" } }
+        "step_1": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Dispense",
+            "description": "3–4 drops from the dropper. That's enough for the full face.",
+            "external_video_url": "",
+            "poster": "shopify://shop_images/video1-ezgif.com-video-to-gif-converter.gif"
+          }
+        },
+        "step_2": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Apply",
+            "description": "Press gently into cheeks, nose, forehead. Let it absorb 60 seconds.",
+            "external_video_url": "",
+            "poster": "shopify://shop_images/video3-ezgif.com-video-to-gif-converter.gif"
+          }
+        },
+        "step_3": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Continue",
+            "description": "Follow with moisturizer. The serum works underneath.",
+            "external_video_url": "",
+            "poster": "shopify://shop_images/video2-ezgif.com-video-to-gif-converter_1.gif"
+          }
+        }
       },
-      "block_order": ["step_1", "step_2", "step_3"],
+      "block_order": [
+        "step_1",
+        "step_2",
+        "step_3"
+      ],
       "settings": {
         "eyebrow": "The ritual",
         "heading": "Three steps. <em>Two minutes.</em>",
@@ -329,12 +565,45 @@
     "timeline": {
       "type": "rosalia-timeline",
       "blocks": {
-        "tl_1": { "type": "milestone", "settings": { "period": "Week 1–2", "title": "The quiet", "description": "Skin stops stinging. Barrier rebuilds. Nothing dramatic — that's the point." } },
-        "tl_2": { "type": "milestone", "settings": { "period": "Week 3–4", "title": "The first shift", "description": "Baseline redness softens. Flushing episodes shorter. Skin feels less reactive." } },
-        "tl_3": { "type": "milestone", "settings": { "period": "Week 5–6", "title": "Others notice", "description": "Tone evens out. Foundation decreases. The 3pm flare stays manageable." } },
-        "tl_4": { "type": "milestone", "settings": { "period": "Week 7–8", "title": "The new baseline", "description": "Your skin reaches its new normal. The flare cycle shortens dramatically." } }
+        "tl_1": {
+          "type": "milestone",
+          "settings": {
+            "period": "Week 1–2",
+            "title": "The quiet",
+            "description": "Skin stops stinging. Barrier rebuilds. Nothing dramatic — that's the point."
+          }
+        },
+        "tl_2": {
+          "type": "milestone",
+          "settings": {
+            "period": "Week 3–4",
+            "title": "The first shift",
+            "description": "Baseline redness softens. Flushing episodes shorter. Skin feels less reactive."
+          }
+        },
+        "tl_3": {
+          "type": "milestone",
+          "settings": {
+            "period": "Week 5–6",
+            "title": "Others notice",
+            "description": "Tone evens out. Foundation decreases. The 3pm flare stays manageable."
+          }
+        },
+        "tl_4": {
+          "type": "milestone",
+          "settings": {
+            "period": "Week 7–8",
+            "title": "The new baseline",
+            "description": "Your skin reaches its new normal. The flare cycle shortens dramatically."
+          }
+        }
       },
-      "block_order": ["tl_1", "tl_2", "tl_3", "tl_4"],
+      "block_order": [
+        "tl_1",
+        "tl_2",
+        "tl_3",
+        "tl_4"
+      ],
       "settings": {
         "eyebrow": "What to expect",
         "heading": "Your first <em>eight weeks</em>.",
@@ -359,7 +628,9 @@
           }
         }
       },
-      "block_order": ["expert_1"],
+      "block_order": [
+        "expert_1"
+      ],
       "settings": {
         "eyebrow": "Formulated with expertise",
         "heading": "",
@@ -377,32 +648,90 @@
     "faq": {
       "type": "rosalia-faq",
       "blocks": {
-        "more_answers": {
-          "type": "more_answers",
-          "disabled": true,
+        "qa_1": {
+          "type": "qa",
           "settings": {
-            "heading": "Looking for more answers?",
-            "input_placeholder": "Have questions? Ask here",
-            "input_url": "/pages/contact",
-            "q1_label": "Why do you recommend 2 bottles minimum?",
-            "q1_answer": "<p>Our 312-woman clinical panel saw the shift at week 7–8. Not week 3. Not week 4.</p><p>The flush loop that keeps your face reactive doesn't unwind in 30 days. It needs 56 days for the alarm to stop firing, the nerves to reset, and the barrier to fully rebuild — and closer to 84 days for that new baseline to hold on its own.</p><p>One bottle tests whether your skin tolerates the formula. Two bottles tests whether it works. Three bottles is where the panel said the shift stabilizes.</p><p>If it doesn't shift for you — every bottle, even the half-used ones, is refunded within 60 days. One email. No forms. That's why the guarantee is 60 days, not 30.</p>",
-            "q2_label": "Will this actually work if nothing else has?",
-            "q2_answer": "<p>A fair question given what you've probably tried already.</p><p>Most rosacea products target one mechanism — either the immune alarm, or the vessels, or the barrier. That's why single-active serums plateau. Your face has five things misfiring at once, and treating one of them just lets the other four keep running the loop.</p><p>The Reset Complex targets the five simultaneously — that's the mechanical difference. It's why our panel saw shifts in cases where prescriptions, IPL, and every “sensitive skin” line had failed.</p><p>That said, we're honest about one thing: 4 out of 100 women in our panel saw no change at all. If you're in that 4 out of 100, the 60-day refund is why.</p>",
-            "q3_label": "Is Rosalia safe if I'm pregnant or nursing?",
-            "q3_answer": "<p>Yes. Every active in Rosalia was chosen with pregnancy- and nursing-compatibility in mind, using standard OB and lactation references.</p><p>Azelaic Acid — one of our four actives — is specifically recommended by dermatologists during pregnancy for exactly the kind of hormonal flushing that shows up postpartum.</p><p>We still recommend confirming with your OB or lactation consultant before starting anything new — every body is different, and we're not your doctor. But we built the formula so you wouldn't have to wait until you're done nursing to start.</p>"
+            "question": "Will this sting my reactive skin?",
+            "answer": "<p>No. Zero essential oils, zero fragrance, zero alcohol, zero menthol — and niacinamide held at 3–5%, not the aggressive 10% that triggers flushing. Our 312-woman panel reported no stinging. If your skin reacts anyway, 60-day full refund.</p>",
+            "open_by_default": false
           }
         },
-        "qa_1": { "type": "qa", "settings": { "question": "Will this sting my reactive skin?", "answer": "<p>No. Zero essential oils, zero fragrance, zero alcohol, zero menthol — and no niacinamide, which is one of the most common triggers of induced flushing. Our 312-woman panel reported no stinging. If your skin reacts anyway, 60-day full refund.</p>", "open_by_default": false } },
-        "qa_2": { "type": "qa", "settings": { "question": "How is this different from prescriptions?", "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>", "open_by_default": false } },
-        "qa_3": { "type": "qa", "settings": { "question": "When will I see results?", "answer": "<p>Our 312-woman panel saw the shift at week 7–8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>", "open_by_default": false } },
-        "qa_4": { "type": "qa", "settings": { "question": "Can I use with my existing routine?", "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>", "open_by_default": false } },
-        "qa_5": { "type": "qa", "settings": { "question": "What if it doesn't work?", "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>", "open_by_default": false } },
-        "qa_6": { "type": "qa", "settings": { "question": "I've tried everything. Why would this be different?", "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>", "open_by_default": false } },
-        "qa_7": { "type": "qa", "settings": { "question": "Will this make my skin purge or get worse first?", "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>", "open_by_default": false } },
-        "qa_8": { "type": "qa", "settings": { "question": "Is this safe during perimenopause / menopause?", "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (The Nerves) and Lever 04 (The Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>", "open_by_default": false } },
-        "qa_guarantee": { "type": "qa", "settings": { "question": "The 60-day guarantee", "answer": "<p><strong>What it covers</strong><br>Every bottle, even half-used ones. Buy 1, buy 3 — same guarantee.</p><p><strong>How to claim</strong><br>One email to contact@try-rosalia.com within 60 days of your order. That's it. No forms, no return shipping, no photos, no story to tell us.</p><p><strong>When you're refunded</strong><br>Full refund back to your original payment method within 24 hours of your email.</p><p><strong>Why 60 days</strong><br>Because our panel saw the shift at week 7–8. A 30-day guarantee on a product that needs 8 weeks to work would be dishonest. 60 days is the minimum floor for you to actually judge.</p>", "open_by_default": false } }
+        "qa_2": {
+          "type": "qa",
+          "settings": {
+            "question": "How is this different from prescriptions?",
+            "answer": "<p>Prescriptions typically target one pathway. The Reset Complex addresses five simultaneously. Not a replacement — what you reach for when prescriptions plateau.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_3": {
+          "type": "qa",
+          "settings": {
+            "question": "When will I see results?",
+            "answer": "<p>Our 312-woman panel saw the shift at week 7–8. Full effect stabilizes around week 10–12. Not overnight — a systematic reset that builds.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_4": {
+          "type": "qa",
+          "settings": {
+            "question": "Can I use with my existing routine?",
+            "answer": "<p>Yes. Apply on clean skin before moisturizer. Compatible with most routines. Only caution: avoid high-concentration acids (AHA/BHA above 5%) in the same application.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_5": {
+          "type": "qa",
+          "settings": {
+            "question": "What if it doesn't work?",
+            "answer": "<p>Email us. Within 60 days, any reason, full refund to your account within 24 hours. No forms. No return shipping. No questions.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_6": {
+          "type": "qa",
+          "settings": {
+            "question": "I've tried everything. Why would this be different?",
+            "answer": "<p>Because everything you've tried targets one thing. One ingredient, one pathway, one hope. Rosacea has five simultaneous dysfunctions. The Reset Complex is the first formula designed to address all five at once. That's not marketing — that's why single-active serums always plateau.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_7": {
+          "type": "qa",
+          "settings": {
+            "question": "Will this make my skin purge or get worse first?",
+            "answer": "<p>No. There is no purging phase. The formula contains zero actives known to cause purging (no retinoids, no high-dose acids). If anything, the first thing you'll notice is that your skin stops stinging when you apply it. That's the barrier beginning to rebuild.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_8": {
+          "type": "qa",
+          "settings": {
+            "question": "Is this safe during perimenopause / menopause?",
+            "answer": "<p>Yes. Hormonal flushing is one of the specific patterns the Reset Complex was designed for. Lever 02 (The Nerves) and Lever 04 (The Wall) directly address the vascular instability that worsens during hormonal transitions. Several of our longest-term users are perimenopausal women.</p>",
+            "open_by_default": false
+          }
+        },
+        "qa_guarantee": {
+          "type": "qa",
+          "settings": {
+            "question": "The 60-day guarantee",
+            "answer": "<p><strong>What it covers</strong><br>Every bottle, even half-used ones. Buy 1, buy 3 — same guarantee.</p><p><strong>How to claim</strong><br>One email to contact@try-rosalia.com within 60 days of your order. That's it. No forms, no return shipping, no photos, no story to tell us.</p><p><strong>When you're refunded</strong><br>Full refund back to your original payment method within 24 hours of your email.</p><p><strong>Why 60 days</strong><br>Because our panel saw the shift at week 7–8. A 30-day guarantee on a product that needs 8 weeks to work would be dishonest. 60 days is the minimum floor for you to actually judge.</p>",
+            "open_by_default": false
+          }
+        }
       },
-      "block_order": ["more_answers", "qa_1", "qa_2", "qa_3", "qa_4", "qa_5", "qa_6", "qa_7", "qa_8", "qa_guarantee"],
+      "block_order": [
+        "qa_1",
+        "qa_2",
+        "qa_3",
+        "qa_4",
+        "qa_5",
+        "qa_6",
+        "qa_7",
+        "qa_8",
+        "qa_guarantee"
+      ],
       "settings": {
         "eyebrow": "Questions",
         "heading": "Before you <em>decide</em>.",
