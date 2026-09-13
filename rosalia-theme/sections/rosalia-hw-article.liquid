@@ -1,0 +1,611 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — "Human Wiring" mechanism article
+  ══════════════════════════════════════════════════════════════════════
+  A long-form mechanism piece for the flusher. Runs bare: the funnel
+  suffix list in layout/theme.liquid strips the store header and footer,
+  so this section owns the whole page.
+
+  FOUR THINGS WERE CHANGED FROM THE SUPPLIED DRAFT, AND WHY
+
+  1. The disclosure line at the top. The draft presented this as an
+     independent publication ("Independent. No sponsorships. No paid
+     placements.") that then recommends the publisher's own product.
+     A business running a site that looks independent and endorses its
+     own goods is exactly what the FTC's 2024 rule on consumer reviews
+     bars (16 CFR §465.5, company-controlled review websites), and the
+     undisclosed material connection is §255 on top. An advertorial is
+     perfectly legal — an advertorial wearing a press badge is not. One
+     line at the top fixes it and costs nothing else.
+
+  2. Two citations were removed. "Demirbas et al., J Cosmet Dermatol,
+     2025" and "Two Faces of Flushing, J Invest Dermatol, 2020" do not
+     exist — searched for both, neither is real. The science that IS
+     real carries the piece on its own: Yamasaki 2007 in Nature Medicine
+     (KLK5 / cathelicidin, cited thousands of times) and Muto 2014 in
+     JID (mast-cell ablation) are both genuine and are the two load-
+     bearing claims anyway.
+
+  3. The figures are captioned as illustrations, because that is what
+     they are. Captioning a generated image "adapted from [study]" turns
+     a drawing into fabricated evidence. They now say what they are: a
+     drawing of a published mechanism.
+
+  4. The reader letters were removed. Quotes attributed to "R., 47" and
+     "J., 52" are testimonials from people who do not exist. Same rule
+     that has applied to every other page on this store.
+
+  Everything else — the argument, the structure, the typography, the
+  voice — is the draft as supplied.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign quiz = s.quiz_url | default: '/pages/quiz-flusher'
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..900,0..100&family=Newsreader:opsz,ital,wght@6..72,0,300..800;6..72,1,300..800&display=swap" rel="stylesheet">
+
+<style>
+  .hw{
+    --paper:#EFE9D8; --paper-2:#E7E0CB; --paper-3:#DDD4BB;
+    --ink:#1A1512; --ink-2:#5A5147; --ink-3:#8B8378;
+    --rule:#D2CBBB; --rule-2:#B5AD9C;
+    --flush:#B84620; --flush-2:#8F3417; --vessel:#1D6A64;
+    --fig-bg:#0A0908;
+    --display:"Fraunces","Georgia","Times New Roman",serif;
+    --body:"Newsreader","Georgia","Times New Roman",serif;
+    --measure:40rem; --breakout:56rem; --wide:72rem;
+    --gutter:max(1.5rem,4vw);
+    background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-optical-sizing:auto;
+    font-variation-settings:"opsz" 16;
+    font-size:19px; line-height:1.62;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .hw *,.hw *::before,.hw *::after{ box-sizing:border-box; }
+  .hw img{ max-width:100%; display:block; }
+  .hw a{ color:inherit; }
+  .hw ::selection{ background:var(--flush); color:var(--paper); }
+
+  .hw-progress{ position:fixed; top:0; left:0; right:0; height:2px; background:transparent; z-index:100; pointer-events:none; }
+  .hw-progress__bar{ height:100%; width:0%; background:var(--flush); transition:width 60ms linear; }
+
+  /* Disclosure — the line that makes this an advertorial rather than a
+     fake newspaper. Quiet, but above the masthead and never hidden. */
+  .hw-disclosure{
+    background:var(--ink); color:var(--paper);
+    font-family:var(--body); font-size:.76rem;
+    letter-spacing:.14em; text-transform:uppercase;
+    padding:.7rem var(--gutter); text-align:center;
+  }
+  .hw-disclosure a{ color:var(--paper); text-underline-offset:3px; }
+
+  .hw .masthead{
+    max-width:var(--wide); margin:0 auto;
+    padding:1.75rem var(--gutter) 1.5rem;
+    display:flex; align-items:baseline; justify-content:space-between;
+    border-bottom:1px solid var(--rule);
+  }
+  .hw .wordmark{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); }
+  .hw .wordmark svg{ width:22px; height:22px; }
+  .hw .wordmark__text{ font-family:var(--display); font-variation-settings:"opsz" 20,"wght" 500; font-size:1.05rem; letter-spacing:.18em; text-transform:uppercase; }
+  .hw .masthead__nav{ font-family:var(--body); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-2); display:flex; gap:1.5rem; }
+  .hw .masthead__nav a{ text-decoration:none; }
+  .hw .masthead__nav a:hover{ color:var(--ink); }
+
+  .hw .article-header{ max-width:var(--wide); margin:0 auto; padding:3.5rem var(--gutter) 2.5rem; display:grid; gap:1.75rem; }
+  .hw .article-meta{ font-family:var(--body); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; }
+  .hw .article-meta__section{ color:var(--flush); font-variation-settings:"wght" 500; }
+  .hw .article-meta__rule{ width:24px; height:1px; background:var(--rule-2); display:inline-block; }
+
+  .hw .kicker{ font-family:var(--body); font-variation-settings:"wght" 500; font-size:.82rem; letter-spacing:.18em; text-transform:uppercase; color:var(--flush); margin:0; }
+
+  .hw .hero-headline{
+    font-family:var(--display);
+    font-variation-settings:"opsz" 120,"wght" 400,"SOFT" 30;
+    font-size:clamp(2.5rem,6.2vw,5.25rem); line-height:1.02;
+    letter-spacing:-0.02em; color:var(--ink); max-width:22ch; margin:0; text-wrap:balance;
+  }
+  .hw .hero-headline em{ font-style:italic; color:var(--flush); font-variation-settings:"opsz" 120,"wght" 400,"SOFT" 60; }
+
+  .hw .standfirst{ max-width:42rem; font-family:var(--body); font-variation-settings:"opsz" 24,"wght" 400; font-size:clamp(1.15rem,1.6vw,1.4rem); line-height:1.5; color:var(--ink-2); margin:0; }
+  .hw .standfirst strong{ color:var(--ink); font-variation-settings:"wght" 500; }
+
+  .hw .byline{ display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; font-family:var(--body); font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:1rem; border-top:1px solid var(--rule); }
+  .hw .byline__name{ color:var(--ink-2); font-variation-settings:"wght" 500; }
+
+  .hw .hero-figure{ max-width:var(--wide); margin:0 auto 4rem; padding:0 var(--gutter); }
+  .hw .hero-figure .plate{ background:var(--fig-bg); padding:1.5rem; }
+  .hw .hero-figure .plate img{ width:100%; height:auto; display:block; }
+  .hw .hero-figure figcaption{ padding-top:.9rem; font-family:var(--body); font-size:.875rem; line-height:1.55; color:var(--ink-3); max-width:42rem; display:flex; gap:1rem; }
+  .hw .hero-figure figcaption .fig-tag{ color:var(--vessel); font-variation-settings:"wght" 500; letter-spacing:.1em; text-transform:uppercase; font-size:.74rem; flex-shrink:0; padding-top:.16rem; }
+
+  .hw .article-body{ max-width:var(--breakout); margin:0 auto; padding:0 var(--gutter); }
+  .hw .prose{ max-width:var(--measure); margin-left:0; }
+  @media (min-width:1100px){ .hw .prose{ margin-left:6rem; } }
+  .hw .prose p{ margin:0 0 1.35em; font-variation-settings:"opsz" 20; }
+  .hw .prose p + p{ text-indent:1.5em; }
+  .hw .prose p.no-indent{ text-indent:0; }
+  .hw .prose p.no-indent + p{ text-indent:0; }
+  .hw .prose > p:first-child::first-letter{
+    font-family:var(--display); font-variation-settings:"opsz" 144,"wght" 500;
+    font-size:5.25em; float:left; line-height:.82; padding:.08em .1em 0 0; color:var(--flush);
+  }
+
+  .hw .section{ max-width:var(--measure); margin:4rem 0 1.75rem; }
+  @media (min-width:1100px){ .hw .section{ margin-left:6rem; } }
+  .hw .section__num{ font-family:var(--display); font-variation-settings:"opsz" 60,"wght" 400; font-size:.95rem; letter-spacing:.3em; color:var(--flush); display:block; margin-bottom:.5rem; }
+  .hw .section__title{ font-family:var(--display); font-variation-settings:"opsz" 60,"wght" 450,"SOFT" 40; font-size:clamp(1.55rem,2.4vw,2rem); line-height:1.18; letter-spacing:-0.01em; color:var(--ink); margin:0; text-wrap:balance; }
+
+  .hw .figure{ margin:2.75rem auto; max-width:var(--breakout); }
+  .hw .figure .plate{ background:var(--fig-bg); padding:1.25rem; }
+  .hw .figure .plate img{ width:100%; height:auto; display:block; }
+  .hw .figure .plate svg{ width:100%; height:auto; display:block; }
+  .hw .figure figcaption{ padding-top:.9rem; font-family:var(--body); font-size:.875rem; line-height:1.55; color:var(--ink-3); display:grid; grid-template-columns:auto 1fr; gap:1rem; max-width:42rem; margin:0 auto; }
+  .hw .figure figcaption .fig-tag{ color:var(--vessel); font-variation-settings:"wght" 500; letter-spacing:.12em; text-transform:uppercase; font-size:.72rem; padding-top:.18rem; }
+  .hw .figure figcaption em{ color:var(--ink-3); font-style:italic; }
+
+  .hw .pullquote{ max-width:var(--breakout); margin:3rem auto; padding:0 var(--gutter); border-left:3px solid var(--flush); padding-left:1.75rem; }
+  .hw .pullquote p{ font-family:var(--display); font-variation-settings:"opsz" 72,"wght" 350,"SOFT" 60; font-style:italic; font-size:clamp(1.45rem,2.8vw,2rem); line-height:1.22; color:var(--ink); margin:0; text-wrap:balance; }
+
+  .hw .identify{ max-width:var(--measure); margin:2.5rem 0; padding:1.5rem 0; border-top:1px solid var(--rule-2); border-bottom:1px solid var(--rule-2); }
+  @media (min-width:1100px){ .hw .identify{ margin-left:6rem; } }
+  .hw .identify__label{ font-family:var(--body); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--vessel); margin:0 0 .9rem; font-variation-settings:"wght" 500; }
+  .hw .identify ul{ list-style:none; padding:0; margin:0; display:grid; gap:.5rem; }
+  .hw .identify li{ font-family:var(--body); font-variation-settings:"opsz" 20; font-size:1.0625rem; line-height:1.5; color:var(--ink-2); padding-left:1.5rem; position:relative; }
+  .hw .identify li::before{ content:""; position:absolute; left:0; top:.78em; width:8px; height:1px; background:var(--flush); }
+
+  .hw .objections{ max-width:var(--measure); margin:3rem 0; padding:1.75rem; background:var(--paper-2); border-left:3px solid var(--vessel); }
+  @media (min-width:1100px){ .hw .objections{ margin-left:6rem; } }
+  .hw .objections__lead{ font-family:var(--display); font-variation-settings:"opsz" 40,"wght" 450; font-size:1.25rem; line-height:1.3; color:var(--ink); margin:0 0 1.2rem; text-wrap:balance; }
+  .hw .objections dl{ display:grid; gap:.9rem; margin:0; }
+  .hw .objections dt{ font-family:var(--body); font-variation-settings:"wght" 500; font-size:.95rem; color:var(--ink); text-transform:uppercase; letter-spacing:.06em; margin-bottom:.1rem; }
+  .hw .objections dd{ margin:0; font-family:var(--body); font-size:1rem; line-height:1.5; color:var(--ink-2); }
+
+  .hw .reader-test{ max-width:42rem; margin:3.25rem auto; padding:2.25rem 2rem; background:var(--paper-2); border:1px solid var(--rule-2); border-left:3px solid var(--vessel); display:grid; gap:1.1rem; }
+  .hw .reader-test__label{ font-family:var(--body); font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--vessel); font-variation-settings:"wght" 500; margin:0; }
+  .hw .reader-test__prompt{ font-family:var(--display); font-variation-settings:"opsz" 40,"wght" 400; font-size:1.4rem; line-height:1.28; color:var(--ink); margin:0; text-wrap:balance; }
+  .hw .reader-test__meta{ font-family:var(--body); font-size:.85rem; color:var(--ink-3); margin:0; }
+  .hw .reader-test__action{ align-self:start; display:inline-block; font-family:var(--body); font-variation-settings:"wght" 500; font-size:.9rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); text-decoration:none; padding:.9rem 1.6rem; background:transparent; border:1px solid var(--ink); transition:background 180ms ease,color 180ms ease; }
+  .hw .reader-test__action:hover{ background:var(--ink); color:var(--paper); }
+  .hw .reader-test.is-primary{ border-left-color:var(--flush); background:var(--paper-3); }
+  .hw .reader-test.is-primary .reader-test__label{ color:var(--flush); }
+  .hw .reader-test.is-primary .reader-test__action{ background:var(--flush); border-color:var(--flush); color:var(--paper); }
+  .hw .reader-test.is-primary .reader-test__action:hover{ background:var(--flush-2); border-color:var(--flush-2); }
+
+  .hw .editors-note{ max-width:var(--measure); margin:3.5rem 0 2rem; padding:1.5rem 0 0; border-top:1px solid var(--rule-2); }
+  @media (min-width:1100px){ .hw .editors-note{ margin-left:6rem; } }
+  .hw .editors-note__label{ font-family:var(--body); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:0 0 1.1rem; font-variation-settings:"wght" 500; }
+  .hw .editors-note p{ font-family:var(--body); font-variation-settings:"opsz" 22; font-size:1.0625rem; line-height:1.6; color:var(--ink-2); margin:0 0 1.1em; }
+  .hw .editors-note p a{ color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--rule-2); }
+  .hw .editors-note p a:hover{ text-decoration-color:var(--flush); color:var(--flush); }
+
+  .hw .references{ max-width:var(--breakout); margin:4rem auto 2rem; padding:2.5rem var(--gutter) 0; border-top:1px solid var(--rule-2); }
+  .hw .references h3{ font-family:var(--display); font-variation-settings:"opsz" 40,"wght" 500; font-size:1.05rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink); margin:0 0 1.5rem; }
+  .hw .references ol{ padding-left:1.5rem; margin:0; display:grid; gap:.75rem; }
+  .hw .references li{ font-family:var(--body); font-size:.875rem; line-height:1.55; color:var(--ink-3); }
+  .hw .references li em{ color:var(--ink-2); }
+
+  .hw .site-footer{ margin-top:4rem; padding:3rem var(--gutter); border-top:1px solid var(--rule); background:var(--paper-2); }
+  .hw .site-footer__inner{ max-width:var(--wide); margin:0 auto; display:grid; gap:2.5rem; }
+  @media (min-width:720px){ .hw .site-footer__inner{ grid-template-columns:1fr 1fr 1fr; } }
+  .hw .footer-col h4{ font-family:var(--body); font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-3); margin:0 0 1rem; font-variation-settings:"wght" 500; }
+  .hw .footer-col p,.hw .footer-col li{ font-family:var(--body); font-size:.95rem; line-height:1.55; color:var(--ink-2); }
+  .hw .footer-col ul{ list-style:none; padding:0; margin:0; display:grid; gap:.5rem; }
+  .hw .footer-col a{ text-decoration:none; }
+  .hw .footer-col a:hover{ color:var(--ink); }
+  .hw .footer-legal{ max-width:var(--wide); margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-family:var(--body); font-size:.78rem; color:var(--ink-3); letter-spacing:.05em; }
+
+  .hw .fn{ color:var(--flush); text-decoration:none; font-size:.82em; vertical-align:super; line-height:0; padding-left:.1em; font-variation-settings:"wght" 500; }
+  .hw .fn:hover{ text-decoration:underline; }
+
+  @media (prefers-reduced-motion:no-preference){
+    .hw .kicker,.hw .hero-headline,.hw .standfirst,.hw .byline,.hw .hero-figure{
+      opacity:0; transform:translateY(12px); animation:hwReveal 800ms cubic-bezier(.2,.7,.2,1) forwards;
+    }
+    .hw .hero-headline{ animation-delay:60ms; }
+    .hw .standfirst{ animation-delay:140ms; }
+    .hw .byline{ animation-delay:220ms; }
+    .hw .hero-figure{ animation-delay:320ms; }
+    @keyframes hwReveal{ to{ opacity:1; transform:none; } }
+  }
+
+  @media (max-width:640px){
+    .hw .masthead__nav{ display:none; }
+    .hw{ font-size:18px; line-height:1.6; }
+    .hw .article-header{ padding-top:2.5rem; }
+    .hw .prose > p:first-child::first-letter{ font-size:4.5em; }
+    .hw .reader-test{ padding:1.75rem 1.4rem; }
+    .hw .objections{ padding:1.5rem 1.4rem; }
+    .hw .hero-figure .plate,.hw .figure .plate{ padding:.9rem; }
+  }
+</style>
+
+<div class="hw">
+
+  <div class="hw-progress" aria-hidden="true"><div class="hw-progress__bar" data-hw-bar></div></div>
+
+  <p class="hw-disclosure">
+    Advertisement · Published by Rosalia, which sells the serum named in this article
+  </p>
+
+  <header class="masthead">
+    <a href="{{ quiz }}" class="wordmark" aria-label="Human Wiring">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 38 L20 22" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M20 22 L12 14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M20 22 L28 14" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+        <path d="M12 14 L7 8" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+        <path d="M12 14 L14 6" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+        <path d="M28 14 L33 8" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+        <path d="M28 14 L26 6" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+        <path d="M20 22 L20 15" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+      </svg>
+      <span class="wordmark__text">Human Wiring</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="{{ quiz }}">Mechanisms</a>
+      <a href="{{ quiz }}">Reads</a>
+      <a href="{{ quiz }}">Method</a>
+    </nav>
+  </header>
+
+  <section class="article-header">
+    <div class="article-meta">
+      <span class="article-meta__section">Flusher · Mechanism</span>
+      <span class="article-meta__rule"></span>
+      <span>Nº 04</span>
+      <span class="article-meta__rule"></span>
+      <span>7 min read</span>
+    </div>
+
+    <p class="kicker">For the woman whose flush no longer fades by lunch</p>
+
+    <h1 class="hero-headline">A flush is not an event. It is a <em>construction site.</em></h1>
+
+    <p class="standfirst"><strong>This is not a skincare article. It is a mechanism piece.</strong> What a facial flush actually does underneath — why some flushes stop resetting after thirty-five, and why the standard trigger list misses the corridor they all lead to.</p>
+
+    <div class="byline">
+      <span class="byline__name">Rosalia · Human Wiring desk</span>
+      <span>Mechanism, not medical advice</span>
+    </div>
+  </section>
+
+  <figure class="hero-figure">
+    <div class="plate">
+      {%- if s.fig1 != blank -%}
+        {{ s.fig1 | image_url: width: 1600 | image_tag:
+             widths: '640, 960, 1280, 1600',
+             sizes: '(min-width: 1152px) 1100px, 92vw',
+             loading: 'eager',
+             alt: 'Illustration of a dermal capillary network, fine and sparse on the left, dense and tortuous on the right.' }}
+      {%- endif -%}
+    </div>
+    <figcaption>
+      <span class="fig-tag">Fig. 1</span>
+      <span>A vessel bed drawn as it changes with years of frequent flushing: fine and evenly branched at the left, denser and more tortuous at the right. <em>Illustration of the mechanism described below, not a photograph of a patient.</em></span>
+    </figcaption>
+  </figure>
+
+  <main class="article-body">
+
+    <div class="prose">
+      <p>The first thing to know about a facial flush is that the model most of us were taught is the wrong one. Flushing gets described as a transient vasomotor event: the vessel dilates, blood rushes in, colour appears, colour fades. A weather system. Something that passes. Something whose only cost is the discomfort of the minutes it is happening.</p>
+
+      <p>That description was built on what can be seen with a lens and a stopwatch. What it misses is what happens underneath, over months, when the same vessels are asked to dilate again and again. That story is not a weather story. It is a construction story. And it changes what avoiding a trigger is worth, why some flushes stop resetting after thirty-five, and what a serum can and cannot do.</p>
+    </div>
+
+    <aside class="identify" role="note">
+      <p class="identify__label">If any of this describes the last twelve months of your face, this article is why:</p>
+      <ul>
+        <li>A flush that appears in a warm meeting room before anything is eaten or said.</li>
+        <li>A tingling under a moisturiser marketed as gentle.</li>
+        <li>Cheeks that stay hot for hours after the trigger has passed.</li>
+        <li>A flush that no longer waits for a reason.</li>
+        <li>A drawer of prescription gels, sample tubes and cleansers that each helped for two weeks and then stopped.</li>
+      </ul>
+    </aside>
+
+    <aside class="objections" role="note">
+      <p class="objections__lead">You have tried a lot. Here is why each one plateaued — before anyone tells you it is your fault.</p>
+      <dl>
+        <div>
+          <dt>Prescription gels</dt>
+          <dd>Suppress vasodilation for a window. Do not touch the enzyme that decides how long each dilation lasts.</dd>
+        </div>
+        <div>
+          <dt>Barrier creams</dt>
+          <dd>Repair the barrier. Do not touch the translator that turns barrier damage into vessel dilation.</dd>
+        </div>
+        <div>
+          <dt>Trigger avoidance</dt>
+          <dd>Closes one door of eight. The corridor stays open, and the traffic reroutes.</dd>
+        </div>
+        <div>
+          <dt>Laser or IPL</dt>
+          <dd>Reduces the vessels you can already see. Does not slow the signal that builds new ones.</dd>
+        </div>
+      </dl>
+    </aside>
+
+    <section class="section">
+      <span class="section__num">I</span>
+      <h2 class="section__title">A vessel that dilates and returns. A vessel that dilates and stays.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">Two faces meet the same warm room. In one, the vessel widens, the colour arrives, and twenty minutes later the vessel has gone back to the diameter it started at. In the other, it has not. The wall is thinner. The machinery that normally cinches a capillary back to its resting width is not pulling as hard as it did.</p>
+
+      <p>The flush in the second face is not longer because the trigger was worse. It is longer because the return no longer works. Same vessel. Same trigger. Two different endings. That difference is the whole subject of this piece.</p>
+    </div>
+
+    <figure class="figure">
+      <div class="plate">
+        {%- if s.fig2 != blank -%}
+          {{ s.fig2 | image_url: width: 1400 | image_tag:
+               widths: '560, 900, 1120, 1400',
+               sizes: '(min-width: 896px) 850px, 92vw',
+               loading: 'lazy',
+               alt: 'Illustration of two cross-sectioned blood vessels side by side: the left narrow and at rest, the right slack and widely dilated.' }}
+        {%- endif -%}
+      </div>
+      <figcaption>
+        <span class="fig-tag">Fig. 2</span>
+        <span>The same vessel, twenty minutes after the same trigger. Left: returned. Right: still open. <em>Illustration.</em></span>
+      </figcaption>
+    </figure>
+
+    <section class="section">
+      <span class="section__num">II</span>
+      <h2 class="section__title">Each flush sends a growth signal. The vessels answer it.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">A flush that fails to reset is read by the surrounding tissue as a small hypoxic event. Cells near a persistently dilated vessel release vascular endothelial growth factor — the same molecule the body uses during wound healing. New capillaries get built. Existing ones widen and twist. Over years, the vessel bed under skin that flushes frequently becomes structurally different from the vessel bed under skin that does not.</p>
+
+      <p>This is why the redness of a woman at forty-two who has flushed since her late twenties is not simply the redness of a woman at twenty-eight, repeated. The architecture has changed. More vessels. Wider. More tortuous. Nothing else about the skin needs to have changed at all.</p>
+    </div>
+
+    <figure class="figure">
+      <div class="plate">
+        {%- if s.fig3 != blank -%}
+          {{ s.fig3 | image_url: width: 1400 | image_tag:
+               widths: '560, 900, 1120, 1400',
+               sizes: '(min-width: 896px) 850px, 92vw',
+               loading: 'lazy',
+               alt: 'Illustration of two capillary beds: the left fine and evenly branched, the right denser, wider and more tortuous.' }}
+        {%- endif -%}
+      </div>
+      <figcaption>
+        <span class="fig-tag">Fig. 3</span>
+        <span>The same territory, rebuilt. Only the circulatory architecture is different. <em>Illustration.</em></span>
+      </figcaption>
+    </figure>
+
+    <div class="pullquote">
+      <p>A flush is not the event of a minute. It is a deposit into an account that compounds.</p>
+    </div>
+
+    <aside class="reader-test" role="note">
+      <p class="reader-test__label">Reader test</p>
+      <p class="reader-test__prompt">Where does your flush fit in this pattern? A few questions will trace which part of the loop is loudest in your case.</p>
+      <p class="reader-test__meta">Under a minute · no email required to see the result.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See the pattern</a>
+    </aside>
+
+    <section class="section">
+      <span class="section__num">III</span>
+      <h2 class="section__title">The thermostat used to reset. Then it stopped.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">Women describing this change use almost identical words: <em>it used to fade by lunch; now it doesn't fade at all.</em> The trigger has not changed. The wine, the meeting room, the walk from the car park — the inputs are constant. What changed is that the reset no longer arrives.</p>
+
+      <p>A large part of the mechanism turns out to be a single enzyme. Yamasaki and colleagues, in a 2007 <em>Nature Medicine</em> paper<a href="#hw-fn1" class="fn">1</a> that has since been cited thousands of times, showed that facial skin contains a serine protease called KLK5. In unremarkable skin its activity is tightly regulated. In rosacea-prone skin that regulation fails. KLK5 stays active. It activates cathelicidin. And cathelicidin is itself vasoactive: it opens vessels, and it keeps them open.</p>
+
+      <p>The shape of a normal flush is a spike that returns to zero. The shape of a flush after this switch has failed is a spike that partially returns, then rises again over the following hours, and does not get back down before the next trigger arrives.</p>
+    </div>
+
+    <figure class="figure">
+      <div class="plate">
+        {%- comment -%}
+          Drawn as SVG rather than generated. A curve is data, and a
+          generated picture of data is a picture of nothing. This one is
+          honest about what it is: the SHAPE of the two responses, with
+          no numbers on it, because there are no numbers to put on it.
+        {%- endcomment -%}
+        <svg viewBox="0 0 800 300" role="img" aria-label="Two flush curves. One rises, peaks and returns to the baseline. The other rises, partially returns, then climbs again to a broader second peak and does not return.">
+          <line x1="60" y1="250" x2="760" y2="250" stroke="#3A3632" stroke-width="1"/>
+          <line x1="60" y1="250" x2="60" y2="40" stroke="#3A3632" stroke-width="1"/>
+          <path d="M60 250 L150 250 C185 250 195 70 235 70 C275 70 300 248 360 250 L760 250"
+                fill="none" stroke="#1D6A64" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M60 250 L150 250 C185 250 195 70 235 70 C268 70 278 168 310 172 C360 178 380 120 430 110 C520 94 560 132 620 150 C680 168 720 176 760 180"
+                fill="none" stroke="#B84620" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="235" cy="70" r="3.5" fill="#1D6A64"/>
+          <circle cx="430" cy="110" r="3.5" fill="#B84620"/>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="fig-tag">Fig. 4</span>
+        <span>Two responses to one trigger. Teal: a thermostat — it goes up and it comes back. Brick: a ratchet — it comes partway back, then climbs again. <em>Schematic. No scale, because the shape is the point.</em></span>
+      </figcaption>
+    </figure>
+
+    <section class="section">
+      <span class="section__num">IV</span>
+      <h2 class="section__title">Every trigger leads to the same corridor. Cut one, the traffic reroutes.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">A new diagnosis usually comes with a list of triggers to avoid: hot drinks, alcohol, spice, sun, cold wind, exercise heat, emotional stress. The list is not wrong. What it does not say is that those inputs converge on the same downstream enzyme. Heat, ethanol, capsaicin, ultraviolet, cold shear, adrenergic stress. Different upstream doors. One downstream corridor. The corridor is KLK5, its product is cathelicidin, and the vessel opens.</p>
+
+      <p>Avoidance therefore has a ceiling. And it has a second, less-discussed problem: the flush circuit is a loop, not a line. When KLK5 activity rises it sensitises nearby sensory nerves, which lowers the threshold for the next trigger, which raises the odds of the next flush, which further activates KLK5. Remove one input and the traffic reroutes through the ones that remain. Six weeks after quitting alcohol, mild stress produces the flush wine used to produce. The trigger displaced. The circuit did not.</p>
+    </div>
+
+    <figure class="figure">
+      <div class="plate">
+        <svg viewBox="0 0 800 300" role="img" aria-label="Six nodes arranged in a ring, joined by arrows running in a circle. One node is crossed out, and the arrows bypass it to reach the next node.">
+          <g fill="none" stroke="#1D6A64" stroke-width="1.6">
+            <circle cx="400" cy="60"  r="26"/>
+            <circle cx="547" cy="112" r="26"/>
+            <circle cx="590" cy="215" r="26"/>
+            <circle cx="400" cy="252" r="26"/>
+            <circle cx="210" cy="215" r="26"/>
+            <circle cx="253" cy="112" r="26"/>
+          </g>
+          <g fill="none" stroke="#1D6A64" stroke-width="1.6" stroke-linecap="round" opacity=".85">
+            <path d="M428 72 L519 100"/>
+            <path d="M562 138 L575 189"/>
+            <path d="M566 235 L424 250"/>
+            <path d="M376 250 L234 235"/>
+            <path d="M225 189 L238 138"/>
+          </g>
+          <path d="M281 100 C320 74 350 62 372 60" fill="none" stroke="#1D6A64" stroke-width="1.6" stroke-linecap="round" opacity=".25"/>
+          <path d="M268 88 C310 34 480 26 545 84" fill="none" stroke="#B84620" stroke-width="1.8" stroke-linecap="round" stroke-dasharray="5 5"/>
+          <g stroke="#B84620" stroke-width="2.4" stroke-linecap="round">
+            <path d="M243 102 L263 122"/>
+            <path d="M263 102 L243 122"/>
+          </g>
+        </svg>
+      </div>
+      <figcaption>
+        <span class="fig-tag">Fig. 5</span>
+        <span>The loop runs in both directions. Cross out one input and the others carry the traffic around it. <em>Schematic of the mechanism described above.</em></span>
+      </figcaption>
+    </figure>
+
+    <aside class="reader-test" role="note">
+      <p class="reader-test__label">Reader test · Trigger map</p>
+      <p class="reader-test__prompt">Which of the loop inputs is currently loudest in your specific pattern? The map comes from your own answers, not from a generic rosacea checklist.</p>
+      <p class="reader-test__meta">Uses the same model shown above · results in under a minute.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See the pattern</a>
+    </aside>
+
+    <section class="section">
+      <span class="section__num">V</span>
+      <h2 class="section__title">Remove one cell, and the disease does not appear.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">The most consequential experiment in this field is one most patients have never heard of. In 2014, Muto and colleagues, in the <em>Journal of Investigative Dermatology</em><a href="#hw-fn2" class="fn">2</a>, used a mouse model in which the mast cell — a specific cell that sits, physically, between the small blood vessels and the surrounding tissue — could be selectively removed. They then ran the standard cathelicidin challenge. In the mice without mast cells, the rosacea-like phenotype did not appear. Not muted. Did not appear.</p>
+
+      <p>The interpretation was unusually clean. Rosacea is both a vascular and an inflammatory disease because the mast cell is the translator between them. The vessel dilates; the mast cell reads the signal; the mast cell releases the mediators that make the dilation persist. Interrupt the translation and the two systems can no longer talk. The vessel opens and closes without ever being told to stay open.</p>
+
+      <p>That finding is what separates a formula built around calming the translator from a formula built around the barrier or the vessel alone. A moisturiser addresses the barrier. An anti-redness serum addresses the vessel. Neither one is aimed at the cell in between.</p>
+    </div>
+
+    <figure class="figure">
+      <div class="plate">
+        {%- if s.fig6 != blank -%}
+          {{ s.fig6 | image_url: width: 1400 | image_tag:
+               widths: '560, 900, 1120, 1400',
+               sizes: '(min-width: 896px) 850px, 92vw',
+               loading: 'lazy',
+               alt: 'Illustration of two skin cross-sections: on the left a calm vessel in clear tissue, on the right a cell releasing granules beside an agitated vessel.' }}
+        {%- endif -%}
+      </div>
+      <figcaption>
+        <span class="fig-tag">Fig. 6</span>
+        <span>The mast cell sits between the vessel and the immune signal. Take it out of the model and the phenotype does not appear. <em>Illustration of the finding in reference 2.</em></span>
+      </figcaption>
+    </figure>
+
+    <section class="section">
+      <span class="section__num">VI</span>
+      <h2 class="section__title">Why the tingle in your current serum is making it worse.</h2>
+    </section>
+
+    <div class="prose">
+      <p class="no-indent">One footnote, worth ending on. A significant number of anti-redness serums contain menthol, peppermint, eucalyptus or a similar terpene, on the reasoning that a cooling sensation on hot skin is intuitively soothing. It is not. The cool sensation those molecules produce is a receptor event. They bind TRPM8 — and, rarely mentioned on the label, many of them also bind TRPV1, the same receptor a chilli binds and a hot drink binds. What feels like cooling in the first ninety seconds is, at the vessel, an activation. A few hours of narrowing follow. Then a flush wider than the one before.</p>
+
+      <p>A serum that feels like anything — cools, tingles, warms, prickles — on rosacea-prone skin is doing something to the receptors. What it feels like is not what it is doing.</p>
+    </div>
+
+    <aside class="editors-note" role="note">
+      <p class="editors-note__label">About this page</p>
+      <p>This is a Rosalia page. We sell a serum, and the mechanism above is the one we built it around: not the barrier alone and not the vessel alone, but the cell that translates between them. Saying so at the top is the honest version of an article like this one, and it lets you weigh the argument knowing who is making it.</p>
+      <p>We have published what did not go our way as well. Four women in a hundred on our panel saw no change at all, which is why the refund runs sixty days and covers opened bottles. <a href="{{ quiz }}">The short instrument</a> below will tell you which part of the loop is loudest for you before you spend anything.</p>
+    </aside>
+
+    <aside class="reader-test is-primary" role="note" id="hw-quiz">
+      <p class="reader-test__label">Reader instrument · Full trace</p>
+      <p class="reader-test__prompt">See whether your specific flush pattern matches the vascular, enzymatic and mast-cell profile described above.</p>
+      <p class="reader-test__meta">A few short questions · about a minute · no email required to see the result.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See my pattern</a>
+    </aside>
+
+  </main>
+
+  <section class="references">
+    <h3>References</h3>
+    <ol>
+      <li id="hw-fn1">Yamasaki K. et al. <em>Increased serine protease activity and cathelicidin promotes skin inflammation in rosacea.</em> Nature Medicine, 2007; 13(8):975–980.</li>
+      <li id="hw-fn2">Muto Y. et al. <em>Mast cells are key mediators of cathelicidin-initiated skin inflammation in rosacea.</em> Journal of Investigative Dermatology, 2014; 134(11):2728–2736.</li>
+      <li>Drummond P. D., Su D. <em>The mechanism of facial flushing.</em> Work on the thermoregulatory and emotional components of the flush response.</li>
+    </ol>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="footer-col">
+        <h4>About Human Wiring</h4>
+        <p>A Rosalia publication about the nerves, vessels and signals that decide how skin reacts. One mechanism at a time. Written by the people who make the serum, which is why it says so at the top of every page.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Start here</h4>
+        <ul>
+          <li><a href="{{ quiz }}">Find which part of the loop is loudest for you</a></li>
+          <li><a href="{{ quiz }}">The three-minute flush trace</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Method</h4>
+        <ul>
+          <li><a href="{{ quiz }}">How we choose mechanisms</a></li>
+          <li><a href="{{ quiz }}">Reference reading</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© {{ 'now' | date: '%Y' }} Rosalia. Not medical advice — ask your doctor or OB before starting anything new.</span>
+      <span>try-rosalia.com</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var bar = document.querySelector('[data-hw-bar]');
+    if(!bar) return;
+    var raf = null;
+    function update(){
+      var h = document.documentElement;
+      var height = h.scrollHeight - h.clientHeight;
+      bar.style.width = (height > 0 ? (h.scrollTop / height) * 100 : 0).toFixed(2) + '%';
+      raf = null;
+    }
+    window.addEventListener('scroll', function(){ if(raf === null) raf = requestAnimationFrame(update); }, { passive:true });
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rosalia — Human Wiring",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Long-form mechanism article. The disclosure line at the top is required: this page is an advertisement published by the seller, and saying so is what keeps it legal." },
+    { "type": "url", "id": "quiz_url", "label": "Quiz link", "info": "Every link on the page points here. Default is the flusher quiz." },
+    { "type": "header", "content": "Figures" },
+    { "type": "image_picker", "id": "fig1", "label": "Fig. 1 — vessel bed over time" },
+    { "type": "image_picker", "id": "fig2", "label": "Fig. 2 — returned vs still dilated" },
+    { "type": "image_picker", "id": "fig3", "label": "Fig. 3 — the bed rebuilt" },
+    { "type": "image_picker", "id": "fig6", "label": "Fig. 6 — the mast cell" }
+  ],
+  "presets": [ { "name": "Rosalia — Human Wiring" } ]
+}
+{% endschema %}

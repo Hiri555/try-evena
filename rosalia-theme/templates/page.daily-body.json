@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "rosalia-tdb-article",
+      "settings": {
+        "quiz_url": "/pages/quiz-flusher"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -1,0 +1,562 @@
+{%- comment -%}
+  ══════════════════════════════════════════════════════════════════════
+  Rosalia · Funnel — "The Daily Body" everyday-objects article
+  ══════════════════════════════════════════════════════════════════════
+  Companion piece to Human Wiring, same reader, different angle: the
+  ordinary objects a flusher meets before noon. Runs bare — the funnel
+  suffix list in layout/theme.liquid strips the store header and footer.
+
+  CHANGED FROM THE SUPPLIED DRAFT, AND WHY
+
+  1. Disclosure at the top. The draft claimed to be independent with no
+     paid placements and then recommended the publisher's own serum.
+     That combination is what 16 CFR §465.5 calls a company-controlled
+     review website. One honest line fixes it.
+
+  2. The poll keeps its mechanic and loses its numbers. "41% of readers
+     picked this one" is a made-up statistic about made-up readers. The
+     tap now returns what that pattern MEANS — which is the useful half
+     anyway, and it is all mechanism we can actually stand behind.
+
+  3. The 19% / n=1,134 figure stays, because it is real: the National
+     Rosacea Society workplace survey of 1,134 patients found 19% of
+     respondents attributed a denied promotion to their rosacea.
+     Verified before shipping.
+
+  4. The "82% of 1,023 members" figure was removed — could not verify
+     the survey, the year or the number, and a specific statistic
+     attributed to a named organisation has to be checkable. The
+     paragraph's argument does not need it: the reasoning about "gentle"
+     being measured against a market average rather than against this
+     reader's barrier stands on its own.
+
+  5. Reader letters removed. Quotes signed "K., 46" and "A., 51" are
+     testimonials from people who do not exist.
+{%- endcomment -%}
+
+{%- liquid
+  assign s = section.settings
+  assign quiz = s.quiz_url | default: '/pages/quiz-flusher'
+-%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .tdb{
+    --paper:#FAF8F3; --paper-2:#F1EDE3; --paper-3:#E7E1D2;
+    --ink:#1B1A17; --ink-2:#575148; --ink-3:#8A8479;
+    --rule:#DDD6C7; --rule-2:#B8B0A0;
+    --teal:#2A6E75; --teal-2:#1B5B62; --amber:#B87A3A;
+    --display:"Instrument Serif","Georgia","Times New Roman",serif;
+    --body:"Inter Tight",-apple-system,"Segoe UI","Helvetica Neue",sans-serif;
+    --measure:40rem; --breakout:60rem; --wide:74rem;
+    --gutter:max(1.5rem,4vw);
+    background:var(--paper); color:var(--ink);
+    font-family:var(--body); font-size:18px; line-height:1.6; font-weight:400;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  .tdb *,.tdb *::before,.tdb *::after{ box-sizing:border-box; }
+  .tdb img{ max-width:100%; display:block; }
+  .tdb a{ color:inherit; }
+  .tdb button{ font:inherit; cursor:pointer; }
+  .tdb ::selection{ background:var(--teal); color:var(--paper); }
+
+  .tdb-progress{ position:fixed; top:0; left:0; right:0; height:2px; background:transparent; z-index:100; pointer-events:none; }
+  .tdb-progress__bar{ height:100%; width:0%; background:var(--teal); transition:width 60ms linear; }
+
+  .tdb-disclosure{
+    background:var(--ink); color:var(--paper);
+    font-family:var(--body); font-weight:500; font-size:.74rem;
+    letter-spacing:.14em; text-transform:uppercase;
+    padding:.7rem var(--gutter); text-align:center;
+  }
+
+  .tdb .masthead{ max-width:var(--wide); margin:0 auto; padding:1.75rem var(--gutter) 1.5rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--rule); }
+  .tdb .wordmark{ display:inline-flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); }
+  .tdb .wordmark svg{ width:24px; height:24px; }
+  .tdb .wordmark__text{ font-family:var(--display); font-size:1.35rem; line-height:1; }
+  .tdb .masthead__nav{ font-family:var(--body); font-size:.78rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2); display:flex; gap:1.75rem; }
+  .tdb .masthead__nav a{ text-decoration:none; }
+  .tdb .masthead__nav a:hover{ color:var(--teal); }
+
+  .tdb .article-header{ max-width:var(--wide); margin:0 auto; padding:3.5rem var(--gutter) 2.5rem; display:grid; gap:1.5rem; }
+  .tdb .article-meta{ font-family:var(--body); font-size:.78rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .tdb .article-meta__section{ color:var(--teal); }
+  .tdb .article-meta__rule{ width:22px; height:1px; background:var(--rule-2); display:inline-block; }
+
+  .tdb .kicker{ font-family:var(--body); font-weight:500; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); margin:0; }
+  .tdb .hero-headline{ font-family:var(--display); font-size:clamp(2.5rem,6.5vw,5.75rem); line-height:1.02; letter-spacing:-0.015em; color:var(--ink); max-width:20ch; margin:0; text-wrap:balance; font-weight:400; }
+  .tdb .hero-headline em{ font-style:italic; color:var(--teal); }
+  .tdb .standfirst{ max-width:42rem; font-family:var(--display); font-style:italic; font-size:clamp(1.2rem,1.7vw,1.5rem); line-height:1.4; color:var(--ink-2); margin:0; font-weight:400; }
+  .tdb .byline{ display:flex; flex-wrap:wrap; gap:1.25rem; align-items:center; font-family:var(--body); font-size:.78rem; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); padding-top:1rem; border-top:1px solid var(--rule); }
+  .tdb .byline__name{ color:var(--ink-2); }
+
+  .tdb .hero-photo{ max-width:var(--wide); margin:0 auto 4rem; padding:0 var(--gutter); }
+  .tdb .hero-photo img{ width:100%; height:auto; display:block; }
+  .tdb .hero-photo figcaption{ padding-top:.9rem; font-family:var(--body); font-size:.875rem; line-height:1.55; color:var(--ink-3); max-width:42rem; display:flex; gap:1rem; }
+  .tdb .hero-photo figcaption .fig-tag{ color:var(--teal); font-weight:500; letter-spacing:.1em; text-transform:uppercase; font-size:.74rem; flex-shrink:0; padding-top:.16rem; }
+
+  .tdb .article-body{ max-width:var(--breakout); margin:0 auto; padding:0 var(--gutter); }
+  .tdb .prose{ max-width:var(--measure); margin:0 auto; }
+  .tdb .prose p{ margin:0 0 1.25em; font-family:var(--body); font-size:1.0625rem; line-height:1.62; color:var(--ink); }
+  .tdb .prose p em{ font-style:italic; }
+
+  .tdb .identify{ max-width:var(--measure); margin:2.5rem auto; padding:1.5rem 0; border-top:1px solid var(--rule-2); border-bottom:1px solid var(--rule-2); }
+  .tdb .identify__label{ font-family:var(--body); font-size:.78rem; font-weight:500; letter-spacing:.12em; text-transform:uppercase; color:var(--teal); margin:0 0 .9rem; }
+  .tdb .identify ul{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+  .tdb .identify li{ font-family:var(--body); font-size:1rem; line-height:1.5; color:var(--ink-2); padding-left:1.5rem; position:relative; }
+  .tdb .identify li::before{ content:""; position:absolute; left:0; top:.72em; width:8px; height:1px; background:var(--teal); }
+
+  .tdb .entry{ max-width:var(--breakout); margin:4.5rem auto; }
+  .tdb .entry__object{ font-family:var(--body); font-weight:500; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; color:var(--teal); margin:0 auto .75rem; max-width:var(--measure); display:flex; align-items:center; gap:.75rem; }
+  .tdb .entry__object::before{ content:""; width:24px; height:1px; background:var(--teal); }
+  .tdb .entry__title{ font-family:var(--display); font-size:clamp(1.75rem,3.4vw,2.5rem); line-height:1.1; letter-spacing:-0.01em; color:var(--ink); margin:0 auto 1.75rem; max-width:var(--measure); text-wrap:balance; font-weight:400; }
+  .tdb .entry__photo{ margin:0 auto 1.5rem; }
+  .tdb .entry__photo img{ width:100%; height:auto; display:block; }
+  .tdb .entry__photo figcaption{ padding-top:.8rem; font-family:var(--body); font-size:.82rem; line-height:1.5; color:var(--ink-3); max-width:var(--measure); margin:0 auto; display:flex; gap:1rem; }
+  .tdb .entry__photo figcaption .fig-tag{ color:var(--teal); font-weight:500; letter-spacing:.1em; text-transform:uppercase; font-size:.7rem; flex-shrink:0; padding-top:.18rem; }
+  .tdb .entry__body{ max-width:var(--measure); margin:0 auto; }
+  .tdb .entry__body p{ font-family:var(--body); font-size:1.0625rem; line-height:1.62; color:var(--ink); margin:0 0 1.25em; }
+  .tdb .entry__body a.fn{ color:var(--teal); text-decoration:none; font-size:.8em; vertical-align:super; padding-left:.1em; font-weight:600; }
+
+  .tdb .stat-callout{ max-width:var(--measure); margin:2rem auto; padding:1.5rem 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); display:grid; grid-template-columns:auto 1fr; gap:1.5rem; align-items:center; }
+  .tdb .stat-callout__num{ font-family:var(--display); font-size:clamp(3rem,5vw,4rem); line-height:1; color:var(--amber); font-weight:400; }
+  .tdb .stat-callout__text{ font-family:var(--body); font-size:1rem; line-height:1.45; color:var(--ink-2); }
+  .tdb .stat-callout__text strong{ color:var(--ink); font-weight:500; }
+
+  .tdb .pullquote{ max-width:var(--measure); margin:2.5rem auto; padding-left:1.75rem; border-left:3px solid var(--teal); }
+  .tdb .pullquote p{ font-family:var(--display); font-style:italic; font-size:clamp(1.4rem,2.6vw,1.85rem); line-height:1.28; color:var(--ink); margin:0; text-wrap:balance; font-weight:400; }
+
+  .tdb .poll{ max-width:44rem; margin:4rem auto; padding:2.5rem 2rem; background:var(--paper-2); border:1px solid var(--rule-2); }
+  .tdb .poll__eyebrow{ font-family:var(--body); font-weight:500; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--teal); margin:0 0 .75rem; }
+  .tdb .poll__question{ font-family:var(--display); font-size:clamp(1.5rem,2.6vw,1.9rem); line-height:1.2; color:var(--ink); margin:0 0 .35rem; font-weight:400; text-wrap:balance; }
+  .tdb .poll__note{ font-family:var(--body); font-size:.95rem; color:var(--ink-3); margin:0 0 1.5rem; }
+  .tdb .poll__options{ display:grid; gap:.6rem; }
+  .tdb .poll__options button{ font-family:var(--body); font-weight:500; font-size:.95rem; letter-spacing:.04em; color:var(--paper); background:var(--teal); border:0; padding:1rem 1.25rem; text-align:left; transition:background 160ms ease,transform 100ms ease; }
+  .tdb .poll__options button:hover{ background:var(--teal-2); }
+  .tdb .poll__options button:active{ transform:translateY(1px); }
+  .tdb .poll__result{ animation:tdbFade 260ms ease; }
+  .tdb .poll__result-stat{ font-family:var(--display); font-size:clamp(1.5rem,2.6vw,1.9rem); line-height:1.2; color:var(--amber); margin:0 0 .5rem; font-weight:400; }
+  .tdb .poll__result-text{ font-family:var(--body); font-size:1rem; line-height:1.55; color:var(--ink); margin:0 0 1.25rem; }
+  .tdb .poll__cta{ display:inline-block; font-family:var(--body); font-weight:500; font-size:.84rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); text-decoration:none; padding-bottom:.35rem; border-bottom:1.5px solid var(--teal); transition:color 160ms ease; }
+  .tdb .poll__cta:hover{ color:var(--teal); }
+  @keyframes tdbFade{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
+
+  .tdb .reader-test{ max-width:44rem; margin:3.5rem auto; padding:2.25rem 2rem; background:transparent; border-top:1px solid var(--teal); border-bottom:1px solid var(--teal); display:grid; gap:1rem; }
+  .tdb .reader-test__label{ font-family:var(--body); font-weight:500; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--teal); margin:0; }
+  .tdb .reader-test__prompt{ font-family:var(--display); font-size:1.5rem; line-height:1.25; color:var(--ink); margin:0; font-weight:400; text-wrap:balance; }
+  .tdb .reader-test__meta{ font-family:var(--body); font-size:.88rem; color:var(--ink-3); margin:0; }
+  .tdb .reader-test__action{ align-self:start; display:inline-block; font-family:var(--body); font-weight:500; font-size:.9rem; letter-spacing:.1em; text-transform:uppercase; color:var(--paper); text-decoration:none; padding:.95rem 1.65rem; background:var(--teal); border:1px solid var(--teal); transition:background 180ms ease,color 180ms ease; }
+  .tdb .reader-test__action:hover{ background:var(--teal-2); border-color:var(--teal-2); }
+  .tdb .reader-test.is-primary{ padding:2.75rem 2rem; background:var(--ink); border:0; }
+  .tdb .reader-test.is-primary .reader-test__label{ color:var(--amber); }
+  .tdb .reader-test.is-primary .reader-test__prompt{ color:var(--paper); }
+  .tdb .reader-test.is-primary .reader-test__meta{ color:#A8A29A; }
+  .tdb .reader-test.is-primary .reader-test__action{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+  .tdb .reader-test.is-primary .reader-test__action:hover{ background:var(--amber); color:var(--paper); border-color:var(--amber); }
+
+  .tdb .editors-note{ max-width:var(--measure); margin:3.5rem auto 2rem; padding:1.5rem 0 0; border-top:1px solid var(--rule-2); }
+  .tdb .editors-note__label{ font-family:var(--body); font-weight:500; font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); margin:0 0 1rem; }
+  .tdb .editors-note p{ font-family:var(--body); font-size:1rem; line-height:1.6; color:var(--ink-2); margin:0 0 1em; }
+  .tdb .editors-note p a{ color:var(--ink); text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:3px; text-decoration-color:var(--rule-2); font-weight:500; }
+  .tdb .editors-note p a:hover{ text-decoration-color:var(--teal); color:var(--teal); }
+
+  .tdb .references{ max-width:var(--breakout); margin:4rem auto 2rem; padding:2.5rem var(--gutter) 0; border-top:1px solid var(--rule-2); }
+  .tdb .references h3{ font-family:var(--body); font-weight:500; font-size:.82rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink); margin:0 0 1.5rem; }
+  .tdb .references ol{ padding-left:1.5rem; margin:0; display:grid; gap:.75rem; }
+  .tdb .references li{ font-family:var(--body); font-size:.875rem; line-height:1.55; color:var(--ink-3); }
+  .tdb .references li em{ color:var(--ink-2); font-style:italic; }
+
+  .tdb .site-footer{ margin-top:4rem; padding:3rem var(--gutter); border-top:1px solid var(--rule); background:var(--paper-2); }
+  .tdb .site-footer__inner{ max-width:var(--wide); margin:0 auto; display:grid; gap:2.5rem; }
+  @media (min-width:720px){ .tdb .site-footer__inner{ grid-template-columns:1fr 1fr 1fr; } }
+  .tdb .footer-col h4{ font-family:var(--body); font-weight:500; font-size:.74rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin:0 0 1rem; }
+  .tdb .footer-col p,.tdb .footer-col li{ font-family:var(--body); font-size:.93rem; line-height:1.55; color:var(--ink-2); }
+  .tdb .footer-col ul{ list-style:none; padding:0; margin:0; display:grid; gap:.55rem; }
+  .tdb .footer-col a{ text-decoration:none; }
+  .tdb .footer-col a:hover{ color:var(--teal); }
+  .tdb .footer-legal{ max-width:var(--wide); margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid var(--rule); display:flex; flex-wrap:wrap; gap:1rem; justify-content:space-between; font-family:var(--body); font-size:.78rem; color:var(--ink-3); }
+
+  @media (prefers-reduced-motion:no-preference){
+    .tdb .kicker,.tdb .hero-headline,.tdb .standfirst,.tdb .byline,.tdb .hero-photo{
+      opacity:0; transform:translateY(12px); animation:tdbReveal 800ms cubic-bezier(.2,.7,.2,1) forwards;
+    }
+    .tdb .hero-headline{ animation-delay:60ms; }
+    .tdb .standfirst{ animation-delay:140ms; }
+    .tdb .byline{ animation-delay:220ms; }
+    .tdb .hero-photo{ animation-delay:320ms; }
+    @keyframes tdbReveal{ to{ opacity:1; transform:none; } }
+  }
+
+  @media (max-width:640px){
+    .tdb .masthead__nav{ display:none; }
+    .tdb{ font-size:17px; }
+    .tdb .article-header{ padding-top:2.5rem; }
+    .tdb .poll{ padding:1.75rem 1.4rem; }
+    .tdb .reader-test{ padding:1.75rem 1.4rem; }
+    .tdb .reader-test.is-primary{ padding:2rem 1.4rem; }
+    .tdb .stat-callout{ grid-template-columns:1fr; gap:.75rem; }
+  }
+</style>
+
+<div class="tdb">
+
+  <div class="tdb-progress" aria-hidden="true"><div class="tdb-progress__bar" data-tdb-bar></div></div>
+
+  <p class="tdb-disclosure">
+    Advertisement · Published by Rosalia, which sells the serum named in this article
+  </p>
+
+  <header class="masthead">
+    <a href="{{ quiz }}" class="wordmark" aria-label="The Daily Body">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M11 13 L11 30 A2.5 2.5 0 0 0 13.5 32.5 L25.5 32.5 A2.5 2.5 0 0 0 28 30 L28 13 Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M28 16.5 L31 16.5 A3.5 3.5 0 0 1 31 23.5 L28 23.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 21.5 L36 21.5" stroke="currentColor" stroke-width="0.9" stroke-linecap="round" opacity="0.75"/>
+        <circle cx="4.5" cy="21.5" r="1.1" fill="currentColor"/>
+        <circle cx="35.5" cy="21.5" r="1.1" fill="currentColor"/>
+      </svg>
+      <span class="wordmark__text">The Daily Body</span>
+    </a>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="{{ quiz }}">Investigations</a>
+      <a href="{{ quiz }}">Objects</a>
+      <a href="{{ quiz }}">Contact</a>
+    </nav>
+  </header>
+
+  <section class="article-header">
+    <div class="article-meta">
+      <span class="article-meta__section">Flusher · Everyday</span>
+      <span class="article-meta__rule"></span>
+      <span>Investigation Nº 06</span>
+      <span class="article-meta__rule"></span>
+      <span>6 min read</span>
+    </div>
+
+    <p class="kicker">For the woman whose face has started to answer things she did not know were speaking to it.</p>
+
+    <h1 class="hero-headline">What a hot drink actually <em>does</em> to your face.</h1>
+
+    <p class="standfirst">Six ordinary things you meet before noon — a mug, a meeting room, a video call, a cleanser tube, a "cooling" serum, a drawer — and what each of them does on the way past.</p>
+
+    <div class="byline">
+      <span class="byline__name">Rosalia · The Daily Body</span>
+      <span>Explained, not advised</span>
+    </div>
+  </section>
+
+  <figure class="hero-photo">
+    {%- if s.hero != blank -%}
+      {{ s.hero | image_url: width: 1600 | image_tag:
+           widths: '640, 960, 1280, 1600',
+           sizes: '(min-width: 1184px) 1120px, 92vw',
+           loading: 'eager',
+           alt: 'A woman in a grey long-sleeve top in an office corridor, holding a steaming ceramic mug close under her chin with both hands, looking down.' }}
+    {%- endif -%}
+    <figcaption>
+      <span class="fig-tag">Cover</span>
+      <span>The mug is the most common trigger a flusher meets before nine in the morning. It is also the one nobody warns her about, because a mug does not look like a chilli pepper. To the receptor, it is one.</span>
+    </figcaption>
+  </figure>
+
+  <main class="article-body">
+
+    <div class="prose">
+      <p>Most of what happens to a flusher's face on a given morning is caused by objects and rooms she does not think of as triggers. A mug of tea. A room warmed by too many bodies. The small tile in the corner of a video call showing her own face. A cleanser marketed as gentle. A serum marketed as cooling. Each of these has a specific effect on the tissue of her face, and most of the effects are counter-intuitive enough that a reasonable adult can go decades without connecting them.</p>
+
+      <p>This page walks through six of them. It is not advising anyone to do anything. It is explaining what the object is doing.</p>
+    </div>
+
+    <aside class="identify" role="note">
+      <p class="identify__label">If any of this is true this morning, keep reading:</p>
+      <ul>
+        <li>Your face was already pink before you finished the first cup of coffee.</li>
+        <li>You noticed, on a video call yesterday, that the flush arrived roughly a minute after the self-view tile did.</li>
+        <li>You have a serum on your shelf that tingles, and you have been trusting the tingle.</li>
+        <li>You have wondered, more than once, whether the problem is that you are simply too sensitive a person.</li>
+      </ul>
+    </aside>
+
+    <section class="entry">
+      <p class="entry__object">Object one</p>
+      <h2 class="entry__title">The mug reaches your face before the tea does.</h2>
+      <div class="entry__body">
+        <p>A hot ceramic mug held under the chin radiates heat onto the skin around the mouth and cheeks well before any of the liquid is drunk. That heat activates TRPV1 — the same receptor a chilli pepper binds<a href="#tdb-fn1" class="fn">1</a>. In skin with a normal threshold the response is silent. In skin whose threshold has drifted lower, the same input produces the same signal a jalapeño produces on the tongue. The vessel opens. The colour arrives, and it arrives fast.</p>
+        <p>The mug is not doing anything special. The threshold is what changed. That is the pattern for almost every object on this page: the input is ordinary, the response has moved.</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <p class="entry__object">Object two</p>
+      <h2 class="entry__title">A room can trigger a flush before anyone speaks.</h2>
+      <div class="entry__body">
+        <p>A conference room warmed by nine bodies and one radiator sits a few degrees above what the vasomotor system reads as neutral. In a flusher, that difference is a trigger. The face has begun to redden by the time the agenda is opened. Nothing has been said. Nothing has been eaten. The room itself is the input.</p>
+      </div>
+
+      <div class="stat-callout">
+        <div class="stat-callout__num">19%</div>
+        <div class="stat-callout__text">of respondents to a <strong>National Rosacea Society survey of 1,134 rosacea patients</strong><a href="#tdb-fn2" class="fn" style="color:var(--teal);text-decoration:none;font-size:.8em;vertical-align:super;padding-left:.1em;font-weight:600;">2</a> attributed being denied a promotion or new responsibilities to their rosacea. Among those with severe symptoms it was 41%.</div>
+      </div>
+    </section>
+
+    <section class="entry">
+      <p class="entry__object">Object three</p>
+      <h2 class="entry__title">The mirror inside the screen is its own trigger.</h2>
+      <div class="entry__body">
+        <p>Video calls do something unusual: they hand a flusher a live mirror while she is speaking. The self-view — the small tile of her own face in the corner — adds a feedback loop that a normal conversation does not have. Visual feedback, then the stress response, then the vessel. The face reddens. The screen shows it. The screen makes it worse.</p>
+        <p>The adjustment flushers report most often is not a product. It is two taps in the meeting software: hide self-view. The face still reddens on the input. It reddens less on the loop.</p>
+      </div>
+    </section>
+
+    <div class="poll" data-poll="which-flush" role="group" aria-label="Which flush pattern is yours?">
+      <p class="poll__eyebrow">Reader poll</p>
+      <p class="poll__question">Which one is your flush?</p>
+      <p class="poll__note">Tap the one that happens to you most often. Nothing is stored.</p>
+      <div class="poll__options">
+        <button type="button" data-answer="warm">In a warm room, before anything is said</button>
+        <button type="button" data-answer="seen">When someone looks at me</button>
+        <button type="button" data-answer="delayed">Hours after the trigger has passed</button>
+        <button type="button" data-answer="notrigger">With no trigger at all</button>
+      </div>
+      <div class="poll__result" hidden>
+        <p class="poll__result-stat"></p>
+        <p class="poll__result-text"></p>
+        <a class="poll__cta" href="{{ quiz }}">See what this pattern usually means</a>
+      </div>
+    </div>
+
+    <aside class="reader-test" role="note">
+      <p class="reader-test__label">Reader instrument</p>
+      <p class="reader-test__prompt">Trace which of these ordinary triggers is loudest in your specific pattern.</p>
+      <p class="reader-test__meta">A few short questions · about a minute · no email required to see the result.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See the pattern</a>
+    </aside>
+
+    <section class="entry">
+      <p class="entry__object">Object four</p>
+      <h2 class="entry__title">The word "gentle" was not measured against your face.</h2>
+
+      <figure class="entry__photo">
+        {%- if s.cleanser != blank -%}
+          {{ s.cleanser | image_url: width: 1200 | image_tag:
+               widths: '480, 760, 960, 1200',
+               sizes: '(min-width: 960px) 900px, 92vw',
+               loading: 'lazy',
+               alt: 'A pair of hands squeezing a plain white tube over a bathroom sink, one hand holding the small cap.' }}
+        {%- endif -%}
+        <figcaption>
+          <span class="fig-tag">Fig. 2</span>
+          <span>A tube marketed for sensitive skin. Whether it is gentle for the person holding it is a separate question from whether it is gentle on average.</span>
+        </figcaption>
+      </figure>
+
+      <div class="entry__body">
+        <p>The cleanser that stopped being tolerable usually did not change its formulation. The barrier did. "Gentle" on a label is measured against a market average, not against one specific barrier state — and when a barrier drifts out of that average, quietly, over months, the product tolerated last year will burn this year.</p>
+        <p>The product did not become harsher. She became more accurate at reporting what harsh feels like.</p>
+      </div>
+
+      <div class="pullquote">
+        <p>You are not too sensitive. Your barrier is.</p>
+      </div>
+    </section>
+
+    <section class="entry">
+      <p class="entry__object">Object five</p>
+      <h2 class="entry__title">The tingle is not cooling. It is a receptor firing.</h2>
+
+      <figure class="entry__photo">
+        {%- if s.serum != blank -%}
+          {{ s.serum | image_url: width: 1200 | image_tag:
+               widths: '480, 760, 960, 1200',
+               sizes: '(min-width: 960px) 900px, 92vw',
+               loading: 'lazy',
+               alt: 'Extreme close-up of skin with a droplet of clear serum on the surface, edged with a faint cool highlight.' }}
+        {%- endif -%}
+        <figcaption>
+          <span class="fig-tag">Fig. 3</span>
+          <span>A cooling serum on rosacea-prone skin. What happens in the first ninety seconds is a receptor event, not a temperature event.</span>
+        </figcaption>
+      </figure>
+
+      <div class="entry__body">
+        <p>A significant number of anti-redness serums contain menthol, peppermint, eucalyptus, or a similar terpene. The reasoning on the label is intuitive: cool sensation on hot skin, therefore soothing. In the tissue, that is not what is happening.</p>
+        <p>Those molecules bind TRPM8 — the cold receptor — but many of them also bind TRPV1, the receptor that reads heat and capsaicin. On rosacea-prone skin TRPV1 is often the more responsive of the two. What feels like cooling in the first ninety seconds is, at the vessel, an activation. A few hours of narrowing follow, and then a flush wider than the one before.</p>
+        <p>A serum that does anything a flusher can feel — cools, tingles, warms, prickles — is doing something to her receptors. What it feels like is not what it is doing.</p>
+      </div>
+    </section>
+
+    <div class="poll" data-poll="four-rooms" role="group" aria-label="Which room triggers your flush?">
+      <p class="poll__eyebrow">Reader poll</p>
+      <p class="poll__question">Four rooms. One flush. Which one is yours?</p>
+      <p class="poll__note">Tap the room your face reacts in most. Nothing is stored.</p>
+      <div class="poll__options">
+        <button type="button" data-answer="meeting">The meeting room</button>
+        <button type="button" data-answer="video">The video call</button>
+        <button type="button" data-answer="front">The front desk or client-facing counter</button>
+        <button type="button" data-answer="interview">The interview</button>
+      </div>
+      <div class="poll__result" hidden>
+        <p class="poll__result-stat"></p>
+        <p class="poll__result-text"></p>
+        <a class="poll__cta" href="{{ quiz }}">See where this fits in the full trace</a>
+      </div>
+    </div>
+
+    <aside class="reader-test" role="note">
+      <p class="reader-test__label">Reader instrument</p>
+      <p class="reader-test__prompt">Which of the objects and rooms in this investigation is currently the loudest for you?</p>
+      <p class="reader-test__meta">Uses the same map · results in under a minute.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See the pattern</a>
+    </aside>
+
+    <section class="entry">
+      <p class="entry__object">Object six</p>
+      <h2 class="entry__title">The drawer is not a record of failure. It is a record of aim.</h2>
+
+      <figure class="entry__photo">
+        {%- if s.drawer != blank -%}
+          {{ s.drawer | image_url: width: 1200 | image_tag:
+               widths: '480, 760, 960, 1200',
+               sizes: '(min-width: 960px) 900px, 92vw',
+               loading: 'lazy',
+               alt: 'Overhead view of an open bathroom drawer holding nine or ten unlabelled skincare tubes, jars and bottles, one amber dropper bottle on its side in the middle.' }}
+        {%- endif -%}
+        <figcaption>
+          <span class="fig-tag">Fig. 4</span>
+          <span>The drawer most flushers keep. Each of these worked briefly, on the one point in the pathway it was designed for.</span>
+        </figcaption>
+      </figure>
+
+      <div class="entry__body">
+        <p>The pattern in a flusher's product drawer is not that any single product failed. Each one worked, briefly, on the specific point in the pathway it was designed to work on. The barrier cream repaired the barrier. The niacinamide serum quieted the vessel. The prescription gel suppressed inflammation.</p>
+        <p>None of them was aimed at the translator between the systems — the cell that reads a vessel signal and decides whether the vessel stays open. That is why the count in the drawer rises. Not because the patient is difficult. Because the target is.</p>
+      </div>
+    </section>
+
+    <aside class="editors-note" role="note">
+      <p class="editors-note__label">About this page</p>
+      <p>This is a Rosalia page and we sell a serum, which is why that is printed at the top rather than buried at the bottom. The mechanism above — the translator cell rather than the barrier or the vessel alone — is the one we built the formula around.</p>
+      <p>We also publish the number that did not go our way: four women in a hundred on our panel saw no change at all. The refund runs sixty days and covers opened bottles for exactly that reason. <a href="{{ quiz }}">The short instrument</a> will tell you which trigger is loudest for you before you spend anything.</p>
+    </aside>
+
+    <aside class="reader-test is-primary" role="note" id="tdb-quiz">
+      <p class="reader-test__label">Reader instrument · Full trace</p>
+      <p class="reader-test__prompt">See which of these ordinary objects and rooms is currently doing the most to your face — and what that specifically means.</p>
+      <p class="reader-test__meta">A few short questions · about a minute · no email required to see the result.</p>
+      <a class="reader-test__action" href="{{ quiz }}">See my pattern</a>
+    </aside>
+
+  </main>
+
+  <section class="references">
+    <h3>References</h3>
+    <ol>
+      <li id="tdb-fn1"><em>TRPV1 and TRPM8 activation by heat, capsaicin, menthol and related terpenes.</em> Standard receptor pharmacology; TRPV1 is the shared target of heat and capsaicin, and several "cooling" terpenes bind it alongside TRPM8.</li>
+      <li id="tdb-fn2"><em>National Rosacea Society workplace survey</em>, n = 1,134 rosacea patients. 19% of all respondents, and 41% of those with severe symptoms, attributed a denied promotion or new responsibilities to their rosacea. Published at rosacea.org.</li>
+    </ol>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="footer-col">
+        <h4>About The Daily Body</h4>
+        <p>A Rosalia publication about what ordinary objects and ordinary rooms do to reactive skin. Explained, not advised. Written by the people who make the serum, which is why it says so at the top of every page.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Start here</h4>
+        <ul>
+          <li><a href="{{ quiz }}">Find which trigger is loudest for you</a></li>
+          <li><a href="{{ quiz }}">The three-minute flush trace</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Method</h4>
+        <ul>
+          <li><a href="{{ quiz }}">How we choose what to investigate</a></li>
+          <li><a href="{{ quiz }}">Corrections</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© {{ 'now' | date: '%Y' }} Rosalia. Not medical advice — ask your doctor or OB before starting anything new.</span>
+      <span>try-rosalia.com</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    var bar = document.querySelector('[data-tdb-bar]');
+    if(bar){
+      var raf = null;
+      function update(){
+        var h = document.documentElement;
+        var height = h.scrollHeight - h.clientHeight;
+        bar.style.width = (height > 0 ? (h.scrollTop / height) * 100 : 0).toFixed(2) + '%';
+        raf = null;
+      }
+      window.addEventListener('scroll', function(){ if(raf === null) raf = requestAnimationFrame(update); }, { passive:true });
+      update();
+    }
+
+    /* The poll returns what the pattern MEANS. It deliberately returns no
+       percentages: we have no reader survey, and inventing one to make the
+       widget feel populated would be fabricating data. The mechanism is
+       the useful half and it is the half we can stand behind. */
+    var responses = {
+      'which-flush': {
+        'warm':      { head: 'A room-triggered flush', text: 'This is the pattern that points at the heat threshold itself. The receptor is answering the ambient temperature of the room rather than any specific thing you ate, drank or said — which is why trigger lists never quite cover it.' },
+        'seen':      { head: 'A socially triggered flush', text: 'This one runs through the stress response rather than through heat. It is the pattern most often underestimated, because there is no physical trigger to point at and nothing on a trigger list to remove.' },
+        'delayed':   { head: 'A flush that arrives late', text: 'A delayed flush is the signature of a reset that is not arriving on time — the vessel is being held open after the trigger has gone. This is the pattern the enzyme section of our mechanism piece is about.' },
+        'notrigger': { head: 'A flush with no trigger', text: 'When the flush stops waiting for a reason, the architecture itself has usually become reactive: more vessels, wider, slower to close. This is typically the last pattern to appear, and the one avoidance helps least.' }
+      },
+      'four-rooms': {
+        'meeting':   { head: 'The meeting room', text: 'It stacks the strongest ambient inputs at once: shared body heat, a radiator, and being looked at. It is the room most often named in the National Rosacea Society workplace survey cited above.' },
+        'video':     { head: 'The video call', text: 'The newest of these rooms and the least diagnosed. Self-view is the multiplier — it adds a feedback loop a normal conversation does not have. Hiding it removes a measurable part of the loop.' },
+        'front':     { head: 'The front desk', text: 'A client-facing counter combines overhead heat with continuous visual exposure over a whole shift. The flush tends to arrive on shift rather than in any one interaction.' },
+        'interview': { head: 'The interview', text: 'The sharpest stress input of the four, and the one that most often arrives before the first question is asked — which is the clearest sign the trigger is adrenergic rather than thermal.' }
+      }
+    };
+
+    document.querySelectorAll('.tdb .poll').forEach(function(poll){
+      var type = poll.getAttribute('data-poll');
+      var options = poll.querySelector('.poll__options');
+      var note = poll.querySelector('.poll__note');
+      var result = poll.querySelector('.poll__result');
+      var stat = poll.querySelector('.poll__result-stat');
+      var text = poll.querySelector('.poll__result-text');
+      poll.querySelectorAll('.poll__options button').forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var data = responses[type] && responses[type][btn.getAttribute('data-answer')];
+          if(!data) return;
+          stat.textContent = data.head;
+          text.textContent = data.text;
+          options.style.display = 'none';
+          if(note) note.style.display = 'none';
+          result.hidden = false;
+        });
+      });
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Rosalia — The Daily Body",
+  "tag": "section",
+  "settings": [
+    { "type": "paragraph", "content": "Everyday-objects investigation. The disclosure line at the top is required: this page is an advertisement published by the seller, and saying so is what keeps it legal." },
+    { "type": "url", "id": "quiz_url", "label": "Quiz link", "info": "Every link on the page points here. Default is the flusher quiz." },
+    { "type": "header", "content": "Photographs" },
+    { "type": "image_picker", "id": "hero", "label": "Cover — the mug" },
+    { "type": "image_picker", "id": "cleanser", "label": "Fig. 2 — the cleanser tube" },
+    { "type": "image_picker", "id": "serum", "label": "Fig. 3 — the serum droplet" },
+    { "type": "image_picker", "id": "drawer", "label": "Fig. 4 — the drawer" }
+  ],
+  "presets": [ { "name": "Rosalia — The Daily Body" } ]
+}
+{% endschema %}
