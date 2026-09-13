@@ -3,7 +3,11 @@
     "main": {
       "type": "rosalia-hw-article",
       "settings": {
-        "quiz_url": "/pages/quiz-flusher"
+        "quiz_url": "/pages/quiz-flusher",
+        "fig1": "shopify://shop_images/rosalia-art-hw-fig1.jpg",
+        "fig2": "shopify://shop_images/rosalia-art-hw-fig2.jpg",
+        "fig3": "shopify://shop_images/rosalia-art-hw-fig3.jpg",
+        "fig6": "shopify://shop_images/rosalia-art-hw-fig6.jpg"
       }
     }
   },

@@ -3,7 +3,11 @@
     "main": {
       "type": "rosalia-tdb-article",
       "settings": {
-        "quiz_url": "/pages/quiz-flusher"
+        "quiz_url": "/pages/quiz-flusher",
+        "hero": "shopify://shop_images/rosalia-art-tdb-hero.jpg",
+        "cleanser": "shopify://shop_images/rosalia-art-tdb-cleanser.jpg",
+        "serum": "shopify://shop_images/rosalia-art-tdb-serum.jpg",
+        "drawer": "shopify://shop_images/rosalia-art-tdb-drawer.jpg"
       }
     }
   },
