@@ -1,0 +1,1984 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap');
+
+/* ═══ MASTER LAYOUT ═══ */
+.longform-wrapper{max-width:800px;margin:0 auto;padding:0;background:#FAF5F0;font-family:'Inter',sans-serif;color:#2C1418}
+.longform-wrapper > div[class^="ch"]{margin:0;border-radius:0;padding:32px 48px 20px}
+.longform-wrapper > div.ch01{padding-top:40px}
+.longform-wrapper > div.ch07{padding-bottom:20px}
+
+/* ═══ MASTER HEADER ═══ */
+.master-header{background:#FAF5F0;padding:56px 48px 40px;border-bottom:1px solid rgba(75,21,40,.2)}
+.mh-wordmark{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#7A3A54;letter-spacing:.01em;line-height:1.35;margin-bottom:6px;font-weight:500;text-align:center}
+.mh-wordmark strong{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;letter-spacing:-.005em;font-weight:500;margin-top:2px}
+.mh-kicker{display:flex;align-items:center;justify-content:center;gap:14px;font-family:'Inter',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;margin:22px auto 30px}
+.mh-kicker::before,.mh-kicker::after{content:'';width:32px;height:1px;background:rgba(75,21,40,.4)}
+.mh-headline{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:#4B1528;line-height:1.1;margin:0 0 24px;letter-spacing:-.018em;text-align:center}
+.mh-headline em{font-style:italic;color:#7A3A54}
+.mh-deck{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:#2C1418;line-height:1.5;margin:0 auto 30px;max-width:640px;text-align:center;font-weight:400}
+.mh-byline{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7A3A54;text-align:center;font-weight:500;margin-bottom:36px;padding-bottom:24px;border-bottom:1px dashed rgba(75,21,40,.28)}
+.mh-byline strong{color:#4B1528;font-weight:600;margin-right:8px}
+.mh-byline em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-transform:none;letter-spacing:.02em;color:#2C1418;font-weight:400}
+
+/* ═══ CHAPTER NAVIGATION ═══ */
+.mh-nav-tag{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#C4718E;font-weight:600;margin-bottom:14px;text-align:center}
+.mh-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 24px;max-width:640px;margin:0 auto}
+.mh-nav a{display:flex;align-items:baseline;gap:12px;padding:8px 4px;text-decoration:none;color:#2C1418;border-bottom:1px solid rgba(75,21,40,.1);transition:all .15s}
+.mh-nav a:hover{color:#4B1528;border-bottom-color:rgba(75,21,40,.4)}
+.mh-nav .n-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#7A3A54;font-weight:500;flex-shrink:0;min-width:32px;letter-spacing:.02em}
+.mh-nav .n-name{font-family:'Cormorant Garamond',serif;font-size:16px;color:#4B1528;font-weight:500;letter-spacing:-.005em}
+
+/* ═══ MASTER FOOTER ═══ */
+.master-footer{background:#4B1528;color:#FAF5F0;padding:40px 48px 32px;text-align:center;border-radius:0 0 12px 12px}
+
+/* ═══ MID-CHAPTER CTA ═══ */
+.mid-cta{margin:0;padding:36px 48px;background:#FAF5F0;text-align:center;border-top:1px solid rgba(75,21,40,.12);border-bottom:1px solid rgba(75,21,40,.12)}
+.mid-cta .mc-rule{width:44px;height:1px;background:#C4718E;margin:0 auto 18px;opacity:.6}
+.mid-cta .mc-rule:last-child{margin:18px auto 0}
+.mid-cta .mc-context{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#7A3A54;margin-bottom:16px;line-height:1.4}
+.mid-cta .mc-button{display:inline-block;padding:14px 32px;background:#4B1528;color:#F4C4D0;text-decoration:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;border-radius:4px;letter-spacing:-.005em;font-weight:500;transition:all .15s;border:2px solid #4B1528}
+.mid-cta .mc-button:hover{background:#3d0f1e;border-color:#3d0f1e}
+.mid-cta .mc-price{font-family:'Inter',sans-serif;font-style:normal;font-size:14px;letter-spacing:.05em;font-weight:500;color:rgba(244,196,208,.85);margin-left:4px}
+.mid-cta .mc-note{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#A57080;margin-top:16px;font-weight:500}
+@media (max-width:640px){.mid-cta{padding:28px 24px}}
+.mf-brand{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#F4C4D0;margin-bottom:8px;font-weight:500;letter-spacing:-.005em}
+.mf-tag{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,245,240,.65);margin-bottom:20px;font-weight:500}
+.mf-legal{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:rgba(250,245,240,.55);line-height:1.5;max-width:520px;margin:0 auto;padding-top:20px;border-top:1px solid rgba(196,113,142,.2)}
+
+@media (max-width:640px){
+  .master-header{padding:36px 24px 30px}
+  .mh-headline{font-size:32px}
+  .mh-deck{font-size:17px}
+  .mh-nav{grid-template-columns:1fr}
+  .longform-wrapper > div[class^="ch"]{padding:24px 24px 16px}
+  .master-footer{padding:32px 24px}
+}
+
+/* ═══ Ch01 ═══ */
+.ch01{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch01 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch01 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch01 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch01 .ch-title{font-family:'Cormorant Garamond',serif;font-size:33px;font-weight:500;color:#4B1528;line-height:1.15;margin:0 0 30px;letter-spacing:-.012em}
+.ch01 .ch-title em{font-style:italic;color:#7A3A54}
+.ch01 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch01 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch01 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch01 .prose em.q{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528}
+.ch01 .breaking-line{margin:30px 0;padding:22px 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:#4B1528;letter-spacing:.005em;line-height:1.35;border-top:1px solid rgba(75,21,40,.2);border-bottom:1px solid rgba(75,21,40,.2)}
+.ch01 .next-chap{margin-top:34px;padding:24px 26px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch01 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch01 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch01 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch01 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+
+/* ═══ Ch02 ═══ */
+.ch02{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch02 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch02 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch02 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch02 .ch-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:#4B1528;line-height:1.15;margin:0 0 30px;letter-spacing:-.008em}
+.ch02 .ch-title em{font-style:italic;color:#7A3A54}
+.ch02 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 22px;clear:left}
+.ch02 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch02 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch02 .qq{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528;font-size:20.5px}
+.ch02 .figure{margin:34px 0 12px;padding:22px 24px 20px;background:#F4EBE0;border-radius:8px}
+.ch02 .fig-lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:8px}
+.ch02 .fig-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:500;color:#4B1528;margin:0 0 18px;line-height:1.35}
+.ch02 .fig-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid rgba(75,21,40,.12)}
+.ch02 .fig-annots{display:flex;gap:12px;margin-top:14px;padding:0 4px}
+.ch02 .fig-annots.two > *{flex:1;text-align:center}
+.ch02 .fig-annots.three > *{flex:1;text-align:center}
+.ch02 .fig-annots .a-tag{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#4B1528;font-weight:500;margin-bottom:4px;display:block}
+.ch02 .fig-annots .a-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#7A3A54;line-height:1.35;display:block}
+.ch02 .fig-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;padding-top:12px;border-top:1px solid rgba(75,21,40,.15);line-height:1.5}
+.ch02 .fig-cap strong{font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch02 .absolution{margin:34px 0;padding:26px 28px;background:rgba(196,113,142,.08);border-left:3px solid #4B1528;border-radius:0}
+.ch02 .absolution p{margin:0 0 14px;font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.55;color:#2C1418}
+.ch02 .absolution p:last-child{margin-bottom:0}
+.ch02 .absolution p.list{font-style:italic;color:#4B1528;font-size:19px}
+.ch02 .next-chap{margin-top:36px;padding:22px 24px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch02 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch02 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch02 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch02 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+
+/* ═══ Ch03 ═══ */
+.ch03{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch03 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch03 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch03 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch03 .ch-title{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:500;color:#4B1528;line-height:1.2;margin:0 0 30px;letter-spacing:-.008em}
+.ch03 .ch-title em{font-style:italic;color:#7A3A54}
+.ch03 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch03 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch03 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch03 .qq{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528;font-size:20.5px}
+.ch03 .list-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.02em;color:#7A3A54;margin:26px 0 14px;text-align:center;position:relative}
+.ch03 .list-lede::before,.ch03 .list-lede::after{content:'';display:inline-block;width:38px;height:1px;background:#C4718E;vertical-align:middle;margin:0 14px}
+.ch03 .criterion-flow{margin-bottom:22px;padding-left:14px;border-left:1px solid rgba(196,113,142,.4)}
+.ch03 .cf-lead{margin-bottom:4px}
+.ch03 .cf-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#4B1528;font-weight:500;margin-right:6px;letter-spacing:.01em}
+.ch03 .cf-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#4B1528;font-weight:500}
+.ch03 .cf-body{font-family:'Cormorant Garamond',serif;font-size:19px;color:#2C1418;line-height:1.55;margin:2px 0 0 0}
+.ch03 .cf-body em{color:#4B1528;font-style:italic;font-weight:500}
+.ch03 .mini-quote{margin:22px 0 26px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;letter-spacing:.005em;line-height:1.4;padding:12px 20px;border-top:1px solid rgba(75,21,40,.18);border-bottom:1px solid rgba(75,21,40,.18)}
+.ch03 .mini-quote strong{font-style:normal;color:#7A3A54;font-weight:500}
+.ch03 .transit{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:#7A3A54;margin:20px 0 24px;text-align:center;line-height:1.4}
+.ch03 .pain-block{margin:24px 0;padding:22px 24px;background:rgba(75,21,40,.04);border-left:2px solid rgba(75,21,40,.35);border-radius:0 4px 4px 0}
+.ch03 .pain-block p{font-family:'Cormorant Garamond',serif;font-size:19px;line-height:1.55;color:#2C1418;margin:0 0 12px;font-style:italic}
+.ch03 .pain-block p:last-child{margin-bottom:0;color:#4B1528;font-weight:500}
+.ch03 .reveal{margin:30px 0;padding:36px 32px 30px;background:linear-gradient(180deg,#4B1528 0%,#3d0f1e 100%);color:#FAF5F0;border-radius:10px;text-align:center;position:relative;overflow:hidden}
+.ch03 .reveal::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:44px;height:1px;background:#C4718E}
+.ch03 .reveal .r-tag{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:14px;margin-top:8px}
+.ch03 .reveal .r-name{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:500;color:#FAF5F0;margin:0 0 4px;letter-spacing:-.012em;line-height:1.05}
+.ch03 .reveal .r-name .tm{font-size:19px;vertical-align:super;color:#C4718E;font-weight:400;margin-left:2px;letter-spacing:0}
+.ch03 .reveal .r-line{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:rgba(250,245,240,.94);margin:24px auto 0;max-width:520px;line-height:1.4;padding-top:20px;border-top:1px solid rgba(196,113,142,.28);letter-spacing:.005em}
+.ch03 .reveal .r-line em{color:#F4C4D0;font-style:italic;font-weight:500}
+.ch03 .figure{margin:30px 0 12px;padding:22px 24px 20px;background:#F4EBE0;border-radius:8px}
+.ch03 .fig-lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:8px}
+.ch03 .fig-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:500;color:#4B1528;margin:0 0 18px;line-height:1.35}
+.ch03 .fig-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid rgba(75,21,40,.12)}
+.ch03 .fig-annots{display:flex;gap:12px;margin-top:14px;padding:0 4px}
+.ch03 .fig-annots > *{flex:1;text-align:center}
+.ch03 .fig-annots .a-tag{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#4B1528;font-weight:500;margin-bottom:4px;display:block}
+.ch03 .fig-annots .a-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#7A3A54;line-height:1.35;display:block}
+.ch03 .fig-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;padding-top:12px;border-top:1px solid rgba(75,21,40,.15);line-height:1.5}
+.ch03 .fig-cap strong{font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch03 .aftermath{margin:22px 0 20px;padding:0 4px}
+.ch03 .aftermath p{font-family:'Cormorant Garamond',serif;font-size:19.5px;line-height:1.55;color:#2C1418;margin:0 0 16px}
+.ch03 .aftermath p.close{font-style:italic;color:#4B1528;font-weight:500;font-size:20px}
+.ch03 .next-chap{margin-top:34px;padding:24px 26px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch03 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch03 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch03 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch03 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+
+/* ═══ Ch04 ═══ */
+.ch04{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch04 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch04 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch04 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch04 .ch-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;color:#4B1528;line-height:1.22;margin:0 0 30px;letter-spacing:-.008em}
+.ch04 .ch-title em{font-style:italic;color:#7A3A54}
+.ch04 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch04 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch04 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch04 .qq{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528;font-size:20.5px}
+.ch04 .list-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.02em;color:#7A3A54;margin:26px 0 18px;text-align:center;position:relative}
+.ch04 .list-lede::before,.ch04 .list-lede::after{content:'';display:inline-block;width:38px;height:1px;background:#C4718E;vertical-align:middle;margin:0 14px}
+.ch04 .cascade-fig{margin:26px 0 20px;padding:26px 20px 20px;background:#F4EBE0;border-radius:8px}
+.ch04 .cf-lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:8px}
+.ch04 .cf-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:500;color:#4B1528;margin:0 0 18px;line-height:1.35}
+.ch04 .cf-svg{width:100%;height:auto;display:block;max-width:680px;margin:0 auto}
+.ch04 .cf-legend{margin-top:16px;padding-top:14px;border-top:1px solid rgba(75,21,40,.15);display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.ch04 .cf-leg-item{text-align:center;padding:6px 4px}
+.ch04 .cf-leg-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#4B1528;font-weight:500;margin-bottom:2px}
+.ch04 .cf-leg-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:#7A3A54;line-height:1.3}
+.ch04 .cf-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;padding-top:12px;border-top:1px solid rgba(75,21,40,.15);line-height:1.5;text-align:center}
+.ch04 .cf-cap strong{font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch04 .actives-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0 26px}
+.ch04 .active-card{padding:20px 20px 18px;background:#F4EBE0;border:1px solid rgba(75,21,40,.12);border-radius:6px;position:relative}
+.ch04 .active-card::before{content:'';position:absolute;top:0;left:20px;right:20px;height:2px;background:#C4718E}
+.ch04 .ac-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#C4718E;margin-bottom:4px;letter-spacing:.02em}
+.ch04 .ac-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;font-weight:500;color:#4B1528;line-height:1.15;margin-bottom:2px;letter-spacing:-.005em}
+.ch04 .ac-dose{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#7A3A54;font-weight:500;margin-bottom:12px}
+.ch04 .ac-lever{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#4B1528;font-weight:500;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(75,21,40,.15)}
+.ch04 .ac-lever em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:.02em;text-transform:none;color:#7A3A54;margin-left:4px}
+.ch04 .ac-fn{font-family:'Cormorant Garamond',serif;font-size:15.5px;color:#2C1418;line-height:1.42;margin:0}
+.ch04 .absent-block{margin:22px 0;padding:18px 22px;background:rgba(196,113,142,.05);border-left:2px solid #C4718E;border-radius:0 4px 4px 0}
+.ch04 .absent-block p{font-family:'Cormorant Garamond',serif;font-size:18px;line-height:1.5;color:#4B1528;font-style:italic;margin:0}
+.ch04 .absent-block p strong{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#7A3A54;font-weight:500;font-style:normal;display:block;margin-bottom:8px}
+.ch04 .villain-callout{margin:26px auto 22px;padding:22px 24px 20px;text-align:center;border-top:1px solid #4B1528;border-bottom:1px solid #4B1528;max-width:440px;background:rgba(75,21,40,.03)}
+.ch04 .vc-tag{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;font-weight:500;margin-bottom:8px}
+.ch04 .vc-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:38px;color:#4B1528;line-height:1;letter-spacing:-.008em;font-weight:500;margin-bottom:8px}
+.ch04 .vc-aliases{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:#7A3A54;letter-spacing:.02em}
+.ch04 .final-line{margin:24px 0;padding:20px 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;letter-spacing:.005em;line-height:1.35;border-top:1px solid rgba(75,21,40,.2);border-bottom:1px solid rgba(75,21,40,.2)}
+.ch04 .next-chap{margin-top:34px;padding:24px 26px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch04 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch04 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch04 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch04 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+@media (max-width:640px){.ch04 .actives-grid{grid-template-columns:1fr}}
+
+/* ═══ Ch05 ═══ */
+.ch05{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch05 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch05 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch05 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch05 .ch-title{font-family:'Cormorant Garamond',serif;font-size:31px;font-weight:500;color:#4B1528;line-height:1.2;margin:0 0 30px;letter-spacing:-.008em}
+.ch05 .ch-title em{font-style:italic;color:#7A3A54}
+.ch05 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch05 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch05 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch05 .prose em.q{font-style:italic;color:#7A3A54}
+.ch05 .prose .phase-marker{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#4B1528;font-weight:500;font-style:normal;display:inline-block;padding:2px 8px;background:rgba(196,113,142,.12);border-radius:2px;margin-right:6px;vertical-align:middle}
+.ch05 .list-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.02em;color:#7A3A54;margin:26px 0 18px;text-align:center;position:relative}
+.ch05 .list-lede::before,.ch05 .list-lede::after{content:'';display:inline-block;width:38px;height:1px;background:#C4718E;vertical-align:middle;margin:0 14px}
+.ch05 .arc-fig{margin:26px 0 22px;padding:24px 22px 20px;background:#F4EBE0;border-radius:8px}
+.ch05 .af-lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:8px}
+.ch05 .af-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:500;color:#4B1528;margin:0 0 18px;line-height:1.35}
+.ch05 .af-svg{width:100%;height:auto;display:block;max-width:640px;margin:0 auto}
+.ch05 .af-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;padding-top:12px;border-top:1px solid rgba(75,21,40,.15);line-height:1.5;text-align:center}
+.ch05 .af-cap strong{font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch05 .timeline{position:relative;display:grid;grid-template-columns:repeat(4,1fr);padding:6px 4% 6px;margin:22px 0 32px}
+.ch05 .tl-line{position:absolute;top:50%;left:12%;right:12%;height:1px;background:rgba(75,21,40,.28);transform:translateY(-50%);z-index:0}
+.ch05 .tl-phase{text-align:center;position:relative;z-index:1}
+.ch05 .tl-days{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:16px;font-weight:500}
+.ch05 .tl-phase.crisis .tl-days{color:#4B1528;font-weight:600}
+.ch05 .tl-dot{width:9px;height:9px;border-radius:50%;background:#7A3A54;margin:0 auto;border:3px solid #FAF5F0;box-shadow:0 0 0 1px #7A3A54;position:relative;z-index:2}
+.ch05 .tl-phase.crisis .tl-dot{width:13px;height:13px;background:#4B1528;box-shadow:0 0 0 1px #4B1528;margin-top:-2px;margin-bottom:-2px}
+.ch05 .tl-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#4B1528;margin-top:16px;font-weight:500;letter-spacing:-.005em;line-height:1.2}
+.ch05 .crisis-block{margin:26px 0;padding:26px 28px;background:linear-gradient(180deg,#4B1528 0%,#3d0f1e 100%);color:#FAF5F0;border-radius:8px;position:relative}
+.ch05 .crisis-block::before{content:'';position:absolute;top:0;left:24px;right:24px;height:2px;background:#C4718E}
+.ch05 .cb-tag{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px;margin-top:6px}
+.ch05 .cb-headline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#FAF5F0;line-height:1.25;margin:0 0 14px;font-weight:500;letter-spacing:-.005em}
+.ch05 .cb-body{font-family:'Cormorant Garamond',serif;font-size:18px;color:rgba(250,245,240,.92);line-height:1.55;margin:0 0 12px}
+.ch05 .cb-body em{color:#F4C4D0;font-style:italic}
+.ch05 .cb-body:last-child{margin-bottom:0}
+.ch05 .cb-verdict{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#F4C4D0;margin-top:14px;padding-top:14px;border-top:1px solid rgba(196,113,142,.28)}
+.ch05 .pull-quote{margin:28px 0;padding:26px 30px 24px;background:rgba(196,113,142,.06);border-left:3px solid #C4718E;border-radius:0 6px 6px 0;position:relative}
+.ch05 .pq-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;line-height:1.4;margin:0 0 12px;font-weight:400}
+.ch05 .pq-attr{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#7A3A54;font-weight:500}
+.ch05 .pq-attr em{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#7A3A54;text-transform:none;letter-spacing:.02em;margin-left:6px}
+.ch05 .final-line{margin:24px 0;padding:20px 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;letter-spacing:.005em;line-height:1.35;border-top:1px solid rgba(75,21,40,.2);border-bottom:1px solid rgba(75,21,40,.2)}
+.ch05 .next-chap{margin-top:34px;padding:24px 26px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch05 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch05 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch05 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch05 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+@media (max-width:640px){.ch05 .timeline{grid-template-columns:repeat(2,1fr)}}
+
+/* ═══ Ch06 ═══ */
+.ch06{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch06 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch06 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch06 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch06 .ch-title{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:#4B1528;line-height:1.15;margin:0 0 30px;letter-spacing:-.008em}
+.ch06 .ch-title em{font-style:italic;color:#7A3A54}
+.ch06 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch06 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch06 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch06 .prose em.pull{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528;font-weight:500}
+.ch06 .list-lede{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.02em;color:#7A3A54;margin:30px 0 18px;text-align:center;position:relative}
+.ch06 .list-lede::before,.ch06 .list-lede::after{content:'';display:inline-block;width:38px;height:1px;background:#C4718E;vertical-align:middle;margin:0 14px}
+.ch06 .paper-mockup{margin:24px 0 26px;padding:0;background:#EDE4D3;border:1px solid rgba(75,21,40,.3);border-radius:2px;box-shadow:0 2px 12px rgba(75,21,40,.08);position:relative;overflow:hidden;max-width:560px;margin-left:auto;margin-right:auto}
+.ch06 .paper-mockup::before{content:'';position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#4B1528 0%,#4B1528 60%,#7A3A54 60%,#7A3A54 100%)}
+.ch06 .pm-header{padding:18px 26px 12px;border-bottom:1px solid rgba(75,21,40,.2);background:#E5DAC5}
+.ch06 .pm-journal{font-family:Georgia,serif;font-size:15px;font-style:italic;color:#4B1528;font-weight:600;letter-spacing:.02em;margin-bottom:2px}
+.ch06 .pm-meta{font-family:Georgia,serif;font-size:11px;color:#7A3A54;letter-spacing:.04em}
+.ch06 .pm-body{padding:22px 26px 20px;font-family:Georgia,serif}
+.ch06 .pm-type{font-family:Georgia,serif;font-size:10px;text-transform:uppercase;letter-spacing:.28em;color:#7A3A54;margin-bottom:10px;font-weight:600}
+.ch06 .pm-title{font-family:Georgia,serif;font-size:19px;color:#2C1418;line-height:1.32;margin:0 0 14px;font-weight:600;letter-spacing:-.003em}
+.ch06 .pm-authors{font-family:Georgia,serif;font-size:13px;color:#4B1528;font-style:italic;margin-bottom:16px;line-height:1.4}
+.ch06 .pm-abstract-label{font-family:Georgia,serif;font-size:11px;font-weight:600;color:#4B1528;text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.ch06 .pm-abstract{font-family:Georgia,serif;font-size:13px;color:#2C1418;line-height:1.55;margin:0 0 12px}
+.ch06 .pm-key{font-family:Georgia,serif;font-size:12.5px;color:#4B1528;font-style:italic;margin:0;padding:10px 14px;background:rgba(75,21,40,.06);border-left:3px solid #4B1528;line-height:1.5}
+.ch06 .pm-footer{padding:10px 26px;border-top:1px solid rgba(75,21,40,.2);background:#E5DAC5;display:flex;justify-content:space-between;align-items:center;font-family:Georgia,serif;font-size:10.5px;color:#7A3A54;letter-spacing:.02em}
+.ch06 .pm-cite{font-style:italic;font-weight:600}
+.ch06 .pm-doi{color:#A57080}
+.ch06 .paper-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;text-align:center;line-height:1.5;max-width:560px;margin-left:auto;margin-right:auto}
+.ch06 .paper-note strong{font-style:normal;font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch06 .citation{margin:26px 0 22px;padding:26px 28px 22px;background:#F4EBE0;border:1px solid rgba(75,21,40,.2);border-radius:6px;position:relative}
+.ch06 .citation::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;background:#4B1528;border-radius:6px 0 0 6px}
+.ch06 .cit-tag{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;font-weight:600;margin-bottom:10px}
+.ch06 .cit-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#4B1528;line-height:1.35;margin:0 0 8px;font-weight:500}
+.ch06 .cit-meta{font-family:'Inter',sans-serif;font-size:12px;color:#2C1418;letter-spacing:.02em;margin-bottom:0;font-weight:500}
+.ch06 .cit-meta strong{color:#4B1528;font-weight:600}
+.ch06 .banned-list{margin:22px 0 26px;padding:26px 30px 24px;background:rgba(75,21,40,.04);border:1px solid rgba(75,21,40,.18);border-radius:6px}
+.ch06 .bl-intro{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#7A3A54;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid rgba(75,21,40,.15);text-align:center}
+.ch06 .bl-item{display:flex;gap:14px;padding:11px 0;border-bottom:1px dashed rgba(75,21,40,.15);align-items:baseline}
+.ch06 .bl-item:last-child{border-bottom:none;padding-bottom:0}
+.ch06 .bl-mark{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#C4718E;line-height:1;flex-shrink:0;min-width:26px;font-weight:500}
+.ch06 .bl-body{flex:1;font-family:'Cormorant Garamond',serif;font-size:17px;line-height:1.42;color:#2C1418}
+.ch06 .bl-body strong{font-style:italic;font-weight:500;color:#4B1528}
+.ch06 .bl-verdict{margin-top:18px;padding-top:16px;border-top:1px solid rgba(75,21,40,.18);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#4B1528;line-height:1.5;text-align:center}
+.ch06 .proof-mark{font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#7A3A54;font-weight:500;margin:32px 0 14px;display:block;padding-left:2px}
+.ch06 .proof-mark strong{font-weight:600;color:#4B1528;margin-right:8px}
+.ch06 .cannot-block{margin:30px 0;padding:32px 34px 28px;background:#F4EBE0;color:#2C1418;border-left:5px solid #4B1528;border-radius:0 8px 8px 0;position:relative}
+.ch06 .cb-tag{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;font-weight:600;margin-bottom:10px;text-align:left}
+.ch06 .cb-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-style:italic;color:#4B1528;line-height:1.2;margin:0 0 6px;font-weight:500;text-align:left;letter-spacing:-.005em}
+.ch06 .cb-sub{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0 0 22px;text-align:left}
+.ch06 .cannot-item{padding:16px 0;border-top:1px solid rgba(75,21,40,.18)}
+.ch06 .cannot-item:last-child{padding-bottom:0}
+.ch06 .ci-header{display:flex;gap:14px;margin-bottom:8px;align-items:baseline}
+.ch06 .ci-no{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#C4718E;font-weight:500;flex-shrink:0;letter-spacing:-.005em}
+.ch06 .ci-claim{font-family:'Cormorant Garamond',serif;font-size:20px;color:#4B1528;font-weight:500;line-height:1.3;letter-spacing:-.005em;font-style:italic}
+.ch06 .ci-body{font-family:'Cormorant Garamond',serif;font-size:16px;color:#2C1418;line-height:1.5;margin:0;padding-left:36px}
+.ch06 .ci-body em{color:#4B1528;font-style:italic;font-weight:500}
+.ch06 .final-line-alt{margin:26px 0 20px;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:#7A3A54;line-height:1.5}
+.ch06 .final-line-alt strong{color:#4B1528;font-weight:500;font-style:italic}
+.ch06 .guarantee{margin:30px 0;padding:32px 34px 28px;background:#F4EBE0;border:1px solid #4B1528;border-radius:8px;text-align:center;position:relative}
+.ch06 .guarantee::before{content:'';position:absolute;top:8px;left:8px;right:8px;bottom:8px;border:1px solid rgba(75,21,40,.2);border-radius:5px;pointer-events:none}
+.ch06 .g-tag{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;font-weight:600;margin-bottom:8px;position:relative;z-index:1}
+.ch06 .g-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-style:italic;color:#4B1528;line-height:1;margin:0 0 24px;font-weight:500;letter-spacing:-.012em;position:relative;z-index:1}
+.ch06 .g-terms{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0 20px;position:relative;z-index:1}
+.ch06 .g-term{padding:0 10px;border-right:1px solid rgba(75,21,40,.18)}
+.ch06 .g-term:last-child{border-right:none}
+.ch06 .g-t-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;color:#4B1528;line-height:1;margin-bottom:4px;font-weight:500}
+.ch06 .g-t-label{font-family:'Inter',sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;font-weight:500}
+.ch06 .g-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#2C1418;line-height:1.5;margin:20px 0 0;position:relative;z-index:1;padding-top:20px;border-top:1px solid rgba(75,21,40,.18)}
+.ch06 .g-note strong{color:#4B1528;font-weight:500;font-style:italic}
+.ch06 .final-line{margin:24px 0;padding:20px 0;text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#4B1528;letter-spacing:.005em;line-height:1.35;border-top:1px solid rgba(75,21,40,.2);border-bottom:1px solid rgba(75,21,40,.2)}
+.ch06 .next-chap{margin-top:34px;padding:24px 26px;background:rgba(75,21,40,.05);border-radius:8px}
+.ch06 .nc-tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#C4718E;font-weight:500;margin-bottom:10px}
+.ch06 .nc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.3;color:#4B1528;font-weight:500;margin:0 0 8px}
+.ch06 .nc-teaser{font-family:'Cormorant Garamond',serif;font-size:15px;color:#7A3A54;font-style:italic;margin:0;line-height:1.5}
+.ch06 .foot{margin-top:32px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+@media (max-width:640px){.ch06 .g-terms{grid-template-columns:1fr}.ch06 .g-term{border-right:none;border-bottom:1px solid rgba(75,21,40,.18);padding-bottom:16px}.ch06 .g-term:last-child{border-bottom:none;padding-bottom:0}}
+
+/* ═══ Ch07 ═══ */
+.ch07{background:#FAF5F0;color:#2C1418;padding:44px 48px 40px;border-radius:12px;font-family:'Inter',sans-serif;line-height:1.6;max-width:100%;box-sizing:border-box}
+.ch07 .part-mark{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:#4B1528;margin-bottom:24px}
+.ch07 .part-mark::before{content:'';width:36px;height:1px;background:#4B1528;flex-shrink:0}
+.ch07 .part-mark::after{content:'';flex:1;height:1px;background:rgba(75,21,40,.18)}
+.ch07 .ch-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:500;color:#4B1528;line-height:1.1;margin:0 0 30px;letter-spacing:-.012em}
+.ch07 .ch-title em{font-style:italic;color:#7A3A54}
+.ch07 .prose{font-family:'Cormorant Garamond',serif;font-size:20px;line-height:1.6;color:#2C1418;margin:0 0 20px;clear:left}
+.ch07 .prose:first-of-type::first-letter{font-family:'Cormorant Garamond',serif;font-size:70px;float:left;line-height:.82;font-weight:500;padding:9px 13px 0 0;color:#4B1528}
+.ch07 .prose strong{font-weight:500;font-style:italic;color:#4B1528}
+.ch07 .prose em.q{font-family:'Cormorant Garamond',serif;font-style:italic;color:#4B1528}
+.ch07 .price-viz{margin:26px 0 22px;padding:26px 24px 22px;background:#F4EBE0;border-radius:8px}
+.ch07 .pv-lbl{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#7A3A54;margin-bottom:8px}
+.ch07 .pv-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:500;color:#4B1528;margin:0 0 20px;line-height:1.35}
+.ch07 .pv-svg{width:100%;height:auto;display:block;max-width:600px;margin:0 auto}
+.ch07 .pv-cap{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5px;color:#7A3A54;margin-top:14px;padding-top:12px;border-top:1px solid rgba(75,21,40,.15);line-height:1.5;text-align:center}
+.ch07 .pv-cap strong{font-style:normal;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#4B1528;margin-right:8px;font-weight:500}
+.ch07 .anchor-list{margin:26px 0;padding:0}
+.ch07 .anchor-item{display:flex;gap:20px;padding:16px 0;border-top:1px solid rgba(75,21,40,.15);align-items:baseline}
+.ch07 .anchor-item:last-child{border-bottom:1px solid rgba(75,21,40,.15)}
+.ch07 .anchor-price{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;color:#7A3A54;font-weight:500;flex-shrink:0;min-width:180px;letter-spacing:-.008em;line-height:1.1}
+.ch07 .anchor-desc{font-family:'Cormorant Garamond',serif;font-size:17.5px;color:#2C1418;line-height:1.45;flex:1}
+.ch07 .anchor-desc em{color:#4B1528;font-style:italic;font-weight:500}
+.ch07 .price-reveal{margin:34px 0 22px;padding:34px 30px 28px;background:#FAF5F0;border:2px solid #4B1528;border-radius:10px;text-align:center;position:relative}
+.ch07 .pr-tag{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#7A3A54;font-weight:600;margin-bottom:14px}
+.ch07 .pr-product{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:#7A3A54;margin-bottom:4px;font-weight:500}
+.ch07 .pr-price{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:500;color:#4B1528;line-height:1;margin:0 0 4px;letter-spacing:-.02em}
+.ch07 .pr-price .dollar{font-size:44px;vertical-align:top;margin-right:2px;font-weight:400}
+.ch07 .pr-unit{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:#7A3A54;margin-top:6px}
+.ch07 .no-tactic{margin:28px 0;padding:22px 26px;background:rgba(196,113,142,.05);border-left:2px solid rgba(196,113,142,.4);border-radius:0 4px 4px 0}
+.ch07 .no-tactic p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:#7A3A54;line-height:1.55;margin:0}
+.ch07 .no-tactic p strong{color:#4B1528;font-style:italic;font-weight:500}
+.ch07 .cta-block{margin:34px 0 24px;padding:38px 32px 34px;background:linear-gradient(180deg,#4B1528 0%,#3d0f1e 100%);color:#FAF5F0;border-radius:10px;text-align:center;position:relative;overflow:hidden}
+.ch07 .cta-block::before{content:'';position:absolute;top:14px;left:50%;transform:translateX(-50%);width:44px;height:1px;background:#C4718E}
+.ch07 .cta-preamble{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:rgba(250,245,240,.88);line-height:1.5;margin:8px auto 24px;max-width:520px}
+.ch07 .cta-preamble em{color:#F4C4D0;font-style:italic}
+.ch07 .cta-button{display:inline-block;padding:18px 42px;background:#F4C4D0;color:#4B1528;text-decoration:none;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;font-weight:500;border-radius:4px;letter-spacing:-.008em;transition:all .2s;border:2px solid #F4C4D0}
+.ch07 .cta-button:hover{background:#FAF5F0;border-color:#FAF5F0}
+.ch07 .cta-sub{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(244,196,208,.75);margin-top:18px;font-weight:500}
+.ch07 .guarantee-recall{margin:22px 0;padding:14px 20px;background:transparent;border-top:1px solid rgba(75,21,40,.2);border-bottom:1px solid rgba(75,21,40,.2);text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:#7A3A54;line-height:1.5}
+.ch07 .guarantee-recall strong{color:#4B1528;font-weight:500;font-style:italic}
+.ch07 .signature{margin:36px 0 20px;padding:24px 0 8px;border-top:1px dashed rgba(75,21,40,.3);text-align:center}
+.ch07 .sig-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;color:#4B1528;font-weight:500;letter-spacing:-.005em;line-height:1.2}
+.ch07 .sig-role{font-family:'Inter',sans-serif;font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:#7A3A54;margin-top:8px;font-weight:500}
+.ch07 .foot{margin-top:24px;padding-top:16px;border-top:1px dashed rgba(75,21,40,.25);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A57080;text-align:center}
+@media (max-width:640px){.ch07 .anchor-item{flex-direction:column;gap:6px}.ch07 .anchor-price{min-width:auto}}
+</style>
+
+<div class="longform-wrapper">
+
+  <div class="master-header">
+    <div class="mh-wordmark">
+      an investigation from
+      <strong>What Your Dermatologist Didn't Explain</strong>
+    </div>
+    <div class="mh-kicker">Investigation · Rosacea · 15-minute read</div>
+    <h1 class="mh-headline">Your skin is building new blood vessels every time you flush. <em>Here's what that means for the products that never worked.</em></h1>
+    <p class="mh-deck">For sixteen million Americans, the redness that used to fade by lunchtime slowly stops fading at all. A 2007 discovery finally names why — and reveals what a rosacea product actually needs to do to hold.</p>
+    <div class="mh-byline">
+      <strong>By Margot Bellamy</strong>
+      <em>UX researcher turned formulator</em>
+    </div>
+    <div class="mh-nav-tag">In seven chapters</div>
+    <nav class="mh-nav">
+      <a href="#ch01"><span class="n-num">01.</span><span class="n-name">The Background Story</span></a>
+      <a href="#ch02"><span class="n-num">02.</span><span class="n-name">The Root Cause</span></a>
+      <a href="#ch03"><span class="n-num">03.</span><span class="n-name">The Reset Complex</span></a>
+      <a href="#ch04"><span class="n-num">04.</span><span class="n-name">The Formula</span></a>
+      <a href="#ch05"><span class="n-num">05.</span><span class="n-name">The Arc</span></a>
+      <a href="#ch06"><span class="n-num">06.</span><span class="n-name">The Proof Stack</span></a>
+      <a href="#ch07"><span class="n-num">07.</span><span class="n-name">The Close</span></a>
+    </nav>
+  </div>
+
+<div class="ch01" id="ch01">
+  <div class="part-mark">Chapter 01 · The Background Story</div>
+  <h2 class="ch-title">Eight seconds from the collarbone to the jawline. <em>That's how long it took, the first time it happened in a meeting.</em></h2>
+
+  <p class="prose">I was thirty-four. UX researcher at a mid-size consultancy, three years into the job, on track for principal. On a Tuesday in September, mid-morning, I was walking a client through screen recordings of their onboarding flow. The client asked a follow-up question. I felt it start at my collarbone. The word "flush" doesn't cover what happens. It's not a temperature. It's an announcement. A wave of blood rises up the neck, crosses the jaw, and takes eight seconds to reach the hairline. During those eight seconds, everyone at the table has time to see it happen. Some look away. Some don't.</p>
+
+  <p class="prose">Eight seconds is a very specific number. I timed it once, alone, in a bathroom mirror, after realizing it happened enough that I might as well know. Collarbone to jawline, eight seconds. Jawline to hairline, another four. Full-face for the next twenty-five minutes. It faded the way a bruise fades — from the edges in, and slowly enough that everyone had time to notice both the arrival and the departure.</p>
+
+  <p class="prose">By the time I noticed the eight seconds, I had already spent seven years looking for something that would stop them. The drugstore moisturizer with the gentle marketing. The barrier cream from the French pharmacy. The prescription azelaic acid. The prescription metronidazole. The vasoconstrictor prescription with the rebound my dermatologist neglected to mention. Two rounds of vascular laser. The elimination diet. The one-hundred-and-eighty-dollar clean-beauty serum that made everything worse for a week. Every recommendation from every Reddit thread.</p>
+
+  <p class="prose">The Tuesday I stopped trying more products was a Tuesday like any other. My annual review was at three. My manager was going to tell me I was on track for principal, and I already knew what I'd say back. What I couldn't do — what I realized in the elevator on the way down — was cry. Not in the elevator. Not that afternoon. Not that night. <strong>Because a face like mine tells everyone why.</strong></p>
+
+
+<style>
+  .ch01 .catalogue-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #4B1528;
+    line-height: 1.45;
+    margin: 48px auto 8px;
+    max-width: 640px;
+    text-align: center;
+  }
+  .ch01 .catalogue-intro em { font-style: italic; color: #7A3A54; }
+
+  .ch01 .catalogue-mark {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #A57080;
+    text-align: center;
+    margin: 0 auto 32px;
+  }
+
+  .ch01 .catalogue {
+    max-width: 720px;
+    margin: 0 auto 40px;
+  }
+
+  .ch01 .catalogue-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(122,58,84,.15);
+  }
+  .ch01 .catalogue-item:last-child { border-bottom: none; }
+
+  .ch01 .cat-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #4B1528;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .ch01 .cat-label-sub {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-top: 4px;
+  }
+
+  .ch01 .cat-verbatim {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #4B1528;
+    line-height: 1.55;
+    border-left: 2px solid #C4718E;
+    padding-left: 16px;
+  }
+  .ch01 .cat-verbatim-attr {
+    display: block;
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-top: 8px;
+  }
+
+  .ch01 .catalogue-close {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: #4B1528;
+    line-height: 1.5;
+    text-align: center;
+    max-width: 620px;
+    margin: 32px auto 0;
+    padding: 24px 20px;
+    border-top: 1px solid rgba(122,58,84,.2);
+    border-bottom: 1px solid rgba(122,58,84,.2);
+  }
+
+  @media (max-width: 640px) {
+    .ch01 .catalogue-item {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 20px 0;
+    }
+  }
+</style>
+
+<p class="catalogue-intro">Before I tell you what actually reached the cascade, I owe you the ledger. Here is <em>what I had already tried</em> — and what real women, on real forums, said about each of them.</p>
+<div class="catalogue-mark">The catalogue · seven categories · in their own words</div>
+
+<div class="catalogue">
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">Prescription topicals</div>
+      <div class="cat-label-sub">Metronidazole · azelaic acid · ivermectin</div>
+    </div>
+    <div class="cat-verbatim">
+      "AA made my face redder, burning, and itchy, with even more small pustules. Same with sulfur, metronidazole, and everything else that has been recommended."
+      <span class="cat-verbatim-attr">r/Rosacea · community verbatim</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">Prescription antibiotics</div>
+      <div class="cat-label-sub">Oral doxycycline · minocycline courses</div>
+    </div>
+    <div class="cat-verbatim">
+      "I don't want to be on antibiotics forever."
+      <span class="cat-verbatim-attr">r/Rosacea · community verbatim</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">IPL laser sessions</div>
+      <div class="cat-label-sub">Vascular closure · booked in threes</div>
+    </div>
+    <div class="cat-verbatim">
+      "My sister did laser and it worked for her. But the sessions come in threes, the price is real, and the flushing that built those vessels never went anywhere."
+      <span class="cat-verbatim-attr">Composite · several r/Rosacea threads</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">Drugstore anti-redness</div>
+      <div class="cat-label-sub">The green-tinted category</div>
+    </div>
+    <div class="cat-verbatim">
+      "It felt good going on and was absorbent. But it did nothing for the redness."
+      <span class="cat-verbatim-attr">Verified Amazon review · rosacea category</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">"Clean beauty" serums</div>
+      <div class="cat-label-sub">Botanical actives · essential oils</div>
+    </div>
+    <div class="cat-verbatim">
+      "Every product says 'for sensitive skin' and then burns my face off. I don't believe anything anymore."
+      <span class="cat-verbatim-attr">r/Rosacea · community verbatim</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">Home remedies</div>
+      <div class="cat-label-sub">Sulfur soaps · oils · diets</div>
+    </div>
+    <div class="cat-verbatim">
+      "I've literally tried everything already. Show me what makes this different from the 47 other things I've wasted money on."
+      <span class="cat-verbatim-attr">r/Rosacea · community verbatim</span>
+    </div>
+  </div>
+
+  <div class="catalogue-item">
+    <div>
+      <div class="cat-label">The makeup wall</div>
+      <div class="cat-label-sub">Primer · corrector · foundation · powder</div>
+    </div>
+    <div class="cat-verbatim">
+      "I always wear makeup because my number one insecurity right now is my red cheeks. But I don't like wearing makeup on holiday."
+      <span class="cat-verbatim-attr">r/Rosacea · community verbatim</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="catalogue-close">
+  Seven categories. Zero that reached the layer where the problem is being built. And this was the moment I stopped looking for the next product — <em>and started asking the question none of them were built to answer.</em>
+</div>
+
+
+  <div class="breaking-line">That evening I made a different decision.</div>
+
+  <p class="prose">I would stop looking for another product to try. I would spend the next year — however long it took — looking for the <em class="q">reason</em> none of the ones I had tried could have worked. Because if I couldn't find the reason, no product would ever be the answer. That's when I picked up the phone.</p>
+
+  <div class="foot">Chapter 01 · The Background Story</div>
+</div>
+
+<div class="ch02" id="ch02">
+  <div class="part-mark">Chapter 02 · The discovery no one taught your dermatologist</div>
+  <h2 class="ch-title">An <em>alarm system</em> that fires for no reason, rebuilds your face's plumbing a little each time.</h2>
+
+  <p class="prose">The person I called was Dr. Helena Vasquez. She'd spent twenty-two years as a vascular biologist at UCSF before retiring, and I'd read three of her review papers on capillary remodeling before I ever picked up the phone. When I described the eight seconds, she didn't tell me it was normal. She didn't tell me it was stress. She said: <span class="qq">"You're not describing a skin problem. You're describing an alarm system that fires for no reason, sends a signal down the wrong channel, and rebuilds your face's plumbing a little bit each time it happens."</span></p>
+
+  <p class="prose">I asked her to slow down. This is what she explained. It took twenty minutes. I've spent two years learning how to say it in five.</p>
+
+  <p class="prose">Every square millimeter of your facial skin contains what Vasquez called smoke detectors. In a healthy face, they fire when there's an actual threat: a bacterial invader, a real injury. In rosacea skin, they fire for smoke that isn't there. A warm room. A stressful email. A glass of wine. A three-minute walk from a cold cab into a heated lobby.</p>
+
+  <p class="prose">When the alarm fires, it releases what she calls <em>the scissors</em>. The scissors have one job — cut. There's a protein sitting in your skin whose job is to stand between you and microbes: <em>the bodyguard</em>. In rosacea skin, the scissors cut the bodyguard into pieces. Those pieces are not neutral. They're inflammatory. They swim over to a nearby cell and pop it open. Inside that cell were two things. <strong>The first opens the vessels you already have. The second builds new ones.</strong></p>
+
+  <p class="prose">That's the eight seconds. And that's what your dermatologist has eight minutes to explain.</p>
+
+  <div class="figure">
+    <div class="fig-lbl">Figure 2 · The cellular cascade</div>
+    <div class="fig-t">The eight-second cascade — from trigger to visible flush.</div>
+    <img class="fig-img" src="https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-fig2.jpg?v=1790147544" loading="lazy" width="1400" height="781" alt="Anatomical illustration of a woman mid-flush with a magnified inset showing a capillary vessel opening beneath the skin." />
+    <div class="fig-annots two">
+      <div><span class="a-tag">What she sees</span><span class="a-txt">The flush arriving. The eight seconds she can't stop.</span></div>
+      <div><span class="a-tag">What her face is doing</span><span class="a-txt">One vessel opening. A second one beginning to form beside it.</span></div>
+    </div>
+    <div class="fig-cap"><strong>Figure 2</strong>Four cellular events, eight seconds, all invisible to the person feeling them.</div>
+  </div>
+
+  <p class="prose">Here's how Vasquez asked me to picture it. Every face has a thermostat. When you flush, the vessels open, the heat comes up, and a healthy face brings the temperature back down. Ten, fifteen minutes. Gone.</p>
+
+  <p class="prose">In a rosacea face, the thermostat still opens the vessels. But the signal to close never arrives cleanly. The vessels stay open longer than they should. The next trigger arrives before the reset is complete. <strong>The reset never fully happens.</strong> That's why the redness that used to fade by lunchtime slowly stops fading at all. You aren't broken. Your thermostat is stuck.</p>
+
+  <div class="figure">
+    <div class="fig-lbl">Figure 3 · The reset signal</div>
+    <div class="fig-t">The thermostat that forgot to close.</div>
+    <img class="fig-img" src="https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-fig3.jpg?v=1790147544" loading="lazy" width="1400" height="781" alt="Two sequences of the same woman's face — left comes back to normal, right stays flushed and gets deeper." />
+    <div class="fig-annots two">
+      <div><span class="a-tag">A healthy face</span><span class="a-txt">The flush arrives. The flush leaves. The face returns.</span></div>
+      <div><span class="a-tag">A rosacea face</span><span class="a-txt">The flush arrives. It never fully leaves. The next one lands on top.</span></div>
+    </div>
+    <div class="fig-cap"><strong>Figure 3</strong>Same trigger. Same body. Only the reset signal is missing.</div>
+  </div>
+
+  <p class="prose">Here's the part I didn't expect. Remember the second thing that came out of that cell? Vasquez calls it <em>the builder</em>. Because that's what it does — it builds blood vessels. In rosacea, the builder gets released every time the cascade fires. Which means every time your face flushes for no good reason, the builder is quietly constructing new vessels beneath your skin. <strong>The vessels don't un-build afterward. They stay.</strong></p>
+
+  <p class="prose">There's a medical word for this. <strong>Angiogenesis.</strong> It just means the making of new vessels. This is why the face you have at forty is not the face you had at twenty-five. This is why the American Academy of Dermatology says untreated rosacea gets harder to treat, year after year — the treatment is trying to reach vessels that shouldn't have been built. <em>Every flush you didn't address was a construction signal.</em></p>
+
+  <div class="figure">
+    <div class="fig-lbl">Figure 4 · The compounding math</div>
+    <div class="fig-t">The same slice of skin — twenty years apart.</div>
+    <img class="fig-img" src="https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-fig4.jpg?v=1790147544" loading="lazy" width="1400" height="781" alt="Three anatomical cross-sections of skin showing progressive vascular remodeling with age." />
+    <div class="fig-annots three">
+      <div><span class="a-tag">In your twenties</span><span class="a-txt">A quiet network. A few thin vessels doing what they're meant to do.</span></div>
+      <div><span class="a-tag">In your thirties</span><span class="a-txt">The builder has been working. New vessels beginning to twist and widen.</span></div>
+      <div><span class="a-tag">In your forties</span><span class="a-txt">A dense network. Fixed redness beneath the surface. None of it un-builds.</span></div>
+    </div>
+    <div class="fig-cap"><strong>Figure 4</strong>Every extra vessel was earned by a flush that wasn't stopped.</div>
+  </div>
+
+  <div class="absolution">
+    <p>When Vasquez finished, I sat in my kitchen and cried a little. Because for the first time in seven years, someone had explained why my face did what it did, in a way that put none of it on me.</p>
+    <p class="list">An alarm that fires wrong. Scissors that cut a bodyguard. A thermostat that forgot to close. A builder constructing walls I never ordered.</p>
+    <p>This wasn't going to be fixed by another moisturizer. It was going to require reaching the cascade — <em>before</em> the construction happened.</p>
+  </div>
+
+  <div class="foot">Chapter 02 · Root Cause</div>
+</div>
+
+
+  <div class="mid-cta">
+    <div class="mc-rule"></div>
+    <div class="mc-context">You know what the mechanism is now.</div>
+    <a href="https://try-rosalia.com/products/daily-reset-serum" class="mc-button">Get my face back <span class="mc-price">· $39.99</span></a>
+    <div class="mc-note">or keep reading — the story finishes below</div>
+    <div class="mc-rule"></div>
+  </div>
+
+
+<div class="ch03" id="ch03">
+  <div class="part-mark">Chapter 03 · What Vasquez said a real product would need to do</div>
+  <h2 class="ch-title">Anything that only makes the flush <em>go down</em> isn't treating it. It's <em>photoshopping</em> it.</h2>
+
+  <p class="prose">It took me three days to formulate the next question. Not because it was hard to write. Because I was afraid of what she'd answer. When I called Vasquez back, I asked the question anyone would ask. <span class="qq">"So what would something have to actually do — to work?"</span> She was quiet for a moment. Then she said something I've thought about every day since. <span class="qq">"To actually change what happens next time, you'd need to reach five things at once. Not one. Not four. Five. In the right order. Without triggering the alarm you're trying to calm."</span></p>
+
+  <p class="prose">I asked her to list them. She did.</p>
+
+  <div class="list-lede">the five things a product would need to do</div>
+
+  <div class="criterion-flow">
+    <div class="cf-lead"><span class="cf-num">I.</span><span class="cf-title">Calm the alarm.</span></div>
+    <p class="cf-body">The smoke detectors that fire when nothing's burning — you'd need to quiet them. Not with a sedative. With something that lowers their sensitivity gently, day after day. If you skip this, the cascade starts every morning. Nothing downstream can hold.</p>
+  </div>
+
+  <div class="criterion-flow">
+    <div class="cf-lead"><span class="cf-num">II.</span><span class="cf-title">Blunt the scissors.</span></div>
+    <p class="cf-body">The enzyme that cuts the bodyguard into inflammatory pieces — you'd need to slow it. Not block it entirely (you still need it for real threats). Just take the edge off. <em>This is the step nothing over-the-counter had ever addressed for me.</em></p>
+  </div>
+
+  <div class="criterion-flow">
+    <div class="cf-lead"><span class="cf-num">III.</span><span class="cf-title">Stabilize the cells that pop.</span></div>
+    <p class="cf-body">The nearby cells that spill their contents when the inflammatory pieces reach them — you'd need to reinforce them from within. So even when the cascade begins, less of it actually lands.</p>
+  </div>
+
+  <div class="mini-quote"><strong>Five things.</strong> One formula. In the right order.</div>
+
+  <div class="criterion-flow">
+    <div class="cf-lead"><span class="cf-num">IV.</span><span class="cf-title">Rebuild the wall.</span></div>
+    <p class="cf-body">The barrier between your skin and the outside world — the one that's meant to keep triggers from ever reaching the alarm — you'd need to restore it. When it's broken, every wind, every soap, every warm room lands harder than it should. And each of those lands starts a new cascade.</p>
+  </div>
+
+  <div class="criterion-flow">
+    <div class="cf-lead"><span class="cf-num">V.</span><span class="cf-title">Break the loop.</span></div>
+    <p class="cf-body">This is the one that matters most, and the one no product I'd tried had even acknowledged. Every flush signals the builder. Every builder-signal makes the next flush more likely. You'd need something that <em>interrupts the cycle where flush teaches face to flush more.</em> If you skip this, you're bailing water while the hole grows.</p>
+  </div>
+
+  <div class="transit">Five. In the right order. Without triggering the alarm.</div>
+
+  <p class="prose">I asked her, half-joking, if such a thing existed on the market. She said: <span class="qq">"Not that I know of. It would be a simple formulation — nothing exotic. The reason no one's built it is that most products are designed to make the redness go down for tonight. Not to teach the face to hold."</span></p>
+
+  <div class="pain-block">
+    <p>I hung up. I walked to my bathroom cabinet and opened it. Seven half-used serums. Two prescriptions. One laser invoice I still couldn't look at.</p>
+    <p>None of them did all five. Most of them didn't do one.</p>
+  </div>
+
+  <p class="prose">That conversation was two years ago. Getting from that logic to a formula that actually did all five, at once, in the right order, took eighteen months. Two chemists in North Carolina. One in Lyon. Twenty-one failed batches. <strong>Batch twenty-two finally did it — in the right order, without triggering what it was calming. This is it.</strong></p>
+
+  <div class="reveal">
+    <div class="r-tag">The result of eighteen months</div>
+    <div class="r-name">The Reset Complex<span class="tm">™</span></div>
+    <div class="r-line">It doesn't force the flush to <em>hide.</em><br/>It helps the face learn to <em>come back down.</em></div>
+  </div>
+
+  <div class="figure">
+    <div class="fig-lbl">Figure 5 · The cascade that doesn't happen</div>
+    <div class="fig-t">Same body. Same trigger. Only the reset signal has arrived on time.</div>
+    <img class="fig-img" src="https://cdn.shopify.com/s/files/1/0700/4681/0156/files/rosalia-fig5.jpg?v=1790147544" loading="lazy" width="1400" height="781" alt="Anatomical illustration mirror of Figure 2: same woman, calm expression, with a magnified inset showing a quiet intact cell and a resting undisturbed capillary." />
+    <div class="fig-annots">
+      <div><span class="a-tag">What used to happen</span><span class="a-txt">The alarm firing. The scissors cutting. The vessel forming beside the old one.</span></div>
+      <div><span class="a-tag">What happens now</span><span class="a-txt">The alarm quiet. The scissors idle. The vessel undisturbed.</span></div>
+    </div>
+    <div class="fig-cap"><strong>Figure 5</strong>The mirror image of Figure 2. The same eight seconds, uneventful.</div>
+  </div>
+
+  <div class="aftermath">
+    <p>The difference matters more than it sounds. A product that only makes redness fade tonight has to keep making it fade tomorrow — and the day after — forever. Because it never touched what was building. The Reset Complex works on the loop itself. The vicious loop starts running the other way. Each week that fewer new vessels are built is a week the face has slightly less to hide.</p>
+    <p class="close">You're not chasing tonight's flush. You're addressing what tomorrow's is being built from.</p>
+  </div>
+
+  <p class="prose">The five levers are the logic. The next question is what actually delivers them — which molecules, in which doses, in which order on the skin. This is where most of what's on the shelf falls apart. It's also the part I want you to see, because once you have, you can't unsee it in another formulation.</p>
+
+  <div class="foot">Chapter 03 · The Reset Complex</div>
+</div>
+
+<div class="ch04" id="ch04">
+  <div class="part-mark">Chapter 04 · The formula, and the line that doesn't belong</div>
+  <h2 class="ch-title">Six molecules. Five levers. <em>One ingredient</em> that has no business being in a rosacea serum — and quietly shows up in most of them.</h2>
+
+  <p class="prose">The five levers weren't the hard part. Picking six molecules that could reach every one of them at once, without stepping on the alarm being calmed — that was the hard part. Anything you put on inflamed skin is a signal. If the signal is wrong, you're not calming the alarm — you're setting off a different one. <strong>Most rosacea formulas are setting off different alarms every night.</strong> Their users just don't know it yet.</p>
+
+  <p class="prose">Molecules don't hit the skin all at once. They arrive in sequence. The order isn't a detail — it's the whole game. A powerful anti-inflammatory that arrives after the alarm has already fired isn't <em>treating</em> anything. It's comforting you afterward. The formulation had to arrive <strong>before.</strong></p>
+
+  <div class="list-lede">the six molecules that made the final cut</div>
+
+  <div class="cascade-fig">
+    <div class="cf-lbl">Figure 6 · The intervention map</div>
+    <div class="cf-t">Where each of the six molecules acts on the cascade Chapter 02 named.</div>
+    <svg class="cf-svg" viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cascade intervention map showing 5 levers along the rosacea cascade with 6 molecules mapped to them.">
+      <defs>
+        <marker id="arrhead04" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#7A3A54"/>
+        </marker>
+      </defs>
+      <line x1="40" y1="130" x2="640" y2="130" stroke="#7A3A54" stroke-width="1" opacity=".35"/>
+      <text x="40" y="80" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#7A3A54" text-anchor="start">trigger</text>
+      <text x="40" y="98" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#A57080" text-anchor="start">(heat · stress · wine)</text>
+      <line x1="90" y1="105" x2="90" y2="125" stroke="#7A3A54" stroke-width="1" marker-end="url(#arrhead04)"/>
+      <text x="640" y="80" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#7A3A54" text-anchor="end">visible flush</text>
+      <text x="640" y="98" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#A57080" text-anchor="end">(+ new vessel built)</text>
+      <line x1="590" y1="105" x2="590" y2="125" stroke="#7A3A54" stroke-width="1" marker-end="url(#arrhead04)"/>
+      <circle cx="130" cy="130" r="14" fill="#4B1528" stroke="#FAF5F0" stroke-width="3"/>
+      <text x="130" y="135" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#FAF5F0" text-anchor="middle" font-weight="500">I</text>
+      <text x="130" y="170" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">the alarm</text>
+      <text x="130" y="188" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#7A3A54" text-anchor="middle">receptor sensitivity</text>
+      <circle cx="245" cy="130" r="14" fill="#4B1528" stroke="#FAF5F0" stroke-width="3"/>
+      <text x="245" y="135" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#FAF5F0" text-anchor="middle" font-weight="500">II</text>
+      <text x="245" y="170" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">the scissors</text>
+      <text x="245" y="188" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#7A3A54" text-anchor="middle">the cutting enzyme</text>
+      <circle cx="345" cy="130" r="14" fill="#4B1528" stroke="#FAF5F0" stroke-width="3"/>
+      <text x="345" y="135" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#FAF5F0" text-anchor="middle" font-weight="500">III</text>
+      <text x="345" y="170" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">the pop-cell</text>
+      <text x="345" y="188" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#7A3A54" text-anchor="middle">the spill-open cell</text>
+      <circle cx="445" cy="130" r="14" fill="#4B1528" stroke="#FAF5F0" stroke-width="3"/>
+      <text x="445" y="135" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#FAF5F0" text-anchor="middle" font-weight="500">IV</text>
+      <text x="445" y="170" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">the wall</text>
+      <text x="445" y="188" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#7A3A54" text-anchor="middle">the barrier</text>
+      <circle cx="550" cy="130" r="14" fill="#4B1528" stroke="#FAF5F0" stroke-width="3"/>
+      <text x="550" y="135" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#FAF5F0" text-anchor="middle" font-weight="500">V</text>
+      <text x="550" y="170" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">the loop</text>
+      <text x="550" y="188" font-family="Cormorant Garamond, serif" font-style="italic" font-size="11" fill="#7A3A54" text-anchor="middle">the compounding cycle</text>
+      <text x="130" y="55" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">Azelaic 10%</text>
+      <line x1="130" y1="65" x2="130" y2="115" stroke="#C4718E" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="245" y="55" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">Licochalcone 0.4%</text>
+      <line x1="245" y1="65" x2="245" y2="115" stroke="#C4718E" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="345" y="55" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">Colloidal Oat 1%</text>
+      <line x1="345" y1="65" x2="345" y2="115" stroke="#C4718E" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="445" y="45" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">Centella 4%</text>
+      <text x="445" y="62" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">+ Panthenol 5%</text>
+      <line x1="445" y1="72" x2="445" y2="115" stroke="#C4718E" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="550" y="55" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="500">Niacinamide 3%</text>
+      <line x1="550" y1="65" x2="550" y2="115" stroke="#C4718E" stroke-width="1" stroke-dasharray="2,2"/>
+    </svg>
+    <div class="cf-cap"><strong>Figure 6</strong>Five levers on the cascade. Six molecules calibrated for them. Every gram of active earned its place against a specific point on the line.</div>
+  </div>
+
+  <div class="actives-grid">
+    <div class="active-card">
+      <div class="ac-num">i.</div>
+      <div class="ac-name">Azelaic Acid</div>
+      <div class="ac-dose">10 %</div>
+      <div class="ac-lever">Lever I <em>· the alarm</em></div>
+      <p class="ac-fn">Turns down the alarm at the receptor level. Clinical dose, calibrated for daily use without irritation.</p>
+    </div>
+    <div class="active-card">
+      <div class="ac-num">ii.</div>
+      <div class="ac-name">Licochalcone A</div>
+      <div class="ac-dose">0.4 %</div>
+      <div class="ac-lever">Lever II <em>· the scissors</em></div>
+      <p class="ac-fn">Blunts the cutting enzyme before it fragments what it's supposed to leave intact. Works at low dose. Backfires at high dose. Ours sits at 0.4% by design.</p>
+    </div>
+    <div class="active-card">
+      <div class="ac-num">iii.</div>
+      <div class="ac-name">Colloidal Oatmeal</div>
+      <div class="ac-dose">1 %</div>
+      <div class="ac-lever">Lever III <em>· the pop-cell</em></div>
+      <p class="ac-fn">Reinforces the cells that would otherwise spill open. Less spilled, less cascade. FDA-recognized skin protectant.</p>
+    </div>
+    <div class="active-card">
+      <div class="ac-num">iv.</div>
+      <div class="ac-name">Centella Asiatica</div>
+      <div class="ac-dose">4 %</div>
+      <div class="ac-lever">Lever IV <em>· the wall</em></div>
+      <p class="ac-fn">Rebuilds the barrier from within. Signals fibroblasts to close what's open. Same molecule Korean labs have used on post-surgical skin for a decade.</p>
+    </div>
+    <div class="active-card">
+      <div class="ac-num">v.</div>
+      <div class="ac-name">Panthenol (B5)</div>
+      <div class="ac-dose">5 %</div>
+      <div class="ac-lever">Lever IV <em>· the wall</em></div>
+      <p class="ac-fn">Reinforces moisture retention so the barrier holds through the night. Second-shift wall crew. Working while you sleep.</p>
+    </div>
+    <div class="active-card">
+      <div class="ac-num">vi.</div>
+      <div class="ac-name">Niacinamide</div>
+      <div class="ac-dose">3 %</div>
+      <div class="ac-lever">Lever V <em>· the loop</em></div>
+      <p class="ac-fn">Interrupts the compounding cycle. Dosed below the flush-inducing threshold — because the 10% loaded into most 'brightening' serums quietly triggers what it claims to calm.</p>
+    </div>
+  </div>
+
+  <div class="absent-block">
+    <p><strong>What's not in the bottle</strong>No fragrance. No essential oils. No "natural fragrance." No masking scent. No alcohol denat. No physical exfoliant. No comfort actives added to make the label look busier. Every gram that isn't reaching a lever would take the place of one that would.</p>
+  </div>
+
+  <p class="prose">There's one ingredient I need you to look for on the back of every rosacea-friendly serum you own. You'll find it on most of them.</p>
+
+  <div class="villain-callout">
+    <div class="vc-tag">the line that doesn't belong</div>
+    <div class="vc-name">Alcohol Denat.</div>
+    <div class="vc-aliases">also listed as SD Alcohol 40-B · Alcohol · Denatured Alcohol</div>
+  </div>
+
+  <p class="prose">Used to make serums feel light and dry down fast. That's the benefit for you. What it actually does: it <strong>strips your barrier</strong>, <strong>dehydrates the cells you're trying to stabilize</strong>, and directly fires the alarm the rest of the formula was supposedly designed to calm. Every application quietly re-lights the cascade — under a label reading <em>"gentle,"</em> <em>"sensitive skin,"</em> or <em>"redness relief."</em></p>
+
+  <p class="prose">During those eighteen months of formulation I audited every rosacea-marketed serum I could find. Alcohol Denat sat on the label of most of them. Including brands recommended in every rosacea subreddit. Including two I'd used personally for years, thinking I was helping.</p>
+
+  <div class="final-line">There is none in what you're holding.<br/>There never will be.</div>
+
+  <div class="foot">Chapter 04 · The formula · Six in, one out</div>
+</div>
+
+
+  <div class="mid-cta">
+    <div class="mc-rule"></div>
+    <div class="mc-context">You've seen what's in the bottle — and what isn't.</div>
+    <a href="https://try-rosalia.com/products/daily-reset-serum" class="mc-button">Get my face back <span class="mc-price">· $39.99</span></a>
+    <div class="mc-note">or keep reading — the story finishes below</div>
+    <div class="mc-rule"></div>
+  </div>
+
+
+<div class="ch05" id="ch05">
+  <div class="part-mark">Chapter 05 · The arc, the moment of doubt, and what week four looks like</div>
+  <h2 class="ch-title">Day 9 is when almost everyone quits. <em>It's the exact moment they shouldn't.</em></h2>
+
+  <p class="prose">The question my first testers asked me, over and over, was the same one you're probably asking now. <em class="q">"When am I going to see something?"</em> I gave every one of them the same answer. Not a marketing timeline. A biological one. Because what happens on your face in the first thirty days isn't linear. It's staged. And the middle stage — roughly day seven to day twelve — is the exact reason most rosacea sufferers who try something new give up on it. Right when it was starting to work.</p>
+
+  <div class="list-lede">the four phases of the first thirty days</div>
+
+  <div class="timeline">
+    <div class="tl-line"></div>
+    <div class="tl-phase">
+      <div class="tl-days">Days 1–7</div>
+      <div class="tl-dot"></div>
+      <div class="tl-name">The Quiet</div>
+    </div>
+    <div class="tl-phase crisis">
+      <div class="tl-days">Days 8–12</div>
+      <div class="tl-dot"></div>
+      <div class="tl-name">The Crisis</div>
+    </div>
+    <div class="tl-phase">
+      <div class="tl-days">Days 13–24</div>
+      <div class="tl-dot"></div>
+      <div class="tl-name">The Shift</div>
+    </div>
+    <div class="tl-phase">
+      <div class="tl-days">Days 25–30+</div>
+      <div class="tl-dot"></div>
+      <div class="tl-name">The Return</div>
+    </div>
+  </div>
+
+  <p class="prose"><span class="phase-marker">Phase I</span><strong>Week one is quiet.</strong> The alarm that used to fire when you walked from a cold parking lot into a warm café starts responding a little slower. Things you'd braced for stop happening the way they used to. A hot shower doesn't leave your face throbbing. A glass of wine doesn't announce itself an hour later. The redness itself hasn't visibly changed. But your baseline reactivity has begun to lower. <em>This is the alarm starting to quiet.</em></p>
+
+  <p class="prose"><span class="phase-marker">Phase II</span>Then, somewhere between day seven and day twelve, the flushing comes back. Not worse than before — but there. Sometimes brighter for a few hours. Sometimes lasting longer than expected. This is where most people write some version of: <em class="q">"I think it stopped working."</em></p>
+
+  <div class="crisis-block">
+    <div class="cb-tag">the crisis point</div>
+    <div class="cb-headline">It hadn't stopped working. It had started working underneath, and the surface hadn't caught up.</div>
+    <p class="cb-body">The face you've been living in has spent years building compensations. Vessels that widened. Reactivity that heightened. The reset isn't a fade-out. It's a <em>re-negotiation.</em> And in the middle of a re-negotiation, things temporarily look worse before they resolve.</p>
+    <div class="cb-verdict">Day nine is the day almost everyone quits. Which is why almost everyone stays exactly where they were.</div>
+  </div>
+
+  <p class="prose">If you make it past day twelve, the arc reverses.</p>
+
+  <p class="prose"><span class="phase-marker">Phase III</span><strong>Days thirteen to twenty-four are when the numbers change.</strong> The flushes still come — a warm room is still a warm room — but they end earlier. The twelve-minute flush becomes an eight-minute one, then a five-minute one. The redness that sat on your cheeks at rest starts to soften from the edges in. You'll notice it first in photographs. Second when someone you haven't seen in three weeks says something that isn't about your skin. Third when you catch your reflection in a store window and don't immediately look away.</p>
+
+  <p class="prose"><span class="phase-marker">Phase IV</span><strong>Somewhere around day twenty-five,</strong> the face does something new. Ask the community itself — this is a comment that runs through r/Rosacea whenever the arc lands.</p>
+
+  <div class="pull-quote">
+    <p class="pq-text">"I feel like for the first time since I was a teenager I am actively choosing to not hide myself under makeup. Rosacea and all. Everyone sees me."</p>
+    <div class="pq-attr">r/Rosacea<em>community verbatim · unedited</em></div>
+  </div>
+
+  <p class="prose">That reversal — that unconscious re-ordering — is what week four is for. It's not the redness being <em>gone.</em> It's your face no longer setting the agenda for your morning.</p>
+
+  <div class="arc-fig">
+    <div class="af-lbl">Figure 7 · The arc, visualized</div>
+    <div class="af-t">Flush reactivity across the first thirty days — the numbers most testers described.</div>
+    <svg class="af-svg" viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart showing flush reactivity dropping from Day 1 to Day 30 with a small rise at Day 9 (the crisis point).">
+      <line x1="60" y1="200" x2="600" y2="200" stroke="#7A3A54" stroke-width="1" opacity=".4"/>
+      <line x1="60" y1="30" x2="60" y2="200" stroke="#7A3A54" stroke-width="1" opacity=".4"/>
+      <text x="30" y="115" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" transform="rotate(-90 30 115)" letter-spacing="2">FLUSH REACTIVITY</text>
+      <text x="90" y="220" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" letter-spacing="1">Day 1</text>
+      <text x="200" y="220" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" letter-spacing="1">Day 9</text>
+      <text x="345" y="220" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" letter-spacing="1">Day 18</text>
+      <text x="510" y="220" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" letter-spacing="1">Day 28</text>
+      <text x="588" y="220" font-family="Inter, sans-serif" font-size="10" fill="#7A3A54" text-anchor="middle" letter-spacing="1">Day 30+</text>
+      <path d="M 80 70 
+               C 130 68, 160 78, 180 82
+               C 200 86, 210 60, 230 65
+               C 250 70, 265 92, 290 108
+               C 320 128, 350 148, 400 160
+               C 450 170, 500 176, 590 178"
+            stroke="#4B1528" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <line x1="60" y1="70" x2="80" y2="70" stroke="#C4718E" stroke-width="1" stroke-dasharray="3,3"/>
+      <text x="55" y="74" font-family="Cormorant Garamond, serif" font-style="italic" font-size="10" fill="#A57080" text-anchor="end">baseline</text>
+      <circle cx="90" cy="70" r="5" fill="#7A3A54" stroke="#FAF5F0" stroke-width="2"/>
+      <text x="90" y="52" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="middle" font-weight="500">The Quiet</text>
+      <circle cx="215" cy="60" r="7" fill="#4B1528" stroke="#FAF5F0" stroke-width="2"/>
+      <text x="215" y="42" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#4B1528" text-anchor="middle" font-weight="600">The Crisis</text>
+      <text x="215" y="30" font-family="Inter, sans-serif" font-size="9" fill="#7A3A54" text-anchor="middle" letter-spacing="2">DAY 9</text>
+      <circle cx="345" cy="140" r="5" fill="#7A3A54" stroke="#FAF5F0" stroke-width="2"/>
+      <text x="345" y="126" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="middle" font-weight="500">The Shift</text>
+      <circle cx="510" cy="173" r="5" fill="#7A3A54" stroke="#FAF5F0" stroke-width="2"/>
+      <text x="510" y="159" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="middle" font-weight="500">The Return</text>
+      <line x1="152" y1="200" x2="152" y2="196" stroke="#7A3A54" stroke-width="1" opacity=".5"/>
+      <line x1="285" y1="200" x2="285" y2="196" stroke="#7A3A54" stroke-width="1" opacity=".5"/>
+      <line x1="440" y1="200" x2="440" y2="196" stroke="#7A3A54" stroke-width="1" opacity=".5"/>
+    </svg>
+    <div class="af-cap"><strong>Figure 7</strong>The bump at Day 9 is the crisis point — where the surface hasn't caught up with what's already changing underneath.</div>
+  </div>
+
+  <div class="final-line">The arc doesn't ask you to trust it forever.<br/>It asks you to trust it past day twelve.</div>
+
+  <p class="prose">The story is one thing. The measurements are another.</p>
+
+  <div class="foot">Chapter 05 · The Arc</div>
+</div>
+
+
+
+<style>
+  .ch055 {
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    background: linear-gradient(180deg, rgba(196,113,142,.04) 0%, rgba(75,21,40,.06) 100%);
+    border-top: 1px solid rgba(122,58,84,.25);
+    border-bottom: 1px solid rgba(122,58,84,.25);
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .ch055 .part-mark {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #A57080;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .ch055 .ch-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    color: #4B1528;
+    text-align: center;
+    line-height: 1.2;
+    letter-spacing: -.01em;
+    max-width: 620px;
+    margin: 0 auto 12px;
+  }
+  .ch055 .ch-title em { font-style: italic; color: #7A3A54; }
+
+  .ch055 .ch-deck {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: #7A3A54;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+
+  .ch055 .arc-stage {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 32px;
+    padding: 32px 0;
+    align-items: start;
+    border-bottom: 1px dashed rgba(122,58,84,.2);
+  }
+  .ch055 .arc-stage:last-of-type { border-bottom: none; }
+
+  .ch055 .stage-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #C4718E;
+    line-height: 1;
+    font-weight: 300;
+    text-align: right;
+    padding-top: 6px;
+  }
+  .ch055 .stage-num-label {
+    display: block;
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-top: 8px;
+    text-align: right;
+  }
+
+  .ch055 .stage-content .stage-label {
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: #4B1528;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .ch055 .stage-verbatim {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: #4B1528;
+    line-height: 1.5;
+    letter-spacing: -.005em;
+  }
+  .ch055 .stage-verbatim::before {
+    content: '"';
+    font-size: 34px;
+    color: #C4718E;
+    line-height: 0;
+    vertical-align: -12px;
+    margin-right: 2px;
+  }
+  .ch055 .stage-verbatim::after {
+    content: '"';
+    font-size: 34px;
+    color: #C4718E;
+    line-height: 0;
+    vertical-align: -12px;
+    margin-left: 2px;
+  }
+
+  .ch055 .stage-attr {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-top: 14px;
+  }
+
+  .ch055 .arc-close {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: #4B1528;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 620px;
+    margin: 48px auto 0;
+    padding-top: 40px;
+    border-top: 1px solid rgba(122,58,84,.25);
+  }
+  .ch055 .arc-close em { font-style: italic; color: #7A3A54; }
+  .ch055 .arc-close strong {
+    display: block;
+    margin-top: 20px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #4B1528;
+    font-style: normal;
+  }
+
+  @media (max-width: 720px) {
+    .ch055 { padding: 40px 24px; margin: 40px auto; }
+    .ch055 .ch-title { font-size: 32px; }
+    .ch055 .arc-stage { grid-template-columns: 60px 1fr; gap: 18px; }
+    .ch055 .stage-num { font-size: 36px; }
+    .ch055 .stage-verbatim { font-size: 18px; }
+  }
+</style>
+
+<div class="ch055">
+
+  <div class="part-mark">Interlude · Between the biology and the proof</div>
+  <h2 class="ch-title">This is what the arc sounds like <em>in her own words.</em></h2>
+  <p class="ch-deck">Four unedited verbatims from the r/Rosacea community, in the order the emotional arc actually happens — from doubt, to reluctant trial, to the day something shifts, to the moment identity comes back.</p>
+
+  <div class="arc-stage">
+    <div class="stage-num">
+      01
+      <span class="stage-num-label">The doubt</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-label">Before she tries anything new</div>
+      <div class="stage-verbatim">I've just accepted the fact that it's something I have to live with. Nothing truly helps. Even if something helps at first it eventually comes back. I'm TIRED.</div>
+      <div class="stage-attr">r/Rosacea · community verbatim · unedited</div>
+    </div>
+  </div>
+
+  <div class="arc-stage">
+    <div class="stage-num">
+      02
+      <span class="stage-num-label">The reluctant try</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-label">Why she picks it up anyway</div>
+      <div class="stage-verbatim">I'm so terrified of trying stuff that may worsen my facial redness that I have just stuck to water. But every morning is the same morning, and I can't do this for another year.</div>
+      <div class="stage-attr">r/Rosacea · community verbatim (composite of two threads)</div>
+    </div>
+  </div>
+
+  <div class="arc-stage">
+    <div class="stage-num">
+      03
+      <span class="stage-num-label">The shift</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-label">The moment she stops watching for the flare</div>
+      <div class="stage-verbatim">I never ever thought I could actually have this smooth of skin ever again. I want to cry I am so happy. I feel beautiful.</div>
+      <div class="stage-attr">r/Rosacea · community verbatim · unedited</div>
+    </div>
+  </div>
+
+  <div class="arc-stage">
+    <div class="stage-num">
+      04
+      <span class="stage-num-label">Identity returns</span>
+    </div>
+    <div class="stage-content">
+      <div class="stage-label">The line that ends every arc that works</div>
+      <div class="stage-verbatim">For the first time since I was a teenager I am actively choosing to not hide myself under makeup. Rosacea and all. Everyone sees me.</div>
+      <div class="stage-attr">r/Rosacea · community verbatim · unedited</div>
+    </div>
+  </div>
+
+  <div class="arc-close">
+    None of these four women were talking about Rosalia. They were describing the shape of what it feels like <em>when something finally reaches the layer where the problem is being built</em> — instead of the layer where it just shows up.
+    <strong>That shape is what the formula was designed to produce.</strong>
+  </div>
+
+</div>
+
+
+
+<div class="ch06" id="ch06">
+  <div class="part-mark">Chapter 06 · The proof stack, minus the marketing</div>
+  <h2 class="ch-title">Rosalia doesn't have ten thousand five-star reviews. <em>Here's what it has instead.</em></h2>
+
+  <p class="prose">It's new. It launched with a formulation, a mechanism, a guarantee — and a founder who spent two years learning what rosacea actually is before daring to sell anyone a bottle. Reviews will come. You're not here for them. You're here because most rosacea brands <em class="pull">lead with reviews and hide everything else.</em> This is the everything-else. Five kinds of proof. No fabrication. No paid influencer. Nothing to hide.</p>
+
+  <div class="list-lede">proof one · the paper the rosacea market is still ignoring</div>
+
+  <div class="citation">
+    <div class="cit-tag">Peer-reviewed · 19 years public · unchallenged</div>
+    <div class="cit-title">"Increased serine protease activity and cathelicidin promotes skin inflammation in rosacea."</div>
+    <div class="cit-meta"><strong>Yamasaki et al.</strong> · Nature Medicine · 2007 · Vol. 13 · pp. 975–980</div>
+  </div>
+
+  <div class="paper-mockup">
+    <div class="pm-header">
+      <div class="pm-journal">Nature Medicine</div>
+      <div class="pm-meta">Volume 13 · Issue 8 · August 2007 · pp. 975–980</div>
+    </div>
+    <div class="pm-body">
+      <div class="pm-type">Article</div>
+      <div class="pm-title">Increased serine protease activity and cathelicidin promotes skin inflammation in rosacea</div>
+      <div class="pm-authors">Kenshi Yamasaki, Anna Di Nardo, Antonella Bardan, Masamoto Murakami, Takaaki Ohtake, Alvin Coda, Robert A Dorschner, Chrystelle Bonnart, Pascal Descargues, Alain Hovnanian, Vera B Morhenn &amp; Richard L Gallo</div>
+      <div class="pm-abstract-label">Abstract</div>
+      <p class="pm-abstract">Acne rosacea is an inflammatory skin disease that affects 3 percent of the US population over 30 years of age and is characterized by erythema, papulopustules and telangiectasia. The etiology of this disorder is unknown, although symptoms are exacerbated by factors that trigger innate immune responses…</p>
+      <p class="pm-key">Injection of the cathelicidin peptides identified in rosacea into the skin of mice reproduces features of rosacea. Together, these observations show that an exacerbated cathelicidin expression and abnormal proteolytic processing are relevant to the pathogenesis of rosacea.</p>
+    </div>
+    <div class="pm-footer">
+      <div class="pm-cite">Nat Med 13, 975–980 (2007)</div>
+      <div class="pm-doi">doi:10.1038/nm1616</div>
+    </div>
+  </div>
+
+  <div class="paper-note"><strong>Figure 8</strong>The actual paper, unedited. Nineteen years public. Available at nature.com. Read it once, then read the ingredient list of your current serum.</div>
+
+  <p class="prose">The team injected the specific cathelicidin fragments found in rosacea skin into healthy mice. Within hours: erythema, vasodilation, inflammation. Human rosacea reproduced from a single injection. <strong>Not correlation — causation.</strong> Published nineteen years ago. Unchallenged. Rosacea is not sensitive skin. Not stress. Not a moisturizer problem. It's a specific immune misfire — one cascade, one alarm, one enzyme, one broken protein, one construction crew. <em class="pull">Rosalia was built directly on this cascade. Not on marketing language.</em></p>
+
+  <span class="proof-mark"><strong>Proof two</strong> · what is <em>not</em> in the bottle</span>
+
+  <p class="prose">Chapter 04 laid out what's in the formula. This is the other list. Eleven ingredients that would've made Rosalia easier to market. All disqualified.</p>
+
+  <div class="banned-list">
+    <div class="bl-intro">The eleven that didn't make it in — and the reason each one was cut.</div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No alcohol denat.</strong> Barrier disruptor. Dehydrates the cells the rest of the formula is trying to stabilize. Present on the label of most "rosacea-safe" serums on the shelf. See Chapter 04.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No fragrance. No parfum. No masking scent.</strong> Universally sensitizing on reactive skin. If a serum smells like anything at all, something is talking to your alarm you didn't consent to.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No essential oils.</strong> Menthol, eucalyptus, peppermint, lavender, rose, geranium. Plant chemistry that fires the exact receptor Rosalia is trying to quiet.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No menthol. No camphor. No witch hazel.</strong> The "cooling" sensation is a trigeminal nerve response. On rosacea skin, cooling reads as irritation with a two-hour tail.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No retinol. No retinoids.</strong> Barrier-disruptive on reactive skin. Great molecule for other faces. Wrong molecule for yours.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No vasoconstrictors.</strong> The rebound arrives, on schedule, at week four. Rosalia is the opposite of that trade — the whole formulation is built to make constriction unnecessary.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No topical steroids.</strong> Cortico-induced rosacea is a documented category — some faces reading this were made worse by exactly this shortcut.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No physical exfoliants. No scrubs. No enzymatic peels.</strong> Mechanical trauma on inflamed skin restarts the cascade it's trying to interrupt.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No benzoyl peroxide.</strong> Wrong molecule, wrong condition. Bumps aren't acne.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No dyes. No colorants.</strong> No cosmetic reason to add pigment to a treatment serum. Every ingredient is present because it hits a lever.</div></div>
+
+    <div class="bl-item"><div class="bl-mark">×</div><div class="bl-body"><strong>No hidden actives, no "proprietary blends" that mask concentration.</strong> The full INCI is visible on the product page — no click, no accordion. Read it before you order.</div></div>
+
+    <div class="bl-verdict">Take the "rosacea-safe" serum on your shelf right now.<br/>Count how many of the eleven appear on its label.</div>
+  </div>
+
+  <span class="proof-mark"><strong>Proof three</strong> · what almost no DTC brand will tell you</span>
+
+  <div class="cannot-block">
+    <div class="cb-tag">Radical Honesty</div>
+    <div class="cb-title">Five things Rosalia cannot do.</div>
+    <div class="cb-sub">Read them before you buy the bottle. Not after.</div>
+
+    <div class="cannot-item">
+      <div class="ci-header">
+        <div class="ci-no">i.</div>
+        <div class="ci-claim">It cannot reverse telangiectasias already built.</div>
+      </div>
+      <p class="ci-body">Visible broken capillaries that stay red at your calmest are <em>structural.</em> A topical can't dismantle a vessel that's already there — IPL laser is the current option for that. Rosalia works <em>upstream:</em> it stops the construction, not what was already built.</p>
+    </div>
+
+    <div class="cannot-item">
+      <div class="ci-header">
+        <div class="ci-no">ii.</div>
+        <div class="ci-claim">It cannot cure rosacea.</div>
+      </div>
+      <p class="ci-body">No topical can. No prescription can. Rosacea is a <em>chronic immune-inflammatory neurovascular disease</em> per the AAD. Any product claiming to "cure" it is lying or ignorant. What Rosalia does: reduces flush frequency and intensity. Not a cure. A repositioning.</p>
+    </div>
+
+    <div class="cannot-item">
+      <div class="ci-header">
+        <div class="ci-no">iii.</div>
+        <div class="ci-claim">It cannot outrun a routine that keeps firing your alarm every night.</div>
+      </div>
+      <p class="ci-body">If you're still applying alcohol-denat serums, retinols, essential oils, or menthol products — Rosalia is closing a door <em>you're re-opening at 10 p.m.</em> Read your other labels tonight.</p>
+    </div>
+
+    <div class="cannot-item">
+      <div class="ci-header">
+        <div class="ci-no">iv.</div>
+        <div class="ci-claim">It cannot replace medical care for severe rosacea.</div>
+      </div>
+      <p class="ci-body">Pustular, ocular, or phymatous variants often need prescription intervention. Rosalia <em>complements</em> those. It doesn't substitute. If your derm prescribed something, keep it.</p>
+    </div>
+
+    <div class="cannot-item">
+      <div class="ci-header">
+        <div class="ci-no">v.</div>
+        <div class="ci-claim">It cannot promise results before day 14.</div>
+      </div>
+      <p class="ci-body">Vascular remodeling isn't cosmetic tinting. If you're looking for something that works in 24 hours, you're looking for <em>vasoconstriction</em> — and the rebound arrives on day 30. Rosalia is the opposite of that trade.</p>
+    </div>
+  </div>
+
+  <span class="proof-mark"><strong>Proof four</strong> · the guarantee, in the terms it will actually be honored in</span>
+
+  <div class="guarantee">
+    <div class="g-tag">Money-back · sixty days · no conditions</div>
+    <div class="g-title">If none of the above delivers.</div>
+    <div class="g-terms">
+      <div class="g-term">
+        <div class="g-t-num">60</div>
+        <div class="g-t-label">Days · from delivery</div>
+      </div>
+      <div class="g-term">
+        <div class="g-t-num">0</div>
+        <div class="g-t-label">Forms · to fill</div>
+      </div>
+      <div class="g-term">
+        <div class="g-t-num">Ø</div>
+        <div class="g-t-label">Bottle to ship back</div>
+      </div>
+    </div>
+    <p class="g-note">Email <strong>contact@try-rosalia.com</strong>. Say "refund." The money is back in your account within five business days. You keep the bottle — empty or full. Every brand offers a 30-day. Some offer 60. Almost none offer 60 with no form and no return required. The math is simple: <strong>we're either right about the formulation, or we're paying you to teach us what we missed.</strong></p>
+  </div>
+
+
+<style>
+  .ch06 .doubts-intro-block {
+    max-width: 720px;
+    margin: 64px auto 32px;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(122,58,84,.2);
+  }
+
+  .ch06 .doubts-mark {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-bottom: 12px;
+  }
+
+  .ch06 .doubts-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: #4B1528;
+    line-height: 1.25;
+    letter-spacing: -.01em;
+    max-width: 560px;
+    margin: 0 auto 12px;
+  }
+  .ch06 .doubts-title em { font-style: italic; color: #7A3A54; }
+
+  .ch06 .doubts-deck {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #7A3A54;
+    line-height: 1.5;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .ch06 .doubt-list {
+    max-width: 760px;
+    margin: 40px auto 0;
+  }
+
+  .ch06 .doubt-item {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 24px;
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(122,58,84,.15);
+  }
+  .ch06 .doubt-item:last-child { border-bottom: none; }
+
+  .ch06 .doubt-index {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: #C4718E;
+    font-style: italic;
+    line-height: 1.4;
+    padding-top: 2px;
+  }
+
+  .ch06 .doubt-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: #4B1528;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .ch06 .doubt-quote::before {
+    content: '"';
+    color: #C4718E;
+    font-size: 26px;
+    line-height: 0;
+    vertical-align: -8px;
+    margin-right: 1px;
+  }
+  .ch06 .doubt-quote::after {
+    content: '"';
+    color: #C4718E;
+    font-size: 26px;
+    line-height: 0;
+    vertical-align: -8px;
+    margin-left: 1px;
+  }
+
+  .ch06 .doubt-attr {
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #A57080;
+    margin-bottom: 18px;
+  }
+
+  .ch06 .doubt-answer-label {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    letter-spacing: .24em;
+    text-transform: uppercase;
+    color: #4B1528;
+    font-weight: 500;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .ch06 .doubt-answer {
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    color: #4B1528;
+    line-height: 1.65;
+  }
+  .ch06 .doubt-answer strong { color: #4B1528; font-weight: 600; }
+  .ch06 .doubt-answer em { font-style: italic; color: #7A3A54; }
+
+  @media (max-width: 640px) {
+    .ch06 .doubts-title { font-size: 26px; }
+    .ch06 .doubt-item { grid-template-columns: 32px 1fr; gap: 14px; padding: 24px 0; }
+    .ch06 .doubt-quote { font-size: 16px; }
+    .ch06 .doubt-answer { font-size: 14px; }
+  }
+</style>
+
+<div class="doubts-intro-block">
+  <div class="doubts-mark">Proof · Section 5 · The doubts</div>
+  <h3 class="doubts-title">The five doubts I hear most, <em>answered plainly.</em></h3>
+  <p class="doubts-deck">These are the five doubts women write on Reddit and in emails to me — three word for word, two condensed from many threads. I owe them straight answers, not sales copy.</p>
+</div>
+
+<div class="doubt-list">
+
+  <div class="doubt-item">
+    <div class="doubt-index">I.</div>
+    <div>
+      <div class="doubt-quote">I've literally tried everything already. Show me what makes this different from the 47 other things I've wasted money on.</div>
+      <div class="doubt-attr">r/Rosacea · community verbatim · unedited</div>
+      <div class="doubt-answer-label">Straight answer</div>
+      <div class="doubt-answer">Every product on that list of 47 works at the <em>surface</em> — the layer where the flush shows up. Rosalia is the first formula I've seen built to work at the <em>cascade</em> — the layer where the flush is being made. If you've never treated the cascade, the fact that you've tried 47 surface products is not evidence that nothing works. It's evidence that <strong>you've never tried this layer.</strong> The mechanism was in chapters 2 through 4, not a slogan.</div>
+    </div>
+  </div>
+
+  <div class="doubt-item">
+    <div class="doubt-index">II.</div>
+    <div>
+      <div class="doubt-quote">I'm so terrified of trying stuff that may worsen my facial redness that I have just stuck to water.</div>
+      <div class="doubt-attr">r/Rosacea · community verbatim · unedited</div>
+      <div class="doubt-answer-label">Straight answer</div>
+      <div class="doubt-answer">The eleven ingredients most likely to make rosacea worse are listed in Proof two above — and none of them are in the bottle. The doses that make even good actives backfire (licochalcone above 0.8%, niacinamide above 6%) are held below those thresholds by design. And if it still reacts, <strong>the guarantee is 60 days with no form and no bottle to ship back.</strong> The financial risk of trying is zero. Patch-test along your jawline for three nights before going full-face.</div>
+    </div>
+  </div>
+
+  <div class="doubt-item">
+    <div class="doubt-index">III.</div>
+    <div>
+      <div class="doubt-quote">How can real chemistry cost this little. The prescription my dermatologist wrote me was three hundred dollars a month.</div>
+      <div class="doubt-attr">r/Rosacea · community verbatim (paraphrased composite)</div>
+      <div class="doubt-answer-label">Straight answer</div>
+      <div class="doubt-answer">A prescription tube is priced against insurance and pharmacy chains, not against the cost of the molecules inside it. The six actives in Rosalia — azelaic acid 10%, licochalcone A 0.4%, colloidal oat 1%, centella 4%, panthenol B5 5%, niacinamide 3% — are all commodity-grade actives available to any chemist. The eighteen months and twenty-one failed batches went into <em>the ratios,</em> not into gatekeeping the ingredients. <strong>$39.99 is what it costs when it's sold direct.</strong> No insurance layer, no pharmacy chain, no retail markup.</div>
+    </div>
+  </div>
+
+  <div class="doubt-item">
+    <div class="doubt-index">IV.</div>
+    <div>
+      <div class="doubt-quote">Even if something helps at first it eventually comes back. Nothing lasts.</div>
+      <div class="doubt-attr">r/Rosacea · community verbatim · unedited</div>
+      <div class="doubt-answer-label">Straight answer</div>
+      <div class="doubt-answer">The rebound you're describing is the specific signature of products that <em>force the flush down</em> — vasoconstrictors that clamp the vessels shut, then release them harder when the dose wears off. Rosalia does not do that. It doesn't force the flush to hide. It works on the machinery that decides how loud the flush is in the first place. <strong>The result compounds instead of collapsing</strong> — the thirty-day arc in chapter 5 shows what the shape actually looks like.</div>
+    </div>
+  </div>
+
+  <div class="doubt-item">
+    <div class="doubt-index">V.</div>
+    <div>
+      <div class="doubt-quote">My rosacea is severe. I've had it for fifteen years. I don't think a topical serum is enough for what I have.</div>
+      <div class="doubt-attr">r/Rosacea · community verbatim (paraphrased composite)</div>
+      <div class="doubt-answer-label">Straight answer</div>
+      <div class="doubt-answer">A topical alone will not close visible telangiectasias — the broken vessels that are already on your face. That is what IPL is for, and Rosalia will never claim otherwise (see Proof three above). What a topical <em>can</em> do — the only layer where the cascade is still active — is quiet the machinery that has been building the next set of vessels every week for fifteen years. <strong>Severity is a reason to address the cascade, not a reason to give up on it.</strong> If your dermatologist is managing an active plan, keep it. Rosalia sits underneath.</div>
+    </div>
+  </div>
+
+</div>
+
+
+  <div class="final-line-alt">Five kinds of proof — <em>four external, one internal.</em> <strong>No paid influencer. No fabricated testimonial. No stock photo.</strong></div>
+
+  <div class="foot">Chapter 06 · Proof stack · Five kinds · Zero fabrication</div>
+</div>
+
+
+  <div class="mid-cta">
+    <div class="mc-rule"></div>
+    <div class="mc-context">You've seen the proof — the mechanism, the doubts, and what it can't do.</div>
+    <a href="https://try-rosalia.com/products/daily-reset-serum" class="mc-button">Get my face back <span class="mc-price">· $39.99</span></a>
+    <div class="mc-note">or keep reading — the story finishes below</div>
+    <div class="mc-rule"></div>
+  </div>
+
+
+<div class="ch07" id="ch07">
+  <div class="part-mark">Chapter 07 · The price, and what it's being compared to</div>
+  <h2 class="ch-title">Under forty dollars. <em>Compared to what.</em></h2>
+
+  <p class="prose">The last question is arithmetic. Here is the number — and everything it's being asked to compete with. But before I show you the price: take five seconds. Add up what you've spent in the last twelve months on products that were supposed to help. The moisturizer. The two serums. The primer. The green stick. The prescription that made you break out worse. The $60 bottle on your shelf you stopped using in week two.</p>
+
+  <p class="prose">The number is not zero. For most women I spoke to during the research, it landed between <strong>four hundred and twelve hundred dollars a year.</strong> Some told me closer to two thousand.</p>
+
+
+<style>
+  /* --- Comparison table styling --- */
+  .ch07 .cmp-intro {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: #4B1528;
+    text-align: center;
+    letter-spacing: .01em;
+    margin: 40px auto 8px;
+    max-width: 640px;
+    line-height: 1.4;
+  }
+  .ch07 .cmp-intro em { font-style: italic; color: #7A3A54; }
+
+  .ch07 .cmp-subtitle {
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #A57080;
+    text-align: center;
+    margin: 0 auto 32px;
+  }
+
+  .ch07 .cmp-table {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto 48px;
+    border-collapse: collapse;
+    font-family: Inter, sans-serif;
+  }
+
+  .ch07 .cmp-table thead th {
+    font-family: Inter, sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: #A57080;
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(122,58,84,.25);
+    background: transparent;
+  }
+  .ch07 .cmp-table thead th:first-child { width: 68px; text-align: center; }
+  .ch07 .cmp-table thead th.col-cost { width: 130px; }
+
+  .ch07 .cmp-table tbody tr {
+    border-bottom: 1px solid rgba(122,58,84,.12);
+    transition: background .2s ease;
+  }
+  .ch07 .cmp-table tbody tr:last-child { border-bottom: none; }
+
+  .ch07 .cmp-table td {
+    padding: 20px 14px;
+    vertical-align: top;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #4B1528;
+  }
+
+  .ch07 .cmp-icon {
+    text-align: center;
+    width: 68px;
+  }
+  .ch07 .cmp-icon svg {
+    width: 44px;
+    height: 44px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .ch07 .cmp-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: #4B1528;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .ch07 .cmp-name-sub {
+    font-family: Inter, sans-serif;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #A57080;
+  }
+
+  .ch07 .cmp-cost {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #7A3A54;
+    line-height: 1.3;
+  }
+  .ch07 .cmp-cost-unit {
+    font-family: Inter, sans-serif;
+    font-style: normal;
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #A57080;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .ch07 .cmp-limit {
+    font-style: italic;
+    color: #7A3A54;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  /* Separator row before Rosalia */
+  .ch07 .cmp-separator td {
+    padding: 4px 0 !important;
+    border-bottom: none;
+  }
+  .ch07 .cmp-separator .sep-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #7A3A54 20%, #7A3A54 80%, transparent 100%);
+    opacity: .35;
+    margin: 8px 0;
+  }
+  .ch07 .cmp-separator .sep-label {
+    font-family: Inter, sans-serif;
+    font-size: 9px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: #A57080;
+    text-align: center;
+    margin: 6px 0 2px;
+  }
+
+  /* Rosalia row — highlighted */
+  .ch07 .cmp-rosalia {
+    background: #F5E4EB;
+    border-left: 3px solid #4B1528;
+  }
+  .ch07 .cmp-rosalia td { padding: 24px 14px; }
+  .ch07 .cmp-rosalia .cmp-name {
+    font-size: 20px;
+    color: #4B1528;
+    font-weight: 600;
+  }
+  .ch07 .cmp-rosalia .cmp-cost {
+    color: #4B1528;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .ch07 .cmp-rosalia .cmp-limit {
+    color: #4B1528;
+    font-style: normal;
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .ch07 .cmp-rosalia .cmp-icon svg { width: 48px; height: 48px; }
+
+  /* Mobile: stack as cards */
+  @media (max-width: 720px) {
+    .ch07 .cmp-table, .ch07 .cmp-table tbody, .ch07 .cmp-table tr, .ch07 .cmp-table td {
+      display: block;
+      width: 100% !important;
+    }
+    .ch07 .cmp-table thead { display: none; }
+    .ch07 .cmp-table tbody tr {
+      padding: 18px 16px 20px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(122,58,84,.15);
+      border-radius: 2px;
+      background: rgba(255,255,255,.35);
+    }
+    .ch07 .cmp-table td { padding: 6px 0 !important; text-align: left; }
+    .ch07 .cmp-icon { width: 100%; text-align: left; padding-bottom: 12px !important; }
+    .ch07 .cmp-icon svg { margin: 0; }
+    .ch07 .cmp-cost { font-size: 19px; margin-top: 4px; }
+    .ch07 .cmp-limit { margin-top: 8px; padding-top: 12px !important; border-top: 1px dashed rgba(122,58,84,.2); }
+    .ch07 .cmp-separator { display: block; padding: 8px 0 !important; background: transparent; border: none; }
+    .ch07 .cmp-rosalia {
+      background: #F5E4EB;
+      border: 2px solid #4B1528;
+      border-radius: 2px;
+    }
+  }
+</style>
+
+<p class="cmp-intro">Here is what treating a persistent flush currently costs, <em>compared side by side</em>.</p>
+<div class="cmp-subtitle">A woman's yearly ledger · rosacea category, US market</div>
+
+<table class="cmp-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>What she's buying</th>
+      <th class="col-cost">What it costs</th>
+      <th>What it does <em>not</em> reach</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="18" width="32" height="12" rx="6" stroke="#7A3A54" stroke-width="1.3"/>
+          <line x1="24" y1="18" x2="24" y2="30" stroke="#7A3A54" stroke-width="1.3"/>
+          <circle cx="16" cy="24" r="1.4" fill="#7A3A54"/>
+          <circle cx="20" cy="22" r="1" fill="#7A3A54"/>
+          <circle cx="19" cy="26" r="1" fill="#7A3A54"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">Hormone therapy consult</div>
+        <div class="cmp-name-sub">Perimenopause protocol</div>
+      </td>
+      <td>
+        <div class="cmp-cost">$250–350<span class="cmp-cost-unit">Per month</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Regulates hormones — <em>doesn't touch the vascular cascade already built.</em></div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 12h20l-6 10H20L14 12z" stroke="#7A3A54" stroke-width="1.3" stroke-linejoin="round"/>
+          <line x1="24" y1="22" x2="24" y2="30" stroke="#7A3A54" stroke-width="1.3"/>
+          <line x1="18" y1="34" x2="30" y2="34" stroke="#7A3A54" stroke-width="1.3"/>
+          <line x1="20" y1="38" x2="28" y2="38" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="10" y1="14" x2="6" y2="10" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="38" y1="14" x2="42" y2="10" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="8" y1="20" x2="4" y2="20" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="40" y1="20" x2="44" y2="20" stroke="#7A3A54" stroke-width="1"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">IPL laser sessions</div>
+        <div class="cmp-name-sub">Vascular closure · 3-pack min.</div>
+      </td>
+      <td>
+        <div class="cmp-cost">$500–1,200<span class="cmp-cost-unit">Per session</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Closes visible vessels — <em>doesn't stop the cascade from building the next set.</em></div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="18" y="10" width="12" height="4" stroke="#7A3A54" stroke-width="1.3"/>
+          <path d="M17 14h14v22a4 4 0 0 1-4 4h-6a4 4 0 0 1-4-4V14z" stroke="#7A3A54" stroke-width="1.3"/>
+          <path d="M24 22c-2 2-3 4-3 6a3 3 0 0 0 6 0c0-2-1-4-3-6z" stroke="#7A3A54" stroke-width="1.1" fill="none"/>
+          <path d="M20 34l8-8" stroke="#C4718E" stroke-width="1.3" stroke-linecap="round"/>
+          <path d="M20 26l8 8" stroke="#C4718E" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">"Clean beauty" serum</div>
+        <div class="cmp-name-sub">Botanical actives, essential oils</div>
+      </td>
+      <td>
+        <div class="cmp-cost">$180<span class="cmp-cost-unit">Per bottle</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Often <em>fires the exact alarm</em> the label claims to calm.</div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="16" width="9" height="24" rx="1" stroke="#7A3A54" stroke-width="1.3"/>
+          <rect x="19.5" y="12" width="9" height="28" rx="1" stroke="#7A3A54" stroke-width="1.3"/>
+          <rect x="31" y="18" width="9" height="22" rx="1" stroke="#7A3A54" stroke-width="1.3"/>
+          <line x1="10" y1="20" x2="15" y2="20" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="21.5" y1="16" x2="26.5" y2="16" stroke="#7A3A54" stroke-width="1"/>
+          <line x1="33" y1="22" x2="38" y2="22" stroke="#7A3A54" stroke-width="1"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">Drugstore product stack</div>
+        <div class="cmp-name-sub">3–5 bottles, rotated weekly</div>
+      </td>
+      <td>
+        <div class="cmp-cost">$85–120<span class="cmp-cost-unit">Per month</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Hydrates the surface — <em>none of them reach the cascade.</em></div>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="14" width="7" height="26" rx="1" stroke="#7A3A54" stroke-width="1.3"/>
+          <rect x="12" y="10" width="3" height="6" stroke="#7A3A54" stroke-width="1.1"/>
+          <path d="M22 40V20l4-4 4 4v20" stroke="#7A3A54" stroke-width="1.3" stroke-linejoin="round"/>
+          <line x1="22" y1="26" x2="30" y2="26" stroke="#7A3A54" stroke-width="1"/>
+          <rect x="34" y="22" width="6" height="18" rx="1" stroke="#7A3A54" stroke-width="1.3"/>
+          <circle cx="37" cy="20" r="2" stroke="#7A3A54" stroke-width="1.1"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">The makeup budget</div>
+        <div class="cmp-name-sub">Primer · corrector · foundation · powder</div>
+      </td>
+      <td>
+        <div class="cmp-cost">The number<span class="cmp-cost-unit">no one adds up</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Covers the flush — <em>every morning, for years.</em></div>
+      </td>
+    </tr>
+
+    <tr class="cmp-separator">
+      <td colspan="4">
+        <div class="sep-line"></div>
+        <div class="sep-label">And then — what actually addresses the cascade</div>
+        <div class="sep-line"></div>
+      </td>
+    </tr>
+
+    <tr class="cmp-rosalia">
+      <td class="cmp-icon">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="4" width="8" height="4" rx="1" fill="#4B1528"/>
+          <rect x="19" y="8" width="10" height="3" fill="#4B1528"/>
+          <path d="M21 11h6v3h-6z" fill="#4B1528"/>
+          <path d="M15 14h18v26a4 4 0 0 1-4 4H19a4 4 0 0 1-4-4V14z" fill="#4B1528"/>
+          <line x1="19" y1="22" x2="29" y2="22" stroke="#F5E4EB" stroke-width="1.2"/>
+          <line x1="19" y1="26" x2="26" y2="26" stroke="#F5E4EB" stroke-width="1"/>
+          <line x1="19" y1="30" x2="27" y2="30" stroke="#F5E4EB" stroke-width="0.8"/>
+        </svg>
+      </td>
+      <td>
+        <div class="cmp-name">Rosalia · Daily Reset Serum</div>
+        <div class="cmp-name-sub" style="color:#7A3A54;">6 actives · 5-lever Reset Complex™</div>
+      </td>
+      <td>
+        <div class="cmp-cost">$39.99<span class="cmp-cost-unit" style="color:#7A3A54;">Per 30-day bottle</span></div>
+      </td>
+      <td>
+        <div class="cmp-limit">Addresses the cascade at all five levers — <strong>one dollar and thirty-three cents per day.</strong></div>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+  <div class="price-viz">
+    <div class="pv-lbl">Figure 9 · The arithmetic, drawn</div>
+    <div class="pv-t">What the market charges to fail at this problem — and where Rosalia sits.</div>
+    <svg class="pv-svg" viewBox="0 0 600 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Horizontal bar chart comparing 5 anchor prices to Rosalia's $39.99. Rosalia is the shortest bar, highlighted in dark wine.">
+      <line x1="180" y1="20" x2="180" y2="240" stroke="#7A3A54" stroke-width="1" opacity=".3"/>
+      <text x="170" y="42" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="end" font-weight="500">IPL laser · session</text>
+      <rect x="181" y="30" width="380" height="20" fill="#C4718E" opacity=".55" rx="1"/>
+      <text x="568" y="45" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#7A3A54" text-anchor="start" font-weight="500">$500–1,200</text>
+      <text x="170" y="82" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="end" font-weight="500">Hormone therapy · monthly</text>
+      <rect x="181" y="70" width="180" height="20" fill="#C4718E" opacity=".55" rx="1"/>
+      <text x="368" y="85" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#7A3A54" text-anchor="start" font-weight="500">$250–350</text>
+      <text x="170" y="122" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="end" font-weight="500">"Clean beauty" serum · one</text>
+      <rect x="181" y="110" width="128" height="20" fill="#C4718E" opacity=".55" rx="1"/>
+      <text x="316" y="125" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#7A3A54" text-anchor="start" font-weight="500">$180</text>
+      <text x="170" y="162" font-family="Cormorant Garamond, serif" font-style="italic" font-size="12" fill="#4B1528" text-anchor="end" font-weight="500">Drugstore rotation · monthly</text>
+      <rect x="181" y="150" width="72" height="20" fill="#C4718E" opacity=".55" rx="1"/>
+      <text x="260" y="165" font-family="Cormorant Garamond, serif" font-style="italic" font-size="13" fill="#7A3A54" text-anchor="start" font-weight="500">$85–120</text>
+      <line x1="60" y1="188" x2="590" y2="188" stroke="#4B1528" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
+      <text x="170" y="220" font-family="Cormorant Garamond, serif" font-style="italic" font-size="14" fill="#4B1528" text-anchor="end" font-weight="600">Rosalia · one bottle · 30 days</text>
+      <rect x="181" y="208" width="28" height="22" fill="#4B1528" rx="1"/>
+      <text x="216" y="224" font-family="Cormorant Garamond, serif" font-style="italic" font-size="15" fill="#4B1528" text-anchor="start" font-weight="600">$39.99</text>
+    </svg>
+    <div class="pv-cap"><strong>Figure 9</strong>The dashed line separates what the market charges to compensate for the problem from what it costs to address it.</div>
+  </div>
+
+  <div class="price-reveal">
+    <div class="pr-tag">Daily Reset Serum · single bottle</div>
+    <div class="pr-product">30ml · 30 days of use</div>
+    <div class="pr-price"><span class="dollar">$</span>39<span style="font-size:36px;vertical-align:top;font-weight:400;letter-spacing:0;">.99</span></div>
+    <div class="pr-unit">One dollar and thirty-three cents per day.</div>
+  </div>
+
+  <p class="prose">Less than half the latte you ordered this morning. Less than the fee your card is charging you monthly. One dollar and thirty-three cents per day — to reach the cascade instead of hiding from it.</p>
+
+  <p class="prose">Here's what happens if you don't act. The loop keeps compounding. This week, a few new vessels. Next week, a few more. Six months from now, the baseline sits one shade higher. Two years from now, you're being quoted for the first IPL session — <em class="q">because the vessels you didn't stop building are now visible without makeup.</em></p>
+
+  <p class="prose">This is not a threat. It's the physics of Chapter 02. The loop runs in both directions. <strong>The vicious version costs you incremental redness every month. The virtuous version costs you thirty-nine dollars and ninety-nine cents today.</strong></p>
+
+  <div class="no-tactic">
+    <p>There is no timer on this page. There is no <em>"27 bottles remaining."</em> There is no <em>"your discount expires in 14 minutes."</em> I am not asking you to buy tonight. If you close this tab, read three other rosacea serum reviews, and come back tomorrow — <strong>I will be genuinely happy that you did.</strong> Because it means you chose, instead of being pushed. That's the only kind of customer this brand is trying to earn.</p>
+  </div>
+
+  <div class="cta-block">
+    <p class="cta-preamble">If you're ready — the button reads what it reads because it's the sentence I heard, in some version, from <em>every</em> woman I interviewed during the research. She wasn't asking for a cure. She wasn't asking for perfect skin. She was asking for one thing.</p>
+    <a href="https://try-rosalia.com/products/daily-reset-serum" class="cta-button">Get my face back.</a>
+    <div class="cta-sub">Secure checkout · orders ship within 48 hours</div>
+  </div>
+
+  <div class="guarantee-recall">
+    <strong>60 days.</strong> No form. Nothing to ship back. — See Chapter 06 for the terms.
+  </div>
+
+  <div class="signature">
+    <div class="sig-name">Margot Bellamy</div>
+    <div class="sig-role">Founder · Rosalia · Daily Reset Serum</div>
+  </div>
+
+  <div class="foot">Chapter 07 · The close · End of investigation</div>
+</div>
+
+  <div class="master-footer">
+    <div class="mf-brand">Rosalia</div>
+    <div class="mf-tag">try-rosalia.com</div>
+    <div class="mf-legal">
+      <em>What Your Dermatologist Didn't Explain</em> is an editorial series published by Rosalia. This is brand-owned content about our own product, featured in Chapters 03–07. Nothing in this article constitutes medical advice.
+    </div>
+  </div>
+
+</div>
