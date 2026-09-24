@@ -1,0 +1,483 @@
+{
+  "sections": {
+    "chrome": {
+      "type": "rosalia-funnel-chrome",
+      "blocks": {
+        "nav1": {
+          "type": "nav",
+          "settings": {
+            "text": "Skin",
+            "url": "/blogs/the-skin-file",
+            "current": true
+          }
+        },
+        "nav2": {
+          "type": "nav",
+          "settings": {
+            "text": "Ingredients",
+            "url": "/blogs/the-skin-file/ingredients",
+            "current": false
+          }
+        },
+        "nav3": {
+          "type": "nav",
+          "settings": {
+            "text": "About",
+            "url": "/pages/skin-file-about",
+            "current": false
+          }
+        }
+      },
+      "block_order": [
+        "nav1",
+        "nav2",
+        "nav3"
+      ],
+      "settings": {
+        "show_trust": false,
+        "show_masthead": true,
+        "brand_name": "The Skin",
+        "brand_accent": " File",
+        "brand_url": "/blogs/the-skin-file",
+        "nav_label": "Sections"
+      }
+    },
+    "hero": {
+      "type": "rosalia-funnel-hero",
+      "blocks": {
+        "meta1": {
+          "type": "meta",
+          "settings": {
+            "text": "Reactive skin",
+            "strong": true
+          }
+        },
+        "meta2": {
+          "type": "meta",
+          "settings": {
+            "text": "8 min read",
+            "strong": false
+          }
+        }
+      },
+      "block_order": [
+        "meta1",
+        "meta2"
+      ],
+      "settings": {
+        "eyebrow": "",
+        "heading": "It isn’t the razor. It isn’t the beer.",
+        "as_h1": true,
+        "standfirst": "Facial redness in men gets blamed on shaving, sun, or what you drank last night. When it stops settling on its own, something else is running underneath.",
+        "lead": "<p><strong>Most men never name it.</strong> They notice the flush takes longer to go. Then they notice it doesn’t go at all — there’s a background red that’s just there now, in every photo, under every light. So they change razors. Switch to cold water. Drink less. Some of it helps a little. None of it resets the floor.</p>",
+        "image_alt": "A bathroom mirror in flat morning light",
+        "padding_top": 40,
+        "padding_bottom": 28
+      }
+    },
+    "body1": {
+      "type": "rosalia-funnel-block",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The razor is the obvious suspect, and it isn’t innocent. Dragging a blade across skin removes more than hair — it takes the top layer with it. Do that five mornings a week for twenty years and you are running a low-grade abrasion program on your own face.</p>",
+            "is_lead": false
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>But the razor explains the sting. It doesn’t explain the rest of the day.</p>",
+            "is_lead": false
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Here is the tell.</b> A normal shave reaction fades within the hour. If yours is still visible at lunch, or if the red has a baseline it returns to instead of disappearing, you are not looking at razor burn. You are looking at something the shave triggered, sitting on top of something that was already there.</p>",
+            "is_lead": false
+          }
+        },
+        "w4": {
+          "type": "weight",
+          "settings": {
+            "text": "The trigger explains the flush. It doesn’t explain the floor it settles at.",
+            "accent": true
+          }
+        },
+        "p5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Same with the beer. Alcohol widens blood vessels — that’s not in dispute, and it’s why the association is so sticky. But plenty of men drink and don’t hold the colour. The drink didn’t build the pattern. It just made the existing one visible.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "w4",
+        "p5"
+      ],
+      "settings": {
+        "heading": "You’ve probably blamed the razor",
+        "container": "measure",
+        "top_rule": false,
+        "padding_top": 30,
+        "padding_bottom": 24
+      }
+    },
+    "body2": {
+      "type": "rosalia-funnel-block",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Flushing itself is normal machinery. Blood vessels in the face widen to shed heat, then close again. Heat, exertion, stress, alcohol, cold wind — all of them open the valve. In a face that works, a second system closes it.</p>",
+            "is_lead": false
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>The problem is not the opening. It’s the closing.</p>",
+            "is_lead": false
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>When the same vessels are opened hard and often enough, three things drift at once. The vessels lose some of their spring and stop fully closing. The barrier above them thins, so the skin loses water and reacts to more. And the nerve endings that report heat and irritation start firing at a lower threshold — so things that never bothered you begin to.</p>",
+            "is_lead": false
+          }
+        },
+        "pull4": {
+          "type": "pull",
+          "settings": {
+            "content": "<p>Each of those makes the next flush easier. That’s what turns an event into a baseline.</p>"
+          }
+        },
+        "p5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Which is why “just avoid your triggers” stops working. You can remove the wine and the sauna and still be red, because the loop no longer needs a big trigger. A warm room will do.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "pull4",
+        "p5"
+      ],
+      "settings": {
+        "heading": "What’s actually running underneath",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 30,
+        "padding_bottom": 24
+      }
+    },
+    "quiz1": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Interactive",
+        "heading": "Is your redness still a reaction, or has it become a baseline?",
+        "body": "A short check built around how your face behaves after a trigger — not around a list of things to avoid. It maps timing, pattern and what already makes it worse.",
+        "button_label": "Check where mine sits →",
+        "button_url": "/pages/quiz-men?src=men-pre-1",
+        "fine_print": "About 60 seconds. No email or account required.",
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "body3": {
+      "type": "rosalia-funnel-block",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Men reach a dermatologist for facial redness far later than women do, and often not at all. Part of that is not looking. Part of it is that a red face on a man reads socially as something else — sun, work outdoors, a heavy weekend — so nobody, including him, treats it as a skin condition.</p>",
+            "is_lead": false
+          }
+        },
+        "said2": {
+          "type": "said",
+          "settings": {
+            "lines": "“I thought it was just my colouring.”\n“Everyone assumes I’ve been drinking.”\n“I stopped doing video calls without a lamp behind me.”"
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>That delay matters more for men than it does for women, and for one specific reason.</p>",
+            "is_lead": false
+          }
+        },
+        "p4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>In a minority of long-running cases the skin doesn’t just stay red — it thickens.</b> Tissue and oil glands build up, most often on the nose. It is uncommon, it does not happen to most people with persistent redness, and it does not happen quickly. But when it does happen, it happens overwhelmingly in men, and it is the one part of this that doesn’t reverse on its own.</p>",
+            "is_lead": false
+          }
+        },
+        "p5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>We are not raising that to frighten you into buying a serum. A serum is not the treatment for thickening skin — a dermatologist is. We raise it because it is the honest answer to “why bother, it’s only cosmetic,” and because the men it affects are usually the ones who left it longest.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "said2",
+        "p3",
+        "p4",
+        "p5"
+      ],
+      "settings": {
+        "heading": "Why men tend to find out later",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 30,
+        "padding_bottom": 24
+      }
+    },
+    "body4": {
+      "type": "rosalia-funnel-block",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Most men’s grooming is built for a problem you don’t have. It assumes oily, tough, under-cleaned skin, and it corrects for that with menthol, alcohol, scrubs and fragrance. On reactive skin every one of those is a trigger wearing a marketing label.</p>",
+            "is_lead": false
+          }
+        },
+        "kick2": {
+          "type": "kick",
+          "settings": {
+            "text": "What reliably makes it worse"
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Alcohol-based aftershave and balm.</b> The cold sting is the point of the product. The sting is also the barrier being stripped on freshly abraded skin.</p>",
+            "is_lead": false
+          }
+        },
+        "p4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Fragrance and menthol.</b> The most common contact irritants in men’s skincare, and the hardest to spot because they’re in almost everything that smells like anything.</p>",
+            "is_lead": false
+          }
+        },
+        "p5": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Scrubs and face brushes.</b> Physical exfoliation on skin whose barrier is already thin is the fastest way to lower your threshold further.</p>",
+            "is_lead": false
+          }
+        },
+        "p6": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>Hot showers and a multi-blade dry shave.</b> Heat opens the vessels; a dry pass takes the top layer. Doing both in the same ten minutes is the worst combination available to you.</p>",
+            "is_lead": false
+          }
+        },
+        "kick7": {
+          "type": "kick",
+          "settings": {
+            "text": "What actually changes the floor"
+          }
+        },
+        "p8": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Less, and boring. Lukewarm water. A single blade or an electric shaver if you’re close-shaving daily. Nothing that stings on purpose. Fragrance-free, essential-oil-free.</p>",
+            "is_lead": false
+          }
+        },
+        "p9": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>And — this is the part most routines skip — something that works on the loop itself rather than on one point of it. Barrier support alone leaves the vessels where they are. Vessel work alone leaves the barrier thin. The reason products “work and then stop working” is usually that they were only ever holding one corner.</p>",
+            "is_lead": false
+          }
+        },
+        "small10": {
+          "type": "small",
+          "settings": {
+            "text": "None of the above is a diagnosis, and none of it replaces one."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "kick2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "kick7",
+        "p8",
+        "p9",
+        "small10"
+      ],
+      "settings": {
+        "heading": "What makes it worse — and what most men do anyway",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 30,
+        "padding_bottom": 24
+      }
+    },
+    "quiz2": {
+      "type": "rosalia-funnel-quiz-cta",
+      "settings": {
+        "eyebrow": "Interactive",
+        "heading": "Find out which part of the loop is loudest on your face",
+        "body": "Sixty seconds, built on how your skin behaves rather than on what you’re avoiding. You get a profile and what it means — not a product list.",
+        "button_label": "Start the check →",
+        "button_url": "/pages/quiz-men?src=men-pre-2",
+        "fine_print": "About 60 seconds. No email or account required.",
+        "container": "measure",
+        "padding_top": 8,
+        "padding_bottom": 8
+      }
+    },
+    "body5": {
+      "type": "rosalia-funnel-block",
+      "blocks": {
+        "p1": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>This page is about persistent redness and flushing that has stopped settling. It is not about everything that makes a face red.</p>",
+            "is_lead": false
+          }
+        },
+        "p2": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p><b>See a doctor, not a serum,</b> if you have spots and pustules alongside the redness, if your eyes are gritty, dry or persistently irritated, if the skin on your nose is thickening or changing texture, if redness appeared suddenly with swelling or fever, or if it is confined to one side of the face.</p>",
+            "is_lead": false
+          }
+        },
+        "p3": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>Those need a diagnosis. Several of them have prescription treatments that work well and that nothing sold over a counter will match.</p>",
+            "is_lead": false
+          }
+        },
+        "p4": {
+          "type": "paragraph",
+          "settings": {
+            "content": "<p>What we sell is a daily serum for reactive, flushing skin — six actives, fragrance-free, no essential oils. It is a maintenance product for the loop described above. It is not a treatment for a diagnosed condition, and we’d rather say that here than have you find out later.</p>",
+            "is_lead": false
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "p4"
+      ],
+      "settings": {
+        "heading": "What this doesn’t cover",
+        "container": "measure",
+        "top_rule": true,
+        "padding_top": 30,
+        "padding_bottom": 36
+      }
+    },
+    "sticky": {
+      "type": "rosalia-funnel-sticky-cta",
+      "settings": {
+        "enabled": true,
+        "text": "Where does your redness sit?",
+        "button_label": "Take the 60-second check",
+        "button_url": "/pages/quiz-men?src=men-pre-sticky",
+        "reveal_after": 25,
+        "yield_selector": ".rf-quiz"
+      }
+    },
+    "footer": {
+      "type": "rosalia-funnel-footer",
+      "blocks": {
+        "l1": {
+          "type": "link",
+          "settings": {
+            "text": "Ingredients",
+            "url": "/blogs/the-skin-file/ingredients"
+          }
+        },
+        "l2": {
+          "type": "link",
+          "settings": {
+            "text": "What we don’t recommend",
+            "url": "/blogs/the-skin-file/what-we-dont-recommend"
+          }
+        },
+        "l3": {
+          "type": "link",
+          "settings": {
+            "text": "Contact",
+            "url": "/pages/contact"
+          }
+        },
+        "l4": {
+          "type": "link",
+          "settings": {
+            "text": "Shipping",
+            "url": "/policies/shipping-policy"
+          }
+        },
+        "l5": {
+          "type": "link",
+          "settings": {
+            "text": "Refunds",
+            "url": "/policies/refund-policy"
+          }
+        }
+      },
+      "block_order": [
+        "l1",
+        "l2",
+        "l3",
+        "l4",
+        "l5"
+      ],
+      "settings": {
+        "brand_name": "The Skin File",
+        "brand_accent": "",
+        "links_label": "Footer",
+        "legal": "<p><b>The Skin File is published by Rosalia</b> (try-rosalia.com), which sells skincare products. This page is editorial and commercial at the same time, and we’d rather you knew that while reading it. Nothing here is medical advice or a diagnosis.</p>",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    }
+  },
+  "order": [
+    "chrome",
+    "hero",
+    "body1",
+    "body2",
+    "quiz1",
+    "body3",
+    "body4",
+    "quiz2",
+    "body5",
+    "sticky",
+    "footer"
+  ]
+}
