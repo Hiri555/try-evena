@@ -1,0 +1,48 @@
+﻿Matricule,Nom,Classe,Cours,Date,Heure,Statut,Salle
+ESMT-26-0843,"Aïssatou Mbaye",LTI3-ASR,"Réseaux & Protocoles",28/09/2026,21:45,PRESENT,A101
+ESMT-26-0850,"Aliou Cissé",LTI3-ASR,"Réseaux & Protocoles",28/09/2026,21:45,PRESENT,A101
+ESMT-26-0845,"Khady Faye",LTI3-ASR,"Réseaux & Protocoles",28/09/2026,21:45,PRESENT,A101
+ESMT-26-0844,"Ousmane Ba",LTI3-ASR,"Réseaux & Protocoles",28/09/2026,21:45,PRESENT,A101
+ESMT-26-0847,"Rokhaya Ndiaye",LTI3-ASR,"Réseaux & Protocoles",28/09/2026,21:45,PRESENT,A101
+ESMT-26-0843,"Aïssatou Mbaye",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0850,"Aliou Cissé",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0904,"Awa Diop",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0905,"Babacar Gaye",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0849,"Fatimata Diallo",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0842,"Ibrahima Sow",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0845,"Khady Faye",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0841,"Mamadou Diallo",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0902,"Mariama Fall",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0903,"Modou Thiam",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0846,"Moussa Diallo",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0906,"Ndéye Touré",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0844,"Ousmane Ba",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0901,"Pape Ndiaye",LTI3-GL,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0847,"Rokhaya Ndiaye",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0848,"Seydou Sarr",LTI3-ASR,"Probabilités & Statistiques",12/08/2026,14:00,INVALID,B204
+ESMT-26-0843,"Aïssatou Mbaye",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0850,"Aliou Cissé",LTI3-ASR,"Bases de Données",12/08/2026,08:00,WAITING,C301
+ESMT-26-0904,"Awa Diop",LTI3-GL,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0905,"Babacar Gaye",LTI3-GL,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0849,"Fatimata Diallo",LTI3-ASR,"Bases de Données",12/08/2026,08:00,EXCUSED,C301
+ESMT-26-0842,"Ibrahima Sow",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0845,"Khady Faye",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0841,"Mamadou Diallo",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0902,"Mariama Fall",LTI3-GL,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0903,"Modou Thiam",LTI3-GL,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0846,"Moussa Diallo",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0906,"Ndéye Touré",LTI3-GL,"Bases de Données",12/08/2026,08:00,ABSENT,C301
+ESMT-26-0844,"Ousmane Ba",LTI3-ASR,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0901,"Pape Ndiaye",LTI3-GL,"Bases de Données",12/08/2026,08:00,PRESENT,C301
+ESMT-26-0847,"Rokhaya Ndiaye",LTI3-ASR,"Bases de Données",12/08/2026,08:00,INVALIDATED,C301
+ESMT-26-0848,"Seydou Sarr",LTI3-ASR,"Bases de Données",12/08/2026,08:00,ABSENT,C301
+ESMT-26-0904,"Awa Diop",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-26-0905,"Babacar Gaye",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-26-0902,"Mariama Fall",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-26-0903,"Modou Thiam",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-26-0906,"Ndéye Touré",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-26-0901,"Pape Ndiaye",LTI3-GL,"Génie Logiciel",10/08/2026,14:00,PRESENT,B102
+ESMT-25-1004,"Adja Sy",M1-IR,"Architecture des Systèmes",08/08/2026,10:00,ABSENT,D405
+ESMT-25-1003,"El Hadji Sarr",M1-IR,"Architecture des Systèmes",08/08/2026,10:00,PRESENT,D405
+ESMT-25-1001,"Lamine Diallo",M1-IR,"Architecture des Systèmes",08/08/2026,10:00,PRESENT,D405
+ESMT-25-1002,"Sokhna Ba",M1-IR,"Architecture des Systèmes",08/08/2026,10:00,PRESENT,D405
