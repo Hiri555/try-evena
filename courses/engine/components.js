@@ -440,3 +440,73 @@ export function check(x, y, color = C.forward, size = 30) {
 export function cross(x, y, color = C.error, size = 26) {
   return `<path d="M${x - size / 2} ${y - size / 2} L${x + size / 2} ${y + size / 2} M${x + size / 2} ${y - size / 2} L${x - size / 2} ${y + size / 2}" stroke="${color}" stroke-width="${size * 0.22}" stroke-linecap="round"/>`;
 }
+
+// ---------------------------------------------------------------- STP (episode 2)
+
+const ROLE = { RP: C.forward, DP: C.traffic, ALT: C.error, ROOT: '#F5B83D' };
+// Port role badge (RP / DP / ALT) with a leader dot on the port.
+export function roleBadge(port, role, { dx = 0, dy = -46, s = 1, opacity = 1 } = {}) {
+  const col = ROLE[role] || C.muted;
+  const x = port.x + dx, y = port.y + dy, w = 62 * s, h = 34 * s;
+  return g(`<path d="M${port.x} ${port.y} L${x} ${y}" stroke="${col}" stroke-width="2" opacity="0.7"/>
+    <circle cx="${port.x}" cy="${port.y}" r="${6 * s}" fill="${col}" filter="url(#glow)"/>
+    <rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="${8 * s}" fill="${col}" filter="url(#glow)"/>
+    ${text(x, y + 7 * s, role, { size: 19 * s, weight: 800, fill: '#08101E', ls: 1 })}`, { opacity });
+}
+
+// Red-and-white boom barrier across a cable; the cable stays visible behind it.
+export function barrier(a, b, { at = 0.2, k = 1, len = 120 } = {}) {
+  const p = { x: a.x + (b.x - a.x) * at, y: a.y + (b.y - a.y) * at };
+  const ang = Math.atan2(b.y - a.y, b.x - a.x) + Math.PI / 2;
+  const id = `bar${Math.round(p.x)}${Math.round(p.y)}`;
+  const drop = (1 - k) * -80; // boom swings down into place
+  const bx = Math.cos(ang) * len / 2, by = Math.sin(ang) * len / 2;
+  return `<defs><pattern id="${id}" width="24" height="24" patternUnits="userSpaceOnUse" patternTransform="rotate(${(ang * 180) / Math.PI + 45})">
+      <rect width="12" height="24" fill="${C.error}"/><rect x="12" width="12" height="24" fill="#FFFFFF"/></pattern></defs>
+    <circle cx="${p.x}" cy="${p.y}" r="${len * 0.75}" fill="${C.error}" opacity="${0.16 * k}" filter="url(#glowSoft)"/>
+    <g transform="rotate(${drop} ${p.x - bx} ${p.y - by})" opacity="${Math.min(1, k * 1.5)}">
+      <rect x="${p.x - len / 2}" y="${p.y - 9}" width="${len}" height="18" rx="6" fill="url(#${id})" stroke="#FFFFFF" stroke-width="2"
+        transform="rotate(${(ang * 180) / Math.PI} ${p.x} ${p.y})" filter="url(#glow)"/>
+    </g>
+    <rect x="${p.x - bx - 9}" y="${p.y - by - 22}" width="18" height="44" rx="5" fill="#2A0F18" stroke="${C.error}" stroke-width="3"/>
+    <circle cx="${p.x - bx}" cy="${p.y - by - 30}" r="7" fill="${C.error}" filter="url(#glow)"/>`;
+}
+
+export function podium(x, y, w, h, color = C.traffic, label) {
+  return `<ellipse cx="${x}" cy="${y + h}" rx="${w / 2}" ry="${w * 0.12}" fill="#0A1224"/>
+    <rect x="${x - w / 2}" y="${y}" width="${w}" height="${h}" fill="#101B33" stroke="${color}" stroke-opacity="0.5" stroke-width="2"/>
+    <ellipse cx="${x}" cy="${y}" rx="${w / 2}" ry="${w * 0.12}" fill="#17264A" stroke="${color}" stroke-width="3" filter="url(#glow)"/>
+    ${label ? text(x, y + h * 0.62, label, { size: 44, weight: 800, fill: color, opacity: 0.8 }) : ''}`;
+}
+
+export function gauge(x, y, label, value, { w = 300, color = C.error } = {}) {
+  const segs = 12, f = Math.round((value / 100) * segs);
+  let s = text(x, y - 12, label, { size: 16, weight: 800, fill: C.muted, anchor: 'start', ls: 3 });
+  for (let i = 0; i < segs; i++) s += `<rect x="${x + i * (w / segs)}" y="${y}" width="${w / segs - 4}" height="22" rx="3" fill="${i < f ? color : '#1A2336'}" ${i < f ? 'filter="url(#glow)"' : ''}/>`;
+  return s + text(x + w + 16, y + 19, `${value} %`, { size: 22, weight: 800, font: C.mono, fill: color, anchor: 'start' });
+}
+
+// Deterministic swarm of small frames orbiting a loop (broadcast storm).
+export function swarm(points, n, { t = 0, color = C.broadcast, spread = 60, seed = 7, sizeMin = 0.22, sizeMax = 0.42, glowEvery = 9 } = {}) {
+  let r = seed * 9301 + 49297;
+  const rnd = () => ((r = (r * 9301 + 49297) % 233280) / 233280);
+  const loop = [...points, points[0]];
+  const segLen = [];
+  let L = 0;
+  for (let i = 1; i < loop.length; i++) { const l = Math.hypot(loop[i].x - loop[i - 1].x, loop[i].y - loop[i - 1].y); segLen.push(l); L += l; }
+  const at = (k) => { let d = (((k % 1) + 1) % 1) * L; for (let i = 0; i < segLen.length; i++) { if (d <= segLen[i]) { const q = d / segLen[i]; return { x: loop[i].x + (loop[i + 1].x - loop[i].x) * q, y: loop[i].y + (loop[i + 1].y - loop[i].y) * q }; } d -= segLen[i]; } return loop[0]; };
+  let s = '';
+  for (let i = 0; i < n; i++) {
+    const dir = rnd() < 0.5 ? 1 : -1;
+    const k = rnd() + dir * t * (0.08 + rnd() * 0.1);
+    const p = at(k);
+    const ox = (rnd() - 0.5) * 2 * spread * (0.3 + rnd()), oy = (rnd() - 0.5) * 2 * spread * (0.3 + rnd());
+    const sz = sizeMin + rnd() * (sizeMax - sizeMin);
+    const rot = (rnd() - 0.5) * 50;
+    const fw = 190 * sz, fh = 76 * sz, x = p.x + ox, y = p.y + oy;
+    s += `<g transform="rotate(${rot.toFixed(1)} ${x.toFixed(1)} ${y.toFixed(1)})" opacity="${(0.55 + rnd() * 0.45).toFixed(2)}" ${i % glowEvery === 0 ? 'filter="url(#glow)"' : ''}>
+      <rect x="${(x - fw / 2).toFixed(1)}" y="${(y - fh / 2).toFixed(1)}" width="${fw.toFixed(1)}" height="${fh.toFixed(1)}" rx="${(8 * sz).toFixed(1)}" fill="${color}" fill-opacity="0.22" stroke="${color}" stroke-width="${(5 * sz).toFixed(1)}"/>
+      <path d="M${(x - fw / 2 + 5 * sz).toFixed(1)} ${(y - fh / 2 + 5 * sz).toFixed(1)} L${x.toFixed(1)} ${(y).toFixed(1)} L${(x + fw / 2 - 5 * sz).toFixed(1)} ${(y - fh / 2 + 5 * sz).toFixed(1)}" fill="none" stroke="${color}" stroke-opacity="0.6" stroke-width="${(4 * sz).toFixed(1)}"/></g>`;
+  }
+  return s;
+}

@@ -1,0 +1,274 @@
+{
+  "course_id": "COURSE_02_STP",
+  "episode": 2,
+  "title": "La petite boucle qui peut détruire un LAN",
+  "format": { "width": 1920, "height": 1080, "fps": 30, "codec": "h264" },
+  "voice": { "model": "eleven_v3", "voice": "Anaïs – Instructor (alt. Marie Alice)", "note": "balises v3 [dramatic] [curious] [excited] [whispers] [serious] [short pause] [long pause] ignorées par l'alignement et les sous-titres" },
+  "energy_level": "V2+ : caméra jamais fixe, punch-ins sur les mots-clés, secousses, mots géants, bumpers IA, musique ducked, 120+ SFX. Cible : aucun plan identique plus de 4 s.",
+  "style": {
+    "inherits": "COURSE_01 (couleurs sémantiques identiques)",
+    "stp_roles": {
+      "ROOT": "couronne dorée (image IA crown.jpg) + halo or #FACC15 atténué — la seule exception au 'jaune = broadcast' : l'or de la couronne est plus chaud (#F5B83D) et n'apparaît jamais sur un câble",
+      "RP": "badge vert #34D399 « RP » sur le port",
+      "DP": "badge bleu #4DA3FF « DP » sur le port",
+      "ALT/BLK": "badge rouge #F43F5E « ALT » + barrière rouge rayée sur le câble, câble toujours visible en pointillés",
+      "BPDU": "petite enveloppe violette #A78BFA avec « BPDU »",
+      "cost": "pastille orange #FB923C avec le coût ; sommes animées"
+    },
+    "topology": {
+      "SW1": { "pos": "haut", "bid": "32769 · 0200.0000.0001", "role": "ROOT" },
+      "SW2": { "pos": "bas gauche", "bid": "32769 · 0200.0000.0002", "hosts": ["PC-A", "PC-B"] },
+      "SW3": { "pos": "bas droite", "bid": "32769 · 0200.0000.0003", "hosts": ["PC-C", "PC-D"] },
+      "links": [
+        { "a": "SW1 Fa0/1", "b": "SW2 Fa0/1", "speed": "100 Mb/s", "cost": 19, "result": "SW1 DP · SW2 ALT (bloqué)" },
+        { "a": "SW1 Gi0/2", "b": "SW3 Gi0/1", "speed": "1 Gb/s", "cost": 4, "result": "SW1 DP · SW3 RP" },
+        { "a": "SW2 Gi0/2", "b": "SW3 Gi0/2", "speed": "1 Gb/s", "cost": 4, "result": "SW2 RP (coût 8) · SW3 DP (coût 4)" }
+      ]
+    }
+  },
+  "ai_assets": {
+    "storm.jpg / storm.mp4": "KIE Seedream 5 Pro + Kling 3.0 — fond du titre après le hook, bumper",
+    "roundabouts.jpg / roundabouts.mp4": "KIE — métaphore S03 (clip vidéo de la voiture qui tourne)",
+    "crown.jpg": "KIE — couronne du Root Bridge (détourée par masque radial)",
+    "tournament.jpg": "KIE — bumper 'L'ÉLECTION'",
+    "barrier.jpg": "KIE — bumper 'LE BLOCAGE'",
+    "failover.jpg": "KIE — bumper 'LA PANNE'",
+    "highway.jpg": "KIE — analogie autoroute EtherChannel (insert)"
+  },
+  "bumpers": [
+    { "before": "S02", "title": "LA PETITE BOUCLE QUI PEUT DÉTRUIRE UN LAN", "img": "storm.mp4", "kind": "title" },
+    { "before": "S05", "num": "01", "title": "L'ÉLECTION", "img": "tournament.jpg" },
+    { "before": "S06", "num": "02", "title": "LE ROOT PORT", "img": null },
+    { "before": "S07", "num": "03", "title": "UN CÂBLE, UN CHEF", "img": null },
+    { "before": "S08", "num": "04", "title": "LE BLOCAGE", "img": "barrier.jpg" },
+    { "before": "S09", "num": "05", "title": "LA PANNE", "img": "failover.jpg" },
+    { "before": "S10", "num": "06", "title": "ETHERCHANNEL", "img": "highway.jpg" },
+    { "before": "S11", "num": "07", "title": "À TOI DE JOUER", "img": null }
+  ],
+  "slams": ["BOUCLE", "PAS DE TTL", "MAC ?!", "ROOT", "LE PLUS PETIT GAGNE", "COÛT", "RP", "DP", "BLOQUÉ", "RSTP", "REDONDANCE ≠ BOUCLE", "PORT-CHANNEL"],
+  "scenes": [
+    { "scene_id": "S01.1", "section": "HOOK", "start_sentence": "Une seule trame.", "spoken_text": "Une seule trame. Un seul petit broadcast.",
+      "learning_goal": "Poser le problème par l'image, sans théorie.", "visual_metaphor": "Une étincelle.", "technical_visual": "Triangle SW1/SW2/SW3, 2 PC par switch. PC-A (SW2) émet une trame jaune. Compteur « 1 COPIE ».",
+      "camera": "Plan large, dérive lente, micro push-in.", "animation": [
+        { "anchor": "trame", "at": 0, "action": "PC-A pulse, une trame jaune naît" },
+        { "anchor": "broadcast", "at": 0, "action": "la trame atteint SW2 ; compteur 1" } ],
+      "transition": "continu", "on_screen_text": ["1 COPIE"], "sound_effect": "tick sec, riser grave qui démarre", "asset_requirements": ["SVG triangle", "compteur"] },
+    { "scene_id": "S01.2", "section": "HOOK", "start_sentence": "Et regarde ce qu'elle devient.", "spoken_text": "Et regarde ce qu'elle devient.",
+      "learning_goal": "Choc visuel : la tempête.", "visual_metaphor": "Essaim.", "technical_visual": "Simulation fidèle du triangle : 2 copies tournent en sens opposés, chaque passage délivre une copie à chaque PC ; nouvelles broadcasts ARP/DHCP des autres PC s'ajoutent. Temps accéléré ×1 → ×1000. Les trames jaunes remplissent l'écran, voile rouge qui monte.",
+      "camera": "Push-in 1.0 → 1.15, secousse croissante.", "animation": [
+        { "anchor": "devient", "at": 0, "action": "simulation démarre, compteur s'emballe" } ],
+      "transition": "continu", "on_screen_text": ["copies transmises"], "sound_effect": "pulses de broadcast qui accélèrent + montée de musique", "asset_requirements": ["particules de trames (SVG instancié)"] },
+    { "scene_id": "S01.3", "section": "HOOK", "start_sentence": "Une seule trame vient de déclencher ça.", "spoken_text": "Une seule trame vient de déclencher ça. Et contrairement à un paquet IP, une trame Ethernet n'a pas de TTL. Rien ne la fait mourir. Elle tourne… pour toujours.",
+      "learning_goal": "C2 : pas de TTL.", "visual_metaphor": "Une étiquette de péremption absente.", "technical_visual": "Freeze sur l'écran saturé (compteur ~48 000). Zoom dans une trame : en-tête DST | SRC | TYPE | DATA ; à côté un paquet IP avec champ TTL coché ; case TTL de la trame barrée et vide.",
+      "camera": "Zoom dans une trame du nuage.", "animation": [
+        { "anchor": "ça", "at": 0, "action": "FREEZE, secousse, compteur figé" },
+        { "anchor": "TTL", "at": 0, "action": "comparatif IP (TTL ✓) / Ethernet (✗), slam « PAS DE TTL »" },
+        { "anchor": "toujours", "at": 0, "action": "la trame repart en orbite, fondu vers le titre" } ],
+      "transition": "bumper titre (storm.mp4)", "on_screen_text": ["PAS DE TTL"], "sound_effect": "sub drop au freeze", "asset_requirements": ["storm.mp4"] },
+
+    { "scene_id": "S02.1", "section": "MÉCANIQUE", "start_sentence": "Rembobinons.", "spoken_text": "Rembobinons. PC A envoie un broadcast. Le switch deux fait exactement ce qu'on lui a appris : il l'inonde. Une copie vers le switch un. Une copie vers le switch trois.",
+      "learning_goal": "Relier au flooding de l'ép. 1.", "visual_metaphor": "Ralenti de replay sportif.", "technical_visual": "Rewind VHS, puis ralenti : PC-A → SW2 → 2 copies (vers SW1 et SW3). Rappel « FLOODING » (ép. 1).",
+      "camera": "Suivi de la trame.", "animation": [
+        { "anchor": "Rembobinons", "at": 0, "action": "rewind rapide" },
+        { "anchor": "l'inonde", "at": 0, "action": "duplication en 2 copies" } ],
+      "transition": "continu", "on_screen_text": ["×0.1"], "sound_effect": "rewind tape, whoosh", "asset_requirements": [] },
+    { "scene_id": "S02.2", "section": "MÉCANIQUE", "start_sentence": "Le switch un reçoit sa copie", "spoken_text": "Le switch un reçoit sa copie… et l'inonde à son tour, vers le switch trois. Le switch trois fait pareil, vers le switch un. Et les deux copies reviennent. Puis repartent. Dans les deux sens. Sans fin.",
+      "learning_goal": "Voir la boucle.", "visual_metaphor": "Deux coureurs qui tournent en sens inverse.", "technical_visual": "Copies qui se croisent sur SW1–SW3 ; flèches circulaires horaire/antihoraire qui s'allument.",
+      "camera": "Légère rotation autour du triangle.", "animation": [
+        { "anchor": "reviennent", "at": 0, "action": "retour à SW2, flèches circulaires" } ],
+      "transition": "continu", "on_screen_text": ["BOUCLE"], "sound_effect": "whooshes alternés gauche/droite", "asset_requirements": [] },
+    { "scene_id": "S02.3", "section": "MÉCANIQUE", "start_sentence": "À chaque tour", "spoken_text": "À chaque tour, chaque PC en reçoit une nouvelle copie. À un gigabit, un tour prend quelques microsecondes. Des dizaines de milliers de copies… par seconde. Et chaque nouveau broadcast, une requête ARP, une demande DHCP, vient s'ajouter à la tempête. Les liens saturent. Les processeurs aussi.",
+      "learning_goal": "C3 + C5.", "visual_metaphor": "Embouteillage.", "technical_visual": "Chaque passage éjecte une copie vers les PC (compteurs par PC) ; chrono µs ; nouvelles trames étiquetées ARP / DHCP rejoignent la ronde ; jauges LIEN et CPU qui montent au rouge.",
+      "camera": "Punch-in sur les jauges.", "animation": [
+        { "anchor": "microsecondes", "at": 0, "action": "chrono µs" },
+        { "anchor": "ARP", "at": 0, "action": "trame ARP rejoint la boucle" },
+        { "anchor": "saturent", "at": 0, "action": "jauge LIEN 100 % rouge" },
+        { "anchor": "processeurs", "at": 0, "action": "jauge CPU 100 % rouge, secousse" } ],
+      "transition": "zoom sur la table MAC de SW1", "on_screen_text": ["LIEN 100 %", "CPU 100 %"], "sound_effect": "alarme douce", "asset_requirements": [] },
+    { "scene_id": "S02.4", "section": "MÉCANIQUE", "start_sentence": "Pire : regarde la table MAC", "spoken_text": "Pire : regarde la table MAC du switch un. La même adresse source arrive tantôt par un port… tantôt par l'autre. Le switch réécrit sa table sans arrêt. Il ne sait plus où se trouve PC A. Trois symptômes. Une seule cause : une boucle.",
+      "learning_goal": "C4.", "visual_metaphor": "Un GPS qui recalcule sans fin.", "technical_visual": "Table MAC SW1 plein écran : ligne AA:AA, colonne PORT qui bascule Fa0/1 ↔ Gi0/2 (de plus en plus vite), glitch rouge. Puis 3 icônes → une boucle rouge.",
+      "camera": "Plan serré sur la table, puis dézoom.", "animation": [
+        { "anchor": "table", "at": 0, "action": "zoom table" },
+        { "anchor": "tantôt", "at": 0, "action": "flip de port, 1er" },
+        { "anchor": "réécrit", "at": 0, "action": "flips accélérés + glitch" },
+        { "anchor": "symptômes", "at": 0, "action": "3 icônes" },
+        { "anchor": "boucle", "at": 0, "action": "convergence en une boucle rouge, slam « BOUCLE »" } ],
+      "transition": "morph triangle → ronds-points", "on_screen_text": ["MAC ?!", "instabilité de la table MAC"], "sound_effect": "glitchs", "asset_requirements": [] },
+
+    { "scene_id": "S03.1", "section": "MÉTAPHORE", "start_sentence": "Imagine trois ronds-points", "spoken_text": "Imagine trois ronds-points reliés en triangle. Et une voiture sans destination. Elle tourne. Et tourne. Et ne sort jamais.",
+      "learning_goal": "Ancrer la boucle émotionnellement.", "visual_metaphor": "Trois ronds-points.", "technical_visual": "Clip vidéo IA roundabouts.mp4 plein écran (voiture qui tourne), le triangle SVG se superpose en fantôme et s'aligne sur les ronds-points.",
+      "camera": "Clip (orbite lente).", "animation": [
+        { "anchor": "ronds-points", "at": 0, "action": "morph vers le clip" },
+        { "anchor": "jamais", "at": 0, "action": "boucle du clip, traînées" } ],
+      "transition": "crossfade de forme vers les switches", "on_screen_text": [], "sound_effect": "moteur lointain + pneus doux", "asset_requirements": ["roundabouts.mp4"] },
+    { "scene_id": "S03.2", "section": "MÉTAPHORE", "start_sentence": "Dans le vrai réseau", "spoken_text": "Dans le vrai réseau, il n'y a pas de conducteur fatigué : aucun compteur n'arrête la trame, et le switch ne se souvient pas de l'avoir déjà vue.",
+      "learning_goal": "Corriger l'analogie.", "visual_metaphor": "—", "technical_visual": "Retour au triangle ; bulle au-dessus de SW1 : « déjà vue ? » → « ??? ».",
+      "camera": "Stable.", "animation": [ { "anchor": "vue", "at": 0, "action": "bulle « ??? »" } ],
+      "transition": "continu", "on_screen_text": [], "sound_effect": "—", "asset_requirements": [] },
+
+    { "scene_id": "S04.1", "section": "IDÉE STP", "start_sentence": "Alors, on retire un câble ?", "spoken_text": "Alors, on retire un câble ? Mauvaise idée. Ce câble, c'est ton plan B. Le jour où un autre lien casse, tu es coupé.",
+      "learning_goal": "Casser « retirer un câble ».", "visual_metaphor": "Ciseaux.", "technical_visual": "Ciseaux coupent SW1–SW2 ; éclair casse SW1–SW3 ; SW2 isolé, voyant rouge, « COUPÉ ».",
+      "camera": "Punch-in sur SW2 isolé.", "animation": [
+        { "anchor": "retire", "at": 0, "action": "ciseaux" },
+        { "anchor": "casse", "at": 0, "action": "éclair, isolement" } ],
+      "transition": "rewind", "on_screen_text": ["PLAN B ?"], "sound_effect": "snip + zap", "asset_requirements": [] },
+    { "scene_id": "S04.2", "section": "IDÉE STP", "start_sentence": "La vraie solution", "spoken_text": "La vraie solution : garder tous les câbles… mais en désactiver un, logiquement. C'est le travail du Spanning Tree Protocol. S-T-P. Son plan tient en quatre étapes : élire un chef. Trouver le meilleur chemin vers lui. Choisir un port par câble. Et bloquer le reste.",
+      "learning_goal": "C6 + feuille de route.", "visual_metaphor": "Carte de quête.", "technical_visual": "Barrière fantôme violette sur un lien ; puis 4 étapes en chemin de quête : couronne · chemin vert · câble + badge · barrière (icônes, pas de liste à puces).",
+      "camera": "Travelling sur la carte de quête.", "animation": [
+        { "anchor": "logiquement", "at": 0, "action": "barrière fantôme" },
+        { "anchor": "S-T-P", "at": 0, "action": "slam « STP »" },
+        { "anchor": "chef", "at": 0, "action": "étape 1 couronne" },
+        { "anchor": "chemin", "at": 0, "action": "étape 2" },
+        { "anchor": "câble", "at": 0, "action": "étape 3" },
+        { "anchor": "bloquer", "at": 0, "action": "étape 4" } ],
+      "transition": "bumper 01 L'ÉLECTION", "on_screen_text": ["SPANNING TREE PROTOCOL"], "sound_effect": "4 ticks tonals", "asset_requirements": [] },
+
+    { "scene_id": "S05.1", "section": "ÉLECTION", "start_sentence": "Étape un", "spoken_text": "Étape un : l'élection du chef, le Root Bridge. Les switches s'envoient des messages de contrôle, des B-P-D-U. Chacun y annonce son identifiant : le Bridge ID. Un Bridge ID, c'est deux choses : une priorité… et l'adresse MAC du switch.",
+      "learning_goal": "C7 + C8.", "visual_metaphor": "Candidats d'un tournoi.", "technical_visual": "BPDU violettes échangées ; chaque switch lève une carte BRIDGE ID qui se déplie en PRIORITÉ | MAC.",
+      "camera": "Les 3 switches montent sur des podiums (layout tournoi).", "animation": [
+        { "anchor": "B-P-D-U", "at": 0, "action": "enveloppes violettes" },
+        { "anchor": "Bridge", "at": 0, "action": "cartes BID" },
+        { "anchor": "priorité", "at": 0, "action": "case PRIORITÉ" },
+        { "anchor": "MAC", "at": 0, "action": "case MAC" } ],
+      "transition": "continu", "on_screen_text": ["BRIDGE ID = PRIORITÉ + MAC"], "sound_effect": "BPDU = bip violet doux", "asset_requirements": ["tournament.jpg (bumper)"] },
+    { "scene_id": "S05.2", "section": "ÉLECTION", "start_sentence": "Premier round", "spoken_text": "Premier round : la priorité. Le plus petit gagne. Trente-deux mille sept cent soixante-neuf partout : la valeur par défaut. Égalité.",
+      "learning_goal": "C9 règle 1.", "visual_metaphor": "Round de boxe.", "technical_visual": "Bandeau « ROUND 1 · PRIORITÉ » ; les 3 cartes se retournent : 32769 ×3 ; bandeau « ÉGALITÉ ». Note : 32769 = 32768 + VLAN 1.",
+      "camera": "Punch-in à ÉGALITÉ.", "animation": [
+        { "anchor": "priorité", "at": 0, "action": "ROUND 1" },
+        { "anchor": "Trente-deux", "at": 0, "action": "flip des cartes" },
+        { "anchor": "Égalité", "at": 0, "action": "bandeau ÉGALITÉ, secousse légère" } ],
+      "transition": "continu", "on_screen_text": ["ROUND 1 · PRIORITÉ", "ÉGALITÉ"], "sound_effect": "gong léger", "asset_requirements": [] },
+    { "scene_id": "S05.3", "section": "ÉLECTION", "start_sentence": "Deuxième round", "spoken_text": "Deuxième round, le départage : l'adresse MAC. La plus petite l'emporte. Le switch un reçoit la couronne. C'est lui, le Root Bridge. Retiens-le : dans S-T-P, c'est toujours le plus petit qui gagne. Et si tu veux choisir ton chef toi-même, il suffit de baisser sa priorité.",
+      "learning_goal": "C9 tie-break + règle universelle.", "visual_metaphor": "Couronnement.", "technical_visual": "ROUND 2 · MAC ; les MAC s'alignent, …0001 < …0002 < …0003 ; SW1 s'illumine ; couronne (crown.jpg) descend, flash doré ; slam « LE PLUS PETIT GAGNE » ; CLI `spanning-tree vlan 1 priority 24576`.",
+      "camera": "Push-in sur la couronne, puis retour au triangle (SW1 couronné).", "animation": [
+        { "anchor": "MAC", "at": 0, "action": "ROUND 2" },
+        { "anchor": "couronne", "at": 0, "action": "couronne descend, impact" },
+        { "anchor": "toujours", "at": 0, "action": "slam LE PLUS PETIT GAGNE" },
+        { "anchor": "priorité", "at": 0, "action": "CLI" } ],
+      "transition": "bumper 02", "on_screen_text": ["ROOT BRIDGE", "LE PLUS PETIT GAGNE"], "sound_effect": "fanfare synthé courte + impact", "asset_requirements": ["crown.jpg"] },
+
+    { "scene_id": "S06.1", "section": "ROOT PORT", "start_sentence": "Étape deux", "spoken_text": "Étape deux. Chaque switch qui n'est pas root cherche son meilleur chemin vers la couronne. Mais « meilleur » ne veut pas dire « le plus court ». Chaque lien a un coût : un gigabit coûte quatre, cent mégabits coûtent dix-neuf.",
+      "learning_goal": "C10.", "visual_metaphor": "Péages.", "technical_visual": "Câbles étiquetés débit + pastille de coût orange ; petit barème 1 Gb/s = 4, 100 Mb/s = 19.",
+      "camera": "Triangle plein cadre.", "animation": [
+        { "anchor": "coût", "at": 0, "action": "pastilles de coût" } ],
+      "transition": "continu", "on_screen_text": ["COÛT"], "sound_effect": "cash-register tick", "asset_requirements": [] },
+    { "scene_id": "S06.2", "section": "ROOT PORT", "start_sentence": "Le switch trois d'abord.", "spoken_text": "Le switch trois d'abord. Chemin direct : quatre. Détour par le switch deux : quatre plus dix-neuf, vingt-trois. Le direct gagne. Ce port devient son Root Port.",
+      "learning_goal": "C11 cas simple.", "visual_metaphor": "Deux itinéraires GPS.", "technical_visual": "Deux chemins animés depuis SW3 avec compteur de somme ; le direct vert ; badge RP sur SW3 Gi0/1.",
+      "camera": "Punch-in sur SW3.", "animation": [
+        { "anchor": "quatre", "at": 0, "action": "chemin direct = 4" },
+        { "anchor": "vingt-trois", "at": 0, "action": "détour = 23" },
+        { "anchor": "gagne", "at": 0, "action": "direct vert" },
+        { "anchor": "Root", "at": 0, "action": "badge RP" } ],
+      "transition": "continu", "on_screen_text": ["4", "4 + 19 = 23", "RP"], "sound_effect": "tick vert", "asset_requirements": [] },
+    { "scene_id": "S06.3", "section": "ROOT PORT", "start_sentence": "Le switch deux, maintenant.", "spoken_text": "Le switch deux, maintenant. Direct vers le root… mais c'est le lien lent : dix-neuf. Par le switch trois : quatre, plus quatre… huit. Surprise : c'est le détour qui gagne ! Un Root Port, c'est le port au coût le plus faible vers le root. Un seul par switch.",
+      "learning_goal": "C11 piège : le détour gagne.", "visual_metaphor": "Le GPS qui préfère l'autoroute.", "technical_visual": "Depuis SW2 : direct 19 (orange) / détour 4+4 = 8 ; suspense ; le détour s'allume vert ; badge RP sur SW2 Gi0/2 ; slam « RP ».",
+      "camera": "Punch-in sur la comparaison 19 vs 8.", "animation": [
+        { "anchor": "dix-neuf", "at": 0, "action": "direct = 19" },
+        { "anchor": "huit", "at": 0, "action": "détour = 8" },
+        { "anchor": "Surprise", "at": 0, "action": "détour vert, secousse" },
+        { "anchor": "faible", "at": 0, "action": "badges RP" } ],
+      "transition": "bumper 03", "on_screen_text": ["19", "4 + 4 = 8", "RP"], "sound_effect": "« ding » de surprise", "asset_requirements": [] },
+
+    { "scene_id": "S07.1", "section": "DESIGNATED", "start_sentence": "Étape trois.", "spoken_text": "Étape trois. On regarde chaque câble, un par un. Sur chaque câble, un seul port a le droit de transmettre : le port désigné. Câble entre le switch un et le switch trois. D'un côté, le root. Tous les ports du root sont désignés. Facile. Câble entre le un et le deux : même chose.",
+      "learning_goal": "C12 (root).", "visual_metaphor": "Un arbitre par terrain.", "technical_visual": "Tout s'assombrit sauf un câble ; badge DP côté SW1 ; puis le câble suivant.",
+      "camera": "Suivi du câble éclairé.", "animation": [
+        { "anchor": "câble", "at": 0, "action": "assombrissement, spotlight câble" },
+        { "anchor": "trois", "at": 0, "action": "segment SW1–SW3" },
+        { "anchor": "désignés", "at": 0, "action": "DP côté SW1" },
+        { "anchor": "chose", "at": 0, "action": "segment SW1–SW2, DP côté SW1" } ],
+      "transition": "continu", "on_screen_text": ["DP"], "sound_effect": "spotlight clunk", "asset_requirements": [] },
+    { "scene_id": "S07.2", "section": "DESIGNATED", "start_sentence": "Dernier câble", "spoken_text": "Dernier câble, entre le deux et le trois. Qui est le plus proche du root ? Le switch trois, à quatre. Le switch deux est à huit. Le port du switch trois devient désigné. En cas d'égalité ? On départage au Bridge ID. Le plus petit, toujours.",
+      "learning_goal": "C12 (comparaison).", "visual_metaphor": "Tir à la corde.", "technical_visual": "Segment SW2–SW3 ; badges 8 vs 4 ; le 4 gagne → DP côté SW3.",
+      "camera": "Punch-in segment.", "animation": [
+        { "anchor": "quatre", "at": 0, "action": "badge 4 côté SW3" },
+        { "anchor": "huit", "at": 0, "action": "badge 8 côté SW2" },
+        { "anchor": "désigné", "at": 0, "action": "DP côté SW3, slam « DP »" } ],
+      "transition": "bumper 04 LE BLOCAGE", "on_screen_text": ["4 < 8", "DP"], "sound_effect": "tick bleu", "asset_requirements": [] },
+
+    { "scene_id": "S08.1", "section": "BLOCAGE", "start_sentence": "Étape quatre.", "spoken_text": "Étape quatre. Il reste un port qui n'est ni root, ni désigné : celui du switch deux, sur le lien lent. Ce port-là, S-T-P le bloque. Le câble existe toujours. S-T-P a simplement retiré ce chemin de la topologie active.",
+      "learning_goal": "C13.", "visual_metaphor": "Barrière de péage.", "technical_visual": "Port SW2 Fa0/1 sans badge clignote ; barrière rouge rayée tombe (impact) ; câble reste en pointillés ; badge ALT.",
+      "camera": "Push-in sur la barrière.", "animation": [
+        { "anchor": "reste", "at": 0, "action": "port orphelin clignote" },
+        { "anchor": "bloque", "at": 0, "action": "barrière tombe, secousse, slam BLOQUÉ" },
+        { "anchor": "toujours", "at": 0, "action": "câble en pointillés mis en évidence" } ],
+      "transition": "continu", "on_screen_text": ["ALT", "BLOQUÉ"], "sound_effect": "impact métallique", "asset_requirements": [] },
+    { "scene_id": "S08.2", "section": "BLOCAGE", "start_sentence": "Un port bloqué", "spoken_text": "Un port bloqué ne transmet aucune trame de données… mais il écoute toujours les B-P-D-U. Il reste en veille. Relançons le même broadcast. Chaque PC le reçoit… une seule fois. Et il s'arrête. La boucle a disparu. L'arbre est formé.",
+      "learning_goal": "C13 + preuve.", "visual_metaphor": "Arbre qui pousse.", "technical_visual": "BPDU violettes lues par la barrière ; replay broadcast : 1 copie par PC, puis silence ; compteur figé à 4 ; l'arbre (liens actifs) se dessine en vert.",
+      "camera": "Dézoom.", "animation": [
+        { "anchor": "écoute", "at": 0, "action": "BPDU lues" },
+        { "anchor": "Relançons", "at": 0, "action": "replay broadcast" },
+        { "anchor": "fois", "at": 0, "action": "compteur figé" },
+        { "anchor": "arbre", "at": 0, "action": "arbre vert" } ],
+      "transition": "bumper 05 LA PANNE", "on_screen_text": ["1 fois par PC"], "sound_effect": "résolution harmonique", "asset_requirements": [] },
+
+    { "scene_id": "S09.1", "section": "PANNE", "start_sentence": "Et maintenant, le vrai test.", "spoken_text": "Et maintenant, le vrai test. Le lien entre le switch deux et le switch trois casse. Le switch deux perd son Root Port. Il est coupé du root ? Non. Le port bloqué se réveille. Il devient le nouveau Root Port, et le trafic repasse.",
+      "learning_goal": "Failover.", "visual_metaphor": "Roue de secours.", "technical_visual": "Lien SW2–SW3 casse (étincelles, rouge) ; SW2 perd RP ; barrière se lève ; lien lent vert + RP ; trafic repasse.",
+      "camera": "Secousse forte à la casse.", "animation": [
+        { "anchor": "casse", "at": 0, "action": "casse, étincelles, secousse" },
+        { "anchor": "coupé", "at": 0, "action": "« ? » sur SW2" },
+        { "anchor": "Non", "at": 0, "action": "barrière se lève" },
+        { "anchor": "repasse", "at": 0, "action": "trafic vert sur le lien lent" } ],
+      "transition": "continu", "on_screen_text": ["RP"], "sound_effect": "câble qui claque + électricité", "asset_requirements": ["failover.jpg (bumper)"] },
+    { "scene_id": "S09.2", "section": "PANNE", "start_sentence": "Avec le S-T-P d'origine", "spoken_text": "Avec le S-T-P d'origine, cette bascule peut prendre jusqu'à cinquante secondes. Avec sa version rapide, le R-S-T-P, ce port était déjà prévu comme remplaçant : on l'appelle le port Alternate. La bascule est quasi instantanée. Voilà l'idée clé : la redondance, c'est bien. Une boucle active, c'est la catastrophe. S-T-P te donne l'une… sans l'autre.",
+      "learning_goal": "C14 + C15 + message clé.", "visual_metaphor": "Chronos.", "technical_visual": "Deux chronos : 802.1D ~50 s (qui défile) vs RSTP ~1 s ; badge ALT ; slam « REDONDANCE ≠ BOUCLE ».",
+      "camera": "Split chronos, puis slam plein écran.", "animation": [
+        { "anchor": "cinquante", "at": 0, "action": "chrono 802.1D" },
+        { "anchor": "Alternate", "at": 0, "action": "badge ALT" },
+        { "anchor": "instantanée", "at": 0, "action": "chrono RSTP ~1 s, slam RSTP" },
+        { "anchor": "catastrophe", "at": 0, "action": "slam REDONDANCE ≠ BOUCLE" } ],
+      "transition": "bumper 06 ETHERCHANNEL", "on_screen_text": ["802.1D ≈ 30–50 s", "RSTP ≈ 1 s", "REDONDANCE ≠ BOUCLE ACTIVE"], "sound_effect": "tic-tac rapide / ding", "asset_requirements": [] },
+
+    { "scene_id": "S10.1", "section": "ETHERCHANNEL", "start_sentence": "Dernier cas.", "spoken_text": "Dernier cas. Tu veux plus de bande passante entre deux switches : tu branches quatre câbles. Pour S-T-P, quatre câbles parallèles… ce sont des boucles. Il en bloque trois. Tu as payé quatre liens, tu en utilises un.",
+      "learning_goal": "C16 problème.", "visual_metaphor": "3 voies fermées.", "technical_visual": "SW1 et SW2, 4 câbles ; 3 barrières tombent en rafale ; compteur « 1 / 4 ».",
+      "camera": "Plan large → punch-ins sur chaque barrière.", "animation": [
+        { "anchor": "quatre", "at": 0, "action": "4 câbles" },
+        { "anchor": "trois", "at": 0, "action": "3 barrières en rafale" },
+        { "anchor": "un", "at": 0, "action": "compteur 1/4" } ],
+      "transition": "continu", "on_screen_text": ["1 / 4"], "sound_effect": "3 impacts", "asset_requirements": [] },
+    { "scene_id": "S10.2", "section": "ETHERCHANNEL", "start_sentence": "La solution", "spoken_text": "La solution : l'EtherChannel. On regroupe les quatre liens en un seul lien logique : un Port-Channel. Comme les quatre voies d'une autoroute : une seule route… mais le trafic se répartit sur toutes les voies. S-T-P ne voit plus qu'un seul lien. Plus rien à bloquer. Les quatre câbles travaillent.",
+      "learning_goal": "C16 solution.", "visual_metaphor": "Autoroute 4 voies (highway.jpg).", "technical_visual": "Câbles qui fusionnent dans une gaine « Port-channel 1 » ; barrières disparaissent ; insert autoroute ; flux de couleurs différentes sur câbles différents ; CLI `channel-group 1 mode active`.",
+      "camera": "Push-in sur la gaine.", "animation": [
+        { "anchor": "EtherChannel", "at": 0, "action": "slam PORT-CHANNEL, fusion" },
+        { "anchor": "autoroute", "at": 0, "action": "insert highway.jpg" },
+        { "anchor": "seul", "at": 0, "action": "badge unique STP" },
+        { "anchor": "travaillent", "at": 0, "action": "4 flux" } ],
+      "transition": "bumper 07 À TOI DE JOUER", "on_screen_text": ["Port-channel 1", "4 / 4"], "sound_effect": "whoosh de fusion + riser", "asset_requirements": ["highway.jpg"] },
+
+    { "scene_id": "S11.1", "section": "QUIZ", "start_sentence": "À toi de jouer.", "spoken_text": "À toi de jouer. Trois switches, tous reliés à un gigabit. Voici leurs Bridge ID. Question un : qui est le Root Bridge ? Le switch B. Sa priorité est plus basse : vingt-huit mille six cent soixante-treize. Sa MAC n'a même pas besoin d'être comparée.",
+      "learning_goal": "Obj. 2.", "visual_metaphor": "Jeu télévisé.", "technical_visual": "Triangle SW-A/B/C, cartes BID ; chrono circulaire ; couronne sur SW-B.",
+      "camera": "Fixe pendant la réflexion.", "animation": [
+        { "anchor": "Root", "at": 0.3, "action": "chrono de réflexion" },
+        { "anchor": "B", "at": 0, "action": "couronne sur SW-B" } ],
+      "transition": "continu", "on_screen_text": ["Q1 · ROOT ?"], "sound_effect": "tic-tac, ding", "asset_requirements": [] },
+    { "scene_id": "S11.2", "section": "QUIZ", "start_sentence": "Question deux", "spoken_text": "Question deux : quel est le Root Port du switch A ? Son port direct vers B : coût quatre, contre huit par le détour.",
+      "learning_goal": "Obj. 3.", "visual_metaphor": "—", "technical_visual": "Deux chemins depuis SW-A : 4 / 8 ; direct vert ; badge RP.",
+      "camera": "Punch-in SW-A.", "animation": [
+        { "anchor": "A", "at": 0.3, "action": "chrono" },
+        { "anchor": "direct", "at": 0, "action": "chemin vert, RP" } ],
+      "transition": "continu", "on_screen_text": ["Q2 · ROOT PORT de A ?"], "sound_effect": "tic-tac, ding", "asset_requirements": [] },
+    { "scene_id": "S11.3", "section": "QUIZ", "start_sentence": "Question trois", "spoken_text": "Question trois : quel port est bloqué ? Regarde le câble entre A et C. Les deux sont à quatre du root : égalité. On départage au Bridge ID : même priorité, mais la MAC de C est plus petite. Le port de C est désigné… et celui de A est bloqué.",
+      "learning_goal": "Obj. 4 + 5 (départage BID).", "visual_metaphor": "—", "technical_visual": "Segment A–C : 4 = 4 ; cartes BID côte à côte, MAC 000C < 00AA ; DP côté C, barrière côté A.",
+      "camera": "Punch-in segment A–C.", "animation": [
+        { "anchor": "bloqué", "at": 0.3, "action": "chrono" },
+        { "anchor": "égalité", "at": 0, "action": "4 = 4" },
+        { "anchor": "petite", "at": 0, "action": "comparaison MAC" },
+        { "anchor": "désigné", "at": 0, "action": "DP côté C" } ],
+      "transition": "zoom arrière récap", "on_screen_text": ["Q3 · PORT BLOQUÉ ?"], "sound_effect": "tic-tac, impact barrière", "asset_requirements": [] },
+
+    { "scene_id": "S12.1", "section": "RÉCAP", "start_sentence": "Récapitulons.", "spoken_text": "Récapitulons. Une boucle, c'est une tempête de broadcasts et une table MAC qui devient folle. S-T-P élit un Root Bridge : le plus petit Bridge ID. Chaque switch garde un Root Port : le coût le plus bas. Chaque câble, un port désigné. Tout le reste est bloqué… mais prêt à servir. Et l'EtherChannel fait de plusieurs câbles un seul lien.",
+      "learning_goal": "Final mental model.", "visual_metaphor": "Vignettes.", "technical_visual": "6 vignettes : tempête · couronne · chemin vert · DP · barrière · Port-channel.",
+      "camera": "Grille qui se remplit.", "animation": [
+        { "anchor": "tempête", "at": 0, "action": "v1" }, { "anchor": "Root", "at": 0, "action": "v2" }, { "anchor": "bas", "at": 0, "action": "v3" },
+        { "anchor": "désigné", "at": 0, "action": "v4" }, { "anchor": "bloqué", "at": 0, "action": "v5" }, { "anchor": "EtherChannel", "at": 0, "action": "v6" } ],
+      "transition": "continu", "on_screen_text": [], "sound_effect": "ticks", "asset_requirements": [] },
+    { "scene_id": "S12.2", "section": "TEASER", "start_sentence": "Prochain épisode", "spoken_text": "Prochain épisode : on quitte le switch… pour entrer dans le routeur.",
+      "learning_goal": "Ouvrir l'ép. 3.", "visual_metaphor": "Porte.", "technical_visual": "Triangle s'éloigne, routeur lumineux au loin, carte « Épisode 3 — Le routage ».",
+      "camera": "Dézoom rapide + push vers le routeur.", "animation": [ { "anchor": "routeur", "at": 0, "action": "carte épisode 3" } ],
+      "transition": "fin", "on_screen_text": ["Épisode 3 — Le routage"], "sound_effect": "impact final", "asset_requirements": [] }
+  ],
+  "styleframes": [
+    { "id": "SF01", "scene": "S01.2/S01.3", "file": "08-source/styleframes/sf01-storm.html", "note": "OBLIGATOIRE — la tempête (triangle, nuée de trames, compteur, voile rouge, secousse figée)" },
+    { "id": "SF02", "scene": "S05.3", "file": "08-source/styleframes/sf02-root-election.html", "note": "tournoi : round 2 MAC, couronne IA sur SW1" },
+    { "id": "SF03", "scene": "S08.1", "file": "08-source/styleframes/sf03-blocking.html", "note": "rôles RP/DP/ALT, barrière rouge, câble toujours visible" }
+  ]
+}

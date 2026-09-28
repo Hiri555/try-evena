@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SF02 · Root election</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<!-- SF02 · S05.3 · instant : « Le switch un reçoit la couronne. » -->
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="subtitle">Le switch un reçoit la <em>couronne</em>. C'est lui, le Root Bridge.</div>
+</div>
+<script type="module">
+import * as K from '/engine/components.js';
+const { C } = K;
+const GOLD = '#F5B83D';
+document.documentElement.style.setProperty('--subtitle-accent', GOLD);
+const AI = '/COURSE_02_STP/06-assets/ai';
+
+let svg = K.defs();
+svg += `<defs>
+  <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFD7FF" stop-opacity="0.34"/><stop offset="1" stop-color="#BFD7FF" stop-opacity="0"/></linearGradient>
+  <linearGradient id="beamGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${GOLD}" stop-opacity="0.5"/><stop offset="1" stop-color="${GOLD}" stop-opacity="0"/></linearGradient>
+  <radialGradient id="crownFade" cx="0.5" cy="0.5" r="0.5"><stop offset="0.45" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+  <mask id="crownMask"><rect x="760" y="0" width="400" height="260" fill="url(#crownFade)"/></mask>
+  <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="${GOLD}" stop-opacity="0.45"/><stop offset="1" stop-color="${GOLD}" stop-opacity="0"/></radialGradient>
+</defs>`;
+// faint slam behind everything
+svg += `<text x="960" y="560" text-anchor="middle" font-family="${C.ui}" font-weight="800" font-size="150" letter-spacing="8" fill="none" stroke="${GOLD}" stroke-opacity="0.13" stroke-width="3">LE PLUS PETIT GAGNE</text>`;
+// spotlights
+[[480, 'beam'], [960, 'beamGold'], [1440, 'beam']].forEach(([x, id]) => { svg += `<path d="M${x - 40} 0 L${x + 40} 0 L${x + 230} 720 L${x - 230} 720 Z" fill="url(#${id})"/>`; });
+// banner
+svg += K.g(K.pill(960, 46, 'ROUND 1 · PRIORITÉ → ÉGALITÉ', { color: C.muted, size: 18 }), { opacity: 0.8 });
+svg += K.pill(960, 100, 'ROUND 2 · ADRESSE MAC', { color: C.control, size: 30, filled: true });
+
+const cand = [
+  { x: 480, name: 'SW2', mac: ['0200.0000.', '0002'], win: false },
+  { x: 960, name: 'SW1', mac: ['0200.0000.', '0001'], win: true },
+  { x: 1440, name: 'SW3', mac: ['0200.0000.', '0003'], win: false },
+];
+cand.forEach((c) => {
+  svg += K.podium(c.x, 650, 300, 120, c.win ? GOLD : C.traffic);
+  const sw = K.switchDevice({ x: c.x - 125, y: 470, w: 250, h: 140, label: c.name, highlight: c.win ? GOLD : undefined });
+  svg += sw.svg;
+  // Bridge ID card
+  const cx = c.x - 190, cy = 800;
+  svg += `<g filter="url(#shadow)"><rect x="${cx}" y="${cy}" width="380" height="118" rx="16" fill="#0C1427" stroke="${c.win ? GOLD : C.deviceEdge}" stroke-width="${c.win ? 3 : 2}"/></g>`;
+  svg += K.text(cx + 20, cy + 30, 'BRIDGE ID', { size: 14, weight: 800, fill: C.muted, anchor: 'start', ls: 3 });
+  svg += K.text(cx + 20, cy + 64, 'PRIORITÉ', { size: 14, weight: 700, fill: C.muted, anchor: 'start' });
+  svg += K.text(cx + 360, cy + 64, '32769', { size: 22, weight: 700, font: C.mono, fill: C.muted, anchor: 'end', opacity: 0.6 });
+  svg += `<path d="M${cx + 250} ${cy + 57} H${cx + 290}" stroke="${C.muted}" stroke-width="2" opacity="0.5"/>`;
+  svg += K.text(cx + 20, cy + 100, 'MAC', { size: 14, weight: 700, fill: C.muted, anchor: 'start' });
+  svg += `<text x="${cx + 360}" y="${cy + 101}" text-anchor="end" font-family="${C.mono}" font-weight="700" font-size="26"><tspan fill="${C.text}">${c.mac[0]}</tspan><tspan fill="${c.win ? C.forward : C.error}">${c.mac[1]}</tspan></text>`;
+});
+// comparison chevrons between the cards
+svg += K.text(720, 905, '>', { size: 60, weight: 800, fill: C.control });
+svg += K.text(1200, 905, '<', { size: 60, weight: 800, fill: C.control });
+// BPDU envelopes in flight
+[[640, 420], [1290, 400], [800, 330]].forEach(([x, y], i) => {
+  svg += K.frame({ x, y, s: 0.42, compact: true, color: C.control }).svg + K.text(x, y + 42, 'BPDU', { size: 14, weight: 800, fill: C.control, ls: 2 });
+});
+// crown + halo
+svg += `<ellipse cx="960" cy="330" rx="260" ry="200" fill="url(#halo)"/>`;
+svg += `<image href="${AI}/crown.jpg" x="760" y="0" width="400" height="260" preserveAspectRatio="xMidYMid slice" mask="url(#crownMask)" transform="translate(0 150)"/>`;
+for (let i = 0; i < 9; i++) { const a = (-170 + i * 20) * Math.PI / 180; svg += `<path d="M${960 + Math.cos(a) * 150} ${300 + Math.sin(a) * 90} L${960 + Math.cos(a) * 200} ${300 + Math.sin(a) * 120}" stroke="${GOLD}" stroke-width="3" opacity="0.5" stroke-linecap="round"/>`; }
+svg += K.pill(960, 442, '👑 ROOT BRIDGE', { color: GOLD, size: 22, filled: true });
+
+document.getElementById('s').innerHTML = svg;
+await document.fonts.ready;
+await new Promise((r) => { const im = new Image(); im.onload = im.onerror = r; im.src = `${AI}/crown.jpg`; });
+window.__ready = true;
+</script>
+</body>
+</html>

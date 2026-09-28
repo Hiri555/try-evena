@@ -17,7 +17,7 @@ const EQUIV = {
   dix: '10', vingt: '20', trente: '30', cinquante: '50', 'quarante-huit': '48',
   'a-a': 'aa', 'b-b': 'bb', 'c-c': 'cc', 'd-d': 'dd', bébé: 'bb', switches: 'switchs', vlans: 'vlan',
 };
-export const norm = (t) => (t.replace(/<[^>]+>/g, ' ').toLowerCase().normalize('NFC').match(/[\p{L}\p{N}'-]+/gu) || [])
+export const norm = (t) => (t.replace(/<[^>]+>|\[[^\]]+\]/g, ' ').toLowerCase().normalize('NFC').match(/[\p{L}\p{N}'-]+/gu) || [])
   .map((w) => EQUIV[w] || w);
 
 // Word-level LCS diff.

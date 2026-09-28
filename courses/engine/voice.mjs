@@ -17,12 +17,15 @@ const outDir = path.join(dir, '07-audio');
 const alignDir = path.join(outDir, 'alignment');
 fs.mkdirSync(alignDir, { recursive: true });
 
-export const VOICE = {
+export const VOICE_DEFAULT = {
   voice_id: '5OnMHwgTFgvPVwE8jP6B', // « Anaïs - Instructor » — française, posée, pédagogue
   model_id: 'eleven_multilingual_v2',
   voice_settings: { stability: 0.42, similarity_boost: 0.8, style: 0.35, use_speaker_boost: true, speed: 1.0 },
 };
 const PAUSE = '<break time="1.2s" />';
+// a course can override the voice/model (e.g. eleven_v3) in 08-source/voice.json
+const overridePath = path.join(dir, '08-source/voice.json');
+export const VOICE = fs.existsSync(overridePath) ? { ...VOICE_DEFAULT, ...JSON.parse(fs.readFileSync(overridePath, 'utf8')) } : VOICE_DEFAULT;
 
 export function parseScript(md) {
   const sections = [];
@@ -49,8 +52,9 @@ export function wordsFromAlignment(al) {
   const words = [];
   let w = null, inTag = false;
   al.characters.forEach((ch, i) => {
-    if (ch === '<') inTag = true;
-    if (inTag) { if (ch === '>') inTag = false; return; }
+    // SSML tags <…> and ElevenLabs v3 audio tags […] are not spoken words
+    if (ch === '<' || ch === '[') inTag = ch;
+    if (inTag) { if ((inTag === '<' && ch === '>') || (inTag === '[' && ch === ']')) inTag = false; return; }
     if (/\s/.test(ch)) { if (w) { words.push(w); w = null; } return; }
     if (!w) w = { word: '', start: al.character_start_times_seconds[i], end: 0 };
     w.word += ch;
@@ -67,7 +71,7 @@ async function tts(text) {
   const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE.voice_id}/with-timestamps?output_format=mp3_44100_128`, {
     method: 'POST',
     headers: { 'xi-api-key': key, 'content-type': 'application/json' },
-    body: JSON.stringify({ text, model_id: VOICE.model_id, voice_settings: VOICE.voice_settings }),
+    body: JSON.stringify({ text, model_id: VOICE.model_id, voice_settings: VOICE.voice_settings, ...(VOICE.language_code ? { language_code: VOICE.language_code } : {}) }),
   });
   if (!res.ok) throw new Error(`ElevenLabs ${res.status}: ${(await res.text()).slice(0, 300)}`);
   return res.json();

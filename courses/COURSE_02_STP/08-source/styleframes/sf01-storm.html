@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SF01 · Broadcast storm</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<!-- SF01 · S01.3 · instant : « Une seule trame vient de déclencher ça. » (freeze sur la tempête) -->
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="subtitle">Une seule trame vient de déclencher <em>ça</em>.</div>
+</div>
+<script type="module">
+import * as K from '/engine/components.js';
+const { C } = K;
+document.documentElement.style.setProperty('--subtitle-accent', C.broadcast);
+const AI = '/COURSE_02_STP/06-assets/ai';
+
+// triangle
+const sw1 = K.switchDevice({ x: 845, y: 190, w: 230, h: 140, label: 'SW1', ports: { bottom: [{ name: 'a', led: 'yellow', showName: false }, { name: 'b', led: 'yellow', showName: false }] } });
+const sw2 = K.switchDevice({ x: 420, y: 640, w: 230, h: 140, label: 'SW2', ports: { top: [{ name: 'a', led: 'yellow', showName: false }], right: [{ name: 'b', led: 'yellow', showName: false }], left: [{ name: 'h1', led: 'yellow', showName: false }, { name: 'h2', led: 'yellow', showName: false }] } });
+const sw3 = K.switchDevice({ x: 1270, y: 640, w: 230, h: 140, label: 'SW3', ports: { top: [{ name: 'a', led: 'yellow', showName: false }], left: [{ name: 'b', led: 'yellow', showName: false }], right: [{ name: 'h1', led: 'yellow', showName: false }, { name: 'h2', led: 'yellow', showName: false }] } });
+const pcs = [
+  K.pc({ x: 190, y: 560, label: 'PC-A', side: 'right', state: 'bcast', scale: 0.85 }),
+  K.pc({ x: 190, y: 820, label: 'PC-B', side: 'right', state: 'bcast', scale: 0.85 }),
+  K.pc({ x: 1730, y: 560, label: 'PC-C', side: 'left', state: 'bcast', scale: 0.85 }),
+  K.pc({ x: 1730, y: 820, label: 'PC-D', side: 'left', state: 'bcast', scale: 0.85 }),
+];
+const c1 = { x: 960, y: 260 }, c2 = { x: 535, y: 710 }, c3 = { x: 1385, y: 710 };
+
+let svg = K.defs();
+svg += `<defs>
+  <radialGradient id="alarm" cx="0.5" cy="0.55" r="0.75"><stop offset="0.35" stop-color="#F43F5E" stop-opacity="0"/><stop offset="1" stop-color="#F43F5E" stop-opacity="0.55"/></radialGradient>
+  <radialGradient id="storm" cx="0.5" cy="0.55" r="0.6"><stop offset="0" stop-color="#FACC15" stop-opacity="0.22"/><stop offset="1" stop-color="#FACC15" stop-opacity="0"/></radialGradient>
+</defs>`;
+svg += `<image href="${AI}/storm.jpg" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" opacity="0.22"/>`;
+svg += `<rect width="1920" height="1080" fill="url(#storm)"/>`;
+// the whole scene is caught mid-shake
+svg += `<g transform="translate(960 540) rotate(-0.6) scale(1.04) translate(-958 -536)">`;
+svg += K.cable(sw1.port('a'), sw2.port('a'), { color: C.broadcast, width: 7, glow: true });
+svg += K.cable(sw1.port('b'), sw3.port('a'), { color: C.broadcast, width: 7, glow: true });
+svg += K.cable(sw2.port('b'), sw3.port('b'), { color: C.broadcast, width: 7, glow: true });
+svg += K.cable(pcs[0].anchor, sw2.port('h1'), { color: C.broadcast, width: 4, opacity: 0.7 });
+svg += K.cable(pcs[1].anchor, sw2.port('h2'), { color: C.broadcast, width: 4, opacity: 0.7 });
+svg += K.cable(sw3.port('h1'), pcs[2].anchor, { color: C.broadcast, width: 4, opacity: 0.7 });
+svg += K.cable(sw3.port('h2'), pcs[3].anchor, { color: C.broadcast, width: 4, opacity: 0.7 });
+// loop direction arrows
+svg += `<path d="M 700 470 A 330 250 0 0 1 1220 470" fill="none" stroke="${C.broadcast}" stroke-width="5" stroke-dasharray="18 14" opacity="0.5" marker-end="url(#ah)"/>`;
+svg += `<defs><marker id="ah" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="${C.broadcast}"/></marker></defs>`;
+svg += sw1.svg + sw2.svg + sw3.svg + pcs.map((p) => p.svg).join('');
+// the storm: copies orbiting the loop + spilling onto the host links
+svg += K.swarm([c1, c2, c3], 230, { t: 0.3, spread: 70, seed: 3 });
+svg += K.swarm([pcs[0].anchor, c2, pcs[1].anchor], 40, { t: 0.5, spread: 40, seed: 11, sizeMax: 0.32 });
+svg += K.swarm([pcs[2].anchor, c3, pcs[3].anchor], 40, { t: 0.2, spread: 40, seed: 17, sizeMax: 0.32 });
+// device labels stay readable above the storm
+[[960, 262, 'SW1'], [535, 712, 'SW2'], [1385, 712, 'SW3']].forEach(([x, y, l]) => { svg += K.pill(x, y, l, { color: '#FFFFFF', bg: '#0B1222', size: 26, filled: false }); });
+svg += `</g>`;
+svg += `<rect width="1920" height="1080" fill="url(#alarm)"/>`;
+// HUD: counter + gauges + time warp
+svg += `<g filter="url(#shadow)"><rect x="1430" y="46" width="440" height="176" rx="20" fill="#0C0A12" fill-opacity="0.9" stroke="${C.error}" stroke-width="2"/></g>`;
+svg += K.text(1650, 146, '48 213', { size: 92, weight: 800, font: C.mono, fill: C.broadcast });
+svg += K.text(1650, 190, 'COPIES TRANSMISES', { size: 18, weight: 800, fill: C.muted, ls: 4 });
+svg += K.pill(1650, 46, '⏱ 1 SECONDE · ×1000', { color: C.error, size: 16, filled: true });
+svg += `<g filter="url(#shadow)"><rect x="50" y="46" width="470" height="150" rx="20" fill="#0C0A12" fill-opacity="0.9" stroke="${C.error}" stroke-width="2"/></g>`;
+svg += K.gauge(76, 96, 'LIENS', 100);
+svg += K.gauge(76, 162, 'CPU SWITCHES', 100);
+
+document.getElementById('s').innerHTML = svg;
+await document.fonts.ready;
+await new Promise((r) => { const im = new Image(); im.onload = im.onerror = r; im.src = `${AI}/storm.jpg`; });
+window.__ready = true;
+</script>
+</body>
+</html>
