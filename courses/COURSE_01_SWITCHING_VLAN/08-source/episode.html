@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Épisode 1 · Switching & VLAN</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+</div>
+<script type="module">
+import { makeRenderer } from '/engine/runtime.js';
+import { shots } from './episode.js';
+const T = await (await fetch('../05-timeline.json')).json();
+const render = makeRenderer(T, shots);
+const svg = document.getElementById('s');
+window.__duration = T.duration;
+window.renderFrame = (t) => { svg.innerHTML = render(t); };
+// ?t=12.5 for a manual preview
+const q = new URLSearchParams(location.search).get('t');
+window.renderFrame(q ? +q : 0);
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body>
+</html>

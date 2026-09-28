@@ -1,0 +1,734 @@
+1
+00:00:00,300 --> 00:00:02,960
+PC-A envoie un message à PC-B.
+
+2
+00:00:03,015 --> 00:00:05,105
+Et le switch… fait ça.
+
+3
+00:00:06,297 --> 00:00:09,473
+Pourquoi ce switch vient-il d'envoyer
+la même trame presque partout ?
+
+4
+00:00:09,513 --> 00:00:12,347
+Et comment va-t-il apprendre à ne
+plus le faire la prochaine fois ?
+
+5
+00:00:13,053 --> 00:00:15,562
+Un switch, c'est une boîte avec des ports.
+
+6
+00:00:15,687 --> 00:00:17,383
+Des portes, si tu veux.
+
+7
+00:00:17,438 --> 00:00:19,627
+À chaque message qui
+arrive, il doit choisir :
+
+8
+00:00:19,667 --> 00:00:21,159
+par quelle porte je le fais sortir ?
+
+9
+00:00:21,199 --> 00:00:23,178
+Pour choisir, il n'a qu'un outil.
+
+10
+00:00:23,218 --> 00:00:24,128
+Une table.
+
+11
+00:00:24,168 --> 00:00:26,176
+Et au départ… elle est vide.
+
+12
+00:00:26,550 --> 00:00:29,906
+Alors voyons ce qu'il lit
+exactement dans chaque message.
+
+13
+00:00:30,356 --> 00:00:33,402
+Sur un réseau Ethernet, un
+message voyage dans une trame.
+
+14
+00:00:33,442 --> 00:00:35,035
+Imagine une enveloppe.
+
+15
+00:00:35,112 --> 00:00:36,708
+Dessus, deux adresses.
+
+16
+00:00:36,748 --> 00:00:38,076
+Dedans, le contenu.
+
+17
+00:00:38,116 --> 00:00:41,229
+D'abord, l'adresse destination :
+à qui c'est adressé.
+
+18
+00:00:41,283 --> 00:00:43,804
+Ensuite, l'adresse source : qui l'envoie.
+
+19
+00:00:43,859 --> 00:00:44,917
+Puis les données.
+
+20
+00:00:45,145 --> 00:00:47,141
+Le switch ne les lit pas.
+
+21
+00:00:47,181 --> 00:00:50,181
+Ces adresses s'appellent des adresses MAC.
+
+22
+00:00:50,221 --> 00:00:53,093
+Chaque carte réseau a
+la sienne, sur 48 bits.
+
+23
+00:00:53,133 --> 00:00:55,972
+Pour rester lisibles, on
+va les abréger : AA:AA,
+
+24
+00:00:56,012 --> 00:00:57,012
+BB:BB.
+
+25
+00:00:57,567 --> 00:01:00,520
+Dans le vrai réseau, ces champs
+sont dans l'en-tête Ethernet.
+
+26
+00:01:00,560 --> 00:01:02,698
+Et c'est tout ce dont le switch a besoin.
+
+27
+00:01:03,149 --> 00:01:04,358
+Simplifions.
+
+28
+00:01:04,482 --> 00:01:05,680
+5 ports.
+
+29
+00:01:05,758 --> 00:01:07,887
+PC-A est sur le port 1.
+
+30
+00:01:07,927 --> 00:01:09,902
+PC-B sur le port 2.
+
+31
+00:01:10,049 --> 00:01:12,663
+PC-A envoie une trame à PC-B.
+
+32
+00:01:12,846 --> 00:01:14,313
+Elle entre par le port 1.
+
+33
+00:01:14,353 --> 00:01:17,466
+Premier réflexe du switch :
+il regarde l'adresse source.
+
+34
+00:01:17,544 --> 00:01:20,495
+Et il note : « AA:AA se
+trouve derrière le port 1 ».
+
+35
+00:01:20,881 --> 00:01:22,337
+C'est ça, l'apprentissage.
+
+36
+00:01:22,377 --> 00:01:25,679
+Le switch apprend où sont les
+machines en observant qui parle.
+
+37
+00:01:25,719 --> 00:01:26,885
+Question piège.
+
+38
+00:01:26,925 --> 00:01:29,028
+Est-ce qu'il apprend
+aussi la destination ?
+
+39
+00:01:30,636 --> 00:01:31,256
+Non.
+
+40
+00:01:31,296 --> 00:01:32,296
+Jamais.
+
+41
+00:01:32,432 --> 00:01:34,840
+La destination dit où la trame veut aller.
+
+42
+00:01:34,880 --> 00:01:36,626
+Pas où se trouve BB:BB.
+
+43
+00:01:36,666 --> 00:01:38,412
+Le switch apprend avec la source.
+
+44
+00:01:38,452 --> 00:01:40,532
+Il décide avec la destination.
+
+45
+00:01:40,981 --> 00:01:42,611
+Maintenant, décider.
+
+46
+00:01:42,651 --> 00:01:45,047
+Le switch cherche BB:BB dans sa table.
+
+47
+00:01:45,087 --> 00:01:45,742
+Rien.
+
+48
+00:01:45,782 --> 00:01:47,363
+Destination inconnue.
+
+49
+00:01:48,091 --> 00:01:51,325
+Alors il fait la seule chose raisonnable :
+il envoie une copie sur tous les
+
+50
+00:01:51,365 --> 00:01:52,412
+autres ports.
+
+51
+00:01:52,490 --> 00:01:53,899
+Sauf celui d'où elle vient.
+
+52
+00:01:53,939 --> 00:01:55,647
+Ça s'appelle le flooding.
+
+53
+00:01:55,725 --> 00:01:56,923
+L'inondation.
+
+54
+00:01:57,831 --> 00:02:00,886
+C, D et E lisent l'adresse destination.
+
+55
+00:02:00,963 --> 00:02:02,222
+Ce n'est pas la leur.
+
+56
+00:02:02,262 --> 00:02:03,694
+Alors ils jettent la trame.
+
+57
+00:02:03,734 --> 00:02:05,547
+Seul B la garde.
+
+58
+00:02:06,121 --> 00:02:07,692
+Et maintenant, B répond.
+
+59
+00:02:07,732 --> 00:02:09,754
+Sa réponse entre par le port 2.
+
+60
+00:02:09,832 --> 00:02:11,564
+Source : BB:BB.
+
+61
+00:02:11,607 --> 00:02:14,098
+Le switch apprend : « BB:BB, port 2 ».
+
+62
+00:02:14,138 --> 00:02:15,862
+Et la destination, AA:AA ?
+
+63
+00:02:15,902 --> 00:02:17,332
+Il la connaît déjà.
+
+64
+00:02:17,410 --> 00:02:19,908
+Une seule sortie : le port 1.
+
+65
+00:02:20,585 --> 00:02:22,322
+Et la prochaine fois que A parle à B ?
+
+66
+00:02:22,362 --> 00:02:23,640
+Une seule flèche.
+
+67
+00:02:23,718 --> 00:02:25,046
+Le switch a appris.
+
+68
+00:02:25,086 --> 00:02:26,458
+Il n'inonde plus.
+
+69
+00:02:26,908 --> 00:02:29,107
+Parfois, A veut parler à tout le monde.
+
+70
+00:02:29,147 --> 00:02:32,121
+Par exemple pour demander : «
+qui a telle adresse IP ? »
+
+71
+00:02:32,224 --> 00:02:34,691
+Il met alors une adresse
+destination spéciale :
+
+72
+00:02:34,731 --> 00:02:35,792
+que des F.
+
+73
+00:02:35,832 --> 00:02:37,230
+C'est une broadcast.
+
+74
+00:02:37,270 --> 00:02:40,026
+Le switch l'envoie sur tous
+les ports, sauf l'entrée.
+
+75
+00:02:40,066 --> 00:02:41,786
+Et cette fois, tout le monde la lit.
+
+76
+00:02:42,706 --> 00:02:44,823
+Donc, deux inondations différentes.
+
+77
+00:02:44,863 --> 00:02:48,061
+L'une par ignorance : elle disparaît
+dès que le switch a appris.
+
+78
+00:02:48,101 --> 00:02:50,831
+L'autre par nature : elle
+revient à chaque fois.
+
+79
+00:02:51,281 --> 00:02:52,688
+Agrandissons.
+
+80
+00:02:52,742 --> 00:02:54,093
+Un gros switch.
+
+81
+00:02:54,133 --> 00:02:57,633
+Trois équipes : la compta,
+le gaming, le support.
+
+82
+00:02:57,673 --> 00:03:00,379
+Un PC du gaming envoie une broadcast.
+
+83
+00:03:00,562 --> 00:03:02,145
+Et la compta la reçoit.
+
+84
+00:03:02,185 --> 00:03:03,478
+Le support aussi.
+
+85
+00:03:03,518 --> 00:03:04,518
+Tout le monde.
+
+86
+00:03:05,080 --> 00:03:07,427
+Multiplie ça par des
+centaines de machines.
+
+87
+00:03:07,609 --> 00:03:10,493
+Tout ce bruit arrive chez des
+gens qui n'en ont rien à faire.
+
+88
+00:03:10,533 --> 00:03:14,346
+Et si on voulait trois réseaux
+séparés… sans acheter trois switches ?
+
+89
+00:03:14,386 --> 00:03:15,865
+On découpe le switch.
+
+90
+00:03:15,905 --> 00:03:17,010
+Trois VLAN.
+
+91
+00:03:17,087 --> 00:03:19,144
+VLAN 10, 20, 30.
+
+92
+00:03:19,822 --> 00:03:21,440
+Relance la même broadcast.
+
+93
+00:03:21,480 --> 00:03:23,073
+Elle reste dans le violet.
+
+94
+00:03:23,981 --> 00:03:26,249
+Un peu comme trois étages
+d'un même immeuble.
+
+95
+00:03:26,289 --> 00:03:30,111
+Dans le vrai réseau, chaque VLAN
+est un domaine de broadcast séparé :
+
+96
+00:03:30,202 --> 00:03:33,269
+le switch n'inonde jamais
+une trame hors de son VLAN.
+
+97
+00:03:33,718 --> 00:03:36,755
+Mais comment le switch sait-il
+qu'un PC est dans le VLAN 10 ?
+
+98
+00:03:36,795 --> 00:03:38,634
+Ce n'est pas le PC qui le dit.
+
+99
+00:03:38,674 --> 00:03:39,816
+C'est le port.
+
+100
+00:03:39,856 --> 00:03:43,589
+L'administrateur configure
+le port en port d'accès,
+
+101
+00:03:43,629 --> 00:03:44,943
+dans le VLAN 10.
+
+102
+00:03:45,551 --> 00:03:47,889
+Le PC envoie une trame
+tout à fait normale.
+
+103
+00:03:47,929 --> 00:03:49,117
+Aucune étiquette.
+
+104
+00:03:49,157 --> 00:03:51,298
+Il ne sait même pas
+qu'il est dans un VLAN.
+
+105
+00:03:51,338 --> 00:03:53,883
+C'est le switch qui fait le rattachement.
+
+106
+00:03:54,333 --> 00:03:56,126
+Maintenant, deux switches.
+
+107
+00:03:56,166 --> 00:03:59,430
+Des deux côtés, il y a
+du VLAN 10 et du VLAN 20.
+
+108
+00:03:59,507 --> 00:04:01,715
+Pour les relier, faut-il
+un câble par VLAN ?
+
+109
+00:04:01,794 --> 00:04:03,552
+Avec deux VLAN, deux câbles.
+
+110
+00:04:03,592 --> 00:04:06,576
+Avec 50 VLAN… 50 câbles.
+
+111
+00:04:06,653 --> 00:04:08,513
+Et 50 ports gaspillés.
+
+112
+00:04:09,091 --> 00:04:12,868
+La solution : un seul lien,
+qui transporte tous les VLAN.
+
+113
+00:04:12,908 --> 00:04:13,990
+Un trunk.
+
+114
+00:04:14,663 --> 00:04:17,291
+Comme un ascenseur partagé
+par tous les étages.
+
+115
+00:04:17,331 --> 00:04:21,708
+Mais alors… à l'arrivée, comment savoir
+de quel étage vient chaque trame ?
+
+116
+00:04:22,367 --> 00:04:24,475
+Réponse : au moment
+d'entrer dans le trunk,
+
+117
+00:04:24,515 --> 00:04:26,853
+le switch ajoute une
+information à la trame.
+
+118
+00:04:26,893 --> 00:04:27,780
+Un tag.
+
+119
+00:04:27,820 --> 00:04:30,181
+C'est la norme 802.1Q.
+
+120
+00:04:30,221 --> 00:04:32,351
+Attention, ce n'est pas un autocollant.
+
+121
+00:04:32,391 --> 00:04:35,230
+C'est un champ de 4 octets,
+inséré dans l'en-tête Ethernet,
+
+122
+00:04:35,270 --> 00:04:36,934
+juste après l'adresse source.
+
+123
+00:04:36,974 --> 00:04:39,147
+Il contient le numéro de VLAN.
+
+124
+00:04:39,632 --> 00:04:43,244
+De l'autre côté, SW2 lit le tag : VLAN 10.
+
+125
+00:04:43,729 --> 00:04:46,532
+Il envoie la trame
+uniquement vers le VLAN 10.
+
+126
+00:04:46,572 --> 00:04:49,409
+Et avant de la donner
+au PC, il retire le tag.
+
+127
+00:04:49,449 --> 00:04:51,541
+Le PC reçoit une trame normale.
+
+128
+00:04:51,991 --> 00:04:53,830
+Faisons tout le voyage d'un coup.
+
+129
+00:04:53,870 --> 00:04:57,009
+PC-A envoie une trame normale, sans tag.
+
+130
+00:04:57,049 --> 00:05:00,490
+Elle entre dans SW1 par un
+port d'accès du VLAN 10.
+
+131
+00:05:00,530 --> 00:05:03,739
+SW1 apprend AA:AA, dans
+le VLAN 10, port 1.
+
+132
+00:05:03,779 --> 00:05:04,424
+Tu remarques ?
+
+133
+00:05:04,464 --> 00:05:07,186
+La vraie table a une
+colonne de plus : le VLAN.
+
+134
+00:05:07,226 --> 00:05:10,176
+Il cherche BB:BB dans le VLAN 10.
+
+135
+00:05:10,561 --> 00:05:12,342
+Connu, derrière le trunk.
+
+136
+00:05:12,382 --> 00:05:15,556
+Sur le trunk, il ajoute le tag : VLAN 10.
+
+137
+00:05:15,596 --> 00:05:19,174
+SW2 lit le tag, cherche
+BB:BB dans le VLAN 10.
+
+138
+00:05:19,628 --> 00:05:20,503
+Port 2.
+
+139
+00:05:20,543 --> 00:05:23,402
+Il retire le tag, et
+livre la trame à PC-B.
+
+140
+00:05:23,479 --> 00:05:26,851
+Source, destination, VLAN, port, décision.
+
+141
+00:05:26,891 --> 00:05:28,646
+Tout le switching est là.
+
+142
+00:05:29,095 --> 00:05:30,295
+Question 1.
+
+143
+00:05:30,335 --> 00:05:33,893
+Une trame de CC:CC vers
+DD:DD entre par le port 3.
+
+144
+00:05:33,933 --> 00:05:35,629
+Qu'est-ce que le switch apprend ?
+
+145
+00:05:37,438 --> 00:05:39,297
+CC:CC, port 3.
+
+146
+00:05:40,070 --> 00:05:41,535
+Toujours la source.
+
+147
+00:05:41,613 --> 00:05:42,801
+Question 2.
+
+148
+00:05:42,841 --> 00:05:45,307
+Un PC est sur un port d'accès du VLAN 20.
+
+149
+00:05:45,347 --> 00:05:47,067
+Sa trame porte-t-elle un tag ?
+
+150
+00:05:48,910 --> 00:05:49,519
+Non.
+
+151
+00:05:49,559 --> 00:05:51,708
+Sur un port d'accès, pas de tag.
+
+152
+00:05:52,632 --> 00:05:53,833
+Question 3.
+
+153
+00:05:53,873 --> 00:05:57,177
+PC-A dans le VLAN 10,
+PC-B dans le VLAN 20,
+
+154
+00:05:57,217 --> 00:05:58,510
+sur le même switch.
+
+155
+00:05:58,550 --> 00:06:00,351
+Peuvent-ils se parler directement ?
+
+156
+00:06:02,183 --> 00:06:02,803
+Non.
+
+157
+00:06:02,843 --> 00:06:04,426
+Deux VLAN, deux réseaux.
+
+158
+00:06:04,466 --> 00:06:06,804
+Pour passer de l'un à
+l'autre, il faut un routeur.
+
+159
+00:06:06,844 --> 00:06:08,971
+Ce sera pour un prochain épisode.
+
+160
+00:06:09,421 --> 00:06:10,714
+Récapitulons.
+
+161
+00:06:10,754 --> 00:06:12,477
+La source, pour apprendre.
+
+162
+00:06:12,517 --> 00:06:14,623
+La destination, pour décider.
+
+163
+00:06:14,663 --> 00:06:15,540
+Inconnue ?
+
+164
+00:06:15,580 --> 00:06:16,560
+On inonde.
+
+165
+00:06:16,600 --> 00:06:17,396
+Broadcast ?
+
+166
+00:06:17,436 --> 00:06:19,078
+On inonde, toujours.
+
+167
+00:06:19,118 --> 00:06:21,734
+Le VLAN garde chaque
+inondation dans sa couleur.
+
+168
+00:06:21,774 --> 00:06:23,580
+Et le trunk transporte
+toutes les couleurs,
+
+169
+00:06:23,620 --> 00:06:24,748
+grâce au tag.
+
+170
+00:06:26,733 --> 00:06:30,437
+Mais que se passe-t-il si deux
+switches sont reliés… deux fois ?
+
+171
+00:06:31,422 --> 00:06:33,072
+Prochain épisode.

@@ -1,31 +1,36 @@
 # COURSE_01_SWITCHING_VLAN — Épisode 1 : « Comment un switch sait où envoyer tes données ? »
 
-**Statut : ⏸ EN ATTENTE DE VALIDATION** (script + storyboard + 3 styleframes).
-Aucun appel API (ElevenLabs / KIE) n'a été lancé.
+**Statut : ✅ V1 rendue** (6 min 35 s) — en attente de ton visionnage pour la passe de compression 80/20.
 
-| Livrable | État |
+| Livrable | Fichier |
 |---|---|
-| `01-research-notes.md` | ✅ — ⚠️ livre source introuvable, références de section à remapper |
-| `02-learning-map.md` | ✅ |
-| `03-script.md` | ✅ ~1 260 mots, ~8 min, 13 sections audio |
-| `04-storyboard.json` | ✅ 30 scènes, animations accrochées à des mots-ancres |
-| `08-source/styleframes/` | ✅ SF01 hook · SF02 MAC learning · SF03 trunk 802.1Q |
-| `09-contact-sheets/styleframes/*.png` | ✅ rendus 1920×1080 |
-| `05-timeline.json`, `07-audio/`, rendu vidéo | ⏳ après validation |
+| Recherche | `01-research-notes.md` (⚠️ livre source toujours non fourni) |
+| Carte pédagogique | `02-learning-map.md` |
+| Script parlé | `03-script.md` |
+| Storyboard (30 scènes) | `04-storyboard.json` |
+| Timeline (1 021 mots, 143 événements) | `05-timeline.json` |
+| Assets | `06-assets/` — tout est vectoriel/programmatique (`engine/components.js`), aucun asset IA nécessaire |
+| Audio | `07-audio/` — 13 pistes voix + alignements, bibliothèque SFX |
+| Sources d'animation | `08-source/` (`episode.js`, `timing.json`, `sfx.json`, styleframes) |
+| Planches contact | `09-contact-sheets/contact-sheet-block-XX.jpg` (1 image / 2,5 s) + `voice-qa.md` |
+| Vidéo | `10-final.mp4` · `11-final-subtitles.mp4` (non commitées : trop lourdes pour le dépôt, régénérables) |
+| Sous-titres | `12-subtitles.srt` |
+| QA | `13-qa-report.md` |
 
-## Re-rendre les styleframes
+## Tout régénérer
 
 ```bash
 cd courses
-npm install          # polices Inter + JetBrains Mono vendorisées
-npm run styleframes  # → 09-contact-sheets/styleframes/*.png
+npm install
+export ELEVENLABS_API_KEY=…            # uniquement pour la voix et les SFX (déjà en cache dans 07-audio/)
+node engine/voice.mjs --best-of 3     # pistes manquantes seulement (--force pour tout refaire)
+node engine/voice-qa.mjs              # retranscription Scribe vs script → 09-contact-sheets/voice-qa.md
+node engine/timeline.mjs              # voice.wav + 05-timeline.json
+node engine/render.mjs --workers 4    # blocs MP4 + planches contact → renders/video.mp4
+node engine/render.mjs --stills 12.5,80   # aperçus ponctuels
+node engine/sfx.mjs                   # sfx.wav
+node engine/subtitles.mjs             # 12-subtitles.srt + renders/subtitles.ass
+node engine/master.mjs                # 10-final.mp4 + 11-final-subtitles.mp4
 ```
 
-Le moteur (`courses/engine/`) est partagé par toute la série :
-- `tokens.css` : couleurs sémantiques, polices, style des sous-titres
-- `components.js` : bibliothèque SVG (Switch, PC, Router, Cable, Trunk, EthernetFrame, VLANTag, MACTable, pastilles, bulles, encarts…)
-- `render-styleframes.mjs` : serveur statique + Playwright → PNG
-
-## Clés API
-
-Jamais dans le code. Le pipeline lira `ELEVENLABS_API_KEY` et `KIE_API_KEY` depuis l'environnement.
+Aucune clé API dans le code : les scripts lisent `ELEVENLABS_API_KEY` depuis l'environnement.

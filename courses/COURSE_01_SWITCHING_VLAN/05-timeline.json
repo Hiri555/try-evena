@@ -1,0 +1,9443 @@
+{
+ "course": "COURSE_01_SWITCHING_VLAN",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "duration": 395.222,
+ "audio": "07-audio/voice.wav",
+ "sections": [
+  {
+   "id": "S01",
+   "file": "01-hook.mp3",
+   "start": 0.3,
+   "end": 12.253
+  },
+  {
+   "id": "S02",
+   "file": "02-probleme.mp3",
+   "start": 13.053,
+   "end": 29.556
+  },
+  {
+   "id": "S03",
+   "file": "03-trame.mp3",
+   "start": 30.356,
+   "end": 62.349
+  },
+  {
+   "id": "S04",
+   "file": "04-apprentissage.mp3",
+   "start": 63.149,
+   "end": 100.181
+  },
+  {
+   "id": "S05",
+   "file": "05-flooding.mp3",
+   "start": 100.981,
+   "end": 146.108
+  },
+  {
+   "id": "S06",
+   "file": "06-broadcast.mp3",
+   "start": 146.908,
+   "end": 170.481
+  },
+  {
+   "id": "S07",
+   "file": "07-vlan.mp3",
+   "start": 171.281,
+   "end": 212.918
+  },
+  {
+   "id": "S08",
+   "file": "08-access.mp3",
+   "start": 213.718,
+   "end": 233.533
+  },
+  {
+   "id": "S09",
+   "file": "09-trunk.mp3",
+   "start": 234.333,
+   "end": 261.567
+  },
+  {
+   "id": "S10",
+   "file": "10-8021q.mp3",
+   "start": 262.367,
+   "end": 291.191
+  },
+  {
+   "id": "S11",
+   "file": "11-film-final.mp3",
+   "start": 291.991,
+   "end": 328.295
+  },
+  {
+   "id": "S12",
+   "file": "12-quiz.mp3",
+   "start": 329.095,
+   "end": 368.621
+  },
+  {
+   "id": "S13",
+   "file": "13-recap.mp3",
+   "start": 369.421,
+   "end": 392.722
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01.1",
+   "section": "HOOK",
+   "start": 0.3,
+   "end": 3.015
+  },
+  {
+   "id": "S01.2",
+   "section": "HOOK",
+   "start": 3.015,
+   "end": 9.513
+  },
+  {
+   "id": "S01.3",
+   "section": "HOOK",
+   "start": 9.513,
+   "end": 13.053
+  },
+  {
+   "id": "S02.1",
+   "section": "PROBLÈME",
+   "start": 13.053,
+   "end": 21.199
+  },
+  {
+   "id": "S02.2",
+   "section": "PROBLÈME",
+   "start": 21.199,
+   "end": 30.356
+  },
+  {
+   "id": "S03.1",
+   "section": "CH1 — LA TRAME",
+   "start": 30.356,
+   "end": 47.181
+  },
+  {
+   "id": "S03.2",
+   "section": "CH1 — LA TRAME",
+   "start": 47.181,
+   "end": 63.149
+  },
+  {
+   "id": "S04.1",
+   "section": "CH2 — MAC LEARNING",
+   "start": 63.149,
+   "end": 74.353
+  },
+  {
+   "id": "S04.2",
+   "section": "CH2 — MAC LEARNING",
+   "start": 74.353,
+   "end": 85.719
+  },
+  {
+   "id": "S04.3",
+   "section": "CH2 — MAC LEARNING",
+   "start": 85.719,
+   "end": 100.981
+  },
+  {
+   "id": "S05.1",
+   "section": "CH3 — UNKNOWN UNICAST",
+   "start": 100.981,
+   "end": 108.091
+  },
+  {
+   "id": "S05.2",
+   "section": "CH3 — UNKNOWN UNICAST",
+   "start": 108.091,
+   "end": 126.121
+  },
+  {
+   "id": "S05.3",
+   "section": "CH3 — UNKNOWN UNICAST",
+   "start": 126.121,
+   "end": 140.585
+  },
+  {
+   "id": "S05.4",
+   "section": "CH3 — UNKNOWN UNICAST",
+   "start": 140.585,
+   "end": 146.908
+  },
+  {
+   "id": "S06.1",
+   "section": "CH4 — BROADCAST",
+   "start": 146.908,
+   "end": 162.706
+  },
+  {
+   "id": "S06.2",
+   "section": "CH4 — BROADCAST",
+   "start": 162.706,
+   "end": 171.281
+  },
+  {
+   "id": "S07.1",
+   "section": "CH5 — POURQUOI LES VLAN",
+   "start": 171.281,
+   "end": 190.533
+  },
+  {
+   "id": "S07.2",
+   "section": "CH5 — POURQUOI LES VLAN",
+   "start": 190.533,
+   "end": 199.822
+  },
+  {
+   "id": "S07.3",
+   "section": "CH5 — POURQUOI LES VLAN",
+   "start": 199.822,
+   "end": 213.718
+  },
+  {
+   "id": "S08.1",
+   "section": "CH6 — ACCESS PORT",
+   "start": 213.718,
+   "end": 234.333
+  },
+  {
+   "id": "S09.1",
+   "section": "CH7 — DEUX SWITCHES",
+   "start": 234.333,
+   "end": 249.091
+  },
+  {
+   "id": "S09.2",
+   "section": "CH7 — DEUX SWITCHES",
+   "start": 249.091,
+   "end": 262.367
+  },
+  {
+   "id": "S10.1",
+   "section": "CH8 — 802.1Q",
+   "start": 262.367,
+   "end": 279.632
+  },
+  {
+   "id": "S10.2",
+   "section": "CH8 — 802.1Q",
+   "start": 279.632,
+   "end": 291.991
+  },
+  {
+   "id": "S11.1",
+   "section": "FINAL MENTAL MOVIE",
+   "start": 291.991,
+   "end": 329.095
+  },
+  {
+   "id": "S12.1",
+   "section": "MICRO QUIZ",
+   "start": 329.095,
+   "end": 341.613
+  },
+  {
+   "id": "S12.2",
+   "section": "MICRO QUIZ",
+   "start": 341.613,
+   "end": 352.632
+  },
+  {
+   "id": "S12.3",
+   "section": "MICRO QUIZ",
+   "start": 352.632,
+   "end": 369.421
+  },
+  {
+   "id": "S13.1",
+   "section": "RÉCAP",
+   "start": 369.421,
+   "end": 386.733
+  },
+  {
+   "id": "S13.2",
+   "section": "TEASER",
+   "start": 386.733,
+   "end": 395.222
+  }
+ ],
+ "events": [
+  {
+   "scene": "S01.1",
+   "anchor": "PC A",
+   "word": "PC",
+   "t": 0.3,
+   "action": "PC-A pulse, étiquette 'PC-A' visible"
+  },
+  {
+   "scene": "S01.1",
+   "anchor": "PC B",
+   "word": "PC",
+   "t": 1.844,
+   "action": "PC-B s'entoure d'un halo cible discret"
+  },
+  {
+   "scene": "S01.1",
+   "anchor": "envoie",
+   "word": "envoie",
+   "t": 1.066,
+   "action": "Une trame bleue quitte PC-A et avance sur le câble vers SW1"
+  },
+  {
+   "scene": "S01.2",
+   "anchor": "switch",
+   "word": "switch…",
+   "t": 3.363,
+   "action": "Trame entre dans SW1 ; ThoughtBubble 'Destination inconnue ?' apparaît"
+  },
+  {
+   "scene": "S01.2",
+   "anchor": "ça",
+   "word": "ça.",
+   "t": 4.453,
+   "action": "La trame se duplique : 7 copies, départ en éventail avec PacketTrail"
+  },
+  {
+   "scene": "S01.2",
+   "anchor": "Pourquoi",
+   "word": "Pourquoi",
+   "t": 6.097,
+   "action": "FREEZE : copies figées à mi-câble, léger blur des bords, Counter '7 copies' apparaît"
+  },
+  {
+   "scene": "S01.2",
+   "anchor": "partout",
+   "word": "partout",
+   "t": 8.944,
+   "action": "Les 7 câbles clignotent une fois"
+  },
+  {
+   "scene": "S01.3",
+   "anchor": "apprendre",
+   "word": "apprendre",
+   "t": 10.233,
+   "action": "Rewind terminé, la scène se ré-éclaire"
+  },
+  {
+   "scene": "S01.3",
+   "anchor": "plus",
+   "word": "plus",
+   "t": 10.767,
+   "action": "Trame unique, chemin vert PC-A → PC-B"
+  },
+  {
+   "scene": "S01.3",
+   "anchor": "fois",
+   "word": "fois",
+   "t": 12.112,
+   "action": "Titre de l'épisode s'inscrit en bas à gauche (petit, Inter 700)"
+  },
+  {
+   "scene": "S02.1",
+   "anchor": "ports",
+   "word": "ports.",
+   "t": 14.702,
+   "action": "Les 8 ports s'allument en séquence gauche→droite"
+  },
+  {
+   "scene": "S02.1",
+   "anchor": "portes",
+   "word": "portes,",
+   "t": 15.919,
+   "action": "Chaque port se dessine brièvement comme une porte (morph 300 ms) puis revient"
+  },
+  {
+   "scene": "S02.1",
+   "anchor": "choisir",
+   "word": "choisir",
+   "t": 19.017,
+   "action": "8 '?' apparaissent en cascade au-dessus des ports"
+  },
+  {
+   "scene": "S02.2",
+   "anchor": "table",
+   "word": "table.",
+   "t": 23.438,
+   "action": "MACTable se construit (en-tête puis cadre)"
+  },
+  {
+   "scene": "S02.2",
+   "anchor": "vide",
+   "word": "vide.",
+   "t": 25.513,
+   "action": "La table pulse une fois, lignes en pointillé vides"
+  },
+  {
+   "scene": "S02.2",
+   "anchor": "lit",
+   "word": "lit",
+   "t": 27.455,
+   "action": "Une trame glisse dans le cadre"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "trame",
+   "word": "trame.",
+   "t": 32.666,
+   "action": "Label 'TRAME ETHERNET' au-dessus"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "enveloppe",
+   "word": "enveloppe.",
+   "t": 34.069,
+   "action": "Le rectangle prend le rabat d'enveloppe (morph)"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "destination",
+   "word": "destination",
+   "t": 38.87,
+   "action": "Case DST MAC s'allume (gauche), valeur 'BB:BB'"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "source",
+   "word": "source",
+   "t": 42.247,
+   "action": "Case SRC MAC s'allume, valeur 'AA:AA'"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "données",
+   "word": "données.",
+   "t": 44.195,
+   "action": "Case DATA s'allume, contenu flouté"
+  },
+  {
+   "scene": "S03.1",
+   "anchor": "lit",
+   "word": "lit",
+   "t": 45.912,
+   "action": "Un œil barré discret sur DATA"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "MAC",
+   "word": "MAC.",
+   "t": 49.352,
+   "action": "Surbrillance des deux cases adresse"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "carte",
+   "word": "carte",
+   "t": 50.557,
+   "action": "NIC apparaît, gravure 'AAAA.AAAA.AAAA'"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "quarante-huit",
+   "word": "quarante-huit",
+   "t": 52.008,
+   "action": "Accolade '48 bits' sous l'adresse"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "abréger",
+   "word": "abréger",
+   "t": 54.549,
+   "action": "Morph 'AAAA.AAAA.AAAA' → 'AA:AA'"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "l'en-tête",
+   "word": "l'en-tête",
+   "t": 59.18,
+   "action": "Bandeau 'en-tête Ethernet' au-dessus des cases DST/SRC"
+  },
+  {
+   "scene": "S03.2",
+   "anchor": "besoin",
+   "word": "besoin.",
+   "t": 61.802,
+   "action": "Dézoom : l'enveloppe se referme et rejoint PC-A"
+  },
+  {
+   "scene": "S04.1",
+   "anchor": "Cinq",
+   "word": "Cinq",
+   "t": 64.482,
+   "action": "Les 5 ports s'étiquettent P1..P5"
+  },
+  {
+   "scene": "S04.1",
+   "anchor": "un",
+   "word": "un.",
+   "t": 67.36,
+   "action": "PC-A + badge 'AA:AA' ; P1 surligné"
+  },
+  {
+   "scene": "S04.1",
+   "anchor": "deux",
+   "word": "deux.",
+   "t": 69.262,
+   "action": "PC-B + badge 'BB:BB' ; P2 surligné"
+  },
+  {
+   "scene": "S04.1",
+   "anchor": "envoie",
+   "word": "envoie",
+   "t": 70.804,
+   "action": "Trame DST BB:BB | SRC AA:AA quitte PC-A"
+  },
+  {
+   "scene": "S04.1",
+   "anchor": "entre",
+   "word": "entre",
+   "t": 73.113,
+   "action": "La trame franchit P1 ; LED P1 bleue"
+  },
+  {
+   "scene": "S04.2",
+   "anchor": "source",
+   "word": "source.",
+   "t": 76.64,
+   "action": "Case SRC de la trame s'illumine (bleu → blanc)"
+  },
+  {
+   "scene": "S04.2",
+   "anchor": "note",
+   "word": "note",
+   "t": 77.881,
+   "action": "La case SRC se détache et vole jusqu'à la table (700 ms, arc)"
+  },
+  {
+   "scene": "S04.2",
+   "anchor": "port",
+   "word": "port",
+   "t": 79.85,
+   "action": "Ligne 'P1 | AA:AA' se verrouille, tick ; fil P1 → ligne"
+  },
+  {
+   "scene": "S04.2",
+   "anchor": "l'apprentissage",
+   "word": "l'apprentissage.",
+   "t": 81.253,
+   "action": "Étiquette 'LEARNING' verte à côté de la ligne"
+  },
+  {
+   "scene": "S04.2",
+   "anchor": "parle",
+   "word": "parle.",
+   "t": 85.036,
+   "action": "Petite bulle 'parle' sur PC-A qui s'estompe"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "piège",
+   "word": "piège.",
+   "t": 86.23,
+   "action": "Case DST clignote, '?' orange"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "destination",
+   "word": "destination",
+   "t": 88.293,
+   "action": "FREEZE (toute l'animation s'arrête, 1,2 s)"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "Non",
+   "word": "Non.",
+   "t": 90.636,
+   "action": "DST vole vers la table et rebondit (seul rebond autorisé) ; 'NON' rouge"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "veut",
+   "word": "veut",
+   "t": 94.023,
+   "action": "Flèche pointillée depuis DST vers 'quelque part ?' à droite"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "apprend",
+   "word": "apprend",
+   "t": 97.107,
+   "action": "Ligne 1 de la règle : 'SOURCE → apprendre' (vert)"
+  },
+  {
+   "scene": "S04.3",
+   "anchor": "décide",
+   "word": "décide",
+   "t": 98.638,
+   "action": "Ligne 2 : 'DESTINATION → décider' (orange)"
+  },
+  {
+   "scene": "S05.1",
+   "anchor": "cherche",
+   "word": "cherche",
+   "t": 103.197,
+   "action": "Clé 'BB:BB' à gauche de la table, scan vertical (600 ms)"
+  },
+  {
+   "scene": "S05.1",
+   "anchor": "Rien",
+   "word": "Rien.",
+   "t": 105.087,
+   "action": "Bandeau 'LOOKUP MISS' rouge, 2 clignotements"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "copie",
+   "word": "copie",
+   "t": 110.553,
+   "action": "Trame se duplique ×4 au centre du switch"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "autres",
+   "word": "autres",
+   "t": 111.365,
+   "action": "Les 4 copies partent vers P2..P5 avec trails"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "Sauf",
+   "word": "Sauf",
+   "t": 112.49,
+   "action": "P1 : cadenas gris + étiquette 'port d'entrée'"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "flooding",
+   "word": "flooding.",
+   "t": 114.636,
+   "action": "Mot 'FLOODING' en arc au-dessus des 4 flèches"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "lisent",
+   "word": "lisent",
+   "t": 118.957,
+   "action": "C, D, E : la case DST de leur copie se compare à leur badge (≠)"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "jettent",
+   "word": "jettent",
+   "t": 122.61,
+   "action": "Les 3 copies se dissolvent"
+  },
+  {
+   "scene": "S05.2",
+   "anchor": "garde",
+   "word": "garde.",
+   "t": 124.814,
+   "action": "PC-B halo vert (=)"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "répond",
+   "word": "répond.",
+   "t": 126.922,
+   "action": "PC-B émet la réponse"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "deux",
+   "word": "deux.",
+   "t": 129.114,
+   "action": "Entrée sur P2, LED bleue"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "apprend",
+   "word": "apprend",
+   "t": 132.117,
+   "action": "SRC BB:BB vole → ligne 'P2 | BB:BB', tick"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "A-A",
+   "word": "A-A",
+   "t": 135.252,
+   "action": "Scan de la table pour AA:AA"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "connaît",
+   "word": "connaît",
+   "t": 136.216,
+   "action": "Ligne P1 surlignée orange (HIT)"
+  },
+  {
+   "scene": "S05.3",
+   "anchor": "sortie",
+   "word": "sortie",
+   "t": 137.863,
+   "action": "Une seule flèche verte vers P1 ; P3..P5 restent sombres"
+  },
+  {
+   "scene": "S05.4",
+   "anchor": "prochaine",
+   "word": "prochaine",
+   "t": 140.841,
+   "action": "Gauche rejoue le flood (ralenti 0,6×) ; droite en attente"
+  },
+  {
+   "scene": "S05.4",
+   "anchor": "flèche",
+   "word": "flèche.",
+   "t": 142.814,
+   "action": "Droite : une seule flèche verte vers P2"
+  },
+  {
+   "scene": "S05.4",
+   "anchor": "n'inonde",
+   "word": "n'inonde",
+   "t": 145.214,
+   "action": "Compteurs : 'avant : 4 copies' / 'après : 1'"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "tout",
+   "word": "tout",
+   "t": 148.243,
+   "action": "PC-A devient mégaphone (icône discrète)"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "IP",
+   "word": "IP",
+   "t": 151.515,
+   "action": "Mini-bulle 'Qui a 10.0.0.2 ?' (exemple ARP, sans le nommer)"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "F",
+   "word": "F.",
+   "t": 155.138,
+   "action": "Zoom : DST = 'FFFF.FFFF.FFFF' en jaune"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "broadcast",
+   "word": "broadcast.",
+   "t": 156.227,
+   "action": "Label 'BROADCAST' jaune"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "l'envoie",
+   "word": "l'envoie",
+   "t": 157.769,
+   "action": "BroadcastPulse : 3 anneaux jaunes depuis SW1 ; copies vers P2..P5 ; P1 cadenas"
+  },
+  {
+   "scene": "S06.1",
+   "anchor": "lit",
+   "word": "lit.",
+   "t": 161.262,
+   "action": "Les 4 PC s'allument en jaune, aucun ne jette"
+  },
+  {
+   "scene": "S06.2",
+   "anchor": "ignorance",
+   "word": "ignorance",
+   "t": 165.316,
+   "action": "Gauche : flood → la table se remplit → 1 flèche"
+  },
+  {
+   "scene": "S06.2",
+   "anchor": "disparaît",
+   "word": "disparaît",
+   "t": 166.082,
+   "action": "Légende gauche : 'disparaît après apprentissage'"
+  },
+  {
+   "scene": "S06.2",
+   "anchor": "nature",
+   "word": "nature",
+   "t": 168.646,
+   "action": "Droite : pulsation jaune ×3 identiques"
+  },
+  {
+   "scene": "S06.2",
+   "anchor": "fois",
+   "word": "fois.",
+   "t": 170.132,
+   "action": "Légende droite : 'toujours floodée'"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "gros",
+   "word": "gros",
+   "t": 172.963,
+   "action": "Révélation du switch 24 ports"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "équipes",
+   "word": "équipes",
+   "t": 174.598,
+   "action": "Les 3 groupes s'étiquettent successivement"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "broadcast",
+   "word": "broadcast.",
+   "t": 179.31,
+   "action": "Pulsation jaune depuis un PC gaming"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "compta",
+   "word": "compta",
+   "t": 180.84,
+   "action": "Les PC compta s'allument jaune"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "support",
+   "word": "support",
+   "t": 182.394,
+   "action": "Les PC support s'allument jaune"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "monde",
+   "word": "monde.",
+   "t": 183.843,
+   "action": "Counter '17 machines dérangées'"
+  },
+  {
+   "scene": "S07.1",
+   "anchor": "centaines",
+   "word": "centaines",
+   "t": 186.032,
+   "action": "Pulsations multiples, les PC compta clignotent de plus en plus vite"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "séparés",
+   "word": "séparés…",
+   "t": 191.764,
+   "action": "3 switches fantômes pointillés"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "acheter",
+   "word": "acheter",
+   "t": 193.202,
+   "action": "Ils sont barrés (trait rouge) et s'effacent"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "découpe",
+   "word": "découpe",
+   "t": 194.606,
+   "action": "Deux lignes de découpe traversent le switch"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "dix",
+   "word": "dix,",
+   "t": 197.552,
+   "action": "Zone compta → bleu, label 'VLAN 10'"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "vingt",
+   "word": "vingt,",
+   "t": 198.004,
+   "action": "Zone gaming → violet, label 'VLAN 20'"
+  },
+  {
+   "scene": "S07.2",
+   "anchor": "trente",
+   "word": "trente.",
+   "t": 198.353,
+   "action": "Zone support → orange, label 'VLAN 30'"
+  },
+  {
+   "scene": "S07.3",
+   "anchor": "Relance",
+   "word": "Relance",
+   "t": 199.822,
+   "action": "Broadcast jaune depuis le même PC gaming"
+  },
+  {
+   "scene": "S07.3",
+   "anchor": "violet",
+   "word": "violet.",
+   "t": 202.258,
+   "action": "Pulsation contenue dans la zone violette ; ondes écrasées aux frontières"
+  },
+  {
+   "scene": "S07.3",
+   "anchor": "étages",
+   "word": "étages",
+   "t": 204.782,
+   "action": "Morph → immeuble (3 étages bleu/violet/orange)"
+  },
+  {
+   "scene": "S07.3",
+   "anchor": "vrai",
+   "word": "vrai",
+   "t": 206.58,
+   "action": "Retour au switch"
+  },
+  {
+   "scene": "S07.3",
+   "anchor": "domaine",
+   "word": "domaine",
+   "t": 208.135,
+   "action": "Chaque zone reçoit le label 'domaine de broadcast'"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "PC",
+   "word": "PC",
+   "t": 215.332,
+   "action": "Le PC reste gris ; point d'interrogation au-dessus"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "port",
+   "word": "port.",
+   "t": 219.092,
+   "action": "Liseré du port Fa0/3 → bleu VLAN 10"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "configure",
+   "word": "configure",
+   "t": 220.947,
+   "action": "CLIStrip tape les 3 lignes de config"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "normale",
+   "word": "normale.",
+   "t": 227.165,
+   "action": "Trame sans tag quitte le PC"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "Aucune",
+   "word": "Aucune",
+   "t": 227.929,
+   "action": "Loupe sur la trame : emplacement du tag vide, 'aucun tag'"
+  },
+  {
+   "scene": "S08.1",
+   "anchor": "rattachement",
+   "word": "rattachement.",
+   "t": 232.546,
+   "action": "Trame entre dans le port et prend un halo bleu interne"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "deux",
+   "word": "deux",
+   "t": 235.053,
+   "action": "SW2 entre dans le champ"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "vingt",
+   "word": "vingt.",
+   "t": 238.778,
+   "action": "Ports bleus et violets s'allument des deux côtés"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "câble",
+   "word": "câble",
+   "t": 240.668,
+   "action": "Question en surimpression"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "câbles",
+   "word": "câbles.",
+   "t": 242.863,
+   "action": "Câble bleu + câble violet se tirent"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "cinquante",
+   "word": "cinquante",
+   "t": 243.952,
+   "action": "Faisceau qui se multiplie, compteur 'câbles' 2 → 50"
+  },
+  {
+   "scene": "S09.1",
+   "anchor": "gaspillés",
+   "word": "gaspillés.",
+   "t": 247.478,
+   "action": "Ports gaspillés en rouge sur les façades, compteur '100 ports'"
+  },
+  {
+   "scene": "S09.2",
+   "anchor": "seul",
+   "word": "seul",
+   "t": 250.251,
+   "action": "Fusion des câbles (morph 800 ms)"
+  },
+  {
+   "scene": "S09.2",
+   "anchor": "trunk",
+   "word": "trunk.",
+   "t": 253.14,
+   "action": "Label 'TRUNK' + CLIStrip"
+  },
+  {
+   "scene": "S09.2",
+   "anchor": "ascenseur",
+   "word": "ascenseur",
+   "t": 255.046,
+   "action": "Insert analogie ascenseur (2 s)"
+  },
+  {
+   "scene": "S09.2",
+   "anchor": "étage",
+   "word": "étages.",
+   "t": 256.567,
+   "action": "Deux trames (bleue, violette) sur le trunk deviennent grises, '?' au-dessus"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "ajoute",
+   "word": "ajoute",
+   "t": 264.933,
+   "action": "La trame s'arrête au seuil du trunk"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "tag",
+   "word": "tag.",
+   "t": 267.102,
+   "action": "Badge bleu 'VLAN 10' se fixe (clip, 250 ms)"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "huit",
+   "word": "huit",
+   "t": 268.493,
+   "action": "Label '802.1Q' sous le badge"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "autocollant",
+   "word": "autocollant.",
+   "t": 271.51,
+   "action": "Inset zoom sur l'en-tête s'ouvre"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "inséré",
+   "word": "inséré",
+   "t": 273.737,
+   "action": "TYPE + DATA glissent à droite ; champ 802.1Q s'insère entre SRC et TYPE"
+  },
+  {
+   "scene": "S10.1",
+   "anchor": "numéro",
+   "word": "numéro",
+   "t": 277.625,
+   "action": "Dans le champ, 'VID = 10' s'illumine ; annotations '4 octets', 'VLAN ID : 12 bits'"
+  },
+  {
+   "scene": "S10.2",
+   "anchor": "lit",
+   "word": "lit",
+   "t": 281.176,
+   "action": "Scan orange du badge"
+  },
+  {
+   "scene": "S10.2",
+   "anchor": "uniquement",
+   "word": "uniquement",
+   "t": 284.612,
+   "action": "Ports violets de SW2 grisés, ports bleus éligibles"
+  },
+  {
+   "scene": "S10.2",
+   "anchor": "retire",
+   "word": "retire",
+   "t": 288.255,
+   "action": "Badge se détache et tombe (gravité douce)"
+  },
+  {
+   "scene": "S10.2",
+   "anchor": "normale",
+   "word": "normale.",
+   "t": 290.68,
+   "action": "Trame sans tag entre dans PC-B, halo vert"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "sans",
+   "word": "sans",
+   "t": 296.053,
+   "action": "HUD : SRC AA:AA · DST BB:BB · VLAN — (non tagué) · PORT — · DÉCISION —"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "d'accès",
+   "word": "d'accès",
+   "t": 298.942,
+   "action": "HUD : PORT SW1 Fa0/1 · DÉCISION 'entrée access VLAN 10'"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "apprend",
+   "word": "apprend",
+   "t": 301.285,
+   "action": "Table SW1 : colonne VLAN apparaît ; ligne '10 | AA:AA | Fa0/1' s'insère"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "colonne",
+   "word": "colonne",
+   "t": 305.451,
+   "action": "La colonne VLAN pulse orange"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "cherche",
+   "word": "cherche",
+   "t": 307.4,
+   "action": "Lookup '10 + BB:BB' → hit Gi0/1 ; HUD DÉCISION 'forward → trunk Gi0/1'"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "ajoute",
+   "word": "ajoute",
+   "t": 313.241,
+   "action": "Badge VLAN 10 se fixe ; HUD VLAN '10 (tagué)'"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "switch deux",
+   "word": "switch",
+   "t": 315.793,
+   "action": "Caméra suit sur le trunk ; scan du tag ; lookup → Fa0/2"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "retire",
+   "word": "retire",
+   "t": 320.729,
+   "action": "Badge tombe ; HUD VLAN '— (non tagué)' · PORT 'SW2 Fa0/2' · DÉCISION 'forward, tag retiré'"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "livre",
+   "word": "livre",
+   "t": 321.623,
+   "action": "PC-B halo vert"
+  },
+  {
+   "scene": "S11.1",
+   "anchor": "décision",
+   "word": "décision.",
+   "t": 325.906,
+   "action": "Les 5 lignes du HUD s'allument l'une après l'autre sur 'Source, destination, VLAN, port, décision'"
+  },
+  {
+   "scene": "S12.1",
+   "anchor": "trois",
+   "word": "trois.",
+   "t": 333.238,
+   "action": "Trame entre par P3"
+  },
+  {
+   "scene": "S12.1",
+   "anchor": "apprend",
+   "word": "apprend",
+   "t": 335.173,
+   "action": "FREEZE 1,8 s, timer circulaire"
+  },
+  {
+   "scene": "S12.1",
+   "anchor": "C-C",
+   "word": "C-C,",
+   "t": 337.438,
+   "action": "Réponse A en vert, B barrée"
+  },
+  {
+   "scene": "S12.2",
+   "anchor": "tag",
+   "word": "tag",
+   "t": 346.785,
+   "action": "FREEZE 1,8 s"
+  },
+  {
+   "scene": "S12.2",
+   "anchor": "Non",
+   "word": "Non.",
+   "t": 348.91,
+   "action": "Emplacement du tag vide, 'aucun tag' ; le port violet s'illumine (c'est lui qui porte le VLAN)"
+  },
+  {
+   "scene": "S12.3",
+   "anchor": "directement",
+   "word": "directement",
+   "t": 359.686,
+   "action": "FREEZE 1,8 s"
+  },
+  {
+   "scene": "S12.3",
+   "anchor": "Non",
+   "word": "Non.",
+   "t": 362.183,
+   "action": "Mur entre bleu et violet ; trame bleue s'arrête"
+  },
+  {
+   "scene": "S12.3",
+   "anchor": "routeur",
+   "word": "routeur.",
+   "t": 366.057,
+   "action": "Silhouette de routeur en pointillé, deux liens vers les zones"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "apprendre",
+   "word": "apprendre.",
+   "t": 371.613,
+   "action": "Vignette learning"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "décider",
+   "word": "décider.",
+   "t": 373.678,
+   "action": "Vignette lookup"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "inonde",
+   "word": "inonde.",
+   "t": 375.847,
+   "action": "Vignette flooding (1re occurrence)"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "toujours",
+   "word": "toujours.",
+   "t": 378.202,
+   "action": "Vignette broadcast"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "couleur",
+   "word": "couleur.",
+   "t": 380.987,
+   "action": "Vignette VLAN"
+  },
+  {
+   "scene": "S13.1",
+   "anchor": "tag",
+   "word": "tag.",
+   "t": 384.05,
+   "action": "Vignette trunk + tag ; toutes se compactent en schéma"
+  },
+  {
+   "scene": "S13.2",
+   "anchor": "deux",
+   "word": "deux",
+   "t": 387.743,
+   "action": "Deuxième câble se tire"
+  },
+  {
+   "scene": "S13.2",
+   "anchor": "fois",
+   "word": "fois",
+   "t": 390.073,
+   "action": "Broadcast en boucle, compteur exponentiel"
+  },
+  {
+   "scene": "S13.2",
+   "anchor": "épisode",
+   "word": "épisode.",
+   "t": 392.433,
+   "action": "Écran de fin : 'Épisode 2 — Spanning Tree'"
+  }
+ ],
+ "words": [
+  {
+   "i": 0,
+   "section": "S01",
+   "w": "PC",
+   "start": 0.3,
+   "end": 0.66,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1,
+   "section": "S01",
+   "w": "A",
+   "start": 0.892,
+   "end": 0.973,
+   "sentenceEnd": false
+  },
+  {
+   "i": 2,
+   "section": "S01",
+   "w": "envoie",
+   "start": 1.066,
+   "end": 1.298,
+   "sentenceEnd": false
+  },
+  {
+   "i": 3,
+   "section": "S01",
+   "w": "un",
+   "start": 1.322,
+   "end": 1.368,
+   "sentenceEnd": false
+  },
+  {
+   "i": 4,
+   "section": "S01",
+   "w": "message",
+   "start": 1.403,
+   "end": 1.728,
+   "sentenceEnd": false
+  },
+  {
+   "i": 5,
+   "section": "S01",
+   "w": "à",
+   "start": 1.763,
+   "end": 1.786,
+   "sentenceEnd": false
+  },
+  {
+   "i": 6,
+   "section": "S01",
+   "w": "PC",
+   "start": 1.844,
+   "end": 2.1,
+   "sentenceEnd": false
+  },
+  {
+   "i": 7,
+   "section": "S01",
+   "w": "B.",
+   "start": 2.239,
+   "end": 2.61,
+   "sentenceEnd": true
+  },
+  {
+   "i": 8,
+   "section": "S01",
+   "w": "Et",
+   "start": 3.015,
+   "end": 3.131,
+   "sentenceEnd": false
+  },
+  {
+   "i": 9,
+   "section": "S01",
+   "w": "le",
+   "start": 3.189,
+   "end": 3.27,
+   "sentenceEnd": false
+  },
+  {
+   "i": 10,
+   "section": "S01",
+   "w": "switch…",
+   "start": 3.363,
+   "end": 3.874,
+   "sentenceEnd": true
+  },
+  {
+   "i": 11,
+   "section": "S01",
+   "w": "fait",
+   "start": 4.302,
+   "end": 4.429,
+   "sentenceEnd": false
+  },
+  {
+   "i": 12,
+   "section": "S01",
+   "w": "ça.",
+   "start": 4.453,
+   "end": 4.755,
+   "sentenceEnd": true
+  },
+  {
+   "i": 13,
+   "section": "S01",
+   "w": "Pourquoi",
+   "start": 6.297,
+   "end": 6.599,
+   "sentenceEnd": false
+  },
+  {
+   "i": 14,
+   "section": "S01",
+   "w": "ce",
+   "start": 6.633,
+   "end": 6.75,
+   "sentenceEnd": false
+  },
+  {
+   "i": 15,
+   "section": "S01",
+   "w": "switch",
+   "start": 6.808,
+   "end": 7.075,
+   "sentenceEnd": false
+  },
+  {
+   "i": 16,
+   "section": "S01",
+   "w": "vient-il",
+   "start": 7.133,
+   "end": 7.411,
+   "sentenceEnd": false
+  },
+  {
+   "i": 17,
+   "section": "S01",
+   "w": "d'envoyer",
+   "start": 7.469,
+   "end": 7.841,
+   "sentenceEnd": false
+  },
+  {
+   "i": 18,
+   "section": "S01",
+   "w": "la",
+   "start": 7.864,
+   "end": 7.922,
+   "sentenceEnd": false
+  },
+  {
+   "i": 19,
+   "section": "S01",
+   "w": "même",
+   "start": 7.992,
+   "end": 8.201,
+   "sentenceEnd": false
+  },
+  {
+   "i": 20,
+   "section": "S01",
+   "w": "trame",
+   "start": 8.224,
+   "end": 8.526,
+   "sentenceEnd": false
+  },
+  {
+   "i": 21,
+   "section": "S01",
+   "w": "presque",
+   "start": 8.549,
+   "end": 8.909,
+   "sentenceEnd": false
+  },
+  {
+   "i": 22,
+   "section": "S01",
+   "w": "partout",
+   "start": 8.944,
+   "end": 9.373,
+   "sentenceEnd": false
+  },
+  {
+   "i": 23,
+   "section": "S01",
+   "w": "Et",
+   "start": 9.513,
+   "end": 9.629,
+   "sentenceEnd": false
+  },
+  {
+   "i": 24,
+   "section": "S01",
+   "w": "comment",
+   "start": 9.664,
+   "end": 9.907,
+   "sentenceEnd": false
+  },
+  {
+   "i": 25,
+   "section": "S01",
+   "w": "va-t-il",
+   "start": 9.931,
+   "end": 10.175,
+   "sentenceEnd": false
+  },
+  {
+   "i": 26,
+   "section": "S01",
+   "w": "apprendre",
+   "start": 10.233,
+   "end": 10.523,
+   "sentenceEnd": false
+  },
+  {
+   "i": 27,
+   "section": "S01",
+   "w": "à",
+   "start": 10.546,
+   "end": 10.581,
+   "sentenceEnd": false
+  },
+  {
+   "i": 28,
+   "section": "S01",
+   "w": "ne",
+   "start": 10.639,
+   "end": 10.709,
+   "sentenceEnd": false
+  },
+  {
+   "i": 29,
+   "section": "S01",
+   "w": "plus",
+   "start": 10.767,
+   "end": 10.952,
+   "sentenceEnd": false
+  },
+  {
+   "i": 30,
+   "section": "S01",
+   "w": "le",
+   "start": 10.976,
+   "end": 11.034,
+   "sentenceEnd": false
+  },
+  {
+   "i": 31,
+   "section": "S01",
+   "w": "faire",
+   "start": 11.103,
+   "end": 11.254,
+   "sentenceEnd": false
+  },
+  {
+   "i": 32,
+   "section": "S01",
+   "w": "la",
+   "start": 11.277,
+   "end": 11.336,
+   "sentenceEnd": false
+  },
+  {
+   "i": 33,
+   "section": "S01",
+   "w": "prochaine",
+   "start": 11.394,
+   "end": 11.777,
+   "sentenceEnd": false
+  },
+  {
+   "i": 34,
+   "section": "S01",
+   "w": "fois",
+   "start": 11.812,
+   "end": 11.997,
+   "sentenceEnd": false
+  },
+  {
+   "i": 35,
+   "section": "S02",
+   "w": "Un",
+   "start": 13.053,
+   "end": 13.216,
+   "sentenceEnd": false
+  },
+  {
+   "i": 36,
+   "section": "S02",
+   "w": "switch,",
+   "start": 13.25,
+   "end": 13.633,
+   "sentenceEnd": false
+  },
+  {
+   "i": 37,
+   "section": "S02",
+   "w": "c'est",
+   "start": 13.761,
+   "end": 13.889,
+   "sentenceEnd": false
+  },
+  {
+   "i": 38,
+   "section": "S02",
+   "w": "une",
+   "start": 13.97,
+   "end": 14.063,
+   "sentenceEnd": false
+  },
+  {
+   "i": 39,
+   "section": "S02",
+   "w": "boîte",
+   "start": 14.086,
+   "end": 14.284,
+   "sentenceEnd": false
+  },
+  {
+   "i": 40,
+   "section": "S02",
+   "w": "avec",
+   "start": 14.307,
+   "end": 14.469,
+   "sentenceEnd": false
+  },
+  {
+   "i": 41,
+   "section": "S02",
+   "w": "des",
+   "start": 14.527,
+   "end": 14.644,
+   "sentenceEnd": false
+  },
+  {
+   "i": 42,
+   "section": "S02",
+   "w": "ports.",
+   "start": 14.702,
+   "end": 15.212,
+   "sentenceEnd": true
+  },
+  {
+   "i": 43,
+   "section": "S02",
+   "w": "Des",
+   "start": 15.687,
+   "end": 15.861,
+   "sentenceEnd": false
+  },
+  {
+   "i": 44,
+   "section": "S02",
+   "w": "portes,",
+   "start": 15.919,
+   "end": 16.418,
+   "sentenceEnd": false
+  },
+  {
+   "i": 45,
+   "section": "S02",
+   "w": "si",
+   "start": 16.441,
+   "end": 16.546,
+   "sentenceEnd": false
+  },
+  {
+   "i": 46,
+   "section": "S02",
+   "w": "tu",
+   "start": 16.581,
+   "end": 16.732,
+   "sentenceEnd": false
+  },
+  {
+   "i": 47,
+   "section": "S02",
+   "w": "veux.",
+   "start": 16.766,
+   "end": 17.033,
+   "sentenceEnd": true
+  },
+  {
+   "i": 48,
+   "section": "S02",
+   "w": "À",
+   "start": 17.438,
+   "end": 17.519,
+   "sentenceEnd": false
+  },
+  {
+   "i": 49,
+   "section": "S02",
+   "w": "chaque",
+   "start": 17.6,
+   "end": 17.798,
+   "sentenceEnd": false
+  },
+  {
+   "i": 50,
+   "section": "S02",
+   "w": "message",
+   "start": 17.821,
+   "end": 18.134,
+   "sentenceEnd": false
+  },
+  {
+   "i": 51,
+   "section": "S02",
+   "w": "qui",
+   "start": 18.169,
+   "end": 18.262,
+   "sentenceEnd": false
+  },
+  {
+   "i": 52,
+   "section": "S02",
+   "w": "arrive,",
+   "start": 18.297,
+   "end": 18.692,
+   "sentenceEnd": false
+  },
+  {
+   "i": 53,
+   "section": "S02",
+   "w": "il",
+   "start": 18.75,
+   "end": 18.808,
+   "sentenceEnd": false
+  },
+  {
+   "i": 54,
+   "section": "S02",
+   "w": "doit",
+   "start": 18.843,
+   "end": 18.994,
+   "sentenceEnd": false
+  },
+  {
+   "i": 55,
+   "section": "S02",
+   "w": "choisir",
+   "start": 19.017,
+   "end": 19.539,
+   "sentenceEnd": false
+  },
+  {
+   "i": 56,
+   "section": "S02",
+   "w": "par",
+   "start": 19.667,
+   "end": 19.783,
+   "sentenceEnd": false
+  },
+  {
+   "i": 57,
+   "section": "S02",
+   "w": "quelle",
+   "start": 19.841,
+   "end": 20.015,
+   "sentenceEnd": false
+  },
+  {
+   "i": 58,
+   "section": "S02",
+   "w": "porte",
+   "start": 20.038,
+   "end": 20.224,
+   "sentenceEnd": false
+  },
+  {
+   "i": 59,
+   "section": "S02",
+   "w": "je",
+   "start": 20.247,
+   "end": 20.306,
+   "sentenceEnd": false
+  },
+  {
+   "i": 60,
+   "section": "S02",
+   "w": "le",
+   "start": 20.34,
+   "end": 20.398,
+   "sentenceEnd": false
+  },
+  {
+   "i": 61,
+   "section": "S02",
+   "w": "fais",
+   "start": 20.422,
+   "end": 20.561,
+   "sentenceEnd": false
+  },
+  {
+   "i": 62,
+   "section": "S02",
+   "w": "sortir",
+   "start": 20.584,
+   "end": 21.06,
+   "sentenceEnd": false
+  },
+  {
+   "i": 63,
+   "section": "S02",
+   "w": "Pour",
+   "start": 21.199,
+   "end": 21.385,
+   "sentenceEnd": false
+  },
+  {
+   "i": 64,
+   "section": "S02",
+   "w": "choisir,",
+   "start": 21.42,
+   "end": 21.966,
+   "sentenceEnd": false
+  },
+  {
+   "i": 65,
+   "section": "S02",
+   "w": "il",
+   "start": 21.989,
+   "end": 22.047,
+   "sentenceEnd": false
+  },
+  {
+   "i": 66,
+   "section": "S02",
+   "w": "n'a",
+   "start": 22.082,
+   "end": 22.163,
+   "sentenceEnd": false
+  },
+  {
+   "i": 67,
+   "section": "S02",
+   "w": "qu'un",
+   "start": 22.221,
+   "end": 22.36,
+   "sentenceEnd": false
+  },
+  {
+   "i": 68,
+   "section": "S02",
+   "w": "outil.",
+   "start": 22.442,
+   "end": 22.848,
+   "sentenceEnd": true
+  },
+  {
+   "i": 69,
+   "section": "S02",
+   "w": "Une",
+   "start": 23.218,
+   "end": 23.415,
+   "sentenceEnd": false
+  },
+  {
+   "i": 70,
+   "section": "S02",
+   "w": "table.",
+   "start": 23.438,
+   "end": 23.845,
+   "sentenceEnd": true
+  },
+  {
+   "i": 71,
+   "section": "S02",
+   "w": "Et",
+   "start": 24.168,
+   "end": 24.261,
+   "sentenceEnd": false
+  },
+  {
+   "i": 72,
+   "section": "S02",
+   "w": "au",
+   "start": 24.284,
+   "end": 24.33,
+   "sentenceEnd": false
+  },
+  {
+   "i": 73,
+   "section": "S02",
+   "w": "départ…",
+   "start": 24.389,
+   "end": 24.876,
+   "sentenceEnd": true
+  },
+  {
+   "i": 74,
+   "section": "S02",
+   "w": "elle",
+   "start": 25.199,
+   "end": 25.397,
+   "sentenceEnd": false
+  },
+  {
+   "i": 75,
+   "section": "S02",
+   "w": "est",
+   "start": 25.42,
+   "end": 25.49,
+   "sentenceEnd": false
+  },
+  {
+   "i": 76,
+   "section": "S02",
+   "w": "vide.",
+   "start": 25.513,
+   "end": 25.826,
+   "sentenceEnd": true
+  },
+  {
+   "i": 77,
+   "section": "S02",
+   "w": "Alors",
+   "start": 26.55,
+   "end": 26.817,
+   "sentenceEnd": false
+  },
+  {
+   "i": 78,
+   "section": "S02",
+   "w": "voyons",
+   "start": 26.84,
+   "end": 27.13,
+   "sentenceEnd": false
+  },
+  {
+   "i": 79,
+   "section": "S02",
+   "w": "ce",
+   "start": 27.153,
+   "end": 27.234,
+   "sentenceEnd": false
+  },
+  {
+   "i": 80,
+   "section": "S02",
+   "w": "qu'il",
+   "start": 27.293,
+   "end": 27.42,
+   "sentenceEnd": false
+  },
+  {
+   "i": 81,
+   "section": "S02",
+   "w": "lit",
+   "start": 27.455,
+   "end": 27.56,
+   "sentenceEnd": false
+  },
+  {
+   "i": 82,
+   "section": "S02",
+   "w": "exactement",
+   "start": 27.583,
+   "end": 28.361,
+   "sentenceEnd": false
+  },
+  {
+   "i": 83,
+   "section": "S02",
+   "w": "dans",
+   "start": 28.384,
+   "end": 28.488,
+   "sentenceEnd": false
+  },
+  {
+   "i": 84,
+   "section": "S02",
+   "w": "chaque",
+   "start": 28.512,
+   "end": 28.721,
+   "sentenceEnd": false
+  },
+  {
+   "i": 85,
+   "section": "S02",
+   "w": "message.",
+   "start": 28.744,
+   "end": 29.556,
+   "sentenceEnd": true
+  },
+  {
+   "i": 86,
+   "section": "S03",
+   "w": "Sur",
+   "start": 30.356,
+   "end": 30.646,
+   "sentenceEnd": false
+  },
+  {
+   "i": 87,
+   "section": "S03",
+   "w": "un",
+   "start": 30.704,
+   "end": 30.751,
+   "sentenceEnd": false
+  },
+  {
+   "i": 88,
+   "section": "S03",
+   "w": "réseau",
+   "start": 30.786,
+   "end": 31.029,
+   "sentenceEnd": false
+  },
+  {
+   "i": 89,
+   "section": "S03",
+   "w": "Ethernet,",
+   "start": 31.099,
+   "end": 31.54,
+   "sentenceEnd": false
+  },
+  {
+   "i": 90,
+   "section": "S03",
+   "w": "un",
+   "start": 31.563,
+   "end": 31.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 91,
+   "section": "S03",
+   "w": "message",
+   "start": 31.633,
+   "end": 31.947,
+   "sentenceEnd": false
+  },
+  {
+   "i": 92,
+   "section": "S03",
+   "w": "voyage",
+   "start": 31.981,
+   "end": 32.318,
+   "sentenceEnd": false
+  },
+  {
+   "i": 93,
+   "section": "S03",
+   "w": "dans",
+   "start": 32.341,
+   "end": 32.457,
+   "sentenceEnd": false
+  },
+  {
+   "i": 94,
+   "section": "S03",
+   "w": "une",
+   "start": 32.55,
+   "end": 32.643,
+   "sentenceEnd": false
+  },
+  {
+   "i": 95,
+   "section": "S03",
+   "w": "trame.",
+   "start": 32.666,
+   "end": 33.119,
+   "sentenceEnd": true
+  },
+  {
+   "i": 96,
+   "section": "S03",
+   "w": "Imagine",
+   "start": 33.442,
+   "end": 33.907,
+   "sentenceEnd": false
+  },
+  {
+   "i": 97,
+   "section": "S03",
+   "w": "une",
+   "start": 33.93,
+   "end": 34.046,
+   "sentenceEnd": false
+  },
+  {
+   "i": 98,
+   "section": "S03",
+   "w": "enveloppe.",
+   "start": 34.069,
+   "end": 34.685,
+   "sentenceEnd": true
+  },
+  {
+   "i": 99,
+   "section": "S03",
+   "w": "Dessus,",
+   "start": 35.112,
+   "end": 35.67,
+   "sentenceEnd": false
+  },
+  {
+   "i": 100,
+   "section": "S03",
+   "w": "deux",
+   "start": 35.704,
+   "end": 35.844,
+   "sentenceEnd": false
+  },
+  {
+   "i": 101,
+   "section": "S03",
+   "w": "adresses.",
+   "start": 35.937,
+   "end": 36.413,
+   "sentenceEnd": true
+  },
+  {
+   "i": 102,
+   "section": "S03",
+   "w": "Dedans,",
+   "start": 36.748,
+   "end": 37.165,
+   "sentenceEnd": false
+  },
+  {
+   "i": 103,
+   "section": "S03",
+   "w": "le",
+   "start": 37.189,
+   "end": 37.258,
+   "sentenceEnd": false
+  },
+  {
+   "i": 104,
+   "section": "S03",
+   "w": "contenu.",
+   "start": 37.316,
+   "end": 37.792,
+   "sentenceEnd": true
+  },
+  {
+   "i": 105,
+   "section": "S03",
+   "w": "D'abord,",
+   "start": 38.116,
+   "end": 38.464,
+   "sentenceEnd": false
+  },
+  {
+   "i": 106,
+   "section": "S03",
+   "w": "l'adresse",
+   "start": 38.487,
+   "end": 38.847,
+   "sentenceEnd": false
+  },
+  {
+   "i": 107,
+   "section": "S03",
+   "w": "destination",
+   "start": 38.87,
+   "end": 39.625,
+   "sentenceEnd": false
+  },
+  {
+   "i": 108,
+   "section": "S03",
+   "w": "à",
+   "start": 39.695,
+   "end": 39.729,
+   "sentenceEnd": false
+  },
+  {
+   "i": 109,
+   "section": "S03",
+   "w": "qui",
+   "start": 39.834,
+   "end": 39.973,
+   "sentenceEnd": false
+  },
+  {
+   "i": 110,
+   "section": "S03",
+   "w": "c'est",
+   "start": 40.008,
+   "end": 40.136,
+   "sentenceEnd": false
+  },
+  {
+   "i": 111,
+   "section": "S03",
+   "w": "adressé.",
+   "start": 40.217,
+   "end": 40.879,
+   "sentenceEnd": true
+  },
+  {
+   "i": 112,
+   "section": "S03",
+   "w": "Ensuite,",
+   "start": 41.283,
+   "end": 41.794,
+   "sentenceEnd": false
+  },
+  {
+   "i": 113,
+   "section": "S03",
+   "w": "l'adresse",
+   "start": 41.817,
+   "end": 42.224,
+   "sentenceEnd": false
+  },
+  {
+   "i": 114,
+   "section": "S03",
+   "w": "source",
+   "start": 42.247,
+   "end": 42.618,
+   "sentenceEnd": false
+  },
+  {
+   "i": 115,
+   "section": "S03",
+   "w": "qui",
+   "start": 42.758,
+   "end": 42.92,
+   "sentenceEnd": false
+  },
+  {
+   "i": 116,
+   "section": "S03",
+   "w": "l'envoie.",
+   "start": 42.978,
+   "end": 43.454,
+   "sentenceEnd": true
+  },
+  {
+   "i": 117,
+   "section": "S03",
+   "w": "Puis",
+   "start": 43.859,
+   "end": 44.068,
+   "sentenceEnd": false
+  },
+  {
+   "i": 118,
+   "section": "S03",
+   "w": "les",
+   "start": 44.091,
+   "end": 44.172,
+   "sentenceEnd": false
+  },
+  {
+   "i": 119,
+   "section": "S03",
+   "w": "données.",
+   "start": 44.195,
+   "end": 44.567,
+   "sentenceEnd": true
+  },
+  {
+   "i": 120,
+   "section": "S03",
+   "w": "Le",
+   "start": 45.145,
+   "end": 45.296,
+   "sentenceEnd": false
+  },
+  {
+   "i": 121,
+   "section": "S03",
+   "w": "switch",
+   "start": 45.331,
+   "end": 45.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 122,
+   "section": "S03",
+   "w": "ne",
+   "start": 45.679,
+   "end": 45.761,
+   "sentenceEnd": false
+  },
+  {
+   "i": 123,
+   "section": "S03",
+   "w": "les",
+   "start": 45.796,
+   "end": 45.877,
+   "sentenceEnd": false
+  },
+  {
+   "i": 124,
+   "section": "S03",
+   "w": "lit",
+   "start": 45.912,
+   "end": 46.039,
+   "sentenceEnd": false
+  },
+  {
+   "i": 125,
+   "section": "S03",
+   "w": "pas.",
+   "start": 46.497,
+   "end": 46.823,
+   "sentenceEnd": true
+  },
+  {
+   "i": 126,
+   "section": "S03",
+   "w": "Ces",
+   "start": 47.181,
+   "end": 47.413,
+   "sentenceEnd": false
+  },
+  {
+   "i": 127,
+   "section": "S03",
+   "w": "adresses",
+   "start": 47.482,
+   "end": 47.958,
+   "sentenceEnd": false
+  },
+  {
+   "i": 128,
+   "section": "S03",
+   "w": "s'appellent",
+   "start": 47.982,
+   "end": 48.365,
+   "sentenceEnd": false
+  },
+  {
+   "i": 129,
+   "section": "S03",
+   "w": "des",
+   "start": 48.434,
+   "end": 48.574,
+   "sentenceEnd": false
+  },
+  {
+   "i": 130,
+   "section": "S03",
+   "w": "adresses",
+   "start": 48.667,
+   "end": 49.154,
+   "sentenceEnd": false
+  },
+  {
+   "i": 131,
+   "section": "S03",
+   "w": "MAC.",
+   "start": 49.352,
+   "end": 49.839,
+   "sentenceEnd": true
+  },
+  {
+   "i": 132,
+   "section": "S03",
+   "w": "Chaque",
+   "start": 50.221,
+   "end": 50.534,
+   "sentenceEnd": false
+  },
+  {
+   "i": 133,
+   "section": "S03",
+   "w": "carte",
+   "start": 50.557,
+   "end": 50.906,
+   "sentenceEnd": false
+  },
+  {
+   "i": 134,
+   "section": "S03",
+   "w": "réseau",
+   "start": 50.964,
+   "end": 51.219,
+   "sentenceEnd": false
+  },
+  {
+   "i": 135,
+   "section": "S03",
+   "w": "a",
+   "start": 51.254,
+   "end": 51.277,
+   "sentenceEnd": false
+  },
+  {
+   "i": 136,
+   "section": "S03",
+   "w": "la",
+   "start": 51.312,
+   "end": 51.393,
+   "sentenceEnd": false
+  },
+  {
+   "i": 137,
+   "section": "S03",
+   "w": "sienne,",
+   "start": 51.486,
+   "end": 51.776,
+   "sentenceEnd": false
+  },
+  {
+   "i": 138,
+   "section": "S03",
+   "w": "sur",
+   "start": 51.799,
+   "end": 51.95,
+   "sentenceEnd": false
+  },
+  {
+   "i": 139,
+   "section": "S03",
+   "w": "quarante-huit",
+   "start": 52.008,
+   "end": 52.45,
+   "sentenceEnd": false
+  },
+  {
+   "i": 140,
+   "section": "S03",
+   "w": "bits.",
+   "start": 52.484,
+   "end": 52.752,
+   "sentenceEnd": true
+  },
+  {
+   "i": 141,
+   "section": "S03",
+   "w": "Pour",
+   "start": 53.133,
+   "end": 53.272,
+   "sentenceEnd": false
+  },
+  {
+   "i": 142,
+   "section": "S03",
+   "w": "rester",
+   "start": 53.295,
+   "end": 53.586,
+   "sentenceEnd": false
+  },
+  {
+   "i": 143,
+   "section": "S03",
+   "w": "lisibles,",
+   "start": 53.609,
+   "end": 54.108,
+   "sentenceEnd": false
+  },
+  {
+   "i": 144,
+   "section": "S03",
+   "w": "on",
+   "start": 54.143,
+   "end": 54.201,
+   "sentenceEnd": false
+  },
+  {
+   "i": 145,
+   "section": "S03",
+   "w": "va",
+   "start": 54.259,
+   "end": 54.317,
+   "sentenceEnd": false
+  },
+  {
+   "i": 146,
+   "section": "S03",
+   "w": "les",
+   "start": 54.352,
+   "end": 54.468,
+   "sentenceEnd": false
+  },
+  {
+   "i": 147,
+   "section": "S03",
+   "w": "abréger",
+   "start": 54.549,
+   "end": 55.014,
+   "sentenceEnd": false
+  },
+  {
+   "i": 148,
+   "section": "S03",
+   "w": "A-A,",
+   "start": 55.327,
+   "end": 55.884,
+   "sentenceEnd": false
+  },
+  {
+   "i": 149,
+   "section": "S03",
+   "w": "B-B.",
+   "start": 56.012,
+   "end": 56.639,
+   "sentenceEnd": true
+  },
+  {
+   "i": 150,
+   "section": "S03",
+   "w": "Dans",
+   "start": 57.567,
+   "end": 57.752,
+   "sentenceEnd": false
+  },
+  {
+   "i": 151,
+   "section": "S03",
+   "w": "le",
+   "start": 57.776,
+   "end": 57.834,
+   "sentenceEnd": false
+  },
+  {
+   "i": 152,
+   "section": "S03",
+   "w": "vrai",
+   "start": 57.892,
+   "end": 58.054,
+   "sentenceEnd": false
+  },
+  {
+   "i": 153,
+   "section": "S03",
+   "w": "réseau,",
+   "start": 58.089,
+   "end": 58.461,
+   "sentenceEnd": false
+  },
+  {
+   "i": 154,
+   "section": "S03",
+   "w": "ces",
+   "start": 58.484,
+   "end": 58.612,
+   "sentenceEnd": false
+  },
+  {
+   "i": 155,
+   "section": "S03",
+   "w": "champs",
+   "start": 58.635,
+   "end": 58.855,
+   "sentenceEnd": false
+  },
+  {
+   "i": 156,
+   "section": "S03",
+   "w": "sont",
+   "start": 58.879,
+   "end": 59.018,
+   "sentenceEnd": false
+  },
+  {
+   "i": 157,
+   "section": "S03",
+   "w": "dans",
+   "start": 59.041,
+   "end": 59.157,
+   "sentenceEnd": false
+  },
+  {
+   "i": 158,
+   "section": "S03",
+   "w": "l'en-tête",
+   "start": 59.18,
+   "end": 59.587,
+   "sentenceEnd": false
+  },
+  {
+   "i": 159,
+   "section": "S03",
+   "w": "Ethernet.",
+   "start": 59.622,
+   "end": 60.237,
+   "sentenceEnd": true
+  },
+  {
+   "i": 160,
+   "section": "S03",
+   "w": "Et",
+   "start": 60.56,
+   "end": 60.63,
+   "sentenceEnd": false
+  },
+  {
+   "i": 161,
+   "section": "S03",
+   "w": "c'est",
+   "start": 60.653,
+   "end": 60.792,
+   "sentenceEnd": false
+  },
+  {
+   "i": 162,
+   "section": "S03",
+   "w": "tout",
+   "start": 60.862,
+   "end": 61.071,
+   "sentenceEnd": false
+  },
+  {
+   "i": 163,
+   "section": "S03",
+   "w": "ce",
+   "start": 61.094,
+   "end": 61.199,
+   "sentenceEnd": false
+  },
+  {
+   "i": 164,
+   "section": "S03",
+   "w": "dont",
+   "start": 61.234,
+   "end": 61.373,
+   "sentenceEnd": false
+  },
+  {
+   "i": 165,
+   "section": "S03",
+   "w": "le",
+   "start": 61.396,
+   "end": 61.443,
+   "sentenceEnd": false
+  },
+  {
+   "i": 166,
+   "section": "S03",
+   "w": "switch",
+   "start": 61.477,
+   "end": 61.71,
+   "sentenceEnd": false
+  },
+  {
+   "i": 167,
+   "section": "S03",
+   "w": "a",
+   "start": 61.744,
+   "end": 61.768,
+   "sentenceEnd": false
+  },
+  {
+   "i": 168,
+   "section": "S03",
+   "w": "besoin.",
+   "start": 61.802,
+   "end": 62.348,
+   "sentenceEnd": true
+  },
+  {
+   "i": 169,
+   "section": "S04",
+   "w": "Simplifions.",
+   "start": 63.149,
+   "end": 64.008,
+   "sentenceEnd": true
+  },
+  {
+   "i": 170,
+   "section": "S04",
+   "w": "Cinq",
+   "start": 64.482,
+   "end": 64.784,
+   "sentenceEnd": false
+  },
+  {
+   "i": 171,
+   "section": "S04",
+   "w": "ports.",
+   "start": 64.889,
+   "end": 65.33,
+   "sentenceEnd": true
+  },
+  {
+   "i": 172,
+   "section": "S04",
+   "w": "PC",
+   "start": 65.758,
+   "end": 66.129,
+   "sentenceEnd": false
+  },
+  {
+   "i": 173,
+   "section": "S04",
+   "w": "A",
+   "start": 66.408,
+   "end": 66.535,
+   "sentenceEnd": false
+  },
+  {
+   "i": 174,
+   "section": "S04",
+   "w": "est",
+   "start": 66.663,
+   "end": 66.802,
+   "sentenceEnd": false
+  },
+  {
+   "i": 175,
+   "section": "S04",
+   "w": "sur",
+   "start": 66.826,
+   "end": 66.965,
+   "sentenceEnd": false
+  },
+  {
+   "i": 176,
+   "section": "S04",
+   "w": "le",
+   "start": 67,
+   "end": 67.058,
+   "sentenceEnd": false
+  },
+  {
+   "i": 177,
+   "section": "S04",
+   "w": "port",
+   "start": 67.116,
+   "end": 67.336,
+   "sentenceEnd": false
+  },
+  {
+   "i": 178,
+   "section": "S04",
+   "w": "un.",
+   "start": 67.36,
+   "end": 67.569,
+   "sentenceEnd": true
+  },
+  {
+   "i": 179,
+   "section": "S04",
+   "w": "PC",
+   "start": 67.927,
+   "end": 68.252,
+   "sentenceEnd": false
+  },
+  {
+   "i": 180,
+   "section": "S04",
+   "w": "B",
+   "start": 68.426,
+   "end": 68.496,
+   "sentenceEnd": false
+  },
+  {
+   "i": 181,
+   "section": "S04",
+   "w": "sur",
+   "start": 68.693,
+   "end": 68.867,
+   "sentenceEnd": false
+  },
+  {
+   "i": 182,
+   "section": "S04",
+   "w": "le",
+   "start": 68.902,
+   "end": 68.96,
+   "sentenceEnd": false
+  },
+  {
+   "i": 183,
+   "section": "S04",
+   "w": "port",
+   "start": 69.018,
+   "end": 69.239,
+   "sentenceEnd": false
+  },
+  {
+   "i": 184,
+   "section": "S04",
+   "w": "deux.",
+   "start": 69.262,
+   "end": 69.552,
+   "sentenceEnd": true
+  },
+  {
+   "i": 185,
+   "section": "S04",
+   "w": "PC",
+   "start": 70.049,
+   "end": 70.375,
+   "sentenceEnd": false
+  },
+  {
+   "i": 186,
+   "section": "S04",
+   "w": "A",
+   "start": 70.572,
+   "end": 70.7,
+   "sentenceEnd": false
+  },
+  {
+   "i": 187,
+   "section": "S04",
+   "w": "envoie",
+   "start": 70.804,
+   "end": 71.094,
+   "sentenceEnd": false
+  },
+  {
+   "i": 188,
+   "section": "S04",
+   "w": "une",
+   "start": 71.118,
+   "end": 71.199,
+   "sentenceEnd": false
+  },
+  {
+   "i": 189,
+   "section": "S04",
+   "w": "trame",
+   "start": 71.222,
+   "end": 71.501,
+   "sentenceEnd": false
+  },
+  {
+   "i": 190,
+   "section": "S04",
+   "w": "à",
+   "start": 71.524,
+   "end": 71.547,
+   "sentenceEnd": false
+  },
+  {
+   "i": 191,
+   "section": "S04",
+   "w": "PC",
+   "start": 71.605,
+   "end": 71.837,
+   "sentenceEnd": false
+  },
+  {
+   "i": 192,
+   "section": "S04",
+   "w": "B.",
+   "start": 71.977,
+   "end": 72.313,
+   "sentenceEnd": true
+  },
+  {
+   "i": 193,
+   "section": "S04",
+   "w": "Elle",
+   "start": 72.846,
+   "end": 73.089,
+   "sentenceEnd": false
+  },
+  {
+   "i": 194,
+   "section": "S04",
+   "w": "entre",
+   "start": 73.113,
+   "end": 73.345,
+   "sentenceEnd": false
+  },
+  {
+   "i": 195,
+   "section": "S04",
+   "w": "par",
+   "start": 73.38,
+   "end": 73.484,
+   "sentenceEnd": false
+  },
+  {
+   "i": 196,
+   "section": "S04",
+   "w": "le",
+   "start": 73.519,
+   "end": 73.589,
+   "sentenceEnd": false
+  },
+  {
+   "i": 197,
+   "section": "S04",
+   "w": "port",
+   "start": 73.647,
+   "end": 73.844,
+   "sentenceEnd": false
+  },
+  {
+   "i": 198,
+   "section": "S04",
+   "w": "un.",
+   "start": 73.867,
+   "end": 74.018,
+   "sentenceEnd": true
+  },
+  {
+   "i": 199,
+   "section": "S04",
+   "w": "Premier",
+   "start": 74.353,
+   "end": 74.69,
+   "sentenceEnd": false
+  },
+  {
+   "i": 200,
+   "section": "S04",
+   "w": "réflexe",
+   "start": 74.713,
+   "end": 75.085,
+   "sentenceEnd": false
+  },
+  {
+   "i": 201,
+   "section": "S04",
+   "w": "du",
+   "start": 75.108,
+   "end": 75.189,
+   "sentenceEnd": false
+  },
+  {
+   "i": 202,
+   "section": "S04",
+   "w": "switch",
+   "start": 75.247,
+   "end": 75.607,
+   "sentenceEnd": false
+  },
+  {
+   "i": 203,
+   "section": "S04",
+   "w": "il",
+   "start": 75.688,
+   "end": 75.781,
+   "sentenceEnd": false
+  },
+  {
+   "i": 204,
+   "section": "S04",
+   "w": "regarde",
+   "start": 75.874,
+   "end": 76.187,
+   "sentenceEnd": false
+  },
+  {
+   "i": 205,
+   "section": "S04",
+   "w": "l'adresse",
+   "start": 76.211,
+   "end": 76.617,
+   "sentenceEnd": false
+  },
+  {
+   "i": 206,
+   "section": "S04",
+   "w": "source.",
+   "start": 76.64,
+   "end": 77.116,
+   "sentenceEnd": true
+  },
+  {
+   "i": 207,
+   "section": "S04",
+   "w": "Et",
+   "start": 77.544,
+   "end": 77.683,
+   "sentenceEnd": false
+  },
+  {
+   "i": 208,
+   "section": "S04",
+   "w": "il",
+   "start": 77.718,
+   "end": 77.776,
+   "sentenceEnd": false
+  },
+  {
+   "i": 209,
+   "section": "S04",
+   "w": "note",
+   "start": 77.881,
+   "end": 78.113,
+   "sentenceEnd": false
+  },
+  {
+   "i": 210,
+   "section": "S04",
+   "w": "A-A",
+   "start": 78.333,
+   "end": 78.751,
+   "sentenceEnd": false
+  },
+  {
+   "i": 211,
+   "section": "S04",
+   "w": "se",
+   "start": 78.926,
+   "end": 79.065,
+   "sentenceEnd": false
+  },
+  {
+   "i": 212,
+   "section": "S04",
+   "w": "trouve",
+   "start": 79.123,
+   "end": 79.309,
+   "sentenceEnd": false
+  },
+  {
+   "i": 213,
+   "section": "S04",
+   "w": "derrière",
+   "start": 79.332,
+   "end": 79.599,
+   "sentenceEnd": false
+  },
+  {
+   "i": 214,
+   "section": "S04",
+   "w": "le",
+   "start": 79.622,
+   "end": 79.692,
+   "sentenceEnd": false
+  },
+  {
+   "i": 215,
+   "section": "S04",
+   "w": "port",
+   "start": 79.75,
+   "end": 79.982,
+   "sentenceEnd": false
+  },
+  {
+   "i": 216,
+   "section": "S04",
+   "w": "un",
+   "start": 80.005,
+   "end": 80.145,
+   "sentenceEnd": false
+  },
+  {
+   "i": 217,
+   "section": "S04",
+   "w": "C'est",
+   "start": 80.881,
+   "end": 81.079,
+   "sentenceEnd": false
+  },
+  {
+   "i": 218,
+   "section": "S04",
+   "w": "ça,",
+   "start": 81.102,
+   "end": 81.23,
+   "sentenceEnd": false
+  },
+  {
+   "i": 219,
+   "section": "S04",
+   "w": "l'apprentissage.",
+   "start": 81.253,
+   "end": 82.054,
+   "sentenceEnd": true
+  },
+  {
+   "i": 220,
+   "section": "S04",
+   "w": "Le",
+   "start": 82.377,
+   "end": 82.459,
+   "sentenceEnd": false
+  },
+  {
+   "i": 221,
+   "section": "S04",
+   "w": "switch",
+   "start": 82.517,
+   "end": 82.807,
+   "sentenceEnd": false
+  },
+  {
+   "i": 222,
+   "section": "S04",
+   "w": "apprend",
+   "start": 82.865,
+   "end": 83.167,
+   "sentenceEnd": false
+  },
+  {
+   "i": 223,
+   "section": "S04",
+   "w": "où",
+   "start": 83.225,
+   "end": 83.318,
+   "sentenceEnd": false
+  },
+  {
+   "i": 224,
+   "section": "S04",
+   "w": "sont",
+   "start": 83.376,
+   "end": 83.527,
+   "sentenceEnd": false
+  },
+  {
+   "i": 225,
+   "section": "S04",
+   "w": "les",
+   "start": 83.55,
+   "end": 83.631,
+   "sentenceEnd": false
+  },
+  {
+   "i": 226,
+   "section": "S04",
+   "w": "machines",
+   "start": 83.654,
+   "end": 84.038,
+   "sentenceEnd": false
+  },
+  {
+   "i": 227,
+   "section": "S04",
+   "w": "en",
+   "start": 84.061,
+   "end": 84.13,
+   "sentenceEnd": false
+  },
+  {
+   "i": 228,
+   "section": "S04",
+   "w": "observant",
+   "start": 84.235,
+   "end": 84.769,
+   "sentenceEnd": false
+  },
+  {
+   "i": 229,
+   "section": "S04",
+   "w": "qui",
+   "start": 84.827,
+   "end": 84.978,
+   "sentenceEnd": false
+  },
+  {
+   "i": 230,
+   "section": "S04",
+   "w": "parle.",
+   "start": 85.036,
+   "end": 85.384,
+   "sentenceEnd": true
+  },
+  {
+   "i": 231,
+   "section": "S04",
+   "w": "Question",
+   "start": 85.719,
+   "end": 86.16,
+   "sentenceEnd": false
+  },
+  {
+   "i": 232,
+   "section": "S04",
+   "w": "piège.",
+   "start": 86.23,
+   "end": 86.601,
+   "sentenceEnd": true
+  },
+  {
+   "i": 233,
+   "section": "S04",
+   "w": "Est-ce",
+   "start": 86.925,
+   "end": 87.064,
+   "sentenceEnd": false
+  },
+  {
+   "i": 234,
+   "section": "S04",
+   "w": "qu'il",
+   "start": 87.099,
+   "end": 87.25,
+   "sentenceEnd": false
+  },
+  {
+   "i": 235,
+   "section": "S04",
+   "w": "apprend",
+   "start": 87.331,
+   "end": 87.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 236,
+   "section": "S04",
+   "w": "aussi",
+   "start": 87.633,
+   "end": 87.807,
+   "sentenceEnd": false
+  },
+  {
+   "i": 237,
+   "section": "S04",
+   "w": "la",
+   "start": 87.865,
+   "end": 87.923,
+   "sentenceEnd": false
+  },
+  {
+   "i": 238,
+   "section": "S04",
+   "w": "destination",
+   "start": 87.993,
+   "end": 88.678,
+   "sentenceEnd": false
+  },
+  {
+   "i": 239,
+   "section": "S04",
+   "w": "Non.",
+   "start": 90.636,
+   "end": 90.938,
+   "sentenceEnd": true
+  },
+  {
+   "i": 240,
+   "section": "S04",
+   "w": "Jamais.",
+   "start": 91.296,
+   "end": 91.853,
+   "sentenceEnd": true
+  },
+  {
+   "i": 241,
+   "section": "S04",
+   "w": "La",
+   "start": 92.432,
+   "end": 92.548,
+   "sentenceEnd": false
+  },
+  {
+   "i": 242,
+   "section": "S04",
+   "w": "destination",
+   "start": 92.606,
+   "end": 93.256,
+   "sentenceEnd": false
+  },
+  {
+   "i": 243,
+   "section": "S04",
+   "w": "dit",
+   "start": 93.326,
+   "end": 93.465,
+   "sentenceEnd": false
+  },
+  {
+   "i": 244,
+   "section": "S04",
+   "w": "où",
+   "start": 93.489,
+   "end": 93.535,
+   "sentenceEnd": false
+  },
+  {
+   "i": 245,
+   "section": "S04",
+   "w": "la",
+   "start": 93.593,
+   "end": 93.674,
+   "sentenceEnd": false
+  },
+  {
+   "i": 246,
+   "section": "S04",
+   "w": "trame",
+   "start": 93.732,
+   "end": 93.999,
+   "sentenceEnd": false
+  },
+  {
+   "i": 247,
+   "section": "S04",
+   "w": "veut",
+   "start": 94.023,
+   "end": 94.162,
+   "sentenceEnd": false
+  },
+  {
+   "i": 248,
+   "section": "S04",
+   "w": "aller.",
+   "start": 94.197,
+   "end": 94.522,
+   "sentenceEnd": true
+  },
+  {
+   "i": 249,
+   "section": "S04",
+   "w": "Pas",
+   "start": 94.88,
+   "end": 95.054,
+   "sentenceEnd": false
+  },
+  {
+   "i": 250,
+   "section": "S04",
+   "w": "où",
+   "start": 95.077,
+   "end": 95.147,
+   "sentenceEnd": false
+  },
+  {
+   "i": 251,
+   "section": "S04",
+   "w": "se",
+   "start": 95.205,
+   "end": 95.298,
+   "sentenceEnd": false
+  },
+  {
+   "i": 252,
+   "section": "S04",
+   "w": "trouve",
+   "start": 95.333,
+   "end": 95.646,
+   "sentenceEnd": false
+  },
+  {
+   "i": 253,
+   "section": "S04",
+   "w": "B-B.",
+   "start": 95.67,
+   "end": 96.285,
+   "sentenceEnd": true
+  },
+  {
+   "i": 254,
+   "section": "S04",
+   "w": "Le",
+   "start": 96.666,
+   "end": 96.805,
+   "sentenceEnd": false
+  },
+  {
+   "i": 255,
+   "section": "S04",
+   "w": "switch",
+   "start": 96.84,
+   "end": 97.073,
+   "sentenceEnd": false
+  },
+  {
+   "i": 256,
+   "section": "S04",
+   "w": "apprend",
+   "start": 97.107,
+   "end": 97.34,
+   "sentenceEnd": false
+  },
+  {
+   "i": 257,
+   "section": "S04",
+   "w": "avec",
+   "start": 97.363,
+   "end": 97.502,
+   "sentenceEnd": false
+  },
+  {
+   "i": 258,
+   "section": "S04",
+   "w": "la",
+   "start": 97.56,
+   "end": 97.653,
+   "sentenceEnd": false
+  },
+  {
+   "i": 259,
+   "section": "S04",
+   "w": "source.",
+   "start": 97.734,
+   "end": 98.129,
+   "sentenceEnd": true
+  },
+  {
+   "i": 260,
+   "section": "S04",
+   "w": "Il",
+   "start": 98.452,
+   "end": 98.568,
+   "sentenceEnd": false
+  },
+  {
+   "i": 261,
+   "section": "S04",
+   "w": "décide",
+   "start": 98.638,
+   "end": 98.998,
+   "sentenceEnd": false
+  },
+  {
+   "i": 262,
+   "section": "S04",
+   "w": "avec",
+   "start": 99.021,
+   "end": 99.137,
+   "sentenceEnd": false
+  },
+  {
+   "i": 263,
+   "section": "S04",
+   "w": "la",
+   "start": 99.195,
+   "end": 99.253,
+   "sentenceEnd": false
+  },
+  {
+   "i": 264,
+   "section": "S04",
+   "w": "destination.",
+   "start": 99.311,
+   "end": 100.182,
+   "sentenceEnd": true
+  },
+  {
+   "i": 265,
+   "section": "S05",
+   "w": "Maintenant,",
+   "start": 100.981,
+   "end": 101.608,
+   "sentenceEnd": false
+  },
+  {
+   "i": 266,
+   "section": "S05",
+   "w": "décider.",
+   "start": 101.666,
+   "end": 102.293,
+   "sentenceEnd": true
+  },
+  {
+   "i": 267,
+   "section": "S05",
+   "w": "Le",
+   "start": 102.651,
+   "end": 102.802,
+   "sentenceEnd": false
+  },
+  {
+   "i": 268,
+   "section": "S05",
+   "w": "switch",
+   "start": 102.825,
+   "end": 103.139,
+   "sentenceEnd": false
+  },
+  {
+   "i": 269,
+   "section": "S05",
+   "w": "cherche",
+   "start": 103.197,
+   "end": 103.522,
+   "sentenceEnd": false
+  },
+  {
+   "i": 270,
+   "section": "S05",
+   "w": "B-B",
+   "start": 103.615,
+   "end": 103.905,
+   "sentenceEnd": false
+  },
+  {
+   "i": 271,
+   "section": "S05",
+   "w": "dans",
+   "start": 104.044,
+   "end": 104.183,
+   "sentenceEnd": false
+  },
+  {
+   "i": 272,
+   "section": "S05",
+   "w": "sa",
+   "start": 104.207,
+   "end": 104.311,
+   "sentenceEnd": false
+  },
+  {
+   "i": 273,
+   "section": "S05",
+   "w": "table.",
+   "start": 104.381,
+   "end": 104.729,
+   "sentenceEnd": true
+  },
+  {
+   "i": 274,
+   "section": "S05",
+   "w": "Rien.",
+   "start": 105.087,
+   "end": 105.424,
+   "sentenceEnd": true
+  },
+  {
+   "i": 275,
+   "section": "S05",
+   "w": "Destination",
+   "start": 105.782,
+   "end": 106.455,
+   "sentenceEnd": false
+  },
+  {
+   "i": 276,
+   "section": "S05",
+   "w": "inconnue.",
+   "start": 106.479,
+   "end": 107.013,
+   "sentenceEnd": true
+  },
+  {
+   "i": 277,
+   "section": "S05",
+   "w": "Alors",
+   "start": 108.091,
+   "end": 108.335,
+   "sentenceEnd": false
+  },
+  {
+   "i": 278,
+   "section": "S05",
+   "w": "il",
+   "start": 108.358,
+   "end": 108.405,
+   "sentenceEnd": false
+  },
+  {
+   "i": 279,
+   "section": "S05",
+   "w": "fait",
+   "start": 108.44,
+   "end": 108.532,
+   "sentenceEnd": false
+  },
+  {
+   "i": 280,
+   "section": "S05",
+   "w": "la",
+   "start": 108.556,
+   "end": 108.614,
+   "sentenceEnd": false
+  },
+  {
+   "i": 281,
+   "section": "S05",
+   "w": "seule",
+   "start": 108.683,
+   "end": 108.869,
+   "sentenceEnd": false
+  },
+  {
+   "i": 282,
+   "section": "S05",
+   "w": "chose",
+   "start": 108.892,
+   "end": 109.113,
+   "sentenceEnd": false
+  },
+  {
+   "i": 283,
+   "section": "S05",
+   "w": "raisonnable",
+   "start": 109.148,
+   "end": 109.751,
+   "sentenceEnd": false
+  },
+  {
+   "i": 284,
+   "section": "S05",
+   "w": "il",
+   "start": 109.995,
+   "end": 110.135,
+   "sentenceEnd": false
+  },
+  {
+   "i": 285,
+   "section": "S05",
+   "w": "envoie",
+   "start": 110.193,
+   "end": 110.39,
+   "sentenceEnd": false
+  },
+  {
+   "i": 286,
+   "section": "S05",
+   "w": "une",
+   "start": 110.46,
+   "end": 110.529,
+   "sentenceEnd": false
+  },
+  {
+   "i": 287,
+   "section": "S05",
+   "w": "copie",
+   "start": 110.553,
+   "end": 110.831,
+   "sentenceEnd": false
+  },
+  {
+   "i": 288,
+   "section": "S05",
+   "w": "sur",
+   "start": 110.854,
+   "end": 110.982,
+   "sentenceEnd": false
+  },
+  {
+   "i": 289,
+   "section": "S05",
+   "w": "tous",
+   "start": 111.04,
+   "end": 111.168,
+   "sentenceEnd": false
+  },
+  {
+   "i": 290,
+   "section": "S05",
+   "w": "les",
+   "start": 111.191,
+   "end": 111.296,
+   "sentenceEnd": false
+  },
+  {
+   "i": 291,
+   "section": "S05",
+   "w": "autres",
+   "start": 111.365,
+   "end": 111.656,
+   "sentenceEnd": false
+  },
+  {
+   "i": 292,
+   "section": "S05",
+   "w": "ports.",
+   "start": 111.679,
+   "end": 112.062,
+   "sentenceEnd": true
+  },
+  {
+   "i": 293,
+   "section": "S05",
+   "w": "Sauf",
+   "start": 112.49,
+   "end": 112.675,
+   "sentenceEnd": false
+  },
+  {
+   "i": 294,
+   "section": "S05",
+   "w": "celui",
+   "start": 112.733,
+   "end": 112.966,
+   "sentenceEnd": false
+  },
+  {
+   "i": 295,
+   "section": "S05",
+   "w": "d'où",
+   "start": 113.024,
+   "end": 113.128,
+   "sentenceEnd": false
+  },
+  {
+   "i": 296,
+   "section": "S05",
+   "w": "elle",
+   "start": 113.186,
+   "end": 113.279,
+   "sentenceEnd": false
+  },
+  {
+   "i": 297,
+   "section": "S05",
+   "w": "vient.",
+   "start": 113.302,
+   "end": 113.604,
+   "sentenceEnd": true
+  },
+  {
+   "i": 298,
+   "section": "S05",
+   "w": "Ça",
+   "start": 113.939,
+   "end": 114.101,
+   "sentenceEnd": false
+  },
+  {
+   "i": 299,
+   "section": "S05",
+   "w": "s'appelle",
+   "start": 114.125,
+   "end": 114.427,
+   "sentenceEnd": false
+  },
+  {
+   "i": 300,
+   "section": "S05",
+   "w": "le",
+   "start": 114.45,
+   "end": 114.508,
+   "sentenceEnd": false
+  },
+  {
+   "i": 301,
+   "section": "S05",
+   "w": "flooding.",
+   "start": 114.636,
+   "end": 115.297,
+   "sentenceEnd": true
+  },
+  {
+   "i": 302,
+   "section": "S05",
+   "w": "L'inondation.",
+   "start": 115.725,
+   "end": 116.573,
+   "sentenceEnd": true
+  },
+  {
+   "i": 303,
+   "section": "S05",
+   "w": "C,",
+   "start": 117.831,
+   "end": 118.156,
+   "sentenceEnd": false
+  },
+  {
+   "i": 304,
+   "section": "S05",
+   "w": "D",
+   "start": 118.214,
+   "end": 118.295,
+   "sentenceEnd": false
+  },
+  {
+   "i": 305,
+   "section": "S05",
+   "w": "et",
+   "start": 118.492,
+   "end": 118.632,
+   "sentenceEnd": false
+  },
+  {
+   "i": 306,
+   "section": "S05",
+   "w": "E",
+   "start": 118.701,
+   "end": 118.829,
+   "sentenceEnd": false
+  },
+  {
+   "i": 307,
+   "section": "S05",
+   "w": "lisent",
+   "start": 118.957,
+   "end": 119.235,
+   "sentenceEnd": false
+  },
+  {
+   "i": 308,
+   "section": "S05",
+   "w": "l'adresse",
+   "start": 119.259,
+   "end": 119.63,
+   "sentenceEnd": false
+  },
+  {
+   "i": 309,
+   "section": "S05",
+   "w": "destination.",
+   "start": 119.653,
+   "end": 120.536,
+   "sentenceEnd": true
+  },
+  {
+   "i": 310,
+   "section": "S05",
+   "w": "Ce",
+   "start": 120.963,
+   "end": 121.091,
+   "sentenceEnd": false
+  },
+  {
+   "i": 311,
+   "section": "S05",
+   "w": "n'est",
+   "start": 121.161,
+   "end": 121.289,
+   "sentenceEnd": false
+  },
+  {
+   "i": 312,
+   "section": "S05",
+   "w": "pas",
+   "start": 121.323,
+   "end": 121.474,
+   "sentenceEnd": false
+  },
+  {
+   "i": 313,
+   "section": "S05",
+   "w": "la",
+   "start": 121.497,
+   "end": 121.579,
+   "sentenceEnd": false
+  },
+  {
+   "i": 314,
+   "section": "S05",
+   "w": "leur.",
+   "start": 121.648,
+   "end": 121.939,
+   "sentenceEnd": true
+  },
+  {
+   "i": 315,
+   "section": "S05",
+   "w": "Alors",
+   "start": 122.262,
+   "end": 122.494,
+   "sentenceEnd": false
+  },
+  {
+   "i": 316,
+   "section": "S05",
+   "w": "ils",
+   "start": 122.517,
+   "end": 122.587,
+   "sentenceEnd": false
+  },
+  {
+   "i": 317,
+   "section": "S05",
+   "w": "jettent",
+   "start": 122.61,
+   "end": 122.854,
+   "sentenceEnd": false
+  },
+  {
+   "i": 318,
+   "section": "S05",
+   "w": "la",
+   "start": 122.877,
+   "end": 122.958,
+   "sentenceEnd": false
+  },
+  {
+   "i": 319,
+   "section": "S05",
+   "w": "trame.",
+   "start": 123.028,
+   "end": 123.4,
+   "sentenceEnd": true
+  },
+  {
+   "i": 320,
+   "section": "S05",
+   "w": "Seul",
+   "start": 123.734,
+   "end": 124.106,
+   "sentenceEnd": false
+  },
+  {
+   "i": 321,
+   "section": "S05",
+   "w": "B",
+   "start": 124.199,
+   "end": 124.373,
+   "sentenceEnd": false
+  },
+  {
+   "i": 322,
+   "section": "S05",
+   "w": "la",
+   "start": 124.605,
+   "end": 124.733,
+   "sentenceEnd": false
+  },
+  {
+   "i": 323,
+   "section": "S05",
+   "w": "garde.",
+   "start": 124.814,
+   "end": 125.197,
+   "sentenceEnd": true
+  },
+  {
+   "i": 324,
+   "section": "S05",
+   "w": "Et",
+   "start": 126.121,
+   "end": 126.179,
+   "sentenceEnd": false
+  },
+  {
+   "i": 325,
+   "section": "S05",
+   "w": "maintenant,",
+   "start": 126.213,
+   "end": 126.666,
+   "sentenceEnd": false
+  },
+  {
+   "i": 326,
+   "section": "S05",
+   "w": "B",
+   "start": 126.701,
+   "end": 126.794,
+   "sentenceEnd": false
+  },
+  {
+   "i": 327,
+   "section": "S05",
+   "w": "répond.",
+   "start": 126.922,
+   "end": 127.374,
+   "sentenceEnd": true
+  },
+  {
+   "i": 328,
+   "section": "S05",
+   "w": "Sa",
+   "start": 127.732,
+   "end": 127.895,
+   "sentenceEnd": false
+  },
+  {
+   "i": 329,
+   "section": "S05",
+   "w": "réponse",
+   "start": 127.93,
+   "end": 128.301,
+   "sentenceEnd": false
+  },
+  {
+   "i": 330,
+   "section": "S05",
+   "w": "entre",
+   "start": 128.325,
+   "end": 128.545,
+   "sentenceEnd": false
+  },
+  {
+   "i": 331,
+   "section": "S05",
+   "w": "par",
+   "start": 128.58,
+   "end": 128.696,
+   "sentenceEnd": false
+  },
+  {
+   "i": 332,
+   "section": "S05",
+   "w": "le",
+   "start": 128.731,
+   "end": 128.801,
+   "sentenceEnd": false
+  },
+  {
+   "i": 333,
+   "section": "S05",
+   "w": "port",
+   "start": 128.859,
+   "end": 129.079,
+   "sentenceEnd": false
+  },
+  {
+   "i": 334,
+   "section": "S05",
+   "w": "deux.",
+   "start": 129.114,
+   "end": 129.404,
+   "sentenceEnd": true
+  },
+  {
+   "i": 335,
+   "section": "S05",
+   "w": "Source",
+   "start": 129.832,
+   "end": 130.378,
+   "sentenceEnd": false
+  },
+  {
+   "i": 336,
+   "section": "S05",
+   "w": "B-B.",
+   "start": 130.563,
+   "end": 131.214,
+   "sentenceEnd": true
+  },
+  {
+   "i": 337,
+   "section": "S05",
+   "w": "Le",
+   "start": 131.607,
+   "end": 131.757,
+   "sentenceEnd": false
+  },
+  {
+   "i": 338,
+   "section": "S05",
+   "w": "switch",
+   "start": 131.792,
+   "end": 132.083,
+   "sentenceEnd": false
+  },
+  {
+   "i": 339,
+   "section": "S05",
+   "w": "apprend",
+   "start": 132.117,
+   "end": 132.442,
+   "sentenceEnd": false
+  },
+  {
+   "i": 340,
+   "section": "S05",
+   "w": "B-B,",
+   "start": 132.605,
+   "end": 133.255,
+   "sentenceEnd": false
+  },
+  {
+   "i": 341,
+   "section": "S05",
+   "w": "port",
+   "start": 133.336,
+   "end": 133.685,
+   "sentenceEnd": false
+  },
+  {
+   "i": 342,
+   "section": "S05",
+   "w": "deux",
+   "start": 133.708,
+   "end": 133.905,
+   "sentenceEnd": false
+  },
+  {
+   "i": 343,
+   "section": "S05",
+   "w": "Et",
+   "start": 134.138,
+   "end": 134.23,
+   "sentenceEnd": false
+  },
+  {
+   "i": 344,
+   "section": "S05",
+   "w": "la",
+   "start": 134.265,
+   "end": 134.323,
+   "sentenceEnd": false
+  },
+  {
+   "i": 345,
+   "section": "S05",
+   "w": "destination,",
+   "start": 134.381,
+   "end": 135.159,
+   "sentenceEnd": false
+  },
+  {
+   "i": 346,
+   "section": "S05",
+   "w": "A-A",
+   "start": 135.252,
+   "end": 135.624,
+   "sentenceEnd": false
+  },
+  {
+   "i": 347,
+   "section": "S05",
+   "w": "Il",
+   "start": 135.902,
+   "end": 136.053,
+   "sentenceEnd": false
+  },
+  {
+   "i": 348,
+   "section": "S05",
+   "w": "la",
+   "start": 136.088,
+   "end": 136.146,
+   "sentenceEnd": false
+  },
+  {
+   "i": 349,
+   "section": "S05",
+   "w": "connaît",
+   "start": 136.216,
+   "end": 136.494,
+   "sentenceEnd": false
+  },
+  {
+   "i": 350,
+   "section": "S05",
+   "w": "déjà.",
+   "start": 136.518,
+   "end": 136.982,
+   "sentenceEnd": true
+  },
+  {
+   "i": 351,
+   "section": "S05",
+   "w": "Une",
+   "start": 137.41,
+   "end": 137.63,
+   "sentenceEnd": false
+  },
+  {
+   "i": 352,
+   "section": "S05",
+   "w": "seule",
+   "start": 137.654,
+   "end": 137.839,
+   "sentenceEnd": false
+  },
+  {
+   "i": 353,
+   "section": "S05",
+   "w": "sortie",
+   "start": 137.863,
+   "end": 138.373,
+   "sentenceEnd": false
+  },
+  {
+   "i": 354,
+   "section": "S05",
+   "w": "le",
+   "start": 138.791,
+   "end": 138.896,
+   "sentenceEnd": false
+  },
+  {
+   "i": 355,
+   "section": "S05",
+   "w": "port",
+   "start": 138.965,
+   "end": 139.198,
+   "sentenceEnd": false
+  },
+  {
+   "i": 356,
+   "section": "S05",
+   "w": "un.",
+   "start": 139.256,
+   "end": 139.558,
+   "sentenceEnd": true
+  },
+  {
+   "i": 357,
+   "section": "S05",
+   "w": "Et",
+   "start": 140.585,
+   "end": 140.701,
+   "sentenceEnd": false
+  },
+  {
+   "i": 358,
+   "section": "S05",
+   "w": "la",
+   "start": 140.725,
+   "end": 140.783,
+   "sentenceEnd": false
+  },
+  {
+   "i": 359,
+   "section": "S05",
+   "w": "prochaine",
+   "start": 140.841,
+   "end": 141.166,
+   "sentenceEnd": false
+  },
+  {
+   "i": 360,
+   "section": "S05",
+   "w": "fois",
+   "start": 141.189,
+   "end": 141.305,
+   "sentenceEnd": false
+  },
+  {
+   "i": 361,
+   "section": "S05",
+   "w": "que",
+   "start": 141.328,
+   "end": 141.444,
+   "sentenceEnd": false
+  },
+  {
+   "i": 362,
+   "section": "S05",
+   "w": "A",
+   "start": 141.479,
+   "end": 141.514,
+   "sentenceEnd": false
+  },
+  {
+   "i": 363,
+   "section": "S05",
+   "w": "parle",
+   "start": 141.572,
+   "end": 141.793,
+   "sentenceEnd": false
+  },
+  {
+   "i": 364,
+   "section": "S05",
+   "w": "à",
+   "start": 141.816,
+   "end": 141.839,
+   "sentenceEnd": false
+  },
+  {
+   "i": 365,
+   "section": "S05",
+   "w": "B",
+   "start": 141.909,
+   "end": 141.978,
+   "sentenceEnd": false
+  },
+  {
+   "i": 366,
+   "section": "S05",
+   "w": "Une",
+   "start": 142.362,
+   "end": 142.559,
+   "sentenceEnd": false
+  },
+  {
+   "i": 367,
+   "section": "S05",
+   "w": "seule",
+   "start": 142.582,
+   "end": 142.791,
+   "sentenceEnd": false
+  },
+  {
+   "i": 368,
+   "section": "S05",
+   "w": "flèche.",
+   "start": 142.814,
+   "end": 143.29,
+   "sentenceEnd": true
+  },
+  {
+   "i": 369,
+   "section": "S05",
+   "w": "Le",
+   "start": 143.718,
+   "end": 143.857,
+   "sentenceEnd": false
+  },
+  {
+   "i": 370,
+   "section": "S05",
+   "w": "switch",
+   "start": 143.892,
+   "end": 144.183,
+   "sentenceEnd": false
+  },
+  {
+   "i": 371,
+   "section": "S05",
+   "w": "a",
+   "start": 144.241,
+   "end": 144.264,
+   "sentenceEnd": false
+  },
+  {
+   "i": 372,
+   "section": "S05",
+   "w": "appris.",
+   "start": 144.333,
+   "end": 144.728,
+   "sentenceEnd": true
+  },
+  {
+   "i": 373,
+   "section": "S05",
+   "w": "Il",
+   "start": 145.086,
+   "end": 145.179,
+   "sentenceEnd": false
+  },
+  {
+   "i": 374,
+   "section": "S05",
+   "w": "n'inonde",
+   "start": 145.214,
+   "end": 145.539,
+   "sentenceEnd": false
+  },
+  {
+   "i": 375,
+   "section": "S05",
+   "w": "plus.",
+   "start": 145.562,
+   "end": 146.108,
+   "sentenceEnd": true
+  },
+  {
+   "i": 376,
+   "section": "S06",
+   "w": "Parfois,",
+   "start": 146.908,
+   "end": 147.547,
+   "sentenceEnd": false
+  },
+  {
+   "i": 377,
+   "section": "S06",
+   "w": "A",
+   "start": 147.581,
+   "end": 147.605,
+   "sentenceEnd": false
+  },
+  {
+   "i": 378,
+   "section": "S06",
+   "w": "veut",
+   "start": 147.709,
+   "end": 147.825,
+   "sentenceEnd": false
+  },
+  {
+   "i": 379,
+   "section": "S06",
+   "w": "parler",
+   "start": 147.848,
+   "end": 148.127,
+   "sentenceEnd": false
+  },
+  {
+   "i": 380,
+   "section": "S06",
+   "w": "à",
+   "start": 148.15,
+   "end": 148.173,
+   "sentenceEnd": false
+  },
+  {
+   "i": 381,
+   "section": "S06",
+   "w": "tout",
+   "start": 148.243,
+   "end": 148.417,
+   "sentenceEnd": false
+  },
+  {
+   "i": 382,
+   "section": "S06",
+   "w": "le",
+   "start": 148.441,
+   "end": 148.487,
+   "sentenceEnd": false
+  },
+  {
+   "i": 383,
+   "section": "S06",
+   "w": "monde.",
+   "start": 148.545,
+   "end": 148.812,
+   "sentenceEnd": true
+  },
+  {
+   "i": 384,
+   "section": "S06",
+   "w": "Par",
+   "start": 149.147,
+   "end": 149.263,
+   "sentenceEnd": false
+  },
+  {
+   "i": 385,
+   "section": "S06",
+   "w": "exemple",
+   "start": 149.286,
+   "end": 149.681,
+   "sentenceEnd": false
+  },
+  {
+   "i": 386,
+   "section": "S06",
+   "w": "pour",
+   "start": 149.716,
+   "end": 149.832,
+   "sentenceEnd": false
+  },
+  {
+   "i": 387,
+   "section": "S06",
+   "w": "demander",
+   "start": 149.902,
+   "end": 150.354,
+   "sentenceEnd": false
+  },
+  {
+   "i": 388,
+   "section": "S06",
+   "w": "qui",
+   "start": 150.645,
+   "end": 150.819,
+   "sentenceEnd": false
+  },
+  {
+   "i": 389,
+   "section": "S06",
+   "w": "a",
+   "start": 150.854,
+   "end": 150.877,
+   "sentenceEnd": false
+  },
+  {
+   "i": 390,
+   "section": "S06",
+   "w": "telle",
+   "start": 150.935,
+   "end": 151.109,
+   "sentenceEnd": false
+  },
+  {
+   "i": 391,
+   "section": "S06",
+   "w": "adresse",
+   "start": 151.132,
+   "end": 151.492,
+   "sentenceEnd": false
+  },
+  {
+   "i": 392,
+   "section": "S06",
+   "w": "IP",
+   "start": 151.515,
+   "end": 151.771,
+   "sentenceEnd": false
+  },
+  {
+   "i": 393,
+   "section": "S06",
+   "w": "Il",
+   "start": 152.224,
+   "end": 152.351,
+   "sentenceEnd": false
+  },
+  {
+   "i": 394,
+   "section": "S06",
+   "w": "met",
+   "start": 152.421,
+   "end": 152.502,
+   "sentenceEnd": false
+  },
+  {
+   "i": 395,
+   "section": "S06",
+   "w": "alors",
+   "start": 152.525,
+   "end": 152.711,
+   "sentenceEnd": false
+  },
+  {
+   "i": 396,
+   "section": "S06",
+   "w": "une",
+   "start": 152.769,
+   "end": 152.862,
+   "sentenceEnd": false
+  },
+  {
+   "i": 397,
+   "section": "S06",
+   "w": "adresse",
+   "start": 152.885,
+   "end": 153.152,
+   "sentenceEnd": false
+  },
+  {
+   "i": 398,
+   "section": "S06",
+   "w": "destination",
+   "start": 153.176,
+   "end": 153.826,
+   "sentenceEnd": false
+  },
+  {
+   "i": 399,
+   "section": "S06",
+   "w": "spéciale",
+   "start": 153.861,
+   "end": 154.418,
+   "sentenceEnd": false
+  },
+  {
+   "i": 400,
+   "section": "S06",
+   "w": "que",
+   "start": 154.731,
+   "end": 154.929,
+   "sentenceEnd": false
+  },
+  {
+   "i": 401,
+   "section": "S06",
+   "w": "des",
+   "start": 154.963,
+   "end": 155.103,
+   "sentenceEnd": false
+  },
+  {
+   "i": 402,
+   "section": "S06",
+   "w": "F.",
+   "start": 155.138,
+   "end": 155.474,
+   "sentenceEnd": true
+  },
+  {
+   "i": 403,
+   "section": "S06",
+   "w": "C'est",
+   "start": 155.832,
+   "end": 156.03,
+   "sentenceEnd": false
+  },
+  {
+   "i": 404,
+   "section": "S06",
+   "w": "une",
+   "start": 156.123,
+   "end": 156.204,
+   "sentenceEnd": false
+  },
+  {
+   "i": 405,
+   "section": "S06",
+   "w": "broadcast.",
+   "start": 156.227,
+   "end": 156.912,
+   "sentenceEnd": true
+  },
+  {
+   "i": 406,
+   "section": "S06",
+   "w": "Le",
+   "start": 157.27,
+   "end": 157.433,
+   "sentenceEnd": false
+  },
+  {
+   "i": 407,
+   "section": "S06",
+   "w": "switch",
+   "start": 157.467,
+   "end": 157.746,
+   "sentenceEnd": false
+  },
+  {
+   "i": 408,
+   "section": "S06",
+   "w": "l'envoie",
+   "start": 157.769,
+   "end": 158.036,
+   "sentenceEnd": false
+  },
+  {
+   "i": 409,
+   "section": "S06",
+   "w": "sur",
+   "start": 158.06,
+   "end": 158.199,
+   "sentenceEnd": false
+  },
+  {
+   "i": 410,
+   "section": "S06",
+   "w": "tous",
+   "start": 158.257,
+   "end": 158.373,
+   "sentenceEnd": false
+  },
+  {
+   "i": 411,
+   "section": "S06",
+   "w": "les",
+   "start": 158.396,
+   "end": 158.478,
+   "sentenceEnd": false
+  },
+  {
+   "i": 412,
+   "section": "S06",
+   "w": "ports,",
+   "start": 158.536,
+   "end": 158.861,
+   "sentenceEnd": false
+  },
+  {
+   "i": 413,
+   "section": "S06",
+   "w": "sauf",
+   "start": 158.942,
+   "end": 159.174,
+   "sentenceEnd": false
+  },
+  {
+   "i": 414,
+   "section": "S06",
+   "w": "l'entrée.",
+   "start": 159.232,
+   "end": 159.696,
+   "sentenceEnd": true
+  },
+  {
+   "i": 415,
+   "section": "S06",
+   "w": "Et",
+   "start": 160.066,
+   "end": 160.205,
+   "sentenceEnd": false
+  },
+  {
+   "i": 416,
+   "section": "S06",
+   "w": "cette",
+   "start": 160.229,
+   "end": 160.414,
+   "sentenceEnd": false
+  },
+  {
+   "i": 417,
+   "section": "S06",
+   "w": "fois,",
+   "start": 160.438,
+   "end": 160.612,
+   "sentenceEnd": false
+  },
+  {
+   "i": 418,
+   "section": "S06",
+   "w": "tout",
+   "start": 160.647,
+   "end": 160.809,
+   "sentenceEnd": false
+  },
+  {
+   "i": 419,
+   "section": "S06",
+   "w": "le",
+   "start": 160.832,
+   "end": 160.879,
+   "sentenceEnd": false
+  },
+  {
+   "i": 420,
+   "section": "S06",
+   "w": "monde",
+   "start": 160.937,
+   "end": 161.099,
+   "sentenceEnd": false
+  },
+  {
+   "i": 421,
+   "section": "S06",
+   "w": "la",
+   "start": 161.123,
+   "end": 161.192,
+   "sentenceEnd": false
+  },
+  {
+   "i": 422,
+   "section": "S06",
+   "w": "lit.",
+   "start": 161.262,
+   "end": 161.436,
+   "sentenceEnd": true
+  },
+  {
+   "i": 423,
+   "section": "S06",
+   "w": "Donc,",
+   "start": 162.706,
+   "end": 163.042,
+   "sentenceEnd": false
+  },
+  {
+   "i": 424,
+   "section": "S06",
+   "w": "deux",
+   "start": 163.101,
+   "end": 163.24,
+   "sentenceEnd": false
+  },
+  {
+   "i": 425,
+   "section": "S06",
+   "w": "inondations",
+   "start": 163.333,
+   "end": 163.867,
+   "sentenceEnd": false
+  },
+  {
+   "i": 426,
+   "section": "S06",
+   "w": "différentes.",
+   "start": 163.89,
+   "end": 164.482,
+   "sentenceEnd": true
+  },
+  {
+   "i": 427,
+   "section": "S06",
+   "w": "L'une",
+   "start": 164.863,
+   "end": 165.107,
+   "sentenceEnd": false
+  },
+  {
+   "i": 428,
+   "section": "S06",
+   "w": "par",
+   "start": 165.13,
+   "end": 165.247,
+   "sentenceEnd": false
+  },
+  {
+   "i": 429,
+   "section": "S06",
+   "w": "ignorance",
+   "start": 165.316,
+   "end": 165.839,
+   "sentenceEnd": false
+  },
+  {
+   "i": 430,
+   "section": "S06",
+   "w": "elle",
+   "start": 165.92,
+   "end": 166.059,
+   "sentenceEnd": false
+  },
+  {
+   "i": 431,
+   "section": "S06",
+   "w": "disparaît",
+   "start": 166.082,
+   "end": 166.547,
+   "sentenceEnd": false
+  },
+  {
+   "i": 432,
+   "section": "S06",
+   "w": "dès",
+   "start": 166.616,
+   "end": 166.698,
+   "sentenceEnd": false
+  },
+  {
+   "i": 433,
+   "section": "S06",
+   "w": "que",
+   "start": 166.721,
+   "end": 166.802,
+   "sentenceEnd": false
+  },
+  {
+   "i": 434,
+   "section": "S06",
+   "w": "le",
+   "start": 166.825,
+   "end": 166.895,
+   "sentenceEnd": false
+  },
+  {
+   "i": 435,
+   "section": "S06",
+   "w": "switch",
+   "start": 166.918,
+   "end": 167.22,
+   "sentenceEnd": false
+  },
+  {
+   "i": 436,
+   "section": "S06",
+   "w": "a",
+   "start": 167.255,
+   "end": 167.278,
+   "sentenceEnd": false
+  },
+  {
+   "i": 437,
+   "section": "S06",
+   "w": "appris.",
+   "start": 167.348,
+   "end": 167.766,
+   "sentenceEnd": true
+  },
+  {
+   "i": 438,
+   "section": "S06",
+   "w": "L'autre",
+   "start": 168.101,
+   "end": 168.449,
+   "sentenceEnd": false
+  },
+  {
+   "i": 439,
+   "section": "S06",
+   "w": "par",
+   "start": 168.484,
+   "end": 168.612,
+   "sentenceEnd": false
+  },
+  {
+   "i": 440,
+   "section": "S06",
+   "w": "nature",
+   "start": 168.646,
+   "end": 169.088,
+   "sentenceEnd": false
+  },
+  {
+   "i": 441,
+   "section": "S06",
+   "w": "elle",
+   "start": 169.215,
+   "end": 169.378,
+   "sentenceEnd": false
+  },
+  {
+   "i": 442,
+   "section": "S06",
+   "w": "revient",
+   "start": 169.401,
+   "end": 169.761,
+   "sentenceEnd": false
+  },
+  {
+   "i": 443,
+   "section": "S06",
+   "w": "à",
+   "start": 169.796,
+   "end": 169.819,
+   "sentenceEnd": false
+  },
+  {
+   "i": 444,
+   "section": "S06",
+   "w": "chaque",
+   "start": 169.877,
+   "end": 170.109,
+   "sentenceEnd": false
+  },
+  {
+   "i": 445,
+   "section": "S06",
+   "w": "fois.",
+   "start": 170.132,
+   "end": 170.481,
+   "sentenceEnd": true
+  },
+  {
+   "i": 446,
+   "section": "S07",
+   "w": "Agrandissons.",
+   "start": 171.281,
+   "end": 172.338,
+   "sentenceEnd": true
+  },
+  {
+   "i": 447,
+   "section": "S07",
+   "w": "Un",
+   "start": 172.742,
+   "end": 172.893,
+   "sentenceEnd": false
+  },
+  {
+   "i": 448,
+   "section": "S07",
+   "w": "gros",
+   "start": 172.963,
+   "end": 173.299,
+   "sentenceEnd": false
+  },
+  {
+   "i": 449,
+   "section": "S07",
+   "w": "switch.",
+   "start": 173.322,
+   "end": 173.764,
+   "sentenceEnd": true
+  },
+  {
+   "i": 450,
+   "section": "S07",
+   "w": "Trois",
+   "start": 174.133,
+   "end": 174.47,
+   "sentenceEnd": false
+  },
+  {
+   "i": 451,
+   "section": "S07",
+   "w": "équipes",
+   "start": 174.598,
+   "end": 174.969,
+   "sentenceEnd": false
+  },
+  {
+   "i": 452,
+   "section": "S07",
+   "w": "la",
+   "start": 175.19,
+   "end": 175.306,
+   "sentenceEnd": false
+  },
+  {
+   "i": 453,
+   "section": "S07",
+   "w": "compta,",
+   "start": 175.376,
+   "end": 175.875,
+   "sentenceEnd": false
+  },
+  {
+   "i": 454,
+   "section": "S07",
+   "w": "le",
+   "start": 175.933,
+   "end": 176.003,
+   "sentenceEnd": false
+  },
+  {
+   "i": 455,
+   "section": "S07",
+   "w": "gaming,",
+   "start": 176.072,
+   "end": 176.537,
+   "sentenceEnd": false
+  },
+  {
+   "i": 456,
+   "section": "S07",
+   "w": "le",
+   "start": 176.56,
+   "end": 176.653,
+   "sentenceEnd": false
+  },
+  {
+   "i": 457,
+   "section": "S07",
+   "w": "support.",
+   "start": 176.722,
+   "end": 177.338,
+   "sentenceEnd": true
+  },
+  {
+   "i": 458,
+   "section": "S07",
+   "w": "Un",
+   "start": 177.673,
+   "end": 177.765,
+   "sentenceEnd": false
+  },
+  {
+   "i": 459,
+   "section": "S07",
+   "w": "PC",
+   "start": 177.835,
+   "end": 178.09,
+   "sentenceEnd": false
+  },
+  {
+   "i": 460,
+   "section": "S07",
+   "w": "du",
+   "start": 178.195,
+   "end": 178.265,
+   "sentenceEnd": false
+  },
+  {
+   "i": 461,
+   "section": "S07",
+   "w": "gaming",
+   "start": 178.323,
+   "end": 178.625,
+   "sentenceEnd": false
+  },
+  {
+   "i": 462,
+   "section": "S07",
+   "w": "envoie",
+   "start": 178.694,
+   "end": 179.135,
+   "sentenceEnd": false
+  },
+  {
+   "i": 463,
+   "section": "S07",
+   "w": "une",
+   "start": 179.205,
+   "end": 179.286,
+   "sentenceEnd": false
+  },
+  {
+   "i": 464,
+   "section": "S07",
+   "w": "broadcast.",
+   "start": 179.31,
+   "end": 180.029,
+   "sentenceEnd": true
+  },
+  {
+   "i": 465,
+   "section": "S07",
+   "w": "Et",
+   "start": 180.562,
+   "end": 180.678,
+   "sentenceEnd": false
+  },
+  {
+   "i": 466,
+   "section": "S07",
+   "w": "la",
+   "start": 180.712,
+   "end": 180.771,
+   "sentenceEnd": false
+  },
+  {
+   "i": 467,
+   "section": "S07",
+   "w": "compta",
+   "start": 180.84,
+   "end": 181.119,
+   "sentenceEnd": false
+  },
+  {
+   "i": 468,
+   "section": "S07",
+   "w": "la",
+   "start": 181.188,
+   "end": 181.247,
+   "sentenceEnd": false
+  },
+  {
+   "i": 469,
+   "section": "S07",
+   "w": "reçoit.",
+   "start": 181.305,
+   "end": 181.827,
+   "sentenceEnd": true
+  },
+  {
+   "i": 470,
+   "section": "S07",
+   "w": "Le",
+   "start": 182.185,
+   "end": 182.336,
+   "sentenceEnd": false
+  },
+  {
+   "i": 471,
+   "section": "S07",
+   "w": "support",
+   "start": 182.394,
+   "end": 182.766,
+   "sentenceEnd": false
+  },
+  {
+   "i": 472,
+   "section": "S07",
+   "w": "aussi.",
+   "start": 182.789,
+   "end": 183.184,
+   "sentenceEnd": true
+  },
+  {
+   "i": 473,
+   "section": "S07",
+   "w": "Tout",
+   "start": 183.518,
+   "end": 183.739,
+   "sentenceEnd": false
+  },
+  {
+   "i": 474,
+   "section": "S07",
+   "w": "le",
+   "start": 183.762,
+   "end": 183.82,
+   "sentenceEnd": false
+  },
+  {
+   "i": 475,
+   "section": "S07",
+   "w": "monde.",
+   "start": 183.843,
+   "end": 184.145,
+   "sentenceEnd": true
+  },
+  {
+   "i": 476,
+   "section": "S07",
+   "w": "Multiplie",
+   "start": 185.08,
+   "end": 185.591,
+   "sentenceEnd": false
+  },
+  {
+   "i": 477,
+   "section": "S07",
+   "w": "ça",
+   "start": 185.614,
+   "end": 185.719,
+   "sentenceEnd": false
+  },
+  {
+   "i": 478,
+   "section": "S07",
+   "w": "par",
+   "start": 185.754,
+   "end": 185.846,
+   "sentenceEnd": false
+  },
+  {
+   "i": 479,
+   "section": "S07",
+   "w": "des",
+   "start": 185.881,
+   "end": 185.997,
+   "sentenceEnd": false
+  },
+  {
+   "i": 480,
+   "section": "S07",
+   "w": "centaines",
+   "start": 186.032,
+   "end": 186.404,
+   "sentenceEnd": false
+  },
+  {
+   "i": 481,
+   "section": "S07",
+   "w": "de",
+   "start": 186.427,
+   "end": 186.485,
+   "sentenceEnd": false
+  },
+  {
+   "i": 482,
+   "section": "S07",
+   "w": "machines.",
+   "start": 186.543,
+   "end": 187.077,
+   "sentenceEnd": true
+  },
+  {
+   "i": 483,
+   "section": "S07",
+   "w": "Tout",
+   "start": 187.609,
+   "end": 187.83,
+   "sentenceEnd": false
+  },
+  {
+   "i": 484,
+   "section": "S07",
+   "w": "ce",
+   "start": 187.853,
+   "end": 187.958,
+   "sentenceEnd": false
+  },
+  {
+   "i": 485,
+   "section": "S07",
+   "w": "bruit",
+   "start": 188.027,
+   "end": 188.294,
+   "sentenceEnd": false
+  },
+  {
+   "i": 486,
+   "section": "S07",
+   "w": "arrive",
+   "start": 188.318,
+   "end": 188.527,
+   "sentenceEnd": false
+  },
+  {
+   "i": 487,
+   "section": "S07",
+   "w": "chez",
+   "start": 188.55,
+   "end": 188.689,
+   "sentenceEnd": false
+  },
+  {
+   "i": 488,
+   "section": "S07",
+   "w": "des",
+   "start": 188.712,
+   "end": 188.828,
+   "sentenceEnd": false
+  },
+  {
+   "i": 489,
+   "section": "S07",
+   "w": "gens",
+   "start": 188.852,
+   "end": 189.014,
+   "sentenceEnd": false
+  },
+  {
+   "i": 490,
+   "section": "S07",
+   "w": "qui",
+   "start": 189.037,
+   "end": 189.119,
+   "sentenceEnd": false
+  },
+  {
+   "i": 491,
+   "section": "S07",
+   "w": "n'en",
+   "start": 189.177,
+   "end": 189.281,
+   "sentenceEnd": false
+  },
+  {
+   "i": 492,
+   "section": "S07",
+   "w": "ont",
+   "start": 189.374,
+   "end": 189.444,
+   "sentenceEnd": false
+  },
+  {
+   "i": 493,
+   "section": "S07",
+   "w": "rien",
+   "start": 189.479,
+   "end": 189.688,
+   "sentenceEnd": false
+  },
+  {
+   "i": 494,
+   "section": "S07",
+   "w": "à",
+   "start": 189.78,
+   "end": 189.804,
+   "sentenceEnd": false
+  },
+  {
+   "i": 495,
+   "section": "S07",
+   "w": "faire.",
+   "start": 189.885,
+   "end": 190.198,
+   "sentenceEnd": true
+  },
+  {
+   "i": 496,
+   "section": "S07",
+   "w": "Et",
+   "start": 190.533,
+   "end": 190.603,
+   "sentenceEnd": false
+  },
+  {
+   "i": 497,
+   "section": "S07",
+   "w": "si",
+   "start": 190.626,
+   "end": 190.707,
+   "sentenceEnd": false
+  },
+  {
+   "i": 498,
+   "section": "S07",
+   "w": "on",
+   "start": 190.765,
+   "end": 190.823,
+   "sentenceEnd": false
+  },
+  {
+   "i": 499,
+   "section": "S07",
+   "w": "voulait",
+   "start": 190.882,
+   "end": 191.137,
+   "sentenceEnd": false
+  },
+  {
+   "i": 500,
+   "section": "S07",
+   "w": "trois",
+   "start": 191.16,
+   "end": 191.439,
+   "sentenceEnd": false
+  },
+  {
+   "i": 501,
+   "section": "S07",
+   "w": "réseaux",
+   "start": 191.462,
+   "end": 191.741,
+   "sentenceEnd": false
+  },
+  {
+   "i": 502,
+   "section": "S07",
+   "w": "séparés…",
+   "start": 191.764,
+   "end": 192.402,
+   "sentenceEnd": true
+  },
+  {
+   "i": 503,
+   "section": "S07",
+   "w": "sans",
+   "start": 192.9,
+   "end": 193.144,
+   "sentenceEnd": false
+  },
+  {
+   "i": 504,
+   "section": "S07",
+   "w": "acheter",
+   "start": 193.202,
+   "end": 193.445,
+   "sentenceEnd": false
+  },
+  {
+   "i": 505,
+   "section": "S07",
+   "w": "trois",
+   "start": 193.48,
+   "end": 193.724,
+   "sentenceEnd": false
+  },
+  {
+   "i": 506,
+   "section": "S07",
+   "w": "switches",
+   "start": 193.747,
+   "end": 194.188,
+   "sentenceEnd": false
+  },
+  {
+   "i": 507,
+   "section": "S07",
+   "w": "On",
+   "start": 194.386,
+   "end": 194.548,
+   "sentenceEnd": false
+  },
+  {
+   "i": 508,
+   "section": "S07",
+   "w": "découpe",
+   "start": 194.606,
+   "end": 194.943,
+   "sentenceEnd": false
+  },
+  {
+   "i": 509,
+   "section": "S07",
+   "w": "le",
+   "start": 194.966,
+   "end": 195.048,
+   "sentenceEnd": false
+  },
+  {
+   "i": 510,
+   "section": "S07",
+   "w": "switch.",
+   "start": 195.106,
+   "end": 195.524,
+   "sentenceEnd": true
+  },
+  {
+   "i": 511,
+   "section": "S07",
+   "w": "Trois",
+   "start": 195.905,
+   "end": 196.242,
+   "sentenceEnd": false
+  },
+  {
+   "i": 512,
+   "section": "S07",
+   "w": "VLAN.",
+   "start": 196.276,
+   "end": 196.66,
+   "sentenceEnd": true
+  },
+  {
+   "i": 513,
+   "section": "S07",
+   "w": "VLAN",
+   "start": 197.087,
+   "end": 197.424,
+   "sentenceEnd": false
+  },
+  {
+   "i": 514,
+   "section": "S07",
+   "w": "dix,",
+   "start": 197.552,
+   "end": 197.923,
+   "sentenceEnd": false
+  },
+  {
+   "i": 515,
+   "section": "S07",
+   "w": "vingt,",
+   "start": 198.004,
+   "end": 198.26,
+   "sentenceEnd": false
+  },
+  {
+   "i": 516,
+   "section": "S07",
+   "w": "trente.",
+   "start": 198.353,
+   "end": 198.794,
+   "sentenceEnd": true
+  },
+  {
+   "i": 517,
+   "section": "S07",
+   "w": "Relance",
+   "start": 199.822,
+   "end": 200.182,
+   "sentenceEnd": false
+  },
+  {
+   "i": 518,
+   "section": "S07",
+   "w": "la",
+   "start": 200.205,
+   "end": 200.263,
+   "sentenceEnd": false
+  },
+  {
+   "i": 519,
+   "section": "S07",
+   "w": "même",
+   "start": 200.321,
+   "end": 200.472,
+   "sentenceEnd": false
+  },
+  {
+   "i": 520,
+   "section": "S07",
+   "w": "broadcast.",
+   "start": 200.495,
+   "end": 201.157,
+   "sentenceEnd": true
+  },
+  {
+   "i": 521,
+   "section": "S07",
+   "w": "Elle",
+   "start": 201.48,
+   "end": 201.666,
+   "sentenceEnd": false
+  },
+  {
+   "i": 522,
+   "section": "S07",
+   "w": "reste",
+   "start": 201.724,
+   "end": 201.991,
+   "sentenceEnd": false
+  },
+  {
+   "i": 523,
+   "section": "S07",
+   "w": "dans",
+   "start": 202.026,
+   "end": 202.142,
+   "sentenceEnd": false
+  },
+  {
+   "i": 524,
+   "section": "S07",
+   "w": "le",
+   "start": 202.165,
+   "end": 202.223,
+   "sentenceEnd": false
+  },
+  {
+   "i": 525,
+   "section": "S07",
+   "w": "violet.",
+   "start": 202.258,
+   "end": 202.723,
+   "sentenceEnd": true
+  },
+  {
+   "i": 526,
+   "section": "S07",
+   "w": "Un",
+   "start": 203.981,
+   "end": 204.097,
+   "sentenceEnd": false
+  },
+  {
+   "i": 527,
+   "section": "S07",
+   "w": "peu",
+   "start": 204.155,
+   "end": 204.271,
+   "sentenceEnd": false
+  },
+  {
+   "i": 528,
+   "section": "S07",
+   "w": "comme",
+   "start": 204.306,
+   "end": 204.457,
+   "sentenceEnd": false
+  },
+  {
+   "i": 529,
+   "section": "S07",
+   "w": "trois",
+   "start": 204.48,
+   "end": 204.701,
+   "sentenceEnd": false
+  },
+  {
+   "i": 530,
+   "section": "S07",
+   "w": "étages",
+   "start": 204.782,
+   "end": 205.084,
+   "sentenceEnd": false
+  },
+  {
+   "i": 531,
+   "section": "S07",
+   "w": "d'un",
+   "start": 205.107,
+   "end": 205.211,
+   "sentenceEnd": false
+  },
+  {
+   "i": 532,
+   "section": "S07",
+   "w": "même",
+   "start": 205.235,
+   "end": 205.444,
+   "sentenceEnd": false
+  },
+  {
+   "i": 533,
+   "section": "S07",
+   "w": "immeuble.",
+   "start": 205.467,
+   "end": 205.966,
+   "sentenceEnd": true
+  },
+  {
+   "i": 534,
+   "section": "S07",
+   "w": "Dans",
+   "start": 206.289,
+   "end": 206.452,
+   "sentenceEnd": false
+  },
+  {
+   "i": 535,
+   "section": "S07",
+   "w": "le",
+   "start": 206.475,
+   "end": 206.521,
+   "sentenceEnd": false
+  },
+  {
+   "i": 536,
+   "section": "S07",
+   "w": "vrai",
+   "start": 206.58,
+   "end": 206.754,
+   "sentenceEnd": false
+  },
+  {
+   "i": 537,
+   "section": "S07",
+   "w": "réseau,",
+   "start": 206.812,
+   "end": 207.172,
+   "sentenceEnd": false
+  },
+  {
+   "i": 538,
+   "section": "S07",
+   "w": "chaque",
+   "start": 207.195,
+   "end": 207.497,
+   "sentenceEnd": false
+  },
+  {
+   "i": 539,
+   "section": "S07",
+   "w": "VLAN",
+   "start": 207.52,
+   "end": 207.845,
+   "sentenceEnd": false
+  },
+  {
+   "i": 540,
+   "section": "S07",
+   "w": "est",
+   "start": 207.903,
+   "end": 207.973,
+   "sentenceEnd": false
+  },
+  {
+   "i": 541,
+   "section": "S07",
+   "w": "un",
+   "start": 208.054,
+   "end": 208.1,
+   "sentenceEnd": false
+  },
+  {
+   "i": 542,
+   "section": "S07",
+   "w": "domaine",
+   "start": 208.135,
+   "end": 208.391,
+   "sentenceEnd": false
+  },
+  {
+   "i": 543,
+   "section": "S07",
+   "w": "de",
+   "start": 208.414,
+   "end": 208.472,
+   "sentenceEnd": false
+  },
+  {
+   "i": 544,
+   "section": "S07",
+   "w": "broadcast",
+   "start": 208.53,
+   "end": 209.111,
+   "sentenceEnd": false
+  },
+  {
+   "i": 545,
+   "section": "S07",
+   "w": "séparé",
+   "start": 209.203,
+   "end": 209.761,
+   "sentenceEnd": false
+  },
+  {
+   "i": 546,
+   "section": "S07",
+   "w": "le",
+   "start": 210.202,
+   "end": 210.295,
+   "sentenceEnd": false
+  },
+  {
+   "i": 547,
+   "section": "S07",
+   "w": "switch",
+   "start": 210.353,
+   "end": 210.62,
+   "sentenceEnd": false
+  },
+  {
+   "i": 548,
+   "section": "S07",
+   "w": "n'inonde",
+   "start": 210.689,
+   "end": 211.003,
+   "sentenceEnd": false
+  },
+  {
+   "i": 549,
+   "section": "S07",
+   "w": "jamais",
+   "start": 211.038,
+   "end": 211.363,
+   "sentenceEnd": false
+  },
+  {
+   "i": 550,
+   "section": "S07",
+   "w": "une",
+   "start": 211.386,
+   "end": 211.467,
+   "sentenceEnd": false
+  },
+  {
+   "i": 551,
+   "section": "S07",
+   "w": "trame",
+   "start": 211.491,
+   "end": 211.827,
+   "sentenceEnd": false
+  },
+  {
+   "i": 552,
+   "section": "S07",
+   "w": "hors",
+   "start": 211.862,
+   "end": 212.025,
+   "sentenceEnd": false
+  },
+  {
+   "i": 553,
+   "section": "S07",
+   "w": "de",
+   "start": 212.048,
+   "end": 212.141,
+   "sentenceEnd": false
+  },
+  {
+   "i": 554,
+   "section": "S07",
+   "w": "son",
+   "start": 212.199,
+   "end": 212.338,
+   "sentenceEnd": false
+  },
+  {
+   "i": 555,
+   "section": "S07",
+   "w": "VLAN.",
+   "start": 212.373,
+   "end": 212.919,
+   "sentenceEnd": true
+  },
+  {
+   "i": 556,
+   "section": "S08",
+   "w": "Mais",
+   "start": 213.718,
+   "end": 213.927,
+   "sentenceEnd": false
+  },
+  {
+   "i": 557,
+   "section": "S08",
+   "w": "comment",
+   "start": 213.962,
+   "end": 214.252,
+   "sentenceEnd": false
+  },
+  {
+   "i": 558,
+   "section": "S08",
+   "w": "le",
+   "start": 214.275,
+   "end": 214.357,
+   "sentenceEnd": false
+  },
+  {
+   "i": 559,
+   "section": "S08",
+   "w": "switch",
+   "start": 214.415,
+   "end": 214.728,
+   "sentenceEnd": false
+  },
+  {
+   "i": 560,
+   "section": "S08",
+   "w": "sait-il",
+   "start": 214.786,
+   "end": 215.088,
+   "sentenceEnd": false
+  },
+  {
+   "i": 561,
+   "section": "S08",
+   "w": "qu'un",
+   "start": 215.146,
+   "end": 215.274,
+   "sentenceEnd": false
+  },
+  {
+   "i": 562,
+   "section": "S08",
+   "w": "PC",
+   "start": 215.332,
+   "end": 215.576,
+   "sentenceEnd": false
+  },
+  {
+   "i": 563,
+   "section": "S08",
+   "w": "est",
+   "start": 215.645,
+   "end": 215.715,
+   "sentenceEnd": false
+  },
+  {
+   "i": 564,
+   "section": "S08",
+   "w": "dans",
+   "start": 215.738,
+   "end": 215.877,
+   "sentenceEnd": false
+  },
+  {
+   "i": 565,
+   "section": "S08",
+   "w": "le",
+   "start": 215.901,
+   "end": 215.959,
+   "sentenceEnd": false
+  },
+  {
+   "i": 566,
+   "section": "S08",
+   "w": "VLAN",
+   "start": 216.028,
+   "end": 216.33,
+   "sentenceEnd": false
+  },
+  {
+   "i": 567,
+   "section": "S08",
+   "w": "dix",
+   "start": 216.4,
+   "end": 216.667,
+   "sentenceEnd": false
+  },
+  {
+   "i": 568,
+   "section": "S08",
+   "w": "Ce",
+   "start": 216.795,
+   "end": 216.911,
+   "sentenceEnd": false
+  },
+  {
+   "i": 569,
+   "section": "S08",
+   "w": "n'est",
+   "start": 216.969,
+   "end": 217.097,
+   "sentenceEnd": false
+  },
+  {
+   "i": 570,
+   "section": "S08",
+   "w": "pas",
+   "start": 217.12,
+   "end": 217.271,
+   "sentenceEnd": false
+  },
+  {
+   "i": 571,
+   "section": "S08",
+   "w": "le",
+   "start": 217.294,
+   "end": 217.352,
+   "sentenceEnd": false
+  },
+  {
+   "i": 572,
+   "section": "S08",
+   "w": "PC",
+   "start": 217.41,
+   "end": 217.654,
+   "sentenceEnd": false
+  },
+  {
+   "i": 573,
+   "section": "S08",
+   "w": "qui",
+   "start": 217.758,
+   "end": 217.874,
+   "sentenceEnd": false
+  },
+  {
+   "i": 574,
+   "section": "S08",
+   "w": "le",
+   "start": 217.932,
+   "end": 218.025,
+   "sentenceEnd": false
+  },
+  {
+   "i": 575,
+   "section": "S08",
+   "w": "dit.",
+   "start": 218.095,
+   "end": 218.35,
+   "sentenceEnd": true
+  },
+  {
+   "i": 576,
+   "section": "S08",
+   "w": "C'est",
+   "start": 218.674,
+   "end": 218.859,
+   "sentenceEnd": false
+  },
+  {
+   "i": 577,
+   "section": "S08",
+   "w": "le",
+   "start": 218.883,
+   "end": 218.964,
+   "sentenceEnd": false
+  },
+  {
+   "i": 578,
+   "section": "S08",
+   "w": "port.",
+   "start": 219.092,
+   "end": 219.475,
+   "sentenceEnd": true
+  },
+  {
+   "i": 579,
+   "section": "S08",
+   "w": "L'administrateur",
+   "start": 219.856,
+   "end": 220.854,
+   "sentenceEnd": false
+  },
+  {
+   "i": 580,
+   "section": "S08",
+   "w": "configure",
+   "start": 220.947,
+   "end": 221.679,
+   "sentenceEnd": false
+  },
+  {
+   "i": 581,
+   "section": "S08",
+   "w": "le",
+   "start": 221.76,
+   "end": 221.923,
+   "sentenceEnd": false
+  },
+  {
+   "i": 582,
+   "section": "S08",
+   "w": "port",
+   "start": 222.015,
+   "end": 222.387,
+   "sentenceEnd": false
+  },
+  {
+   "i": 583,
+   "section": "S08",
+   "w": "en",
+   "start": 222.41,
+   "end": 222.503,
+   "sentenceEnd": false
+  },
+  {
+   "i": 584,
+   "section": "S08",
+   "w": "port",
+   "start": 222.573,
+   "end": 222.747,
+   "sentenceEnd": false
+  },
+  {
+   "i": 585,
+   "section": "S08",
+   "w": "d'accès,",
+   "start": 222.77,
+   "end": 223.351,
+   "sentenceEnd": false
+  },
+  {
+   "i": 586,
+   "section": "S08",
+   "w": "dans",
+   "start": 223.629,
+   "end": 223.792,
+   "sentenceEnd": false
+  },
+  {
+   "i": 587,
+   "section": "S08",
+   "w": "le",
+   "start": 223.815,
+   "end": 223.873,
+   "sentenceEnd": false
+  },
+  {
+   "i": 588,
+   "section": "S08",
+   "w": "VLAN",
+   "start": 223.908,
+   "end": 224.175,
+   "sentenceEnd": false
+  },
+  {
+   "i": 589,
+   "section": "S08",
+   "w": "dix.",
+   "start": 224.245,
+   "end": 224.593,
+   "sentenceEnd": true
+  },
+  {
+   "i": 590,
+   "section": "S08",
+   "w": "Le",
+   "start": 225.551,
+   "end": 225.702,
+   "sentenceEnd": false
+  },
+  {
+   "i": 591,
+   "section": "S08",
+   "w": "PC",
+   "start": 225.76,
+   "end": 225.957,
+   "sentenceEnd": false
+  },
+  {
+   "i": 592,
+   "section": "S08",
+   "w": "envoie",
+   "start": 226.062,
+   "end": 226.329,
+   "sentenceEnd": false
+  },
+  {
+   "i": 593,
+   "section": "S08",
+   "w": "une",
+   "start": 226.387,
+   "end": 226.468,
+   "sentenceEnd": false
+  },
+  {
+   "i": 594,
+   "section": "S08",
+   "w": "trame",
+   "start": 226.491,
+   "end": 226.758,
+   "sentenceEnd": false
+  },
+  {
+   "i": 595,
+   "section": "S08",
+   "w": "tout",
+   "start": 226.782,
+   "end": 226.898,
+   "sentenceEnd": false
+  },
+  {
+   "i": 596,
+   "section": "S08",
+   "w": "à",
+   "start": 226.967,
+   "end": 226.991,
+   "sentenceEnd": false
+  },
+  {
+   "i": 597,
+   "section": "S08",
+   "w": "fait",
+   "start": 227.025,
+   "end": 227.141,
+   "sentenceEnd": false
+  },
+  {
+   "i": 598,
+   "section": "S08",
+   "w": "normale.",
+   "start": 227.165,
+   "end": 227.605,
+   "sentenceEnd": true
+  },
+  {
+   "i": 599,
+   "section": "S08",
+   "w": "Aucune",
+   "start": 227.929,
+   "end": 228.323,
+   "sentenceEnd": false
+  },
+  {
+   "i": 600,
+   "section": "S08",
+   "w": "étiquette.",
+   "start": 228.347,
+   "end": 228.823,
+   "sentenceEnd": true
+  },
+  {
+   "i": 601,
+   "section": "S08",
+   "w": "Il",
+   "start": 229.157,
+   "end": 229.216,
+   "sentenceEnd": false
+  },
+  {
+   "i": 602,
+   "section": "S08",
+   "w": "ne",
+   "start": 229.274,
+   "end": 229.366,
+   "sentenceEnd": false
+  },
+  {
+   "i": 603,
+   "section": "S08",
+   "w": "sait",
+   "start": 229.424,
+   "end": 229.541,
+   "sentenceEnd": false
+  },
+  {
+   "i": 604,
+   "section": "S08",
+   "w": "même",
+   "start": 229.564,
+   "end": 229.726,
+   "sentenceEnd": false
+  },
+  {
+   "i": 605,
+   "section": "S08",
+   "w": "pas",
+   "start": 229.75,
+   "end": 229.9,
+   "sentenceEnd": false
+  },
+  {
+   "i": 606,
+   "section": "S08",
+   "w": "qu'il",
+   "start": 229.935,
+   "end": 230.063,
+   "sentenceEnd": false
+  },
+  {
+   "i": 607,
+   "section": "S08",
+   "w": "est",
+   "start": 230.121,
+   "end": 230.191,
+   "sentenceEnd": false
+  },
+  {
+   "i": 608,
+   "section": "S08",
+   "w": "dans",
+   "start": 230.226,
+   "end": 230.4,
+   "sentenceEnd": false
+  },
+  {
+   "i": 609,
+   "section": "S08",
+   "w": "un",
+   "start": 230.493,
+   "end": 230.539,
+   "sentenceEnd": false
+  },
+  {
+   "i": 610,
+   "section": "S08",
+   "w": "VLAN.",
+   "start": 230.609,
+   "end": 231.003,
+   "sentenceEnd": true
+  },
+  {
+   "i": 611,
+   "section": "S08",
+   "w": "C'est",
+   "start": 231.338,
+   "end": 231.489,
+   "sentenceEnd": false
+  },
+  {
+   "i": 612,
+   "section": "S08",
+   "w": "le",
+   "start": 231.512,
+   "end": 231.594,
+   "sentenceEnd": false
+  },
+  {
+   "i": 613,
+   "section": "S08",
+   "w": "switch",
+   "start": 231.698,
+   "end": 232.07,
+   "sentenceEnd": false
+  },
+  {
+   "i": 614,
+   "section": "S08",
+   "w": "qui",
+   "start": 232.105,
+   "end": 232.197,
+   "sentenceEnd": false
+  },
+  {
+   "i": 615,
+   "section": "S08",
+   "w": "fait",
+   "start": 232.255,
+   "end": 232.395,
+   "sentenceEnd": false
+  },
+  {
+   "i": 616,
+   "section": "S08",
+   "w": "le",
+   "start": 232.418,
+   "end": 232.476,
+   "sentenceEnd": false
+  },
+  {
+   "i": 617,
+   "section": "S08",
+   "w": "rattachement.",
+   "start": 232.546,
+   "end": 233.533,
+   "sentenceEnd": true
+  },
+  {
+   "i": 618,
+   "section": "S09",
+   "w": "Maintenant,",
+   "start": 234.333,
+   "end": 234.972,
+   "sentenceEnd": false
+  },
+  {
+   "i": 619,
+   "section": "S09",
+   "w": "deux",
+   "start": 235.053,
+   "end": 235.239,
+   "sentenceEnd": false
+  },
+  {
+   "i": 620,
+   "section": "S09",
+   "w": "switches.",
+   "start": 235.273,
+   "end": 235.796,
+   "sentenceEnd": true
+  },
+  {
+   "i": 621,
+   "section": "S09",
+   "w": "Des",
+   "start": 236.166,
+   "end": 236.34,
+   "sentenceEnd": false
+  },
+  {
+   "i": 622,
+   "section": "S09",
+   "w": "deux",
+   "start": 236.374,
+   "end": 236.514,
+   "sentenceEnd": false
+  },
+  {
+   "i": 623,
+   "section": "S09",
+   "w": "côtés,",
+   "start": 236.537,
+   "end": 237.013,
+   "sentenceEnd": false
+  },
+  {
+   "i": 624,
+   "section": "S09",
+   "w": "il",
+   "start": 237.048,
+   "end": 237.141,
+   "sentenceEnd": false
+  },
+  {
+   "i": 625,
+   "section": "S09",
+   "w": "y",
+   "start": 237.176,
+   "end": 237.199,
+   "sentenceEnd": false
+  },
+  {
+   "i": 626,
+   "section": "S09",
+   "w": "a",
+   "start": 237.222,
+   "end": 237.245,
+   "sentenceEnd": false
+  },
+  {
+   "i": 627,
+   "section": "S09",
+   "w": "du",
+   "start": 237.28,
+   "end": 237.419,
+   "sentenceEnd": false
+  },
+  {
+   "i": 628,
+   "section": "S09",
+   "w": "VLAN",
+   "start": 237.477,
+   "end": 237.675,
+   "sentenceEnd": false
+  },
+  {
+   "i": 629,
+   "section": "S09",
+   "w": "dix",
+   "start": 237.779,
+   "end": 238.081,
+   "sentenceEnd": false
+  },
+  {
+   "i": 630,
+   "section": "S09",
+   "w": "et",
+   "start": 238.151,
+   "end": 238.244,
+   "sentenceEnd": false
+  },
+  {
+   "i": 631,
+   "section": "S09",
+   "w": "du",
+   "start": 238.279,
+   "end": 238.383,
+   "sentenceEnd": false
+  },
+  {
+   "i": 632,
+   "section": "S09",
+   "w": "VLAN",
+   "start": 238.441,
+   "end": 238.65,
+   "sentenceEnd": false
+  },
+  {
+   "i": 633,
+   "section": "S09",
+   "w": "vingt.",
+   "start": 238.778,
+   "end": 239.08,
+   "sentenceEnd": true
+  },
+  {
+   "i": 634,
+   "section": "S09",
+   "w": "Pour",
+   "start": 239.507,
+   "end": 239.705,
+   "sentenceEnd": false
+  },
+  {
+   "i": 635,
+   "section": "S09",
+   "w": "les",
+   "start": 239.74,
+   "end": 239.821,
+   "sentenceEnd": false
+  },
+  {
+   "i": 636,
+   "section": "S09",
+   "w": "relier,",
+   "start": 239.856,
+   "end": 240.227,
+   "sentenceEnd": false
+  },
+  {
+   "i": 637,
+   "section": "S09",
+   "w": "faut-il",
+   "start": 240.25,
+   "end": 240.506,
+   "sentenceEnd": false
+  },
+  {
+   "i": 638,
+   "section": "S09",
+   "w": "un",
+   "start": 240.564,
+   "end": 240.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 639,
+   "section": "S09",
+   "w": "câble",
+   "start": 240.668,
+   "end": 240.912,
+   "sentenceEnd": false
+  },
+  {
+   "i": 640,
+   "section": "S09",
+   "w": "par",
+   "start": 240.97,
+   "end": 241.086,
+   "sentenceEnd": false
+  },
+  {
+   "i": 641,
+   "section": "S09",
+   "w": "VLAN",
+   "start": 241.144,
+   "end": 241.365,
+   "sentenceEnd": false
+  },
+  {
+   "i": 642,
+   "section": "S09",
+   "w": "Avec",
+   "start": 241.794,
+   "end": 242.12,
+   "sentenceEnd": false
+  },
+  {
+   "i": 643,
+   "section": "S09",
+   "w": "deux",
+   "start": 242.189,
+   "end": 242.317,
+   "sentenceEnd": false
+  },
+  {
+   "i": 644,
+   "section": "S09",
+   "w": "VLAN,",
+   "start": 242.34,
+   "end": 242.654,
+   "sentenceEnd": false
+  },
+  {
+   "i": 645,
+   "section": "S09",
+   "w": "deux",
+   "start": 242.688,
+   "end": 242.828,
+   "sentenceEnd": false
+  },
+  {
+   "i": 646,
+   "section": "S09",
+   "w": "câbles.",
+   "start": 242.863,
+   "end": 243.234,
+   "sentenceEnd": true
+  },
+  {
+   "i": 647,
+   "section": "S09",
+   "w": "Avec",
+   "start": 243.592,
+   "end": 243.882,
+   "sentenceEnd": false
+  },
+  {
+   "i": 648,
+   "section": "S09",
+   "w": "cinquante",
+   "start": 243.952,
+   "end": 244.37,
+   "sentenceEnd": false
+  },
+  {
+   "i": 649,
+   "section": "S09",
+   "w": "VLAN…",
+   "start": 244.393,
+   "end": 244.776,
+   "sentenceEnd": true
+  },
+  {
+   "i": 650,
+   "section": "S09",
+   "w": "cinquante",
+   "start": 245.274,
+   "end": 245.773,
+   "sentenceEnd": false
+  },
+  {
+   "i": 651,
+   "section": "S09",
+   "w": "câbles.",
+   "start": 245.796,
+   "end": 246.226,
+   "sentenceEnd": true
+  },
+  {
+   "i": 652,
+   "section": "S09",
+   "w": "Et",
+   "start": 246.653,
+   "end": 246.804,
+   "sentenceEnd": false
+  },
+  {
+   "i": 653,
+   "section": "S09",
+   "w": "cinquante",
+   "start": 246.862,
+   "end": 247.257,
+   "sentenceEnd": false
+  },
+  {
+   "i": 654,
+   "section": "S09",
+   "w": "ports",
+   "start": 247.28,
+   "end": 247.455,
+   "sentenceEnd": false
+  },
+  {
+   "i": 655,
+   "section": "S09",
+   "w": "gaspillés.",
+   "start": 247.478,
+   "end": 248.163,
+   "sentenceEnd": true
+  },
+  {
+   "i": 656,
+   "section": "S09",
+   "w": "La",
+   "start": 249.091,
+   "end": 249.23,
+   "sentenceEnd": false
+  },
+  {
+   "i": 657,
+   "section": "S09",
+   "w": "solution",
+   "start": 249.299,
+   "end": 249.88,
+   "sentenceEnd": false
+  },
+  {
+   "i": 658,
+   "section": "S09",
+   "w": "un",
+   "start": 250.066,
+   "end": 250.193,
+   "sentenceEnd": false
+  },
+  {
+   "i": 659,
+   "section": "S09",
+   "w": "seul",
+   "start": 250.251,
+   "end": 250.449,
+   "sentenceEnd": false
+  },
+  {
+   "i": 660,
+   "section": "S09",
+   "w": "lien,",
+   "start": 250.484,
+   "end": 250.751,
+   "sentenceEnd": false
+  },
+  {
+   "i": 661,
+   "section": "S09",
+   "w": "qui",
+   "start": 250.774,
+   "end": 250.867,
+   "sentenceEnd": false
+  },
+  {
+   "i": 662,
+   "section": "S09",
+   "w": "transporte",
+   "start": 250.901,
+   "end": 251.505,
+   "sentenceEnd": false
+  },
+  {
+   "i": 663,
+   "section": "S09",
+   "w": "tous",
+   "start": 251.598,
+   "end": 251.795,
+   "sentenceEnd": false
+  },
+  {
+   "i": 664,
+   "section": "S09",
+   "w": "les",
+   "start": 251.819,
+   "end": 251.935,
+   "sentenceEnd": false
+  },
+  {
+   "i": 665,
+   "section": "S09",
+   "w": "VLAN.",
+   "start": 251.97,
+   "end": 252.573,
+   "sentenceEnd": true
+  },
+  {
+   "i": 666,
+   "section": "S09",
+   "w": "Un",
+   "start": 252.908,
+   "end": 253.071,
+   "sentenceEnd": false
+  },
+  {
+   "i": 667,
+   "section": "S09",
+   "w": "trunk.",
+   "start": 253.14,
+   "end": 253.64,
+   "sentenceEnd": true
+  },
+  {
+   "i": 668,
+   "section": "S09",
+   "w": "Comme",
+   "start": 254.663,
+   "end": 254.907,
+   "sentenceEnd": false
+  },
+  {
+   "i": 669,
+   "section": "S09",
+   "w": "un",
+   "start": 254.93,
+   "end": 254.976,
+   "sentenceEnd": false
+  },
+  {
+   "i": 670,
+   "section": "S09",
+   "w": "ascenseur",
+   "start": 255.046,
+   "end": 255.464,
+   "sentenceEnd": false
+  },
+  {
+   "i": 671,
+   "section": "S09",
+   "w": "partagé",
+   "start": 255.522,
+   "end": 255.963,
+   "sentenceEnd": false
+  },
+  {
+   "i": 672,
+   "section": "S09",
+   "w": "par",
+   "start": 255.998,
+   "end": 256.126,
+   "sentenceEnd": false
+  },
+  {
+   "i": 673,
+   "section": "S09",
+   "w": "tous",
+   "start": 256.184,
+   "end": 256.323,
+   "sentenceEnd": false
+  },
+  {
+   "i": 674,
+   "section": "S09",
+   "w": "les",
+   "start": 256.346,
+   "end": 256.462,
+   "sentenceEnd": false
+  },
+  {
+   "i": 675,
+   "section": "S09",
+   "w": "étages.",
+   "start": 256.567,
+   "end": 257.008,
+   "sentenceEnd": true
+  },
+  {
+   "i": 676,
+   "section": "S09",
+   "w": "Mais",
+   "start": 257.331,
+   "end": 257.517,
+   "sentenceEnd": false
+  },
+  {
+   "i": 677,
+   "section": "S09",
+   "w": "alors…",
+   "start": 257.54,
+   "end": 257.935,
+   "sentenceEnd": true
+  },
+  {
+   "i": 678,
+   "section": "S09",
+   "w": "à",
+   "start": 258.27,
+   "end": 258.339,
+   "sentenceEnd": false
+  },
+  {
+   "i": 679,
+   "section": "S09",
+   "w": "l'arrivée,",
+   "start": 258.432,
+   "end": 258.955,
+   "sentenceEnd": false
+  },
+  {
+   "i": 680,
+   "section": "S09",
+   "w": "comment",
+   "start": 259.013,
+   "end": 259.326,
+   "sentenceEnd": false
+  },
+  {
+   "i": 681,
+   "section": "S09",
+   "w": "savoir",
+   "start": 259.35,
+   "end": 259.686,
+   "sentenceEnd": false
+  },
+  {
+   "i": 682,
+   "section": "S09",
+   "w": "de",
+   "start": 259.744,
+   "end": 259.814,
+   "sentenceEnd": false
+  },
+  {
+   "i": 683,
+   "section": "S09",
+   "w": "quel",
+   "start": 259.872,
+   "end": 260.023,
+   "sentenceEnd": false
+  },
+  {
+   "i": 684,
+   "section": "S09",
+   "w": "étage",
+   "start": 260.093,
+   "end": 260.383,
+   "sentenceEnd": false
+  },
+  {
+   "i": 685,
+   "section": "S09",
+   "w": "vient",
+   "start": 260.406,
+   "end": 260.592,
+   "sentenceEnd": false
+  },
+  {
+   "i": 686,
+   "section": "S09",
+   "w": "chaque",
+   "start": 260.627,
+   "end": 260.905,
+   "sentenceEnd": false
+  },
+  {
+   "i": 687,
+   "section": "S09",
+   "w": "trame",
+   "start": 260.94,
+   "end": 261.358,
+   "sentenceEnd": false
+  },
+  {
+   "i": 688,
+   "section": "S10",
+   "w": "Réponse",
+   "start": 262.367,
+   "end": 262.982,
+   "sentenceEnd": false
+  },
+  {
+   "i": 689,
+   "section": "S10",
+   "w": "au",
+   "start": 263.064,
+   "end": 263.156,
+   "sentenceEnd": false
+  },
+  {
+   "i": 690,
+   "section": "S10",
+   "w": "moment",
+   "start": 263.226,
+   "end": 263.458,
+   "sentenceEnd": false
+  },
+  {
+   "i": 691,
+   "section": "S10",
+   "w": "d'entrer",
+   "start": 263.482,
+   "end": 263.737,
+   "sentenceEnd": false
+  },
+  {
+   "i": 692,
+   "section": "S10",
+   "w": "dans",
+   "start": 263.76,
+   "end": 263.888,
+   "sentenceEnd": false
+  },
+  {
+   "i": 693,
+   "section": "S10",
+   "w": "le",
+   "start": 263.911,
+   "end": 263.981,
+   "sentenceEnd": false
+  },
+  {
+   "i": 694,
+   "section": "S10",
+   "w": "trunk,",
+   "start": 264.039,
+   "end": 264.48,
+   "sentenceEnd": false
+  },
+  {
+   "i": 695,
+   "section": "S10",
+   "w": "le",
+   "start": 264.515,
+   "end": 264.608,
+   "sentenceEnd": false
+  },
+  {
+   "i": 696,
+   "section": "S10",
+   "w": "switch",
+   "start": 264.643,
+   "end": 264.91,
+   "sentenceEnd": false
+  },
+  {
+   "i": 697,
+   "section": "S10",
+   "w": "ajoute",
+   "start": 264.933,
+   "end": 265.223,
+   "sentenceEnd": false
+  },
+  {
+   "i": 698,
+   "section": "S10",
+   "w": "une",
+   "start": 265.246,
+   "end": 265.351,
+   "sentenceEnd": false
+  },
+  {
+   "i": 699,
+   "section": "S10",
+   "w": "information",
+   "start": 265.374,
+   "end": 265.954,
+   "sentenceEnd": false
+  },
+  {
+   "i": 700,
+   "section": "S10",
+   "w": "à",
+   "start": 266.013,
+   "end": 266.036,
+   "sentenceEnd": false
+  },
+  {
+   "i": 701,
+   "section": "S10",
+   "w": "la",
+   "start": 266.059,
+   "end": 266.14,
+   "sentenceEnd": false
+  },
+  {
+   "i": 702,
+   "section": "S10",
+   "w": "trame.",
+   "start": 266.21,
+   "end": 266.57,
+   "sentenceEnd": true
+  },
+  {
+   "i": 703,
+   "section": "S10",
+   "w": "Un",
+   "start": 266.893,
+   "end": 267.009,
+   "sentenceEnd": false
+  },
+  {
+   "i": 704,
+   "section": "S10",
+   "w": "tag.",
+   "start": 267.102,
+   "end": 267.485,
+   "sentenceEnd": true
+  },
+  {
+   "i": 705,
+   "section": "S10",
+   "w": "C'est",
+   "start": 267.82,
+   "end": 267.994,
+   "sentenceEnd": false
+  },
+  {
+   "i": 706,
+   "section": "S10",
+   "w": "la",
+   "start": 268.017,
+   "end": 268.075,
+   "sentenceEnd": false
+  },
+  {
+   "i": 707,
+   "section": "S10",
+   "w": "norme",
+   "start": 268.157,
+   "end": 268.459,
+   "sentenceEnd": false
+  },
+  {
+   "i": 708,
+   "section": "S10",
+   "w": "huit",
+   "start": 268.493,
+   "end": 268.644,
+   "sentenceEnd": false
+  },
+  {
+   "i": 709,
+   "section": "S10",
+   "w": "cent",
+   "start": 268.667,
+   "end": 268.83,
+   "sentenceEnd": false
+  },
+  {
+   "i": 710,
+   "section": "S10",
+   "w": "deux",
+   "start": 268.853,
+   "end": 268.958,
+   "sentenceEnd": false
+  },
+  {
+   "i": 711,
+   "section": "S10",
+   "w": "point",
+   "start": 268.981,
+   "end": 269.225,
+   "sentenceEnd": false
+  },
+  {
+   "i": 712,
+   "section": "S10",
+   "w": "un",
+   "start": 269.283,
+   "end": 269.376,
+   "sentenceEnd": false
+  },
+  {
+   "i": 713,
+   "section": "S10",
+   "w": "Q.",
+   "start": 269.445,
+   "end": 269.852,
+   "sentenceEnd": true
+  },
+  {
+   "i": 714,
+   "section": "S10",
+   "w": "Attention,",
+   "start": 270.221,
+   "end": 270.755,
+   "sentenceEnd": false
+  },
+  {
+   "i": 715,
+   "section": "S10",
+   "w": "ce",
+   "start": 270.779,
+   "end": 270.837,
+   "sentenceEnd": false
+  },
+  {
+   "i": 716,
+   "section": "S10",
+   "w": "n'est",
+   "start": 270.906,
+   "end": 271.034,
+   "sentenceEnd": false
+  },
+  {
+   "i": 717,
+   "section": "S10",
+   "w": "pas",
+   "start": 271.092,
+   "end": 271.324,
+   "sentenceEnd": false
+  },
+  {
+   "i": 718,
+   "section": "S10",
+   "w": "un",
+   "start": 271.394,
+   "end": 271.44,
+   "sentenceEnd": false
+  },
+  {
+   "i": 719,
+   "section": "S10",
+   "w": "autocollant.",
+   "start": 271.51,
+   "end": 272.067,
+   "sentenceEnd": true
+  },
+  {
+   "i": 720,
+   "section": "S10",
+   "w": "C'est",
+   "start": 272.391,
+   "end": 272.542,
+   "sentenceEnd": false
+  },
+  {
+   "i": 721,
+   "section": "S10",
+   "w": "un",
+   "start": 272.623,
+   "end": 272.669,
+   "sentenceEnd": false
+  },
+  {
+   "i": 722,
+   "section": "S10",
+   "w": "champ",
+   "start": 272.727,
+   "end": 272.89,
+   "sentenceEnd": false
+  },
+  {
+   "i": 723,
+   "section": "S10",
+   "w": "de",
+   "start": 272.925,
+   "end": 272.983,
+   "sentenceEnd": false
+  },
+  {
+   "i": 724,
+   "section": "S10",
+   "w": "quatre",
+   "start": 273.052,
+   "end": 273.319,
+   "sentenceEnd": false
+  },
+  {
+   "i": 725,
+   "section": "S10",
+   "w": "octets,",
+   "start": 273.343,
+   "end": 273.714,
+   "sentenceEnd": false
+  },
+  {
+   "i": 726,
+   "section": "S10",
+   "w": "inséré",
+   "start": 273.737,
+   "end": 274.12,
+   "sentenceEnd": false
+  },
+  {
+   "i": 727,
+   "section": "S10",
+   "w": "dans",
+   "start": 274.155,
+   "end": 274.271,
+   "sentenceEnd": false
+  },
+  {
+   "i": 728,
+   "section": "S10",
+   "w": "l'en-tête",
+   "start": 274.306,
+   "end": 274.689,
+   "sentenceEnd": false
+  },
+  {
+   "i": 729,
+   "section": "S10",
+   "w": "Ethernet,",
+   "start": 274.712,
+   "end": 275.2,
+   "sentenceEnd": false
+  },
+  {
+   "i": 730,
+   "section": "S10",
+   "w": "juste",
+   "start": 275.27,
+   "end": 275.56,
+   "sentenceEnd": false
+  },
+  {
+   "i": 731,
+   "section": "S10",
+   "w": "après",
+   "start": 275.583,
+   "end": 275.792,
+   "sentenceEnd": false
+  },
+  {
+   "i": 732,
+   "section": "S10",
+   "w": "l'adresse",
+   "start": 275.815,
+   "end": 276.257,
+   "sentenceEnd": false
+  },
+  {
+   "i": 733,
+   "section": "S10",
+   "w": "source.",
+   "start": 276.28,
+   "end": 276.64,
+   "sentenceEnd": true
+  },
+  {
+   "i": 734,
+   "section": "S10",
+   "w": "Il",
+   "start": 276.974,
+   "end": 277.067,
+   "sentenceEnd": false
+  },
+  {
+   "i": 735,
+   "section": "S10",
+   "w": "contient",
+   "start": 277.125,
+   "end": 277.485,
+   "sentenceEnd": false
+  },
+  {
+   "i": 736,
+   "section": "S10",
+   "w": "le",
+   "start": 277.509,
+   "end": 277.567,
+   "sentenceEnd": false
+  },
+  {
+   "i": 737,
+   "section": "S10",
+   "w": "numéro",
+   "start": 277.625,
+   "end": 277.95,
+   "sentenceEnd": false
+  },
+  {
+   "i": 738,
+   "section": "S10",
+   "w": "de",
+   "start": 278.019,
+   "end": 278.089,
+   "sentenceEnd": false
+  },
+  {
+   "i": 739,
+   "section": "S10",
+   "w": "VLAN.",
+   "start": 278.159,
+   "end": 278.797,
+   "sentenceEnd": true
+  },
+  {
+   "i": 740,
+   "section": "S10",
+   "w": "De",
+   "start": 279.632,
+   "end": 279.725,
+   "sentenceEnd": false
+  },
+  {
+   "i": 741,
+   "section": "S10",
+   "w": "l'autre",
+   "start": 279.795,
+   "end": 280.073,
+   "sentenceEnd": false
+  },
+  {
+   "i": 742,
+   "section": "S10",
+   "w": "côté,",
+   "start": 280.131,
+   "end": 280.48,
+   "sentenceEnd": false
+  },
+  {
+   "i": 743,
+   "section": "S10",
+   "w": "le",
+   "start": 280.503,
+   "end": 280.584,
+   "sentenceEnd": false
+  },
+  {
+   "i": 744,
+   "section": "S10",
+   "w": "switch",
+   "start": 280.642,
+   "end": 280.909,
+   "sentenceEnd": false
+  },
+  {
+   "i": 745,
+   "section": "S10",
+   "w": "deux",
+   "start": 280.99,
+   "end": 281.141,
+   "sentenceEnd": false
+  },
+  {
+   "i": 746,
+   "section": "S10",
+   "w": "lit",
+   "start": 281.176,
+   "end": 281.257,
+   "sentenceEnd": false
+  },
+  {
+   "i": 747,
+   "section": "S10",
+   "w": "le",
+   "start": 281.281,
+   "end": 281.385,
+   "sentenceEnd": false
+  },
+  {
+   "i": 748,
+   "section": "S10",
+   "w": "tag",
+   "start": 281.466,
+   "end": 281.757,
+   "sentenceEnd": false
+  },
+  {
+   "i": 749,
+   "section": "S10",
+   "w": "VLAN",
+   "start": 281.873,
+   "end": 282.418,
+   "sentenceEnd": false
+  },
+  {
+   "i": 750,
+   "section": "S10",
+   "w": "dix.",
+   "start": 282.511,
+   "end": 282.894,
+   "sentenceEnd": true
+  },
+  {
+   "i": 751,
+   "section": "S10",
+   "w": "Il",
+   "start": 283.729,
+   "end": 283.88,
+   "sentenceEnd": false
+  },
+  {
+   "i": 752,
+   "section": "S10",
+   "w": "envoie",
+   "start": 283.95,
+   "end": 284.147,
+   "sentenceEnd": false
+  },
+  {
+   "i": 753,
+   "section": "S10",
+   "w": "la",
+   "start": 284.17,
+   "end": 284.252,
+   "sentenceEnd": false
+  },
+  {
+   "i": 754,
+   "section": "S10",
+   "w": "trame",
+   "start": 284.321,
+   "end": 284.588,
+   "sentenceEnd": false
+  },
+  {
+   "i": 755,
+   "section": "S10",
+   "w": "uniquement",
+   "start": 284.612,
+   "end": 285.006,
+   "sentenceEnd": false
+  },
+  {
+   "i": 756,
+   "section": "S10",
+   "w": "vers",
+   "start": 285.03,
+   "end": 285.146,
+   "sentenceEnd": false
+  },
+  {
+   "i": 757,
+   "section": "S10",
+   "w": "le",
+   "start": 285.169,
+   "end": 285.227,
+   "sentenceEnd": false
+  },
+  {
+   "i": 758,
+   "section": "S10",
+   "w": "VLAN",
+   "start": 285.285,
+   "end": 285.749,
+   "sentenceEnd": false
+  },
+  {
+   "i": 759,
+   "section": "S10",
+   "w": "dix.",
+   "start": 285.842,
+   "end": 286.237,
+   "sentenceEnd": true
+  },
+  {
+   "i": 760,
+   "section": "S10",
+   "w": "Et",
+   "start": 286.572,
+   "end": 286.665,
+   "sentenceEnd": false
+  },
+  {
+   "i": 761,
+   "section": "S10",
+   "w": "avant",
+   "start": 286.723,
+   "end": 286.967,
+   "sentenceEnd": false
+  },
+  {
+   "i": 762,
+   "section": "S10",
+   "w": "de",
+   "start": 286.99,
+   "end": 287.036,
+   "sentenceEnd": false
+  },
+  {
+   "i": 763,
+   "section": "S10",
+   "w": "la",
+   "start": 287.071,
+   "end": 287.129,
+   "sentenceEnd": false
+  },
+  {
+   "i": 764,
+   "section": "S10",
+   "w": "donner",
+   "start": 287.187,
+   "end": 287.443,
+   "sentenceEnd": false
+  },
+  {
+   "i": 765,
+   "section": "S10",
+   "w": "au",
+   "start": 287.466,
+   "end": 287.512,
+   "sentenceEnd": false
+  },
+  {
+   "i": 766,
+   "section": "S10",
+   "w": "PC,",
+   "start": 287.582,
+   "end": 288.023,
+   "sentenceEnd": false
+  },
+  {
+   "i": 767,
+   "section": "S10",
+   "w": "il",
+   "start": 288.081,
+   "end": 288.174,
+   "sentenceEnd": false
+  },
+  {
+   "i": 768,
+   "section": "S10",
+   "w": "retire",
+   "start": 288.255,
+   "end": 288.604,
+   "sentenceEnd": false
+  },
+  {
+   "i": 769,
+   "section": "S10",
+   "w": "le",
+   "start": 288.627,
+   "end": 288.72,
+   "sentenceEnd": false
+  },
+  {
+   "i": 770,
+   "section": "S10",
+   "w": "tag.",
+   "start": 288.789,
+   "end": 289.114,
+   "sentenceEnd": true
+  },
+  {
+   "i": 771,
+   "section": "S10",
+   "w": "Le",
+   "start": 289.449,
+   "end": 289.577,
+   "sentenceEnd": false
+  },
+  {
+   "i": 772,
+   "section": "S10",
+   "w": "PC",
+   "start": 289.635,
+   "end": 289.832,
+   "sentenceEnd": false
+  },
+  {
+   "i": 773,
+   "section": "S10",
+   "w": "reçoit",
+   "start": 289.96,
+   "end": 290.262,
+   "sentenceEnd": false
+  },
+  {
+   "i": 774,
+   "section": "S10",
+   "w": "une",
+   "start": 290.285,
+   "end": 290.355,
+   "sentenceEnd": false
+  },
+  {
+   "i": 775,
+   "section": "S10",
+   "w": "trame",
+   "start": 290.378,
+   "end": 290.657,
+   "sentenceEnd": false
+  },
+  {
+   "i": 776,
+   "section": "S10",
+   "w": "normale.",
+   "start": 290.68,
+   "end": 291.191,
+   "sentenceEnd": true
+  },
+  {
+   "i": 777,
+   "section": "S11",
+   "w": "Faisons",
+   "start": 291.991,
+   "end": 292.386,
+   "sentenceEnd": false
+  },
+  {
+   "i": 778,
+   "section": "S11",
+   "w": "tout",
+   "start": 292.421,
+   "end": 292.56,
+   "sentenceEnd": false
+  },
+  {
+   "i": 779,
+   "section": "S11",
+   "w": "le",
+   "start": 292.583,
+   "end": 292.641,
+   "sentenceEnd": false
+  },
+  {
+   "i": 780,
+   "section": "S11",
+   "w": "voyage",
+   "start": 292.711,
+   "end": 293.048,
+   "sentenceEnd": false
+  },
+  {
+   "i": 781,
+   "section": "S11",
+   "w": "d'un",
+   "start": 293.071,
+   "end": 293.21,
+   "sentenceEnd": false
+  },
+  {
+   "i": 782,
+   "section": "S11",
+   "w": "coup.",
+   "start": 293.28,
+   "end": 293.535,
+   "sentenceEnd": true
+  },
+  {
+   "i": 783,
+   "section": "S11",
+   "w": "PC",
+   "start": 293.87,
+   "end": 294.195,
+   "sentenceEnd": false
+  },
+  {
+   "i": 784,
+   "section": "S11",
+   "w": "A",
+   "start": 294.474,
+   "end": 294.601,
+   "sentenceEnd": false
+  },
+  {
+   "i": 785,
+   "section": "S11",
+   "w": "envoie",
+   "start": 294.706,
+   "end": 295.147,
+   "sentenceEnd": false
+  },
+  {
+   "i": 786,
+   "section": "S11",
+   "w": "une",
+   "start": 295.182,
+   "end": 295.252,
+   "sentenceEnd": false
+  },
+  {
+   "i": 787,
+   "section": "S11",
+   "w": "trame",
+   "start": 295.275,
+   "end": 295.53,
+   "sentenceEnd": false
+  },
+  {
+   "i": 788,
+   "section": "S11",
+   "w": "normale,",
+   "start": 295.553,
+   "end": 296.018,
+   "sentenceEnd": false
+  },
+  {
+   "i": 789,
+   "section": "S11",
+   "w": "sans",
+   "start": 296.053,
+   "end": 296.296,
+   "sentenceEnd": false
+  },
+  {
+   "i": 790,
+   "section": "S11",
+   "w": "tag.",
+   "start": 296.32,
+   "end": 296.691,
+   "sentenceEnd": true
+  },
+  {
+   "i": 791,
+   "section": "S11",
+   "w": "Elle",
+   "start": 297.049,
+   "end": 297.27,
+   "sentenceEnd": false
+  },
+  {
+   "i": 792,
+   "section": "S11",
+   "w": "entre",
+   "start": 297.293,
+   "end": 297.49,
+   "sentenceEnd": false
+  },
+  {
+   "i": 793,
+   "section": "S11",
+   "w": "dans",
+   "start": 297.525,
+   "end": 297.641,
+   "sentenceEnd": false
+  },
+  {
+   "i": 794,
+   "section": "S11",
+   "w": "le",
+   "start": 297.665,
+   "end": 297.723,
+   "sentenceEnd": false
+  },
+  {
+   "i": 795,
+   "section": "S11",
+   "w": "switch",
+   "start": 297.781,
+   "end": 298.083,
+   "sentenceEnd": false
+  },
+  {
+   "i": 796,
+   "section": "S11",
+   "w": "un",
+   "start": 298.164,
+   "end": 298.268,
+   "sentenceEnd": false
+  },
+  {
+   "i": 797,
+   "section": "S11",
+   "w": "par",
+   "start": 298.338,
+   "end": 298.535,
+   "sentenceEnd": false
+  },
+  {
+   "i": 798,
+   "section": "S11",
+   "w": "un",
+   "start": 298.628,
+   "end": 298.675,
+   "sentenceEnd": false
+  },
+  {
+   "i": 799,
+   "section": "S11",
+   "w": "port",
+   "start": 298.744,
+   "end": 298.918,
+   "sentenceEnd": false
+  },
+  {
+   "i": 800,
+   "section": "S11",
+   "w": "d'accès",
+   "start": 298.942,
+   "end": 299.267,
+   "sentenceEnd": false
+  },
+  {
+   "i": 801,
+   "section": "S11",
+   "w": "du",
+   "start": 299.29,
+   "end": 299.418,
+   "sentenceEnd": false
+  },
+  {
+   "i": 802,
+   "section": "S11",
+   "w": "VLAN",
+   "start": 299.487,
+   "end": 299.743,
+   "sentenceEnd": false
+  },
+  {
+   "i": 803,
+   "section": "S11",
+   "w": "dix.",
+   "start": 299.812,
+   "end": 300.196,
+   "sentenceEnd": true
+  },
+  {
+   "i": 804,
+   "section": "S11",
+   "w": "Le",
+   "start": 300.53,
+   "end": 300.681,
+   "sentenceEnd": false
+  },
+  {
+   "i": 805,
+   "section": "S11",
+   "w": "switch",
+   "start": 300.716,
+   "end": 301.018,
+   "sentenceEnd": false
+  },
+  {
+   "i": 806,
+   "section": "S11",
+   "w": "un",
+   "start": 301.111,
+   "end": 301.204,
+   "sentenceEnd": false
+  },
+  {
+   "i": 807,
+   "section": "S11",
+   "w": "apprend",
+   "start": 301.285,
+   "end": 301.622,
+   "sentenceEnd": false
+  },
+  {
+   "i": 808,
+   "section": "S11",
+   "w": "A-A,",
+   "start": 301.715,
+   "end": 302.109,
+   "sentenceEnd": false
+  },
+  {
+   "i": 809,
+   "section": "S11",
+   "w": "dans",
+   "start": 302.144,
+   "end": 302.283,
+   "sentenceEnd": false
+  },
+  {
+   "i": 810,
+   "section": "S11",
+   "w": "le",
+   "start": 302.307,
+   "end": 302.365,
+   "sentenceEnd": false
+  },
+  {
+   "i": 811,
+   "section": "S11",
+   "w": "VLAN",
+   "start": 302.4,
+   "end": 302.667,
+   "sentenceEnd": false
+  },
+  {
+   "i": 812,
+   "section": "S11",
+   "w": "dix,",
+   "start": 302.725,
+   "end": 303.027,
+   "sentenceEnd": false
+  },
+  {
+   "i": 813,
+   "section": "S11",
+   "w": "port",
+   "start": 303.061,
+   "end": 303.305,
+   "sentenceEnd": false
+  },
+  {
+   "i": 814,
+   "section": "S11",
+   "w": "un.",
+   "start": 303.328,
+   "end": 303.456,
+   "sentenceEnd": true
+  },
+  {
+   "i": 815,
+   "section": "S11",
+   "w": "Tu",
+   "start": 303.779,
+   "end": 303.919,
+   "sentenceEnd": false
+  },
+  {
+   "i": 816,
+   "section": "S11",
+   "w": "remarques",
+   "start": 303.942,
+   "end": 304.337,
+   "sentenceEnd": false
+  },
+  {
+   "i": 817,
+   "section": "S11",
+   "w": "La",
+   "start": 304.464,
+   "end": 304.592,
+   "sentenceEnd": false
+  },
+  {
+   "i": 818,
+   "section": "S11",
+   "w": "vraie",
+   "start": 304.65,
+   "end": 304.836,
+   "sentenceEnd": false
+  },
+  {
+   "i": 819,
+   "section": "S11",
+   "w": "table",
+   "start": 304.871,
+   "end": 305.149,
+   "sentenceEnd": false
+  },
+  {
+   "i": 820,
+   "section": "S11",
+   "w": "a",
+   "start": 305.207,
+   "end": 305.242,
+   "sentenceEnd": false
+  },
+  {
+   "i": 821,
+   "section": "S11",
+   "w": "une",
+   "start": 305.335,
+   "end": 305.428,
+   "sentenceEnd": false
+  },
+  {
+   "i": 822,
+   "section": "S11",
+   "w": "colonne",
+   "start": 305.451,
+   "end": 305.741,
+   "sentenceEnd": false
+  },
+  {
+   "i": 823,
+   "section": "S11",
+   "w": "de",
+   "start": 305.765,
+   "end": 305.857,
+   "sentenceEnd": false
+  },
+  {
+   "i": 824,
+   "section": "S11",
+   "w": "plus",
+   "start": 305.915,
+   "end": 306.217,
+   "sentenceEnd": false
+  },
+  {
+   "i": 825,
+   "section": "S11",
+   "w": "le",
+   "start": 306.333,
+   "end": 306.438,
+   "sentenceEnd": false
+  },
+  {
+   "i": 826,
+   "section": "S11",
+   "w": "VLAN.",
+   "start": 306.508,
+   "end": 306.867,
+   "sentenceEnd": true
+  },
+  {
+   "i": 827,
+   "section": "S11",
+   "w": "Il",
+   "start": 307.226,
+   "end": 307.342,
+   "sentenceEnd": false
+  },
+  {
+   "i": 828,
+   "section": "S11",
+   "w": "cherche",
+   "start": 307.4,
+   "end": 307.829,
+   "sentenceEnd": false
+  },
+  {
+   "i": 829,
+   "section": "S11",
+   "w": "B-B",
+   "start": 307.957,
+   "end": 308.352,
+   "sentenceEnd": false
+  },
+  {
+   "i": 830,
+   "section": "S11",
+   "w": "dans",
+   "start": 308.549,
+   "end": 308.7,
+   "sentenceEnd": false
+  },
+  {
+   "i": 831,
+   "section": "S11",
+   "w": "le",
+   "start": 308.723,
+   "end": 308.781,
+   "sentenceEnd": false
+  },
+  {
+   "i": 832,
+   "section": "S11",
+   "w": "VLAN",
+   "start": 308.839,
+   "end": 309.13,
+   "sentenceEnd": false
+  },
+  {
+   "i": 833,
+   "section": "S11",
+   "w": "dix.",
+   "start": 309.234,
+   "end": 309.826,
+   "sentenceEnd": true
+  },
+  {
+   "i": 834,
+   "section": "S11",
+   "w": "Connu,",
+   "start": 310.561,
+   "end": 311.107,
+   "sentenceEnd": false
+  },
+  {
+   "i": 835,
+   "section": "S11",
+   "w": "derrière",
+   "start": 311.13,
+   "end": 311.443,
+   "sentenceEnd": false
+  },
+  {
+   "i": 836,
+   "section": "S11",
+   "w": "le",
+   "start": 311.467,
+   "end": 311.559,
+   "sentenceEnd": false
+  },
+  {
+   "i": 837,
+   "section": "S11",
+   "w": "trunk.",
+   "start": 311.617,
+   "end": 312.047,
+   "sentenceEnd": true
+  },
+  {
+   "i": 838,
+   "section": "S11",
+   "w": "Sur",
+   "start": 312.382,
+   "end": 312.556,
+   "sentenceEnd": false
+  },
+  {
+   "i": 839,
+   "section": "S11",
+   "w": "le",
+   "start": 312.591,
+   "end": 312.672,
+   "sentenceEnd": false
+  },
+  {
+   "i": 840,
+   "section": "S11",
+   "w": "trunk,",
+   "start": 312.73,
+   "end": 313.078,
+   "sentenceEnd": false
+  },
+  {
+   "i": 841,
+   "section": "S11",
+   "w": "il",
+   "start": 313.102,
+   "end": 313.171,
+   "sentenceEnd": false
+  },
+  {
+   "i": 842,
+   "section": "S11",
+   "w": "ajoute",
+   "start": 313.241,
+   "end": 313.531,
+   "sentenceEnd": false
+  },
+  {
+   "i": 843,
+   "section": "S11",
+   "w": "le",
+   "start": 313.554,
+   "end": 313.624,
+   "sentenceEnd": false
+  },
+  {
+   "i": 844,
+   "section": "S11",
+   "w": "tag",
+   "start": 313.705,
+   "end": 313.984,
+   "sentenceEnd": false
+  },
+  {
+   "i": 845,
+   "section": "S11",
+   "w": "VLAN",
+   "start": 314.135,
+   "end": 314.507,
+   "sentenceEnd": false
+  },
+  {
+   "i": 846,
+   "section": "S11",
+   "w": "dix.",
+   "start": 314.634,
+   "end": 315.226,
+   "sentenceEnd": true
+  },
+  {
+   "i": 847,
+   "section": "S11",
+   "w": "Le",
+   "start": 315.596,
+   "end": 315.759,
+   "sentenceEnd": false
+  },
+  {
+   "i": 848,
+   "section": "S11",
+   "w": "switch",
+   "start": 315.793,
+   "end": 316.107,
+   "sentenceEnd": false
+  },
+  {
+   "i": 849,
+   "section": "S11",
+   "w": "deux",
+   "start": 316.2,
+   "end": 316.362,
+   "sentenceEnd": false
+  },
+  {
+   "i": 850,
+   "section": "S11",
+   "w": "lit",
+   "start": 316.397,
+   "end": 316.502,
+   "sentenceEnd": false
+  },
+  {
+   "i": 851,
+   "section": "S11",
+   "w": "le",
+   "start": 316.525,
+   "end": 316.618,
+   "sentenceEnd": false
+  },
+  {
+   "i": 852,
+   "section": "S11",
+   "w": "tag,",
+   "start": 316.699,
+   "end": 317.001,
+   "sentenceEnd": false
+  },
+  {
+   "i": 853,
+   "section": "S11",
+   "w": "cherche",
+   "start": 317.036,
+   "end": 317.326,
+   "sentenceEnd": false
+  },
+  {
+   "i": 854,
+   "section": "S11",
+   "w": "B-B",
+   "start": 317.361,
+   "end": 317.605,
+   "sentenceEnd": false
+  },
+  {
+   "i": 855,
+   "section": "S11",
+   "w": "dans",
+   "start": 317.779,
+   "end": 317.918,
+   "sentenceEnd": false
+  },
+  {
+   "i": 856,
+   "section": "S11",
+   "w": "le",
+   "start": 317.941,
+   "end": 317.988,
+   "sentenceEnd": false
+  },
+  {
+   "i": 857,
+   "section": "S11",
+   "w": "VLAN",
+   "start": 318.022,
+   "end": 318.336,
+   "sentenceEnd": false
+  },
+  {
+   "i": 858,
+   "section": "S11",
+   "w": "dix.",
+   "start": 318.44,
+   "end": 318.824,
+   "sentenceEnd": true
+  },
+  {
+   "i": 859,
+   "section": "S11",
+   "w": "Port",
+   "start": 319.628,
+   "end": 319.93,
+   "sentenceEnd": false
+  },
+  {
+   "i": 860,
+   "section": "S11",
+   "w": "deux.",
+   "start": 319.965,
+   "end": 320.185,
+   "sentenceEnd": true
+  },
+  {
+   "i": 861,
+   "section": "S11",
+   "w": "Il",
+   "start": 320.543,
+   "end": 320.659,
+   "sentenceEnd": false
+  },
+  {
+   "i": 862,
+   "section": "S11",
+   "w": "retire",
+   "start": 320.729,
+   "end": 321.043,
+   "sentenceEnd": false
+  },
+  {
+   "i": 863,
+   "section": "S11",
+   "w": "le",
+   "start": 321.066,
+   "end": 321.159,
+   "sentenceEnd": false
+  },
+  {
+   "i": 864,
+   "section": "S11",
+   "w": "tag,",
+   "start": 321.217,
+   "end": 321.495,
+   "sentenceEnd": false
+  },
+  {
+   "i": 865,
+   "section": "S11",
+   "w": "et",
+   "start": 321.519,
+   "end": 321.588,
+   "sentenceEnd": false
+  },
+  {
+   "i": 866,
+   "section": "S11",
+   "w": "livre",
+   "start": 321.623,
+   "end": 321.867,
+   "sentenceEnd": false
+  },
+  {
+   "i": 867,
+   "section": "S11",
+   "w": "la",
+   "start": 321.902,
+   "end": 321.972,
+   "sentenceEnd": false
+  },
+  {
+   "i": 868,
+   "section": "S11",
+   "w": "trame",
+   "start": 322.03,
+   "end": 322.285,
+   "sentenceEnd": false
+  },
+  {
+   "i": 869,
+   "section": "S11",
+   "w": "à",
+   "start": 322.309,
+   "end": 322.332,
+   "sentenceEnd": false
+  },
+  {
+   "i": 870,
+   "section": "S11",
+   "w": "PC",
+   "start": 322.39,
+   "end": 322.668,
+   "sentenceEnd": false
+  },
+  {
+   "i": 871,
+   "section": "S11",
+   "w": "B.",
+   "start": 322.796,
+   "end": 323.052,
+   "sentenceEnd": true
+  },
+  {
+   "i": 872,
+   "section": "S11",
+   "w": "Source,",
+   "start": 323.479,
+   "end": 323.932,
+   "sentenceEnd": false
+  },
+  {
+   "i": 873,
+   "section": "S11",
+   "w": "destination,",
+   "start": 323.955,
+   "end": 324.803,
+   "sentenceEnd": false
+  },
+  {
+   "i": 874,
+   "section": "S11",
+   "w": "VLAN,",
+   "start": 324.896,
+   "end": 325.476,
+   "sentenceEnd": false
+  },
+  {
+   "i": 875,
+   "section": "S11",
+   "w": "port,",
+   "start": 325.546,
+   "end": 325.883,
+   "sentenceEnd": false
+  },
+  {
+   "i": 876,
+   "section": "S11",
+   "w": "décision.",
+   "start": 325.906,
+   "end": 326.568,
+   "sentenceEnd": true
+  },
+  {
+   "i": 877,
+   "section": "S11",
+   "w": "Tout",
+   "start": 326.891,
+   "end": 327.065,
+   "sentenceEnd": false
+  },
+  {
+   "i": 878,
+   "section": "S11",
+   "w": "le",
+   "start": 327.088,
+   "end": 327.158,
+   "sentenceEnd": false
+  },
+  {
+   "i": 879,
+   "section": "S11",
+   "w": "switching",
+   "start": 327.193,
+   "end": 327.68,
+   "sentenceEnd": false
+  },
+  {
+   "i": 880,
+   "section": "S11",
+   "w": "est",
+   "start": 327.785,
+   "end": 327.854,
+   "sentenceEnd": false
+  },
+  {
+   "i": 881,
+   "section": "S11",
+   "w": "là.",
+   "start": 327.889,
+   "end": 328.296,
+   "sentenceEnd": true
+  },
+  {
+   "i": 882,
+   "section": "S12",
+   "w": "Question",
+   "start": 329.095,
+   "end": 329.757,
+   "sentenceEnd": false
+  },
+  {
+   "i": 883,
+   "section": "S12",
+   "w": "un.",
+   "start": 329.792,
+   "end": 329.977,
+   "sentenceEnd": true
+  },
+  {
+   "i": 884,
+   "section": "S12",
+   "w": "Une",
+   "start": 330.335,
+   "end": 330.533,
+   "sentenceEnd": false
+  },
+  {
+   "i": 885,
+   "section": "S12",
+   "w": "trame",
+   "start": 330.556,
+   "end": 330.835,
+   "sentenceEnd": false
+  },
+  {
+   "i": 886,
+   "section": "S12",
+   "w": "de",
+   "start": 330.858,
+   "end": 330.951,
+   "sentenceEnd": false
+  },
+  {
+   "i": 887,
+   "section": "S12",
+   "w": "C-C",
+   "start": 331.009,
+   "end": 331.357,
+   "sentenceEnd": false
+  },
+  {
+   "i": 888,
+   "section": "S12",
+   "w": "vers",
+   "start": 331.554,
+   "end": 331.729,
+   "sentenceEnd": false
+  },
+  {
+   "i": 889,
+   "section": "S12",
+   "w": "D-D",
+   "start": 331.787,
+   "end": 332.077,
+   "sentenceEnd": false
+  },
+  {
+   "i": 890,
+   "section": "S12",
+   "w": "entre",
+   "start": 332.356,
+   "end": 332.715,
+   "sentenceEnd": false
+  },
+  {
+   "i": 891,
+   "section": "S12",
+   "w": "par",
+   "start": 332.75,
+   "end": 332.866,
+   "sentenceEnd": false
+  },
+  {
+   "i": 892,
+   "section": "S12",
+   "w": "le",
+   "start": 332.901,
+   "end": 332.959,
+   "sentenceEnd": false
+  },
+  {
+   "i": 893,
+   "section": "S12",
+   "w": "port",
+   "start": 333.017,
+   "end": 333.215,
+   "sentenceEnd": false
+  },
+  {
+   "i": 894,
+   "section": "S12",
+   "w": "trois.",
+   "start": 333.238,
+   "end": 333.609,
+   "sentenceEnd": true
+  },
+  {
+   "i": 895,
+   "section": "S12",
+   "w": "Qu'est-ce",
+   "start": 333.933,
+   "end": 334.165,
+   "sentenceEnd": false
+  },
+  {
+   "i": 896,
+   "section": "S12",
+   "w": "que",
+   "start": 334.2,
+   "end": 334.316,
+   "sentenceEnd": false
+  },
+  {
+   "i": 897,
+   "section": "S12",
+   "w": "le",
+   "start": 334.339,
+   "end": 334.432,
+   "sentenceEnd": false
+  },
+  {
+   "i": 898,
+   "section": "S12",
+   "w": "switch",
+   "start": 334.502,
+   "end": 334.838,
+   "sentenceEnd": false
+  },
+  {
+   "i": 899,
+   "section": "S12",
+   "w": "apprend",
+   "start": 334.873,
+   "end": 335.279,
+   "sentenceEnd": false
+  },
+  {
+   "i": 900,
+   "section": "S12",
+   "w": "C-C,",
+   "start": 337.438,
+   "end": 338.181,
+   "sentenceEnd": false
+  },
+  {
+   "i": 901,
+   "section": "S12",
+   "w": "port",
+   "start": 338.262,
+   "end": 338.552,
+   "sentenceEnd": false
+  },
+  {
+   "i": 902,
+   "section": "S12",
+   "w": "trois.",
+   "start": 338.576,
+   "end": 338.947,
+   "sentenceEnd": true
+  },
+  {
+   "i": 903,
+   "section": "S12",
+   "w": "Toujours",
+   "start": 340.07,
+   "end": 340.43,
+   "sentenceEnd": false
+  },
+  {
+   "i": 904,
+   "section": "S12",
+   "w": "la",
+   "start": 340.453,
+   "end": 340.546,
+   "sentenceEnd": false
+  },
+  {
+   "i": 905,
+   "section": "S12",
+   "w": "source.",
+   "start": 340.639,
+   "end": 341.185,
+   "sentenceEnd": true
+  },
+  {
+   "i": 906,
+   "section": "S12",
+   "w": "Question",
+   "start": 341.613,
+   "end": 342.089,
+   "sentenceEnd": false
+  },
+  {
+   "i": 907,
+   "section": "S12",
+   "w": "deux.",
+   "start": 342.216,
+   "end": 342.518,
+   "sentenceEnd": true
+  },
+  {
+   "i": 908,
+   "section": "S12",
+   "w": "Un",
+   "start": 342.841,
+   "end": 342.969,
+   "sentenceEnd": false
+  },
+  {
+   "i": 909,
+   "section": "S12",
+   "w": "PC",
+   "start": 343.039,
+   "end": 343.294,
+   "sentenceEnd": false
+  },
+  {
+   "i": 910,
+   "section": "S12",
+   "w": "est",
+   "start": 343.399,
+   "end": 343.468,
+   "sentenceEnd": false
+  },
+  {
+   "i": 911,
+   "section": "S12",
+   "w": "sur",
+   "start": 343.492,
+   "end": 343.608,
+   "sentenceEnd": false
+  },
+  {
+   "i": 912,
+   "section": "S12",
+   "w": "un",
+   "start": 343.631,
+   "end": 343.689,
+   "sentenceEnd": false
+  },
+  {
+   "i": 913,
+   "section": "S12",
+   "w": "port",
+   "start": 343.747,
+   "end": 343.898,
+   "sentenceEnd": false
+  },
+  {
+   "i": 914,
+   "section": "S12",
+   "w": "d'accès",
+   "start": 343.921,
+   "end": 344.2,
+   "sentenceEnd": false
+  },
+  {
+   "i": 915,
+   "section": "S12",
+   "w": "du",
+   "start": 344.235,
+   "end": 344.327,
+   "sentenceEnd": false
+  },
+  {
+   "i": 916,
+   "section": "S12",
+   "w": "VLAN",
+   "start": 344.385,
+   "end": 344.618,
+   "sentenceEnd": false
+  },
+  {
+   "i": 917,
+   "section": "S12",
+   "w": "vingt.",
+   "start": 344.745,
+   "end": 344.978,
+   "sentenceEnd": true
+  },
+  {
+   "i": 918,
+   "section": "S12",
+   "w": "Sa",
+   "start": 345.347,
+   "end": 345.498,
+   "sentenceEnd": false
+  },
+  {
+   "i": 919,
+   "section": "S12",
+   "w": "trame",
+   "start": 345.556,
+   "end": 345.823,
+   "sentenceEnd": false
+  },
+  {
+   "i": 920,
+   "section": "S12",
+   "w": "porte-t-elle",
+   "start": 345.846,
+   "end": 346.346,
+   "sentenceEnd": false
+  },
+  {
+   "i": 921,
+   "section": "S12",
+   "w": "un",
+   "start": 346.369,
+   "end": 346.415,
+   "sentenceEnd": false
+  },
+  {
+   "i": 922,
+   "section": "S12",
+   "w": "tag",
+   "start": 346.485,
+   "end": 346.717,
+   "sentenceEnd": false
+  },
+  {
+   "i": 923,
+   "section": "S12",
+   "w": "Non.",
+   "start": 348.91,
+   "end": 349.224,
+   "sentenceEnd": true
+  },
+  {
+   "i": 924,
+   "section": "S12",
+   "w": "Sur",
+   "start": 349.559,
+   "end": 349.745,
+   "sentenceEnd": false
+  },
+  {
+   "i": 925,
+   "section": "S12",
+   "w": "un",
+   "start": 349.814,
+   "end": 349.861,
+   "sentenceEnd": false
+  },
+  {
+   "i": 926,
+   "section": "S12",
+   "w": "port",
+   "start": 349.919,
+   "end": 350.058,
+   "sentenceEnd": false
+  },
+  {
+   "i": 927,
+   "section": "S12",
+   "w": "d'accès,",
+   "start": 350.081,
+   "end": 350.499,
+   "sentenceEnd": false
+  },
+  {
+   "i": 928,
+   "section": "S12",
+   "w": "pas",
+   "start": 350.522,
+   "end": 350.673,
+   "sentenceEnd": false
+  },
+  {
+   "i": 929,
+   "section": "S12",
+   "w": "de",
+   "start": 350.708,
+   "end": 350.813,
+   "sentenceEnd": false
+  },
+  {
+   "i": 930,
+   "section": "S12",
+   "w": "tag.",
+   "start": 350.917,
+   "end": 351.358,
+   "sentenceEnd": true
+  },
+  {
+   "i": 931,
+   "section": "S12",
+   "w": "Question",
+   "start": 352.632,
+   "end": 353.062,
+   "sentenceEnd": false
+  },
+  {
+   "i": 932,
+   "section": "S12",
+   "w": "trois.",
+   "start": 353.143,
+   "end": 353.55,
+   "sentenceEnd": true
+  },
+  {
+   "i": 933,
+   "section": "S12",
+   "w": "PC",
+   "start": 353.873,
+   "end": 354.233,
+   "sentenceEnd": false
+  },
+  {
+   "i": 934,
+   "section": "S12",
+   "w": "A",
+   "start": 354.465,
+   "end": 354.523,
+   "sentenceEnd": false
+  },
+  {
+   "i": 935,
+   "section": "S12",
+   "w": "dans",
+   "start": 354.604,
+   "end": 354.72,
+   "sentenceEnd": false
+  },
+  {
+   "i": 936,
+   "section": "S12",
+   "w": "le",
+   "start": 354.744,
+   "end": 354.79,
+   "sentenceEnd": false
+  },
+  {
+   "i": 937,
+   "section": "S12",
+   "w": "VLAN",
+   "start": 354.848,
+   "end": 355.104,
+   "sentenceEnd": false
+  },
+  {
+   "i": 938,
+   "section": "S12",
+   "w": "dix,",
+   "start": 355.185,
+   "end": 355.51,
+   "sentenceEnd": false
+  },
+  {
+   "i": 939,
+   "section": "S12",
+   "w": "PC",
+   "start": 355.568,
+   "end": 355.847,
+   "sentenceEnd": false
+  },
+  {
+   "i": 940,
+   "section": "S12",
+   "w": "B",
+   "start": 356.021,
+   "end": 356.09,
+   "sentenceEnd": false
+  },
+  {
+   "i": 941,
+   "section": "S12",
+   "w": "dans",
+   "start": 356.265,
+   "end": 356.369,
+   "sentenceEnd": false
+  },
+  {
+   "i": 942,
+   "section": "S12",
+   "w": "le",
+   "start": 356.392,
+   "end": 356.439,
+   "sentenceEnd": false
+  },
+  {
+   "i": 943,
+   "section": "S12",
+   "w": "VLAN",
+   "start": 356.497,
+   "end": 356.752,
+   "sentenceEnd": false
+  },
+  {
+   "i": 944,
+   "section": "S12",
+   "w": "vingt,",
+   "start": 356.88,
+   "end": 357.159,
+   "sentenceEnd": false
+  },
+  {
+   "i": 945,
+   "section": "S12",
+   "w": "sur",
+   "start": 357.217,
+   "end": 357.367,
+   "sentenceEnd": false
+  },
+  {
+   "i": 946,
+   "section": "S12",
+   "w": "le",
+   "start": 357.402,
+   "end": 357.46,
+   "sentenceEnd": false
+  },
+  {
+   "i": 947,
+   "section": "S12",
+   "w": "même",
+   "start": 357.518,
+   "end": 357.704,
+   "sentenceEnd": false
+  },
+  {
+   "i": 948,
+   "section": "S12",
+   "w": "switch.",
+   "start": 357.727,
+   "end": 358.18,
+   "sentenceEnd": true
+  },
+  {
+   "i": 949,
+   "section": "S12",
+   "w": "Peuvent-ils",
+   "start": 358.55,
+   "end": 358.933,
+   "sentenceEnd": false
+  },
+  {
+   "i": 950,
+   "section": "S12",
+   "w": "se",
+   "start": 358.956,
+   "end": 359.049,
+   "sentenceEnd": false
+  },
+  {
+   "i": 951,
+   "section": "S12",
+   "w": "parler",
+   "start": 359.107,
+   "end": 359.363,
+   "sentenceEnd": false
+  },
+  {
+   "i": 952,
+   "section": "S12",
+   "w": "directement",
+   "start": 359.386,
+   "end": 360.001,
+   "sentenceEnd": false
+  },
+  {
+   "i": 953,
+   "section": "S12",
+   "w": "Non.",
+   "start": 362.183,
+   "end": 362.461,
+   "sentenceEnd": true
+  },
+  {
+   "i": 954,
+   "section": "S12",
+   "w": "Deux",
+   "start": 362.843,
+   "end": 363.052,
+   "sentenceEnd": false
+  },
+  {
+   "i": 955,
+   "section": "S12",
+   "w": "VLAN,",
+   "start": 363.086,
+   "end": 363.458,
+   "sentenceEnd": false
+  },
+  {
+   "i": 956,
+   "section": "S12",
+   "w": "deux",
+   "start": 363.493,
+   "end": 363.655,
+   "sentenceEnd": false
+  },
+  {
+   "i": 957,
+   "section": "S12",
+   "w": "réseaux.",
+   "start": 363.679,
+   "end": 364.085,
+   "sentenceEnd": true
+  },
+  {
+   "i": 958,
+   "section": "S12",
+   "w": "Pour",
+   "start": 364.466,
+   "end": 364.629,
+   "sentenceEnd": false
+  },
+  {
+   "i": 959,
+   "section": "S12",
+   "w": "passer",
+   "start": 364.663,
+   "end": 364.919,
+   "sentenceEnd": false
+  },
+  {
+   "i": 960,
+   "section": "S12",
+   "w": "de",
+   "start": 364.954,
+   "end": 365.023,
+   "sentenceEnd": false
+  },
+  {
+   "i": 961,
+   "section": "S12",
+   "w": "l'un",
+   "start": 365.081,
+   "end": 365.221,
+   "sentenceEnd": false
+  },
+  {
+   "i": 962,
+   "section": "S12",
+   "w": "à",
+   "start": 365.279,
+   "end": 365.302,
+   "sentenceEnd": false
+  },
+  {
+   "i": 963,
+   "section": "S12",
+   "w": "l'autre,",
+   "start": 365.337,
+   "end": 365.616,
+   "sentenceEnd": false
+  },
+  {
+   "i": 964,
+   "section": "S12",
+   "w": "il",
+   "start": 365.639,
+   "end": 365.708,
+   "sentenceEnd": false
+  },
+  {
+   "i": 965,
+   "section": "S12",
+   "w": "faut",
+   "start": 365.778,
+   "end": 365.906,
+   "sentenceEnd": false
+  },
+  {
+   "i": 966,
+   "section": "S12",
+   "w": "un",
+   "start": 365.941,
+   "end": 365.999,
+   "sentenceEnd": false
+  },
+  {
+   "i": 967,
+   "section": "S12",
+   "w": "routeur.",
+   "start": 366.057,
+   "end": 366.521,
+   "sentenceEnd": true
+  },
+  {
+   "i": 968,
+   "section": "S12",
+   "w": "Ce",
+   "start": 366.844,
+   "end": 366.926,
+   "sentenceEnd": false
+  },
+  {
+   "i": 969,
+   "section": "S12",
+   "w": "sera",
+   "start": 366.984,
+   "end": 367.135,
+   "sentenceEnd": false
+  },
+  {
+   "i": 970,
+   "section": "S12",
+   "w": "pour",
+   "start": 367.193,
+   "end": 367.297,
+   "sentenceEnd": false
+  },
+  {
+   "i": 971,
+   "section": "S12",
+   "w": "un",
+   "start": 367.355,
+   "end": 367.402,
+   "sentenceEnd": false
+  },
+  {
+   "i": 972,
+   "section": "S12",
+   "w": "prochain",
+   "start": 367.46,
+   "end": 367.82,
+   "sentenceEnd": false
+  },
+  {
+   "i": 973,
+   "section": "S12",
+   "w": "épisode.",
+   "start": 367.912,
+   "end": 368.621,
+   "sentenceEnd": true
+  },
+  {
+   "i": 974,
+   "section": "S13",
+   "w": "Récapitulons.",
+   "start": 369.421,
+   "end": 370.373,
+   "sentenceEnd": true
+  },
+  {
+   "i": 975,
+   "section": "S13",
+   "w": "La",
+   "start": 370.754,
+   "end": 370.928,
+   "sentenceEnd": false
+  },
+  {
+   "i": 976,
+   "section": "S13",
+   "w": "source,",
+   "start": 371.01,
+   "end": 371.381,
+   "sentenceEnd": false
+  },
+  {
+   "i": 977,
+   "section": "S13",
+   "w": "pour",
+   "start": 371.404,
+   "end": 371.555,
+   "sentenceEnd": false
+  },
+  {
+   "i": 978,
+   "section": "S13",
+   "w": "apprendre.",
+   "start": 371.613,
+   "end": 372.182,
+   "sentenceEnd": true
+  },
+  {
+   "i": 979,
+   "section": "S13",
+   "w": "La",
+   "start": 372.517,
+   "end": 372.587,
+   "sentenceEnd": false
+  },
+  {
+   "i": 980,
+   "section": "S13",
+   "w": "destination,",
+   "start": 372.656,
+   "end": 373.446,
+   "sentenceEnd": false
+  },
+  {
+   "i": 981,
+   "section": "S13",
+   "w": "pour",
+   "start": 373.481,
+   "end": 373.608,
+   "sentenceEnd": false
+  },
+  {
+   "i": 982,
+   "section": "S13",
+   "w": "décider.",
+   "start": 373.678,
+   "end": 374.328,
+   "sentenceEnd": true
+  },
+  {
+   "i": 983,
+   "section": "S13",
+   "w": "Inconnue",
+   "start": 374.663,
+   "end": 375.395,
+   "sentenceEnd": false
+  },
+  {
+   "i": 984,
+   "section": "S13",
+   "w": "On",
+   "start": 375.58,
+   "end": 375.743,
+   "sentenceEnd": false
+  },
+  {
+   "i": 985,
+   "section": "S13",
+   "w": "inonde.",
+   "start": 375.847,
+   "end": 376.23,
+   "sentenceEnd": true
+  },
+  {
+   "i": 986,
+   "section": "S13",
+   "w": "Broadcast",
+   "start": 376.6,
+   "end": 377.285,
+   "sentenceEnd": false
+  },
+  {
+   "i": 987,
+   "section": "S13",
+   "w": "On",
+   "start": 377.436,
+   "end": 377.599,
+   "sentenceEnd": false
+  },
+  {
+   "i": 988,
+   "section": "S13",
+   "w": "inonde,",
+   "start": 377.726,
+   "end": 378.167,
+   "sentenceEnd": false
+  },
+  {
+   "i": 989,
+   "section": "S13",
+   "w": "toujours.",
+   "start": 378.202,
+   "end": 378.76,
+   "sentenceEnd": true
+  },
+  {
+   "i": 990,
+   "section": "S13",
+   "w": "Le",
+   "start": 379.118,
+   "end": 379.222,
+   "sentenceEnd": false
+  },
+  {
+   "i": 991,
+   "section": "S13",
+   "w": "VLAN",
+   "start": 379.28,
+   "end": 379.512,
+   "sentenceEnd": false
+  },
+  {
+   "i": 992,
+   "section": "S13",
+   "w": "garde",
+   "start": 379.57,
+   "end": 379.791,
+   "sentenceEnd": false
+  },
+  {
+   "i": 993,
+   "section": "S13",
+   "w": "chaque",
+   "start": 379.814,
+   "end": 380.081,
+   "sentenceEnd": false
+  },
+  {
+   "i": 994,
+   "section": "S13",
+   "w": "inondation",
+   "start": 380.104,
+   "end": 380.673,
+   "sentenceEnd": false
+  },
+  {
+   "i": 995,
+   "section": "S13",
+   "w": "dans",
+   "start": 380.697,
+   "end": 380.801,
+   "sentenceEnd": false
+  },
+  {
+   "i": 996,
+   "section": "S13",
+   "w": "sa",
+   "start": 380.824,
+   "end": 380.929,
+   "sentenceEnd": false
+  },
+  {
+   "i": 997,
+   "section": "S13",
+   "w": "couleur.",
+   "start": 380.987,
+   "end": 381.451,
+   "sentenceEnd": true
+  },
+  {
+   "i": 998,
+   "section": "S13",
+   "w": "Et",
+   "start": 381.774,
+   "end": 381.844,
+   "sentenceEnd": false
+  },
+  {
+   "i": 999,
+   "section": "S13",
+   "w": "le",
+   "start": 381.879,
+   "end": 381.937,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1000,
+   "section": "S13",
+   "w": "trunk",
+   "start": 381.995,
+   "end": 382.239,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1001,
+   "section": "S13",
+   "w": "transporte",
+   "start": 382.274,
+   "end": 382.773,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1002,
+   "section": "S13",
+   "w": "toutes",
+   "start": 382.831,
+   "end": 383.04,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1003,
+   "section": "S13",
+   "w": "les",
+   "start": 383.063,
+   "end": 383.144,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1004,
+   "section": "S13",
+   "w": "couleurs,",
+   "start": 383.168,
+   "end": 383.597,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1005,
+   "section": "S13",
+   "w": "grâce",
+   "start": 383.62,
+   "end": 383.922,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1006,
+   "section": "S13",
+   "w": "au",
+   "start": 383.946,
+   "end": 383.992,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1007,
+   "section": "S13",
+   "w": "tag.",
+   "start": 384.05,
+   "end": 384.398,
+   "sentenceEnd": true
+  },
+  {
+   "i": 1008,
+   "section": "S13",
+   "w": "Mais",
+   "start": 386.733,
+   "end": 386.838,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1009,
+   "section": "S13",
+   "w": "que",
+   "start": 386.872,
+   "end": 386.989,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1010,
+   "section": "S13",
+   "w": "se",
+   "start": 387.012,
+   "end": 387.058,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1011,
+   "section": "S13",
+   "w": "passe-t-il",
+   "start": 387.081,
+   "end": 387.488,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1012,
+   "section": "S13",
+   "w": "si",
+   "start": 387.557,
+   "end": 387.674,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1013,
+   "section": "S13",
+   "w": "deux",
+   "start": 387.743,
+   "end": 387.883,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1014,
+   "section": "S13",
+   "w": "switches",
+   "start": 387.917,
+   "end": 388.347,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1015,
+   "section": "S13",
+   "w": "sont",
+   "start": 388.37,
+   "end": 388.533,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1016,
+   "section": "S13",
+   "w": "reliés…",
+   "start": 388.556,
+   "end": 389.067,
+   "sentenceEnd": true
+  },
+  {
+   "i": 1017,
+   "section": "S13",
+   "w": "deux",
+   "start": 389.494,
+   "end": 389.703,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1018,
+   "section": "S13",
+   "w": "fois",
+   "start": 389.773,
+   "end": 390.087,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1019,
+   "section": "S13",
+   "w": "Prochain",
+   "start": 391.422,
+   "end": 391.851,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1020,
+   "section": "S13",
+   "w": "épisode.",
+   "start": 391.933,
+   "end": 392.722,
+   "sentenceEnd": true
+  }
+ ]
+}

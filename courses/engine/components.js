@@ -118,10 +118,10 @@ export function switchDevice({ id = nextId('sw'), x, y, w = 260, h = 200, label 
     });
   };
   Object.entries(ports).forEach(([side, list]) => place(side, list));
-  return { svg: out.join('\n'), port: (n) => anchors[n], box: { x, y, w, h } };
+  return { svg: out.join('\n'), port: (n) => anchors[n], box: { x, y, w, h }, toString() { return this.svg; } };
 }
 
-function lock(x, y, label) {
+export function lock(x, y, label) {
   return `<g opacity="0.9">
     <path d="M${x - 7} ${y - 3} v-6 a7 7 0 0 1 14 0 v6" fill="none" stroke="${C.muted}" stroke-width="2.5"/>
     <rect x="${x - 10}" y="${y - 3}" width="20" height="15" rx="3" fill="${C.muted}"/>
@@ -151,7 +151,7 @@ export function pc({ id = nextId('pc'), x, y, label, mac, side = 'left', state, 
   }
   out.push(`</g>`);
   const anchor = side === 'left' ? { x: X, y } : side === 'right' ? { x: X + w, y } : side === 'top' ? { x, y: Y } : { x, y: Y + h };
-  return { svg: out.join('\n'), anchor, box: { x: X, y: Y, w, h } };
+  return { svg: out.join('\n'), anchor, box: { x: X, y: Y, w, h }, toString() { return this.svg; } };
 }
 
 export function router({ x, y, r = 56, label, dashed, color = C.control }) {
@@ -202,27 +202,29 @@ export const lerp = (a, b, t) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.
 
 // Ethernet frame as a digital envelope. Field order follows the real header:
 // destination first, then source, then data.
-export function frame({ id = nextId('fr'), x, y, s = 1, dst = 'BB:BB', src = 'AA:AA', color = C.traffic, srcEmpty, tag, glow = true, compact } = {}) {
+export function frame({ id = nextId('fr'), x, y, s = 1, dst = 'BB:BB', src = 'AA:AA', color = C.traffic, srcEmpty, dstEmpty, tag, tagSlot, glow = true, compact, opacity = 1, hi = {}, rot = 0 } = {}) {
   const w = 190 * s, h = 76 * s;
   const X = x - w / 2, Y = y - h / 2;
-  const out = [`<g id="${id}">`];
+  const out = [`<g id="${id}" opacity="${opacity}" ${rot ? `transform="rotate(${rot} ${x} ${y})"` : ''}>`];
   if (glow) out.push(`<rect x="${X}" y="${Y}" width="${w}" height="${h}" rx="${12 * s}" fill="${color}" opacity="0.35" filter="url(#glowSoft)"/>`);
   out.push(`<rect x="${X}" y="${Y}" width="${w}" height="${h}" rx="${12 * s}" fill="#0B1426" stroke="${color}" stroke-width="${2.5 * s}"/>`);
   out.push(`<path d="M${X + 8 * s} ${Y + 7 * s} L${x} ${Y + 24 * s} L${X + w - 8 * s} ${Y + 7 * s}" fill="none" stroke="${color}" stroke-opacity="0.55" stroke-width="${2 * s}" stroke-linejoin="round"/>`);
   if (!compact) {
     const fy = Y + 30 * s, fh = 38 * s;
-    const field = (fx, fw, lab, val, empty) => empty
+    const field = (fx, fw, lab, val, empty, h2) => empty
       ? `<rect x="${fx}" y="${fy}" width="${fw}" height="${fh}" rx="${5 * s}" fill="none" stroke="${color}" stroke-opacity="0.6" stroke-dasharray="${4 * s} ${4 * s}"/>`
-      : `<rect x="${fx}" y="${fy}" width="${fw}" height="${fh}" rx="${5 * s}" fill="${color}" fill-opacity="0.14" stroke="${color}" stroke-opacity="0.5"/>
+      : `${h2 ? `<rect x="${fx - 3 * s}" y="${fy - 3 * s}" width="${fw + 6 * s}" height="${fh + 6 * s}" rx="${7 * s}" fill="none" stroke="${h2}" stroke-width="${3 * s}" filter="url(#glow)"/>` : ''}
+         <rect x="${fx}" y="${fy}" width="${fw}" height="${fh}" rx="${5 * s}" fill="${h2 || color}" fill-opacity="${h2 ? 0.3 : 0.14}" stroke="${h2 || color}" stroke-opacity="0.5"/>
          ${text(fx + fw / 2, fy + 13 * s, lab, { size: 10 * s, weight: 700, fill: color, ls: 1 })}
          ${text(fx + fw / 2, fy + 31 * s, val, { size: 15 * s, weight: 700, font: C.mono })}`;
-    out.push(field(X + 9 * s, 66 * s, 'DST', dst));
-    out.push(field(X + 81 * s, 66 * s, 'SRC', src, srcEmpty));
+    out.push(field(X + 9 * s, 66 * s, 'DST', dst, dstEmpty, hi.dst));
+    out.push(field(X + 81 * s, 66 * s, 'SRC', src, srcEmpty, hi.src));
     for (let i = 0; i < 3; i++) out.push(`<rect x="${X + 155 * s}" y="${fy + (7 + i * 10) * s}" width="${(i === 2 ? 14 : 24) * s}" height="${4 * s}" rx="${2 * s}" fill="${C.muted}" opacity="0.6"/>`);
   }
   if (tag) out.push(vlanTag({ x: X + 18 * s, y: Y - 2 * s, vlan: tag, s }));
+  if (tagSlot) out.push(`<rect x="${X + 18 * s}" y="${Y - 32 * s}" width="${112 * s}" height="${30 * s}" rx="${7 * s}" fill="none" stroke="${tagSlot}" stroke-width="${2 * s}" stroke-dasharray="${5 * s} ${5 * s}"/>`);
   out.push(`</g>`);
-  return { svg: out.join('\n'), box: { x: X, y: Y, w, h }, srcField: { x: X + 114 * s, y: Y + 49 * s } };
+  return { svg: out.join('\n'), box: { x: X, y: Y, w, h }, srcField: { x: X + 114 * s, y: Y + 49 * s }, dstField: { x: X + 42 * s, y: Y + 49 * s }, toString() { return this.svg; } };
 }
 
 // 802.1Q tag badge clipped on the frame. Its label names the real standard so
@@ -271,7 +273,7 @@ export function macTable({ x, y, w = 460, title = 'TABLE MAC · SW1', cols = ['P
     });
     if (r.tagText) out.push(pill(x + w + 18, ry + (rowH - 10) / 2, r.tagText, { color: col, anchor: 'start', size: 16 }));
   }
-  return { svg: out.join('\n'), rows: rowPos, box: { x, y, w, h } };
+  return { svg: out.join('\n'), rows: rowPos, box: { x, y, w, h }, toString() { return this.svg; } };
 }
 
 export function pill(x, y, str, { color = C.text, bg = '#0B1222', size = 18, anchor = 'middle', mono = false, weight = 800, filled = false } = {}) {
@@ -320,4 +322,121 @@ export function zone({ x, y, w, h, vlan, label }) {
     <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="28" fill="${col}" fill-opacity="0.07" stroke="${col}" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="10 8"/>
     ${label ? pill(x + 24, y, label, { color: col, anchor: 'start', size: 16 }) : ''}
   </g>`;
+}
+
+// ---------------------------------------------------------------- motion helpers
+
+export function g(content, { opacity = 1, x = 0, y = 0, s = 1, rot = 0, ox = 0, oy = 0 } = {}) {
+  if (opacity <= 0.001) return '';
+  const tf = [];
+  if (x || y) tf.push(`translate(${x} ${y})`);
+  if (s !== 1 || rot) tf.push(`translate(${ox} ${oy})`, rot ? `rotate(${rot})` : '', s !== 1 ? `scale(${s})` : '', `translate(${-ox} ${-oy})`);
+  return `<g ${opacity < 1 ? `opacity="${opacity.toFixed(3)}"` : ''} ${tf.length ? `transform="${tf.join(' ')}"` : ''}>${content}</g>`;
+}
+
+export function arrow(a, b, { color = C.forward, width = 5, head = 16, opacity = 1, dash, glow } = {}) {
+  const ang = Math.atan2(b.y - a.y, b.x - a.x);
+  const hx = b.x - Math.cos(ang) * head, hy = b.y - Math.sin(ang) * head;
+  const l = { x: hx + Math.cos(ang + Math.PI / 2) * head * 0.6, y: hy + Math.sin(ang + Math.PI / 2) * head * 0.6 };
+  const r = { x: hx - Math.cos(ang + Math.PI / 2) * head * 0.6, y: hy - Math.sin(ang + Math.PI / 2) * head * 0.6 };
+  return `<g opacity="${opacity}" ${glow ? 'filter="url(#glow)"' : ''}>
+    <path d="M${a.x} ${a.y} L${hx} ${hy}" stroke="${color}" stroke-width="${width}" stroke-linecap="round" fill="none" ${dash ? `stroke-dasharray="${dash}"` : ''}/>
+    <path d="M${b.x} ${b.y} L${l.x} ${l.y} L${r.x} ${r.y} Z" fill="${color}"/></g>`;
+}
+
+export function ring(x, y, r, color, opacity = 1, width = 3) {
+  return `<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="${color}" stroke-width="${width}" opacity="${opacity}" filter="url(#glow)"/>`;
+}
+
+export function stamp(x, y, str, { color = C.error, size = 72, rot = -6, opacity = 1, s = 1 } = {}) {
+  const w = str.length * size * 0.66 + size * 0.9, h = size * 1.35;
+  return g(`<rect x="${x - w / 2}" y="${y - h / 2}" width="${w}" height="${h}" rx="${size * 0.22}" fill="#1A0B12" fill-opacity="0.85" stroke="${color}" stroke-width="${size * 0.09}" filter="url(#glow)"/>
+    ${text(x, y + size * 0.36, str, { size, weight: 800, fill: color, ls: 3 })}`, { opacity, rot, s, ox: x, oy: y });
+}
+
+export function banner(x, y, str, { color = C.error, size = 26, opacity = 1 } = {}) {
+  return g(pill(x, y, str, { color, size, filled: true, mono: true }), { opacity });
+}
+
+// Terminal strip; `chars` limits how many characters are typed so far.
+export function cli(x, y, w, lines, { chars = Infinity, host = 'SW1(config-if)#' } = {}) {
+  const lh = 38, h = lines.length * lh + 34;
+  let left = chars;
+  const rows = lines.map((l, i) => {
+    const shown = l.slice(0, Math.max(0, Math.min(l.length, left)));
+    left -= l.length;
+    const typing = left < 0 && left > -l.length - 1 && shown.length < l.length;
+    return `${text(x + 24, y + 42 + i * lh, host, { size: 20, weight: 600, font: C.mono, fill: C.muted, anchor: 'start' })}
+      ${text(x + 24 + host.length * 12.4 + 12, y + 42 + i * lh, shown, { size: 20, weight: 700, font: C.mono, fill: C.forward, anchor: 'start' })}
+      ${typing ? `<rect x="${x + 24 + host.length * 12.4 + 12 + shown.length * 12.4}" y="${y + 24 + i * lh}" width="11" height="22" fill="${C.forward}"/>` : ''}`;
+  });
+  return `<g filter="url(#shadow)"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" fill="#050910" fill-opacity="0.94" stroke="${C.deviceEdge}" stroke-width="2"/></g>
+    <circle cx="${x + w - 60}" cy="${y + 18}" r="5" fill="${C.error}" opacity="0.7"/><circle cx="${x + w - 42}" cy="${y + 18}" r="5" fill="${C.broadcast}" opacity="0.7"/><circle cx="${x + w - 24}" cy="${y + 18}" r="5" fill="${C.forward}" opacity="0.7"/>
+    ${rows.join('')}`;
+}
+
+// Heads-up panel: rows [{k, v, color}], `hi` = index of highlighted row.
+export function hud(x, y, w, rows, { title = 'DÉCISION DU SWITCH', hi = -1, rowH = 84 } = {}) {
+  const h = 60 + rows.length * rowH;
+  const out = [`<g filter="url(#shadow)"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="18" fill="#0C1427" fill-opacity="0.94" stroke="${C.deviceEdge}" stroke-width="2"/></g>`,
+    text(x + 24, y + 38, title, { size: 16, weight: 700, font: C.mono, fill: C.muted, anchor: 'start', ls: 2 })];
+  rows.forEach((r, i) => {
+    const ry = y + 58 + i * rowH;
+    if (i === hi) out.push(`<rect x="${x + 10}" y="${ry}" width="${w - 20}" height="${rowH - 8}" rx="10" fill="${C.decision}" fill-opacity="0.14" stroke="${C.decision}" stroke-width="2"/>`);
+    out.push(text(x + 26, ry + 28, r.k, { size: 14, weight: 800, fill: i === hi ? C.decision : C.muted, anchor: 'start', ls: 2 }));
+    out.push(text(x + 26, ry + 62, r.v, { size: r.size || 25, weight: 700, font: C.mono, fill: r.color || C.text, anchor: 'start' }));
+  });
+  return out.join('\n');
+}
+
+// Deterministic dissolve: particles drift up and fade as k goes 0 → 1.
+export function particles(x, y, k, color, { n = 18, spread = 70, seed = 1 } = {}) {
+  if (k <= 0 || k >= 1) return '';
+  let r = seed * 9301 + 49297;
+  const rnd = () => ((r = (r * 9301 + 49297) % 233280) / 233280);
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const a = rnd() * Math.PI * 2, d = spread * (0.3 + rnd()) * k;
+    out.push(`<rect x="${x + Math.cos(a) * d}" y="${y + Math.sin(a) * d - 30 * k}" width="${6 * (1 - k) + 2}" height="${6 * (1 - k) + 2}" rx="1" fill="${color}" opacity="${(1 - k).toFixed(2)}"/>`);
+  }
+  return out.join('');
+}
+
+export function door(x, y, h = 70, color = C.muted) {
+  const w = h * 0.55;
+  return `<rect x="${x - w / 2}" y="${y - h}" width="${w}" height="${h}" rx="4" fill="#101A30" stroke="${color}" stroke-width="3"/>
+    <circle cx="${x + w / 2 - 8}" cy="${y - h / 2}" r="3.5" fill="${color}"/>`;
+}
+
+export function eyeSlash(x, y, color = C.muted) {
+  return `<g stroke="${color}" stroke-width="4" fill="none" stroke-linecap="round">
+    <path d="M${x - 30} ${y} Q${x} ${y - 26} ${x + 30} ${y} Q${x} ${y + 26} ${x - 30} ${y}Z"/><circle cx="${x}" cy="${y}" r="8"/>
+    <path d="M${x - 30} ${y + 24} L${x + 30} ${y - 24}" stroke="${C.error}"/></g>`;
+}
+
+export function building(x, y, { floors = [30, 20, 10], w = 420, fh = 150, labels } = {}) {
+  const out = [`<path d="M${x - w / 2 - 20} ${y - floors.length * fh - 40} L${x} ${y - floors.length * fh - 110} L${x + w / 2 + 20} ${y - floors.length * fh - 40}Z" fill="${C.device}" stroke="${C.deviceEdge}" stroke-width="3"/>`];
+  floors.forEach((v, i) => {
+    const fy = y - (i + 1) * fh - 20;
+    const col = C.vlan[v];
+    out.push(`<rect x="${x - w / 2}" y="${fy}" width="${w}" height="${fh}" fill="${col}" fill-opacity="0.16" stroke="${col}" stroke-width="3"/>`);
+    for (let k = 0; k < 4; k++) out.push(`<rect x="${x - w / 2 + 30 + k * 95}" y="${fy + 40}" width="60" height="70" rx="6" fill="${col}" fill-opacity="0.35"/>`);
+    if (labels) out.push(text(x + w / 2 + 30, fy + fh / 2 + 9, labels[i], { size: 26, weight: 800, fill: col, anchor: 'start' }));
+  });
+  return out.join('');
+}
+
+export function elevator(x, y, { h = 420, k = 0.5 } = {}) {
+  const cy = y - 60 - (h - 120) * k;
+  return `<rect x="${x - 70}" y="${y - h}" width="140" height="${h}" rx="10" fill="none" stroke="${C.deviceEdge}" stroke-width="3" stroke-dasharray="8 8"/>
+    <rect x="${x - 55}" y="${cy - 55}" width="110" height="110" rx="10" fill="${C.device}" stroke="${C.text}" stroke-width="3"/>
+    <rect x="${x - 40}" y="${cy - 30}" width="24" height="24" rx="4" fill="${C.vlan[10]}"/><rect x="${x - 12}" y="${cy - 30}" width="24" height="24" rx="4" fill="${C.vlan[20]}"/><rect x="${x + 16}" y="${cy - 30}" width="24" height="24" rx="4" fill="${C.vlan[30]}"/>`;
+}
+
+export function check(x, y, color = C.forward, size = 30) {
+  return `<path d="M${x - size * 0.6} ${y} L${x - size * 0.15} ${y + size * 0.45} L${x + size * 0.65} ${y - size * 0.5}" stroke="${color}" stroke-width="${size * 0.2}" fill="none" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>`;
+}
+
+export function cross(x, y, color = C.error, size = 26) {
+  return `<path d="M${x - size / 2} ${y - size / 2} L${x + size / 2} ${y + size / 2} M${x + size / 2} ${y - size / 2} L${x - size / 2} ${y + size / 2}" stroke="${color}" stroke-width="${size * 0.22}" stroke-linecap="round"/>`;
 }

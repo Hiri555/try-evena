@@ -1,0 +1,152 @@
+{
+  "lead_in": 0.3,
+  "section_gap": 0.8,
+  "sentence_gap": 0.3,
+  "tail": 2.5,
+  "holds_note": "Silences ajoutés après un mot (fin de phrase) pour laisser l'animation respirer. `after` = mot tel que prononcé (sans ponctuation), `n` = n-ième occurrence dans la section.",
+  "holds": [
+    {
+      "section": "S02",
+      "after": "vide",
+      "dur": 0.4
+    },
+    {
+      "section": "S03",
+      "after": "lit",
+      "n": 1,
+      "dur": 0.4
+    },
+    {
+      "section": "S03",
+      "after": "B-B",
+      "dur": 0.5
+    },
+    {
+      "section": "S04",
+      "after": "un",
+      "n": 3,
+      "dur": 0.4
+    },
+    {
+      "section": "S04",
+      "after": "destination",
+      "n": 1,
+      "dur": 0.6
+    },
+    {
+      "section": "S05",
+      "after": "inconnue",
+      "dur": 0.5
+    },
+    {
+      "section": "S05",
+      "after": "L'inondation",
+      "dur": 0.9
+    },
+    {
+      "section": "S05",
+      "after": "garde",
+      "dur": 0.6
+    },
+    {
+      "section": "S05",
+      "after": "un",
+      "n": 1,
+      "dur": 0.6
+    },
+    {
+      "section": "S06",
+      "after": "lit",
+      "dur": 0.9
+    },
+    {
+      "section": "S07",
+      "after": "monde",
+      "dur": 0.6
+    },
+    {
+      "section": "S07",
+      "after": "trente",
+      "dur": 0.6
+    },
+    {
+      "section": "S07",
+      "after": "violet",
+      "dur": 0.9
+    },
+    {
+      "section": "S08",
+      "after": "dix",
+      "n": 2,
+      "dur": 0.6
+    },
+    {
+      "section": "S09",
+      "after": "gaspillés",
+      "dur": 0.5
+    },
+    {
+      "section": "S09",
+      "after": "trunk",
+      "n": 1,
+      "dur": 0.7
+    },
+    {
+      "section": "S10",
+      "after": "VLAN",
+      "n": 1,
+      "dur": 0.5
+    },
+    {
+      "section": "S10",
+      "after": "dix",
+      "n": 1,
+      "dur": 0.5
+    },
+    {
+      "section": "S11",
+      "after": "dix",
+      "n": 3,
+      "dur": 0.4
+    },
+    {
+      "section": "S11",
+      "after": "dix",
+      "n": 5,
+      "dur": 0.4
+    },
+    {
+      "section": "S12",
+      "after": "apprend",
+      "dur": 0.8
+    },
+    {
+      "section": "S12",
+      "after": "tag",
+      "n": 1,
+      "dur": 0.8
+    },
+    {
+      "section": "S12",
+      "after": "directement",
+      "dur": 0.8
+    },
+    {
+      "section": "S12",
+      "after": "trois",
+      "n": 2,
+      "dur": 0.8
+    },
+    {
+      "section": "S12",
+      "after": "tag",
+      "n": 2,
+      "dur": 0.8
+    },
+    {
+      "section": "S13",
+      "after": "tag",
+      "dur": 2.0
+    }
+  ]
+}

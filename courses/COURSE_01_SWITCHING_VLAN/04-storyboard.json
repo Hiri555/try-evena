@@ -2,7 +2,12 @@
   "course_id": "COURSE_01_SWITCHING_VLAN",
   "episode": 1,
   "title": "Comment un switch sait où envoyer tes données ?",
-  "format": { "width": 1920, "height": 1080, "fps": 30, "codec": "h264" },
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "codec": "h264"
+  },
   "timing_note": "Les durées sont des estimations (~150 mots/min). Après ElevenLabs + Whisper, chaque événement de `animation` est recalé sur le mot `anchor` dans 05-timeline.json. `at` = offset relatif à l'ancre (s).",
   "style": {
     "background": "#070B14 → #0B1222 (radial vignette), grille isométrique très discrète #FFFFFF06",
@@ -44,9 +49,25 @@
     ]
   },
   "components_required": [
-    "Switch", "PC", "Router", "Port", "Cable", "Trunk", "EthernetFrame", "VLANTag",
-    "MACTable", "BroadcastPulse", "PacketTrail", "ThoughtBubble", "Warning", "HUDPanel",
-    "CLIStrip", "Counter", "QuizCard", "ZoneOverlay", "Building"
+    "Switch",
+    "PC",
+    "Router",
+    "Port",
+    "Cable",
+    "Trunk",
+    "EthernetFrame",
+    "VLANTag",
+    "MACTable",
+    "BroadcastPulse",
+    "PacketTrail",
+    "ThoughtBubble",
+    "Warning",
+    "HUDPanel",
+    "CLIStrip",
+    "Counter",
+    "QuizCard",
+    "ZoneOverlay",
+    "Building"
   ],
   "scenes": [
     {
@@ -59,19 +80,46 @@
       "learning_goal": "Poser la situation sans aucune théorie : un émetteur, un switch, beaucoup de destinataires.",
       "visual_metaphor": "Un carrefour à 8 sorties.",
       "technical_visual": "PC-A relié à SW1 port 1 ; 7 machines (PC-B à PC-H) en éventail sur les ports 2 à 8.",
-      "devices": ["PC-A", "SW1 (8 ports)", "PC-B", "PC-C", "PC-D", "PC-E", "PC-F", "PC-G", "PC-H"],
+      "devices": [
+        "PC-A",
+        "SW1 (8 ports)",
+        "PC-B",
+        "PC-C",
+        "PC-D",
+        "PC-E",
+        "PC-F",
+        "PC-G",
+        "PC-H"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [], "vlans": "aucun (tout le monde dans le même domaine)" },
+      "network_state": {
+        "mac_table": [],
+        "vlans": "aucun (tout le monde dans le même domaine)"
+      },
       "camera": "Plan large fixe, légèrement plongeant. Frame 1 = image complète (pas de noir, pas de logo).",
       "animation": [
-        { "anchor": "PC A", "at": 0.0, "action": "PC-A pulse, étiquette 'PC-A' visible" },
-        { "anchor": "PC B", "at": 0.0, "action": "PC-B s'entoure d'un halo cible discret" },
-        { "anchor": "envoie", "at": 0.0, "action": "Une trame bleue quitte PC-A et avance sur le câble vers SW1" }
+        {
+          "anchor": "PC A",
+          "at": 0.0,
+          "action": "PC-A pulse, étiquette 'PC-A' visible"
+        },
+        {
+          "anchor": "PC B",
+          "at": 0.0,
+          "action": "PC-B s'entoure d'un halo cible discret"
+        },
+        {
+          "anchor": "envoie",
+          "at": 0.0,
+          "action": "Une trame bleue quitte PC-A et avance sur le câble vers SW1"
+        }
       ],
       "transition": "Continue (même plan).",
       "on_screen_text": [],
       "sound_effect": "whoosh léger au départ de la trame",
-      "asset_requirements": ["SVG: PC, Switch 8 ports, Cable, EthernetFrame"]
+      "asset_requirements": [
+        "SVG: PC, Switch 8 ports, Cable, EthernetFrame"
+      ]
     },
     {
       "scene_id": "S01.2",
@@ -83,20 +131,47 @@
       "learning_goal": "Créer la tension : le comportement du switch paraît absurde.",
       "visual_metaphor": "Le switch 'hausse les épaules' : bulle de pensée 'Destination inconnue ?'",
       "technical_visual": "La trame entre dans SW1, bulle ThoughtBubble au-dessus du switch, puis 7 copies partent vers les ports 2 à 8. Le port 1 reste éteint.",
-      "devices": ["SW1", "PC-A..PC-H"],
+      "devices": [
+        "SW1",
+        "PC-A..PC-H"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [], "event": "unknown unicast flood" },
+      "network_state": {
+        "mac_table": [],
+        "event": "unknown unicast flood"
+      },
       "camera": "Micro push-in (scale 1.0 → 1.04) pendant la duplication, puis freeze.",
       "animation": [
-        { "anchor": "switch", "at": 0.0, "action": "Trame entre dans SW1 ; ThoughtBubble 'Destination inconnue ?' apparaît" },
-        { "anchor": "ça", "at": 0.0, "action": "La trame se duplique : 7 copies, départ en éventail avec PacketTrail" },
-        { "anchor": "Pourquoi", "at": -0.2, "action": "FREEZE : copies figées à mi-câble, léger blur des bords, Counter '7 copies' apparaît" },
-        { "anchor": "partout", "at": 0.0, "action": "Les 7 câbles clignotent une fois" }
+        {
+          "anchor": "switch",
+          "at": 0.0,
+          "action": "Trame entre dans SW1 ; ThoughtBubble 'Destination inconnue ?' apparaît"
+        },
+        {
+          "anchor": "ça",
+          "at": 0.0,
+          "action": "La trame se duplique : 7 copies, départ en éventail avec PacketTrail"
+        },
+        {
+          "anchor": "Pourquoi",
+          "at": -0.2,
+          "action": "FREEZE : copies figées à mi-câble, léger blur des bords, Counter '7 copies' apparaît"
+        },
+        {
+          "anchor": "partout",
+          "at": 0.0,
+          "action": "Les 7 câbles clignotent une fois"
+        }
       ],
       "transition": "Rewind visuel (les copies reculent en 0,6 s).",
-      "on_screen_text": ["Destination inconnue ?", "7 copies"],
+      "on_screen_text": [
+        "Destination inconnue ?",
+        "7 copies"
+      ],
       "sound_effect": "7 micro-ticks rapides (duplication) puis silence sec au freeze",
-      "asset_requirements": ["SVG: ThoughtBubble, Counter"]
+      "asset_requirements": [
+        "SVG: ThoughtBubble, Counter"
+      ]
     },
     {
       "scene_id": "S01.3",
@@ -108,17 +183,40 @@
       "learning_goal": "Promettre la résolution : un seul chemin, vert.",
       "visual_metaphor": "Flash-forward.",
       "technical_visual": "Même topologie ; une trame repart de PC-A et ne suit qu'un seul câble, vert, vers PC-B. Les 6 autres ports restent sombres.",
-      "devices": ["PC-A", "SW1", "PC-B"],
+      "devices": [
+        "PC-A",
+        "SW1",
+        "PC-B"
+      ],
       "characters": [],
-      "network_state": { "mac_table": ["P1 AA:AA (fantôme)", "P2 BB:BB (fantôme)"] },
+      "network_state": {
+        "mac_table": [
+          "P1 AA:AA (fantôme)",
+          "P2 BB:BB (fantôme)"
+        ]
+      },
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "apprendre", "at": 0.0, "action": "Rewind terminé, la scène se ré-éclaire" },
-        { "anchor": "plus", "at": 0.0, "action": "Trame unique, chemin vert PC-A → PC-B" },
-        { "anchor": "fois", "at": 0.3, "action": "Titre de l'épisode s'inscrit en bas à gauche (petit, Inter 700)" }
+        {
+          "anchor": "apprendre",
+          "at": 0.0,
+          "action": "Rewind terminé, la scène se ré-éclaire"
+        },
+        {
+          "anchor": "plus",
+          "at": 0.0,
+          "action": "Trame unique, chemin vert PC-A → PC-B"
+        },
+        {
+          "anchor": "fois",
+          "at": 0.3,
+          "action": "Titre de l'épisode s'inscrit en bas à gauche (petit, Inter 700)"
+        }
       ],
       "transition": "Pull-back : la caméra recule, le switch devient le sujet (S02).",
-      "on_screen_text": ["Comment un switch sait où envoyer tes données ?"],
+      "on_screen_text": [
+        "Comment un switch sait où envoyer tes données ?"
+      ],
       "sound_effect": "tick de validation doux",
       "asset_requirements": []
     },
@@ -132,19 +230,37 @@
       "learning_goal": "Formuler le problème de décision du switch.",
       "visual_metaphor": "8 portes identiques.",
       "technical_visual": "Façade du switch en gros plan, 8 ports ; une trame en attente devant ; '?' au-dessus de chaque port.",
-      "devices": ["SW1 (façade)"],
+      "devices": [
+        "SW1 (façade)"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [] },
+      "network_state": {
+        "mac_table": []
+      },
       "camera": "Push-in vers la façade de SW1.",
       "animation": [
-        { "anchor": "ports", "at": 0.0, "action": "Les 8 ports s'allument en séquence gauche→droite" },
-        { "anchor": "portes", "at": 0.0, "action": "Chaque port se dessine brièvement comme une porte (morph 300 ms) puis revient" },
-        { "anchor": "choisir", "at": 0.0, "action": "8 '?' apparaissent en cascade au-dessus des ports" }
+        {
+          "anchor": "ports",
+          "at": 0.0,
+          "action": "Les 8 ports s'allument en séquence gauche→droite"
+        },
+        {
+          "anchor": "portes",
+          "at": 0.0,
+          "action": "Chaque port se dessine brièvement comme une porte (morph 300 ms) puis revient"
+        },
+        {
+          "anchor": "choisir",
+          "at": 0.0,
+          "action": "8 '?' apparaissent en cascade au-dessus des ports"
+        }
       ],
       "transition": "Coupe en profondeur : la façade devient transparente (S02.2).",
       "on_screen_text": [],
       "sound_effect": "aucun",
-      "asset_requirements": ["SVG: Switch façade détaillée"]
+      "asset_requirements": [
+        "SVG: Switch façade détaillée"
+      ]
     },
     {
       "scene_id": "S02.2",
@@ -156,19 +272,39 @@
       "learning_goal": "Introduire la table MAC comme unique outil de décision, vide au démarrage.",
       "visual_metaphor": "Le cerveau du switch = un carnet d'adresses vierge.",
       "technical_visual": "Vue en coupe : MACTable vide 'PORT | MAC'.",
-      "devices": ["SW1 (coupe)"],
+      "devices": [
+        "SW1 (coupe)"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [] },
+      "network_state": {
+        "mac_table": []
+      },
       "camera": "Traverse la façade, cadre la table.",
       "animation": [
-        { "anchor": "table", "at": 0.0, "action": "MACTable se construit (en-tête puis cadre)" },
-        { "anchor": "vide", "at": 0.0, "action": "La table pulse une fois, lignes en pointillé vides" },
-        { "anchor": "lit", "at": 0.0, "action": "Une trame glisse dans le cadre" }
+        {
+          "anchor": "table",
+          "at": 0.0,
+          "action": "MACTable se construit (en-tête puis cadre)"
+        },
+        {
+          "anchor": "vide",
+          "at": 0.0,
+          "action": "La table pulse une fois, lignes en pointillé vides"
+        },
+        {
+          "anchor": "lit",
+          "at": 0.0,
+          "action": "Une trame glisse dans le cadre"
+        }
       ],
       "transition": "Zoom sur la trame qui devient enveloppe (S03).",
-      "on_screen_text": ["PORT | MAC"],
+      "on_screen_text": [
+        "PORT | MAC"
+      ],
       "sound_effect": "aucun",
-      "asset_requirements": ["SVG: MACTable"]
+      "asset_requirements": [
+        "SVG: MACTable"
+      ]
     },
     {
       "scene_id": "S03.1",
@@ -182,20 +318,56 @@
       "technical_visual": "EthernetFrame plein écran : trois cases DST MAC | SRC MAC | DATA, dans l'ordre réel de l'en-tête.",
       "devices": [],
       "characters": [],
-      "network_state": { "frame": { "dst": "BB:BB", "src": "AA:AA", "data": "…" } },
+      "network_state": {
+        "frame": {
+          "dst": "BB:BB",
+          "src": "AA:AA",
+          "data": "…"
+        }
+      },
       "camera": "Zoom continu dans la trame (scale 1 → 4), l'enveloppe remplit l'écran.",
       "animation": [
-        { "anchor": "trame", "at": 0.0, "action": "Label 'TRAME ETHERNET' au-dessus" },
-        { "anchor": "enveloppe", "at": 0.0, "action": "Le rectangle prend le rabat d'enveloppe (morph)" },
-        { "anchor": "destination", "at": 0.0, "action": "Case DST MAC s'allume (gauche), valeur 'BB:BB'" },
-        { "anchor": "source", "at": 0.0, "action": "Case SRC MAC s'allume, valeur 'AA:AA'" },
-        { "anchor": "données", "at": 0.0, "action": "Case DATA s'allume, contenu flouté" },
-        { "anchor": "lit", "at": 0.0, "action": "Un œil barré discret sur DATA" }
+        {
+          "anchor": "trame",
+          "at": 0.0,
+          "action": "Label 'TRAME ETHERNET' au-dessus"
+        },
+        {
+          "anchor": "enveloppe",
+          "at": 0.0,
+          "action": "Le rectangle prend le rabat d'enveloppe (morph)"
+        },
+        {
+          "anchor": "destination",
+          "at": 0.0,
+          "action": "Case DST MAC s'allume (gauche), valeur 'BB:BB'"
+        },
+        {
+          "anchor": "source",
+          "at": 0.0,
+          "action": "Case SRC MAC s'allume, valeur 'AA:AA'"
+        },
+        {
+          "anchor": "données",
+          "at": 0.0,
+          "action": "Case DATA s'allume, contenu flouté"
+        },
+        {
+          "anchor": "lit",
+          "at": 0.0,
+          "action": "Un œil barré discret sur DATA"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["DESTINATION MAC", "SOURCE MAC", "DATA"],
+      "on_screen_text": [
+        "DESTINATION MAC",
+        "SOURCE MAC",
+        "DATA"
+      ],
       "sound_effect": "papier numérique très léger à l'ouverture",
-      "asset_requirements": ["SVG: EthernetFrame (mode zoomé, cases détaillées)"]
+      "asset_requirements": [
+        "SVG: EthernetFrame (mode zoomé, cases détaillées)"
+      ]
     },
     {
       "scene_id": "S03.2",
@@ -207,22 +379,53 @@
       "learning_goal": "C2 : une MAC par carte réseau, 48 bits ; justifier les alias courts.",
       "visual_metaphor": "Numéro gravé sur la carte réseau.",
       "technical_visual": "Mini-vue de la carte réseau de PC-A : 'AAAA.AAAA.AAAA' gravé, qui se compacte en 'AA:AA'. Puis on ressort de l'enveloppe.",
-      "devices": ["PC-A (NIC)"],
+      "devices": [
+        "PC-A (NIC)"
+      ],
       "characters": [],
       "network_state": {},
       "camera": "Pan latéral vers la NIC, puis dézoom global (scale 4 → 1).",
       "animation": [
-        { "anchor": "MAC", "at": 0.0, "action": "Surbrillance des deux cases adresse" },
-        { "anchor": "carte", "at": 0.0, "action": "NIC apparaît, gravure 'AAAA.AAAA.AAAA'" },
-        { "anchor": "quarante-huit", "at": 0.0, "action": "Accolade '48 bits' sous l'adresse" },
-        { "anchor": "abréger", "at": 0.0, "action": "Morph 'AAAA.AAAA.AAAA' → 'AA:AA'" },
-        { "anchor": "en-tête", "at": 0.0, "action": "Bandeau 'en-tête Ethernet' au-dessus des cases DST/SRC" },
-        { "anchor": "besoin", "at": 0.0, "action": "Dézoom : l'enveloppe se referme et rejoint PC-A" }
+        {
+          "anchor": "MAC",
+          "at": 0.0,
+          "action": "Surbrillance des deux cases adresse"
+        },
+        {
+          "anchor": "carte",
+          "at": 0.0,
+          "action": "NIC apparaît, gravure 'AAAA.AAAA.AAAA'"
+        },
+        {
+          "anchor": "quarante-huit",
+          "at": 0.0,
+          "action": "Accolade '48 bits' sous l'adresse"
+        },
+        {
+          "anchor": "abréger",
+          "at": 0.0,
+          "action": "Morph 'AAAA.AAAA.AAAA' → 'AA:AA'"
+        },
+        {
+          "anchor": "l'en-tête",
+          "at": 0.0,
+          "action": "Bandeau 'en-tête Ethernet' au-dessus des cases DST/SRC"
+        },
+        {
+          "anchor": "besoin",
+          "at": 0.0,
+          "action": "Dézoom : l'enveloppe se referme et rejoint PC-A"
+        }
       ],
       "transition": "Dézoom qui révèle la topologie simplifiée de S04.",
-      "on_screen_text": ["Adresse MAC · 48 bits", "AAAA.AAAA.AAAA → AA:AA"],
+      "on_screen_text": [
+        "Adresse MAC · 48 bits",
+        "AAAA.AAAA.AAAA → AA:AA"
+      ],
       "sound_effect": "aucun",
-      "asset_requirements": ["SVG: NIC (carte réseau stylisée)"]
+      "asset_requirements": [
+        "SVG: NIC (carte réseau stylisée)"
+      ]
     },
     {
       "scene_id": "S04.1",
@@ -234,19 +437,54 @@
       "learning_goal": "Poser le banc d'essai du chapitre.",
       "visual_metaphor": "Banc de test.",
       "technical_visual": "SW1 5 ports au centre. PC-A (P1) à gauche. PC-B (P2), PC-C (P3), PC-D (P4), PC-E (P5) à droite. MACTable 'PORT | MAC' vide sur la droite de l'écran.",
-      "devices": ["SW1 (5 ports)", "PC-A", "PC-B", "PC-C", "PC-D", "PC-E"],
+      "devices": [
+        "SW1 (5 ports)",
+        "PC-A",
+        "PC-B",
+        "PC-C",
+        "PC-D",
+        "PC-E"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [] },
+      "network_state": {
+        "mac_table": []
+      },
       "camera": "Plan large stable (c'est le plan de référence des chapitres 2–4).",
       "animation": [
-        { "anchor": "Cinq", "at": 0.0, "action": "Les 5 ports s'étiquettent P1..P5" },
-        { "anchor": "un", "at": 0.0, "action": "PC-A + badge 'AA:AA' ; P1 surligné" },
-        { "anchor": "deux", "at": 0.0, "action": "PC-B + badge 'BB:BB' ; P2 surligné" },
-        { "anchor": "envoie", "at": 0.0, "action": "Trame DST BB:BB | SRC AA:AA quitte PC-A" },
-        { "anchor": "entre", "at": 0.0, "action": "La trame franchit P1 ; LED P1 bleue" }
+        {
+          "anchor": "Cinq",
+          "at": 0.0,
+          "action": "Les 5 ports s'étiquettent P1..P5"
+        },
+        {
+          "anchor": "un",
+          "at": 0.0,
+          "action": "PC-A + badge 'AA:AA' ; P1 surligné"
+        },
+        {
+          "anchor": "deux",
+          "at": 0.0,
+          "action": "PC-B + badge 'BB:BB' ; P2 surligné"
+        },
+        {
+          "anchor": "envoie",
+          "at": 0.0,
+          "action": "Trame DST BB:BB | SRC AA:AA quitte PC-A"
+        },
+        {
+          "anchor": "entre",
+          "at": 0.0,
+          "action": "La trame franchit P1 ; LED P1 bleue"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["P1", "P2", "P3", "P4", "P5"],
+      "on_screen_text": [
+        "P1",
+        "P2",
+        "P3",
+        "P4",
+        "P5"
+      ],
       "sound_effect": "switch click à l'entrée sur P1",
       "asset_requirements": []
     },
@@ -260,19 +498,53 @@
       "learning_goal": "C5 — idée n°1 de l'épisode : on apprend sur la SOURCE + port d'entrée.",
       "visual_metaphor": "Le switch recopie l'expéditeur dans son carnet.",
       "technical_visual": "La case SRC 'AA:AA' se détache physiquement de la trame, suit une courbe jusqu'à la table, et devient la ligne 'P1 | AA:AA'. Un fil lumineux relie P1 à la ligne.",
-      "devices": ["SW1", "PC-A"],
+      "devices": [
+        "SW1",
+        "PC-A"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [{ "port": "P1", "mac": "AA:AA", "state": "appris" }] },
+      "network_state": {
+        "mac_table": [
+          {
+            "port": "P1",
+            "mac": "AA:AA",
+            "state": "appris"
+          }
+        ]
+      },
       "camera": "Léger travelling vers la table (x +120 px) pendant le vol de la MAC.",
       "animation": [
-        { "anchor": "source", "at": 0.0, "action": "Case SRC de la trame s'illumine (bleu → blanc)" },
-        { "anchor": "note", "at": 0.0, "action": "La case SRC se détache et vole jusqu'à la table (700 ms, arc)" },
-        { "anchor": "port", "at": 0.1, "action": "Ligne 'P1 | AA:AA' se verrouille, tick ; fil P1 → ligne" },
-        { "anchor": "apprentissage", "at": 0.0, "action": "Étiquette 'LEARNING' verte à côté de la ligne" },
-        { "anchor": "parle", "at": 0.0, "action": "Petite bulle 'parle' sur PC-A qui s'estompe" }
+        {
+          "anchor": "source",
+          "at": 0.0,
+          "action": "Case SRC de la trame s'illumine (bleu → blanc)"
+        },
+        {
+          "anchor": "note",
+          "at": 0.0,
+          "action": "La case SRC se détache et vole jusqu'à la table (700 ms, arc)"
+        },
+        {
+          "anchor": "port",
+          "at": 0.1,
+          "action": "Ligne 'P1 | AA:AA' se verrouille, tick ; fil P1 → ligne"
+        },
+        {
+          "anchor": "l'apprentissage",
+          "at": 0.0,
+          "action": "Étiquette 'LEARNING' verte à côté de la ligne"
+        },
+        {
+          "anchor": "parle",
+          "at": 0.0,
+          "action": "Petite bulle 'parle' sur PC-A qui s'estompe"
+        }
       ],
       "transition": "Continue (même plan) — c'est ce plan qui sert de STYLEFRAME 02.",
-      "on_screen_text": ["LEARNING", "P1 → AA:AA"],
+      "on_screen_text": [
+        "LEARNING",
+        "P1 → AA:AA"
+      ],
       "sound_effect": "tick d'insertion (switch click aigu)",
       "asset_requirements": []
     },
@@ -286,22 +558,61 @@
       "learning_goal": "Casser la misconception n°1 (« il apprend la destination »).",
       "visual_metaphor": "La destination tente d'entrer dans le carnet et se fait refouler.",
       "technical_visual": "Case DST 'BB:BB' clignote, freeze 1,2 s, puis tente d'entrer dans la table et rebondit ; 'NON' rouge. Puis règle en deux lignes.",
-      "devices": ["SW1"],
+      "devices": [
+        "SW1"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [{ "port": "P1", "mac": "AA:AA" }] },
+      "network_state": {
+        "mac_table": [
+          {
+            "port": "P1",
+            "mac": "AA:AA"
+          }
+        ]
+      },
       "camera": "Fixe pendant le freeze ; push-in 3 % sur le 'NON'.",
       "animation": [
-        { "anchor": "piège", "at": 0.0, "action": "Case DST clignote, '?' orange" },
-        { "anchor": "destination", "at": 0.3, "action": "FREEZE (toute l'animation s'arrête, 1,2 s)" },
-        { "anchor": "Non", "at": 0.0, "action": "DST vole vers la table et rebondit (seul rebond autorisé) ; 'NON' rouge" },
-        { "anchor": "veut", "at": 0.0, "action": "Flèche pointillée depuis DST vers 'quelque part ?' à droite" },
-        { "anchor": "apprend", "at": 0.0, "action": "Ligne 1 de la règle : 'SOURCE → apprendre' (vert)" },
-        { "anchor": "décide", "at": 0.0, "action": "Ligne 2 : 'DESTINATION → décider' (orange)" }
+        {
+          "anchor": "piège",
+          "at": 0.0,
+          "action": "Case DST clignote, '?' orange"
+        },
+        {
+          "anchor": "destination",
+          "at": 0.3,
+          "action": "FREEZE (toute l'animation s'arrête, 1,2 s)"
+        },
+        {
+          "anchor": "Non",
+          "at": 0.0,
+          "action": "DST vole vers la table et rebondit (seul rebond autorisé) ; 'NON' rouge"
+        },
+        {
+          "anchor": "veut",
+          "at": 0.0,
+          "action": "Flèche pointillée depuis DST vers 'quelque part ?' à droite"
+        },
+        {
+          "anchor": "apprend",
+          "at": 0.0,
+          "action": "Ligne 1 de la règle : 'SOURCE → apprendre' (vert)"
+        },
+        {
+          "anchor": "décide",
+          "at": 0.0,
+          "action": "Ligne 2 : 'DESTINATION → décider' (orange)"
+        }
       ],
       "transition": "La règle se réduit en coin supérieur gauche (reste comme rappel pendant S05).",
-      "on_screen_text": ["NON", "SOURCE → apprendre", "DESTINATION → décider"],
+      "on_screen_text": [
+        "NON",
+        "SOURCE → apprendre",
+        "DESTINATION → décider"
+      ],
       "sound_effect": "buzz grave court sur 'Non'",
-      "asset_requirements": ["SVG: Warning (NON)"]
+      "asset_requirements": [
+        "SVG: Warning (NON)"
+      ]
     },
     {
       "scene_id": "S05.1",
@@ -313,16 +624,39 @@
       "learning_goal": "C6 : le lookup se fait sur la destination ; il échoue.",
       "visual_metaphor": "Recherche dans le carnet.",
       "technical_visual": "Faisceau de scan qui descend dans la table (1 seule ligne AA:AA). Échec : bandeau 'LOOKUP MISS' rouge clignotant.",
-      "devices": ["SW1"],
+      "devices": [
+        "SW1"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [{ "port": "P1", "mac": "AA:AA" }], "lookup": { "key": "BB:BB", "result": "miss" } },
+      "network_state": {
+        "mac_table": [
+          {
+            "port": "P1",
+            "mac": "AA:AA"
+          }
+        ],
+        "lookup": {
+          "key": "BB:BB",
+          "result": "miss"
+        }
+      },
       "camera": "Fixe, cadrage table + switch.",
       "animation": [
-        { "anchor": "cherche", "at": 0.0, "action": "Clé 'BB:BB' à gauche de la table, scan vertical (600 ms)" },
-        { "anchor": "Rien", "at": 0.0, "action": "Bandeau 'LOOKUP MISS' rouge, 2 clignotements" }
+        {
+          "anchor": "cherche",
+          "at": 0.0,
+          "action": "Clé 'BB:BB' à gauche de la table, scan vertical (600 ms)"
+        },
+        {
+          "anchor": "Rien",
+          "at": 0.0,
+          "action": "Bandeau 'LOOKUP MISS' rouge, 2 clignotements"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["LOOKUP MISS"],
+      "on_screen_text": [
+        "LOOKUP MISS"
+      ],
       "sound_effect": "bip d'échec bas",
       "asset_requirements": []
     },
@@ -332,27 +666,66 @@
       "est_start": 126.0,
       "est_duration": 18.0,
       "start_sentence": "Alors il fait la seule chose raisonnable",
-      "spoken_text": "Alors il fait la seule chose raisonnable : il envoie une copie sur tous les autres ports. Sauf celui d'où elle vient. Ça s'appelle le flooding. L'inondation. C, D et E comparent la destination avec leur propre adresse. Ce n'est pas pour eux : ils jettent la trame. Seul B la garde.",
+      "spoken_text": "Alors il fait la seule chose raisonnable : il envoie une copie sur tous les autres ports. Sauf celui d'où elle vient. Ça s'appelle le flooding. L'inondation. C, D et E lisent l'adresse destination. Ce n'est pas la leur. Alors ils jettent la trame. Seul B la garde.",
       "learning_goal": "C7 + C8 : flooding sauf port d'entrée ; les non-destinataires jettent.",
       "visual_metaphor": "Photocopieuse : le switch distribue des copies.",
       "technical_visual": "4 copies vers P2..P5 ; P1 reste gris avec cadenas 'port d'entrée'. PC-C/D/E : la trame se dissout (particules), mini-bulle 'pas pour moi'. PC-B : halo vert.",
-      "devices": ["SW1", "PC-A..PC-E"],
+      "devices": [
+        "SW1",
+        "PC-A..PC-E"
+      ],
       "characters": [],
-      "network_state": { "event": "flood P2,P3,P4,P5 (pas P1)" },
+      "network_state": {
+        "event": "flood P2,P3,P4,P5 (pas P1)"
+      },
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "copie", "at": 0.0, "action": "Trame se duplique ×4 au centre du switch" },
-        { "anchor": "autres", "at": 0.0, "action": "Les 4 copies partent vers P2..P5 avec trails" },
-        { "anchor": "Sauf", "at": 0.0, "action": "P1 : cadenas gris + étiquette 'port d'entrée'" },
-        { "anchor": "flooding", "at": 0.0, "action": "Mot 'FLOODING' en arc au-dessus des 4 flèches" },
-        { "anchor": "comparent", "at": 0.0, "action": "C, D, E : la case DST de leur copie se compare à leur badge (≠)" },
-        { "anchor": "jettent", "at": 0.0, "action": "Les 3 copies se dissolvent" },
-        { "anchor": "garde", "at": 0.0, "action": "PC-B halo vert (=)" }
+        {
+          "anchor": "copie",
+          "at": 0.0,
+          "action": "Trame se duplique ×4 au centre du switch"
+        },
+        {
+          "anchor": "autres",
+          "at": 0.0,
+          "action": "Les 4 copies partent vers P2..P5 avec trails"
+        },
+        {
+          "anchor": "Sauf",
+          "at": 0.0,
+          "action": "P1 : cadenas gris + étiquette 'port d'entrée'"
+        },
+        {
+          "anchor": "flooding",
+          "at": 0.0,
+          "action": "Mot 'FLOODING' en arc au-dessus des 4 flèches"
+        },
+        {
+          "anchor": "lisent",
+          "at": 0.0,
+          "action": "C, D, E : la case DST de leur copie se compare à leur badge (≠)"
+        },
+        {
+          "anchor": "jettent",
+          "at": 0.0,
+          "action": "Les 3 copies se dissolvent"
+        },
+        {
+          "anchor": "garde",
+          "at": 0.0,
+          "action": "PC-B halo vert (=)"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["FLOODING", "port d'entrée", "pas pour moi ×3"],
+      "on_screen_text": [
+        "FLOODING",
+        "port d'entrée",
+        "pas pour moi ×3"
+      ],
       "sound_effect": "4 whoosh décalés de 40 ms ; 3 'pop' très doux à la dissolution",
-      "asset_requirements": ["SVG: particules de dissolution (Canvas possible)"]
+      "asset_requirements": [
+        "SVG: particules de dissolution (Canvas possible)"
+      ]
     },
     {
       "scene_id": "S05.3",
@@ -364,20 +737,65 @@
       "learning_goal": "Montrer que la réponse remplit la table ET qu'un unicast connu n'est pas floodé.",
       "visual_metaphor": "Le carnet se complète.",
       "technical_visual": "Trame DST AA:AA | SRC BB:BB de PC-B vers P2. SRC vole dans la table → 'P2 | BB:BB'. Lookup AA:AA → ligne 1 surlignée orange. Une flèche verte vers P1.",
-      "devices": ["SW1", "PC-A", "PC-B"],
+      "devices": [
+        "SW1",
+        "PC-A",
+        "PC-B"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [{ "port": "P1", "mac": "AA:AA" }, { "port": "P2", "mac": "BB:BB" }], "lookup": { "key": "AA:AA", "result": "hit P1" } },
+      "network_state": {
+        "mac_table": [
+          {
+            "port": "P1",
+            "mac": "AA:AA"
+          },
+          {
+            "port": "P2",
+            "mac": "BB:BB"
+          }
+        ],
+        "lookup": {
+          "key": "AA:AA",
+          "result": "hit P1"
+        }
+      },
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "répond", "at": 0.0, "action": "PC-B émet la réponse" },
-        { "anchor": "deux", "at": 0.0, "action": "Entrée sur P2, LED bleue" },
-        { "anchor": "apprend", "at": 0.0, "action": "SRC BB:BB vole → ligne 'P2 | BB:BB', tick" },
-        { "anchor": "A-A", "at": 0.0, "action": "Scan de la table pour AA:AA" },
-        { "anchor": "connaît", "at": 0.0, "action": "Ligne P1 surlignée orange (HIT)" },
-        { "anchor": "sortie", "at": 0.0, "action": "Une seule flèche verte vers P1 ; P3..P5 restent sombres" }
+        {
+          "anchor": "répond",
+          "at": 0.0,
+          "action": "PC-B émet la réponse"
+        },
+        {
+          "anchor": "deux",
+          "at": 0.0,
+          "action": "Entrée sur P2, LED bleue"
+        },
+        {
+          "anchor": "apprend",
+          "at": 0.0,
+          "action": "SRC BB:BB vole → ligne 'P2 | BB:BB', tick"
+        },
+        {
+          "anchor": "A-A",
+          "at": 0.0,
+          "action": "Scan de la table pour AA:AA"
+        },
+        {
+          "anchor": "connaît",
+          "at": 0.0,
+          "action": "Ligne P1 surlignée orange (HIT)"
+        },
+        {
+          "anchor": "sortie",
+          "at": 0.0,
+          "action": "Une seule flèche verte vers P1 ; P3..P5 restent sombres"
+        }
       ],
       "transition": "Split-screen : le plan se duplique en deux moitiés.",
-      "on_screen_text": ["LOOKUP HIT → P1"],
+      "on_screen_text": [
+        "LOOKUP HIT → P1"
+      ],
       "sound_effect": "tick d'insertion ; tick de sélection (plus aigu)",
       "asset_requirements": []
     },
@@ -387,21 +805,41 @@
       "est_start": 161.0,
       "est_duration": 8.0,
       "start_sentence": "Et la prochaine fois que A parle à B ?",
-      "spoken_text": "Et la prochaine fois que A parle à B ? Une seule flèche. Le switch a appris. Il ne floode plus.",
+      "spoken_text": "Et la prochaine fois que A parle à B ? Une seule flèche. Le switch a appris. Il n'inonde plus.",
       "learning_goal": "Contraste avant/après qui rend le mécanisme évident.",
       "visual_metaphor": "Avant / après.",
       "technical_visual": "Gauche 'AVANT' : 1er envoi A→B, 4 flèches. Droite 'APRÈS' : envoi A→B, lookup hit P2, UNE flèche verte.",
-      "devices": ["SW1 ×2 (split)"],
+      "devices": [
+        "SW1 ×2 (split)"
+      ],
       "characters": [],
-      "network_state": { "left": "table vide", "right": "table P1 AA:AA, P2 BB:BB" },
+      "network_state": {
+        "left": "table vide",
+        "right": "table P1 AA:AA, P2 BB:BB"
+      },
       "camera": "Split-screen 50/50.",
       "animation": [
-        { "anchor": "prochaine", "at": 0.0, "action": "Gauche rejoue le flood (ralenti 0,6×) ; droite en attente" },
-        { "anchor": "flèche", "at": 0.0, "action": "Droite : une seule flèche verte vers P2" },
-        { "anchor": "floode", "at": 0.0, "action": "Compteurs : 'avant : 4 copies' / 'après : 1'" }
+        {
+          "anchor": "prochaine",
+          "at": 0.0,
+          "action": "Gauche rejoue le flood (ralenti 0,6×) ; droite en attente"
+        },
+        {
+          "anchor": "flèche",
+          "at": 0.0,
+          "action": "Droite : une seule flèche verte vers P2"
+        },
+        {
+          "anchor": "n'inonde",
+          "at": 0.0,
+          "action": "Compteurs : 'avant : 4 copies' / 'après : 1'"
+        }
       ],
       "transition": "La moitié gauche glisse hors-champ ; la droite reprend le plein écran (S06).",
-      "on_screen_text": ["AVANT : 4 copies", "APRÈS : 1"],
+      "on_screen_text": [
+        "AVANT : 4 copies",
+        "APRÈS : 1"
+      ],
       "sound_effect": "tick de validation",
       "asset_requirements": []
     },
@@ -415,22 +853,66 @@
       "learning_goal": "C9 : broadcast = FFFF.FFFF.FFFF, floodée, traitée par tous.",
       "visual_metaphor": "Un haut-parleur dans l'open space.",
       "technical_visual": "Trame jaune DST FFFF.FFFF.FFFF | SRC AA:AA. BroadcastPulse jaune depuis SW1 vers P2..P5. Les 4 PC s'allument en jaune (acceptent).",
-      "devices": ["SW1", "PC-A..PC-E"],
+      "devices": [
+        "SW1",
+        "PC-A..PC-E"
+      ],
       "characters": [],
-      "network_state": { "mac_table": [{ "port": "P1", "mac": "AA:AA" }, { "port": "P2", "mac": "BB:BB" }], "event": "broadcast flood" },
+      "network_state": {
+        "mac_table": [
+          {
+            "port": "P1",
+            "mac": "AA:AA"
+          },
+          {
+            "port": "P2",
+            "mac": "BB:BB"
+          }
+        ],
+        "event": "broadcast flood"
+      },
       "camera": "Zoom dans la case DST (plein écran 'FFFF.FFFF.FFFF'), puis retour au plan large.",
       "animation": [
-        { "anchor": "tout", "at": 0.0, "action": "PC-A devient mégaphone (icône discrète)" },
-        { "anchor": "IP", "at": 0.0, "action": "Mini-bulle 'Qui a 10.0.0.2 ?' (exemple ARP, sans le nommer)" },
-        { "anchor": "F", "at": 0.0, "action": "Zoom : DST = 'FFFF.FFFF.FFFF' en jaune" },
-        { "anchor": "broadcast", "at": 0.0, "action": "Label 'BROADCAST' jaune" },
-        { "anchor": "envoie", "at": 0.0, "action": "BroadcastPulse : 3 anneaux jaunes depuis SW1 ; copies vers P2..P5 ; P1 cadenas" },
-        { "anchor": "lit", "at": 0.0, "action": "Les 4 PC s'allument en jaune, aucun ne jette" }
+        {
+          "anchor": "tout",
+          "at": 0.0,
+          "action": "PC-A devient mégaphone (icône discrète)"
+        },
+        {
+          "anchor": "IP",
+          "at": 0.0,
+          "action": "Mini-bulle 'Qui a 10.0.0.2 ?' (exemple ARP, sans le nommer)"
+        },
+        {
+          "anchor": "F",
+          "at": 0.0,
+          "action": "Zoom : DST = 'FFFF.FFFF.FFFF' en jaune"
+        },
+        {
+          "anchor": "broadcast",
+          "at": 0.0,
+          "action": "Label 'BROADCAST' jaune"
+        },
+        {
+          "anchor": "l'envoie",
+          "at": 0.0,
+          "action": "BroadcastPulse : 3 anneaux jaunes depuis SW1 ; copies vers P2..P5 ; P1 cadenas"
+        },
+        {
+          "anchor": "lit",
+          "at": 0.0,
+          "action": "Les 4 PC s'allument en jaune, aucun ne jette"
+        }
       ],
       "transition": "Split-screen comparatif.",
-      "on_screen_text": ["FFFF.FFFF.FFFF", "BROADCAST"],
+      "on_screen_text": [
+        "FFFF.FFFF.FFFF",
+        "BROADCAST"
+      ],
       "sound_effect": "broadcast warning pulse (doux, 2 impulsions)",
-      "asset_requirements": ["SVG: BroadcastPulse"]
+      "asset_requirements": [
+        "SVG: BroadcastPulse"
+      ]
     },
     {
       "scene_id": "S06.2",
@@ -442,18 +924,39 @@
       "learning_goal": "Distinguer unknown unicast et broadcast (misconception).",
       "visual_metaphor": "Deux colonnes : 'il ne sait pas' vs 'il ne doit pas choisir'.",
       "technical_visual": "Gauche bleu : UNKNOWN UNICAST, 4 flèches puis, en accéléré, 1 flèche. Droite jaune : BROADCAST, pulsation qui se répète identique 3 fois.",
-      "devices": ["SW1 ×2 (mini)"],
+      "devices": [
+        "SW1 ×2 (mini)"
+      ],
       "characters": [],
       "network_state": {},
       "camera": "Split-screen.",
       "animation": [
-        { "anchor": "ignorance", "at": 0.0, "action": "Gauche : flood → la table se remplit → 1 flèche" },
-        { "anchor": "disparaît", "at": 0.0, "action": "Légende gauche : 'disparaît après apprentissage'" },
-        { "anchor": "nature", "at": 0.0, "action": "Droite : pulsation jaune ×3 identiques" },
-        { "anchor": "fois", "at": 0.0, "action": "Légende droite : 'toujours floodée'" }
+        {
+          "anchor": "ignorance",
+          "at": 0.0,
+          "action": "Gauche : flood → la table se remplit → 1 flèche"
+        },
+        {
+          "anchor": "disparaît",
+          "at": 0.0,
+          "action": "Légende gauche : 'disparaît après apprentissage'"
+        },
+        {
+          "anchor": "nature",
+          "at": 0.0,
+          "action": "Droite : pulsation jaune ×3 identiques"
+        },
+        {
+          "anchor": "fois",
+          "at": 0.0,
+          "action": "Légende droite : 'toujours floodée'"
+        }
       ],
       "transition": "Zoom arrière : le switch 5 ports est remplacé par un gros switch (S07).",
-      "on_screen_text": ["UNKNOWN UNICAST · ignorance · disparaît", "BROADCAST · voulue · toujours"],
+      "on_screen_text": [
+        "UNKNOWN UNICAST · ignorance · disparaît",
+        "BROADCAST · voulue · toujours"
+      ],
       "sound_effect": "aucun",
       "asset_requirements": []
     },
@@ -467,23 +970,63 @@
       "learning_goal": "C10 : un switch non découpé = un seul domaine de broadcast ; poser le problème.",
       "visual_metaphor": "Open space où chaque annonce est entendue par tous.",
       "technical_visual": "Switch 24 ports ; 3 groupes de 6 PC étiquetés COMPTABILITÉ / GAMING / SUPPORT, tous gris neutre. Broadcast jaune d'un PC du gaming atteint les 17 autres.",
-      "devices": ["SW-CORE (24 ports)", "18 PC"],
+      "devices": [
+        "SW-CORE (24 ports)",
+        "18 PC"
+      ],
       "characters": [],
-      "network_state": { "broadcast_domains": 1 },
+      "network_state": {
+        "broadcast_domains": 1
+      },
       "camera": "Zoom arrière (scale 1.6 → 1.0) révélant le grand switch.",
       "animation": [
-        { "anchor": "gros", "at": 0.0, "action": "Révélation du switch 24 ports" },
-        { "anchor": "équipes", "at": 0.0, "action": "Les 3 groupes s'étiquettent successivement" },
-        { "anchor": "broadcast", "at": 0.0, "action": "Pulsation jaune depuis un PC gaming" },
-        { "anchor": "compta", "at": 0.0, "action": "Les PC compta s'allument jaune" },
-        { "anchor": "support", "at": 0.0, "action": "Les PC support s'allument jaune" },
-        { "anchor": "monde", "at": 0.0, "action": "Counter '17 machines dérangées'" },
-        { "anchor": "centaines", "at": 0.0, "action": "Pulsations multiples, les PC compta clignotent de plus en plus vite" }
+        {
+          "anchor": "gros",
+          "at": 0.0,
+          "action": "Révélation du switch 24 ports"
+        },
+        {
+          "anchor": "équipes",
+          "at": 0.0,
+          "action": "Les 3 groupes s'étiquettent successivement"
+        },
+        {
+          "anchor": "broadcast",
+          "at": 0.0,
+          "action": "Pulsation jaune depuis un PC gaming"
+        },
+        {
+          "anchor": "compta",
+          "at": 0.0,
+          "action": "Les PC compta s'allument jaune"
+        },
+        {
+          "anchor": "support",
+          "at": 0.0,
+          "action": "Les PC support s'allument jaune"
+        },
+        {
+          "anchor": "monde",
+          "at": 0.0,
+          "action": "Counter '17 machines dérangées'"
+        },
+        {
+          "anchor": "centaines",
+          "at": 0.0,
+          "action": "Pulsations multiples, les PC compta clignotent de plus en plus vite"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["COMPTABILITÉ", "GAMING", "SUPPORT", "17 machines dérangées"],
+      "on_screen_text": [
+        "COMPTABILITÉ",
+        "GAMING",
+        "SUPPORT",
+        "17 machines dérangées"
+      ],
       "sound_effect": "pulses de broadcast qui s'accumulent (volume bas)",
-      "asset_requirements": ["SVG: Switch 24 ports"]
+      "asset_requirements": [
+        "SVG: Switch 24 ports"
+      ]
     },
     {
       "scene_id": "S07.2",
@@ -495,22 +1038,60 @@
       "learning_goal": "C11 : VLAN comme réponse au problème.",
       "visual_metaphor": "Découper un grand plateau en trois zones.",
       "technical_visual": "3 switches fantômes en pointillé avec étiquette prix, barrés. Puis ZoneOverlay : les ports et les PC prennent leur couleur (bleu 10 / violet 20 / orange 30).",
-      "devices": ["SW-CORE"],
+      "devices": [
+        "SW-CORE"
+      ],
       "characters": [],
-      "network_state": { "vlans": { "10": "compta", "20": "gaming", "30": "support" } },
+      "network_state": {
+        "vlans": {
+          "10": "compta",
+          "20": "gaming",
+          "30": "support"
+        }
+      },
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "séparés", "at": 0.0, "action": "3 switches fantômes pointillés" },
-        { "anchor": "acheter", "at": 0.0, "action": "Ils sont barrés (trait rouge) et s'effacent" },
-        { "anchor": "découpe", "at": 0.0, "action": "Deux lignes de découpe traversent le switch" },
-        { "anchor": "dix", "at": 0.0, "action": "Zone compta → bleu, label 'VLAN 10'" },
-        { "anchor": "vingt", "at": 0.0, "action": "Zone gaming → violet, label 'VLAN 20'" },
-        { "anchor": "trente", "at": 0.0, "action": "Zone support → orange, label 'VLAN 30'" }
+        {
+          "anchor": "séparés",
+          "at": 0.0,
+          "action": "3 switches fantômes pointillés"
+        },
+        {
+          "anchor": "acheter",
+          "at": 0.0,
+          "action": "Ils sont barrés (trait rouge) et s'effacent"
+        },
+        {
+          "anchor": "découpe",
+          "at": 0.0,
+          "action": "Deux lignes de découpe traversent le switch"
+        },
+        {
+          "anchor": "dix",
+          "at": 0.0,
+          "action": "Zone compta → bleu, label 'VLAN 10'"
+        },
+        {
+          "anchor": "vingt",
+          "at": 0.0,
+          "action": "Zone gaming → violet, label 'VLAN 20'"
+        },
+        {
+          "anchor": "trente",
+          "at": 0.0,
+          "action": "Zone support → orange, label 'VLAN 30'"
+        }
       ],
       "transition": "Continue.",
-      "on_screen_text": ["VLAN 10", "VLAN 20", "VLAN 30"],
+      "on_screen_text": [
+        "VLAN 10",
+        "VLAN 20",
+        "VLAN 30"
+      ],
       "sound_effect": "3 clicks tonals (un par VLAN)",
-      "asset_requirements": ["SVG: ZoneOverlay"]
+      "asset_requirements": [
+        "SVG: ZoneOverlay"
+      ]
     },
     {
       "scene_id": "S07.3",
@@ -518,25 +1099,53 @@
       "est_start": 233.0,
       "est_duration": 19.0,
       "start_sentence": "Relance la même broadcast.",
-      "spoken_text": "Relance la même broadcast. Elle reste dans le violet. Un peu comme trois étages d'un même immeuble. Dans le vrai réseau, chaque VLAN est un domaine de broadcast séparé : le switch ne floode jamais une trame hors de son VLAN.",
+      "spoken_text": "Relance la même broadcast. Elle reste dans le violet. Un peu comme trois étages d'un même immeuble. Dans le vrai réseau, chaque VLAN est un domaine de broadcast séparé : le switch n'inonde jamais une trame hors de son VLAN.",
       "learning_goal": "C10/C11 : VLAN = domaine de broadcast ; analogie immédiatement corrigée par le mécanisme réel.",
       "visual_metaphor": "Immeuble à trois étages.",
       "technical_visual": "La broadcast jaune se propage uniquement dans la zone violette et s'écrase sur les frontières. Morph bref (2 s) en immeuble 3 étages, puis retour au switch avec label 'domaine de broadcast' sur chaque zone.",
-      "devices": ["SW-CORE"],
+      "devices": [
+        "SW-CORE"
+      ],
       "characters": [],
-      "network_state": { "broadcast_domains": 3 },
+      "network_state": {
+        "broadcast_domains": 3
+      },
       "camera": "Fixe ; le morph immeuble est un fondu enchaîné de forme (pas au noir).",
       "animation": [
-        { "anchor": "Relance", "at": 0.0, "action": "Broadcast jaune depuis le même PC gaming" },
-        { "anchor": "violet", "at": 0.0, "action": "Pulsation contenue dans la zone violette ; ondes écrasées aux frontières" },
-        { "anchor": "étages", "at": 0.0, "action": "Morph → immeuble (3 étages bleu/violet/orange)" },
-        { "anchor": "vrai", "at": 0.0, "action": "Retour au switch" },
-        { "anchor": "domaine", "at": 0.0, "action": "Chaque zone reçoit le label 'domaine de broadcast'" }
+        {
+          "anchor": "Relance",
+          "at": 0.0,
+          "action": "Broadcast jaune depuis le même PC gaming"
+        },
+        {
+          "anchor": "violet",
+          "at": 0.0,
+          "action": "Pulsation contenue dans la zone violette ; ondes écrasées aux frontières"
+        },
+        {
+          "anchor": "étages",
+          "at": 0.0,
+          "action": "Morph → immeuble (3 étages bleu/violet/orange)"
+        },
+        {
+          "anchor": "vrai",
+          "at": 0.0,
+          "action": "Retour au switch"
+        },
+        {
+          "anchor": "domaine",
+          "at": 0.0,
+          "action": "Chaque zone reçoit le label 'domaine de broadcast'"
+        }
       ],
       "transition": "Push-in sur un port bleu (S08).",
-      "on_screen_text": ["1 VLAN = 1 domaine de broadcast"],
+      "on_screen_text": [
+        "1 VLAN = 1 domaine de broadcast"
+      ],
       "sound_effect": "pulse broadcast étouffé",
-      "asset_requirements": ["SVG: Building (analogie)"]
+      "asset_requirements": [
+        "SVG: Building (analogie)"
+      ]
     },
     {
       "scene_id": "S08.1",
@@ -548,22 +1157,64 @@
       "learning_goal": "C12 + misconception n°2 : le PC ne tague pas ; c'est la config du port.",
       "visual_metaphor": "Le badge est sur la porte, pas sur la personne.",
       "technical_visual": "Gros plan : PC gris relié à Fa0/3. Le liseré du port devient bleu. CLIStrip en bas. Une trame blanche/bleu trafic sans tag sort du PC, entre dans le port, et prend un halo bleu à l'intérieur du switch (pas d'étiquette).",
-      "devices": ["SW1 (gros plan port Fa0/3)", "PC"],
+      "devices": [
+        "SW1 (gros plan port Fa0/3)",
+        "PC"
+      ],
       "characters": [],
-      "network_state": { "port": { "Fa0/3": { "mode": "access", "vlan": 10 } } },
+      "network_state": {
+        "port": {
+          "Fa0/3": {
+            "mode": "access",
+            "vlan": 10
+          }
+        }
+      },
       "camera": "Push-in sur le port ; puis léger pan pour suivre la trame.",
       "animation": [
-        { "anchor": "PC", "at": 0.0, "action": "Le PC reste gris ; point d'interrogation au-dessus" },
-        { "anchor": "port", "at": 0.0, "action": "Liseré du port Fa0/3 → bleu VLAN 10" },
-        { "anchor": "configure", "at": 0.0, "action": "CLIStrip tape les 3 lignes de config" },
-        { "anchor": "normale", "at": 0.0, "action": "Trame sans tag quitte le PC" },
-        { "anchor": "Aucune", "at": 0.0, "action": "Loupe sur la trame : emplacement du tag vide, 'aucun tag'" },
-        { "anchor": "rattachement", "at": 0.0, "action": "Trame entre dans le port et prend un halo bleu interne" }
+        {
+          "anchor": "PC",
+          "at": 0.0,
+          "action": "Le PC reste gris ; point d'interrogation au-dessus"
+        },
+        {
+          "anchor": "port",
+          "at": 0.0,
+          "action": "Liseré du port Fa0/3 → bleu VLAN 10"
+        },
+        {
+          "anchor": "configure",
+          "at": 0.0,
+          "action": "CLIStrip tape les 3 lignes de config"
+        },
+        {
+          "anchor": "normale",
+          "at": 0.0,
+          "action": "Trame sans tag quitte le PC"
+        },
+        {
+          "anchor": "Aucune",
+          "at": 0.0,
+          "action": "Loupe sur la trame : emplacement du tag vide, 'aucun tag'"
+        },
+        {
+          "anchor": "rattachement",
+          "at": 0.0,
+          "action": "Trame entre dans le port et prend un halo bleu interne"
+        }
       ],
       "transition": "Travelling latéral vers la droite, révélant SW2 (S09).",
-      "on_screen_text": ["port d'accès = 1 VLAN", "aucun tag", "interface Fa0/3", "switchport mode access", "switchport access vlan 10"],
+      "on_screen_text": [
+        "port d'accès = 1 VLAN",
+        "aucun tag",
+        "interface Fa0/3",
+        "switchport mode access",
+        "switchport access vlan 10"
+      ],
       "sound_effect": "clavier très discret pendant la CLI",
-      "asset_requirements": ["SVG: CLIStrip"]
+      "asset_requirements": [
+        "SVG: CLIStrip"
+      ]
     },
     {
       "scene_id": "S09.1",
@@ -575,20 +1226,56 @@
       "learning_goal": "Montrer la mauvaise solution (misconception « un câble par VLAN »).",
       "visual_metaphor": "Un faisceau de câbles qui déborde.",
       "technical_visual": "SW1 et SW2 ; chacun 2 PC bleus + 2 PC violets. Un câble bleu et un violet entre les deux. Puis multiplication : faisceau de 50 câbles, compteur de ports gaspillés en rouge.",
-      "devices": ["SW1", "SW2", "PC-A (V10)", "PC-B (V10)", "PC-C (V20)", "PC-D (V20)"],
+      "devices": [
+        "SW1",
+        "SW2",
+        "PC-A (V10)",
+        "PC-B (V10)",
+        "PC-C (V20)",
+        "PC-D (V20)"
+      ],
       "characters": [],
-      "network_state": { "inter_switch_links": "1 par VLAN (mauvaise solution)" },
+      "network_state": {
+        "inter_switch_links": "1 par VLAN (mauvaise solution)"
+      },
       "camera": "Travelling latéral depuis S08, cadre les 2 switches.",
       "animation": [
-        { "anchor": "deux", "at": 0.0, "action": "SW2 entre dans le champ" },
-        { "anchor": "vingt", "at": 0.0, "action": "Ports bleus et violets s'allument des deux côtés" },
-        { "anchor": "câble", "at": 0.0, "action": "Question en surimpression" },
-        { "anchor": "câbles", "at": 0.0, "action": "Câble bleu + câble violet se tirent" },
-        { "anchor": "cinquante", "at": 0.0, "action": "Faisceau qui se multiplie, compteur 'câbles' 2 → 50" },
-        { "anchor": "gaspillés", "at": 0.0, "action": "Ports gaspillés en rouge sur les façades, compteur '100 ports'" }
+        {
+          "anchor": "deux",
+          "at": 0.0,
+          "action": "SW2 entre dans le champ"
+        },
+        {
+          "anchor": "vingt",
+          "at": 0.0,
+          "action": "Ports bleus et violets s'allument des deux côtés"
+        },
+        {
+          "anchor": "câble",
+          "at": 0.0,
+          "action": "Question en surimpression"
+        },
+        {
+          "anchor": "câbles",
+          "at": 0.0,
+          "action": "Câble bleu + câble violet se tirent"
+        },
+        {
+          "anchor": "cinquante",
+          "at": 0.0,
+          "action": "Faisceau qui se multiplie, compteur 'câbles' 2 → 50"
+        },
+        {
+          "anchor": "gaspillés",
+          "at": 0.0,
+          "action": "Ports gaspillés en rouge sur les façades, compteur '100 ports'"
+        }
       ],
       "transition": "Continue — fusion.",
-      "on_screen_text": ["1 câble par VLAN ?", "50 VLAN = 50 câbles"],
+      "on_screen_text": [
+        "1 câble par VLAN ?",
+        "50 VLAN = 50 câbles"
+      ],
       "sound_effect": "câbles qui s'empilent (clics rapides, crescendo court)",
       "asset_requirements": []
     },
@@ -602,20 +1289,49 @@
       "learning_goal": "C13 : trunk = un lien multi-VLAN ; ouvrir la question du marquage.",
       "visual_metaphor": "Ascenseur partagé.",
       "technical_visual": "Les câbles convergent et fusionnent en un câble épais rayé bleu/violet, label 'TRUNK' ; CLIStrip 'switchport mode trunk'. Bref insert : cabine d'ascenseur qui traverse les étages.",
-      "devices": ["SW1", "SW2"],
+      "devices": [
+        "SW1",
+        "SW2"
+      ],
       "characters": [],
-      "network_state": { "links": { "SW1 Gi0/1 ↔ SW2 Gi0/1": "trunk (10, 20)" } },
+      "network_state": {
+        "links": {
+          "SW1 Gi0/1 ↔ SW2 Gi0/1": "trunk (10, 20)"
+        }
+      },
       "camera": "Fixe ; push-in léger sur le trunk à la question.",
       "animation": [
-        { "anchor": "seul", "at": 0.0, "action": "Fusion des câbles (morph 800 ms)" },
-        { "anchor": "trunk", "at": 0.0, "action": "Label 'TRUNK' + CLIStrip" },
-        { "anchor": "ascenseur", "at": 0.0, "action": "Insert analogie ascenseur (2 s)" },
-        { "anchor": "étage", "at": 0.0, "action": "Deux trames (bleue, violette) sur le trunk deviennent grises, '?' au-dessus" }
+        {
+          "anchor": "seul",
+          "at": 0.0,
+          "action": "Fusion des câbles (morph 800 ms)"
+        },
+        {
+          "anchor": "trunk",
+          "at": 0.0,
+          "action": "Label 'TRUNK' + CLIStrip"
+        },
+        {
+          "anchor": "ascenseur",
+          "at": 0.0,
+          "action": "Insert analogie ascenseur (2 s)"
+        },
+        {
+          "anchor": "étage",
+          "at": 0.0,
+          "action": "Deux trames (bleue, violette) sur le trunk deviennent grises, '?' au-dessus"
+        }
       ],
       "transition": "Push-in sur l'entrée du trunk côté SW1 (S10).",
-      "on_screen_text": ["TRUNK", "switchport mode trunk", "De quel VLAN vient cette trame ?"],
+      "on_screen_text": [
+        "TRUNK",
+        "switchport mode trunk",
+        "De quel VLAN vient cette trame ?"
+      ],
       "sound_effect": "whoosh de fusion",
-      "asset_requirements": ["SVG: Trunk rayé, Elevator (analogie)"]
+      "asset_requirements": [
+        "SVG: Trunk rayé, Elevator (analogie)"
+      ]
     },
     {
       "scene_id": "S10.1",
@@ -627,45 +1343,113 @@
       "learning_goal": "C14 : tag 802.1Q ajouté à l'entrée du trunk ; c'est un champ de l'en-tête.",
       "visual_metaphor": "Badge fixé sur l'enveloppe — immédiatement corrigé par la vue 'en-tête'.",
       "technical_visual": "Trame bleue sortant vers Gi0/1 ; VLANTag bleu 'VLAN 10' se fixe. Inset zoom : DST | SRC | TYPE | DATA → TYPE et DATA glissent à droite, champ '802.1Q · VID 10' (4 octets) s'insère entre SRC et TYPE.",
-      "devices": ["SW1 (port trunk Gi0/1)"],
+      "devices": [
+        "SW1 (port trunk Gi0/1)"
+      ],
       "characters": [],
-      "network_state": { "frame": { "dst": "BB:BB", "src": "AA:AA", "tag": { "tpid": "0x8100", "vid": 10 } } },
+      "network_state": {
+        "frame": {
+          "dst": "BB:BB",
+          "src": "AA:AA",
+          "tag": {
+            "tpid": "0x8100",
+            "vid": 10
+          }
+        }
+      },
       "camera": "Plan moyen sur l'entrée du trunk + inset zoom en haut à droite (STYLEFRAME 03).",
       "animation": [
-        { "anchor": "ajoute", "at": 0.0, "action": "La trame s'arrête au seuil du trunk" },
-        { "anchor": "tag", "at": 0.0, "action": "Badge bleu 'VLAN 10' se fixe (clip, 250 ms)" },
-        { "anchor": "huit", "at": 0.0, "action": "Label '802.1Q' sous le badge" },
-        { "anchor": "autocollant", "at": 0.0, "action": "Inset zoom sur l'en-tête s'ouvre" },
-        { "anchor": "inséré", "at": 0.0, "action": "TYPE + DATA glissent à droite ; champ 802.1Q s'insère entre SRC et TYPE" },
-        { "anchor": "numéro", "at": 0.0, "action": "Dans le champ, 'VID = 10' s'illumine ; annotations '4 octets', 'VLAN ID : 12 bits'" }
+        {
+          "anchor": "ajoute",
+          "at": 0.0,
+          "action": "La trame s'arrête au seuil du trunk"
+        },
+        {
+          "anchor": "tag",
+          "at": 0.0,
+          "action": "Badge bleu 'VLAN 10' se fixe (clip, 250 ms)"
+        },
+        {
+          "anchor": "huit",
+          "at": 0.0,
+          "action": "Label '802.1Q' sous le badge"
+        },
+        {
+          "anchor": "autocollant",
+          "at": 0.0,
+          "action": "Inset zoom sur l'en-tête s'ouvre"
+        },
+        {
+          "anchor": "inséré",
+          "at": 0.0,
+          "action": "TYPE + DATA glissent à droite ; champ 802.1Q s'insère entre SRC et TYPE"
+        },
+        {
+          "anchor": "numéro",
+          "at": 0.0,
+          "action": "Dans le champ, 'VID = 10' s'illumine ; annotations '4 octets', 'VLAN ID : 12 bits'"
+        }
       ],
       "transition": "L'inset se referme dans le badge.",
-      "on_screen_text": ["802.1Q", "VLAN 10", "4 octets · inséré après la MAC source", "VLAN ID : 12 bits"],
+      "on_screen_text": [
+        "802.1Q",
+        "VLAN 10",
+        "4 octets · inséré après la MAC source",
+        "VLAN ID : 12 bits"
+      ],
       "sound_effect": "clip mécanique doux à la pose du tag",
-      "asset_requirements": ["SVG: VLANTag, EthernetFrame (mode en-tête détaillé)"]
+      "asset_requirements": [
+        "SVG: VLANTag, EthernetFrame (mode en-tête détaillé)"
+      ]
     },
     {
       "scene_id": "S10.2",
       "section": "CH8 — 802.1Q",
       "est_start": 334.0,
       "est_duration": 14.0,
-      "start_sentence": "De l'autre côté, SW2 lit le tag : VLAN dix.",
-      "spoken_text": "De l'autre côté, SW2 lit le tag : VLAN dix. Il envoie la trame uniquement vers le VLAN dix. Et avant de la donner au PC, il retire le tag. Le PC reçoit une trame normale.",
+      "start_sentence": "De l'autre côté, le switch deux lit le tag : VLAN dix.",
+      "spoken_text": "De l'autre côté, Le switch deux lit le tag : VLAN dix. Il envoie la trame uniquement vers le VLAN dix. Et avant de la donner au PC, il retire le tag. Le PC reçoit une trame normale.",
       "learning_goal": "C15 : tag lu à la sortie du trunk, puis retiré avant le port d'accès.",
       "visual_metaphor": "Le badge est lu à l'arrivée puis rendu.",
       "technical_visual": "La trame taguée traverse le trunk ; à SW2, scan orange du badge 'VLAN 10' ; seuls les ports bleus de SW2 restent éligibles (violets grisés). Le badge se détache et tombe ; trame sans tag sort par le port d'accès bleu vers PC-B.",
-      "devices": ["SW1", "SW2", "PC-B (V10)", "PC-D (V20)"],
+      "devices": [
+        "SW1",
+        "SW2",
+        "PC-B (V10)",
+        "PC-D (V20)"
+      ],
       "characters": [],
-      "network_state": { "event": "untag on egress access port" },
+      "network_state": {
+        "event": "untag on egress access port"
+      },
       "camera": "Caméra suit la trame sur le trunk (travelling), puis se pose sur SW2.",
       "animation": [
-        { "anchor": "lit", "at": 0.0, "action": "Scan orange du badge" },
-        { "anchor": "uniquement", "at": 0.0, "action": "Ports violets de SW2 grisés, ports bleus éligibles" },
-        { "anchor": "retire", "at": 0.0, "action": "Badge se détache et tombe (gravité douce)" },
-        { "anchor": "normale", "at": 0.0, "action": "Trame sans tag entre dans PC-B, halo vert" }
+        {
+          "anchor": "lit",
+          "at": 0.0,
+          "action": "Scan orange du badge"
+        },
+        {
+          "anchor": "uniquement",
+          "at": 0.0,
+          "action": "Ports violets de SW2 grisés, ports bleus éligibles"
+        },
+        {
+          "anchor": "retire",
+          "at": 0.0,
+          "action": "Badge se détache et tombe (gravité douce)"
+        },
+        {
+          "anchor": "normale",
+          "at": 0.0,
+          "action": "Trame sans tag entre dans PC-B, halo vert"
+        }
       ],
       "transition": "Zoom arrière vers la topologie complète (S11).",
-      "on_screen_text": ["TAG LU : VLAN 10", "tag retiré"],
+      "on_screen_text": [
+        "TAG LU : VLAN 10",
+        "tag retiré"
+      ],
       "sound_effect": "tick de lecture ; 'unclip' doux",
       "asset_requirements": []
     },
@@ -675,34 +1459,112 @@
       "est_start": 348.0,
       "est_duration": 50.0,
       "start_sentence": "Faisons tout le voyage d'un coup.",
-      "spoken_text": "Faisons tout le voyage d'un coup. PC A envoie une trame normale, sans tag. Elle entre dans SW1 par un port d'accès du VLAN dix. SW1 apprend A-A, dans le VLAN dix, port un. Tu remarques ? La vraie table a une colonne de plus : le VLAN. Il cherche B-B dans le VLAN dix. Connu, derrière le trunk. Sur le trunk, il ajoute le tag : VLAN dix. SW2 lit le tag, cherche B-B dans le VLAN dix. Port deux. Il retire le tag, et livre la trame à PC B. Source, destination, VLAN, port, décision. Tout le switching est là.",
+      "spoken_text": "Faisons tout le voyage d'un coup. PC A envoie une trame normale, sans tag. Elle entre dans le switch un par un port d'accès du VLAN dix. Le switch un apprend A-A, dans le VLAN dix, port un. Tu remarques ? La vraie table a une colonne de plus : le VLAN. Il cherche B-B dans le VLAN dix. Connu, derrière le trunk. Sur le trunk, il ajoute le tag : VLAN dix. Le switch deux lit le tag, cherche B-B dans le VLAN dix. Port deux. Il retire le tag, et livre la trame à PC B. Source, destination, VLAN, port, décision. Tout le switching est là.",
       "learning_goal": "Synthèse : objectif 6 (suivre une trame de bout en bout avec les 5 attributs).",
       "visual_metaphor": "Voyage filmé caméra à l'épaule de la trame.",
       "technical_visual": "PC-A (V10, Fa0/1) — SW1 — Gi0/1 trunk — SW2 — Fa0/2 PC-B (V10) ; PC violets distracteurs. HUDPanel à droite (SRC MAC / DST MAC / VLAN / PORT / DÉCISION) qui se met à jour à chaque étape. Tables MAC de SW1 et SW2 avec colonnes VLAN | MAC | PORT. Note 'sur un vrai switch Cisco : P1 = Fa0/1'.",
-      "devices": ["PC-A", "SW1", "SW2", "PC-B", "PC-C (V20)", "PC-D (V20)"],
+      "devices": [
+        "PC-A",
+        "SW1",
+        "SW2",
+        "PC-B",
+        "PC-C (V20)",
+        "PC-D (V20)"
+      ],
       "characters": [],
       "network_state": {
-        "sw1_mac_table": [{ "vlan": 10, "mac": "AA:AA", "port": "Fa0/1" }, { "vlan": 10, "mac": "BB:BB", "port": "Gi0/1" }],
-        "sw2_mac_table": [{ "vlan": 10, "mac": "BB:BB", "port": "Fa0/2" }, { "vlan": 10, "mac": "AA:AA", "port": "Gi0/1" }],
+        "sw1_mac_table": [
+          {
+            "vlan": 10,
+            "mac": "AA:AA",
+            "port": "Fa0/1"
+          },
+          {
+            "vlan": 10,
+            "mac": "BB:BB",
+            "port": "Gi0/1"
+          }
+        ],
+        "sw2_mac_table": [
+          {
+            "vlan": 10,
+            "mac": "BB:BB",
+            "port": "Fa0/2"
+          },
+          {
+            "vlan": 10,
+            "mac": "AA:AA",
+            "port": "Gi0/1"
+          }
+        ],
         "assumption": "Les tables sont déjà partiellement remplies par un échange précédent (sinon SW1 flooderait dans le VLAN 10, trunk inclus)."
       },
       "camera": "Caméra qui suit la trame (translate continu), HUD fixe à l'écran.",
       "animation": [
-        { "anchor": "sans", "at": 0.0, "action": "HUD : SRC AA:AA · DST BB:BB · VLAN — (non tagué) · PORT — · DÉCISION —" },
-        { "anchor": "accès", "at": 0.0, "action": "HUD : PORT SW1 Fa0/1 · DÉCISION 'entrée access VLAN 10'" },
-        { "anchor": "apprend", "at": 0.0, "action": "Table SW1 : colonne VLAN apparaît ; ligne '10 | AA:AA | Fa0/1' s'insère" },
-        { "anchor": "colonne", "at": 0.0, "action": "La colonne VLAN pulse orange" },
-        { "anchor": "cherche", "at": 0.0, "action": "Lookup '10 + BB:BB' → hit Gi0/1 ; HUD DÉCISION 'forward → trunk Gi0/1'" },
-        { "anchor": "ajoute", "at": 0.0, "action": "Badge VLAN 10 se fixe ; HUD VLAN '10 (tagué)'" },
-        { "anchor": "SW2", "at": 0.0, "action": "Caméra suit sur le trunk ; scan du tag ; lookup → Fa0/2" },
-        { "anchor": "retire", "at": 0.0, "action": "Badge tombe ; HUD VLAN '— (non tagué)' · PORT 'SW2 Fa0/2' · DÉCISION 'forward, tag retiré'" },
-        { "anchor": "livre", "at": 0.0, "action": "PC-B halo vert" },
-        { "anchor": "décision", "at": 0.0, "action": "Les 5 lignes du HUD s'allument l'une après l'autre sur 'Source, destination, VLAN, port, décision'" }
+        {
+          "anchor": "sans",
+          "at": 0.0,
+          "action": "HUD : SRC AA:AA · DST BB:BB · VLAN — (non tagué) · PORT — · DÉCISION —"
+        },
+        {
+          "anchor": "d'accès",
+          "at": 0.0,
+          "action": "HUD : PORT SW1 Fa0/1 · DÉCISION 'entrée access VLAN 10'"
+        },
+        {
+          "anchor": "apprend",
+          "at": 0.0,
+          "action": "Table SW1 : colonne VLAN apparaît ; ligne '10 | AA:AA | Fa0/1' s'insère"
+        },
+        {
+          "anchor": "colonne",
+          "at": 0.0,
+          "action": "La colonne VLAN pulse orange"
+        },
+        {
+          "anchor": "cherche",
+          "at": 0.0,
+          "action": "Lookup '10 + BB:BB' → hit Gi0/1 ; HUD DÉCISION 'forward → trunk Gi0/1'"
+        },
+        {
+          "anchor": "ajoute",
+          "at": 0.0,
+          "action": "Badge VLAN 10 se fixe ; HUD VLAN '10 (tagué)'"
+        },
+        {
+          "anchor": "switch deux",
+          "at": 0.0,
+          "action": "Caméra suit sur le trunk ; scan du tag ; lookup → Fa0/2"
+        },
+        {
+          "anchor": "retire",
+          "at": 0.0,
+          "action": "Badge tombe ; HUD VLAN '— (non tagué)' · PORT 'SW2 Fa0/2' · DÉCISION 'forward, tag retiré'"
+        },
+        {
+          "anchor": "livre",
+          "at": 0.0,
+          "action": "PC-B halo vert"
+        },
+        {
+          "anchor": "décision",
+          "at": 0.0,
+          "action": "Les 5 lignes du HUD s'allument l'une après l'autre sur 'Source, destination, VLAN, port, décision'"
+        }
       ],
       "transition": "Le plan se fige et se réduit en vignette : fond de la carte quiz (S12).",
-      "on_screen_text": ["SRC MAC", "DST MAC", "VLAN", "PORT", "DÉCISION", "sur un vrai switch Cisco : P1 = Fa0/1"],
+      "on_screen_text": [
+        "SRC MAC",
+        "DST MAC",
+        "VLAN",
+        "PORT",
+        "DÉCISION",
+        "sur un vrai switch Cisco : P1 = Fa0/1"
+      ],
       "sound_effect": "un tick par étape du HUD, whoosh sur le trunk",
-      "asset_requirements": ["SVG: HUDPanel, MACTable (3 colonnes)"]
+      "asset_requirements": [
+        "SVG: HUDPanel, MACTable (3 colonnes)"
+      ]
     },
     {
       "scene_id": "S12.1",
@@ -714,19 +1576,39 @@
       "learning_goal": "Vérifier l'objectif 1/2.",
       "visual_metaphor": "Carte quiz.",
       "technical_visual": "QuizCard : mini switch, trame SRC CC:CC · DST DD:DD entrant par P3. Choix A 'P3 | CC:CC' / B 'P3 | DD:DD'. Freeze 1,8 s, puis A vert, B barré.",
-      "devices": ["SW1 (mini)"],
+      "devices": [
+        "SW1 (mini)"
+      ],
       "characters": [],
       "network_state": {},
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "trois", "at": 0.0, "action": "Trame entre par P3" },
-        { "anchor": "apprend", "at": 0.3, "action": "FREEZE 1,8 s, timer circulaire" },
-        { "anchor": "C-C", "at": 0.0, "action": "Réponse A en vert, B barrée" }
+        {
+          "anchor": "trois",
+          "at": 0.0,
+          "action": "Trame entre par P3"
+        },
+        {
+          "anchor": "apprend",
+          "at": 0.3,
+          "action": "FREEZE 1,8 s, timer circulaire"
+        },
+        {
+          "anchor": "C-C",
+          "at": 0.0,
+          "action": "Réponse A en vert, B barrée"
+        }
       ],
       "transition": "Carte suivante glisse de la droite.",
-      "on_screen_text": ["Q1 · Que note le switch ?", "A · P3 | CC:CC", "B · P3 | DD:DD"],
+      "on_screen_text": [
+        "Q1 · Que note le switch ?",
+        "A · P3 | CC:CC",
+        "B · P3 | DD:DD"
+      ],
       "sound_effect": "tick d'horloge pendant le freeze ; tick de validation",
-      "asset_requirements": ["SVG: QuizCard"]
+      "asset_requirements": [
+        "SVG: QuizCard"
+      ]
     },
     {
       "scene_id": "S12.2",
@@ -738,16 +1620,29 @@
       "learning_goal": "Vérifier l'objectif 5 / misconception n°2.",
       "visual_metaphor": "Carte quiz.",
       "technical_visual": "PC gris sur port violet (VLAN 20, access). Trame sortant du PC avec '?' à l'emplacement du tag. Freeze, puis 'NON' et emplacement vide.",
-      "devices": ["PC", "port access V20"],
+      "devices": [
+        "PC",
+        "port access V20"
+      ],
       "characters": [],
       "network_state": {},
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "tag", "at": 0.3, "action": "FREEZE 1,8 s" },
-        { "anchor": "Non", "at": 0.0, "action": "Emplacement du tag vide, 'aucun tag' ; le port violet s'illumine (c'est lui qui porte le VLAN)" }
+        {
+          "anchor": "tag",
+          "at": 0.3,
+          "action": "FREEZE 1,8 s"
+        },
+        {
+          "anchor": "Non",
+          "at": 0.0,
+          "action": "Emplacement du tag vide, 'aucun tag' ; le port violet s'illumine (c'est lui qui porte le VLAN)"
+        }
       ],
       "transition": "Carte suivante.",
-      "on_screen_text": ["Q2 · La trame sortant du PC est-elle taguée ?"],
+      "on_screen_text": [
+        "Q2 · La trame sortant du PC est-elle taguée ?"
+      ],
       "sound_effect": "tick d'horloge ; tick de validation",
       "asset_requirements": []
     },
@@ -761,19 +1656,50 @@
       "learning_goal": "Objectif 7 : pas de communication inter-VLAN sans routage.",
       "visual_metaphor": "Mur entre deux zones.",
       "technical_visual": "Un switch L2, PC-A bleu (V10), PC-B violet (V20). Trame bleue de A tente d'aller vers B : elle reste dans le bleu. Mur translucide entre les zones. Silhouette de routeur (pointillé violet 'contrôle') au-dessus, reliée aux deux zones.",
-      "devices": ["SW1 (L2)", "PC-A (V10)", "PC-B (V20)", "Router (silhouette)"],
+      "devices": [
+        "SW1 (L2)",
+        "PC-A (V10)",
+        "PC-B (V20)",
+        "Router (silhouette)"
+      ],
       "characters": [],
-      "network_state": { "vlans": { "10": ["PC-A"], "20": ["PC-B"] } },
+      "network_state": {
+        "vlans": {
+          "10": [
+            "PC-A"
+          ],
+          "20": [
+            "PC-B"
+          ]
+        }
+      },
       "camera": "Fixe.",
       "animation": [
-        { "anchor": "directement", "at": 0.3, "action": "FREEZE 1,8 s" },
-        { "anchor": "Non", "at": 0.0, "action": "Mur entre bleu et violet ; trame bleue s'arrête" },
-        { "anchor": "routeur", "at": 0.0, "action": "Silhouette de routeur en pointillé, deux liens vers les zones" }
+        {
+          "anchor": "directement",
+          "at": 0.3,
+          "action": "FREEZE 1,8 s"
+        },
+        {
+          "anchor": "Non",
+          "at": 0.0,
+          "action": "Mur entre bleu et violet ; trame bleue s'arrête"
+        },
+        {
+          "anchor": "routeur",
+          "at": 0.0,
+          "action": "Silhouette de routeur en pointillé, deux liens vers les zones"
+        }
       ],
       "transition": "Les cartes quiz se rangent en pile ; zoom arrière vers le récap.",
-      "on_screen_text": ["Q3 · Peuvent-ils communiquer directement ?", "NON → routeur"],
+      "on_screen_text": [
+        "Q3 · Peuvent-ils communiquer directement ?",
+        "NON → routeur"
+      ],
       "sound_effect": "tick d'horloge ; buzz doux sur 'Non'",
-      "asset_requirements": ["SVG: Router"]
+      "asset_requirements": [
+        "SVG: Router"
+      ]
     },
     {
       "scene_id": "S13.1",
@@ -781,7 +1707,7 @@
       "est_start": 438.0,
       "est_duration": 17.0,
       "start_sentence": "Récapitulons.",
-      "spoken_text": "Récapitulons. La source, pour apprendre. La destination, pour décider. Inconnue ? On floode. Broadcast ? On floode, toujours. Le VLAN garde chaque inondation dans sa couleur. Et le trunk transporte toutes les couleurs, grâce au tag.",
+      "spoken_text": "Récapitulons. La source, pour apprendre. La destination, pour décider. Inconnue ? On inonde. Broadcast ? On inonde, toujours. Le VLAN garde chaque inondation dans sa couleur. Et le trunk transporte toutes les couleurs, grâce au tag.",
       "learning_goal": "Ancrer le FINAL MENTAL MODEL.",
       "visual_metaphor": "Les images-clés s'assemblent en un schéma.",
       "technical_visual": "6 vignettes (learning, lookup, flood, broadcast, VLAN, trunk+tag) qui apparaissent une par phrase puis se compactent en un schéma unique.",
@@ -790,15 +1716,46 @@
       "network_state": {},
       "camera": "Fixe, grille de vignettes → schéma.",
       "animation": [
-        { "anchor": "apprendre", "at": 0.0, "action": "Vignette learning" },
-        { "anchor": "décider", "at": 0.0, "action": "Vignette lookup" },
-        { "anchor": "floode", "at": 0.0, "action": "Vignette flooding (1re occurrence)" },
-        { "anchor": "toujours", "at": 0.0, "action": "Vignette broadcast" },
-        { "anchor": "couleur", "at": 0.0, "action": "Vignette VLAN" },
-        { "anchor": "tag", "at": 0.0, "action": "Vignette trunk + tag ; toutes se compactent en schéma" }
+        {
+          "anchor": "apprendre",
+          "at": 0.0,
+          "action": "Vignette learning"
+        },
+        {
+          "anchor": "décider",
+          "at": 0.0,
+          "action": "Vignette lookup"
+        },
+        {
+          "anchor": "inonde",
+          "at": 0.0,
+          "action": "Vignette flooding (1re occurrence)"
+        },
+        {
+          "anchor": "toujours",
+          "at": 0.0,
+          "action": "Vignette broadcast"
+        },
+        {
+          "anchor": "couleur",
+          "at": 0.0,
+          "action": "Vignette VLAN"
+        },
+        {
+          "anchor": "tag",
+          "at": 0.0,
+          "action": "Vignette trunk + tag ; toutes se compactent en schéma"
+        }
       ],
       "transition": "Coupe nette vers le teaser (seule coupe sèche de l'épisode, justifiée par le changement de sujet).",
-      "on_screen_text": ["SOURCE → apprendre", "DESTINATION → décider", "inconnue → flood", "broadcast → flood, toujours", "VLAN = 1 domaine de broadcast", "trunk + 802.1Q"],
+      "on_screen_text": [
+        "SOURCE → apprendre",
+        "DESTINATION → décider",
+        "inconnue → flood",
+        "broadcast → flood, toujours",
+        "VLAN = 1 domaine de broadcast",
+        "trunk + 802.1Q"
+      ],
       "sound_effect": "aucun",
       "asset_requirements": []
     },
@@ -812,24 +1769,59 @@
       "learning_goal": "Ouvrir l'épisode 2 (STP).",
       "visual_metaphor": "Boucle infinie.",
       "technical_visual": "SW1 et SW2 reliés par 2 câbles. Une broadcast jaune part et tourne en boucle ; compteur 1, 2, 4, 8, 16… qui s'emballe. Coupe au noir *seulement* après le compteur (fin d'épisode).",
-      "devices": ["SW1", "SW2"],
+      "devices": [
+        "SW1",
+        "SW2"
+      ],
       "characters": [],
-      "network_state": { "loop": true },
+      "network_state": {
+        "loop": true
+      },
       "camera": "Fixe, micro-shake à la fin.",
       "animation": [
-        { "anchor": "deux", "at": 0.0, "action": "Deuxième câble se tire" },
-        { "anchor": "fois", "at": 0.3, "action": "Broadcast en boucle, compteur exponentiel" },
-        { "anchor": "épisode", "at": 0.5, "action": "Écran de fin : 'Épisode 2 — Spanning Tree'" }
+        {
+          "anchor": "deux",
+          "at": 0.0,
+          "action": "Deuxième câble se tire"
+        },
+        {
+          "anchor": "fois",
+          "at": 0.3,
+          "action": "Broadcast en boucle, compteur exponentiel"
+        },
+        {
+          "anchor": "épisode",
+          "at": 0.5,
+          "action": "Écran de fin : 'Épisode 2 — Spanning Tree'"
+        }
       ],
       "transition": "Fin.",
-      "on_screen_text": ["1 · 2 · 4 · 8 · 16 · 32…", "Épisode 2 — Spanning Tree"],
+      "on_screen_text": [
+        "1 · 2 · 4 · 8 · 16 · 32…",
+        "Épisode 2 — Spanning Tree"
+      ],
       "sound_effect": "pulses de broadcast qui accélèrent, coupés net",
       "asset_requirements": []
     }
   ],
   "styleframes": [
-    { "id": "SF01", "scene": "S01.2", "file": "08-source/styleframes/sf01-hook.html", "render": "09-contact-sheets/styleframes/sf01-hook.png" },
-    { "id": "SF02", "scene": "S04.2", "file": "08-source/styleframes/sf02-mac-learning.html", "render": "09-contact-sheets/styleframes/sf02-mac-learning.png" },
-    { "id": "SF03", "scene": "S10.1", "file": "08-source/styleframes/sf03-trunk-8021q.html", "render": "09-contact-sheets/styleframes/sf03-trunk-8021q.png" }
+    {
+      "id": "SF01",
+      "scene": "S01.2",
+      "file": "08-source/styleframes/sf01-hook.html",
+      "render": "09-contact-sheets/styleframes/sf01-hook.png"
+    },
+    {
+      "id": "SF02",
+      "scene": "S04.2",
+      "file": "08-source/styleframes/sf02-mac-learning.html",
+      "render": "09-contact-sheets/styleframes/sf02-mac-learning.png"
+    },
+    {
+      "id": "SF03",
+      "scene": "S10.1",
+      "file": "08-source/styleframes/sf03-trunk-8021q.html",
+      "render": "09-contact-sheets/styleframes/sf03-trunk-8021q.png"
+    }
   ]
 }

@@ -23,6 +23,8 @@
 | 802.1Q | huit cent deux point un Q | si ElevenLabs lit « point un cul » → « huit-cent-deux-point-un-Q » ou « dot one Q » |
 | trunk | trunk | prononciation anglaise « treunk » |
 | Gi0/1 | — | jamais lu, uniquement affiché |
+| floode (verbe) | inonde | « floode » était entendu « flotte » (test STT) ; le nom « flooding » reste
+| SW1 / SW2 | le switch un / le switch deux | « SW2 » était lu « SV2 » (test STT) |
 
 ---
 
@@ -146,7 +148,7 @@
 > VOICE : Ça s'appelle le **flooding**. L'inondation.
 
 > [V: Les copies arrivent. PC-C, D, E : la trame se dissout avec un petit « pas pour moi ». PC-B : la trame est acceptée, halo vert.]
-> VOICE : C, D et E comparent la destination avec leur propre adresse. Ce n'est pas pour eux : ils **jettent** la trame. Seul B la garde.
+> VOICE : C, D et E lisent l'adresse destination. Ce n'est pas la leur. Alors ils **jettent** la trame. Seul B la garde.
 
 > [V: PC-B répond : nouvelle trame (DST AA:AA · SRC BB:BB) qui entre par le port 2.]
 > VOICE : Et maintenant, B **répond**.
@@ -158,7 +160,7 @@
 > VOICE : Et la destination, A-A ? Il la connaît déjà. Une seule sortie : le port un.
 
 > [V: Écran partagé. Gauche : 1er échange, 4 flèches, étiquette « avant ». Droite : nouvel envoi A→B, lookup hit, UNE flèche verte vers le port 2. Les ports 3–5 restent silencieux.]
-> VOICE : Et la prochaine fois que A parle à B ? **Une seule flèche**. Le switch a appris. Il ne floode plus.
+> VOICE : Et la prochaine fois que A parle à B ? **Une seule flèche**. Le switch a appris. Il n'inonde plus.
 > DISPLAY : Avant : 4 copies · Après : 1
 
 *(≈ 170 mots · 67 s)*
@@ -211,7 +213,7 @@
 > VOICE : Relance la même broadcast. Elle reste dans le violet.
 
 > [V: Analogie : les trois zones deviennent brièvement trois étages d'un immeuble, puis retour au switch.]
-> VOICE : Un peu comme trois étages d'un même immeuble. Dans le vrai réseau, chaque VLAN est un **domaine de broadcast** séparé : le switch ne floode jamais une trame hors de son VLAN.
+> VOICE : Un peu comme trois étages d'un même immeuble. Dans le vrai réseau, chaque VLAN est un **domaine de broadcast** séparé : le switch n'inonde jamais une trame hors de son VLAN.
 
 *(≈ 125 mots · 52 s)*
 
@@ -275,7 +277,7 @@
 > DISPLAY : 4 octets · inséré après la MAC source · VLAN ID sur 12 bits
 
 > [V: Dézoom. La trame taguée traverse le trunk. SW2 lit le badge : scan orange « VLAN 10 ».]
-> VOICE : De l'autre côté, SW2 **lit** le tag : VLAN dix.
+> VOICE : De l'autre côté, le switch deux **lit** le tag : VLAN dix.
 
 > [V: SW2 ne considère que les ports bleus. Le badge se détache et tombe, la trame sort par un port d'accès bleu, sans tag.]
 > VOICE : Il envoie la trame uniquement vers le VLAN dix. Et avant de la donner au PC, il **retire** le tag. Le PC reçoit une trame normale.
@@ -292,10 +294,10 @@
 > VOICE : Faisons tout le voyage d'un coup.
 
 > [V: HUD : SRC AA:AA · DST BB:BB · VLAN — (non tagué) · PORT SW1 Fa0/1 · DÉCISION « entrée access VLAN 10 ».]
-> VOICE : PC A envoie une trame normale, sans tag. Elle entre dans SW1 par un port d'accès du VLAN dix.
+> VOICE : PC A envoie une trame normale, sans tag. Elle entre dans le switch un par un port d'accès du VLAN dix.
 
 > [V: Table SW1 — ligne « 10 | AA:AA | Fa0/1 » s'insère. La colonne VLAN apparaît pour la première fois ; les ports prennent leur nom Cisco (P1 → Fa0/1), petite note « sur un vrai switch Cisco ».]
-> VOICE : SW1 apprend A-A, dans le VLAN dix, port un. Tu remarques ? La vraie table a une colonne de plus : le **VLAN**.
+> VOICE : Le switch un apprend A-A, dans le VLAN dix, port un. Tu remarques ? La vraie table a une colonne de plus : le **VLAN**.
 
 > [V: Lookup BB:BB dans VLAN 10 → hit « 10 | BB:BB | Gi0/1 (trunk) ». HUD DÉCISION : « forward → trunk ».]
 > VOICE : Il cherche B-B dans le VLAN dix. Connu, derrière le trunk.
@@ -304,7 +306,7 @@
 > VOICE : Sur le trunk, il ajoute le tag : VLAN dix.
 
 > [V: Caméra suit la trame sur le trunk jusqu'à SW2. Scan du tag. Lookup BB:BB VLAN 10 → Fa0/2.]
-> VOICE : SW2 lit le tag, cherche B-B dans le VLAN dix. Port deux.
+> VOICE : Le switch deux lit le tag, cherche B-B dans le VLAN dix. Port deux.
 
 > [V: Le tag se détache. HUD VLAN : — (non tagué) · PORT SW2 Fa0/2 · DÉCISION « forward, tag retiré ». PC-B s'allume vert.]
 > VOICE : Il retire le tag, et livre la trame à PC B. Source, destination, VLAN, port, décision. Tout le switching est là.
@@ -335,7 +337,7 @@
 `audio/13-recap.mp3`
 
 > [V: Les images-clés reviennent en miniature, une par phrase, et s'assemblent en un seul schéma (le FINAL MENTAL MODEL).]
-> VOICE : Récapitulons. La source, pour **apprendre**. La destination, pour **décider**. Inconnue ? On **floode**. Broadcast ? On floode, toujours. Le VLAN garde chaque inondation dans sa couleur. Et le trunk transporte toutes les couleurs, grâce au tag.
+> VOICE : Récapitulons. La source, pour **apprendre**. La destination, pour **décider**. Inconnue ? On **inonde**. Broadcast ? On inonde, toujours. Le VLAN garde chaque inondation dans sa couleur. Et le trunk transporte toutes les couleurs, grâce au tag.
 
 > [V: Teaser : deux switches reliés par DEUX câbles. Une broadcast jaune part et commence à tourner en boucle, compteur 1, 2, 4, 8… Coupe nette.]
 > VOICE : Mais que se passe-t-il si deux switches sont reliés… **deux fois** ? ⏸ Prochain épisode.
