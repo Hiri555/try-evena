@@ -11,9 +11,15 @@
 </div>
 <script type="module">
 import { makeRenderer } from '/engine/runtime.js';
+import { makeJuice } from '/engine/juice.js';
 import { shots } from './episode.js';
 const T = await (await fetch('../05-timeline.json')).json();
-const render = makeRenderer(T, shots);
+const J = await (await fetch('./juice.json')).json();
+const assetBase = new URL('../06-assets/ai', location.href).pathname;
+// decode every illustration before the first frame is captured
+await Promise.all([...J.bumpers.filter((b) => b.img).map((b) => b.img), 'a-building.jpg', 'a-loop.jpg'].map((f) => { const im = new Image(); im.src = `${assetBase}/${f}`; return im.decode().catch(() => console.warn('missing', f)); }));
+const juice = makeJuice(T, J, { assetBase });
+const render = makeRenderer(T, shots, { juice });
 const svg = document.getElementById('s');
 window.__duration = T.duration;
 window.renderFrame = (t) => { svg.innerHTML = render(t); };

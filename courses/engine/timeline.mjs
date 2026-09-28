@@ -16,6 +16,9 @@ const SR = 44100;
 
 const cfg = JSON.parse(fs.readFileSync(path.join(dir, '08-source/timing.json'), 'utf8'));
 const board = JSON.parse(fs.readFileSync(path.join(dir, '04-storyboard.json'), 'utf8'));
+// chapters that open with a bumper get a longer silence before them
+const juicePath = path.join(dir, '08-source/juice.json');
+const bumperSections = new Set(fs.existsSync(juicePath) ? JSON.parse(fs.readFileSync(juicePath, 'utf8')).bumpers.map((b) => b.section) : []);
 const alDir = path.join(dir, '07-audio/alignment');
 const sections = fs.readdirSync(alDir).filter((f) => f.endsWith('.json')).sort()
   .map((f) => JSON.parse(fs.readFileSync(path.join(alDir, f), 'utf8')));
@@ -72,7 +75,8 @@ for (const s of sections) {
   }));
   sectionsOut.push({ id: s.section, file: s.file, start: +cursor.toFixed(3), end: +(cursor + dur + inserted).toFixed(3) });
   cursor += dur + inserted;
-  const gap = s === sections.at(-1) ? cfg.tail : cfg.section_gap;
+  const nextSec = sections[sections.indexOf(s) + 1];
+  const gap = !nextSec ? cfg.tail : bumperSections.has(nextSec.section) ? (cfg.bumper_gap ?? cfg.section_gap) : cfg.section_gap;
   chunks.push(new Int16Array(Math.round(gap * SR)));
   cursor += gap;
 }

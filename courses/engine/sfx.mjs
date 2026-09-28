@@ -51,6 +51,29 @@ for (const [scene, anchor, name, offset, gainDb] of cfg.cues) {
   }
   placed++;
 }
+// ---- automatic cues from the juice layer (bumpers, word slams, shakes, transitions)
+const juicePath = path.join(dir, '08-source/juice.json');
+if (cfg.auto && fs.existsSync(juicePath)) {
+  const J = JSON.parse(fs.readFileSync(juicePath, 'utf8'));
+  const A = cfg.auto;
+  const secs = T.sections;
+  const put = (name, at, db) => {
+    const a = pcm[name]; const start = Math.round(at * SR), g = 10 ** (db / 20), fade = Math.round(0.008 * SR);
+    for (let i = 0; i < a.length && start + i < out.length; i++) if (start + i >= 0) out[start + i] += a[i] * g * Math.min(1, i / fade, (a.length - i) / fade);
+    placed++;
+  };
+  const evt = (scene, anchor) => T.events.find((e) => e.scene === scene && e.anchor === anchor)?.t;
+  for (const b of J.bumpers) {
+    const i = secs.findIndex((s) => s.id === b.section);
+    const t0 = secs[i - 1].end + 0.05, t1 = secs[i].start - 0.08;
+    put('riser', t0 + 0.18 - pcm.riser.length / SR, A.bumper_riser_db);
+    put('impact', t0 + 0.16, A.bumper_impact_db);
+    put('whip', t1 - 0.1, A.bumper_out_whip_db);
+  }
+  for (const w of J.slams) { const t = evt(w.scene, w.anchor); if (t != null) put('hit', t, A.slam_db); }
+  for (const p of J.punches) { const t = evt(p.scene, p.anchor); if (t != null && p.shake >= 8) put('sub', t + (p.at || 0), A.shake_sub_db); }
+  for (const [scene, db] of A.transitions) { const s = T.scenes.find((x) => x.id === scene); if (s) put('whip', s.start - 0.55, db); }
+}
 let peak = 0; for (const v of out) peak = Math.max(peak, Math.abs(v));
 const norm = peak > 0 ? 0.9 / peak : 1;
 const wav = Buffer.alloc(44 + out.length * 2);

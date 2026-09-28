@@ -1,1 +1,1 @@
-Aucun asset raster : tous les visuels sont générés en SVG par engine/components.js et 08-source/episode.js.
+V2 : ai/ contient 10 illustrations générées (ElevenLabs, gpt-image-2) pour les bumpers, l’analogie de l’immeuble et la carte de fin. Tous les éléments techniques (schémas, tables, trames) restent en SVG programmatique.

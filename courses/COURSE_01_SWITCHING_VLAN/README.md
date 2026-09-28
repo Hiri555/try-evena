@@ -1,6 +1,6 @@
 # COURSE_01_SWITCHING_VLAN — Épisode 1 : « Comment un switch sait où envoyer tes données ? »
 
-**Statut : ✅ V1 rendue** (6 min 35 s) — en attente de ton visionnage pour la passe de compression 80/20.
+**Statut : ✅ V2 rendue** (6 min 05 s) — voix plus énergique, musique, 117 bruitages, bumpers illustrés IA, caméra et typo dynamiques.
 
 | Livrable | Fichier |
 |---|---|
@@ -9,7 +9,7 @@
 | Script parlé | `03-script.md` |
 | Storyboard (30 scènes) | `04-storyboard.json` |
 | Timeline (1 021 mots, 143 événements) | `05-timeline.json` |
-| Assets | `06-assets/` — tout est vectoriel/programmatique (`engine/components.js`), aucun asset IA nécessaire |
+| Assets | `06-assets/ai/` — 10 illustrations IA (bumpers, analogie, fin) ; tout le technique reste vectoriel |
 | Audio | `07-audio/` — 13 pistes voix + alignements, bibliothèque SFX |
 | Sources d'animation | `08-source/` (`episode.js`, `timing.json`, `sfx.json`, styleframes) |
 | Planches contact | `09-contact-sheets/contact-sheet-block-XX.jpg` (1 image / 2,5 s) + `voice-qa.md` |

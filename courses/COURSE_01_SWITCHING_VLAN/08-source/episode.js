@@ -7,6 +7,7 @@ import { P, vis, mix, mixPt, blink, qbez, along, camera, ease, clamp } from '/en
 const { C } = K;
 const V10 = C.vlan[10], V20 = C.vlan[20], V30 = C.vlan[30];
 const YEL = C.broadcast;
+const AI = '/COURSE_01_SWITCHING_VLAN/06-assets/ai';
 
 const chapter = (label, o = 1) => K.g(K.text(60, 58, label, { size: 17, weight: 700, font: C.mono, fill: C.muted, anchor: 'start', ls: 3 }), { opacity: o });
 const caption = (x, y, str, o = 1, color = C.text, size = 30) => K.g(K.text(x, y, str, { size, weight: 800, fill: color }), { opacity: o });
@@ -534,7 +535,9 @@ function shotVlan(t, { E, S, Wd }) {
   const bld = vis(t, tEt, tVrai, 0.5);
   if (bld > 0) {
     out += `<rect width="1920" height="1080" fill="#070B14" opacity="${0.85 * bld}"/>`;
-    out += K.g(K.building(960, 950, { floors: [10, 20, 30], labels: ['VLAN 10 · compta', 'VLAN 20 · gaming', 'VLAN 30 · support'] }), { opacity: bld, y: 30 * (1 - bld) });
+    out += K.g(`<defs><radialGradient id="bldFade" cx="0.5" cy="0.5" r="0.5"><stop offset="0.55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient><mask id="bldMask"><rect x="420" y="140" width="1080" height="608" fill="url(#bldFade)"/></mask></defs>
+      <image href="${AI}/a-building.jpg" x="420" y="140" width="1080" height="608" preserveAspectRatio="xMidYMid slice" mask="url(#bldMask)"/>
+      ${K.text(1330, 330, 'VLAN 30 · support', { size: 28, weight: 800, fill: V30, anchor: 'start' })}${K.text(1330, 440, 'VLAN 20 · gaming', { size: 28, weight: 800, fill: V20, anchor: 'start' })}${K.text(1330, 550, 'VLAN 10 · compta', { size: 28, weight: 800, fill: V10, anchor: 'start' })}`, { opacity: bld, s: mix(1.08, 1, bld) + 0.03 * clamp((t - tEt) / 3), ox: 960, oy: 450 });
     out += K.g(K.pill(960, 120, 'ANALOGIE', { color: C.muted, size: 18 }), { opacity: bld });
   }
   [420, 780, 1140].forEach((x, i) => { out += K.g(K.text(x + 180, 1000, 'domaine de broadcast', { size: 22, weight: 700, fill: C.vlan[[10, 20, 30][i]] }), { opacity: P(t, tDom + i * 0.15, 0.4) }); });
@@ -932,7 +935,7 @@ function shotTeaser(t, { E, S, T }) {
   }
   const card = P(t, tEp + 0.5, 0.6);
   const fadeOut = P(t, T.duration - 0.8, 0.8);
-  if (card > 0) out += `<rect width="1920" height="1080" fill="#070B14" opacity="${0.9 * card}"/>` + K.g(`${K.text(960, 500, 'ÉPISODE 2', { size: 30, weight: 800, fill: C.muted, ls: 8 })}${K.text(960, 590, 'Spanning Tree', { size: 84, weight: 800 })}${K.text(960, 650, 'pourquoi certains ports doivent se taire', { size: 28, weight: 600, fill: C.muted })}`, { opacity: card });
+  if (card > 0) out += `<rect width="1920" height="1080" fill="#070B14" opacity="${0.9 * card}"/>` + K.g(`<image href="${AI}/a-loop.jpg" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice" opacity="0.55"/><rect width="1920" height="1080" fill="#070B14" opacity="0.45"/>`, { opacity: card, s: 1 + 0.06 * clamp((t - tEp) / 4), ox: 960, oy: 540 }) + K.g(`${K.text(960, 500, 'ÉPISODE 2', { size: 30, weight: 800, fill: C.muted, ls: 8 })}${K.text(960, 590, 'Spanning Tree', { size: 84, weight: 800 })}${K.text(960, 650, 'pourquoi certains ports doivent se taire', { size: 28, weight: 600, fill: C.muted })}`, { opacity: card });
   if (fadeOut > 0) out += `<rect width="1920" height="1080" fill="#000" opacity="${fadeOut}"/>`;
   return out;
 }

@@ -1,7 +1,7 @@
 {
   "lead_in": 0.3,
-  "section_gap": 0.8,
-  "sentence_gap": 0.3,
+  "section_gap": 0.6,
+  "sentence_gap": 0.22,
   "tail": 2.5,
   "holds_note": "Silences ajoutés après un mot (fin de phrase) pour laisser l'animation respirer. `after` = mot tel que prononcé (sans ponctuation), `n` = n-ième occurrence dans la section.",
   "holds": [
@@ -148,5 +148,6 @@
       "after": "tag",
       "dur": 2.0
     }
-  ]
+  ],
+  "bumper_gap": 2.1
 }

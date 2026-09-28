@@ -58,24 +58,41 @@ export function makeTimeline(T) {
 
 // Episode = ordered shots. Each shot covers [start of its first scene, start of
 // the next shot) and cross-dissolves into the next during the section gap.
-export function makeRenderer(T, shots, { xfade = 0.5 } = {}) {
+export function makeRenderer(T, shots, { xfade = 0.5, juice = null } = {}) {
   const tl = makeTimeline(T);
   const bounds = shots.map((sh, i) => ({
     ...sh,
     start: i === 0 ? 0 : tl.S(sh.from).start - 0.15,
     end: i < shots.length - 1 ? tl.S(shots[i + 1].from).start - 0.15 : T.duration,
   }));
-  const defs = K.defs();
+  const defs = K.defs() + `<defs><filter id="mblur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="14 2"/></filter></defs>`;
   return (t) => {
     const layers = [];
     bounds.forEach((sh, i) => {
       const inStart = i === 0 ? -1 : sh.start - xfade;
       if (t < inStart || t >= sh.end) return;
-      const a = i === 0 ? 1 : clamp((t - inStart) / xfade);
       const next = bounds[i + 1];
-      // a shot stays fully opaque under the incoming one, so nothing fades to black
-      layers.push({ z: i, a, svg: sh.draw(t, { ...tl, shotStart: sh.start, shotEnd: sh.end, next: next && next.start }) });
+      let svg = sh.draw(t, { ...tl, shotStart: sh.start, shotEnd: sh.end, next: next && next.start });
+      if (!juice) {
+        const a = i === 0 ? 1 : clamp((t - inStart) / xfade);
+        layers.push(a >= 1 ? svg : `<g opacity="${a.toFixed(3)}">${svg}</g>`);
+        return;
+      }
+      // zoom-through transition: the outgoing shot pushes forward and blurs,
+      // the incoming one settles from slightly smaller
+      const kin = i === 0 ? 1 : ease.out(clamp((t - inStart) / xfade));
+      const kout = next ? ease.in(clamp((t - (next.start - xfade)) / xfade)) : 0;
+      const sc = mix(0.94, 1, kin) * mix(1, 1.1, kout);
+      const op = kin * (1 - kout);
+      if (op <= 0.001) return;
+      if (sc !== 1) svg = `<g transform="translate(960 540) scale(${sc.toFixed(4)}) translate(-960 -540)">${svg}</g>`;
+      const blur = (kin < 1 && kin > 0) || kout > 0 ? ' filter="url(#mblur)"' : '';
+      layers.push(op >= 1 && !blur ? svg : `<g opacity="${op.toFixed(3)}"${blur}>${svg}</g>`);
     });
-    return defs + K.backdrop() + layers.map((l) => (l.a >= 1 ? l.svg : `<g opacity="${l.a.toFixed(3)}">${l.svg}</g>`)).join('');
+    if (!juice) return defs + K.backdrop() + layers.join('');
+    return defs + juice.backdrop(t)
+      + `<g transform="${juice.camera(t)}">${juice.slamsLayer(t)}${layers.join('')}</g>`
+      + `<rect width="1920" height="1080" fill="url(#vignette)" pointer-events="none"/>`
+      + juice.bumperLayer(t) + juice.progress(t);
   };
 }

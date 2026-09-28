@@ -78,3 +78,40 @@ Total possible : ~20 s (≈ 5 %). Je recommande 1 + 3 + 4 **après** ton visionn
 - 6ᵉ vignette (trunk + tag) : +1,2 s de pause avant le teaser, elle n'était visible que ~0,7 s. Seuls les ~10 dernières secondes ont été décalées ; blocs 15, 25, 26 et 27 re-rendus.
 - Port d'accès : l'étiquette « aucun tag » passe sous la trame (elle était masquée par la pastille PORT D'ACCÈS).
 - Sous-titres incrustés vérifiés sur image (hook, règle source/destination, en-tête 802.1Q) : lisibles, contour noir, 2 lignes max.
+
+---
+
+# V2 — « plus dynamique, avec du son »
+
+Retour utilisateur sur la V1 : trop plate. Diagnostic : caméra fixe, peu d'éléments en mouvement, grands aplats sombres, voix lente (0,88), aucune musique, bruitages à peine audibles.
+
+## Ce qui change
+
+| Axe | V1 | V2 |
+|---|---|---|
+| Voix | vitesse 0,88, style 0,15 | vitesse **1,0**, style **0,35** (plus expressive), best-of-2 retranscrit (91–100 % ; écarts = « PC A » écrit « PCA ») |
+| Musique | aucune | **« Packet Trail »** (Suno, instrumental électro 110 bpm), A→B→A en fondus, **sidechain** : la musique baisse d'elle-même quand la voix parle |
+| Bruitages | 59, ~20 dB sous la voix | **117** : + riser/impact sur chaque bumper, hit sur chaque mot géant, sub-drop sur les secousses, whip sur les transitions, glitch sur LOOKUP MISS |
+| Illustrations | 0 | **10 illustrations IA** (ElevenLabs / gpt-image-2, style isométrique néon cohérent) : 9 bumpers de chapitre, immeuble (analogie VLAN), boucle (carte épisode 2) |
+| Rythme visuel | chapitres enchaînés | **11 bumpers plein écran** (~2 s) : illustration en Ken Burns, « CHAPITRE 0X », titre qui claque |
+| Caméra | fixe | dérive permanente + **25 punch-ins** sur les mots-clés + **secousses** (NON, MISS, broadcast, 50 câbles, boucle) |
+| Typo | étiquettes | **12 mots géants** synchronisés (TRAME, MAC, LEARNING, DÉCIDER, MISS, FLOODING, BROADCAST, VLAN, ACCESS, TRUNK, 802.1Q, ROUTEUR) |
+| Fond | grille statique | grille qui défile, 46 particules en parallaxe, halos teintés par la couleur du chapitre, vignettage |
+| Transitions | fondu enchaîné | **zoom avant + flou de mouvement** |
+| Repère | aucun | **barre de progression** par chapitre (couleurs sémantiques) |
+| Durée | 6:35 | **6:05** (plus rapide malgré ~23 s de bumpers) |
+
+## Mesures
+
+- Mix : **−16,8 LUFS** intégrés · true peak **−2,9 dBTP** · LRA 4,9. Pendant la voix ≈ −16,3 LUFS ; bumpers ≈ −13,5 (volontairement plus « punchy »).
+- Fichiers de livraison : H.264 CRF 23 preset slow, ~62 Mo chacun.
+
+## Le contenu technique n'a pas changé
+
+Les 30 scènes, les 143 ancres et toutes les vérifications réseau de la V1 restent valides : la V2 ajoute une couche (engine/juice.js) *autour* des plans, elle ne modifie pas ce qu'ils montrent. Les mots géants et bumpers ne portent aucune information technique nouvelle.
+
+## Points encore perfectibles (V3 possible)
+
+- Chapitre 01 (la trame) et le passage « problème » restent les plus « diagramme » : candidats pour une mise en scène plus illustrée.
+- Écrans partagés (avant/après, unknown unicast/broadcast) : miniatures encore petites.
+- Aucune vidéo IA (Higgsfield à 0 crédit ; pas de clé KIE dans l'environnement).
