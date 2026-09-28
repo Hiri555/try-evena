@@ -1,0 +1,1269 @@
+{
+ "course": "PRESENZ_FILM",
+ "fps": 30,
+ "width": 1920,
+ "height": 1080,
+ "duration": 98.52,
+ "audio": "07-audio/voice.wav",
+ "sections": [
+  {
+   "id": "S01",
+   "file": "01-hook.mp3",
+   "start": 1.8,
+   "end": 16.24
+  },
+  {
+   "id": "S02",
+   "file": "02-cout.mp3",
+   "start": 16.54,
+   "end": 31.27
+  },
+  {
+   "id": "S03",
+   "file": "03-rupture.mp3",
+   "start": 32.67,
+   "end": 40.84
+  },
+  {
+   "id": "S04",
+   "file": "04-geste.mp3",
+   "start": 43.04,
+   "end": 53.95
+  },
+  {
+   "id": "S05",
+   "file": "05-direct.mp3",
+   "start": 54.45,
+   "end": 61.52
+  },
+  {
+   "id": "S06",
+   "file": "06-journee.mp3",
+   "start": 62.02,
+   "end": 72.05
+  },
+  {
+   "id": "S07",
+   "file": "07-confiance.mp3",
+   "start": 72.95,
+   "end": 77.19
+  },
+  {
+   "id": "S08",
+   "file": "08-final.mp3",
+   "start": 78.79,
+   "end": 94.02
+  }
+ ],
+ "scenes": [
+  {
+   "id": "S01.1",
+   "section": "S01",
+   "start": 2.048,
+   "end": 9.91
+  },
+  {
+   "id": "S01.2",
+   "section": "S01",
+   "start": 9.91,
+   "end": 16.608
+  },
+  {
+   "id": "S02.1",
+   "section": "S02",
+   "start": 16.608,
+   "end": 28.143
+  },
+  {
+   "id": "S02.2",
+   "section": "S02",
+   "start": 28.143,
+   "end": 32.817
+  },
+  {
+   "id": "S03.1",
+   "section": "S03",
+   "start": 32.817,
+   "end": 43.04
+  },
+  {
+   "id": "S04.1",
+   "section": "S04",
+   "start": 43.04,
+   "end": 46.18
+  },
+  {
+   "id": "S04.2",
+   "section": "S04",
+   "start": 46.18,
+   "end": 54.45
+  },
+  {
+   "id": "S05.1",
+   "section": "S05",
+   "start": 54.45,
+   "end": 58.03
+  },
+  {
+   "id": "S05.2",
+   "section": "S05",
+   "start": 58.03,
+   "end": 62.02
+  },
+  {
+   "id": "S06.1",
+   "section": "S06",
+   "start": 62.02,
+   "end": 72.95
+  },
+  {
+   "id": "S07.1",
+   "section": "S07",
+   "start": 72.95,
+   "end": 78.79
+  },
+  {
+   "id": "S08.1",
+   "section": "S08",
+   "start": 78.79,
+   "end": 86.506
+  },
+  {
+   "id": "S08.2",
+   "section": "S08",
+   "start": 86.506,
+   "end": 98.52
+  }
+ ],
+ "events": [],
+ "words": [
+  {
+   "i": 0,
+   "section": "S01",
+   "w": "Huit",
+   "start": 2.048,
+   "end": 2.12,
+   "sentenceEnd": false
+  },
+  {
+   "i": 1,
+   "section": "S01",
+   "w": "heures.",
+   "start": 2.189,
+   "end": 2.68,
+   "sentenceEnd": true
+  },
+  {
+   "i": 2,
+   "section": "S01",
+   "w": "Le",
+   "start": 4.087,
+   "end": 4.14,
+   "sentenceEnd": false
+  },
+  {
+   "i": 3,
+   "section": "S01",
+   "w": "cours",
+   "start": 4.207,
+   "end": 4.54,
+   "sentenceEnd": false
+  },
+  {
+   "i": 4,
+   "section": "S01",
+   "w": "commence.",
+   "start": 4.62,
+   "end": 5.42,
+   "sentenceEnd": true
+  },
+  {
+   "i": 5,
+   "section": "S01",
+   "w": "Enfin…",
+   "start": 7.243,
+   "end": 8.15,
+   "sentenceEnd": true
+  },
+  {
+   "i": 6,
+   "section": "S01",
+   "w": "il",
+   "start": 8.427,
+   "end": 8.48,
+   "sentenceEnd": false
+  },
+  {
+   "i": 7,
+   "section": "S01",
+   "w": "devrait.",
+   "start": 8.54,
+   "end": 8.96,
+   "sentenceEnd": true
+  },
+  {
+   "i": 8,
+   "section": "S01",
+   "w": "Parce",
+   "start": 9.91,
+   "end": 10.29,
+   "sentenceEnd": false
+  },
+  {
+   "i": 9,
+   "section": "S01",
+   "w": "qu'avant",
+   "start": 10.303,
+   "end": 10.45,
+   "sentenceEnd": false
+  },
+  {
+   "i": 10,
+   "section": "S01",
+   "w": "d'apprendre…",
+   "start": 10.49,
+   "end": 11.01,
+   "sentenceEnd": true
+  },
+  {
+   "i": 11,
+   "section": "S01",
+   "w": "il",
+   "start": 11.367,
+   "end": 11.58,
+   "sentenceEnd": false
+  },
+  {
+   "i": 12,
+   "section": "S01",
+   "w": "faut",
+   "start": 11.612,
+   "end": 11.74,
+   "sentenceEnd": false
+  },
+  {
+   "i": 13,
+   "section": "S01",
+   "w": "faire",
+   "start": 11.767,
+   "end": 11.9,
+   "sentenceEnd": false
+  },
+  {
+   "i": 14,
+   "section": "S01",
+   "w": "l'appel.",
+   "start": 11.96,
+   "end": 12.3,
+   "sentenceEnd": true
+  },
+  {
+   "i": 15,
+   "section": "S01",
+   "w": "Nom",
+   "start": 12.69,
+   "end": 13.11,
+   "sentenceEnd": false
+  },
+  {
+   "i": 16,
+   "section": "S01",
+   "w": "par",
+   "start": 13.19,
+   "end": 13.43,
+   "sentenceEnd": false
+  },
+  {
+   "i": 17,
+   "section": "S01",
+   "w": "nom.",
+   "start": 13.47,
+   "end": 13.67,
+   "sentenceEnd": true
+  },
+  {
+   "i": 18,
+   "section": "S01",
+   "w": "Chaque",
+   "start": 14.107,
+   "end": 14.56,
+   "sentenceEnd": false
+  },
+  {
+   "i": 19,
+   "section": "S01",
+   "w": "matin.",
+   "start": 14.62,
+   "end": 15.12,
+   "sentenceEnd": true
+  },
+  {
+   "i": 20,
+   "section": "S01",
+   "w": "Dans",
+   "start": 15.402,
+   "end": 15.53,
+   "sentenceEnd": false
+  },
+  {
+   "i": 21,
+   "section": "S01",
+   "w": "chaque",
+   "start": 15.576,
+   "end": 15.85,
+   "sentenceEnd": false
+  },
+  {
+   "i": 22,
+   "section": "S01",
+   "w": "salle.",
+   "start": 15.903,
+   "end": 16.25,
+   "sentenceEnd": true
+  },
+  {
+   "i": 23,
+   "section": "S02",
+   "w": "Trois",
+   "start": 16.608,
+   "end": 16.7,
+   "sentenceEnd": false
+  },
+  {
+   "i": 24,
+   "section": "S02",
+   "w": "minutes",
+   "start": 16.74,
+   "end": 17.02,
+   "sentenceEnd": false
+  },
+  {
+   "i": 25,
+   "section": "S02",
+   "w": "par",
+   "start": 17.08,
+   "end": 17.26,
+   "sentenceEnd": false
+  },
+  {
+   "i": 26,
+   "section": "S02",
+   "w": "cours.",
+   "start": 17.327,
+   "end": 17.74,
+   "sentenceEnd": true
+  },
+  {
+   "i": 27,
+   "section": "S02",
+   "w": "Six",
+   "start": 18.21,
+   "end": 18.87,
+   "sentenceEnd": false
+  },
+  {
+   "i": 28,
+   "section": "S02",
+   "w": "cours",
+   "start": 18.923,
+   "end": 19.19,
+   "sentenceEnd": false
+  },
+  {
+   "i": 29,
+   "section": "S02",
+   "w": "par",
+   "start": 19.25,
+   "end": 19.43,
+   "sentenceEnd": false
+  },
+  {
+   "i": 30,
+   "section": "S02",
+   "w": "jour.",
+   "start": 19.494,
+   "end": 19.83,
+   "sentenceEnd": true
+  },
+  {
+   "i": 31,
+   "section": "S02",
+   "w": "Trente",
+   "start": 20.227,
+   "end": 21.04,
+   "sentenceEnd": false
+  },
+  {
+   "i": 32,
+   "section": "S02",
+   "w": "semaines.",
+   "start": 21.1,
+   "end": 21.6,
+   "sentenceEnd": true
+  },
+  {
+   "i": 33,
+   "section": "S02",
+   "w": "Quarante-cinq",
+   "start": 23.09,
+   "end": 23.533,
+   "sentenceEnd": false
+  },
+  {
+   "i": 34,
+   "section": "S02",
+   "w": "heures.",
+   "start": 23.59,
+   "end": 24.813,
+   "sentenceEnd": true
+  },
+  {
+   "i": 35,
+   "section": "S02",
+   "w": "Par",
+   "start": 25.103,
+   "end": 25.223,
+   "sentenceEnd": false
+  },
+  {
+   "i": 36,
+   "section": "S02",
+   "w": "classe.",
+   "start": 25.303,
+   "end": 25.863,
+   "sentenceEnd": true
+  },
+  {
+   "i": 37,
+   "section": "S02",
+   "w": "Chaque",
+   "start": 26.3,
+   "end": 26.753,
+   "sentenceEnd": false
+  },
+  {
+   "i": 38,
+   "section": "S02",
+   "w": "année.",
+   "start": 26.806,
+   "end": 27.153,
+   "sentenceEnd": true
+  },
+  {
+   "i": 39,
+   "section": "S02",
+   "w": "Et",
+   "start": 28.143,
+   "end": 28.623,
+   "sentenceEnd": false
+  },
+  {
+   "i": 40,
+   "section": "S02",
+   "w": "une",
+   "start": 28.683,
+   "end": 28.863,
+   "sentenceEnd": false
+  },
+  {
+   "i": 41,
+   "section": "S02",
+   "w": "feuille…",
+   "start": 28.923,
+   "end": 29.343,
+   "sentenceEnd": true
+  },
+  {
+   "i": 42,
+   "section": "S02",
+   "w": "qu'on",
+   "start": 29.753,
+   "end": 30.153,
+   "sentenceEnd": false
+  },
+  {
+   "i": 43,
+   "section": "S02",
+   "w": "peut",
+   "start": 30.185,
+   "end": 30.313,
+   "sentenceEnd": false
+  },
+  {
+   "i": 44,
+   "section": "S02",
+   "w": "signer",
+   "start": 30.359,
+   "end": 30.633,
+   "sentenceEnd": false
+  },
+  {
+   "i": 45,
+   "section": "S02",
+   "w": "pour",
+   "start": 30.665,
+   "end": 30.793,
+   "sentenceEnd": false
+  },
+  {
+   "i": 46,
+   "section": "S02",
+   "w": "un",
+   "start": 30.846,
+   "end": 30.953,
+   "sentenceEnd": false
+  },
+  {
+   "i": 47,
+   "section": "S02",
+   "w": "ami.",
+   "start": 31.033,
+   "end": 31.273,
+   "sentenceEnd": true
+  },
+  {
+   "i": 48,
+   "section": "S03",
+   "w": "Et",
+   "start": 32.817,
+   "end": 32.83,
+   "sentenceEnd": false
+  },
+  {
+   "i": 49,
+   "section": "S03",
+   "w": "si",
+   "start": 32.91,
+   "end": 33.07,
+   "sentenceEnd": false
+  },
+  {
+   "i": 50,
+   "section": "S03",
+   "w": "l'appel…",
+   "start": 33.11,
+   "end": 33.71,
+   "sentenceEnd": true
+  },
+  {
+   "i": 51,
+   "section": "S03",
+   "w": "disparaissait",
+   "start": 34.2,
+   "end": 35.4,
+   "sentenceEnd": false
+  },
+  {
+   "i": 52,
+   "section": "S03",
+   "w": "Présenz.",
+   "start": 39.793,
+   "end": 40.84,
+   "sentenceEnd": true
+  },
+  {
+   "i": 53,
+   "section": "S04",
+   "w": "Le",
+   "start": 43.04,
+   "end": 43.2,
+   "sentenceEnd": false
+  },
+  {
+   "i": 54,
+   "section": "S04",
+   "w": "prof",
+   "start": 43.248,
+   "end": 43.44,
+   "sentenceEnd": false
+  },
+  {
+   "i": 55,
+   "section": "S04",
+   "w": "projette",
+   "start": 43.488,
+   "end": 43.76,
+   "sentenceEnd": false
+  },
+  {
+   "i": 56,
+   "section": "S04",
+   "w": "un",
+   "start": 43.787,
+   "end": 43.84,
+   "sentenceEnd": false
+  },
+  {
+   "i": 57,
+   "section": "S04",
+   "w": "QR.",
+   "start": 43.973,
+   "end": 44.32,
+   "sentenceEnd": true
+  },
+  {
+   "i": 58,
+   "section": "S04",
+   "w": "Il",
+   "start": 44.65,
+   "end": 44.81,
+   "sentenceEnd": false
+  },
+  {
+   "i": 59,
+   "section": "S04",
+   "w": "change",
+   "start": 44.856,
+   "end": 45.13,
+   "sentenceEnd": false
+  },
+  {
+   "i": 60,
+   "section": "S04",
+   "w": "tout",
+   "start": 45.162,
+   "end": 45.29,
+   "sentenceEnd": false
+  },
+  {
+   "i": 61,
+   "section": "S04",
+   "w": "seul.",
+   "start": 45.354,
+   "end": 45.69,
+   "sentenceEnd": true
+  },
+  {
+   "i": 62,
+   "section": "S04",
+   "w": "L'étudiant",
+   "start": 46.18,
+   "end": 46.9,
+   "sentenceEnd": false
+  },
+  {
+   "i": 63,
+   "section": "S04",
+   "w": "pointe",
+   "start": 46.94,
+   "end": 47.3,
+   "sentenceEnd": false
+  },
+  {
+   "i": 64,
+   "section": "S04",
+   "w": "depuis",
+   "start": 47.323,
+   "end": 47.46,
+   "sentenceEnd": false
+  },
+  {
+   "i": 65,
+   "section": "S04",
+   "w": "son",
+   "start": 47.5,
+   "end": 47.62,
+   "sentenceEnd": false
+  },
+  {
+   "i": 66,
+   "section": "S04",
+   "w": "téléphone.",
+   "start": 47.668,
+   "end": 48.18,
+   "sentenceEnd": true
+  },
+  {
+   "i": 67,
+   "section": "S04",
+   "w": "Son",
+   "start": 48.59,
+   "end": 49.07,
+   "sentenceEnd": false
+  },
+  {
+   "i": 68,
+   "section": "S04",
+   "w": "empreinte",
+   "start": 49.123,
+   "end": 49.47,
+   "sentenceEnd": false
+  },
+  {
+   "i": 69,
+   "section": "S04",
+   "w": "confirme",
+   "start": 49.502,
+   "end": 49.79,
+   "sentenceEnd": false
+  },
+  {
+   "i": 70,
+   "section": "S04",
+   "w": "que",
+   "start": 49.83,
+   "end": 49.95,
+   "sentenceEnd": false
+  },
+  {
+   "i": 71,
+   "section": "S04",
+   "w": "c'est",
+   "start": 49.97,
+   "end": 50.03,
+   "sentenceEnd": false
+  },
+  {
+   "i": 72,
+   "section": "S04",
+   "w": "bien",
+   "start": 50.062,
+   "end": 50.19,
+   "sentenceEnd": false
+  },
+  {
+   "i": 73,
+   "section": "S04",
+   "w": "lui.",
+   "start": 50.23,
+   "end": 50.51,
+   "sentenceEnd": true
+  },
+  {
+   "i": 74,
+   "section": "S04",
+   "w": "Présent.",
+   "start": 51.767,
+   "end": 52.18,
+   "sentenceEnd": true
+  },
+  {
+   "i": 75,
+   "section": "S04",
+   "w": "En",
+   "start": 52.617,
+   "end": 52.99,
+   "sentenceEnd": false
+  },
+  {
+   "i": 76,
+   "section": "S04",
+   "w": "quelques",
+   "start": 53.034,
+   "end": 53.39,
+   "sentenceEnd": false
+  },
+  {
+   "i": 77,
+   "section": "S04",
+   "w": "secondes.",
+   "start": 53.447,
+   "end": 53.95,
+   "sentenceEnd": true
+  },
+  {
+   "i": 78,
+   "section": "S05",
+   "w": "Côté",
+   "start": 54.45,
+   "end": 54.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 79,
+   "section": "S05",
+   "w": "prof,",
+   "start": 54.69,
+   "end": 55.09,
+   "sentenceEnd": false
+  },
+  {
+   "i": 80,
+   "section": "S05",
+   "w": "la",
+   "start": 55.117,
+   "end": 55.17,
+   "sentenceEnd": false
+  },
+  {
+   "i": 81,
+   "section": "S05",
+   "w": "liste",
+   "start": 55.223,
+   "end": 55.49,
+   "sentenceEnd": false
+  },
+  {
+   "i": 82,
+   "section": "S05",
+   "w": "se",
+   "start": 55.543,
+   "end": 55.65,
+   "sentenceEnd": false
+  },
+  {
+   "i": 83,
+   "section": "S05",
+   "w": "remplit",
+   "start": 55.69,
+   "end": 55.97,
+   "sentenceEnd": false
+  },
+  {
+   "i": 84,
+   "section": "S05",
+   "w": "toute",
+   "start": 56.01,
+   "end": 56.21,
+   "sentenceEnd": false
+  },
+  {
+   "i": 85,
+   "section": "S05",
+   "w": "seule.",
+   "start": 56.25,
+   "end": 56.65,
+   "sentenceEnd": true
+  },
+  {
+   "i": 86,
+   "section": "S05",
+   "w": "En",
+   "start": 56.967,
+   "end": 57.1,
+   "sentenceEnd": false
+  },
+  {
+   "i": 87,
+   "section": "S05",
+   "w": "direct.",
+   "start": 57.157,
+   "end": 57.58,
+   "sentenceEnd": true
+  },
+  {
+   "i": 88,
+   "section": "S05",
+   "w": "Côté",
+   "start": 58.03,
+   "end": 58.39,
+   "sentenceEnd": false
+  },
+  {
+   "i": 89,
+   "section": "S05",
+   "w": "scolarité,",
+   "start": 58.417,
+   "end": 59.03,
+   "sentenceEnd": false
+  },
+  {
+   "i": 90,
+   "section": "S05",
+   "w": "l'information",
+   "start": 59.07,
+   "end": 59.59,
+   "sentenceEnd": false
+  },
+  {
+   "i": 91,
+   "section": "S05",
+   "w": "arrive.",
+   "start": 59.647,
+   "end": 60.07,
+   "sentenceEnd": true
+  },
+  {
+   "i": 92,
+   "section": "S05",
+   "w": "Sans",
+   "start": 60.4,
+   "end": 60.72,
+   "sentenceEnd": false
+  },
+  {
+   "i": 93,
+   "section": "S05",
+   "w": "rien",
+   "start": 60.752,
+   "end": 60.88,
+   "sentenceEnd": false
+  },
+  {
+   "i": 94,
+   "section": "S05",
+   "w": "ressaisir.",
+   "start": 60.94,
+   "end": 61.52,
+   "sentenceEnd": true
+  },
+  {
+   "i": 95,
+   "section": "S06",
+   "w": "Un",
+   "start": 62.02,
+   "end": 62.1,
+   "sentenceEnd": false
+  },
+  {
+   "i": 96,
+   "section": "S06",
+   "w": "pointage",
+   "start": 62.14,
+   "end": 62.5,
+   "sentenceEnd": false
+  },
+  {
+   "i": 97,
+   "section": "S06",
+   "w": "douteux",
+   "start": 62.54,
+   "end": 62.9,
+   "sentenceEnd": false
+  },
+  {
+   "i": 98,
+   "section": "S06",
+   "w": "Le",
+   "start": 63.273,
+   "end": 63.46,
+   "sentenceEnd": false
+  },
+  {
+   "i": 99,
+   "section": "S06",
+   "w": "prof",
+   "start": 63.524,
+   "end": 63.78,
+   "sentenceEnd": false
+  },
+  {
+   "i": 100,
+   "section": "S06",
+   "w": "l'invalide.",
+   "start": 63.82,
+   "end": 64.5,
+   "sentenceEnd": true
+  },
+  {
+   "i": 101,
+   "section": "S06",
+   "w": "L'emploi",
+   "start": 64.95,
+   "end": 65.39,
+   "sentenceEnd": false
+  },
+  {
+   "i": 102,
+   "section": "S06",
+   "w": "du",
+   "start": 65.417,
+   "end": 65.47,
+   "sentenceEnd": false
+  },
+  {
+   "i": 103,
+   "section": "S06",
+   "w": "temps",
+   "start": 65.51,
+   "end": 65.71,
+   "sentenceEnd": false
+  },
+  {
+   "i": 104,
+   "section": "S06",
+   "w": "Importé",
+   "start": 66.167,
+   "end": 66.59,
+   "sentenceEnd": false
+  },
+  {
+   "i": 105,
+   "section": "S06",
+   "w": "depuis",
+   "start": 66.624,
+   "end": 66.83,
+   "sentenceEnd": false
+  },
+  {
+   "i": 106,
+   "section": "S06",
+   "w": "le",
+   "start": 66.857,
+   "end": 66.91,
+   "sentenceEnd": false
+  },
+  {
+   "i": 107,
+   "section": "S06",
+   "w": "PDF.",
+   "start": 67.03,
+   "end": 67.47,
+   "sentenceEnd": true
+  },
+  {
+   "i": 108,
+   "section": "S06",
+   "w": "Les",
+   "start": 67.9,
+   "end": 68.44,
+   "sentenceEnd": false
+  },
+  {
+   "i": 109,
+   "section": "S06",
+   "w": "absents",
+   "start": 68.48,
+   "end": 68.76,
+   "sentenceEnd": false
+  },
+  {
+   "i": 110,
+   "section": "S06",
+   "w": "chroniques",
+   "start": 68.8,
+   "end": 69.24,
+   "sentenceEnd": false
+  },
+  {
+   "i": 111,
+   "section": "S06",
+   "w": "Une",
+   "start": 69.74,
+   "end": 69.8,
+   "sentenceEnd": false
+  },
+  {
+   "i": 112,
+   "section": "S06",
+   "w": "relance.",
+   "start": 69.86,
+   "end": 70.44,
+   "sentenceEnd": true
+  },
+  {
+   "i": 113,
+   "section": "S06",
+   "w": "Un",
+   "start": 70.957,
+   "end": 71.49,
+   "sentenceEnd": false
+  },
+  {
+   "i": 114,
+   "section": "S06",
+   "w": "clic.",
+   "start": 71.57,
+   "end": 72.05,
+   "sentenceEnd": true
+  },
+  {
+   "i": 115,
+   "section": "S07",
+   "w": "Et",
+   "start": 72.95,
+   "end": 73.03,
+   "sentenceEnd": false
+  },
+  {
+   "i": 116,
+   "section": "S07",
+   "w": "votre",
+   "start": 73.07,
+   "end": 73.27,
+   "sentenceEnd": false
+  },
+  {
+   "i": 117,
+   "section": "S07",
+   "w": "biométrie",
+   "start": 73.302,
+   "end": 73.75,
+   "sentenceEnd": false
+  },
+  {
+   "i": 118,
+   "section": "S07",
+   "w": "Elle",
+   "start": 75.938,
+   "end": 76.002,
+   "sentenceEnd": false
+  },
+  {
+   "i": 119,
+   "section": "S07",
+   "w": "ne",
+   "start": 76.055,
+   "end": 76.162,
+   "sentenceEnd": false
+  },
+  {
+   "i": 120,
+   "section": "S07",
+   "w": "quitte",
+   "start": 76.178,
+   "end": 76.322,
+   "sentenceEnd": false
+  },
+  {
+   "i": 121,
+   "section": "S07",
+   "w": "jamais",
+   "start": 76.356,
+   "end": 76.562,
+   "sentenceEnd": false
+  },
+  {
+   "i": 122,
+   "section": "S07",
+   "w": "le",
+   "start": 76.589,
+   "end": 76.642,
+   "sentenceEnd": false
+  },
+  {
+   "i": 123,
+   "section": "S07",
+   "w": "téléphone.",
+   "start": 76.69,
+   "end": 77.202,
+   "sentenceEnd": true
+  },
+  {
+   "i": 124,
+   "section": "S08",
+   "w": "Huit",
+   "start": 78.79,
+   "end": 78.95,
+   "sentenceEnd": false
+  },
+  {
+   "i": 125,
+   "section": "S08",
+   "w": "heures.",
+   "start": 78.996,
+   "end": 79.35,
+   "sentenceEnd": true
+  },
+  {
+   "i": 126,
+   "section": "S08",
+   "w": "Le",
+   "start": 80.627,
+   "end": 80.64,
+   "sentenceEnd": false
+  },
+  {
+   "i": 127,
+   "section": "S08",
+   "w": "QR",
+   "start": 80.773,
+   "end": 81.04,
+   "sentenceEnd": false
+  },
+  {
+   "i": 128,
+   "section": "S08",
+   "w": "s'affiche.",
+   "start": 81.08,
+   "end": 81.76,
+   "sentenceEnd": true
+  },
+  {
+   "i": 129,
+   "section": "S08",
+   "w": "Le",
+   "start": 83.597,
+   "end": 83.61,
+   "sentenceEnd": false
+  },
+  {
+   "i": 130,
+   "section": "S08",
+   "w": "cours",
+   "start": 83.65,
+   "end": 83.85,
+   "sentenceEnd": false
+  },
+  {
+   "i": 131,
+   "section": "S08",
+   "w": "commence.",
+   "start": 83.912,
+   "end": 84.49,
+   "sentenceEnd": true
+  },
+  {
+   "i": 132,
+   "section": "S08",
+   "w": "À",
+   "start": 86.506,
+   "end": 86.546,
+   "sentenceEnd": false
+  },
+  {
+   "i": 133,
+   "section": "S08",
+   "w": "huit",
+   "start": 86.626,
+   "end": 86.866,
+   "sentenceEnd": false
+  },
+  {
+   "i": 134,
+   "section": "S08",
+   "w": "heures.",
+   "start": 86.923,
+   "end": 87.626,
+   "sentenceEnd": true
+  },
+  {
+   "i": 135,
+   "section": "S08",
+   "w": "Vraiment.",
+   "start": 88.348,
+   "end": 88.716,
+   "sentenceEnd": true
+  },
+  {
+   "i": 136,
+   "section": "S08",
+   "w": "Présenz.",
+   "start": 90.153,
+   "end": 90.726,
+   "sentenceEnd": true
+  },
+  {
+   "i": 137,
+   "section": "S08",
+   "w": "Zéro",
+   "start": 91.416,
+   "end": 91.936,
+   "sentenceEnd": false
+  },
+  {
+   "i": 138,
+   "section": "S08",
+   "w": "contact.",
+   "start": 92.016,
+   "end": 92.856,
+   "sentenceEnd": true
+  },
+  {
+   "i": 139,
+   "section": "S08",
+   "w": "Zéro",
+   "start": 93.246,
+   "end": 93.546,
+   "sentenceEnd": false
+  },
+  {
+   "i": 140,
+   "section": "S08",
+   "w": "papier.",
+   "start": 93.606,
+   "end": 94.026,
+   "sentenceEnd": true
+  }
+ ]
+}

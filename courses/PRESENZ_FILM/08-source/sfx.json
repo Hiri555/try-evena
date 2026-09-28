@@ -1,0 +1,445 @@
+{
+ "library": {
+  "whoosh": {
+   "prompt": "soft short digital whoosh, clean UI swoosh, subtle, no reverb",
+   "duration": 0.6
+  },
+  "tick": {
+   "prompt": "soft digital UI tick, clean single click, very short",
+   "duration": 0.5
+  },
+  "click": {
+   "prompt": "small network switch port click, tiny mechanical click, clean",
+   "duration": 0.5
+  },
+  "miss": {
+   "prompt": "soft low error beep, gentle UI denial tone, short",
+   "duration": 0.6
+  },
+  "pulse": {
+   "prompt": "soft warning pulse, gentle sonar ping, clean electronic",
+   "duration": 1.2
+  },
+  "clip": {
+   "prompt": "small plastic clip snapping into place, subtle, clean",
+   "duration": 0.5
+  },
+  "success": {
+   "prompt": "gentle positive UI chime, short confirmation, soft",
+   "duration": 0.8
+  },
+  "pop": {
+   "prompt": "tiny soft digital bubble pop, subtle",
+   "duration": 0.5
+  },
+  "typing": {
+   "prompt": "quiet mechanical keyboard typing, short burst, close",
+   "duration": 1.6
+  },
+  "buzz": {
+   "prompt": "short soft low buzzer, wrong answer, gentle",
+   "duration": 0.6
+  },
+  "clock": {
+   "prompt": "soft clock ticking, quiet quiz countdown, steady",
+   "duration": 2.0
+  },
+  "riser": {
+   "prompt": "short cinematic riser, rising synth whoosh building tension, clean, ends abruptly",
+   "duration": 1.6
+  },
+  "impact": {
+   "prompt": "punchy cinematic impact hit with deep boom and short tail, modern trailer style",
+   "duration": 1.2
+  },
+  "whip": {
+   "prompt": "fast whip pan swoosh transition, airy, clean",
+   "duration": 0.5
+  },
+  "sub": {
+   "prompt": "deep sub bass drop hit, short, clean, powerful",
+   "duration": 0.8
+  },
+  "glitch": {
+   "prompt": "short digital glitch error sound, data corruption stutter",
+   "duration": 0.5
+  },
+  "hit": {
+   "prompt": "short punchy percussive hit with snap, modern motion graphics text slam",
+   "duration": 0.5
+  }
+ },
+ "cues": [
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   -1.2,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   -0.2,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   0.8,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   1.8,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   2.8,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   3.8,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   4.8,
+   -9
+  ],
+  [
+   "S01.1",
+   "Huit",
+   "tick",
+   5.8,
+   -9
+  ],
+  [
+   "S01.2",
+   "l'appel",
+   "riser",
+   -0.3,
+   -12
+  ],
+  [
+   "S01.2",
+   "salle",
+   "glitch",
+   0,
+   -9
+  ],
+  [
+   "S02.1",
+   "Trois",
+   "whoosh",
+   0,
+   -5
+  ],
+  [
+   "S02.1",
+   "Trois",
+   "hit",
+   0.02,
+   -8
+  ],
+  [
+   "S02.1",
+   "Six",
+   "hit",
+   0,
+   -8
+  ],
+  [
+   "S02.1",
+   "Trente",
+   "hit",
+   0,
+   -8
+  ],
+  [
+   "S02.1",
+   "Quarante-cinq",
+   "impact",
+   0,
+   -3
+  ],
+  [
+   "S02.1",
+   "Quarante-cinq",
+   "sub",
+   0,
+   -4
+  ],
+  [
+   "S02.2",
+   "feuille",
+   "whoosh",
+   0,
+   -7
+  ],
+  [
+   "S02.2",
+   "signer",
+   "pop",
+   0,
+   -8
+  ],
+  [
+   "S02.2",
+   "ami",
+   "buzz",
+   0,
+   -6
+  ],
+  [
+   "S03.1",
+   "disparaissait",
+   "whoosh",
+   0.3,
+   -6
+  ],
+  [
+   "S03.1",
+   "Présenz",
+   "riser",
+   -1.6,
+   -4
+  ],
+  [
+   "S03.1",
+   "Présenz",
+   "impact",
+   0,
+   0
+  ],
+  [
+   "S03.1",
+   "Présenz",
+   "sub",
+   0,
+   -2
+  ],
+  [
+   "S04.1",
+   "prof",
+   "whoosh",
+   -0.2,
+   -6
+  ],
+  [
+   "S04.1",
+   "QR",
+   "tick",
+   0,
+   -4
+  ],
+  [
+   "S04.1",
+   "change",
+   "pop",
+   0,
+   -8
+  ],
+  [
+   "S04.2",
+   "téléphone",
+   "whoosh",
+   0,
+   -6
+  ],
+  [
+   "S04.2",
+   "empreinte",
+   "pulse",
+   0,
+   -5
+  ],
+  [
+   "S04.2",
+   "Présent",
+   "success",
+   0,
+   -2
+  ],
+  [
+   "S04.2",
+   "Présent",
+   "hit",
+   0,
+   -6
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "whip",
+   -0.3,
+   -6
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "pop",
+   0.4,
+   -7
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "pop",
+   0.75,
+   -7
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "pop",
+   1.1,
+   -7
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "pop",
+   1.4499999999999997,
+   -7
+  ],
+  [
+   "S05.1",
+   "Côté",
+   "pop",
+   1.7999999999999998,
+   -7
+  ],
+  [
+   "S05.2",
+   "scolarité",
+   "whoosh",
+   0,
+   -6
+  ],
+  [
+   "S05.2",
+   "arrive",
+   "impact",
+   0,
+   -7
+  ],
+  [
+   "S06.1",
+   "Un",
+   "whip",
+   -0.1,
+   -5
+  ],
+  [
+   "S06.1",
+   "l'invalide",
+   "hit",
+   0,
+   -8
+  ],
+  [
+   "S06.1",
+   "L'emploi",
+   "whip",
+   -0.1,
+   -5
+  ],
+  [
+   "S06.1",
+   "PDF",
+   "pop",
+   0,
+   -7
+  ],
+  [
+   "S06.1",
+   "Les",
+   "whip",
+   -0.1,
+   -5
+  ],
+  [
+   "S06.1",
+   "clic",
+   "click",
+   0,
+   -2
+  ],
+  [
+   "S07.1",
+   "Et",
+   "whoosh",
+   -0.2,
+   -7
+  ],
+  [
+   "S07.1",
+   "jamais",
+   "clip",
+   0,
+   -3
+  ],
+  [
+   "S07.1",
+   "jamais",
+   "sub",
+   0,
+   -6
+  ],
+  [
+   "S08.1",
+   "Huit",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S08.1",
+   "QR",
+   "pop",
+   0,
+   -7
+  ],
+  [
+   "S08.1",
+   "commence",
+   "success",
+   0,
+   -3
+  ],
+  [
+   "S08.2",
+   "Vraiment",
+   "impact",
+   0,
+   -2
+  ],
+  [
+   "S08.2",
+   "Présenz",
+   "riser",
+   -1.4,
+   -7
+  ],
+  [
+   "S08.2",
+   "Présenz",
+   "hit",
+   0,
+   -4
+  ]
+ ]
+}

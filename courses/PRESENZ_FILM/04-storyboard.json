@@ -1,0 +1,90 @@
+{
+ "course_id": "PRESENZ_FILM",
+ "title": "Présenz — Le cours commence à 08:00",
+ "scenes": [
+  {
+   "scene_id": "S01.1",
+   "section": "S01",
+   "start_sentence": "Huit heures.",
+   "animation": []
+  },
+  {
+   "scene_id": "S01.2",
+   "section": "S01",
+   "start_sentence": "Parce qu'avant d'apprendre",
+   "animation": []
+  },
+  {
+   "scene_id": "S02.1",
+   "section": "S02",
+   "start_sentence": "Trois minutes par cours.",
+   "animation": []
+  },
+  {
+   "scene_id": "S02.2",
+   "section": "S02",
+   "start_sentence": "Et une feuille",
+   "animation": []
+  },
+  {
+   "scene_id": "S03.1",
+   "section": "S03",
+   "start_sentence": "Et si l'appel",
+   "animation": []
+  },
+  {
+   "scene_id": "S04.1",
+   "section": "S04",
+   "start_sentence": "Le prof projette",
+   "animation": []
+  },
+  {
+   "scene_id": "S04.2",
+   "section": "S04",
+   "start_sentence": "L'étudiant pointe",
+   "animation": []
+  },
+  {
+   "scene_id": "S05.1",
+   "section": "S05",
+   "start_sentence": "Côté prof,",
+   "animation": []
+  },
+  {
+   "scene_id": "S05.2",
+   "section": "S05",
+   "start_sentence": "Côté scolarité,",
+   "animation": []
+  },
+  {
+   "scene_id": "S06.1",
+   "section": "S06",
+   "start_sentence": "Un pointage douteux",
+   "animation": []
+  },
+  {
+   "scene_id": "S07.1",
+   "section": "S07",
+   "start_sentence": "Et votre biométrie",
+   "animation": []
+  },
+  {
+   "scene_id": "S08.1",
+   "section": "S08",
+   "start_sentence": "Huit heures.",
+   "animation": []
+  },
+  {
+   "scene_id": "S08.2",
+   "section": "S08",
+   "start_sentence": "À huit heures.",
+   "animation": []
+  }
+ ],
+ "format": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "codec": "h264"
+ }
+}

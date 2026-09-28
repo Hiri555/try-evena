@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Présenz — film</title>
+<style>
+@font-face{font-family:Inter;src:url(/engine/fonts/Inter-600.ttf);font-weight:600}
+@font-face{font-family:Inter;src:url(/engine/fonts/Inter-700.ttf);font-weight:700}
+@font-face{font-family:Inter;src:url(/engine/fonts/Inter-800.ttf);font-weight:800}
+html,body{margin:0;background:#000}
+.stage{position:relative;width:1920px;height:1080px;overflow:hidden;background:#030605;font-family:Inter}
+</style>
+</head>
+<body>
+<div class="stage" id="s"></div>
+<script type="module">
+import { makeFilm } from './film.js';
+const T = await (await fetch('../05-timeline.json')).json();
+// film grain texture, generated once
+const c = document.createElement('canvas'); c.width = c.height = 400; const x = c.getContext('2d'); const d = x.createImageData(400, 400);
+for (let i = 0; i < d.data.length; i += 4) { const v = Math.random() * 255; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; }
+x.putImageData(d, 0, 0); window.__grain = c.toDataURL();
+// decode every asset before the first capture
+const A = '../06-assets';
+const files = ['ai/clock.jpg','ai/paper.jpg','ai/phone.jpg','ai/finger.jpg','ai/converge.jpg','ai/dawn.jpg','ui/projection.png','ui/projection-full.png','ui/suivi.png','ui/invalidation.png','ui/stu-valider.png','ui/stu-valide.png','ui/scol-dashboard.png','ui/import-pdf.png','ui/reporting.png'];
+for (const n of ['clock','paper','phone','converge']) for (let i = 1; i <= 151; i++) files.push(`ai/frames/${n}/f${String(i).padStart(3,'0')}.jpg`);
+window.__imgs = [];
+await Promise.all(files.map((f) => { const im = new Image(); window.__imgs.push(im); im.src = `${A}/${f}`; return im.decode().catch(() => console.warn('missing', f)); }));
+await document.fonts.load('800 100px Inter'); await document.fonts.load('700 100px Inter'); await document.fonts.load('600 100px Inter');
+const render = makeFilm(T);
+const el = document.getElementById('s');
+window.__duration = T.duration;
+window.renderFrame = async (t) => {
+  el.innerHTML = render(t);
+  const imgs = [...el.querySelectorAll('img')];
+  if (imgs.length) { await Promise.all(imgs.map((im) => im.decode().catch(() => {}))); await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))); }
+};
+const q = new URLSearchParams(location.search).get('t');
+await window.renderFrame(q ? +q : 0);
+window.__ready = true;
+</script>
+</body>
+</html>

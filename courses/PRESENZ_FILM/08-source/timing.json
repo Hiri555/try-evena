@@ -1,0 +1,36 @@
+{
+ "lead_in": 1.8,
+ "section_gap": 0.5,
+ "sentence_gap": 0.25,
+ "tail": 4.5,
+ "bumper_gap": 0.5,
+ "bumper_gaps": {
+  "S02": 0.3,
+  "S03": 1.4,
+  "S04": 2.2,
+  "S07": 0.9,
+  "S08": 1.6
+ },
+ "holds": [
+  {
+   "section": "S01",
+   "after": "devrait",
+   "dur": 0.6
+  },
+  {
+   "section": "S02",
+   "after": "ann\u00e9e",
+   "dur": 0.5
+  },
+  {
+   "section": "S04",
+   "after": "lui",
+   "dur": 0.3
+  },
+  {
+   "section": "S08",
+   "after": "commence",
+   "dur": 0.6
+  }
+ ]
+}

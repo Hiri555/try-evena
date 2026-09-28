@@ -1,3 +1,4 @@
+import { makeTimeline } from './runtime.js';
 // SFX pass: generate a small sound library once (ElevenLabs sound-generation,
 // cached in 07-audio/sfx/) and lay every cue on the timeline → 07-audio/sfx.wav.
 // Usage: node engine/sfx.mjs [COURSE_DIR]
@@ -13,6 +14,7 @@ const FF = path.join(root, 'node_modules/ffmpeg-static/ffmpeg');
 const SR = 44100;
 const cfg = JSON.parse(fs.readFileSync(path.join(dir, '08-source/sfx.json'), 'utf8'));
 const T = JSON.parse(fs.readFileSync(path.join(dir, '05-timeline.json'), 'utf8'));
+const TL = makeTimeline(T);
 const lib = path.join(dir, '07-audio/sfx');
 fs.mkdirSync(lib, { recursive: true });
 
@@ -40,8 +42,9 @@ for (const a of Object.values(pcm)) { let m = 0; for (const v of a) m = Math.max
 const out = new Float32Array(Math.ceil(T.duration * SR));
 let placed = 0;
 for (const [scene, anchor, name, offset, gainDb] of cfg.cues) {
-  const ev = T.events.find((e) => e.scene === scene && e.anchor === anchor);
-  if (!ev) { console.warn(`cue ${scene}/${anchor} not found`); continue; }
+  // storyboard events first, then any spoken word of the scene
+  let ev = T.events.find((e) => e.scene === scene && e.anchor === anchor);
+  if (!ev) { try { ev = { t: TL.E(scene, anchor) }; } catch { console.warn(`cue ${scene}/${anchor} not found`); continue; } }
   const start = Math.round((ev.t + offset) * SR), g = 10 ** (gainDb / 20), a = pcm[name];
   // 8 ms fade-in/out so no cue ever clicks
   const fade = Math.round(0.008 * SR);
