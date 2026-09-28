@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Épisode 2 · Spanning Tree</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+</div>
+<script type="module">
+import { makeRenderer } from '/engine/runtime.js';
+import { makeJuice } from '/engine/juice.js';
+import { shots } from './episode.js';
+const T = await (await fetch('../05-timeline.json')).json();
+const J = await (await fetch('./juice.json')).json();
+const assetBase = new URL('../06-assets/ai', location.href).pathname;
+// decode every illustration before the first frame is captured
+const seqs = [];
+for (const [name, n] of [['storm', 151], ['roundabouts', 151]]) for (let i = 1; i <= n; i++) seqs.push(`frames/${name}/f${String(i).padStart(3, '0')}.jpg`);
+window.__imgs = [];
+await Promise.all([...J.bumpers.filter((b) => b.img).map((b) => b.img), 'crown.jpg', 'highway.jpg', 'storm.jpg', ...seqs].map((f) => { const im = new Image(); window.__imgs.push(im); im.src = `${assetBase}/${f}`; return im.decode().catch(() => console.warn('missing', f)); }));
+const juice = makeJuice(T, J, { assetBase });
+const render = makeRenderer(T, shots, { juice });
+const svg = document.getElementById('s');
+window.__duration = T.duration;
+// <image> elements are recreated every frame: wait until each one is decoded and painted
+// before the frame is captured, otherwise cached art can still flicker out.
+window.renderFrame = async (t) => {
+  svg.innerHTML = render(t);
+  const imgs = [...svg.querySelectorAll('image')];
+  if (!imgs.length) return;
+  await Promise.all(imgs.map((im) => (im.decode ? im.decode().catch(() => {}) : null)));
+  await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+};
+// ?t=12.5 for a manual preview
+const q = new URLSearchParams(location.search).get('t');
+await window.renderFrame(q ? +q : 0);
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body>
+</html>

@@ -29,8 +29,10 @@ const voiceNorm = `loudnorm=${LN}:measured_I=${m.input_i}:measured_TP=${m.input_
 // 2. mix: voice + ducked music bed + SFX bus, then a limiter so nothing clips
 const dur = parseFloat(/Duration: (\d+):(\d+):([\d.]+)/.exec(ff(['-i', r('07-audio/voice.wav'), '-f', 'null', '-']))
   .slice(1).reduce((a, x, i) => a + parseFloat(x) * [3600, 60, 1][i], 0));
-const mA = r('07-audio/music/packet-trail-a.mp3'), mB = r('07-audio/music/packet-trail-b.mp3');
-const hasMusic = fs.existsSync(mA) && fs.existsSync(mB);
+const mdir = r('07-audio/music');
+const tracks = fs.existsSync(mdir) ? fs.readdirSync(mdir).filter((f) => f.endsWith('.mp3')).sort().map((f) => path.join(mdir, f)) : [];
+const [mA, mB = tracks[0]] = tracks;
+const hasMusic = tracks.length > 0;
 const inputs = ['-i', r('07-audio/voice.wav'), '-i', r('07-audio/sfx.wav')];
 let graph = `[0:a]${voiceNorm},aresample=48000,asplit=2[v][vkey];[1:a]volume=${SFX_GAIN_DB}dB,aresample=48000[s];`;
 if (hasMusic) {

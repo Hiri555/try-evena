@@ -99,7 +99,11 @@ export function makeJuice(T, J, { assetBase }) {
       const op = inK * (1 - outK);
       const zoom = 1.04 + 0.1 * k + 0.25 * outK;
       let s = `<rect width="1920" height="1080" fill="#05070D"/>`;
-      if (b.img) {
+      const seqHref = b.seq ? `${assetBase}/${b.seq}/f${String(1 + (Math.floor((t - b.t0) * 30) % b.seqN)).padStart(3, '0')}.jpg` : null;
+      if (seqHref) {
+        s += K.g(`<image href="${seqHref}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/>`, { s: 1.02 + 0.2 * outK, ox: 960, oy: 540 });
+        s += `<defs><linearGradient id="seqShade" x1="0" x2="0" y1="0" y2="1"><stop offset="0.35" stop-color="#05070D" stop-opacity="0"/><stop offset="1" stop-color="#05070D" stop-opacity="0.9"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#seqShade)"/>`;
+      } else if (b.img) {
         s += K.g(`<image href="${assetBase}/${b.img}" x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/>`, { s: zoom, ox: 1300, oy: 540, x: 480 - 140 * k });
         s += `<defs><linearGradient id="bumpShade" x1="0" x2="1"><stop offset="0" stop-color="#05070D" stop-opacity="0.97"/><stop offset="0.42" stop-color="#05070D" stop-opacity="0.75"/><stop offset="0.75" stop-color="#05070D" stop-opacity="0.05"/></linearGradient></defs><rect width="1920" height="1080" fill="url(#bumpShade)"/>`;
       } else {
@@ -108,6 +112,15 @@ export function makeJuice(T, J, { assetBase }) {
       const line = P(t, b.t0 + 0.12, 0.5);
       const tx = 150 - 40 * (1 - P(t, b.t0 + 0.1, 0.45));
       s += `<rect x="150" y="470" width="${520 * line}" height="6" rx="3" fill="${b.color}"/>`;
+      if (!b.num) {
+        // title card: big centred title over the video
+        const words = b.title.split(' ');
+        const half = Math.ceil(words.length / 2);
+        [words.slice(0, half).join(' '), words.slice(half).join(' ')].forEach((ln, i) => {
+          s += K.g(K.text(960, 820 + i * 100, ln, { size: 88, weight: 800, fill: i ? '#FACC15' : '#FFFFFF', ls: 2 }), { opacity: P(t, b.t0 + 0.25 + i * 0.18, 0.3), s: 1.1 - 0.1 * P(t, b.t0 + 0.25 + i * 0.18, 0.4), ox: 960, oy: 800 + i * 100 });
+        });
+        return K.g(s, { opacity: op });
+      }
       s += K.g(K.text(tx, 440, `CHAPITRE ${b.num}`, { size: 30, weight: 700, font: C.mono, fill: b.color, anchor: 'start', ls: 8 }), { opacity: P(t, b.t0 + 0.08, 0.3) });
       s += K.g(K.text(tx, 580, b.title, { size: b.title.length > 16 ? 76 : 96, weight: 800, anchor: 'start', fill: '#FFFFFF', ls: 2 }), { opacity: P(t, b.t0 + 0.18, 0.3), s: 1.08 - 0.08 * P(t, b.t0 + 0.18, 0.35), ox: 150, oy: 560 });
       return K.g(s, { opacity: op });

@@ -31,7 +31,7 @@ export function parseScript(md) {
   const sections = [];
   let cur = null;
   for (const line of md.split('\n')) {
-    const h = line.match(/^## (S\d+) · (.+?) — /);
+    const h = line.match(/^## (S\d+) · (.+?)(?: — |$)/);
     if (h) { cur = { id: h[1], title: h[2], lines: [] }; sections.push(cur); continue; }
     const f = line.match(/^`audio\/([\w-]+)\.mp3`/);
     if (f && cur) cur.file = f[1];

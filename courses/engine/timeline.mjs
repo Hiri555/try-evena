@@ -76,7 +76,7 @@ for (const s of sections) {
   sectionsOut.push({ id: s.section, file: s.file, start: +cursor.toFixed(3), end: +(cursor + dur + inserted).toFixed(3) });
   cursor += dur + inserted;
   const nextSec = sections[sections.indexOf(s) + 1];
-  const gap = !nextSec ? cfg.tail : bumperSections.has(nextSec.section) ? (cfg.bumper_gap ?? cfg.section_gap) : cfg.section_gap;
+  const gap = !nextSec ? cfg.tail : bumperSections.has(nextSec.section) ? ((cfg.bumper_gaps || {})[nextSec.section] ?? cfg.bumper_gap ?? cfg.section_gap) : cfg.section_gap;
   chunks.push(new Int16Array(Math.round(gap * SR)));
   cursor += gap;
 }
@@ -107,8 +107,8 @@ const warnings = [];
 for (const sc of board.scenes) {
   const list = inSec(secOf(sc.scene_id));
   const prev = scenes.filter((x) => secOf(x.id) === secOf(sc.scene_id)).at(-1);
-  const from = prev ? prev.firstLocal : 0;
-  const first3 = sc.start_sentence.split(/\s+/).slice(0, 3).join(' ');
+  const from = prev ? prev.firstLocal + 1 : 0;
+  const first3 = sc.start_sentence.split(/\s+/).slice(0, 5).join(' ');
   let idx = findSeq(list, first3, from);
   if (idx < 0) { warnings.push(`scene ${sc.scene_id}: start "${first3}" not found`); idx = from; }
   scenes.push({ id: sc.scene_id, section: sc.section, firstLocal: idx, start: list[idx].start });

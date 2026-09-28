@@ -20,7 +20,11 @@ const DISPLAY = [
   ['A-A', 'AA:AA'], ['B-B', 'BB:BB'], ['C-C', 'CC:CC'], ['D-D', 'DD:DD'],
   ['port un', 'port 1'], ['port deux', 'port 2'], ['port trois', 'port 3'], ['Port deux', 'Port 2'],
   ['quarante-huit bits', '48 bits'], ['quatre octets', '4 octets'], ['Cinq ports', '5 ports'],
-  ['cinquante', '50'], ['Question un', 'Question 1'], ['Question deux', 'Question 2'], ['Question trois', 'Question 3'],
+  ['cinquante', '50'], ['R-S-T-P', 'RSTP'], ['S-T-P', 'STP'], ['B-P-D-U', 'BPDU'], ['PC A', 'PC-A'],
+  ['du switch un', 'du SW1'], ['du switch deux', 'du SW2'], ['du switch trois', 'du SW3'], ['le switch deux', 'SW2'], ['Le switch deux', 'SW2'], ['le switch un', 'SW1'], ['switch B', 'SW-B'], ['switch A', 'SW-A'], ['coût quatre', 'coût 4'], ['contre huit', 'contre 8'],
+  ['le switch trois', 'SW3'], ['Le switch trois', 'SW3'], ['le trois', 'SW3'], ['le deux', 'SW2'], ['le un', 'SW1'],
+  ['Trente-deux mille sept cent soixante-neuf', '32769'], ['vingt-huit mille six cent soixante-treize', '28673'],
+  ['dix-neuf', '19'], ['vingt-trois', '23'], ['cinquante secondes', '50 secondes'], ['Question un', 'Question 1'], ['Question deux', 'Question 2'], ['Question trois', 'Question 3'],
 ];
 const KEYWORDS = /^(source|destination|flooding|broadcast|VLAN|trunk|tag|802\.1Q|apprend|apprentissage|décide|inonde|routeur)$/i;
 
@@ -31,7 +35,7 @@ for (const f of fs.readdirSync(path.join(dir, '07-audio/alignment')).filter((x) 
   const al = JSON.parse(fs.readFileSync(path.join(dir, '07-audio/alignment', f), 'utf8'));
   const ws = words.filter((w) => w.section === al.section);
   let k = -1;
-  for (const tok of al.text.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean)) {
+  for (const tok of al.text.replace(/<[^>]+>|\[[^\]]+\]/g, ' ').split(/\s+/).filter(Boolean)) {
     if (/[\p{L}\p{N}]/u.test(tok)) { k++; if (ws[k]) ws[k].w = tok; } else if (ws[k]) ws[k].w += `\u00A0${tok}`;
   }
 }

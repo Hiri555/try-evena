@@ -1,0 +1,718 @@
+1
+00:00:00,436 --> 00:00:01,760
+Une seule trame.
+
+2
+00:00:01,800 --> 00:00:03,750
+Un seul petit broadcast.
+
+3
+00:00:05,207 --> 00:00:06,610
+Et regarde ce qu'elle devient.
+
+4
+00:00:11,025 --> 00:00:13,310
+Une seule trame vient de déclencher ça.
+
+5
+00:00:14,327 --> 00:00:18,810
+Et contrairement à un paquet IP,
+une trame Ethernet n'a pas de TTL.
+
+6
+00:00:18,920 --> 00:00:20,550
+Rien ne la fait mourir.
+
+7
+00:00:21,444 --> 00:00:24,030
+Elle tourne… pour toujours.
+
+8
+00:00:26,880 --> 00:00:28,153
+Rembobinons.
+
+9
+00:00:28,193 --> 00:00:30,107
+PC-A envoie un broadcast.
+
+10
+00:00:30,147 --> 00:00:32,693
+SW2 fait exactement ce
+qu'on lui a appris :
+
+11
+00:00:32,733 --> 00:00:33,930
+il l'inonde.
+
+12
+00:00:33,970 --> 00:00:35,600
+Une copie vers SW1.
+
+13
+00:00:35,640 --> 00:00:37,860
+Une copie vers SW3.
+
+14
+00:00:37,900 --> 00:00:41,488
+SW1 reçoit sa copie…
+et l'inonde à son tour,
+
+15
+00:00:41,528 --> 00:00:42,870
+vers SW3.
+
+16
+00:00:42,980 --> 00:00:46,050
+SW3 fait pareil, vers SW1.
+
+17
+00:00:46,160 --> 00:00:48,030
+Et les deux copies reviennent.
+
+18
+00:00:48,100 --> 00:00:49,200
+Puis repartent.
+
+19
+00:00:49,240 --> 00:00:50,710
+Dans les deux sens.
+
+20
+00:00:51,748 --> 00:00:52,748
+Sans fin.
+
+21
+00:00:53,560 --> 00:00:56,820
+À chaque tour, chaque PC en
+reçoit une nouvelle copie.
+
+22
+00:00:56,860 --> 00:01:00,010
+À un gigabit, un tour prend
+quelques microsecondes.
+
+23
+00:01:00,060 --> 00:01:03,490
+Des dizaines de milliers
+de copies… par seconde.
+
+24
+00:01:04,073 --> 00:01:06,960
+Et chaque nouveau
+broadcast, une requête ARP,
+
+25
+00:01:07,000 --> 00:01:10,440
+une demande DHCP, vient
+s'ajouter à la tempête.
+
+26
+00:01:10,480 --> 00:01:12,440
+Les liens saturent.
+
+27
+00:01:12,480 --> 00:01:13,770
+Les processeurs aussi.
+
+28
+00:01:14,510 --> 00:01:17,190
+Pire : regarde la table MAC du SW1.
+
+29
+00:01:17,247 --> 00:01:21,310
+La même adresse source arrive tantôt
+par un port… tantôt par l'autre.
+
+30
+00:01:21,393 --> 00:01:24,133
+Le switch réécrit sa table sans arrêt.
+
+31
+00:01:24,173 --> 00:01:26,550
+Il ne sait plus où se trouve PC-A.
+
+32
+00:01:26,720 --> 00:01:28,690
+Trois symptômes.
+
+33
+00:01:28,730 --> 00:01:30,830
+Une seule cause : une boucle.
+
+34
+00:01:31,080 --> 00:01:34,247
+Imagine trois ronds-points
+reliés en triangle.
+
+35
+00:01:34,287 --> 00:01:36,536
+Et une voiture sans destination.
+
+36
+00:01:36,576 --> 00:01:37,576
+Elle tourne.
+
+37
+00:01:37,633 --> 00:01:38,890
+Et tourne.
+
+38
+00:01:39,827 --> 00:01:40,827
+Et ne sort jamais.
+
+39
+00:01:42,228 --> 00:01:46,450
+Dans le vrai réseau, il n'y
+a pas de conducteur fatigué :
+
+40
+00:01:46,633 --> 00:01:50,428
+aucun compteur n'arrête la trame, et
+le switch ne se souvient pas de l'avoir
+
+41
+00:01:50,468 --> 00:01:51,460
+déjà vue.
+
+42
+00:01:51,500 --> 00:01:53,130
+Alors, on retire un câble ?
+
+43
+00:01:54,264 --> 00:01:55,177
+Mauvaise idée.
+
+44
+00:01:55,217 --> 00:01:57,274
+Ce câble, c'est ton plan B.
+
+45
+00:01:57,357 --> 00:02:00,374
+Le jour où un autre
+lien casse, tu es coupé.
+
+46
+00:02:00,564 --> 00:02:05,104
+La vraie solution : garder tous
+les câbles… mais en désactiver un,
+
+47
+00:02:05,144 --> 00:02:06,144
+logiquement.
+
+48
+00:02:06,204 --> 00:02:09,034
+C'est le travail du
+Spanning Tree Protocol.
+
+49
+00:02:09,104 --> 00:02:10,444
+STP.
+
+50
+00:02:10,484 --> 00:02:12,594
+Son plan tient en quatre étapes :
+
+51
+00:02:13,017 --> 00:02:14,168
+élire un chef.
+
+52
+00:02:14,208 --> 00:02:16,334
+Trouver le meilleur chemin vers lui.
+
+53
+00:02:16,444 --> 00:02:18,554
+Choisir un port par câble.
+
+54
+00:02:18,611 --> 00:02:20,294
+Et bloquer le reste.
+
+55
+00:02:22,040 --> 00:02:25,590
+Étape un : l'élection
+du chef, le Root Bridge.
+
+56
+00:02:25,680 --> 00:02:28,260
+Les switches s'envoient
+des messages de contrôle,
+
+57
+00:02:28,300 --> 00:02:30,050
+des BPDU.
+
+58
+00:02:30,133 --> 00:02:33,550
+Chacun y annonce son
+identifiant : le Bridge ID.
+
+59
+00:02:33,660 --> 00:02:39,650
+Un Bridge ID, c'est deux choses : une
+priorité… et l'adresse MAC du switch.
+
+60
+00:02:39,690 --> 00:02:41,827
+Premier round : la priorité.
+
+61
+00:02:41,867 --> 00:02:43,310
+Le plus petit gagne.
+
+62
+00:02:44,587 --> 00:02:47,850
+32769 partout : la valeur par défaut.
+
+63
+00:02:48,000 --> 00:02:49,110
+Égalité.
+
+64
+00:02:49,900 --> 00:02:53,210
+Deuxième round, le
+départage : l'adresse MAC.
+
+65
+00:02:53,267 --> 00:02:55,030
+La plus petite l'emporte.
+
+66
+00:02:55,687 --> 00:02:57,500
+SW1 reçoit la couronne.
+
+67
+00:02:57,540 --> 00:02:59,150
+C'est lui, le Root Bridge.
+
+68
+00:02:59,980 --> 00:03:03,930
+Retiens-le : dans STP, c'est
+toujours le plus petit qui gagne.
+
+69
+00:03:04,040 --> 00:03:08,470
+Et si tu veux choisir ton chef toi-même,
+il suffit de baisser sa priorité.
+
+70
+00:03:10,220 --> 00:03:11,067
+Étape deux.
+
+71
+00:03:11,107 --> 00:03:15,180
+Chaque switch qui n'est pas root cherche
+son meilleur chemin vers la couronne.
+
+72
+00:03:15,220 --> 00:03:17,970
+Mais « meilleur » ne veut
+pas dire « le plus court ».
+
+73
+00:03:18,207 --> 00:03:20,876
+Chaque lien a un coût :
+un gigabit coûte quatre,
+
+74
+00:03:20,916 --> 00:03:22,850
+cent mégabits coûtent 19.
+
+75
+00:03:22,960 --> 00:03:24,820
+SW3 d'abord.
+
+76
+00:03:24,860 --> 00:03:26,400
+Chemin direct : quatre.
+
+77
+00:03:26,440 --> 00:03:30,007
+Détour par SW2 : quatre plus 19, 23.
+
+78
+00:03:30,047 --> 00:03:31,320
+Le direct gagne.
+
+79
+00:03:31,360 --> 00:03:33,970
+Ce port devient son Root Port.
+
+80
+00:03:34,027 --> 00:03:35,711
+SW2, maintenant.
+
+81
+00:03:35,751 --> 00:03:38,680
+Direct vers le root…
+mais c'est le lien lent :
+
+82
+00:03:38,720 --> 00:03:39,520
+19.
+
+83
+00:03:39,560 --> 00:03:43,230
+Par SW3 : quatre, plus quatre… huit.
+
+84
+00:03:43,953 --> 00:03:45,530
+Surprise : c'est le détour qui gagne !
+
+85
+00:03:46,247 --> 00:03:49,627
+Un Root Port, c'est le port au
+coût le plus faible vers le root.
+
+86
+00:03:49,667 --> 00:03:51,190
+Un seul par switch.
+
+87
+00:03:52,940 --> 00:03:53,867
+Étape trois.
+
+88
+00:03:53,907 --> 00:03:56,220
+On regarde chaque câble, un par un.
+
+89
+00:03:56,260 --> 00:03:59,367
+Sur chaque câble, un seul port
+a le droit de transmettre :
+
+90
+00:03:59,407 --> 00:04:00,610
+le port désigné.
+
+91
+00:04:00,760 --> 00:04:03,540
+Câble entre SW1 et SW3.
+
+92
+00:04:03,580 --> 00:04:05,290
+D'un côté, le root.
+
+93
+00:04:05,440 --> 00:04:07,260
+Tous les ports du root sont désignés.
+
+94
+00:04:07,300 --> 00:04:08,300
+Facile.
+
+95
+00:04:08,520 --> 00:04:11,470
+Câble entre SW1 et SW2 : même chose.
+
+96
+00:04:11,700 --> 00:04:14,410
+Dernier câble, entre SW2 et SW3.
+
+97
+00:04:14,480 --> 00:04:16,470
+Qui est le plus proche du root ?
+
+98
+00:04:16,707 --> 00:04:18,967
+SW3, à quatre.
+
+99
+00:04:19,007 --> 00:04:21,010
+SW2 est à huit.
+
+100
+00:04:21,173 --> 00:04:23,870
+Le port du SW3 devient désigné.
+
+101
+00:04:25,827 --> 00:04:26,733
+En cas d'égalité ?
+
+102
+00:04:26,773 --> 00:04:29,140
+On départage au Bridge ID.
+
+103
+00:04:29,180 --> 00:04:30,730
+Le plus petit, toujours.
+
+104
+00:04:32,480 --> 00:04:33,407
+Étape quatre.
+
+105
+00:04:33,447 --> 00:04:35,980
+Il reste un port qui n'est
+ni root, ni désigné :
+
+106
+00:04:36,020 --> 00:04:38,650
+celui du SW2, sur le lien lent.
+
+107
+00:04:38,760 --> 00:04:41,110
+Ce port-là, STP le bloque.
+
+108
+00:04:41,762 --> 00:04:43,480
+Le câble existe toujours.
+
+109
+00:04:43,520 --> 00:04:46,830
+STP a simplement retiré ce
+chemin de la topologie active.
+
+110
+00:04:47,740 --> 00:04:52,040
+Un port bloqué ne transmet aucune trame
+de données… mais il écoute toujours les
+
+111
+00:04:52,080 --> 00:04:53,020
+BPDU.
+
+112
+00:04:53,060 --> 00:04:54,850
+Il reste en veille.
+
+113
+00:04:54,890 --> 00:04:56,767
+Relançons le même broadcast.
+
+114
+00:04:56,807 --> 00:04:59,553
+Chaque PC le reçoit… une seule fois.
+
+115
+00:04:59,593 --> 00:05:00,930
+Et il s'arrête.
+
+116
+00:05:01,827 --> 00:05:03,140
+La boucle a disparu.
+
+117
+00:05:03,180 --> 00:05:04,730
+L'arbre est formé.
+
+118
+00:05:06,480 --> 00:05:08,350
+Et maintenant, le vrai test.
+
+119
+00:05:08,919 --> 00:05:12,096
+Le lien entre SW2 et SW3 casse.
+
+120
+00:05:13,033 --> 00:05:15,773
+SW2 perd son Root Port.
+
+121
+00:05:15,813 --> 00:05:17,256
+Il est coupé du root ?
+
+122
+00:05:17,366 --> 00:05:18,019
+Non.
+
+123
+00:05:18,059 --> 00:05:20,053
+Le port bloqué se réveille.
+
+124
+00:05:20,093 --> 00:05:23,056
+Il devient le nouveau Root
+Port, et le trafic repasse.
+
+125
+00:05:23,654 --> 00:05:27,978
+Avec le STP d'origine, cette bascule
+peut prendre jusqu'à 50 secondes.
+
+126
+00:05:28,018 --> 00:05:32,853
+Avec sa version rapide, le RSTP, ce
+port était déjà prévu comme remplaçant :
+
+127
+00:05:32,893 --> 00:05:34,806
+on l'appelle le port Alternate.
+
+128
+00:05:34,846 --> 00:05:37,196
+La bascule est quasi instantanée.
+
+129
+00:05:37,359 --> 00:05:40,546
+Voilà l'idée clé : la
+redondance, c'est bien.
+
+130
+00:05:40,586 --> 00:05:42,996
+Une boucle active, c'est la catastrophe.
+
+131
+00:05:43,186 --> 00:05:46,076
+STP te donne l'une… sans l'autre.
+
+132
+00:05:47,820 --> 00:05:48,667
+Dernier cas.
+
+133
+00:05:48,707 --> 00:05:50,507
+Tu veux plus de bande
+passante entre deux switches :
+
+134
+00:05:50,547 --> 00:05:51,884
+tu branches quatre câbles.
+
+135
+00:05:51,924 --> 00:05:55,300
+Pour STP, quatre câbles
+parallèles… ce sont des boucles.
+
+136
+00:05:55,340 --> 00:05:56,570
+Il en bloque trois.
+
+137
+00:05:56,627 --> 00:05:59,430
+Tu as payé quatre liens,
+tu en utilises un.
+
+138
+00:05:59,987 --> 00:06:02,113
+La solution : l'EtherChannel.
+
+139
+00:06:02,153 --> 00:06:05,073
+On regroupe les quatre liens
+en un seul lien logique :
+
+140
+00:06:05,113 --> 00:06:06,630
+un Port-Channel.
+
+141
+00:06:06,670 --> 00:06:10,153
+Comme les quatre voies d'une autoroute :
+une seule route… mais le trafic se
+
+142
+00:06:10,193 --> 00:06:11,920
+répartit sur toutes les voies.
+
+143
+00:06:11,960 --> 00:06:13,900
+STP ne voit plus qu'un seul lien.
+
+144
+00:06:13,940 --> 00:06:15,180
+Plus rien à bloquer.
+
+145
+00:06:15,220 --> 00:06:16,750
+Les quatre câbles travaillent.
+
+146
+00:06:18,500 --> 00:06:19,390
+À toi de jouer.
+
+147
+00:06:19,430 --> 00:06:21,780
+Trois switches, tous reliés à un gigabit.
+
+148
+00:06:21,820 --> 00:06:23,111
+Voici leurs Bridge ID.
+
+149
+00:06:23,151 --> 00:06:25,430
+Question 1 : qui est le Root Bridge ?
+
+150
+00:06:31,773 --> 00:06:32,780
+Le SW-B.
+
+151
+00:06:32,820 --> 00:06:36,413
+Sa priorité est plus basse : 28673.
+
+152
+00:06:36,453 --> 00:06:38,580
+Sa MAC n'a même pas
+besoin d'être comparée.
+
+153
+00:06:38,620 --> 00:06:41,690
+Question 2 : quel est
+le Root Port du SW-A ?
+
+154
+00:06:45,340 --> 00:06:50,391
+Son port direct vers B :
+coût 4, contre 8 par le détour.
+
+155
+00:06:50,431 --> 00:06:52,790
+Question 3 : quel port est bloqué ?
+
+156
+00:06:55,908 --> 00:06:57,748
+Regarde le câble entre A et C.
+
+157
+00:06:57,788 --> 00:07:00,315
+Les deux sont à quatre du root : égalité.
+
+158
+00:07:00,355 --> 00:07:04,935
+On départage au Bridge ID : même priorité,
+mais la MAC de C est plus petite.
+
+159
+00:07:04,975 --> 00:07:09,438
+Le port de C est désigné…
+et celui de A est bloqué.
+
+160
+00:07:09,680 --> 00:07:10,850
+Récapitulons.
+
+161
+00:07:10,890 --> 00:07:14,730
+Une boucle, c'est une tempête de broadcasts
+et une table MAC qui devient folle.
+
+162
+00:07:14,960 --> 00:07:18,470
+STP élit un Root Bridge :
+le plus petit Bridge ID.
+
+163
+00:07:18,580 --> 00:07:21,810
+Chaque switch garde un Root
+Port : le coût le plus bas.
+
+164
+00:07:21,947 --> 00:07:24,324
+Chaque câble, un port désigné.
+
+165
+00:07:24,364 --> 00:07:27,830
+Tout le reste est bloqué…
+mais prêt à servir.
+
+166
+00:07:27,913 --> 00:07:31,010
+Et l'EtherChannel fait de
+plusieurs câbles un seul lien.
+
+167
+00:07:32,201 --> 00:07:35,771
+Prochain épisode : on quitte le
+switch… pour entrer dans le routeur.

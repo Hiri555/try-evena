@@ -1,0 +1,131 @@
+{
+  "lead_in": 0.3,
+  "section_gap": 0.6,
+  "sentence_gap": 0.22,
+  "tail": 5.0,
+  "bumper_gap": 2.1,
+  "bumper_gaps": {
+    "S02": 3.2
+  },
+  "holds": [
+    {
+      "section": "S01",
+      "after": "devient",
+      "dur": 3.2
+    },
+    {
+      "section": "S01",
+      "after": "ça",
+      "dur": 0.8
+    },
+    {
+      "section": "S02",
+      "after": "fin",
+      "dur": 0.8
+    },
+    {
+      "section": "S02",
+      "after": "seconde",
+      "dur": 0.5
+    },
+    {
+      "section": "S02",
+      "after": "boucle",
+      "dur": 0.6
+    },
+    {
+      "section": "S03",
+      "after": "jamais",
+      "dur": 1.2
+    },
+    {
+      "section": "S05",
+      "after": "Égalité",
+      "dur": 0.6
+    },
+    {
+      "section": "S05",
+      "after": "Bridge",
+      "n": 4,
+      "dur": 0.8
+    },
+    {
+      "section": "S06",
+      "after": "Port",
+      "n": 1,
+      "dur": 0.5
+    },
+    {
+      "section": "S06",
+      "after": "gagne",
+      "n": 2,
+      "dur": 0.8
+    },
+    {
+      "section": "S07",
+      "after": "désigné",
+      "n": 2,
+      "dur": 0.5
+    },
+    {
+      "section": "S08",
+      "after": "active",
+      "dur": 0.8
+    },
+    {
+      "section": "S08",
+      "after": "formé",
+      "dur": 0.8
+    },
+    {
+      "section": "S09",
+      "after": "casse",
+      "dur": 0.8
+    },
+    {
+      "section": "S09",
+      "after": "repasse",
+      "dur": 0.6
+    },
+    {
+      "section": "S09",
+      "after": "l'autre",
+      "dur": 0.8
+    },
+    {
+      "section": "S10",
+      "after": "un",
+      "n": 1,
+      "dur": 0.5
+    },
+    {
+      "section": "S10",
+      "after": "travaillent",
+      "dur": 0.8
+    },
+    {
+      "section": "S11",
+      "after": "Bridge",
+      "n": 2,
+      "dur": 1.6
+    },
+    {
+      "section": "S11",
+      "after": "A",
+      "n": 1,
+      "dur": 1.6
+    },
+    {
+      "section": "S11",
+      "after": "bloqué",
+      "n": 1,
+      "dur": 1.6
+    },
+    {
+      "section": "S11",
+      "after": "bloqué",
+      "n": 2,
+      "dur": 0.8
+    }
+  ]
+}

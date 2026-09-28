@@ -1,0 +1,447 @@
+{
+ "note": "Bruitages secondaires : la voix reste prioritaire. gain en dB relatif (appliqué avant le mix, la piste SFX entière est ensuite placée ~18 dB sous la voix).",
+ "library": {
+  "whoosh": {
+   "prompt": "soft short digital whoosh, clean UI swoosh, subtle, no reverb",
+   "duration": 0.6
+  },
+  "tick": {
+   "prompt": "soft digital UI tick, clean single click, very short",
+   "duration": 0.5
+  },
+  "click": {
+   "prompt": "small network switch port click, tiny mechanical click, clean",
+   "duration": 0.5
+  },
+  "miss": {
+   "prompt": "soft low error beep, gentle UI denial tone, short",
+   "duration": 0.6
+  },
+  "pulse": {
+   "prompt": "soft warning pulse, gentle sonar ping, clean electronic",
+   "duration": 1.2
+  },
+  "clip": {
+   "prompt": "small plastic clip snapping into place, subtle, clean",
+   "duration": 0.5
+  },
+  "success": {
+   "prompt": "gentle positive UI chime, short confirmation, soft",
+   "duration": 0.8
+  },
+  "pop": {
+   "prompt": "tiny soft digital bubble pop, subtle",
+   "duration": 0.5
+  },
+  "typing": {
+   "prompt": "quiet mechanical keyboard typing, short burst, close",
+   "duration": 1.6
+  },
+  "buzz": {
+   "prompt": "short soft low buzzer, wrong answer, gentle",
+   "duration": 0.6
+  },
+  "clock": {
+   "prompt": "soft clock ticking, quiet quiz countdown, steady",
+   "duration": 2.0
+  },
+  "riser": {
+   "prompt": "short cinematic riser, rising synth whoosh building tension, clean, ends abruptly",
+   "duration": 1.6
+  },
+  "impact": {
+   "prompt": "punchy cinematic impact hit with deep boom and short tail, modern trailer style",
+   "duration": 1.2
+  },
+  "whip": {
+   "prompt": "fast whip pan swoosh transition, airy, clean",
+   "duration": 0.5
+  },
+  "sub": {
+   "prompt": "deep sub bass drop hit, short, clean, powerful",
+   "duration": 0.8
+  },
+  "glitch": {
+   "prompt": "short digital glitch error sound, data corruption stutter",
+   "duration": 0.5
+  },
+  "hit": {
+   "prompt": "short punchy percussive hit with snap, modern motion graphics text slam",
+   "duration": 0.5
+  }
+ },
+ "cues": [
+  [
+   "S01.1",
+   "trame",
+   "whoosh",
+   0,
+   -4
+  ],
+  [
+   "S01.1",
+   "broadcast",
+   "pulse",
+   0,
+   -6
+  ],
+  [
+   "S01.2",
+   "devient",
+   "riser",
+   0,
+   -4
+  ],
+  [
+   "S01.2",
+   "devient",
+   "glitch",
+   1.5,
+   -8
+  ],
+  [
+   "S01.3",
+   "ça",
+   "impact",
+   0,
+   -3
+  ],
+  [
+   "S01.3",
+   "TTL",
+   "buzz",
+   0.2,
+   -6
+  ],
+  [
+   "S02.1",
+   "l'inonde",
+   "whoosh",
+   0,
+   -5
+  ],
+  [
+   "S02.2",
+   "reviennent",
+   "whoosh",
+   0,
+   -5
+  ],
+  [
+   "S02.3",
+   "ARP",
+   "pop",
+   0,
+   -7
+  ],
+  [
+   "S02.3",
+   "saturent",
+   "pulse",
+   0,
+   -6
+  ],
+  [
+   "S02.4",
+   "table",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S02.4",
+   "réécrit",
+   "glitch",
+   0,
+   -7
+  ],
+  [
+   "S02.4",
+   "boucle",
+   "impact",
+   0,
+   -4
+  ],
+  [
+   "S04.1",
+   "retire",
+   "clip",
+   0,
+   -4
+  ],
+  [
+   "S04.1",
+   "casse",
+   "hit",
+   0,
+   -4
+  ],
+  [
+   "S04.2",
+   "chef",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S04.2",
+   "chemin",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S04.2",
+   "câble",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S04.2",
+   "bloquer",
+   "tick",
+   0,
+   -6
+  ],
+  [
+   "S05.1",
+   "B-P-D-U",
+   "whoosh",
+   0,
+   -6
+  ],
+  [
+   "S05.2",
+   "Égalité",
+   "buzz",
+   0,
+   -6
+  ],
+  [
+   "S05.3",
+   "couronne",
+   "impact",
+   0,
+   -3
+  ],
+  [
+   "S05.3",
+   "couronne",
+   "success",
+   0.4,
+   -5
+  ],
+  [
+   "S05.3",
+   "priorité",
+   "typing",
+   0,
+   -8
+  ],
+  [
+   "S06.2",
+   "gagne",
+   "success",
+   0,
+   -6
+  ],
+  [
+   "S06.3",
+   "Surprise",
+   "hit",
+   0,
+   -4
+  ],
+  [
+   "S06.3",
+   "faible",
+   "click",
+   0,
+   -5
+  ],
+  [
+   "S07.1",
+   "désignés",
+   "click",
+   0,
+   -5
+  ],
+  [
+   "S07.1",
+   "chose",
+   "click",
+   0,
+   -5
+  ],
+  [
+   "S07.2",
+   "désigné",
+   "success",
+   0,
+   -6
+  ],
+  [
+   "S08.1",
+   "bloque",
+   "clip",
+   0,
+   -3
+  ],
+  [
+   "S08.1",
+   "bloque",
+   "sub",
+   0,
+   -5
+  ],
+  [
+   "S08.2",
+   "Relançons",
+   "whoosh",
+   0,
+   -5
+  ],
+  [
+   "S08.2",
+   "L'arbre",
+   "success",
+   0,
+   -4
+  ],
+  [
+   "S09.1",
+   "casse",
+   "hit",
+   0,
+   -3
+  ],
+  [
+   "S09.1",
+   "casse",
+   "glitch",
+   0.1,
+   -7
+  ],
+  [
+   "S09.1",
+   "Non",
+   "clip",
+   0,
+   -4
+  ],
+  [
+   "S09.2",
+   "cinquante",
+   "clock",
+   0,
+   -7
+  ],
+  [
+   "S09.2",
+   "instantanée",
+   "success",
+   0,
+   -5
+  ],
+  [
+   "S10.1",
+   "trois",
+   "clip",
+   0,
+   -6
+  ],
+  [
+   "S10.2",
+   "l'EtherChannel",
+   "riser",
+   -1.2,
+   -6
+  ],
+  [
+   "S10.2",
+   "l'EtherChannel",
+   "impact",
+   0.3,
+   -4
+  ],
+  [
+   "S10.2",
+   "travaillent",
+   "success",
+   0,
+   -5
+  ],
+  [
+   "S11.1",
+   "Root",
+   "clock",
+   0.3,
+   -9
+  ],
+  [
+   "S11.1",
+   "switch B",
+   "success",
+   0,
+   -5
+  ],
+  [
+   "S11.2",
+   "direct",
+   "success",
+   0,
+   -5
+  ],
+  [
+   "S11.3",
+   "désigné",
+   "clip",
+   0,
+   -4
+  ],
+  [
+   "S12.2",
+   "routeur",
+   "riser",
+   -0.8,
+   -5
+  ],
+  [
+   "S12.2",
+   "routeur",
+   "impact",
+   0.4,
+   -4
+  ]
+ ],
+ "auto": {
+  "bumper_riser_db": -7,
+  "bumper_impact_db": -4,
+  "bumper_out_whip_db": -6,
+  "slam_db": -7,
+  "shake_sub_db": -5,
+  "transitions": [
+   [
+    "S02.1",
+    -5
+   ],
+   [
+    "S03.1",
+    -5
+   ],
+   [
+    "S03.2",
+    -5
+   ],
+   [
+    "S12.1",
+    -4
+   ],
+   [
+    "S12.2",
+    -3
+   ]
+  ]
+ }
+}

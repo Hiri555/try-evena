@@ -39,12 +39,19 @@ export function camera({ x = 960, y = 540, s = 1 } = {}, content) {
 
 export function makeTimeline(T) {
   const sceneById = Object.fromEntries(T.scenes.map((s) => [s.id, s]));
+  const key = (w) => w.toLowerCase().replace(/[«»"“”.,;:!?…()]/g, '');
   const E = (scene, anchor, nth = 1) => {
     let seen = 0;
     for (const e of T.events) if (e.scene === scene && e.anchor === anchor && ++seen === nth) return e.t;
+    // fallback: any spoken word of the scene (multi-word anchors match on their tokens in a row)
+    const toks = anchor.split(/\s+/).map(key), s = sceneById[scene];
+    const ws = s ? T.words.filter((w) => w.start >= s.start - 0.01 && w.start < s.end) : [];
+    seen = 0;
+    for (let i = 0; i + toks.length <= ws.length; i++) {
+      if (toks.every((tk, j) => (j === toks.length - 1 ? key(ws[i + j].w).startsWith(tk) : key(ws[i + j].w) === tk)) && ++seen === nth) return ws[i].start;
+    }
     throw new Error(`event ${scene}/${anchor} missing`);
   };
-  const key = (w) => w.toLowerCase().replace(/[«»"“”.,;:!?…()]/g, '');
   // time of the n-th spoken word inside a scene (for beats the storyboard does not anchor)
   const Wd = (scene, word, nth = 1) => {
     const s = sceneById[scene];
