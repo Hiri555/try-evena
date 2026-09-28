@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SF03 · Trunk 802.1Q</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<!-- SF03 · scène S10.1 · instant : « un champ de quatre octets, inséré… juste après l'adresse source » -->
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="subtitle">Ce n'est pas un autocollant. C'est un <em>champ</em> de quatre octets, inséré juste après l'adresse source.</div>
+</div>
+<script type="module">
+import * as K from '/engine/components.js';
+const { C } = K;
+const V10 = C.vlan[10], V20 = C.vlan[20];
+document.documentElement.style.setProperty('--subtitle-accent', V10);
+
+const sw1 = K.switchDevice({
+  x: 390, y: 520, w: 250, h: 200, label: 'SW1',
+  ports: {
+    left: [{ name: 'a', vlan: 10, led: 'blue', showName: false }, { name: 'b', vlan: 20, showName: false }],
+    right: [{ name: 't', led: 'blue', showName: false }],
+  },
+});
+const sw2 = K.switchDevice({
+  x: 1280, y: 520, w: 250, h: 200, label: 'SW2',
+  ports: {
+    left: [{ name: 't', showName: false }],
+    right: [{ name: 'a', vlan: 10, showName: false }, { name: 'b', vlan: 20, showName: false }],
+  },
+});
+const pcA = K.pc({ x: 150, y: 520, label: 'PC-A', mac: 'AA:AA', side: 'right', zone: 10, scale: 0.9 });
+const pcC = K.pc({ x: 150, y: 790, label: 'PC-C', mac: 'CC:CC', side: 'right', zone: 20, scale: 0.9 });
+const pcB = K.pc({ x: 1770, y: 520, label: 'PC-B', mac: 'BB:BB', side: 'left', zone: 10, scale: 0.9 });
+const pcD = K.pc({ x: 1770, y: 790, label: 'PC-D', mac: 'DD:DD', side: 'left', zone: 20, scale: 0.9 });
+
+let svg = K.defs() + K.backdrop();
+svg += K.cable(pcA.anchor, sw1.port('a'), { color: V10, width: 4, opacity: 0.8 });
+svg += K.cable(pcC.anchor, sw1.port('b'), { color: V20, width: 4, opacity: 0.6 });
+svg += K.cable(sw2.port('a'), pcB.anchor, { color: V10, width: 4, opacity: 0.6 });
+svg += K.cable(sw2.port('b'), pcD.anchor, { color: V20, width: 4, opacity: 0.6 });
+svg += K.trunk(sw1.port('t'), sw2.port('t'), { vlans: [10, 20], width: 22, label: null });
+svg += K.pill((sw1.port('t').x + sw2.port('t').x) / 2 + 120, 680, 'TRUNK · VLAN 10 + 20', { color: C.text, size: 17, mono: true });
+svg += pcA.svg + pcC.svg + pcB.svg + pcD.svg + sw1.svg + sw2.svg;
+
+// Frame at the trunk entrance, tag just clipped on.
+const fr = K.frame({ x: 790, y: 620, s: 1.05, dst: 'BB:BB', src: 'AA:AA', color: V10, tag: 10 });
+svg += K.trail({ x: 648, y: 620 }, { x: 700, y: 620 }, { color: V10, width: 6 });
+svg += fr.svg;
+
+// ---- Inset: the real Ethernet header with the 802.1Q field inserted.
+const IX = 250, IY = 60, IW = 1420, IH = 410;
+svg += K.inset({ x: IX, y: IY, w: IW, h: IH, to: { x: fr.box.x + 60, y: fr.box.y - 30 }, color: V10, title: 'EN-TÊTE ETHERNET · VUE RÉELLE' });
+
+const rowY = IY + 136, rowH = 92, gap = 10;
+const fields = [
+  { k: 'DST MAC', v: 'BB:BB', w: 200, sz: '6 octets' },
+  { k: 'SRC MAC', v: 'AA:AA', w: 200, sz: '6 octets' },
+  { k: '802.1Q', v: 'VLAN 10', w: 250, sz: '4 octets', tag: true },
+  { k: 'TYPE', v: '0x0800', w: 150, sz: '2 octets', moved: true },
+  { k: 'DATA', v: '…', w: 300, moved: true },
+  { k: 'FCS', v: 'recalculé', w: 150, sz: '4 octets', moved: true, muted: true },
+];
+let fx = IX + (IW - (fields.reduce((s, f) => s + f.w, 0) + gap * (fields.length - 1))) / 2;
+const at = {};
+fields.forEach((f) => {
+  const col = f.tag ? V10 : f.muted ? C.deviceEdge : '#3A4D70';
+  svg += `<rect x="${fx}" y="${rowY}" width="${f.w}" height="${rowH}" rx="10" fill="${f.tag ? V10 : '#13203A'}" fill-opacity="${f.tag ? 0.28 : 1}" stroke="${col}" stroke-width="${f.tag ? 3 : 2}" ${f.tag ? 'filter="url(#glow)"' : ''}/>`;
+  svg += K.text(fx + f.w / 2, rowY + 30, f.k, { size: 15, weight: 800, fill: f.tag ? '#fff' : C.muted, ls: 2 });
+  svg += K.text(fx + f.w / 2, rowY + 66, f.v, { size: f.muted ? 18 : 25, weight: 700, font: C.mono, fill: f.muted ? C.muted : C.text });
+  if (f.sz) svg += K.text(fx + f.w / 2, rowY - 12, f.sz, { size: 14, weight: 600, fill: f.tag ? V10 : C.muted });
+  at[f.k] = { x: fx, w: f.w };
+  fx += f.w + gap;
+});
+
+// Shift arrows: TYPE / DATA / FCS slid right to make room.
+const shiftY = rowY + rowH + 24;
+svg += `<path d="M${at['TYPE'].x - 250} ${shiftY} H${at['FCS'].x + at['FCS'].w - 20}" stroke="${C.muted}" stroke-width="2" opacity="0.55"/>
+  <path d="M${at['FCS'].x + at['FCS'].w - 30} ${shiftY - 7} l10 7 l-10 7" fill="none" stroke="${C.muted}" stroke-width="2" opacity="0.55"/>`;
+svg += K.text(at['DATA'].x + at['DATA'].w / 2, shiftY + 26, 'les champs suivants se décalent', { size: 16, weight: 600, fill: C.muted });
+
+// Insertion marker + zoom on the tag's inner structure.
+const tq = at['802.1Q'];
+svg += `<path d="M${tq.x - 5} ${rowY - 34} v${rowH + 40}" stroke="${V10}" stroke-width="3" stroke-dasharray="4 5"/>`;
+svg += K.pill(tq.x - 5, rowY - 44, 'inséré après la MAC source', { color: V10, size: 15, anchor: 'end' });
+
+const bx = tq.x - 170, by = rowY + rowH + 58, bw = 520, bh = 46;
+svg += `<path d="M${tq.x} ${rowY + rowH} L${bx} ${by} M${tq.x + tq.w} ${rowY + rowH} L${bx + bw} ${by}" stroke="${V10}" stroke-opacity="0.5" stroke-width="2"/>`;
+const bits = [{ k: 'TPID 0x8100', w: 16 }, { k: 'PRI', w: 3 }, { k: 'DEI', w: 1 }, { k: 'VID = 10', w: 12, hi: true }];
+let bxx = bx;
+bits.forEach((b) => {
+  const w = Math.max(56, (bw * b.w) / 32);
+  const ww = b.k === 'TPID 0x8100' ? bw - 56 - 56 - (bw * 12) / 32 : w;
+  svg += `<rect x="${bxx}" y="${by}" width="${ww}" height="${bh}" rx="6" fill="${b.hi ? V10 : '#13203A'}" fill-opacity="${b.hi ? 0.9 : 1}" stroke="${b.hi ? V10 : '#3A4D70'}" stroke-width="2"/>`;
+  svg += K.text(bxx + ww / 2, by + 30, b.k, { size: b.hi ? 19 : 15, weight: b.hi ? 800 : 700, font: C.mono, fill: b.hi ? '#fff' : C.muted });
+  if (b.hi) svg += K.text(bxx + ww / 2, by + bh + 22, 'VLAN ID · 12 bits', { size: 15, weight: 700, fill: V10 });
+  bxx += ww;
+});
+
+svg += K.text(60, 40, '08 · 802.1Q', { size: 16, weight: 700, font: C.mono, fill: C.muted, anchor: 'start', ls: 2 });
+
+document.getElementById('s').innerHTML = svg;
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body>
+</html>

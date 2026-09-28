@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SF01 · Hook</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<!-- SF01 · scène S01.2 · instant : freeze sur « Pourquoi… » (~0:07) -->
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="subtitle">Pourquoi ce switch vient-il d'envoyer la même trame <em>presque partout</em>&nbsp;?</div>
+</div>
+<script type="module">
+import * as K from '/engine/components.js';
+const { C } = K;
+document.documentElement.style.setProperty('--subtitle-accent', C.traffic);
+
+const hosts = ['PC-B', 'PC-C', 'PC-D', 'PC-E', 'PC-F', 'PC-G', 'PC-H'];
+const sw = K.switchDevice({
+  x: 640, y: 385, w: 280, h: 260, label: 'SW1',
+  ports: {
+    left: [{ name: 'P1', led: 'blue' }],
+    right: hosts.map((_, i) => ({ name: `P${i + 2}`, led: 'blue' })),
+  },
+});
+const pcA = K.pc({ x: 250, y: 515, label: 'PC-A', side: 'right' });
+
+// 7 machines on an arc to the right of the switch
+// even vertical rhythm (labels never collide), gentle bulge toward the right
+const pcs = hosts.map((name, i) => {
+  const k = (i - 3) / 3;
+  return K.pc({ x: 1340 + 230 * (1 - k * k), y: 150 + i * 112, label: name, side: 'left', scale: 0.8, state: i === 0 ? 'target' : undefined });
+});
+
+let svg = K.defs() + K.backdrop();
+svg += K.cable(pcA.anchor, sw.port('P1'), { color: C.traffic, width: 4, opacity: 0.55 });
+pcs.forEach((p, i) => { svg += K.cable(sw.port(`P${i + 2}`), p.anchor, { color: C.traffic, width: 4, opacity: 0.55 }); });
+svg += pcA.svg + sw.svg + pcs.map((p) => p.svg).join('');
+
+// The seven copies, frozen mid-flight, each with its own trail.
+pcs.forEach((p, i) => {
+  const a = sw.port(`P${i + 2}`);
+  const pos = K.lerp(a, p.anchor, 0.56);
+  svg += K.trail(K.lerp(a, p.anchor, 0.08), pos, { color: C.traffic, width: 7 });
+  svg += K.frame({ x: pos.x, y: pos.y, s: 0.54, compact: true, color: C.traffic }).svg;
+});
+
+svg += K.thoughtBubble({ x: 780, y: 270, str: 'Destination inconnue ?', color: C.decision, tail: { x: 780, y: 378 } });
+svg += K.counter({ x: 1740, y: 150, value: '×7', label: 'COPIES', color: C.traffic });
+
+document.getElementById('s').innerHTML = svg;
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body>
+</html>

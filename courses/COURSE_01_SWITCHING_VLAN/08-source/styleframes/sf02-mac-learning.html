@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>SF02 · MAC learning</title>
+<link rel="stylesheet" href="/engine/tokens.css">
+</head>
+<body>
+<!-- SF02 · scène S04.2 · instant : « il regarde l'adresse source » — la MAC source vole vers la table -->
+<div class="stage">
+  <svg id="s" width="1920" height="1080" viewBox="0 0 1920 1080"></svg>
+  <div class="subtitle">Premier réflexe du switch&nbsp;: il regarde l'adresse <em>source</em>.</div>
+</div>
+<script type="module">
+import * as K from '/engine/components.js';
+const { C } = K;
+document.documentElement.style.setProperty('--subtitle-accent', C.forward);
+
+const sw = K.switchDevice({
+  x: 540, y: 430, w: 280, h: 260, label: 'SW1',
+  ports: {
+    left: [{ name: 'P1', led: 'blue' }],
+    right: ['P2', 'P3', 'P4', 'P5'].map((name) => ({ name })),
+  },
+});
+const pcA = K.pc({ x: 150, y: 540, label: 'PC-A', mac: 'AA:AA', side: 'right' });
+const others = [['PC-B', 'BB:BB'], ['PC-C', 'CC:CC'], ['PC-D', 'DD:DD'], ['PC-E', 'EE:EE']]
+  .map(([label, mac], i) => K.pc({ x: 1090, y: 330 + i * 170, label, mac, side: 'left', scale: 0.9 }));
+
+const table = K.macTable({
+  x: 1340, y: 360, w: 480, slots: 5,
+  rows: [{ cells: ['P1', null], state: 'ghost' }],
+});
+
+let svg = K.defs() + K.backdrop();
+svg += K.cable(pcA.anchor, sw.port('P1'), { color: C.traffic, width: 4, glow: true });
+others.forEach((p, i) => { svg += K.cable(sw.port(`P${i + 2}`), p.anchor, { width: 4 }); });
+svg += pcA.svg + sw.svg + others.map((p) => p.svg).join('') + table.svg;
+
+// P1 pulse: the frame has just come in through this port.
+const p1 = sw.port('P1');
+svg += `<circle cx="${p1.x}" cy="${p1.y}" r="26" fill="none" stroke="${C.traffic}" stroke-width="3" opacity="0.7" filter="url(#glow)"/>`;
+
+// The frame sits on the cable, its SRC field already detached.
+const fr = K.frame({ x: 355, y: 540, s: 1.05, dst: 'BB:BB', src: 'AA:AA', srcEmpty: true });
+svg += fr.svg;
+
+// Flight path of the source MAC: frame → learning slot in the table.
+const a = fr.srcField, ctrl = { x: 900, y: 20 }, slot = table.rows[0];
+const b = { x: table.box.x + table.box.w * 0.75, y: 250 };
+const q = (t) => ({ x: (1 - t) ** 2 * a.x + 2 * (1 - t) * t * ctrl.x + t * t * b.x, y: (1 - t) ** 2 * a.y + 2 * (1 - t) * t * ctrl.y + t * t * b.y });
+svg += `<path d="M${a.x} ${a.y} Q${ctrl.x} ${ctrl.y} ${b.x - 80} ${b.y}" fill="none" stroke="${C.forward}" stroke-opacity="0.35" stroke-width="2.5" stroke-dasharray="6 9"/>`;
+const pts = Array.from({ length: 16 }, (_, i) => q(0.76 + i * 0.016));
+svg += `<polyline points="${pts.map((p) => `${p.x},${p.y}`).join(' ')}" fill="none" stroke="${C.forward}" stroke-width="7" stroke-linecap="round" opacity="0.5" filter="url(#glow)"/>`;
+const chip = b;
+// short drop into the MAC cell of the learning slot
+svg += `<path d="M${b.x} ${b.y + 40} V${table.box.y - 12} M${b.x - 9} ${table.box.y - 21} L${b.x} ${table.box.y - 12} L${b.x + 9} ${table.box.y - 21}" stroke="${C.forward}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`;
+svg += `<g filter="url(#glow)">
+  <rect x="${chip.x - 74}" y="${chip.y - 30}" width="148" height="60" rx="10" fill="#0B1A22" stroke="${C.forward}" stroke-width="3"/>
+</g>`;
+svg += K.text(chip.x, chip.y - 8, 'SRC', { size: 12, weight: 800, fill: C.forward, ls: 2 });
+svg += K.text(chip.x, chip.y + 18, 'AA:AA', { size: 24, weight: 700, font: C.mono });
+
+svg += K.pill(table.box.x, table.box.y - 34, 'LEARNING', { color: C.forward, anchor: 'start', size: 17, filled: true });
+
+// Rule reminder, source side only for now (destination half arrives in S04.3).
+svg += K.text(60, 70, '02 · APPRENTISSAGE', { size: 16, weight: 700, font: C.mono, fill: C.muted, anchor: 'start', ls: 2 });
+
+document.getElementById('s').innerHTML = svg;
+await document.fonts.ready;
+window.__ready = true;
+</script>
+</body>
+</html>

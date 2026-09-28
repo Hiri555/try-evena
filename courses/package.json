@@ -1,0 +1,12 @@
+{
+  "name": "ccna-motion-courses",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "styleframes": "node engine/render-styleframes.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.0",
+    "@fontsource/jetbrains-mono": "^5.0.0"
+  }
+}

@@ -1,0 +1,79 @@
+/* CCNA Motion Course Engine — design tokens shared by every episode.
+   Semantic colors must never be reassigned between scenes (see storyboard.style.color_rules). */
+
+@font-face { font-family: "Inter"; font-weight: 400; src: url("/node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 600; src: url("/node_modules/@fontsource/inter/files/inter-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 700; src: url("/node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Inter"; font-weight: 800; src: url("/node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 400; src: url("/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 600; src: url("/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 700; src: url("/node_modules/@fontsource/jetbrains-mono/files/jetbrains-mono-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --bg-0: #070B14;
+  --bg-1: #0B1222;
+  --grid: rgba(255, 255, 255, 0.035);
+
+  --traffic: #4DA3FF;     /* trafic normal */
+  --forward: #34D399;     /* chemin valide / forwarding */
+  --error: #F43F5E;       /* panne / blocking / erreur */
+  --broadcast: #FACC15;   /* broadcast / attention */
+  --control: #A78BFA;     /* contrôle / protocoles */
+  --decision: #FB923C;    /* route ou décision importante */
+
+  --vlan10: #3B82F6;
+  --vlan20: #8B5CF6;
+  --vlan30: #F97316;
+
+  --device: #1A2336;
+  --device-top: #202C44;
+  --device-edge: #2B3A55;
+  --device-depth: #0E1524;
+
+  --text: #E6EDF7;
+  --muted: #7F8FAA;
+
+  --font-ui: "Inter", "DejaVu Sans", sans-serif;
+  --font-tech: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-0);
+}
+
+.stage {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 45%, var(--bg-1) 0%, var(--bg-0) 70%);
+  font-family: var(--font-ui);
+  color: var(--text);
+}
+
+.stage > svg {
+  position: absolute;
+  inset: 0;
+}
+
+/* Subtitles (11-final-subtitles.mp4 look): white, black outline, max 2 lines. */
+.subtitle {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 1480px;
+  text-align: center;
+  font: 600 44px/1.25 var(--font-ui);
+  color: #fff;
+  -webkit-text-stroke: 7px #000;
+  paint-order: stroke fill;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+}
+.subtitle em {
+  font-style: normal;
+  color: var(--subtitle-accent, #fff);
+}
