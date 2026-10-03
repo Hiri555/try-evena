@@ -1,0 +1,1087 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "buybox": {
+      "type": "freos-pdp-buybox",
+      "blocks": {
+        "slide_01": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-01-main.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_mano": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freos-mano-barattolo.webp",
+            "file": "",
+            "alt": "Una mano tiene il barattolo FREOS in bagno, con la luce accesa"
+          }
+        },
+        "slide_02": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-03-meccanismo.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_03": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-02-ingredienti.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_04": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-04-howto.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_05": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-05-scala.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_06": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-06-obiezione.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_07": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-07-limiti.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "slide_08": {
+          "type": "slide",
+          "settings": {
+            "file": "freos-pdp-08-garanzia.jpg",
+            "alt": "FREOS — Gel Notturno Micro-Aderente allo Zinco"
+          }
+        },
+        "eyebrow": {
+          "type": "eyebrow",
+          "settings": {
+            "text": ""
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "text": "FREOS — Gel Notturno • Alito Pulito al Risveglio"
+          }
+        },
+        "custom_liquid_QqjtjH": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div id=\"freos-social-proof-{{ section.id }}\" class=\"freos-social-proof\">\n  <div class=\"freos-social-proof__stars\" aria-hidden=\"true\">\n    ★★★★★\n  </div>\n\n  <div class=\"freos-social-proof__text\">\n    Oltre <strong>10.000 clienti soddisfatti</strong>\n  </div>\n</div>\n\n<style>\n  #freos-social-proof-{{ section.id }} {\n    --freos-green: #0F6E56;\n    --freos-dark: #14332A;\n    --freos-muted: #4C6A5D;\n\n    display: inline-flex;\n    align-items: center;\n    gap: 10px;\n\n    margin: 0 0 14px;\n    padding: 0;\n\n    background: transparent;\n    border: 0;\n    box-shadow: none;\n\n    color: var(--freos-dark);\n    line-height: 1;\n    flex-wrap: wrap;\n  }\n\n  #freos-social-proof-{{ section.id }} .freos-social-proof__stars {\n    color: var(--freos-green);\n    font-size: 16px;\n    line-height: 1;\n    letter-spacing: 1px;\n    white-space: nowrap;\n    transform: translateY(-1px);\n  }\n\n  #freos-social-proof-{{ section.id }} .freos-social-proof__text {\n    color: var(--freos-muted);\n    font-size: 15px;\n    font-weight: 450;\n    line-height: 1.2;\n    letter-spacing: -0.01em;\n  }\n\n  #freos-social-proof-{{ section.id }} .freos-social-proof__text strong {\n    color: var(--freos-dark);\n    font-weight: 700;\n  }\n\n  @media screen and (max-width: 749px) {\n    #freos-social-proof-{{ section.id }} {\n      gap: 8px;\n      margin-bottom: 12px;\n    }\n\n    #freos-social-proof-{{ section.id }} .freos-social-proof__stars {\n      font-size: 14px;\n    }\n\n    #freos-social-proof-{{ section.id }} .freos-social-proof__text {\n      font-size: 13.5px;\n    }\n  }\n</style>"
+          }
+        },
+        "benefits": {
+          "type": "benefits",
+          "disabled": true,
+          "settings": {
+            "items": "Agisce la sera, quando la bocca si ferma\nResta dove lo metti, non è un liquido da sputare\nNiente da raschiare, nessun conato"
+          }
+        },
+        "price": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+            "fallback": "29,90 €",
+            "save_label": "",
+            "note": "120 g · trenta sere · meno di un euro al giorno"
+          }
+        },
+        "custom_liquid_kDBQLr": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  .freos-ben{max-width:600px;margin:0 auto;padding:8px 0;}\n  .freos-ben *{box-sizing:border-box;}\n  .freos-ben .row{display:flex;gap:13px;align-items:center;}\n  .freos-ben .row + .row{margin-top:16px;}\n  .freos-ben .ico{flex:none;width:38px;height:38px;}\n  .freos-ben .ico svg{width:100%;height:100%;display:block;}\n  .freos-ben p{margin:0;font-size:16px;line-height:1.4;font-weight:500;color:#14332a;}\n</style>\n\n<div class=\"freos-ben\" style=\"--f:#9FE1CB;--k:#0F6E56;\">\n  <div class=\"row\">\n    <span class=\"ico\">\n      <svg viewBox=\"0 0 48 48\" fill=\"none\" aria-hidden=\"true\">\n        <circle cx=\"22\" cy=\"27\" r=\"13\" fill=\"var(--f)\"/>\n        <path d=\"M12 27 L15 27 L16.6 23 L18.7 31 L20.6 25 L22 27 L31 27\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n        <path d=\"M35 10.5 a6.2 6.2 0 1 0 5.2 9.4 a4.7 4.7 0 1 1 -5.2 -9.4 z\" fill=\"var(--k)\"/>\n      </svg>\n    </span>\n    <p>Smetti di ripassare ogni conversazione nella testa.</p>\n  </div>\n\n  <div class=\"row\">\n    <span class=\"ico\">\n      <svg viewBox=\"0 0 48 48\" fill=\"none\" aria-hidden=\"true\">\n        <rect x=\"7\" y=\"10\" width=\"33\" height=\"22\" rx=\"7\" fill=\"var(--f)\"/>\n        <path d=\"M15 32 L15 39 L23 32 Z\" fill=\"var(--f)\"/>\n        <path d=\"M17 26 C17 19 24 15 30 15 C30 22 23 26 17 26 Z\" fill=\"none\" stroke=\"var(--k)\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n        <path d=\"M19.5 24 L28 17.5\" stroke=\"var(--k)\" stroke-width=\"1.7\" stroke-linecap=\"round\"/>\n      </svg>\n    </span>\n    <p>Ti avvicini e parli — senza la mano davanti alla bocca.</p>\n  </div>\n\n  <div class=\"row\">\n    <span class=\"ico\">\n      <svg viewBox=\"0 0 48 48\" fill=\"none\" aria-hidden=\"true\">\n        <circle cx=\"18\" cy=\"30\" r=\"10\" fill=\"var(--f)\"/>\n        <circle cx=\"30\" cy=\"30\" r=\"10\" fill=\"none\" stroke=\"var(--k)\" stroke-width=\"2.2\"/>\n        <path d=\"M24 10.5 C22.2 8 18 9 18 12.3 C18 14.8 21.2 16.6 24 18.5 C26.8 16.6 30 14.8 30 12.3 C30 9 25.8 8 24 10.5 Z\" fill=\"var(--k)\"/>\n      </svg>\n    </span>\n    <p>Si avvicina per baciarti e non giri più la guancia.</p>\n  </div>\n\n  <div class=\"row\">\n    <span class=\"ico\">\n      <svg viewBox=\"0 0 48 48\" fill=\"none\" aria-hidden=\"true\">\n        <path d=\"M13 31 a11 11 0 0 1 22 0 Z\" fill=\"var(--f)\"/>\n        <path d=\"M6 31 H42\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n        <path d=\"M24 12.5 V8.5\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n        <path d=\"M13.5 17 L10.8 14.3\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n        <path d=\"M34.5 17 L37.2 14.3\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n        <path d=\"M38 24.5 H41\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n        <path d=\"M7 24.5 H10\" stroke=\"var(--k)\" stroke-width=\"2.2\" stroke-linecap=\"round\"/>\n      </svg>\n    </span>\n    <p>Ti svegli e la bocca è già pulita, non il primo problema della giornata.</p>\n  </div>\n</div>"
+          }
+        },
+        "custom_liquid_3Bz77j": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{% assign current_variant = product.selected_or_first_available_variant %}\n{% assign stock_qty = current_variant.inventory_quantity %}\n\n<style>\n  .freos-scarcity{\n    margin:12px 0 14px;\n    font-family:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;\n  }\n\n  .freos-scarcity__stock{\n    display:flex;\n    align-items:center;\n    gap:8px;\n    margin-bottom:9px;\n    color:#c92222;\n    font-size:15px;\n    font-weight:800;\n    line-height:1.2;\n  }\n\n  .freos-scarcity__dot{\n    position:relative;\n    width:9px;\n    height:9px;\n    flex:0 0 9px;\n    border-radius:50%;\n    background:#d92525;\n  }\n\n  .freos-scarcity__dot::after{\n    content:\"\";\n    position:absolute;\n    inset:0;\n    border-radius:50%;\n    background:#d92525;\n    animation:freos-pulse 1.5s ease-out infinite;\n  }\n\n  @keyframes freos-pulse{\n    0%{\n      transform:scale(1);\n      opacity:.65;\n    }\n    75%{\n      transform:scale(2.8);\n      opacity:0;\n    }\n    100%{\n      transform:scale(2.8);\n      opacity:0;\n    }\n  }\n\n  .freos-scarcity__message{\n    margin:0;\n    padding:0;\n    color:#19372f;\n    font-size:14px;\n    font-weight:500;\n    line-height:1.4;\n  }\n\n  .freos-scarcity__message strong{\n    font-weight:800;\n  }\n\n  @media(max-width:749px){\n    .freos-scarcity{\n      margin:10px 0 12px;\n    }\n\n    .freos-scarcity__stock{\n      font-size:14px;\n      gap:7px;\n      margin-bottom:7px;\n    }\n\n    .freos-scarcity__message{\n      font-size:13px;\n      line-height:1.35;\n    }\n  }\n</style>\n\n<div class=\"freos-scarcity\">\n\n  <div class=\"freos-scarcity__stock\">\n    <span class=\"freos-scarcity__dot\"></span>\n\n    <span>\n      {% if stock_qty > 0 %}\n        Solo {{ stock_qty }} rimasti disponibili\n      {% else %}\n        Solo 8 rimasti disponibili\n      {% endif %}\n    </span>\n  </div>\n\n  <p class=\"freos-scarcity__message\">\n    <strong>Quasi esaurito:</strong>\n    approfittane oggi, fino a esaurimento scorte.\n  </p>\n\n</div>"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "label": "Aggiungi al carrello",
+            "soldout": "Non disponibile",
+            "under": ""
+          }
+        },
+        "custom_liquid_C6zwFn": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<style>\n  #freos-atc-usps{\n    --green:#0F6E56;\n    --text:#17372F;\n\n    width:100%;\n    box-sizing:border-box;\n    padding:16px 8px 14px;\n  }\n\n  #freos-atc-usps .freos-atc-row{\n    width:100% !important;\n    max-width:100% !important;\n\n    display:flex !important;\n    flex-direction:row !important;\n    flex-wrap:nowrap !important;\n\n    align-items:center !important;\n    justify-content:space-between !important;\n\n    gap:4px !important;\n    margin:0 !important;\n    padding:0 !important;\n  }\n\n  #freos-atc-usps .freos-atc-item{\n    flex:0 0 33.3333% !important;\n    width:33.3333% !important;\n    max-width:33.3333% !important;\n    min-width:0 !important;\n\n    display:flex !important;\n    flex-direction:row !important;\n    flex-wrap:nowrap !important;\n\n    align-items:center !important;\n    justify-content:center !important;\n\n    gap:6px;\n    padding:0 3px;\n    margin:0;\n    box-sizing:border-box;\n  }\n\n  #freos-atc-usps .freos-atc-icon{\n    width:21px !important;\n    height:21px !important;\n    min-width:21px !important;\n    flex:0 0 21px !important;\n\n    display:flex;\n    align-items:center;\n    justify-content:center;\n\n    color:var(--green);\n  }\n\n  #freos-atc-usps .freos-atc-icon svg{\n    width:100% !important;\n    height:100% !important;\n    display:block;\n  }\n\n  #freos-atc-usps .freos-atc-text{\n    margin:0 !important;\n    padding:0 !important;\n\n    color:var(--text);\n\n    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,\n      \"Segoe UI\",sans-serif;\n\n    font-size:11px !important;\n    font-weight:700 !important;\n    line-height:1.18 !important;\n\n    text-align:left;\n    white-space:normal;\n  }\n\n  /* MOBILE : toujours 3 éléments sur UNE ligne */\n  @media (max-width:749px){\n\n    #freos-atc-usps{\n      padding:15px 3px 14px;\n    }\n\n    #freos-atc-usps .freos-atc-row{\n      display:flex !important;\n      grid-template-columns:none !important;\n      flex-wrap:nowrap !important;\n      gap:0 !important;\n    }\n\n    #freos-atc-usps .freos-atc-item{\n      flex:0 0 33.3333% !important;\n      width:33.3333% !important;\n      max-width:33.3333% !important;\n\n      padding:0 3px !important;\n      gap:5px !important;\n    }\n\n    #freos-atc-usps .freos-atc-icon{\n      width:19px !important;\n      height:19px !important;\n      min-width:19px !important;\n      flex-basis:19px !important;\n    }\n\n    #freos-atc-usps .freos-atc-text{\n      font-size:10px !important;\n      line-height:1.16 !important;\n    }\n  }\n\n  /* Très petits téléphones */\n  @media (max-width:360px){\n\n    #freos-atc-usps .freos-atc-item{\n      gap:4px !important;\n      padding:0 2px !important;\n    }\n\n    #freos-atc-usps .freos-atc-icon{\n      width:18px !important;\n      height:18px !important;\n      min-width:18px !important;\n      flex-basis:18px !important;\n    }\n\n    #freos-atc-usps .freos-atc-text{\n      font-size:9.5px !important;\n    }\n  }\n</style>\n\n<div id=\"freos-atc-usps\">\n  <div class=\"freos-atc-row\">\n\n    <!-- SPEDIZIONE -->\n    <div class=\"freos-atc-item\">\n      <span class=\"freos-atc-icon\">\n        <svg viewBox=\"0 0 32 32\"\n             fill=\"none\"\n             stroke=\"currentColor\"\n             stroke-width=\"1.8\"\n             stroke-linecap=\"round\"\n             stroke-linejoin=\"round\">\n          <path d=\"M3 9.5h13.5v11H3z\"/>\n          <path d=\"M16.5 13h4.3l3.2 3.4v4.1h-7.5z\"/>\n          <circle cx=\"9\" cy=\"23.5\" r=\"2.3\"/>\n          <circle cx=\"21.5\" cy=\"23.5\" r=\"2.3\"/>\n        </svg>\n      </span>\n\n      <p class=\"freos-atc-text\">\n        Spedizione<br>veloce\n      </p>\n    </div>\n\n\n    <!-- PAGAMENTO -->\n    <div class=\"freos-atc-item\">\n      <span class=\"freos-atc-icon\">\n        <svg viewBox=\"0 0 32 32\"\n             fill=\"none\"\n             stroke=\"currentColor\"\n             stroke-width=\"1.8\"\n             stroke-linecap=\"round\"\n             stroke-linejoin=\"round\">\n          <rect x=\"6.5\" y=\"14\" width=\"19\" height=\"12.5\" rx=\"2.5\"/>\n          <path d=\"M10 14v-3.2a6 6 0 0 1 12 0V14\"/>\n          <path d=\"M16 19v3\"/>\n        </svg>\n      </span>\n\n      <p class=\"freos-atc-text\">\n        Pagamenti<br>sicuri\n      </p>\n    </div>\n\n\n    <!-- RIMBORSO -->\n    <div class=\"freos-atc-item\">\n      <span class=\"freos-atc-icon\">\n        <svg viewBox=\"0 0 32 32\"\n             fill=\"none\"\n             stroke=\"currentColor\"\n             stroke-width=\"1.8\"\n             stroke-linecap=\"round\"\n             stroke-linejoin=\"round\">\n          <path d=\"M11 13h9a6 6 0 0 1 0 12h-5\"/>\n          <path d=\"M13.5 9l-4 4 4 4\"/>\n        </svg>\n      </span>\n\n      <p class=\"freos-atc-text\">\n        Rimborso<br>30 giorni\n      </p>\n    </div>\n\n  </div>\n</div>"
+          }
+        },
+        "badges": {
+          "type": "badges",
+          "disabled": true,
+          "settings": {
+            "items": "Trenta sere di prova | o rimborso\nIl barattolo resta a te | anche aperto\nNessun abbonamento | un ordine, una volta"
+          }
+        },
+        "payments": {
+          "type": "payments",
+          "settings": {
+            "label": "",
+            "marks": "visa, master, american_express, paypal, apple_pay, google_pay"
+          }
+        },
+        "custom_liquid_QR9drW": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\n  FREOS — Voci / Recensioni (bloc Custom Liquid, sous le bouton Aggiungi al carrello)\n  CSS + JS inclus, scopé .fr-trust. Si aucune ligne n'est remplie, rien ne s'affiche.\n\n  FORMAT (une ligne = une carte, séparées par @@) :\n  Etichetta ~~ stelle (1-5, vide = pas d'étoiles) ~~ verificato (0 ou 1) ~~ Testo ~~ URL immagine (facultatif)\n\n  - Etichetta : ce qui s'affiche en gras (ex. \"Utente Reddit · r/badbreath\" ou \"Giulia R. | Milano\")\n  - verificato : 1 UNIQUEMENT pour un vrai acheteur vérifié (affiche \"Cliente verificato\")\n  - URL immagine : lien CDN Shopify. Vide = icône guillemets. Mets une photo seulement si la personne est d'accord.\n{%- endcomment -%}\n\n{%- assign autoplay = true -%}\n\n{%- capture cards_raw -%}\nAlessandro M. ~~ 5 ~~ 0 ~~ Ho provato di tutto per l'alito mattutino, ma niente funzionava. Da quando prendo questo gel prima di dormire, mi sveglio con una sensazione di pulizia incredibile. Nessun abbonamento forzato, lo ricompro quando finisce. ~~ https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_showing_personal_transformation_20260929040821.jpg?v=1790655336 @@\nLorenzo B. ~~ 5 ~~ 0 ~~ Lavorando a contatto con il pubblico, l'alito era la mia più grande fobia. Questo gel notturno al Mastice di Chios ha risolto il problema alla radice. La garanzia di 30 giorni mi ha convinto a provarlo. ~~ https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_before_and_after_selfie_20260929040801.jpg?v=1790655337 @@\nChiara R. ~~ 5 ~~ 0 ~~ Giravo sempre con spray e mentine, ero paranoica. Freos ha eliminato questa schiavitù. Un solo gesto la sera e sono coperta per tutto il giorno seguente. ~~ https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_transforming_with_coffee_20260929040953.jpg?v=1790655337 @@\nGiorgia R. ~~ 5 ~~ 0 ~~ Avevo provato altri tre integratori interni prima di questo, tutti inutili. La combinazione di erbe rare di Freos lavora davvero bene. Ne comprerò sicuramente un altro. ~~ https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_taking_morning_bathroom_se__20260929042211.jpg?v=1790655743\n{%- endcapture -%}\n\n{%- assign use_raw = cards_raw | strip -%}\n\n{%- if use_raw contains '~~' -%}\n\n{%- assign cards = use_raw | split: '@@' -%}\n\n<div class=\"fr-trust\">\n\n  <div\n    class=\"fr-rv\"\n    data-fr-reviews\n    data-autoplay=\"{{ autoplay }}\"\n    role=\"region\"\n    aria-roledescription=\"carousel\"\n    aria-label=\"Voci e recensioni\"\n  >\n\n    <div class=\"fr-rv__track\" tabindex=\"0\">\n\n      {%- for c in cards -%}\n\n        {%- assign p = c | strip | split: '~~' -%}\n        {%- assign c_label = p[0] | strip -%}\n        {%- assign c_rate = p[1] | strip | plus: 0 -%}\n        {%- assign c_ver = p[2] | strip -%}\n        {%- assign c_text = p[3] | strip -%}\n        {%- assign c_img = p[4] | strip -%}\n\n        {%- if c_label != blank and c_text != blank -%}\n\n        <figure\n          class=\"fr-rv__slide\"\n          role=\"group\"\n          aria-roledescription=\"slide\"\n          aria-label=\"{{ forloop.index }} / {{ forloop.length }}\"\n        >\n\n          {%- if c_img != blank -%}\n\n            <img\n              class=\"fr-rv__avatar\"\n              src=\"{{ c_img }}\"\n              alt=\"\"\n              width=\"56\"\n              height=\"56\"\n              loading=\"lazy\"\n            >\n\n          {%- else -%}\n\n            <span class=\"fr-rv__ph\" aria-hidden=\"true\">\n\n              <svg\n                viewBox=\"0 0 24 24\"\n                fill=\"currentColor\"\n              >\n                <path d=\"M9.4 6C6.4 6.9 4 9.7 4 13.5V18h6v-6H7.2c.1-2 1.2-3.4 3.2-4L9.4 6zm9 0c-3 .9-5.4 3.7-5.4 7.5V18h6v-6h-2.8c.1-2 1.2-3.4 3.2-4L18.4 6z\"/>\n              </svg>\n\n            </span>\n\n          {%- endif -%}\n\n          <div class=\"fr-rv__body\">\n\n            <div class=\"fr-rv__head\">\n\n              <span class=\"fr-rv__name\">\n                {{ c_label | escape }}\n              </span>\n\n              {%- if c_ver == '1' -%}\n\n                <span class=\"fr-rv__ver\">\n\n                  <svg\n                    viewBox=\"0 0 24 24\"\n                    fill=\"currentColor\"\n                    aria-hidden=\"true\"\n                  >\n                    <path d=\"M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3zm-1.2 13.4-3.2-3.2 1.4-1.4 1.8 1.8 4.6-4.6 1.4 1.4-6 6z\"/>\n                  </svg>\n\n                  Cliente verificato\n\n                </span>\n\n              {%- endif -%}\n\n              {%- if c_rate > 0 -%}\n\n                <span\n                  class=\"fr-rv__stars\"\n                  role=\"img\"\n                  aria-label=\"{{ c_rate }} su 5\"\n                >\n\n                  {%- for s in (1..5) -%}\n\n                    <svg\n                      viewBox=\"0 0 24 24\"\n                      fill=\"currentColor\"\n                      {% if s > c_rate %}class=\"is-off\"{% endif %}\n                      aria-hidden=\"true\"\n                    >\n                      <path d=\"M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z\"/>\n                    </svg>\n\n                  {%- endfor -%}\n\n                </span>\n\n              {%- endif -%}\n\n            </div>\n\n            <blockquote class=\"fr-rv__text\">\n              «{{ c_text | escape }}»\n            </blockquote>\n\n          </div>\n\n        </figure>\n\n        {%- endif -%}\n\n      {%- endfor -%}\n\n    </div>\n\n    <button\n      type=\"button\"\n      class=\"fr-rv__btn fr-rv__btn--prev\"\n      data-fr-prev\n      aria-label=\"Precedente\"\n    >\n\n      <svg\n        viewBox=\"0 0 24 24\"\n        width=\"14\"\n        height=\"14\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        stroke-width=\"2.6\"\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n        aria-hidden=\"true\"\n      >\n        <path d=\"M15 5l-7 7 7 7\"/>\n      </svg>\n\n    </button>\n\n    <button\n      type=\"button\"\n      class=\"fr-rv__btn fr-rv__btn--next\"\n      data-fr-next\n      aria-label=\"Successiva\"\n    >\n\n      <svg\n        viewBox=\"0 0 24 24\"\n        width=\"14\"\n        height=\"14\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        stroke-width=\"2.6\"\n        stroke-linecap=\"round\"\n        stroke-linejoin=\"round\"\n        aria-hidden=\"true\"\n      >\n        <path d=\"M9 5l7 7-7 7\"/>\n      </svg>\n\n    </button>\n\n  </div>\n\n</div>\n\n<style>\n\n  .fr-trust{\n    --fr-green:#1F3D2E;\n    --fr-sage:#A8BFA3;\n    --fr-card:#EEF2EC;\n    --fr-ink:#1A1A1A;\n    --fr-star:#2F7A4B;\n\n    margin-top:12px;\n    font-family:inherit;\n    color:var(--fr-ink);\n    line-height:1.45;\n  }\n\n  .fr-trust *{\n    box-sizing:border-box;\n  }\n\n  .fr-trust .fr-rv{\n    position:relative;\n    background:var(--fr-card);\n    border-radius:14px;\n  }\n\n  .fr-trust .fr-rv__track{\n    display:flex;\n    overflow-x:auto;\n    scroll-snap-type:x mandatory;\n    scrollbar-width:none;\n    -webkit-overflow-scrolling:touch;\n    overscroll-behavior-x:contain;\n    border-radius:14px;\n  }\n\n  .fr-trust .fr-rv__track::-webkit-scrollbar{\n    display:none;\n  }\n\n  .fr-trust .fr-rv__track:focus-visible{\n    outline:2px solid var(--fr-green);\n    outline-offset:2px;\n  }\n\n  .fr-trust .fr-rv__slide{\n    flex:0 0 100%;\n    scroll-snap-align:start;\n    margin:0;\n    padding:14px 36px;\n\n    display:flex;\n    gap:12px;\n    align-items:flex-start;\n  }\n\n  .fr-trust .fr-rv__avatar,\n  .fr-trust .fr-rv__ph{\n    flex:none;\n    width:56px;\n    height:56px;\n    border-radius:50%;\n    background:var(--fr-sage);\n  }\n\n  .fr-trust .fr-rv__avatar{\n    object-fit:cover;\n    max-width:none;\n  }\n\n  .fr-trust .fr-rv__ph{\n    display:grid;\n    place-items:center;\n    color:var(--fr-green);\n  }\n\n  .fr-trust .fr-rv__ph svg{\n    width:26px;\n    height:26px;\n  }\n\n  .fr-trust .fr-rv__body{\n    flex:1;\n    min-width:0;\n  }\n\n  .fr-trust .fr-rv__head{\n    display:flex;\n    flex-wrap:wrap;\n    align-items:center;\n    gap:2px 10px;\n    margin-bottom:4px;\n  }\n\n  .fr-trust .fr-rv__name{\n    font-size:13.5px;\n    font-weight:600;\n  }\n\n  .fr-trust .fr-rv__ver{\n    display:inline-flex;\n    align-items:center;\n    gap:4px;\n    font-size:12px;\n    color:var(--fr-star);\n  }\n\n  .fr-trust .fr-rv__ver svg{\n    width:13px;\n    height:13px;\n  }\n\n  .fr-trust .fr-rv__stars{\n    display:inline-flex;\n    gap:1px;\n    color:var(--fr-star);\n  }\n\n  .fr-trust .fr-rv__stars svg{\n    width:14px;\n    height:14px;\n  }\n\n  .fr-trust .fr-rv__stars .is-off{\n    color:rgba(31,61,46,.2);\n  }\n\n  .fr-trust .fr-rv__text{\n    margin:0;\n    padding:0;\n    border:0;\n    font-size:13.5px;\n    font-style:normal;\n    quotes:none;\n  }\n\n  .fr-trust .fr-rv__btn{\n    position:absolute;\n    top:50%;\n    transform:translateY(-50%);\n    z-index:2;\n\n    width:26px;\n    height:26px;\n\n    padding:0;\n    border:0;\n    border-radius:50%;\n\n    display:grid;\n    place-items:center;\n\n    background:var(--fr-green);\n    color:#fff;\n\n    cursor:pointer;\n\n    appearance:none;\n    -webkit-appearance:none;\n\n    min-width:0;\n    min-height:0;\n  }\n\n  .fr-trust .fr-rv__btn::after{\n    content:\"\";\n    position:absolute;\n    inset:-9px;\n  }\n\n  .fr-trust .fr-rv__btn--prev{\n    left:6px;\n  }\n\n  .fr-trust .fr-rv__btn--next{\n    right:6px;\n  }\n\n  .fr-trust .fr-rv__btn:focus-visible{\n    outline:2px solid var(--fr-green);\n    outline-offset:2px;\n  }\n\n  .fr-trust .fr-rv__btn[hidden]{\n    display:none;\n  }\n\n  @media (max-width:380px){\n\n    .fr-trust .fr-rv__slide{\n      padding:12px 32px;\n      gap:10px;\n    }\n\n    .fr-trust .fr-rv__avatar,\n    .fr-trust .fr-rv__ph{\n      width:46px;\n      height:46px;\n    }\n\n    .fr-trust .fr-rv__ph svg{\n      width:22px;\n      height:22px;\n    }\n\n  }\n\n  @media (prefers-reduced-motion:reduce){\n\n    .fr-trust .fr-rv__track{\n      scroll-behavior:auto;\n    }\n\n  }\n\n</style>\n\n<script>\n\n  (function () {\n\n    var reduce =\n      window.matchMedia &&\n      window.matchMedia('(prefers-reduced-motion: reduce)').matches;\n\n    document\n      .querySelectorAll('[data-fr-reviews]:not([data-fr-ready])')\n      .forEach(function (root) {\n\n        root.setAttribute('data-fr-ready', '');\n\n        var track = root.querySelector('.fr-rv__track');\n        var prev = root.querySelector('[data-fr-prev]');\n        var next = root.querySelector('[data-fr-next]');\n\n        var n = track.children.length;\n\n        if (n < 2) {\n\n          prev.hidden = true;\n          next.hidden = true;\n\n          return;\n\n        }\n\n        var timer = null;\n        var hovering = false;\n\n        function index() {\n\n          return Math.round(\n            track.scrollLeft / track.clientWidth\n          );\n\n        }\n\n        function go(i) {\n\n          i = (i + n) % n;\n\n          track.scrollTo({\n            left: i * track.clientWidth,\n            behavior: reduce ? 'auto' : 'smooth'\n          });\n\n        }\n\n        function stop() {\n\n          if (timer) {\n            clearInterval(timer);\n            timer = null;\n          }\n\n        }\n\n        prev.addEventListener(\n          'click',\n          function () {\n\n            stop();\n            go(index() - 1);\n\n          }\n        );\n\n        next.addEventListener(\n          'click',\n          function () {\n\n            stop();\n            go(index() + 1);\n\n          }\n        );\n\n        track.addEventListener(\n          'touchstart',\n          stop,\n          { passive: true }\n        );\n\n        track.addEventListener(\n          'keydown',\n          stop\n        );\n\n        if (\n          root.getAttribute('data-autoplay') === 'true' &&\n          !reduce\n        ) {\n\n          root.addEventListener(\n            'mouseenter',\n            function () {\n\n              hovering = true;\n\n            }\n          );\n\n          root.addEventListener(\n            'mouseleave',\n            function () {\n\n              hovering = false;\n\n            }\n          );\n\n          timer = setInterval(function () {\n\n            if (!hovering && !document.hidden) {\n\n              go(index() + 1);\n\n            }\n\n          }, 6000);\n\n        }\n\n      });\n\n  })();\n\n</script>\n\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_mjd8wj": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- comment -%}\n  FREOS — FAQ accordéon (bloc Custom Liquid, sous le bloc avis dans la section produit)\n  Responsive (mobile → desktop), aucune dépendance, CSS scopé .fr-faq.\n  Les liens Rimborso/Spedizioni s'affichent seulement si tes policies Shopify existent.\n{%- endcomment -%}\n{%- assign refund_url = shop.refund_policy.url -%}\n{%- assign ship_url = shop.shipping_policy.url -%}\n\n<div class=\"fr-faq\">\n  <div class=\"fr-faq__head\">\n    <h3 class=\"fr-faq__title\">Domande frequenti</h3>\n    <span class=\"fr-faq__hint\">\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14 4.1 12 6\"/><path d=\"m5.1 8-2.9-.8\"/><path d=\"m6 12-1.9 2\"/><path d=\"M7.2 2.2 8 5.1\"/><path d=\"M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z\"/></svg>\n      Tocca per aprire\n    </span>\n  </div>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">Perché l'alito torna anche se mi lavo i denti?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p>Perché lo spazzolino lavora sui denti, ma nell'80-90% dei casi l'alito pesante nasce in bocca, e il principale responsabile è la patina sul fondo della lingua. La chiamiamo <strong>La Metà Invisibile</strong>: il punto dove lo spazzolino di solito non arriva e che nella routine di quasi tutti resta fuori.</p>\n      <p>Non significa che ti lavi male: significa che il problema sta in un posto che nessuno ti aveva mai indicato.</p>\n      <p class=\"fr-faq__src\">Fonte: Lee et al., J Periodontol 2003</p>\n    </div>\n  </details>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">E se i medici dicono che è tutto a posto?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p>Succede a moltissime persone: visita dopo visita, nessuno trova la causa. Perché un controllo di routine guarda denti e gengive, non il fondo della lingua né quello che succede di notte quando la saliva cala.</p>\n      <p>Il problema non era nella tua testa: semplicemente nessuno stava guardando lì. FREOS è pensato proprio per quel punto e per quel momento: la lingua, la sera, prima di dormire.</p>\n    </div>\n  </details>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">Cosa cambia rispetto al collutorio?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p>Il collutorio scivola via in trenta secondi, gomme e mentine lavorano solo di giorno. Di notte, quando la saliva cala fino quasi a fermarsi, entra in gioco un gel denso da prendere la sera prima di dormire: lo lasci sciogliere sulla lingua e lo deglutisci, niente da sciacquare e niente da spremere.</p>\n      <p>Due momenti al giorno, per un totale di 2 cucchiaini: al mattino dopo lo spazzolino e la sera prima di dormire, che è la presa che conta di più.</p>\n      <p>Il sapore: menta e clorofilla, con un fondo leggermente vegetale. Non è dolce. Se non sopporti la menta, non fa per te, e preferiamo dirtelo prima.</p>\n      <p class=\"fr-faq__src\">Fonte: Dawes, JADA 2008</p>\n    </div>\n  </details>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">Come faccio a capire se funziona?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p>Se non senti il tuo alito, è normale: il naso si abitua al proprio odore. Per questo non devi fidarti del naso, ma di tre segnali: il sapore al risveglio, la patina sul fondo della lingua e la reazione di chi ti sta vicino quando parli.</p>\n      <p>Hai 30 giorni per verificarli: se non vedi differenza, ti rimborsiamo.</p>\n    </div>\n  </details>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">Cosa c'è dentro e cosa mi garantite?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p>Ogni ingrediente è dichiarato con la sua dose. Nessuna formula segreta:</p>\n      <ul class=\"fr-faq__ing\">\n        <li><span>Estratto di tè verde (di cui EGCG 45 mg)</span><b>85 mg</b></li>\n        <li><span>Olio essenziale di menta piperita</span><b>80 mg</b></li>\n        <li><span>Olio essenziale di chiodi di garofano</span><b>85 mg</b></li>\n        <li><span>Estratto di melissa</span><b>85 mg</b></li>\n        <li><span>Estratto di prezzemolo</span><b>85 mg</b></li>\n        <li><span>Clorofilla da erba medica</span><b>85 mg</b></li>\n        <li><span>Resina di shilajit purificata</span><b>100 mg</b></li>\n        <li><span>Zinco</span><b>vedi etichetta</b></li>\n      </ul>\n      <p>Ti garantiamo tre cose: ingredienti dichiarati, 30 giorni di prova con rimborso, spedizione gratuita e nessun abbonamento.</p>\n      <p class=\"fr-faq__src\">Integratore alimentare: non va inteso come sostituto di una dieta varia ed equilibrata né di una terapia. Non superare la dose consigliata e tienilo fuori dalla portata dei bambini. In gravidanza, allattamento o se assumi farmaci, chiedi al tuo medico.</p>\n    </div>\n  </details>\n\n  <details name=\"fr-faq\">\n    <summary><span class=\"fr-faq__q\">E se non mi convince?</span><span class=\"fr-faq__i\" aria-hidden=\"true\"></span></summary>\n    <div class=\"fr-faq__body\">\n      <p><strong>Il rischio lo prendiamo noi.</strong> Hai 30 giorni per provarlo: se non ti convince, scrivici e ti rimborsiamo, il barattolo resta a te. La spedizione è sempre gratuita e non c'è nessun abbonamento.</p>\n      <p>Un barattolo costa 29,90 € e dura circa un mese, meno di 1 € al giorno: pensa a quanto hai già speso in gomme, mentine, collutori e spray. Con 3 barattoli scende a 16,63 € l'uno.\n        {%- if refund_url %} Le condizioni complete sono nella <a href=\"{{ refund_url }}\">politica di rimborso</a>.{% endif -%}\n        {%- if ship_url %} Tempi e dettagli di consegna sono nella pagina <a href=\"{{ ship_url }}\">spedizioni</a>.{% endif -%}\n      </p>\n    </div>\n  </details>\n</div>\n\n<style>\n  .fr-faq{\n    --fr-green:#1F3D2E; --fr-card:#EEF2EC; --fr-card-hover:#E5EBE2; --fr-plus:#CFE0CB; --fr-ink:#1A1A1A;\n    width:100%; max-width:100%; margin-top:20px; font-family:inherit; color:var(--fr-ink);\n  }\n  .fr-faq *{box-sizing:border-box}\n\n  .fr-faq .fr-faq__head{display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:4px 12px; margin:0 0 12px; padding:0 4px}\n  .fr-faq .fr-faq__title{margin:0; padding:0; font-family:inherit; font-size:clamp(16px,4.2vw,18px); font-weight:600; line-height:1.25; letter-spacing:0; text-transform:none}\n  .fr-faq .fr-faq__hint{display:inline-flex; align-items:center; gap:6px; font-size:12.5px; line-height:1.2; color:var(--fr-green); opacity:.85}\n  .fr-faq .fr-faq__hint svg{flex:none; width:16px; height:16px}\n\n  .fr-faq details{background:var(--fr-card); border-radius:12px; margin:0 0 8px; overflow:hidden; transition:background .2s ease}\n  .fr-faq summary{\n    display:flex; align-items:center; justify-content:space-between; gap:12px;\n    min-height:52px; padding:12px 14px 12px 16px; cursor:pointer; list-style:none;\n    -webkit-tap-highlight-color:transparent; user-select:none;\n  }\n  .fr-faq summary::-webkit-details-marker{display:none}\n  .fr-faq summary::marker{content:\"\"}\n  .fr-faq summary:focus-visible{outline:2px solid var(--fr-green); outline-offset:-2px; border-radius:12px}\n  .fr-faq .fr-faq__q{flex:1; min-width:0; font-size:clamp(14px,3.7vw,15px); font-weight:500; line-height:1.35; overflow-wrap:anywhere}\n  @media (hover:hover){ .fr-faq details:not([open]):hover{background:var(--fr-card-hover)} }\n\n  .fr-faq .fr-faq__i{position:relative; flex:none; width:28px; height:28px; border-radius:50%; background:var(--fr-plus); transition:background .2s ease}\n  .fr-faq .fr-faq__i::before,\n  .fr-faq .fr-faq__i::after{\n    content:\"\"; position:absolute; left:50%; top:50%; width:11px; height:2px; margin:-1px 0 0 -5.5px;\n    background:var(--fr-green); border-radius:2px; transition:transform .25s ease, background .2s ease;\n  }\n  .fr-faq .fr-faq__i::after{transform:rotate(90deg)}\n  .fr-faq details[open] .fr-faq__i{background:var(--fr-green)}\n  .fr-faq details[open] .fr-faq__i::before,\n  .fr-faq details[open] .fr-faq__i::after{background:#fff}\n  .fr-faq details[open] .fr-faq__i::after{transform:rotate(0deg)}\n\n  .fr-faq .fr-faq__body{padding:0 16px 16px; font-size:clamp(13px,3.4vw,14px); line-height:1.6; overflow-wrap:break-word}\n  .fr-faq details[open] .fr-faq__body{animation:fr-faq-in .25s ease}\n  .fr-faq .fr-faq__body p{margin:0 0 9px}\n  .fr-faq .fr-faq__body p:last-child{margin-bottom:0}\n  .fr-faq .fr-faq__body a{color:var(--fr-green); text-decoration:underline; text-underline-offset:2px}\n\n  .fr-faq .fr-faq__ing{list-style:none; margin:2px 0 10px; padding:0}\n  .fr-faq .fr-faq__ing li{display:flex; align-items:baseline; justify-content:space-between; gap:4px 12px; padding:7px 0; margin:0; border-bottom:1px dashed rgba(31,61,46,.25)}\n  .fr-faq .fr-faq__ing li:last-child{border-bottom:0}\n  .fr-faq .fr-faq__ing span{min-width:0}\n  .fr-faq .fr-faq__ing b{flex:none; font-weight:600; white-space:nowrap}\n\n  .fr-faq .fr-faq__body strong{font-weight:600}\n  .fr-faq .fr-faq__src{margin-top:10px; font-size:11.5px; line-height:1.4; opacity:.65}\n\n  @media (max-width:400px){\n    .fr-faq summary{padding:11px 12px 11px 14px; gap:10px}\n    .fr-faq .fr-faq__body{padding:0 14px 14px}\n  }\n  @media (min-width:768px){\n    .fr-faq summary{padding:14px 16px 14px 20px}\n    .fr-faq .fr-faq__body{padding:0 20px 18px}\n  }\n  @keyframes fr-faq-in{from{opacity:0; transform:translateY(-4px)} to{opacity:1; transform:none}}\n  @media (prefers-reduced-motion:reduce){\n    .fr-faq details, .fr-faq .fr-faq__i, .fr-faq .fr-faq__i::before, .fr-faq .fr-faq__i::after{transition:none}\n    .fr-faq details[open] .fr-faq__body{animation:none}\n  }\n</style>"
+          }
+        },
+        "guarantee": {
+          "type": "guarantee",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Se dopo trenta sere non ti dice niente, ti rimborsiamo l’intero importo. <strong>Il barattolo resta a te</strong>, anche se è aperto. Non devi spiegare perché.</p>"
+          }
+        },
+        "pills": {
+          "type": "pills",
+          "disabled": true,
+          "settings": {
+            "items": "Integratore alimentare | Zinco + 7 estratti | Nessun abbonamento"
+          }
+        },
+        "recognition": {
+          "type": "recognition",
+          "disabled": true,
+          "settings": {
+            "question": "Quale di queste ti somiglia di più?",
+            "options": "Torna dopo venti minuti\nSoprattutto al risveglio\nNon riesco a saperlo da solo",
+            "answer": "In tutti e tre i casi il momento che conta è la sera: è lì che la bocca smette di difendersi, e nessuno fa niente."
+          }
+        }
+      },
+      "block_order": [
+        "slide_01",
+        "slide_mano",
+        "slide_02",
+        "slide_03",
+        "slide_04",
+        "slide_05",
+        "slide_06",
+        "slide_07",
+        "slide_08",
+        "eyebrow",
+        "title",
+        "custom_liquid_QqjtjH",
+        "benefits",
+        "price",
+        "custom_liquid_kDBQLr",
+        "custom_liquid_3Bz77j",
+        "buy_buttons",
+        "custom_liquid_C6zwFn",
+        "badges",
+        "payments",
+        "custom_liquid_QR9drW",
+        "custom_liquid_mjd8wj",
+        "guarantee",
+        "pills",
+        "recognition"
+      ],
+      "settings": {
+        "surface": "white",
+        "padding_top": 24,
+        "padding_bottom": 40,
+        "flag": "",
+        "thumbs_label": "Immagini del prodotto",
+        "atc_bg": "",
+        "atc_fg": ""
+      }
+    },
+    "custom_liquid_kVbdiE": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<style>\n  .aureva-trust-logos {\n    --verde: #0F6E56;\n    --verde-dark: #14332A;\n    --verde-soft: #9FE1CB;\n    --verde-tile: #EAF4EE;\n    --creme: #F4EFE4;\n    --paper: #FBFAF6;\n    --muted: #4C6A5D;\n    --border: #E9E2D4;\n\n    width: 100%;\n    overflow: hidden;\n    background: transparent;\n    padding: 18px 0;\n    position: relative;\n  }\n\n  .aureva-trust-logos__track {\n    display: flex;\n    width: max-content;\n    align-items: center;\n    animation: aureva-logo-scroll 28s linear infinite;\n  }\n\n  .aureva-trust-logos__group {\n    display: flex;\n    align-items: center;\n    flex-shrink: 0;\n  }\n\n  .aureva-trust-logos__item {\n    width: 150px;\n    height: 58px;\n    margin: 0 22px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n  }\n\n  .aureva-trust-logos__item img {\n    width: 100%;\n    height: 100%;\n    object-fit: contain;\n    display: block;\n\n    /* Rend le bandeau plus élégant et homogène */\n    opacity: 0.82;\n    filter: grayscale(100%);\n    transition: opacity .25s ease, filter .25s ease;\n  }\n\n  .aureva-trust-logos__item:hover img {\n    opacity: 1;\n    filter: grayscale(0%);\n  }\n\n  @keyframes aureva-logo-scroll {\n    from {\n      transform: translateX(0);\n    }\n    to {\n      transform: translateX(-50%);\n    }\n  }\n\n  /* Mobile */\n  @media screen and (max-width: 749px) {\n    .aureva-trust-logos {\n      padding: 14px 0;\n    }\n\n    .aureva-trust-logos__item {\n      width: 115px;\n      height: 45px;\n      margin: 0 15px;\n    }\n\n    .aureva-trust-logos__track {\n      animation-duration: 22s;\n    }\n  }\n\n  /* Respecte les préférences d'accessibilité */\n  @media (prefers-reduced-motion: reduce) {\n    .aureva-trust-logos__track {\n      animation: none;\n    }\n  }\n</style>\n\n<div class=\"aureva-trust-logos\">\n  <div class=\"aureva-trust-logos__track\">\n\n    <!-- Groupe 1 -->\n    <div class=\"aureva-trust-logos__group\">\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_1_300x300_d8793cbd-82d5-4008-ab97-3e24b82ab511_small.avif?v=1754051195\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_4_300x300_461db9ef-65c0-4886-81d4-6d8e6b24d8b8_small.avif?v=1754051194\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_3_300x300_6be66818-ade7-4936-992e-9842ccf917b7_small.avif?v=1754051195\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_2_300x300_0a14907a-433a-4557-8c2f-2881f50c07cc_small.avif?v=1754051195\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_5_300x300_dc3410c7-27e4-457a-9d85-f7535a389a19_small.avif?v=1754051194\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/Press_6_300x300_e68a66b6-a00d-4712-b2ac-8093f0d16750_small.avif?v=1754051194\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img\n          src=\"//fittabella.com/cdn/shop/files/PikPng.com_xxl-magazine-logo-png_4513115_300x300.png?v=1756123879\"\n          alt=\"\"\n          loading=\"lazy\"\n        >\n      </div>\n\n    </div>\n\n    <!-- Groupe 2 : duplication pour boucle continue -->\n    <div class=\"aureva-trust-logos__group\" aria-hidden=\"true\">\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_1_300x300_d8793cbd-82d5-4008-ab97-3e24b82ab511_small.avif?v=1754051195\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_4_300x300_461db9ef-65c0-4886-81d4-6d8e6b24d8b8_small.avif?v=1754051194\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_3_300x300_6be66818-ade7-4936-992e-9842ccf917b7_small.avif?v=1754051195\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_2_300x300_0a14907a-433a-4557-8c2f-2881f50c07cc_small.avif?v=1754051195\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_5_300x300_dc3410c7-27e4-457a-9d85-f7535a389a19_small.avif?v=1754051194\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/Press_6_300x300_e68a66b6-a00d-4712-b2ac-8093f0d16750_small.avif?v=1754051194\" alt=\"\">\n      </div>\n\n      <div class=\"aureva-trust-logos__item\">\n        <img src=\"//fittabella.com/cdn/shop/files/PikPng.com_xxl-magazine-logo-png_4513115_300x300.png?v=1756123879\" alt=\"\">\n      </div>\n\n    </div>\n\n  </div>\n</div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "benefici": {
+      "type": "freos-pdp-benefici",
+      "blocks": {
+        "ben_1": {
+          "type": "ben",
+          "settings": {
+            "icona": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z\"></path></svg>",
+            "text": "Agisce quando la bocca smette di difendersi",
+            "tag": "LA SERA"
+          }
+        },
+        "ben_2": {
+          "type": "ben",
+          "settings": {
+            "icona": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"8.5\"></circle><path d=\"M12 7.5V12l3 1.8\"></path></svg>",
+            "text": "Un gesto, trenta secondi",
+            "tag": "SENZA SFORZO"
+          }
+        },
+        "ben_3": {
+          "type": "ben",
+          "settings": {
+            "icona": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3.5s5.5 5.9 5.5 9.4a5.5 5.5 0 1 1-11 0C6.5 9.4 12 3.5 12 3.5z\"></path></svg>",
+            "text": "Resta dove lo metti",
+            "tag": "GEL DENSO"
+          }
+        },
+        "ben_4": {
+          "type": "ben",
+          "settings": {
+            "icona": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15.5\" rx=\"2\"></rect><path d=\"M3.5 9.5h17M8 3.5v3M16 3.5v3\"></path></svg>",
+            "text": "Un barattolo copre un mese",
+            "tag": "TRENTA SERE"
+          }
+        }
+      },
+      "block_order": [
+        "ben_1",
+        "ben_2",
+        "ben_3",
+        "ben_4"
+      ],
+      "settings": {
+        "foot": "Integratore alimentare. Non cura l’alitosi.",
+        "kicker": "",
+        "heading": "Quattro cose, <em>e basta.</em>",
+        "dek": "",
+        "surface": "softer",
+        "width": "narrow",
+        "padding_top": 32,
+        "padding_bottom": 32
+      }
+    },
+    "custom_liquid_KdTqPr": {
+      "type": "custom-liquid",
+      "disabled": true,
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{%- comment -%}\n  FREOS — Sezione \"Voci reali\" (section Custom Liquid pleine largeur, à placer sous la zone d'achat / avant la FAQ)\n  Responsive, sans dépendance, CSS + JS inclus, tout est scopé .frv\n\n  FORMAT (une ligne = une carte, séparées par @@) :\n  Titolo ~~ Testo ~~ Etichetta ~~ Mi piace (nombre, facultatif) ~~ Stelle (1-5, facultatif) ~~ Verificato (0/1) ~~ URL immagine (facultatif) ~~ URL fonte (facultatif)\n\n  - Sans image : la carte affiche le nombre de \"mi piace\" en grand (ou des guillemets si pas de nombre).\n  - Verificato = 1 UNIQUEMENT pour un vrai acheteur vérifié. Stelle : seulement pour de vrais avis clients.\n  - show_links : true = lien \"Vedi il video\" vers la source de chaque commentaire (vérifiable, mais fait sortir du site).\n  - Les \"mi piace\" sont ceux relevés sur TikTok au moment de ta collecte de données.\n{%- endcomment -%}\n{%- assign autoplay = true -%}\n{%- assign show_links = false -%}\n{%- assign show_total = true -%}\n{%- assign eyebrow = 'Voci reali' -%}\n{%- assign cta_text = 'Prova FREOS' -%}\n{%- assign guarantee_text = '30 giorni soddisfatti o rimborsati' -%}\n\n{%- capture cards_raw -%}\nLa mano davanti alla bocca ~~ Quindi non sono matta che quando parlo troppo vicino alla gente mi viene in automatico mettere la mano davanti ~~ Commento su TikTok ~~ 8081 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@luigigrosu/video/7509675562781150487 @@\n5 pacchetti di gomme in borsa ~~ ecco perché cammino con 5/6 pacchetti di gomme/caramelle perché ho questa fobia dell'alito ~~ Commento su TikTok ~~ 6324 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@zrossana/video/7558920217502518550 @@\n3.000 volte al giorno ~~ sento gli altri puzzare e ho paura di puzzare anche io, nonostante mi lavi i denti 3000 volte al giorno ~~ Commento su TikTok ~~ 3635 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@luigigrosu/video/7509675562781150487 @@\nIl terrore di parlare da vicino ~~ non avete capito io ho il TERRORE di parlare troppo vicino alle persone ~~ Commento su TikTok ~~ 1482 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@labenny____/video/7067963611980844294 @@\nGuardo le loro facce ~~ io che fisso la gente per vedere le loro espressioni facciali per vedere se puzzo o meno ~~ Commento su TikTok ~~ 816 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@cocogenge/video/7244522206225550618 @@\nPerché non lo dite? ~~ Dentisti, ma se vedete i calcoli tonsillari, perché NON LO DITE??? ~~ Commento su TikTok ~~ 802 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@centrodentaleacilia/video/7667530191719173409 @@\nNiente cena fuori ~~ no raga io se esco con un ragazzo non voglio uscire a mangiare perché dopo mi puzza l'alito.. mc o quel che sia ditemi che non sono l'unica vi prego ~~ Commento su TikTok ~~ 172 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@chiaraen/video/7409031733586185504 @@\nE non so perché ~~ io li lavo 3 volte al giorno se non di più a volte ma comunque ho un alito che fa rivoltare anche i morti sotto terra e non so perché ~~ Commento su TikTok ~~ 113 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@ci0fecahh/video/7559507518012149014 @@\nAppena sveglia ~~ io ce l'ho la mattina appena sveglia, poi mi lavo i denti e dopo un po' ritorna… ~~ Commento su TikTok ~~ 101 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@francescaigienista/video/7107188317816360198 @@\nNessuno che te lo dice ~~ il problema è per i single, non abbiamo nessuno che ci dice che ci puzza il fiato. Ed è veramente difficile capirlo da soli. Io non ci riesco. ~~ Commento su TikTok ~~ 48 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@prof.lorenzodrago/video/6925862948418211078 @@\nI soldi spesi in gomme ~~ io ho speso così tanti soldi in cicche che se non le avessi comprato avrei una villa, un pastore tedesco e più di un milione nel conto bancario. ~~ Commento su TikTok ~~ 47 ~~ ~~ 0 ~~ ~~ https://www.tiktok.com/@sonoraoul/video/7624538310081334550\n{%- endcapture -%}\n\n{%- assign use_raw = cards_raw | strip -%}\n{%- if use_raw contains '~~' -%}\n{%- assign cards = use_raw | split: '@@' -%}\n\n{%- assign total = 0 -%}\n{%- assign count = 0 -%}\n{%- for c in cards -%}\n  {%- assign p = c | strip | split: '~~' -%}\n  {%- assign t_ok = p[1] | strip -%}\n  {%- if t_ok != blank -%}\n    {%- assign count = count | plus: 1 -%}\n    {%- assign lk0 = p[3] | strip | plus: 0 -%}\n    {%- assign total = total | plus: lk0 -%}\n  {%- endif -%}\n{%- endfor -%}\n{%- if total >= 1000 -%}\n  {%- assign th = total | divided_by: 1000 -%}\n  {%- assign rem = total | modulo: 1000 | prepend: '000' | slice: -3, 3 -%}\n  {%- assign total_fmt = th | append: '.' | append: rem -%}\n{%- else -%}\n  {%- assign total_fmt = total -%}\n{%- endif -%}\n\n<section class=\"frv\" aria-labelledby=\"frv-title\">\n  <div class=\"frv__wrap frv__head\">\n    <p class=\"frv__eyebrow\">{{ eyebrow }}</p>\n    <h2 class=\"frv__h2\" id=\"frv-title\">Parole vere, <em>lo stesso problema</em></h2>\n    <p class=\"frv__lede\">Cosa scrivono online le persone che convivono con l'alito pesante</p>\n    {%- if show_total and total > 0 -%}\n      <p class=\"frv__chip\">\n        <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 21s-7.5-4.6-9.6-9.2C.9 8.5 2.6 5 6 5c2 0 3.4 1.1 4 2.3h.1C10.6 6.1 12 5 14 5c3.4 0 5.1 3.500 3.600 6.800C19.500 16.400 12 21 12 21z\" transform=\"translate(0 .5)\"/></svg>\n        <span><b>{{ total_fmt }}</b> mi piace su questi {{ count }} commenti</span>\n      </p>\n    {%- endif -%}\n  </div>\n\n  <div class=\"frv__viewport\" data-frv role=\"region\" aria-roledescription=\"carousel\" aria-label=\"Voci reali\" data-autoplay=\"{{ autoplay }}\">\n    <button class=\"frv__nav frv__nav--prev\" type=\"button\" aria-label=\"Precedente\" data-frv-prev>\n      <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M15 5l-7 7 7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n    </button>\n\n    <div class=\"frv__rail\" data-frv-rail tabindex=\"0\">\n      {%- for c in cards -%}\n        {%- assign p = c | strip | split: '~~' -%}\n        {%- assign c_title = p[0] | strip -%}\n        {%- assign c_text = p[1] | strip -%}\n        {%- assign c_label = p[2] | strip -%}\n        {%- assign c_likes = p[3] | strip | plus: 0 -%}\n        {%- assign c_rate = p[4] | strip | plus: 0 -%}\n        {%- assign c_ver = p[5] | strip -%}\n        {%- assign c_img = p[6] | strip -%}\n        {%- assign c_link = p[7] | strip -%}\n        {%- if c_likes >= 1000 -%}\n          {%- assign c_th = c_likes | divided_by: 1000 -%}\n          {%- assign c_rem = c_likes | modulo: 1000 | prepend: '000' | slice: -3, 3 -%}\n          {%- assign c_likes_fmt = c_th | append: '.' | append: c_rem -%}\n        {%- else -%}\n          {%- assign c_likes_fmt = c_likes -%}\n        {%- endif -%}\n        {%- if c_text != blank -%}\n        <article class=\"frv__card\" role=\"group\" aria-roledescription=\"slide\" aria-label=\"{{ forloop.index }} / {{ forloop.length }}\">\n          <div class=\"frv__media\">\n            {%- if c_img != blank -%}\n              <img src=\"{{ c_img }}\" alt=\"\" loading=\"lazy\" width=\"700\" height=\"440\">\n            {%- else -%}\n              <svg class=\"frv__qmark\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M9.4 6C6.4 6.9 4 9.7 4 13.5V18h6v-6H7.2c.1-2 1.2-3.400 3.200-4L9.400 6zm9 0c-3 .9-5.400 3.700-5.400 7.500V18h6v-6h-2.800c.1-2 1.200-3.400 3.200-4L18.400 6z\"/></svg>\n              {%- if c_likes > 0 -%}\n                <span class=\"frv__num\">{{ c_likes_fmt }}</span>\n                <span class=\"frv__numl\">\n                  <svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 21s-7.5-4.600-9.600-9.200C.9 8.500 2.600 5 6 5c2 0 3.400 1.100 4 2.300h.1C10.600 6.100 12 5 14 5c3.400 0 5.100 3.500 3.600 6.800C19.500 16.400 12 21 12 21z\" transform=\"translate(0 .5)\"/></svg>\n                  mi piace\n                </span>\n              {%- endif -%}\n            {%- endif -%}\n          </div>\n          <div class=\"frv__body\">\n            {%- if c_rate > 0 -%}\n              <span class=\"frv__stars\" role=\"img\" aria-label=\"{{ c_rate }} su 5\">\n                {%- for s in (1..5) -%}<svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\"{% if s > c_rate %} class=\"is-off\"{% endif %} aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 2l3.090 6.260L22 9.270l-5 4.870 1.180 6.880L12 17.770l-6.180 3.250L7 14.140 2 9.270l6.910-1.010L12 2z\"/></svg>{%- endfor -%}\n              </span>\n            {%- endif -%}\n            {%- if c_title != blank -%}<h3 class=\"frv__title\">{{ c_title | escape }}</h3>{%- endif -%}\n            <blockquote class=\"frv__quote\">«{{ c_text | escape }}»</blockquote>\n            <div class=\"frv__by\">\n              <span class=\"frv__name\">{{ c_label | escape }}</span>\n              {%- if c_ver == '1' -%}\n                <span class=\"frv__ver\"><svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"currentColor\"/><path d=\"M7 12.300l3.200 3.200L17 8.800\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.400\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>Cliente verificato</span>\n              {%- endif -%}\n              {%- if show_links and c_link != blank -%}\n                <a class=\"frv__src\" href=\"{{ c_link }}\" target=\"_blank\" rel=\"noopener nofollow\">Vedi il video</a>\n              {%- endif -%}\n            </div>\n          </div>\n        </article>\n        {%- endif -%}\n      {%- endfor -%}\n    </div>\n\n    <button class=\"frv__nav frv__nav--next\" type=\"button\" aria-label=\"Successiva\" data-frv-next>\n      <svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M9 5l7 7-7 7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n    </button>\n  </div>\n\n  <div class=\"frv__dots\" data-frv-dots></div>\n\n  <div class=\"frv__wrap frv__cta\">\n    <a class=\"frv__btn\" href=\"#\" data-frv-cta>{{ cta_text }}\n      <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M4 12h15M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n    </a>\n    <p class=\"frv__guar\">\n      <svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"10\" fill=\"currentColor\"/><path d=\"M7.500 12.400l3 3 6-6.400\" fill=\"none\" stroke=\"#fff\" stroke-width=\"2.200\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>\n      {{ guarantee_text }}\n    </p>\n  </div>\n</section>\n\n<style>\n  .frv{\n    --frv-green:#1F3D2E; --frv-green2:#3F7A55; --frv-sage:#A8BFA3; --frv-line:#DCE5D8; --frv-ink:#1A1A1A; --frv-body:#4A544D;\n    --frv-gap:16px; --frv-per:1.12;\n    box-sizing:border-box; width:100%; padding:56px 0 64px; margin:0; overflow:hidden;\n    font-family:inherit; color:var(--frv-ink); -webkit-font-smoothing:antialiased;\n    background:linear-gradient(180deg,#FFFFFF 0%,#F2F6EF 100%);\n  }\n  .frv *{box-sizing:border-box}\n  .frv__wrap{max-width:1200px; margin:0 auto; padding:0 20px}\n\n  .frv__head{text-align:center; margin-bottom:30px}\n  .frv__eyebrow{margin:0 0 10px; font-size:12.5px; font-weight:600; letter-spacing:.18em; text-transform:uppercase; color:var(--frv-green2)}\n  .frv__h2{margin:0 0 10px; padding:0; font-family:inherit; font-size:clamp(28px,6.4vw,44px); font-weight:600; line-height:1.15; letter-spacing:-.01em; text-transform:none; color:var(--frv-green)}\n  .frv__h2 em{font-style:italic; color:var(--frv-green2)}\n  .frv__lede{margin:0 auto; max-width:560px; font-size:clamp(14.5px,3.8vw,17px); line-height:1.5; color:var(--frv-body)}\n  .frv__chip{display:inline-flex; align-items:center; gap:8px; margin:18px 0 0; padding:9px 16px; border-radius:999px; background:#fff; border:1px solid var(--frv-line); font-size:13.5px; line-height:1.2; color:var(--frv-green); box-shadow:0 1px 2px rgba(31,61,46,.06)}\n  .frv__chip svg{flex:none; color:#C6483A}\n  .frv__chip b{font-weight:700}\n\n  .frv__viewport{position:relative; max-width:1240px; margin:0 auto}\n  .frv__rail{\n    display:flex; gap:var(--frv-gap); overflow-x:auto; padding:6px 20px 14px;\n    scroll-snap-type:x mandatory; scroll-padding:0 20px; scrollbar-width:none;\n    -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;\n  }\n  .frv__rail::-webkit-scrollbar{display:none}\n  .frv__rail:focus-visible{outline:2px solid var(--frv-green); outline-offset:-2px; border-radius:12px}\n\n  .frv__card{\n    flex:0 0 calc((100% - (var(--frv-per) - 1) * var(--frv-gap)) / var(--frv-per));\n    min-width:0; scroll-snap-align:start; display:flex; flex-direction:column; margin:0;\n    background:#fff; border:1px solid var(--frv-line); border-radius:18px; overflow:hidden;\n    box-shadow:0 2px 6px rgba(31,61,46,.05), 0 12px 28px -14px rgba(31,61,46,.18);\n  }\n  .frv__media{\n    position:relative; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px;\n    aspect-ratio:16/10; overflow:hidden; text-align:center;\n    background:linear-gradient(135deg,#DDE9D9 0%,#EEF2E6 55%,#F6F3E8 100%);\n  }\n  .frv__media img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}\n  .frv__qmark{position:absolute; left:14px; top:8px; width:64px; height:64px; color:var(--frv-green); opacity:.09}\n  .frv__num{position:relative; font-size:clamp(40px,11vw,58px); font-weight:700; line-height:1; letter-spacing:-.02em; color:var(--frv-green); font-variant-numeric:tabular-nums}\n  .frv__numl{position:relative; display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:500; color:var(--frv-green2)}\n  .frv__numl svg{color:#C6483A}\n\n  .frv__body{display:flex; flex:1; flex-direction:column; gap:10px; padding:20px 20px 22px}\n  .frv__stars{display:inline-flex; gap:2px; color:var(--frv-green2)}\n  .frv__stars .is-off{color:rgba(31,61,46,.2)}\n  .frv__title{margin:0; padding:0; font-family:inherit; font-size:15px; font-weight:700; line-height:1.3; letter-spacing:.05em; text-transform:uppercase; color:var(--frv-green)}\n  .frv__quote{flex:1; margin:0; padding:0; border:0; font-size:15px; line-height:1.6; font-style:normal; quotes:none; color:var(--frv-ink)}\n  .frv__by{display:flex; flex-wrap:wrap; align-items:center; gap:4px 12px; padding-top:12px; margin-top:2px; border-top:1px solid var(--frv-line); font-size:13px; line-height:1.3}\n  .frv__name{font-weight:600; color:var(--frv-body)}\n  .frv__ver{display:inline-flex; align-items:center; gap:5px; color:var(--frv-green2); font-weight:500}\n  .frv__src{margin-left:auto; color:var(--frv-green2); text-decoration:underline; text-underline-offset:2px}\n\n  .frv__nav{\n    position:absolute; top:calc(50% - 20px); z-index:3; display:none; align-items:center; justify-content:center;\n    width:46px; height:46px; padding:0; border:1px solid var(--frv-line); border-radius:50%;\n    background:#fff; color:var(--frv-green); cursor:pointer; box-shadow:0 6px 16px -6px rgba(31,61,46,.35);\n    transition:opacity .2s ease, transform .2s ease; appearance:none; -webkit-appearance:none; min-width:0; min-height:0;\n  }\n  .frv__nav--prev{left:8px}\n  .frv__nav--next{right:8px}\n  .frv__nav:hover{transform:scale(1.06)}\n  .frv__nav.is-off{opacity:.35; pointer-events:none}\n  .frv__nav:focus-visible{outline:2px solid var(--frv-green); outline-offset:2px}\n\n  .frv__dots{display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin:6px auto 0; padding:0 20px}\n  .frv__dot{width:8px; height:8px; padding:0; border:0; border-radius:50%; background:var(--frv-sage); opacity:.55; cursor:pointer; transition:width .25s ease, opacity .25s ease, background .25s ease; appearance:none; -webkit-appearance:none; min-width:0; min-height:0; position:relative}\n  .frv__dot::after{content:\"\"; position:absolute; inset:-8px}\n  .frv__dot.is-on{width:24px; border-radius:999px; background:var(--frv-green); opacity:1}\n\n  .frv__cta{display:flex; flex-direction:column; align-items:center; gap:14px; margin-top:32px; text-align:center}\n  .frv__btn{\n    display:inline-flex; align-items:center; justify-content:center; gap:10px; width:100%; max-width:360px; min-height:56px; padding:0 32px;\n    border-radius:12px; background:var(--frv-green); color:#fff; text-decoration:none; font-size:14px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;\n    box-shadow:0 10px 24px -12px rgba(31,61,46,.7); transition:transform .2s ease, background .2s ease, box-shadow .2s ease;\n  }\n  .frv__btn:hover{background:#17301F; transform:translateY(-1px); box-shadow:0 14px 28px -12px rgba(31,61,46,.75)}\n  .frv__btn:focus-visible{outline:3px solid var(--frv-sage); outline-offset:3px}\n  .frv__btn svg{flex:none; transition:transform .2s ease}\n  .frv__btn:hover svg{transform:translateX(3px)}\n  .frv__guar{display:inline-flex; align-items:center; gap:8px; margin:0; font-size:13.5px; color:var(--frv-body)}\n  .frv__guar svg{flex:none; color:var(--frv-green2)}\n\n  @media (min-width:640px){\n    .frv{--frv-gap:20px; --frv-per:2.15; padding:72px 0 80px}\n    .frv__nav{display:inline-flex}\n    .frv__btn{width:auto}\n  }\n  @media (min-width:1024px){\n    .frv{--frv-per:3; padding:84px 0 96px}\n    .frv__head{margin-bottom:40px}\n    .frv__rail{padding:6px 20px 18px}\n    .frv__nav{width:52px; height:52px}\n    .frv__nav--prev{left:0}\n    .frv__nav--next{right:0}\n    .frv__body{padding:22px 24px 24px}\n  }\n  @media (max-width:380px){\n    .frv{--frv-per:1.08}\n    .frv__body{padding:18px 16px 20px}\n  }\n  @media (prefers-reduced-motion:reduce){\n    .frv__nav, .frv__dot, .frv__btn, .frv__btn svg{transition:none}\n    .frv__rail{scroll-behavior:auto}\n  }\n</style>\n\n<script>\n  (function () {\n    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;\n    document.querySelectorAll('[data-frv]:not([data-frv-ready])').forEach(function (root) {\n      root.setAttribute('data-frv-ready', '');\n      var rail = root.querySelector('[data-frv-rail]');\n      var prev = root.querySelector('[data-frv-prev]');\n      var next = root.querySelector('[data-frv-next]');\n      var dotsBox = root.parentNode.querySelector('[data-frv-dots]');\n      var cards = Array.prototype.slice.call(rail.children);\n      var n = cards.length;\n      var pages = 1, timer = null, hovering = false, raf = null;\n\n      function step() {\n        if (n < 2) return rail.clientWidth;\n        return cards[1].offsetLeft - cards[0].offsetLeft;\n      }\n      function visible() {\n        var s = step();\n        return Math.max(1, Math.round((rail.clientWidth - 40) / s));\n      }\n      function index() {\n        var s = step();\n        return Math.max(0, Math.min(pages - 1, Math.round(rail.scrollLeft / s)));\n      }\n      function go(i) {\n        i = Math.max(0, Math.min(pages - 1, i));\n        rail.scrollTo({ left: i * step(), behavior: reduce ? 'auto' : 'smooth' });\n      }\n      function buildDots() {\n        pages = Math.max(1, n - visible() + 1);\n        dotsBox.innerHTML = '';\n        if (pages < 2) { dotsBox.style.display = 'none'; return; }\n        dotsBox.style.display = '';\n        for (var i = 0; i < pages; i++) {\n          (function (i) {\n            var b = document.createElement('button');\n            b.type = 'button'; b.className = 'frv__dot';\n            b.setAttribute('aria-label', 'Vai alla voce ' + (i + 1));\n            b.addEventListener('click', function () { stop(); go(i); });\n            dotsBox.appendChild(b);\n          })(i);\n        }\n        update();\n      }\n      function update() {\n        var i = index();\n        var atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;\n        if (atEnd) i = pages - 1;\n        Array.prototype.forEach.call(dotsBox.children, function (d, k) { d.classList.toggle('is-on', k === i); });\n        prev.classList.toggle('is-off', rail.scrollLeft <= 4);\n        next.classList.toggle('is-off', atEnd);\n      }\n      function stop() { if (timer) { clearInterval(timer); timer = null; } }\n\n      prev.addEventListener('click', function () { stop(); go(index() - 1); });\n      next.addEventListener('click', function () { stop(); go(index() + 1); });\n      rail.addEventListener('scroll', function () {\n        if (raf) return;\n        raf = requestAnimationFrame(function () { raf = null; update(); });\n      }, { passive: true });\n      rail.addEventListener('touchstart', stop, { passive: true });\n      rail.addEventListener('keydown', stop);\n      window.addEventListener('resize', buildDots);\n\n      buildDots();\n\n      if (root.getAttribute('data-autoplay') === 'true' && !reduce && n > 1) {\n        root.addEventListener('mouseenter', function () { hovering = true; });\n        root.addEventListener('mouseleave', function () { hovering = false; });\n        timer = setInterval(function () {\n          if (hovering || document.hidden) return;\n          var atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;\n          go(atEnd ? 0 : index() + 1);\n        }, 5000);\n      }\n    });\n\n    document.querySelectorAll('[data-frv-cta]:not([data-frv-ready])').forEach(function (a) {\n      a.setAttribute('data-frv-ready', '');\n      a.addEventListener('click', function (e) {\n        var f = document.querySelector('form[action*=\"/cart/add\"]');\n        if (f) {\n          e.preventDefault();\n          f.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });\n        }\n      });\n    });\n  })();\n</script>\n{%- endif -%}",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "marquee": {
+      "type": "freos-marquee",
+      "settings": {
+        "items": "Trenta sere di prova | Il barattolo resta a te | Nessun abbonamento | Sette estratti e uno ione | Dosi dichiarate in etichetta",
+        "tone": "ink",
+        "duration": 45
+      }
+    },
+    "custom_liquid_8TqzE3": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "{% comment %}\n  FREOS — REVIEWS PREMIUM FINAL\n  Shopify Custom Liquid / Impact\n{% endcomment %}\n\n{% capture freos_reviews_data %}\n\nGiulia R.|||4|||Al mattino noto davvero la differenza|||Per me i risultati ci sono. Il mio alito è più fresco e me ne accorgo soprattutto al mattino, che prima era il momento peggiore. La consistenza del gel all’inizio mi spiazzava un po’, ma dopo qualche settimana mi sono abituata. Lo ricomprerei.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_holding_FREOS_glass_jar_2K_20261002041733.jpg?v=1790916646|||Milano\n\n@@@\n\nFederica M.|||5|||Prima avevo il collutorio ovunque|||Consumavo collutorio in continuazione. Ne tenevo uno sulla scrivania, uno in macchina e uno in borsa perché ero sempre preoccupata del mio alito. Avere finalmente una routine semplice due volte al giorno mi ha tolto soprattutto quel pensiero costante. Per me questa è la parte migliore.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_taking_selfie_at_desk_2K_20261002041419.jpg?v=1790916646|||Bologna\n\n@@@\n\nChiara T.|||5|||Anche quando viaggio non ci penso più|||Aglio e cipolla mi sono sempre piaciuti, ma dopo iniziava il solito problema. Ora la mia routine è diventata molto più semplice anche quando sono fuori casa. Persino il dentista mi ha chiesto cosa avessi cambiato. Soprattutto, mi sento molto più tranquilla quando parlo con qualcuno da vicino.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_smiling_in_camper_van_2K_20261002042619.jpg?v=1790916646|||Torino\n\n@@@\n\nPaola C.|||5|||Al lavoro mi sento finalmente più tranquilla|||L’alito mi condizionava da troppo tempo, soprattutto nelle conversazioni al lavoro. Ho seguito la routine due volte al giorno con costanza e per me la differenza si sente. Adesso non entro più in ogni conversazione pensando automaticamente a quanto sono vicina alla persona davanti a me.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_holding_jar_of_gel_2K_20261002042314.jpg?v=1790916645|||Firenze\n\n@@@\n\nElena B.|||4|||Parlare da vicino non mi mette più a disagio|||Per anni mi sentivo a disagio ogni volta che qualcuno si avvicinava per parlare. Era diventata una cosa automatica: distanza, mano davanti alla bocca, mille pensieri. La mia sicurezza nelle situazioni sociali è migliorata parecchio. È proprio quella libertà mentale che noto di più.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_holding_jar_smiling_2K_20261002044239.jpg?v=1790916645|||Verona\n\n@@@\n\nFrancesca L.|||5|||Avevo speso troppo in cose che coprivano soltanto|||Dentifrici, prodotti per la bocca, soluzioni diverse: avevo speso molto e la sensazione era sempre che servissero solo a coprire il problema. Dopo qualche settimana il mio compagno mi ha fatto notare spontaneamente che il mio alito sembrava più fresco. Non gli avevo nemmeno chiesto nulla.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_taking_bathroom_selfie_2K_20261002040922.jpg?v=1790916645|||Roma\n\n@@@\n\nMartina G.|||5|||Ho smesso di controllare l’alito dopo ogni pasto|||Per anni avevo l’abitudine di controllare continuamente il mio alito dopo aver mangiato. Dopo i primi giorni ho iniziato a pensarci sempre meno. La cosa che mi ha colpita è stata quando una collega mi ha chiesto cosa avessi cambiato senza sapere che stessi provando una nuova routine.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_taking_mirror_selfie_2K_20261002044242.jpg?v=1790916644|||Padova\n\n@@@\n\nSara V.|||5|||Aglio e cipolla erano il vero test|||Adoro mangiare aglio e cipolla, ma il dopo era sempre la parte che odiavo. Avevo provato a compensare con il collutorio, ma non volevo passare la giornata a coprire tutto con qualcosa di mentolato. Adesso la mia routine è molto più semplice e non tornerei a usare soltanto il collutorio.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_preparing_food_in_kitchen_2K_20261002043338.jpg?v=1790916645|||Napoli\n\n@@@\n\nAlessandra P.|||4|||Non è stato immediato, ed è giusto dirlo|||Per me non è successo tutto da un giorno all’altro. Il miglioramento dell’alito c’è stato, ma è arrivato gradualmente e non in modo spettacolare dalla prima sera. Preferisco dirlo così perché è stata davvero la mia esperienza. Quattro stelle perché per me funziona, semplicemente serve costanza.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_holding_jar_in_bed_2K_20261002044246.jpg?v=1790916645|||Genova\n\n@@@\n\nMarco F.|||5|||Finalmente una routine semplice anche fuori casa|||Prima passavo molto tempo a cercare soluzioni diverse e a portarmi dietro troppe cose. In viaggio era ancora peggio. Adesso avere una routine chiara e semplice mi ha alleggerito parecchio la giornata. È diventata una di quelle cose che metto nel beauty senza pensarci due volte.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Woman_packing_toiletry_bag_2K_20261002044255.jpg?v=1790916645|||Milano\n\n@@@\n\nLuca R.|||5|||Il mio partner se n’è accorto prima di me|||Prima capitava che il mio partner si allontanasse leggermente quando parlavo e io sapevo perfettamente perché. È una sensazione difficile da dimenticare. Dopo aver seguito la routine con costanza, è stato proprio il mio partner a notare il cambiamento prima ancora che dicessi qualcosa. Per me vale più di qualsiasi test davanti allo specchio.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Couple_holding_product_in_living__2K_20261002043343.jpg?v=1790916646|||Roma\n\n@@@\n\nMatteo C.|||4|||La consistenza del gel è particolare, ma ci si abitua|||All’inizio la consistenza del gel mi sembrava davvero strana. Non voglio far finta che sia come usare un normale dentifricio perché non lo è. Però dopo un po’ è diventata semplicemente parte della routine e ho smesso di farci caso. Il fatto che continui a usarlo dice già abbastanza.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_holding_spoon_with_gel_2K_20261002043333.jpg?v=1790916645|||Parma\n\n@@@\n\nAndrea B.|||5|||Il caffè non decide più quanto vicino posso parlare|||Il caffè per me non è negoziabile, ma dopo ero sempre convinto di avere l’alito pesante, anche se mi lavavo i denti. Quella preoccupazione mi seguiva soprattutto al lavoro. Ora mi sento molto più tranquillo quando parlo con qualcuno e non ho più voglia di tornare alla vecchia routine fatta solo di collutorio.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_taking_mirror_selfie_2K_20261002042614.jpg?v=1790916646|||Torino\n\n@@@\n\nDavide M.|||5|||Avevo già provato spray, gomme e collutori|||Avevo provato praticamente ogni collutorio, spray e gomma che trovavo. Il problema era che continuavo comunque a pensarci. Una volta ho saltato la routine per qualche giorno e la differenza mi è sembrata evidente. Da allora preferisco essere costante e non complicarmi più la vita.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_holding_FREOS_jar_bathroom_2K_20261002040722.jpg?v=1790916644|||Bologna\n\n@@@\n\nStefano L.|||5|||Dopo anni ho smesso di fare il controllo continuo|||Combattevo con l’alito cattivo da anni e avevo provato tantissime cose senza mai sentirmi davvero tranquillo. La cosa più strana è stata rendermi conto che avevo smesso di controllare il mio alito dopo ogni pasto. Non è stato un momento preciso: semplicemente un giorno mi sono accorto che non ci pensavo più come prima.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Man_holding_glass_jar_selfie_2K_20261002041411.jpg?v=1790916645|||Bari\n\n@@@\n\nAlessandro T.|||5|||È partita da una conversazione un po’ scomoda|||È stata la mia compagna a portarmi verso questa soluzione e ho capito abbastanza velocemente il perché. Poteva essere una situazione molto imbarazzante, ma alla fine mi ha fatto un favore. Dopo qualche settimana anche lei ha notato la differenza. Oggi ne parliamo con molta più leggerezza di quanto avrei immaginato all’inizio.|||https://cdn.shopify.com/s/files/1/0776/6612/3970/files/Couple_holding_glass_jar_in_2K_20261002042254.jpg?v=1790916645|||Palermo\n\n{% endcapture %}\n\n{% assign freos_reviews = freos_reviews_data | strip | split: '@@@' %}\n\n<section\n  id=\"freos-reviews-{{ section.id }}\"\n  class=\"freos-reviews\"\n  aria-labelledby=\"freos-reviews-title-{{ section.id }}\"\n>\n\n  <div class=\"freos-reviews__inner\">\n\n    <header class=\"freos-reviews-head\">\n\n      <p class=\"freos-reviews-kicker\">\n        RISULTATI REALI\n      </p>\n\n      <h2\n        id=\"freos-reviews-title-{{ section.id }}\"\n        class=\"freos-reviews-heading\"\n      >\n        Storie vere.\n        <span>Risultati che si sentono da vicino.</span>\n      </h2>\n\n      <p class=\"freos-reviews-intro\">\n        Scopri cosa racconta chi ha inserito FREOS nella propria routine quotidiana.\n      </p>\n\n      <div class=\"freos-reviews-rating\">\n\n        <div\n          class=\"freos-reviews-rating__stars\"\n          aria-label=\"Valutazione 4,9 su 5\"\n        >\n          ★★★★★\n        </div>\n\n        <div class=\"freos-reviews-rating__copy\">\n          <strong>4,9/5</strong>\n          <span>basato su 10.000 clienti</span>\n        </div>\n\n      </div>\n\n    </header>\n\n\n    <div class=\"freos-reviews__carousel-wrap\">\n\n      <button\n        class=\"freos-reviews__arrow freos-reviews__arrow--prev\"\n        type=\"button\"\n        aria-label=\"Recensione precedente\"\n      >\n        <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n          <path\n            d=\"M15 5l-7 7 7 7\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            stroke-width=\"2\"\n            stroke-linecap=\"round\"\n            stroke-linejoin=\"round\"\n          />\n        </svg>\n      </button>\n\n\n      <div\n        class=\"freos-reviews__track\"\n        role=\"region\"\n        aria-label=\"Recensioni FREOS\"\n        tabindex=\"0\"\n      >\n\n        {% for review in freos_reviews %}\n\n          {% assign item = review | strip | split: '|||' %}\n          {% assign reviewer_name = item[0] | strip %}\n          {% assign reviewer_rating = item[1] | strip | plus: 0 %}\n          {% assign reviewer_title = item[2] | strip %}\n          {% assign reviewer_text = item[3] | strip %}\n          {% assign reviewer_image = item[4] | strip %}\n          {% assign reviewer_city = item[5] | strip %}\n\n          <article\n            class=\"freos-review-card\"\n            data-review=\"{{ forloop.index }}\"\n          >\n\n            <div class=\"freos-review-card__media\">\n\n              <img\n                src=\"{{ reviewer_image }}\"\n                alt=\"\"\n                loading=\"lazy\"\n                width=\"900\"\n                height=\"900\"\n              >\n\n              <div class=\"freos-review-card__photo-meta\">\n\n                <span class=\"freos-review-card__check\">\n                  <svg viewBox=\"0 0 20 20\" aria-hidden=\"true\">\n                    <path\n                      d=\"M16.5 5.7L8.4 13.8 4 9.4\"\n                      fill=\"none\"\n                      stroke=\"currentColor\"\n                      stroke-width=\"2\"\n                      stroke-linecap=\"round\"\n                      stroke-linejoin=\"round\"\n                    />\n                  </svg>\n                </span>\n\n                <span>Cliente FREOS</span>\n\n              </div>\n\n            </div>\n\n\n            <div class=\"freos-review-card__content\">\n\n              <div class=\"freos-review-card__top\">\n\n                <div\n                  class=\"freos-review-card__stars\"\n                  aria-label=\"{{ reviewer_rating }} stelle su 5\"\n                >\n\n                  {% for star in (1..5) %}\n                    <span\n                      {% if star > reviewer_rating %}\n                        class=\"is-muted\"\n                      {% endif %}\n                    >\n                      ★\n                    </span>\n                  {% endfor %}\n\n                </div>\n\n                <span class=\"freos-review-card__rating\">\n                  {{ reviewer_rating }}.0\n                </span>\n\n              </div>\n\n\n              <h3 class=\"freos-review-card__heading\">\n                {{ reviewer_title }}\n              </h3>\n\n              <p class=\"freos-review-card__quote\">\n                “{{ reviewer_text }}”\n              </p>\n\n\n              <footer class=\"freos-review-card__footer\">\n\n                <span class=\"freos-review-card__avatar\">\n                  {{ reviewer_name | slice: 0 }}\n                </span>\n\n                <div class=\"freos-review-card__identity\">\n\n                  <strong>\n                    {{ reviewer_name }}\n                  </strong>\n\n                  <span>\n                    {{ reviewer_city }}\n                  </span>\n\n                </div>\n\n              </footer>\n\n            </div>\n\n          </article>\n\n        {% endfor %}\n\n      </div>\n\n\n      <button\n        class=\"freos-reviews__arrow freos-reviews__arrow--next\"\n        type=\"button\"\n        aria-label=\"Recensione successiva\"\n      >\n        <svg viewBox=\"0 0 24 24\" aria-hidden=\"true\">\n          <path\n            d=\"M9 5l7 7-7 7\"\n            fill=\"none\"\n            stroke=\"currentColor\"\n            stroke-width=\"2\"\n            stroke-linecap=\"round\"\n            stroke-linejoin=\"round\"\n          />\n        </svg>\n      </button>\n\n    </div>\n\n\n    <div\n      class=\"freos-reviews__mobile-hint\"\n      aria-hidden=\"true\"\n    >\n      <span>Scorri per altre storie</span>\n\n      <svg viewBox=\"0 0 24 24\">\n        <path\n          d=\"M5 12h13m-5-5 5 5-5 5\"\n          fill=\"none\"\n          stroke=\"currentColor\"\n          stroke-width=\"1.8\"\n          stroke-linecap=\"round\"\n          stroke-linejoin=\"round\"\n        />\n      </svg>\n    </div>\n\n  </div>\n\n</section>\n\n\n<style>\n\n#shopify-section-{{ section.id }} {\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n#shopify-section-{{ section.id }} > .section,\n#shopify-section-{{ section.id }} .section-spacing,\n#shopify-section-{{ section.id }} .section-stack {\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n  padding-top: 0 !important;\n  padding-bottom: 0 !important;\n}\n\n#freos-reviews-{{ section.id }} {\n  --verde: #0F6E56;\n  --scuro: #14332A;\n  --soft: #9FE1CB;\n  --tile: #EAF4EE;\n  --crema: #F4EFE4;\n  --paper: #FBFAF6;\n  --muted: #4C6A5D;\n  --border: #E9E2D4;\n\n  width: 100%;\n  margin: 0 !important;\n  padding: 0 !important;\n  background: transparent;\n  color: var(--scuro);\n  overflow: hidden;\n}\n\n#freos-reviews-{{ section.id }} *,\n#freos-reviews-{{ section.id }} *::before,\n#freos-reviews-{{ section.id }} *::after {\n  box-sizing: border-box;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__inner {\n  width: min(100%, 1440px);\n  margin: 0 auto;\n  padding: 6px 32px 8px;\n}\n\n\n/* HEADER */\n\n#freos-reviews-{{ section.id }} .freos-reviews-head {\n  width: min(100%, 920px);\n  margin: 0 auto 20px;\n  padding: 0;\n  text-align: center;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-kicker {\n  margin: 0 0 7px;\n  color: var(--verde);\n  font-size: 9.5px;\n  font-weight: 760;\n  line-height: 1;\n  letter-spacing: .18em;\n  text-transform: uppercase;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-heading {\n  max-width: 920px;\n  margin: 0 auto;\n  color: var(--scuro);\n  font-size: clamp(31px, 4vw, 50px);\n  font-weight: 640;\n  line-height: .97;\n  letter-spacing: -.05em;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-heading span {\n  color: var(--verde);\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-intro {\n  width: min(100%, 540px);\n  margin: 9px auto 0;\n  color: var(--muted);\n  font-size: 13px;\n  font-weight: 400;\n  line-height: 1.45;\n  letter-spacing: -.01em;\n}\n\n\n/* GLOBAL RATING */\n\n#freos-reviews-{{ section.id }} .freos-reviews-rating {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: 9px;\n  margin-top: 11px;\n  padding-top: 10px;\n  border-top: 1px solid var(--border);\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-rating__stars {\n  color: var(--verde);\n  font-size: 14px;\n  line-height: 1;\n  letter-spacing: .9px;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-rating__copy {\n  display: flex;\n  align-items: baseline;\n  gap: 5px;\n  color: var(--muted);\n  font-size: 11.5px;\n  line-height: 1;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews-rating__copy strong {\n  color: var(--scuro);\n  font-size: 12.5px;\n  font-weight: 760;\n}\n\n\n/* CAROUSEL */\n\n#freos-reviews-{{ section.id }} .freos-reviews__carousel-wrap {\n  position: relative;\n  width: 100%;\n  margin: 0;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__track {\n  display: grid;\n  grid-auto-flow: column;\n  grid-auto-columns: minmax(285px, 315px);\n  gap: 17px;\n  width: 100%;\n  margin: 0;\n  padding: 2px 2px 7px;\n  overflow-x: auto;\n  overscroll-behavior-inline: contain;\n  scroll-snap-type: x mandatory;\n  scroll-behavior: smooth;\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n  cursor: grab;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__track::-webkit-scrollbar {\n  display: none;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__track.is-dragging {\n  cursor: grabbing;\n  scroll-snap-type: none;\n  scroll-behavior: auto;\n}\n\n\n/* CARD */\n\n#freos-reviews-{{ section.id }} .freos-review-card {\n  position: relative;\n  overflow: hidden;\n  scroll-snap-align: start;\n  border: 1px solid var(--border);\n  border-radius: 16px;\n  background: rgba(251,250,246,.74);\n  box-shadow:\n    0 1px 2px rgba(20,51,42,.015),\n    0 10px 28px rgba(20,51,42,.038);\n  transition:\n    transform .28s ease,\n    border-color .28s ease,\n    box-shadow .28s ease;\n}\n\n@media (hover:hover) {\n  #freos-reviews-{{ section.id }} .freos-review-card:hover {\n    transform: translateY(-4px);\n    border-color: rgba(15,110,86,.24);\n    box-shadow:\n      0 2px 5px rgba(20,51,42,.02),\n      0 18px 42px rgba(20,51,42,.075);\n  }\n}\n\n\n/* IMAGE */\n\n#freos-reviews-{{ section.id }} .freos-review-card__media {\n  position: relative;\n  aspect-ratio: 1 / 1;\n  overflow: hidden;\n  background: var(--tile);\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__media img {\n  display: block;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  object-position: center;\n  transform: scale(1.001);\n  transition: transform .55s cubic-bezier(.2,.7,.2,1);\n}\n\n@media (hover:hover) {\n  #freos-reviews-{{ section.id }}\n  .freos-review-card:hover\n  .freos-review-card__media img {\n    transform: scale(1.025);\n  }\n}\n\n\n/* CLIENT BADGE */\n\n#freos-reviews-{{ section.id }} .freos-review-card__photo-meta {\n  position: absolute;\n  left: 11px;\n  bottom: 11px;\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 6px 10px 6px 6px;\n  border: 1px solid rgba(255,255,255,.58);\n  border-radius: 999px;\n  background: rgba(251,250,246,.93);\n  color: var(--scuro);\n  font-size: 9px;\n  font-weight: 700;\n  line-height: 1;\n  box-shadow: 0 5px 16px rgba(20,51,42,.08);\n  backdrop-filter: blur(9px);\n  -webkit-backdrop-filter: blur(9px);\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__check {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 18px;\n  height: 18px;\n  border-radius: 50%;\n  background: var(--verde);\n  color: #fff;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__check svg {\n  width: 10px;\n  height: 10px;\n}\n\n\n/* CONTENT */\n\n#freos-reviews-{{ section.id }} .freos-review-card__content {\n  display: flex;\n  flex-direction: column;\n  min-height: 312px;\n  padding: 17px 18px 16px;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__top {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 10px;\n  margin-bottom: 10px;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__stars {\n  display: flex;\n  gap: 1px;\n  color: var(--verde);\n  font-size: 14px;\n  line-height: 1;\n  letter-spacing: .8px;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__stars .is-muted {\n  color: #D7DED9;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__rating {\n  color: var(--muted);\n  font-size: 9.5px;\n  font-weight: 650;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__heading {\n  margin: 0 0 9px;\n  color: var(--scuro);\n  font-size: 15px;\n  font-weight: 720;\n  line-height: 1.28;\n  letter-spacing: -.017em;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__quote {\n  margin: 0;\n  color: var(--muted);\n  font-size: 12.5px;\n  font-weight: 400;\n  line-height: 1.58;\n}\n\n\n/* REVIEWER */\n\n#freos-reviews-{{ section.id }} .freos-review-card__footer {\n  display: flex;\n  align-items: center;\n  gap: 9px;\n  margin-top: auto;\n  padding-top: 17px;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__avatar {\n  flex: 0 0 31px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 31px;\n  height: 31px;\n  border-radius: 50%;\n  background: var(--tile);\n  color: var(--verde);\n  font-size: 10.5px;\n  font-weight: 760;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__identity {\n  min-width: 0;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__identity strong {\n  display: block;\n  color: var(--scuro);\n  font-size: 11px;\n  font-weight: 720;\n  line-height: 1.2;\n}\n\n#freos-reviews-{{ section.id }} .freos-review-card__identity span {\n  display: block;\n  margin-top: 2px;\n  color: var(--muted);\n  font-size: 9px;\n  line-height: 1.2;\n}\n\n\n/* ARROWS */\n\n#freos-reviews-{{ section.id }} .freos-reviews__arrow {\n  position: absolute;\n  z-index: 10;\n  top: 42%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 43px;\n  height: 43px;\n  padding: 0;\n  border: 1px solid var(--border);\n  border-radius: 50%;\n  background: rgba(251,250,246,.97);\n  color: var(--scuro);\n  box-shadow: 0 8px 22px rgba(20,51,42,.08);\n  cursor: pointer;\n  transform: translateY(-50%);\n  transition:\n    color .2s ease,\n    background .2s ease,\n    border-color .2s ease,\n    opacity .2s ease;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__arrow svg {\n  width: 17px;\n  height: 17px;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__arrow--prev {\n  left: -18px;\n}\n\n#freos-reviews-{{ section.id }} .freos-reviews__arrow--next {\n  right: -18px;\n}\n\n@media (hover:hover) {\n  #freos-reviews-{{ section.id }} .freos-reviews__arrow:hover {\n    border-color: var(--verde);\n    background: var(--verde);\n    color: #fff;\n  }\n}\n\n\n/* MOBILE HINT */\n\n#freos-reviews-{{ section.id }} .freos-reviews__mobile-hint {\n  display: none;\n}\n\n\n/* TABLET */\n\n@media screen and (max-width: 989px) {\n\n  #freos-reviews-{{ section.id }} .freos-reviews__inner {\n    padding: 6px 18px 7px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__track {\n    grid-auto-columns: minmax(275px, 42vw);\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__arrow {\n    display: none;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__mobile-hint {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 5px;\n    margin: 4px 0 0;\n    color: var(--muted);\n    font-size: 9.5px;\n    font-weight: 600;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__mobile-hint svg {\n    width: 13px;\n    height: 13px;\n    color: var(--verde);\n  }\n\n}\n\n\n/* MOBILE */\n\n@media screen and (max-width: 649px) {\n\n  #freos-reviews-{{ section.id }} .freos-reviews__inner {\n    padding: 4px 0 5px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-head {\n    margin: 0 auto 16px;\n    padding: 0 17px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-kicker {\n    margin-bottom: 6px;\n    font-size: 8.5px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-heading {\n    max-width: 390px;\n    font-size: clamp(27px, 8.4vw, 35px);\n    line-height: .99;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-heading span {\n    display: block;\n    margin-top: 2px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-intro {\n    max-width: 325px;\n    margin-top: 7px;\n    font-size: 11.5px;\n    line-height: 1.4;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-rating {\n    gap: 7px;\n    margin-top: 9px;\n    padding-top: 8px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-rating__stars {\n    font-size: 12px;\n    letter-spacing: .4px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-rating__copy {\n    gap: 4px;\n    font-size: 9.5px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews-rating__copy strong {\n    font-size: 10.5px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__track {\n    grid-auto-columns: 82vw;\n    gap: 11px;\n    padding: 2px 17px 6px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-review-card {\n    border-radius: 15px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-review-card__content {\n    min-height: 310px;\n    padding: 15px 16px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-review-card__heading {\n    font-size: 14.5px;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-review-card__quote {\n    font-size: 12px;\n    line-height: 1.55;\n  }\n\n  #freos-reviews-{{ section.id }} .freos-reviews__mobile-hint {\n    margin-top: 1px;\n    padding-bottom: 0;\n  }\n\n}\n\n@media screen and (max-width: 370px) {\n\n  #freos-reviews-{{ section.id }} .freos-reviews__track {\n    grid-auto-columns: 86vw;\n    padding-left: 14px;\n    padding-right: 14px;\n  }\n\n}\n\n@media (prefers-reduced-motion: reduce) {\n\n  #freos-reviews-{{ section.id }} .freos-reviews__track,\n  #freos-reviews-{{ section.id }} .freos-review-card,\n  #freos-reviews-{{ section.id }} .freos-review-card__media img,\n  #freos-reviews-{{ section.id }} .freos-reviews__arrow {\n    scroll-behavior: auto !important;\n    transition: none !important;\n  }\n\n}\n\n</style>\n\n\n<script>\n\n(function () {\n\n  const section = document.getElementById(\n    'freos-reviews-{{ section.id }}'\n  );\n\n  if (\n    !section ||\n    section.dataset.freosReviewsReady === 'true'\n  ) {\n    return;\n  }\n\n  section.dataset.freosReviewsReady = 'true';\n\n  const track = section.querySelector(\n    '.freos-reviews__track'\n  );\n\n  const prev = section.querySelector(\n    '.freos-reviews__arrow--prev'\n  );\n\n  const next = section.querySelector(\n    '.freos-reviews__arrow--next'\n  );\n\n  if (!track) return;\n\n\n  function getScrollAmount() {\n\n    const card = track.querySelector(\n      '.freos-review-card'\n    );\n\n    if (!card) {\n      return 320;\n    }\n\n    const styles = window.getComputedStyle(track);\n\n    const gap = parseFloat(\n      styles.columnGap ||\n      styles.gap ||\n      17\n    );\n\n    return card.getBoundingClientRect().width + gap;\n\n  }\n\n\n  if (next) {\n\n    next.addEventListener('click', function () {\n\n      track.scrollBy({\n        left: getScrollAmount(),\n        behavior: 'smooth'\n      });\n\n    });\n\n  }\n\n\n  if (prev) {\n\n    prev.addEventListener('click', function () {\n\n      track.scrollBy({\n        left: -getScrollAmount(),\n        behavior: 'smooth'\n      });\n\n    });\n\n  }\n\n\n  track.addEventListener('keydown', function (event) {\n\n    if (event.key === 'ArrowRight') {\n\n      event.preventDefault();\n\n      track.scrollBy({\n        left: getScrollAmount(),\n        behavior: 'smooth'\n      });\n\n    }\n\n    if (event.key === 'ArrowLeft') {\n\n      event.preventDefault();\n\n      track.scrollBy({\n        left: -getScrollAmount(),\n        behavior: 'smooth'\n      });\n\n    }\n\n  });\n\n\n  let dragging = false;\n  let startX = 0;\n  let initialScroll = 0;\n\n  track.addEventListener('pointerdown', function (event) {\n\n    if (event.pointerType === 'touch') {\n      return;\n    }\n\n    dragging = true;\n    startX = event.clientX;\n    initialScroll = track.scrollLeft;\n\n    track.classList.add('is-dragging');\n\n    try {\n      track.setPointerCapture(event.pointerId);\n    } catch (error) {}\n\n  });\n\n\n  track.addEventListener('pointermove', function (event) {\n\n    if (!dragging) {\n      return;\n    }\n\n    event.preventDefault();\n\n    const movement = event.clientX - startX;\n\n    track.scrollLeft = initialScroll - movement;\n\n  });\n\n\n  function stopDragging(event) {\n\n    if (!dragging) {\n      return;\n    }\n\n    dragging = false;\n\n    track.classList.remove('is-dragging');\n\n    try {\n      track.releasePointerCapture(event.pointerId);\n    } catch (error) {}\n\n  }\n\n\n  track.addEventListener('pointerup', stopDragging);\n  track.addEventListener('pointercancel', stopDragging);\n\n  track.addEventListener('pointerleave', function (event) {\n\n    if (dragging) {\n      stopDragging(event);\n    }\n\n  });\n\n})();\n\n</script>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "differenza": {
+      "type": "freos-pdp-differenza",
+      "blocks": {
+        "bar1": {
+          "type": "bar",
+          "settings": {
+            "label": "Collutorio",
+            "meta": "30 sec",
+            "value": 3,
+            "accent": false
+          }
+        },
+        "bar2": {
+          "type": "bar",
+          "settings": {
+            "label": "Caramella",
+            "meta": "4 min",
+            "value": 8,
+            "accent": false
+          }
+        },
+        "bar3": {
+          "type": "bar",
+          "settings": {
+            "label": "Gel denso",
+            "meta": "ore",
+            "value": 100,
+            "accent": true
+          }
+        }
+      },
+      "block_order": [
+        "bar1",
+        "bar2",
+        "bar3"
+      ],
+      "settings": {
+        "body": "<p>Gli ioni di zinco <strong>legano</strong> i composti solforati. Il mercato lo mette in un collutorio: trenta secondi, poi lo sputi.</p>",
+        "punch": "Guarda come cola. Resta dove lo metti.",
+        "kicker": "",
+        "heading": "Il principio giusto. Nel formato sbagliato.",
+        "dek": "",
+        "surface": "softer",
+        "width": "narrow",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "gesto": {
+      "type": "freos-pdp-gesto",
+      "blocks": {
+        "g1": {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-1",
+            "badge": "Uno",
+            "tag": "1,2 g",
+            "focus": "left",
+            "title": "Apri e preleva",
+            "text": "Due misurini con il cucchiaino di legno. Il gel è denso: resta sul cucchiaino, non cola."
+          }
+        },
+        "g2": {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-2",
+            "badge": "Due",
+            "tag": "30 secondi",
+            "title": "Lascia sciogliere",
+            "text": "Sul dorso della lingua, dopo i denti. Mai a stomaco vuoto. Poi deglutisci."
+          }
+        },
+        "g3": {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-3",
+            "badge": "Tre",
+            "tag": "0 risciacqui",
+            "title": "Sciacqui il cucchiaino, non la bocca",
+            "text": "L'unica cosa che passa sotto l'acqua è il cucchiaino. In bocca il gel resta, tutta la notte."
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "settings": {
+        "kicker": "Il gesto della sera",
+        "heading": "Trenta secondi. Poi <em>si spegne la luce.</em>",
+        "dek": "Nessun risciacquo, nessun apparecchio, niente da raschiare. Si apre, si lascia sciogliere, si va a dormire.",
+        "foot": "<p><strong>Un barattolo copre trenta sere.</strong> Due misurini la sera, nient'altro.</p>",
+        "cta_label": "Scegli la tua scorta",
+        "cta_anchor": "#freos-offerte",
+        "scroll_hint": "Scorri →",
+        "surface": "white",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "meccanismo": {
+      "type": "freos-pdp-journey",
+      "blocks": {
+        "m1": {
+          "type": "step",
+          "settings": {
+            "badge": "RESTA",
+            "title": "È un gel, non un liquido.",
+            "text": "Dopo la deglutizione resta sulle mucose invece di sciacquarle e andarsene."
+          }
+        },
+        "m2": {
+          "type": "step",
+          "settings": {
+            "badge": "LEGA",
+            "title": "Gli ioni di zinco legano i composti solforati.",
+            "text": "Zinco (citrato) 1,38 mg (14% VNR) per porzione serale. Un composto legato non è più volatile — cioè non arriva più al naso di nessuno."
+          }
+        },
+        "m3": {
+          "type": "step",
+          "settings": {
+            "badge": "ACCOMPAGNA",
+            "title": "Copre le ore in cui la saliva cala.",
+            "text": "La bocca resta chiusa, e quello che sale non viene più diluito né portato via. Non trenta secondi: una notte."
+          }
+        },
+        "geste_st1": {
+          "type": "step",
+          "settings": {
+            "badge": "Uno",
+            "title": "Due misurini",
+            "text": "1,2 g di gel sul dorso della lingua. Mai a stomaco vuoto."
+          }
+        },
+        "geste_st2": {
+          "type": "step",
+          "settings": {
+            "badge": "Due",
+            "title": "Lascia sciogliere",
+            "text": "Non serve risciacquare, non serve acqua."
+          }
+        },
+        "geste_st3": {
+          "type": "step",
+          "settings": {
+            "badge": "Tre",
+            "title": "Deglutisci e dormi",
+            "text": "La sera finisce lì."
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "geste_st1",
+        "geste_st2",
+        "geste_st3"
+      ],
+      "settings": {
+        "foot": "<p>Non ti diciamo cosa fa mentre dormi. Ti diciamo dove si trova.</p>",
+        "kicker": "",
+        "heading": "Il <em>Turno di Notte</em>.",
+        "dek": "Durante il sonno il flusso salivare crolla del 90%. È la finestra in cui i composti si accumulano — ed è l’unica in cui qualcosa che resta al suo posto ha senso. (Dawes C, Wong DTW. J Dent Res, 2019)",
+        "surface": "soft",
+        "width": "narrow",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "ingredienti": {
+      "type": "freos-pdp-ingredienti",
+      "blocks": {
+        "ing_zinco": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_zinco.jpg",
+            "name": "Zinco (citrato)",
+            "benefit": "Il freno che tiene mentre dormi.",
+            "icon": "freno",
+            "dose": "1,38 mg (14% VNR)",
+            "quote": "Lega, non copre.",
+            "role": "Il minerale della formula, dosato in etichetta. Lo zinco lega i composti solforati — quelli che si accumulano quando la bocca si ferma.",
+            "pill": "01 · IL LEGAME"
+          }
+        },
+        "ing_shilajit": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing-shilajit.webp",
+            "name": "Shilajit",
+            "benefit": "La base su cui poggia tutto il resto.",
+            "icon": "base",
+            "dose": "100 mg",
+            "quote": "Il più dosato.",
+            "role": "Resina minerale himalayana, purificata. È l’ingrediente più dosato della formula.",
+            "pill": "02 · LA BASE"
+          }
+        },
+        "ing_clorofilla": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_clorofilla.jpg",
+            "name": "Clorofilla",
+            "benefit": "Il verde che accompagna, da sempre.",
+            "icon": "foglia",
+            "dose": "85 mg",
+            "quote": "Verde, da sempre.",
+            "role": "Il pigmento verde delle piante. Uso tradizionale legato agli odori.",
+            "pill": "03 · LA TRADIZIONE"
+          }
+        },
+        "ing_te_verde": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_te_verde.jpg",
+            "name": "Tè verde",
+            "benefit": "La nota che pulisce il finale.",
+            "icon": "fresco",
+            "dose": "85 mg",
+            "quote": "Ricco di polifenoli.",
+            "role": "Foglia di Camellia sinensis. Contiene caffeina naturalmente presente.",
+            "pill": "04 · I POLIFENOLI"
+          }
+        },
+        "ing_prezzemolo": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_prezzemolo.jpg",
+            "name": "Prezzemolo",
+            "benefit": "Quello che si masticava a fine pasto.",
+            "icon": "foglia",
+            "dose": "85 mg",
+            "quote": "Quello del dopo-pasto.",
+            "role": "Foglia di Petroselinum crispum. Quella che in Italia si mastica dopo i pasti, da molto prima che qualcuno la studiasse.",
+            "pill": "05 · IL DOPO-PASTO"
+          }
+        },
+        "ing_melissa": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_melissa.jpg",
+            "name": "Melissa",
+            "benefit": "La chiusura dolce, quando tutto tace.",
+            "icon": "dolce",
+            "dose": "85 mg",
+            "quote": "Chiude in dolcezza.",
+            "role": "Foglia dal profilo dolce. Chiude il gusto della formula.",
+            "pill": "06 · IL FONDO"
+          }
+        },
+        "ing_chiodi": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_chiodi.jpg",
+            "name": "Chiodi di garofano",
+            "benefit": "L’aroma che resta quando spegni la luce.",
+            "icon": "tempo",
+            "dose": "85 mg",
+            "quote": "Aroma che resta.",
+            "role": "Bocciolo essiccato, aroma intenso e persistente.",
+            "pill": "07 · L’AROMA"
+          }
+        },
+        "ing_menta": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_menta.jpg",
+            "name": "Menta piperita",
+            "benefit": "La freschezza che senti nel momento.",
+            "icon": "fresco",
+            "dose": "80 mg",
+            "quote": "Il fresco della sera.",
+            "role": "Il fresco che chiude il gesto. Se non sopporti la menta, FREOS non fa per te: meglio saperlo adesso.",
+            "pill": "08 · IL FRESCO"
+          }
+        },
+        "ing_pueraria": {
+          "type": "ing",
+          "settings": {
+            "file": "freos-ing_pueraria.jpg",
+            "name": "Pueraria lobata",
+            "benefit": "La radice che viene da lontano.",
+            "icon": "radice",
+            "dose": "",
+            "quote": "Radice d’Oriente.",
+            "role": "Radice della tradizione asiatica, presente nella formula per il suo profilo vegetale.",
+            "pill": "09 · LA RADICE"
+          }
+        }
+      },
+      "block_order": [
+        "ing_zinco",
+        "ing_shilajit",
+        "ing_clorofilla",
+        "ing_te_verde",
+        "ing_prezzemolo",
+        "ing_melissa",
+        "ing_chiodi",
+        "ing_menta",
+        "ing_pueraria"
+      ],
+      "settings": {
+        "note": "",
+        "kicker": "",
+        "heading": "La formula completa.",
+        "dek": "Ogni ingrediente con la sua dose, e quello che cambia per te. Il decimo elemento non è un ingrediente: è l’ora in cui lo usi.",
+        "surface": "white",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "confronto": {
+      "type": "freos-pdp-confronto",
+      "blocks": {
+        "cr_1": {
+          "type": "row",
+          "settings": {
+            "label": "Resta oltre i 20 minuti?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        },
+        "cr_2": {
+          "type": "row",
+          "settings": {
+            "label": "Pensato per le ore del sonno?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        },
+        "cr_3": {
+          "type": "row",
+          "settings": {
+            "label": "Niente da sputare o ripetere?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        },
+        "cr_4": {
+          "type": "row",
+          "settings": {
+            "label": "Agisce, non solo copre?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        },
+        "cr_5": {
+          "type": "row",
+          "settings": {
+            "label": "Un acquisto, trenta sere?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        },
+        "cr_6": {
+          "type": "row",
+          "settings": {
+            "label": "Lo zinco lega i solfuri?",
+            "v0": "si",
+            "v1": "no",
+            "v2": "no",
+            "v3": "no",
+            "v4": "no"
+          }
+        }
+      },
+      "block_order": [
+        "cr_1",
+        "cr_2",
+        "cr_3",
+        "cr_4",
+        "cr_5",
+        "cr_6"
+      ],
+      "settings": {
+        "h0": "FREOS",
+        "i0": "freos-cmp-pot.webp",
+        "h1": "Collutorio",
+        "i1": "freos-cmp-collutorio.webp",
+        "h2": "Mentine",
+        "i2": "freos-cat-mentine.webp",
+        "h3": "Gomme",
+        "i3": "freos-cat-gomme.webp",
+        "h4": "Spray",
+        "i4": "freos-cat-spray.webp",
+        "note": "",
+        "kicker": "",
+        "heading": "Perché il resto non è bastato.",
+        "dek": "Sei domande che ti sei già fatto. Giudica tu.",
+        "surface": "soft",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "recensioni": {
+      "type": "freos-pdp-recensioni",
+      "blocks": {
+        "rv1": {
+          "type": "review",
+          "settings": {
+            "title": "La distanza",
+            "body": "<p>Calcolo la distanza quando parlo, senza averlo deciso. Me ne accorgo solo dopo, ripensandoci.</p>"
+          }
+        },
+        "rv2": {
+          "type": "review",
+          "settings": {
+            "title": "La mano davanti",
+            "body": "<p>Tengo la mano davanti alla bocca da anni, ormai è un gesto automatico. Non ricordo nemmeno quando ho cominciato.</p>"
+          }
+        },
+        "rv3": {
+          "type": "review",
+          "settings": {
+            "title": "Il cassetto pieno",
+            "body": "<p>Il cassetto del bagno è pieno di cose comprate e mai finite. Collutori, spray, raschietti, tutti aperti a metà.</p>"
+          }
+        },
+        "rv4": {
+          "type": "review",
+          "settings": {
+            "title": "Il risveglio",
+            "body": "<p>Il momento peggiore è il risveglio, prima ancora di mangiare. È lì che la domanda torna sempre uguale.</p>"
+          }
+        },
+        "rv5": {
+          "type": "review",
+          "settings": {
+            "title": "Non posso saperlo",
+            "body": "<p>Vivo da solo e lavoro da casa. Il problema non è averlo: è non avere modo di saperlo.</p>"
+          }
+        },
+        "rv6": {
+          "type": "review",
+          "settings": {
+            "title": "Avevo smesso di cercare",
+            "body": "<p>Ho smesso di comprare qualcosa per l’alito dopo dieci anni. Non perché fosse passato, ma perché avevo smesso di crederci.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rv1",
+        "rv2",
+        "rv3",
+        "rv4",
+        "rv5",
+        "rv6"
+      ],
+      "settings": {
+        "source": "",
+        "kicker": "",
+        "heading": "Quello che ci siamo sentiti ripetere.",
+        "dek": "Racconti raccolti durante la nostra inchiesta, riscritti in forma breve.",
+        "surface": "softer",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "custom_liquid_ExjhX8": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "liquid": "<style>\n  .freos-usp{--ink:#0F6E56;--txt:#14332a;padding:22px 16px;}\n  .freos-usp__grid{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:26px 12px;}\n@media(max-width:600px){\n  .freos-press__item{padding:0 20px;height:38px;}\n  .freos-press__item img{max-height:24px;}\n}\n  @media(min-width:560px){.freos-usp__grid{grid-template-columns:repeat(4,1fr);}}\n  .freos-usp__item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;padding:0 6px;}\n  .freos-usp__ico{width:34px;height:34px;color:var(--ink);}\n  .freos-usp__ico svg{width:100%;height:100%;display:block;}\n  .freos-usp__t{margin:0;font:600 14px/1.3 'Inter',system-ui,-apple-system,sans-serif;color:var(--txt);}\n  @media(min-width:560px){.freos-usp__t{font-size:15px;}}\n</style>\n\n<div class=\"freos-usp\">\n  <div class=\"freos-usp__grid\">\n    <div class=\"freos-usp__item\">\n      <span class=\"freos-usp__ico\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 9.5h13.5v11H3z\"/><path d=\"M16.5 13h4.3l3.2 3.4v4.1h-7.5z\"/><circle cx=\"9\" cy=\"23.5\" r=\"2.3\"/><circle cx=\"21.5\" cy=\"23.5\" r=\"2.3\"/></svg></span>\n      <p class=\"freos-usp__t\">Spedizione veloce</p>\n    </div>\n    <div class=\"freos-usp__item\">\n      <span class=\"freos-usp__ico\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"6.5\" y=\"14\" width=\"19\" height=\"12.5\" rx=\"2.5\"/><path d=\"M10 14v-3.2a6 6 0 0 1 12 0V14\"/><path d=\"M16 19v3\"/></svg></span>\n      <p class=\"freos-usp__t\">Pagamenti sicuri</p>\n    </div>\n    <div class=\"freos-usp__item\">\n      <span class=\"freos-usp__ico\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M11 13h9a6 6 0 0 1 0 12h-5\"/><path d=\"M13.5 9l-4 4 4 4\"/></svg></span>\n      <p class=\"freos-usp__t\">Garanzia di rimborso di 30 giorni</p>\n    </div>\n    <div class=\"freos-usp__item\">\n      <span class=\"freos-usp__ico\"><svg viewBox=\"0 0 32 32\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"16\" cy=\"16\" r=\"11.5\"/><path d=\"M12.6 12.8a3.5 3.5 0 1 1 4.7 3.3c-1.1 .4-1.7 1.1-1.7 2.3v.4\"/><circle cx=\"15.6\" cy=\"21.8\" r=\"1.05\" fill=\"currentColor\" stroke=\"none\"/></svg></span>\n      <p class=\"freos-usp__t\">Assistenza 24/7</p>\n    </div>\n  </div>\n</div>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rituale": {
+      "type": "freos-pdp-rituale",
+      "blocks": {
+        "step_01": {
+          "type": "step",
+          "settings": {
+            "file": "freos-rit-01.webp",
+            "num": "01",
+            "label": "La sera",
+            "text": "Dopo lo spazzolino, non al posto."
+          }
+        },
+        "step_02": {
+          "type": "step",
+          "settings": {
+            "file": "freos-rit-02.webp",
+            "num": "02",
+            "label": "Il gesto",
+            "text": "Da completare — il modo d’uso arriva qui."
+          }
+        },
+        "step_03": {
+          "type": "step",
+          "settings": {
+            "file": "freos-rit-03.webp",
+            "num": "03",
+            "label": "Poi a letto",
+            "text": "Da completare — cosa fare dopo arriva qui."
+          }
+        }
+      },
+      "block_order": [
+        "step_01",
+        "step_02",
+        "step_03"
+      ],
+      "disabled": true,
+      "settings": {
+        "foot": "Sezione in preparazione: il modo d’uso definitivo arriva qui.",
+        "kicker": "",
+        "heading": "Tre passaggi. Trenta secondi.",
+        "dek": "La sera, dopo lo spazzolino. Non al posto.",
+        "surface": "white",
+        "width": "wide",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "garanzia": {
+      "type": "freos-pdp-garanzia",
+      "blocks": {
+        "g1": {
+          "type": "badge",
+          "settings": {
+            "title": "30 Sere di prova",
+            "sub": "o rimborso"
+          }
+        },
+        "g2": {
+          "type": "badge",
+          "settings": {
+            "title": "✓ Il barattolo",
+            "sub": "resta a te"
+          }
+        },
+        "g3": {
+          "type": "badge",
+          "settings": {
+            "title": "⌀ Nessun",
+            "sub": "abbonamento"
+          }
+        }
+      },
+      "block_order": [
+        "g1",
+        "g2",
+        "g3"
+      ],
+      "disabled": true,
+      "settings": {
+        "shield": true,
+        "body": "<p>Se dopo trenta sere non ti dice niente, ti rimborsiamo l’intero importo. <strong>Il barattolo resta a te</strong>, anche se è aperto. Non devi spiegare perché.</p>",
+        "cta_label": "Aggiungi al carrello",
+        "cta_pill": "",
+        "cta_url": "",
+        "legal": "Garanzia commerciale. Si aggiunge ai tuoi diritti di legge — recesso di 14 giorni e garanzia legale di conformità — che restano interi.",
+        "kicker": "",
+        "heading": "Un mese di prova. Il rischio è nostro.",
+        "dek": "",
+        "surface": "ink",
+        "width": "narrow",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "faq": {
+      "type": "freos-pdp-faq",
+      "blocks": {
+        "q_limiti": {
+          "type": "q",
+          "settings": {
+            "question": "Quello che FREOS non fa.",
+            "answer": "<ul><li>Non tocca le tonsille</li><li>Non scioglie i tonsilloliti</li><li>Non sostituisce l’otorino, né il dentista, né lo spazzolino</li><li>Non cura l’alitosi: non è un farmaco e non ha un’indicazione terapeutica</li></ul><p>Dolore, febbre o difficoltà a deglutire? L’otorino viene prima di qualunque gel.</p>",
+            "open": false
+          }
+        },
+        "q1": {
+          "type": "q",
+          "settings": {
+            "question": "Come si usa, esattamente?",
+            "answer": "<p>Due misurini (1,2 g) la sera, dopo i denti. Lascia sciogliere sulla lingua, poi deglutisci. Mai a stomaco vuoto.</p>",
+            "open": true
+          }
+        },
+        "q2": {
+          "type": "q",
+          "settings": {
+            "question": "Quanto dura un barattolo?",
+            "answer": "<p>120 g. Due misurini a sera, misurino incluso: un barattolo copre <strong>un mese pieno</strong>. Meno di un euro al giorno.</p>",
+            "open": false
+          }
+        },
+        "q3": {
+          "type": "q",
+          "settings": {
+            "question": "È un farmaco?",
+            "answer": "<p>No. È un integratore alimentare. <strong>Non cura l’alitosi</strong> e non ha un’indicazione terapeutica.</p>",
+            "open": false
+          }
+        },
+        "q4": {
+          "type": "q",
+          "settings": {
+            "question": "Serve per i tonsilloliti?",
+            "answer": "<p>No. Non tocca le tonsille e non scioglie i tonsilloliti. Se il problema è quello, la persona giusta è l’otorino.</p>",
+            "open": false
+          }
+        },
+        "q5": {
+          "type": "q",
+          "settings": {
+            "question": "E se il problema viene dallo stomaco?",
+            "answer": "<p>Raramente: le cause esterne alla bocca riguardano circa il 5-10% dei casi. <em>(Tangerman A &amp; Winkel EG · J Breath Res 2010 · PMID 21386205)</em> Con reflusso o sintomi digestivi, senti il medico.</p>",
+            "open": false
+          }
+        },
+        "q6": {
+          "type": "q",
+          "settings": {
+            "question": "Il mio dentista dice che è tutto a posto.",
+            "answer": "<p>Ha ragione su quello che esamina: denti e gengive. La parte posteriore della lingua non rientra nella visita di controllo.</p>",
+            "open": false
+          }
+        },
+        "q7": {
+          "type": "q",
+          "settings": {
+            "question": "Che sapore ha?",
+            "answer": "<p>Sapore di menta, con un fondo erbale di chiodi di garofano. Non è dolce.</p>",
+            "open": false
+          }
+        },
+        "q8": {
+          "type": "q",
+          "settings": {
+            "question": "Posso usarlo in gravidanza o durante l’allattamento?",
+            "answer": "<p>No.</p>",
+            "open": false
+          }
+        },
+        "q_tempo": {
+          "type": "q",
+          "settings": {
+            "question": "In quanto tempo si sente qualcosa?",
+            "answer": "<p>Non c’è una risposta onesta valida per tutti. Chi ci scrive parla di una seconda o terza settimana, e quasi mai di un cambiamento improvviso: più spesso è una cosa che si smette di fare — controllare, coprire, contare le mentine. Le trenta sere di prova servono proprio a questo.</p>",
+            "open": false
+          }
+        },
+        "q_apparecchio": {
+          "type": "q",
+          "settings": {
+            "question": "Posso usarlo con apparecchio, bite o impianti?",
+            "answer": "<p>FREOS è un integratore alimentare: si scioglie in bocca e si deglutisce, non è un prodotto che si applica su denti o dispositivi. Se porti un bite notturno, il gesto va fatto prima di metterlo. Per qualsiasi dubbio legato al tuo apparecchio, la persona da sentire è il tuo dentista.</p>",
+            "open": false
+          }
+        },
+        "q_contro": {
+          "type": "q",
+          "settings": {
+            "question": "Ci sono controindicazioni?",
+            "answer": "<p>La formula contiene tè verde, che apporta caffeina naturalmente presente: se sei sensibile alla caffeina, tienine conto per un prodotto che si prende la sera. Non assumere in gravidanza o durante l’allattamento. Non superare la dose giornaliera consigliata. Tenere fuori dalla portata dei bambini sotto i tre anni. Gli integratori non sostituiscono una dieta variata e uno stile di vita sano.</p>",
+            "open": false
+          }
+        },
+        "q9": {
+          "type": "q",
+          "settings": {
+            "question": "Come funziona la garanzia?",
+            "answer": "<p>Trenta sere di prova. Se non ti dice niente, ti rimborsiamo e <strong>il barattolo resta a te</strong>. È una garanzia commerciale che offriamo noi e <strong>si aggiunge</strong> ai tuoi diritti di legge — il recesso di 14 giorni e la garanzia legale di conformità — che restano interi.</p>",
+            "open": false
+          }
+        }
+      },
+      "block_order": [
+        "q_limiti",
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7",
+        "q8",
+        "q_tempo",
+        "q_apparecchio",
+        "q_contro",
+        "q9"
+      ],
+      "settings": {
+        "guar_title": "",
+        "guar_text": "",
+        "guar_label": "",
+        "guar_url": "",
+        "src_title": "Fonti",
+        "src_items": "<ul><li>Takahashi et al., 2.873 pazienti consecutivi, 2014</li><li>Tangerman A, Winkel EG. J Breath Res, 2010. PMID 21386205</li><li>Dawes C, Wong DTW. J Dent Res, 2019. PMID 30782091</li><li>Quirynen M et al. J Clin Periodontol, 2009. PMID 19811581</li></ul>",
+        "kicker": "",
+        "heading": "Prima <em>di decidere.</em>",
+        "dek": "",
+        "surface": "white",
+        "width": "narrow",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "sticky": {
+      "type": "freos-pdp-sticky",
+      "settings": {
+        "file": "freos-pdp-01-main.jpg",
+        "label": "Gel Notturno allo Zinco",
+        "cta": "Aggiungi al carrello",
+        "soldout": "Non disponibile",
+        "atc_bg": "",
+        "atc_fg": "",
+        "watch": ".fr-atc-wrap"
+      }
+    }
+  },
+  "order": [
+    "buybox",
+    "custom_liquid_kVbdiE",
+    "benefici",
+    "custom_liquid_KdTqPr",
+    "marquee",
+    "custom_liquid_8TqzE3",
+    "differenza",
+    "gesto",
+    "meccanismo",
+    "ingredienti",
+    "confronto",
+    "recensioni",
+    "custom_liquid_ExjhX8",
+    "rituale",
+    "garanzia",
+    "faq",
+    "sticky"
+  ]
+}
