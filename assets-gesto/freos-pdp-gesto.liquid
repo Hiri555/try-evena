@@ -1,0 +1,485 @@
+{%- comment -%}
+  ============================================================================
+  FREOS · PDP 05 — FREOS · 05 Gesto
+  ----------------------------------------------------------------------------
+  Le mode d'emploi en trois plans. Chaque carte porte un clip vertical 9:16
+  muet en boucle, son affiche en repli, un badge d'etape et une pastille
+  chiffree qui leve l'objection (dose, duree, zero rincage).
+
+  Les trois clips sont des fichiers du theme (assets/), pas un CDN tiers :
+  `media` ne porte que le nom de base, le Liquid ajoute .webm / .mp4 / .jpg
+  et passe par `asset_url`.
+
+  Chargement : `preload="none"` est rendu cote serveur, donc rien de cette
+  section ne part au premier ecran. Le script en fin de section repasse a
+  `metadata` au-dessus de 720px et n'amorce une carte qu'a 400px du viewport.
+  Sans JS, `autoplay muted` suffit : le navigateur charge a la visibilite.
+
+  Tout le contenu visible est un reglage ou un bloc : rien n'est ecrit en dur
+  dans ce fichier. Meme ossature que freos-pdp-differenza / -journey.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign anchor = section.settings.cta_anchor | strip
+  if anchor == blank
+    assign anchor = '#freos-offerte'
+  endif
+-%}
+
+<div class="fr fr-pdp fr-pdp--gesto fr-surface--{{ section.settings.surface }}"
+     style="--fr-pt:{{ section.settings.padding_top }}px;--fr-pb:{{ section.settings.padding_bottom }}px">
+  <div class="{{ section.settings.width }}">
+
+  {%- if section.settings.kicker != blank or section.settings.heading != blank
+        or section.settings.dek != blank -%}
+    <header class="fr-sh">
+      {%- if section.settings.kicker != blank -%}
+        <p class="chip">{{ section.settings.kicker }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h2 class="fr-h2">{{ section.settings.heading }}</h2>
+      {%- endif -%}
+      {%- if section.settings.dek != blank -%}
+        <p class="fr-dek">{{ section.settings.dek }}</p>
+      {%- endif -%}
+    </header>
+  {%- endif -%}
+
+    <div class="fg-steps" id="fg-steps-{{ section.id }}">
+      {%- for block in section.blocks -%}
+      {%- comment -%}
+        Bloc « Liquid personalizzato » et blocs d'application. Places en tete de
+        boucle avec `continue` plutot qu'en enveloppe du corps : meme convention
+        que les autres sections PDP.
+      {%- endcomment -%}
+      {%- if block.type == 'custom_liquid' -%}
+        <div class="fr-custom-liquid" {{ block.shopify_attributes }}>{{ block.settings.custom_liquid }}</div>
+        {%- continue -%}
+      {%- elsif block.type == '@app' -%}
+        <div class="fr-app-block" {{ block.shopify_attributes }}>{% render block %}</div>
+        {%- continue -%}
+      {%- endif -%}
+
+      {%- liquid
+        assign base = block.settings.media | strip
+        assign poster = ''
+        assign src_webm = ''
+        assign src_mp4 = ''
+        if base != blank
+          assign poster = base | append: '.jpg' | asset_url
+          assign src_webm = base | append: '.webm' | asset_url
+          assign src_mp4 = base | append: '.mp4' | asset_url
+        endif
+      -%}
+
+        <article class="fg-step" {{ block.shopify_attributes }}>
+          {%- if base != blank -%}
+            <div class="fg-shot">
+              {%- if block.settings.badge != blank -%}
+                <span class="fg-badge">{{ block.settings.badge }}</span>
+              {%- endif -%}
+              {%- if block.settings.tag != blank -%}
+                <span class="fg-tag">{{ block.settings.tag }}</span>
+              {%- endif -%}
+              <img class="fg-poster" src="{{ poster }}" alt="" width="720" height="1280"
+                   loading="lazy" decoding="async">
+              <video class="fg-video"
+                     autoplay
+                     muted
+                     loop
+                     playsinline
+                     preload="none"
+                     data-preload="metadata"
+                     poster="{{ poster }}"
+                     tabindex="-1"
+                     disablepictureinpicture
+                     aria-hidden="true">
+                <source src="{{ src_webm }}" type="video/webm">
+                <source src="{{ src_mp4 }}" type="video/mp4">
+              </video>
+            </div>
+          {%- endif -%}
+          {%- if block.settings.title != blank -%}
+            <h3 class="fg-t">{{ block.settings.title }}</h3>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <p class="fg-x">{{ block.settings.text }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.scroll_hint != blank -%}
+      <p class="fr-rail-hint fg-hint" aria-hidden="true">{{ section.settings.scroll_hint }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.foot != blank or section.settings.cta_label != blank -%}
+      <div class="fg-foot">
+        {%- if section.settings.foot != blank -%}
+          <div class="fr-rt fg-note">{{ section.settings.foot }}</div>
+        {%- endif -%}
+        {%- if section.settings.cta_label != blank -%}
+          <a class="fr-cta fg-cta" href="{{ anchor }}" data-fg-cta>{{ section.settings.cta_label }}</a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<style>
+  /* Variables, familles de police et classes d'ossature (.fr-pdp, .fr-sh,
+     .chip, .fr-h2, .fr-dek, .fr-rt, .fr-cta, .fr-rail-hint) viennent de
+     assets/freos.css. Rien n'est redefini ici : ni couleur, ni police. */
+
+  .fr-pdp--gesto .fg-steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}
+  .fr-pdp--gesto .fg-step{min-width:0}
+
+  .fr-pdp--gesto .fg-shot{
+    position:relative;aspect-ratio:9/16;border-radius:6px;overflow:hidden;
+    background:var(--rule);margin:0 0 18px;isolation:isolate}
+  /* freos.css pose `.fr video{height:auto}` : on le reprend ici. */
+  .fr-pdp--gesto .fg-shot .fg-poster,
+  .fr-pdp--gesto .fg-shot .fg-video{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;display:block;max-width:none;margin:0}
+  .fr-pdp--gesto .fg-shot .fg-video{z-index:1}
+  .fr-pdp--gesto .fg-shot .fg-poster{z-index:0}
+
+  .fr-pdp--gesto .fg-badge{
+    position:absolute;z-index:2;top:12px;left:12px;
+    font:600 10px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--bg);background:var(--acc);
+    background:color-mix(in srgb, var(--acc) 72%, transparent);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+    border-radius:999px;padding:6px 11px}
+  .fr-pdp--gesto .fg-tag{
+    position:absolute;z-index:2;bottom:12px;left:12px;
+    font:600 11px/1 Inter,sans-serif;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--acc);background:var(--bg);
+    background:color-mix(in srgb, var(--bg) 93%, transparent);
+    border-radius:999px;padding:6px 11px}
+
+  .fr-pdp--gesto .fg-t{
+    font-family:Fraunces,serif;font-weight:500;font-size:21px;line-height:1.2;
+    letter-spacing:-.01em;color:var(--ink);margin:0 0 7px}
+  .fr-pdp--gesto .fg-x{
+    font-size:15px;line-height:1.55;color:var(--ink2);margin:0}
+
+  .fr-pdp--gesto .fg-hint{display:none}
+
+  .fr-pdp--gesto .fg-foot{
+    display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;
+    margin-top:30px;padding-top:24px;border-top:1px solid var(--rule)}
+  .fr-pdp--gesto .fg-note{flex:1 1 300px;min-width:0}
+  .fr-pdp--gesto .fg-note p{font-size:15px;line-height:1.55;color:var(--ink2);margin:0}
+  .fr-pdp--gesto .fg-note p strong{color:var(--ink);font-weight:600}
+  .fr-pdp--gesto .fg-cta{margin-left:auto;flex:0 0 auto}
+
+  .fr-pdp--gesto.fr-surface--ink .fg-t{color:var(--soft)}
+  .fr-pdp--gesto.fr-surface--ink .fg-x,
+  .fr-pdp--gesto.fr-surface--ink .fg-note p{color:var(--rule2)}
+  .fr-pdp--gesto.fr-surface--ink .fg-foot{
+    border-top-color:color-mix(in srgb, var(--soft) 20%, transparent)}
+
+  /* Sous 720px : bande horizontale a aimantation, une etape par ecran.
+     `overflow-x:auto` sur un enfant du conteneur `.wide`/`.narrow` : le body
+     ne deborde pas, le defilement reste dans la bande. */
+  @media (max-width:720px){
+    .fr-pdp--gesto .fg-steps{
+      display:flex;grid-template-columns:none;gap:12px;
+      overflow-x:auto;overflow-y:hidden;
+      scroll-snap-type:x mandatory;scroll-padding-inline:0;
+      overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;-ms-overflow-style:none;
+      padding-bottom:2px}
+    .fr-pdp--gesto .fg-steps::-webkit-scrollbar{display:none}
+    .fr-pdp--gesto .fg-step{
+      flex:0 0 76%;max-width:310px;
+      scroll-snap-align:start;scroll-snap-stop:always}
+    .fr-pdp--gesto .fg-steps::after{content:"";flex:0 0 1px}
+    .fr-pdp--gesto .fg-hint{display:inline-flex;align-items:center;gap:6px;
+      color:var(--acc);margin:14px 0 0}
+    .fr-pdp--gesto .fg-foot{flex-direction:column;align-items:stretch;gap:16px}
+    .fr-pdp--gesto .fg-cta{margin-left:0;width:100%;justify-content:center}
+  }
+
+  /* Animation desactivee : on masque le clip, l'affiche reste. */
+  @media (prefers-reduced-motion:reduce){
+    .fr-pdp--gesto .fg-shot .fg-video{display:none}
+  }
+</style>
+
+<script>
+(function(){
+  var root = document.getElementById('fg-steps-{{ section.id }}');
+  if(!root) return;
+
+  var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var wide = window.matchMedia && window.matchMedia('(min-width: 721px)').matches;
+
+  /* Le lien de bas de section vise le selecteur d'offre. Si l'ancre reglee
+     n'existe pas sur la page, on retombe sur le bloc d'ajout au panier --
+     le meme element que la barre collante surveille. */
+  var cta = root.parentNode.querySelector('[data-fg-cta]');
+  if(cta){
+    cta.addEventListener('click', function(e){
+      var sel = cta.getAttribute('href') || '';
+      var target = null;
+      try { target = sel.length > 1 ? document.querySelector(sel) : null; } catch(err){ target = null; }
+      if(!target) target = document.querySelector('.fr-atc-wrap');
+      if(!target) return;
+      e.preventDefault();
+      target.scrollIntoView({behavior: calm ? 'auto' : 'smooth', block: 'center'});
+    });
+  }
+
+  if(calm) return;
+
+  var vids = root.querySelectorAll('video.fg-video');
+  if(!vids.length) return;
+
+  /* Rien n'a ete precharge par le HTML (`preload="none"`). On n'amorce une
+     carte qu'a l'approche du viewport, et on ne demande `metadata` qu'au-dela
+     de 720px. */
+  function wake(v){
+    if(v.dataset.fgOn) return;
+    v.dataset.fgOn = '1';
+    if(wide && v.dataset.preload) v.preload = v.dataset.preload;
+    var p = v.play();
+    if(p && p.catch) p.catch(function(){ /* refus d'autoplay : l'affiche reste */ });
+  }
+
+  if(!('IntersectionObserver' in window)){
+    for(var i=0;i<vids.length;i++) wake(vids[i]);
+    return;
+  }
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      var v = en.target;
+      if(en.isIntersecting){ wake(v); }
+      else if(v.dataset.fgOn && !v.paused){ v.pause(); }
+    });
+  }, {rootMargin: '400px 0px'});
+
+  for(var j=0;j<vids.length;j++) io.observe(vids[j]);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "FREOS · 05 Gesto",
+  "tag": "section",
+  "class": "freos-pdp-gesto",
+  "settings": [
+    {
+      "type": "header",
+      "content": "En-tete"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Sur-titre",
+      "default": "Il gesto della sera"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titre",
+      "info": "<em>...</em> met un fragment en italique d'accent.",
+      "default": "Trenta secondi. Poi <em>si spegne la luce.</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "dek",
+      "label": "Chapeau",
+      "default": "Nessun risciacquo, nessun apparecchio, niente da raschiare. Si apre, si lascia sciogliere, si va a dormire."
+    },
+    {
+      "type": "header",
+      "content": "Bas de section"
+    },
+    {
+      "type": "richtext",
+      "id": "foot",
+      "label": "Note de fin",
+      "default": "<p><strong>Un barattolo copre trenta sere.</strong> Due misurini la sera, nient'altro.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Libelle du bouton",
+      "default": "Scegli la tua scorta"
+    },
+    {
+      "type": "text",
+      "id": "cta_anchor",
+      "label": "Ancre du bouton",
+      "info": "Selecteur de la zone d'offre. A defaut, le bouton retombe sur le bloc d'ajout au panier.",
+      "default": "#freos-offerte"
+    },
+    {
+      "type": "text",
+      "id": "scroll_hint",
+      "label": "Accroche de defilement",
+      "info": "Visible seulement sous 720px, sous la bande. Vide pour la masquer.",
+      "default": "Scorri →"
+    },
+    {
+      "type": "header",
+      "content": "Mise en page"
+    },
+    {
+      "type": "select",
+      "id": "surface",
+      "label": "Fond",
+      "default": "white",
+      "options": [
+        {
+          "value": "white",
+          "label": "Blanc"
+        },
+        {
+          "value": "soft",
+          "label": "Sable"
+        },
+        {
+          "value": "softer",
+          "label": "Sable clair"
+        },
+        {
+          "value": "ink",
+          "label": "Encre"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "width",
+      "label": "Largeur",
+      "default": "wide",
+      "options": [
+        {
+          "value": "narrow",
+          "label": "Colonne de lecture"
+        },
+        {
+          "value": "wide",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Marge haute",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Marge basse",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "custom_liquid",
+      "name": "Liquid personalizzato",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Codice Liquid / HTML",
+          "info": "Incolla qui Liquid, HTML o script personalizzato."
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "step",
+      "name": "Etape",
+      "settings": [
+        {
+          "type": "text",
+          "id": "media",
+          "label": "Fichiers du theme",
+          "info": "Nom de base, sans extension. `freos-gesto-1` charge freos-gesto-1.webm, .mp4 et .jpg depuis assets/."
+        },
+        {
+          "type": "text",
+          "id": "badge",
+          "label": "Badge d'etape",
+          "info": "Uno, Due, Tre..."
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Pastille chiffree",
+          "info": "1,2 g · 30 secondi · 0 risciacqui"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Texte"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FREOS · 05 Gesto",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-1",
+            "badge": "Uno",
+            "tag": "1,2 g",
+            "title": "Apri e preleva",
+            "text": "Due misurini con il cucchiaino di legno. Il gel è denso: resta sul cucchiaino, non cola."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-2",
+            "badge": "Due",
+            "tag": "30 secondi",
+            "title": "Lascia sciogliere",
+            "text": "Sul dorso della lingua, dopo i denti. Mai a stomaco vuoto. Poi deglutisci."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "media": "freos-gesto-3",
+            "badge": "Tre",
+            "tag": "0 risciacqui",
+            "title": "Sciacqui il cucchiaino, non la bocca",
+            "text": "L'unica cosa che passa sotto l'acqua è il cucchiaino. In bocca il gel resta, tutta la notte."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
