@@ -217,6 +217,9 @@
     .fr-pdp--gesto .fg-hint{display:inline-flex;align-items:center;gap:6px;
       color:var(--acc);margin:14px 0 0}
     .fr-pdp--gesto .fg-foot{flex-direction:column;align-items:stretch;gap:16px}
+    /* En colonne, l'axe principal est la hauteur : le `flex-basis:300px` du
+       mode rangee donnerait 300px de haut a la note. On le neutralise. */
+    .fr-pdp--gesto .fg-note{flex:0 1 auto}
     .fr-pdp--gesto .fg-cta{margin-left:0;width:100%;justify-content:center}
   }
 
