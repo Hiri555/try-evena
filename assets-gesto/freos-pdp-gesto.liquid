@@ -75,14 +75,19 @@
 
         <article class="fg-step" {{ block.shopify_attributes }}>
           {%- if base != blank -%}
-            <div class="fg-shot">
+            {%- comment -%}
+              Les rushes sont en 3:4 ; la carte est en 9:16, donc `object-fit:cover`
+              rogne sur la largeur. `focus` decide de quel cote : « left » garde le
+              cucchiaino de l'etape 1, « center » garde le robinet de l'etape 3.
+            {%- endcomment -%}
+            <div class="fg-shot" style="--fg-focus:{{ block.settings.focus | default: 'center' }}">
               {%- if block.settings.badge != blank -%}
                 <span class="fg-badge">{{ block.settings.badge }}</span>
               {%- endif -%}
               {%- if block.settings.tag != blank -%}
                 <span class="fg-tag">{{ block.settings.tag }}</span>
               {%- endif -%}
-              <img class="fg-poster" src="{{ poster }}" alt="" width="720" height="1280"
+              <img class="fg-poster" src="{{ poster }}" alt="" width="720" height="960"
                    loading="lazy" decoding="async">
               {%- comment -%}
                 Le clip attend dans un <template> : son contenu est inerte, donc
@@ -152,7 +157,8 @@
   .fr-pdp--gesto .fg-shot .fg-poster,
   .fr-pdp--gesto .fg-shot .fg-video{
     position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;display:block;max-width:none;margin:0}
+    object-fit:cover;object-position:var(--fg-focus,center) center;
+    display:block;max-width:none;margin:0}
   .fr-pdp--gesto .fg-shot .fg-video{z-index:1}
   .fr-pdp--gesto .fg-shot .fg-poster{z-index:0}
 
@@ -465,6 +471,18 @@
           "info": "1,2 g · 30 secondi · 0 risciacqui"
         },
         {
+          "type": "select",
+          "id": "focus",
+          "label": "Cadrage",
+          "info": "Les rushes sont en 3:4, la carte en 9:16 : ce reglage decide du cote conserve.",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Gauche" },
+            { "value": "center", "label": "Centre" },
+            { "value": "right", "label": "Droite" }
+          ]
+        },
+        {
           "type": "text",
           "id": "title",
           "label": "Titre"
@@ -487,6 +505,7 @@
             "media": "freos-gesto-1",
             "badge": "Uno",
             "tag": "1,2 g",
+            "focus": "left",
             "title": "Apri e preleva",
             "text": "Due misurini con il cucchiaino di legno. Il gel è denso: resta sul cucchiaino, non cola."
           }
