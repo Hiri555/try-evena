@@ -10,10 +10,13 @@
   `media` ne porte que le nom de base, le Liquid ajoute .webm / .mp4 / .jpg
   et passe par `asset_url`.
 
-  Chargement : `preload="none"` est rendu cote serveur, donc rien de cette
-  section ne part au premier ecran. Le script en fin de section repasse a
-  `metadata` au-dessus de 720px et n'amorce une carte qu'a 400px du viewport.
-  Sans JS, `autoplay muted` suffit : le navigateur charge a la visibilite.
+  Chargement : le <video> attend dans un <template>, dont le contenu est
+  inerte, donc rien de cette section ne part au premier ecran. Le script en
+  fin de section clone la carte a 400px du viewport, en gardant le
+  `preload="metadata"` au-dessus de 720px et en le ramenant a `none` en
+  dessous. Mesure sur le preview : 0 octet de video avant defilement.
+  Sans JS, seule l'affiche `loading="lazy"` s'affiche -- c'est aussi le
+  repli prevu pour prefers-reduced-motion.
 
   Tout le contenu visible est un reglage ou un bloc : rien n'est ecrit en dur
   dans ce fichier. Meme ossature que freos-pdp-differenza / -journey.
