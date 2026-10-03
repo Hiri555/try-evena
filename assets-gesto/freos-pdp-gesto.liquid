@@ -84,20 +84,28 @@
               {%- endif -%}
               <img class="fg-poster" src="{{ poster }}" alt="" width="720" height="1280"
                    loading="lazy" decoding="async">
-              <video class="fg-video"
-                     autoplay
-                     muted
-                     loop
-                     playsinline
-                     preload="none"
-                     data-preload="metadata"
-                     poster="{{ poster }}"
-                     tabindex="-1"
-                     disablepictureinpicture
-                     aria-hidden="true">
-                <source src="{{ src_webm }}" type="video/webm">
-                <source src="{{ src_mp4 }}" type="video/mp4">
-              </video>
+              {%- comment -%}
+                Le clip attend dans un <template> : son contenu est inerte, donc
+                aucun octet ne part avant que la carte n'approche du viewport.
+                `autoplay` seul suffirait a faire charger le clip des le chargement
+                de la page, `preload="none"` ou pas -- c'est ce que fait Chromium.
+                Le script plus bas clone ce bloc tel quel a 400px du viewport.
+              {%- endcomment -%}
+              <template class="fg-tpl">
+                <video class="fg-video"
+                       autoplay
+                       muted
+                       loop
+                       playsinline
+                       preload="metadata"
+                       poster="{{ poster }}"
+                       tabindex="-1"
+                       disablepictureinpicture
+                       aria-hidden="true">
+                  <source src="{{ src_webm }}" type="video/webm">
+                  <source src="{{ src_mp4 }}" type="video/mp4">
+                </video>
+              </template>
             </div>
           {%- endif -%}
           {%- if block.settings.title != blank -%}
@@ -209,6 +217,7 @@
   /* Animation desactivee : on masque le clip, l'affiche reste. */
   @media (prefers-reduced-motion:reduce){
     .fr-pdp--gesto .fg-shot .fg-video{display:none}
+    .fr-pdp--gesto .fg-shot .fg-poster{display:block}
   }
 </style>
 
@@ -238,34 +247,58 @@
 
   if(calm) return;
 
-  var vids = root.querySelectorAll('video.fg-video');
-  if(!vids.length) return;
+  var shots = root.querySelectorAll('.fg-shot');
+  if(!shots.length) return;
 
-  /* Rien n'a ete precharge par le HTML (`preload="none"`). On n'amorce une
-     carte qu'a l'approche du viewport, et on ne demande `metadata` qu'au-dela
-     de 720px. */
-  function wake(v){
-    if(v.dataset.fgOn) return;
-    v.dataset.fgOn = '1';
-    if(wide && v.dataset.preload) v.preload = v.dataset.preload;
+  /* Rien n'est charge par le HTML : le clip vit dans un <template>. On le
+     clone a l'approche du viewport, et on retombe sur `preload="none"` sous
+     720px pour ne rien demander de plus que ce que la lecture exige. */
+  function wake(shot){
+    if(shot.dataset.fgOn) return;
+    shot.dataset.fgOn = '1';
+    var tpl = shot.querySelector('template.fg-tpl');
+    if(!tpl) return;
+    var frag = tpl.content.cloneNode(true);
+    var v = frag.querySelector('video.fg-video');
+    if(v && !wide) v.setAttribute('preload', 'none');
+    shot.appendChild(frag);
+    v = shot.querySelector('video.fg-video');
+    if(!v) return;
     var p = v.play();
     if(p && p.catch) p.catch(function(){ /* refus d'autoplay : l'affiche reste */ });
   }
 
+  /* Hors champ, on rend le decodage : une carte de la bande qui n'est pas a
+     l'ecran ne tourne pas. Elle reprend des qu'on la fait defiler. */
+  function rest(shot){
+    var v = shot.querySelector('video.fg-video');
+    if(v && !v.paused) v.pause();
+  }
+  function resume(shot){
+    var v = shot.querySelector('video.fg-video');
+    if(v && v.paused){
+      var p = v.play();
+      if(p && p.catch) p.catch(function(){});
+    }
+  }
+
   if(!('IntersectionObserver' in window)){
-    for(var i=0;i<vids.length;i++) wake(vids[i]);
+    for(var i=0;i<shots.length;i++) wake(shots[i]);
     return;
   }
 
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(en){
-      var v = en.target;
-      if(en.isIntersecting){ wake(v); }
-      else if(v.dataset.fgOn && !v.paused){ v.pause(); }
+      var shot = en.target;
+      if(en.isIntersecting){
+        if(shot.dataset.fgOn) resume(shot); else wake(shot);
+      } else if(shot.dataset.fgOn){
+        rest(shot);
+      }
     });
   }, {rootMargin: '400px 0px'});
 
-  for(var j=0;j<vids.length;j++) io.observe(vids[j]);
+  for(var j=0;j<shots.length;j++) io.observe(shots[j]);
 })();
 </script>
 
