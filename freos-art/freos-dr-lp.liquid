@@ -64,6 +64,24 @@
     {%- endif -%}
   </header>
 
+  {%- if section.settings.ba_before != blank and section.settings.ba_after != blank -%}
+    <section class="fdr-ba">
+      {%- if section.settings.ba_heading != blank -%}<h2>{{ section.settings.ba_heading }}</h2>{%- endif -%}
+      <div class="fdr-bagrid">
+        <figure>
+          {{ section.settings.ba_before | image_url: width: 700 | image_tag: widths: '320,520,700', sizes: '(max-width:760px) 46vw, 340px', alt: section.settings.ba_before_label }}
+          <figcaption>{{ section.settings.ba_before_label }}</figcaption>
+        </figure>
+        <figure>
+          {{ section.settings.ba_after | image_url: width: 700 | image_tag: widths: '320,520,700', sizes: '(max-width:760px) 46vw, 340px', alt: section.settings.ba_after_label }}
+          <figcaption>{{ section.settings.ba_after_label }}</figcaption>
+        </figure>
+      </div>
+      {%- if section.settings.ba_note != blank -%}<p class="fdr-banote">{{ section.settings.ba_note }}</p>{%- endif -%}
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+    </section>
+  {%- endif -%}
+
   {%- assign tiers = section.blocks | where: 'type', 'tier' -%}
   {%- if tiers.size > 0 -%}
     <section class="fdr-offer" id="offerta">
@@ -212,6 +230,12 @@
   .fdr-bullets li:last-child{border-bottom:0}
   .fdr-bullets li span{flex:0 0 24px;font-size:19px;line-height:1.25}
 
+  .fdr-ba h2{font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center}
+  .fdr-bagrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .fdr-bagrid figure{margin:0}
+  .fdr-bagrid img{width:100%;height:auto;border-radius:15px;display:block}
+  .fdr-bagrid figcaption{margin-top:9px;text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--acc)}
+  .fdr-banote{margin:16px 0 0;text-align:center;font-size:12px;line-height:1.55;color:#8c8681}
   .fdr-offer{background:var(--wash);max-width:none;padding:44px 20px}
   .fdr-offer>*{max-width:720px;margin-left:auto;margin-right:auto}
   .fdr-offer h2{font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center;margin-bottom:22px}
@@ -333,6 +357,13 @@
     { "type": "textarea", "id": "sub", "label": "Sous-titre" },
     { "type": "image_picker", "id": "hero", "label": "Image" },
     { "type": "text", "id": "hero_alt", "label": "Texte alternatif" },
+    { "type": "header", "content": "Avant / apres" },
+    { "type": "text", "id": "ba_heading", "label": "Titre" },
+    { "type": "image_picker", "id": "ba_before", "label": "Image avant" },
+    { "type": "text", "id": "ba_before_label", "label": "Legende avant" },
+    { "type": "image_picker", "id": "ba_after", "label": "Image apres" },
+    { "type": "text", "id": "ba_after_label", "label": "Legende apres" },
+    { "type": "textarea", "id": "ba_note", "label": "Mention sous les images" },
     { "type": "header", "content": "Offre" },
     { "type": "text", "id": "offer_heading", "label": "Titre du bloc offre" },
     { "type": "text", "id": "cta_label", "label": "Libelle des boutons", "default": "Aggiungi al carrello" },
