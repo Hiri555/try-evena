@@ -64,6 +64,25 @@
     {%- endif -%}
   </header>
 
+  {%- assign slides = section.blocks | where: 'type', 'slide' -%}
+  {%- if slides.size > 0 -%}
+    <section class="fdr-carou">
+      {%- if section.settings.carou_heading != blank -%}<h2>{{ section.settings.carou_heading }}</h2>{%- endif -%}
+      <div class="fdr-rail" id="fdr-rail">
+        {%- for sl in slides -%}
+          <figure {{ sl.shopify_attributes }}>
+            {{ sl.settings.image | image_url: width: 900 | image_tag: widths: '360,560,900', sizes: '(max-width:760px) 82vw, 420px', alt: sl.settings.alt, loading: 'lazy' }}
+            {%- if sl.settings.caption != blank -%}<figcaption>{{ sl.settings.caption }}</figcaption>{%- endif -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+      <div class="fdr-dots" id="fdr-dots" aria-hidden="true">
+        {%- for sl in slides -%}<span{% if forloop.first %} class="on"{% endif %}></span>{%- endfor -%}
+      </div>
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+    </section>
+  {%- endif -%}
+
   {%- if section.settings.ba_before != blank and section.settings.ba_after != blank -%}
     <section class="fdr-ba">
       {%- if section.settings.ba_heading != blank -%}<h2>{{ section.settings.ba_heading }}</h2>{%- endif -%}
@@ -230,6 +249,19 @@
   .fdr-bullets li:last-child{border-bottom:0}
   .fdr-bullets li span{flex:0 0 24px;font-size:19px;line-height:1.25}
 
+  .fdr-carou{padding-top:8px}
+  .fdr-carou h2{font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center}
+  .fdr-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;
+            margin:22px -20px 0;padding:0 20px 4px;-webkit-overflow-scrolling:touch;
+            scrollbar-width:none}
+  .fdr-rail::-webkit-scrollbar{display:none}
+  .fdr-rail figure{flex:0 0 82%;margin:0;scroll-snap-align:center}
+  @media(min-width:720px){.fdr-rail figure{flex:0 0 46%}}
+  .fdr-rail img{width:100%;height:auto;border-radius:15px;display:block}
+  .fdr-rail figcaption{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--mut);text-align:center}
+  .fdr-dots{display:flex;justify-content:center;gap:7px;margin-top:16px}
+  .fdr-dots span{width:7px;height:7px;border-radius:100px;background:var(--line);transition:background .18s}
+  .fdr-dots span.on{background:var(--acc)}
   .fdr-ba h2{font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center}
   .fdr-bagrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
   .fdr-bagrid figure{margin:0}
@@ -334,6 +366,16 @@
       var p = h > 0 ? (window.scrollY / h) * 100 : 0;
       bar.hidden = p < at;
     }
+    var rail = document.getElementById('fdr-rail');
+    var dots = document.getElementById('fdr-dots');
+    if (rail && dots) {
+      rail.addEventListener('scroll', function () {
+        var i = Math.round(rail.scrollLeft / (rail.scrollWidth / rail.children.length));
+        [].forEach.call(dots.children, function (d, n) {
+          d.className = n === i ? 'on' : '';
+        });
+      }, { passive: true });
+    }
     window.addEventListener('scroll', tick, { passive: true });
     tick();
   })();
@@ -357,6 +399,8 @@
     { "type": "textarea", "id": "sub", "label": "Sous-titre" },
     { "type": "image_picker", "id": "hero", "label": "Image" },
     { "type": "text", "id": "hero_alt", "label": "Texte alternatif" },
+    { "type": "header", "content": "Carrousel" },
+    { "type": "text", "id": "carou_heading", "label": "Titre du carrousel" },
     { "type": "header", "content": "Avant / apres" },
     { "type": "text", "id": "ba_heading", "label": "Titre" },
     { "type": "image_picker", "id": "ba_before", "label": "Image avant" },
@@ -397,6 +441,10 @@
     { "type": "range", "id": "sticky_at", "label": "Apparait a", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 20 }
   ],
   "blocks": [
+    { "type": "slide", "name": "Diapo", "settings": [
+      { "type": "image_picker", "id": "image", "label": "Image" },
+      { "type": "text", "id": "alt", "label": "Texte alternatif" },
+      { "type": "textarea", "id": "caption", "label": "Legende" } ] },
     { "type": "bullet", "name": "Puce", "settings": [
       { "type": "text", "id": "icon", "label": "Icone" },
       { "type": "text", "id": "text", "label": "Texte" } ] },
