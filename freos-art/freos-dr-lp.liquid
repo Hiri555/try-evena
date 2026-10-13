@@ -1,0 +1,397 @@
+{%- comment -%}
+  ============================================================================
+  FREOS · DR — Landing page direct-response
+  ----------------------------------------------------------------------------
+  Rien a voir avec les sections freos-lp-*, et c'est voulu. Celles-la sont
+  editoriales : colonne de texte, serif, couleurs sourdes, rythme d'article.
+  Elles ne produiront jamais le rendu d'une LP produit agressive, quel que
+  soit le scope qu'on leur passe.
+
+  Celle-ci porte son propre CSS, scope sous .fdr pour ne rien toucher
+  ailleurs. Architecture : promesse + preuve + puces, echelle d'offre a
+  trois paliers, bandeau de confiance, mecanisme, avis, mode d'emploi en
+  trois temps, FAQ, garantie, rappel d'offre, barre collante.
+
+  L'accent est un reglage. Il part sur le vert FREOS pour rester coherent
+  avec les packshots ; une seule valeur a changer pour basculer ailleurs.
+
+  Les prix barres sont un reglage vide par defaut, volontairement. En UE le
+  prix de reference doit etre le prix le plus bas pratique dans les trente
+  jours precedents (directive Omnibus) : c'est au marchand de le renseigner
+  avec un prix qu'il a reellement pratique, pas au gabarit de l'inventer.
+  ============================================================================
+{%- endcomment -%}
+
+{%- liquid
+  assign acc = section.settings.accent
+  assign acc2 = section.settings.accent_soft
+  assign url = section.settings.cta_url | default: '/'
+-%}
+
+<div class="fdr" style="--acc:{{ acc }};--acc2:{{ acc2 }};">
+
+  {%- if section.settings.topbar != blank -%}
+    <div class="fdr-top">{{ section.settings.topbar }}</div>
+  {%- endif -%}
+
+  <header class="fdr-hero">
+    {%- if section.settings.badge != blank -%}
+      <span class="fdr-badge">{{ section.settings.badge }}</span>
+    {%- endif -%}
+    <h1>{{ section.settings.heading }}</h1>
+    {%- if section.settings.quote != blank -%}
+      <blockquote class="fdr-quote">
+        {{ section.settings.quote }}
+        {%- if section.settings.quote_by != blank -%}
+          <cite>{{ section.settings.quote_by }}</cite>
+        {%- endif -%}
+      </blockquote>
+    {%- endif -%}
+    {%- if section.settings.sub != blank -%}<p class="fdr-sub">{{ section.settings.sub }}</p>{%- endif -%}
+    {%- if section.settings.hero != blank -%}
+      <div class="fdr-heroimg">
+        {{ section.settings.hero | image_url: width: 1200 | image_tag: widths: '420,700,1000,1200', sizes: '(max-width:760px) 100vw, 700px', alt: section.settings.hero_alt, loading: 'eager' }}
+      </div>
+    {%- endif -%}
+
+    {%- assign bullets = section.blocks | where: 'type', 'bullet' -%}
+    {%- if bullets.size > 0 -%}
+      <ul class="fdr-bullets">
+        {%- for b in bullets -%}
+          <li {{ b.shopify_attributes }}><span>{{ b.settings.icon }}</span>{{ b.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </header>
+
+  {%- assign tiers = section.blocks | where: 'type', 'tier' -%}
+  {%- if tiers.size > 0 -%}
+    <section class="fdr-offer" id="offerta">
+      {%- if section.settings.offer_heading != blank -%}<h2>{{ section.settings.offer_heading }}</h2>{%- endif -%}
+      <div class="fdr-tiers">
+        {%- for t in tiers -%}
+          <a class="fdr-tier{% if t.settings.featured %} is-on{% endif %}"
+             href="{{ t.settings.url | default: url }}" {{ t.shopify_attributes }}>
+            {%- if t.settings.flag != blank -%}<span class="fdr-flag">{{ t.settings.flag }}</span>{%- endif -%}
+            <span class="fdr-tname">{{ t.settings.name }}</span>
+            {%- if t.settings.supply != blank -%}<span class="fdr-tsupply">{{ t.settings.supply }}</span>{%- endif -%}
+            <span class="fdr-tprice">{{ t.settings.price }}</span>
+            {%- if t.settings.was != blank -%}<span class="fdr-twas">{{ t.settings.was }}</span>{%- endif -%}
+            {%- if t.settings.each != blank -%}<span class="fdr-teach">{{ t.settings.each }}</span>{%- endif -%}
+          </a>
+        {%- endfor -%}
+      </div>
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+      {%- if section.settings.cta_sub != blank -%}<p class="fdr-ctasub">{{ section.settings.cta_sub }}</p>{%- endif -%}
+
+      {%- assign trusts = section.blocks | where: 'type', 'trust' -%}
+      {%- if trusts.size > 0 -%}
+        <ul class="fdr-trust">
+          {%- for t in trusts -%}
+            <li {{ t.shopify_attributes }}><span>{{ t.settings.icon }}</span>{{ t.settings.text }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </section>
+  {%- endif -%}
+
+  {%- if section.settings.mech_heading != blank -%}
+    <section class="fdr-mech">
+      <h2>{{ section.settings.mech_heading }}</h2>
+      {%- if section.settings.mech_sub != blank -%}<p class="fdr-mechsub">{{ section.settings.mech_sub }}</p>{%- endif -%}
+      {%- if section.settings.mech_image != blank -%}
+        <div class="fdr-mechimg">
+          {{ section.settings.mech_image | image_url: width: 1000 | image_tag: widths: '420,700,1000', sizes: '(max-width:760px) 100vw, 620px', alt: section.settings.mech_alt }}
+        </div>
+      {%- endif -%}
+      {%- if section.settings.mech_body != blank -%}<div class="fdr-prose">{{ section.settings.mech_body }}</div>{%- endif -%}
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+    </section>
+  {%- endif -%}
+
+  {%- assign revs = section.blocks | where: 'type', 'review' -%}
+  {%- if revs.size > 0 -%}
+    <section class="fdr-revs">
+      {%- if section.settings.rev_heading != blank -%}<h2>{{ section.settings.rev_heading }}</h2>{%- endif -%}
+      {%- if section.settings.rev_sub != blank -%}<p class="fdr-mechsub">{{ section.settings.rev_sub }}</p>{%- endif -%}
+      <div class="fdr-revgrid">
+        {%- for r in revs -%}
+          <figure class="fdr-rev" {{ r.shopify_attributes }}>
+            <div class="fdr-stars" aria-label="{{ r.settings.stars }}/5">
+              {%- for i in (1..5) -%}
+                <span{% if i > r.settings.stars %} class="off"{% endif %}>&#9733;</span>
+              {%- endfor -%}
+            </div>
+            <blockquote>{{ r.settings.text }}</blockquote>
+            <figcaption>{{ r.settings.name }}</figcaption>
+          </figure>
+        {%- endfor -%}
+      </div>
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+    </section>
+  {%- endif -%}
+
+  {%- assign steps = section.blocks | where: 'type', 'step' -%}
+  {%- if steps.size > 0 -%}
+    <section class="fdr-steps">
+      {%- if section.settings.step_heading != blank -%}<h2>{{ section.settings.step_heading }}</h2>{%- endif -%}
+      <div class="fdr-stepgrid">
+        {%- for s in steps -%}
+          <div class="fdr-step" {{ s.shopify_attributes }}>
+            <span class="fdr-num">{{ forloop.index }}</span>
+            <h3>{{ s.settings.title }}</h3>
+            <p>{{ s.settings.text }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.cta_label }}</a>
+    </section>
+  {%- endif -%}
+
+  {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
+  {%- if faqs.size > 0 -%}
+    <section class="fdr-faq">
+      {%- if section.settings.faq_kicker != blank -%}<p class="fdr-kick">{{ section.settings.faq_kicker }}</p>{%- endif -%}
+      {%- if section.settings.faq_heading != blank -%}<h2>{{ section.settings.faq_heading }}</h2>{%- endif -%}
+      {%- for f in faqs -%}
+        <details {{ f.shopify_attributes }}>
+          <summary>{{ f.settings.q }}</summary>
+          <div class="fdr-prose">{{ f.settings.a }}</div>
+        </details>
+      {%- endfor -%}
+    </section>
+  {%- endif -%}
+
+  {%- if section.settings.gua_heading != blank -%}
+    <section class="fdr-gua">
+      <h2>{{ section.settings.gua_heading }}</h2>
+      {%- if section.settings.gua_body != blank -%}<div class="fdr-prose">{{ section.settings.gua_body }}</div>{%- endif -%}
+      <a class="fdr-cta" href="{{ url }}">{{ section.settings.gua_cta | default: section.settings.cta_label }}</a>
+      {%- if section.settings.gua_sub != blank -%}<p class="fdr-ctasub">{{ section.settings.gua_sub }}</p>{%- endif -%}
+    </section>
+  {%- endif -%}
+
+  {%- if section.settings.legal != blank -%}
+    <footer class="fdr-legal">{{ section.settings.legal }}</footer>
+  {%- endif -%}
+
+  {%- if section.settings.sticky_label != blank -%}
+    <div class="fdr-bar" id="fdr-bar" hidden>
+      <div>
+        <strong>{{ section.settings.sticky_label }}</strong>
+        {%- if section.settings.sticky_sub != blank -%}<span>{{ section.settings.sticky_sub }}</span>{%- endif -%}
+      </div>
+      <a href="{{ url }}">{{ section.settings.sticky_cta }}</a>
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  .fdr{--ink:#14110f;--mut:#5f5a56;--line:#e6e2dd;--wash:#f7f6f3;
+       font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+       color:var(--ink);background:#fff;overflow-x:hidden}
+  .fdr *{box-sizing:border-box}
+  .fdr h1,.fdr h2,.fdr h3{margin:0;letter-spacing:-.02em;line-height:1.1}
+  .fdr section,.fdr header{padding:40px 20px;max-width:720px;margin:0 auto}
+  .fdr-top{background:var(--acc);color:#fff;text-align:center;
+           font-size:12.5px;font-weight:600;letter-spacing:.04em;padding:10px 16px}
+  .fdr-badge{display:inline-block;background:var(--acc2);color:var(--acc);
+             font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+             padding:7px 14px;border-radius:100px;margin-bottom:18px}
+  .fdr-hero{text-align:center;padding-top:28px}
+  .fdr-hero h1{font-size:clamp(30px,7.4vw,46px);font-weight:800}
+  .fdr-quote{margin:22px 0 0;padding:0 6px;font-size:15.5px;line-height:1.55;color:var(--mut);font-style:italic}
+  .fdr-quote cite{display:block;margin-top:8px;font-style:normal;font-weight:600;color:var(--ink);font-size:13.5px}
+  .fdr-sub{margin:20px 0 0;font-size:16.5px;line-height:1.6;color:var(--mut)}
+  .fdr-heroimg{margin:26px -4px 0}
+  .fdr-heroimg img{width:100%;height:auto;border-radius:18px;display:block}
+  .fdr-bullets{list-style:none;margin:26px 0 0;padding:0;text-align:left}
+  .fdr-bullets li{display:flex;gap:12px;align-items:flex-start;
+                  padding:13px 0;border-bottom:1px solid var(--line);
+                  font-size:15.5px;line-height:1.45;font-weight:500}
+  .fdr-bullets li:last-child{border-bottom:0}
+  .fdr-bullets li span{flex:0 0 24px;font-size:19px;line-height:1.25}
+
+  .fdr-offer{background:var(--wash);max-width:none;padding:44px 20px}
+  .fdr-offer>*{max-width:720px;margin-left:auto;margin-right:auto}
+  .fdr-offer h2{font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center;margin-bottom:22px}
+  .fdr-tiers{display:grid;gap:12px}
+  @media(min-width:720px){.fdr-tiers{grid-template-columns:repeat(3,1fr)}}
+  .fdr-tier{position:relative;display:block;text-decoration:none;color:inherit;
+            background:#fff;border:2px solid var(--line);border-radius:15px;
+            padding:22px 16px 18px;text-align:center;transition:border-color .15s}
+  .fdr-tier:hover{border-color:var(--acc)}
+  .fdr-tier.is-on{border-color:var(--acc);box-shadow:0 6px 24px rgba(0,0,0,.07)}
+  .fdr-flag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+            background:var(--acc);color:#fff;font-size:10.5px;font-weight:700;
+            letter-spacing:.07em;text-transform:uppercase;padding:5px 12px;border-radius:100px;white-space:nowrap}
+  .fdr-tname{display:block;font-weight:700;font-size:17px}
+  .fdr-tsupply{display:block;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--mut);margin-top:4px}
+  .fdr-tprice{display:block;font-size:30px;font-weight:800;margin-top:10px;letter-spacing:-.03em}
+  .fdr-twas{display:block;font-size:13.5px;color:var(--mut);text-decoration:line-through;margin-top:2px}
+  .fdr-teach{display:block;font-size:12.5px;color:var(--acc);font-weight:700;margin-top:6px}
+
+  .fdr-cta{display:block;width:100%;margin:22px auto 0;max-width:460px;
+           background:var(--acc);color:#fff;text-decoration:none;text-align:center;
+           font-size:16px;font-weight:700;letter-spacing:.01em;
+           padding:17px 22px;border-radius:100px}
+  .fdr-cta:hover{filter:brightness(1.08)}
+  .fdr-ctasub{text-align:center;font-size:13px;color:var(--mut);margin:11px 0 0}
+  .fdr-trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;
+             gap:8px 20px;margin:22px 0 0;padding:0;font-size:12.5px;color:var(--mut);font-weight:600}
+  .fdr-trust li{display:flex;align-items:center;gap:6px}
+
+  .fdr-mech h2,.fdr-revs h2,.fdr-steps h2,.fdr-faq h2,.fdr-gua h2{
+    font-size:clamp(23px,5.4vw,32px);font-weight:800;text-align:center}
+  .fdr-mechsub{text-align:center;color:var(--mut);font-size:16px;line-height:1.6;margin:12px 0 0}
+  .fdr-mechimg{margin:24px 0}
+  .fdr-mechimg img{width:100%;height:auto;border-radius:18px;display:block}
+  .fdr-prose{font-size:15.5px;line-height:1.65;color:var(--mut)}
+  .fdr-prose p{margin:0 0 13px}
+  .fdr-prose p:last-child{margin-bottom:0}
+  .fdr-prose b,.fdr-prose strong{color:var(--ink)}
+
+  .fdr-revs{background:var(--wash);max-width:none;padding:44px 20px}
+  .fdr-revs>*{max-width:720px;margin-left:auto;margin-right:auto}
+  .fdr-revgrid{display:grid;gap:12px;margin-top:24px}
+  @media(min-width:720px){.fdr-revgrid{grid-template-columns:repeat(3,1fr)}}
+  .fdr-rev{background:#fff;border-radius:15px;padding:20px;margin:0}
+  .fdr-stars{color:var(--acc);font-size:15px;letter-spacing:2px}
+  .fdr-stars .off{color:var(--line)}
+  .fdr-rev blockquote{margin:11px 0 0;font-size:14.5px;line-height:1.6;color:var(--mut)}
+  .fdr-rev figcaption{margin-top:12px;font-size:13px;font-weight:700}
+
+  .fdr-stepgrid{display:grid;gap:20px;margin-top:26px}
+  @media(min-width:720px){.fdr-stepgrid{grid-template-columns:repeat(3,1fr)}}
+  .fdr-step{text-align:center}
+  .fdr-num{display:inline-flex;align-items:center;justify-content:center;
+           width:38px;height:38px;border-radius:100px;background:var(--acc2);
+           color:var(--acc);font-weight:800;font-size:16px;margin-bottom:12px}
+  .fdr-step h3{font-size:16.5px;font-weight:700}
+  .fdr-step p{margin:8px 0 0;font-size:14.5px;line-height:1.6;color:var(--mut)}
+
+  .fdr-kick{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.1em;
+            text-transform:uppercase;color:var(--acc);margin:0 0 10px}
+  .fdr-faq details{border-bottom:1px solid var(--line)}
+  .fdr-faq details:first-of-type{border-top:1px solid var(--line);margin-top:26px}
+  .fdr-faq summary{cursor:pointer;list-style:none;padding:17px 34px 17px 0;position:relative;
+                   font-size:15.5px;font-weight:650;line-height:1.4}
+  .fdr-faq summary::-webkit-details-marker{display:none}
+  .fdr-faq summary:after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);
+                         font-size:22px;font-weight:400;color:var(--acc);line-height:1}
+  .fdr-faq details[open] summary:after{content:"\2212"}
+  .fdr-faq details>.fdr-prose{padding:0 0 18px}
+
+  .fdr-gua{text-align:center}
+  .fdr-gua .fdr-prose{margin-top:14px;text-align:center}
+  .fdr-legal{max-width:720px;margin:0 auto;padding:28px 20px 110px;
+             font-size:11.5px;line-height:1.6;color:#8c8681;text-align:center}
+  .fdr-legal p{margin:0 0 7px}
+
+  .fdr-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;
+           border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.08);
+           padding:11px 14px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+  .fdr-bar[hidden]{display:none}
+  .fdr-bar strong{display:block;font-size:14px}
+  .fdr-bar span{display:block;font-size:11.5px;color:var(--mut)}
+  .fdr-bar a{flex:0 0 auto;background:var(--acc);color:#fff;text-decoration:none;
+             font-size:14px;font-weight:700;padding:13px 20px;border-radius:100px}
+  @media(prefers-reduced-motion:no-preference){.fdr-bar{transition:transform .22s ease}}
+</style>
+
+{%- if section.settings.sticky_label != blank -%}
+<script>
+  (function () {
+    var bar = document.getElementById('fdr-bar');
+    var at = {{ section.settings.sticky_at | default: 20 }};
+    if (!bar) return;
+    function tick() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      var p = h > 0 ? (window.scrollY / h) * 100 : 0;
+      bar.hidden = p < at;
+    }
+    window.addEventListener('scroll', tick, { passive: true });
+    tick();
+  })();
+</script>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "FREOS DR · Landing",
+  "tag": "section",
+  "class": "freos-dr-lp",
+  "settings": [
+    { "type": "color", "id": "accent", "label": "Couleur d'accent", "default": "#1F3D2E" },
+    { "type": "color", "id": "accent_soft", "label": "Accent clair (fonds de pastille)", "default": "#E7EFE9" },
+    { "type": "text", "id": "topbar", "label": "Bandeau tout en haut" },
+    { "type": "header", "content": "Accroche" },
+    { "type": "text", "id": "badge", "label": "Pastille" },
+    { "type": "text", "id": "heading", "label": "Titre" },
+    { "type": "textarea", "id": "quote", "label": "Citation sous le titre" },
+    { "type": "text", "id": "quote_by", "label": "Signature de la citation" },
+    { "type": "textarea", "id": "sub", "label": "Sous-titre" },
+    { "type": "image_picker", "id": "hero", "label": "Image" },
+    { "type": "text", "id": "hero_alt", "label": "Texte alternatif" },
+    { "type": "header", "content": "Offre" },
+    { "type": "text", "id": "offer_heading", "label": "Titre du bloc offre" },
+    { "type": "text", "id": "cta_label", "label": "Libelle des boutons", "default": "Aggiungi al carrello" },
+    { "type": "url", "id": "cta_url", "label": "Destination" },
+    { "type": "text", "id": "cta_sub", "label": "Ligne sous le bouton" },
+    { "type": "header", "content": "Mecanisme" },
+    { "type": "text", "id": "mech_heading", "label": "Titre" },
+    { "type": "textarea", "id": "mech_sub", "label": "Sous-titre" },
+    { "type": "image_picker", "id": "mech_image", "label": "Image" },
+    { "type": "text", "id": "mech_alt", "label": "Texte alternatif" },
+    { "type": "richtext", "id": "mech_body", "label": "Texte" },
+    { "type": "header", "content": "Avis" },
+    { "type": "text", "id": "rev_heading", "label": "Titre" },
+    { "type": "textarea", "id": "rev_sub", "label": "Sous-titre" },
+    { "type": "header", "content": "Mode d'emploi" },
+    { "type": "text", "id": "step_heading", "label": "Titre" },
+    { "type": "header", "content": "FAQ" },
+    { "type": "text", "id": "faq_kicker", "label": "Sur-titre" },
+    { "type": "text", "id": "faq_heading", "label": "Titre" },
+    { "type": "header", "content": "Garantie" },
+    { "type": "text", "id": "gua_heading", "label": "Titre" },
+    { "type": "richtext", "id": "gua_body", "label": "Texte" },
+    { "type": "text", "id": "gua_cta", "label": "Libelle du bouton" },
+    { "type": "text", "id": "gua_sub", "label": "Ligne sous le bouton" },
+    { "type": "header", "content": "Mentions" },
+    { "type": "richtext", "id": "legal", "label": "Bas de page" },
+    { "type": "header", "content": "Barre collante" },
+    { "type": "text", "id": "sticky_label", "label": "Titre" },
+    { "type": "text", "id": "sticky_sub", "label": "Sous-titre" },
+    { "type": "text", "id": "sticky_cta", "label": "Bouton", "default": "Acquista" },
+    { "type": "range", "id": "sticky_at", "label": "Apparait a", "min": 0, "max": 80, "step": 5, "unit": "%", "default": 20 }
+  ],
+  "blocks": [
+    { "type": "bullet", "name": "Puce", "settings": [
+      { "type": "text", "id": "icon", "label": "Icone" },
+      { "type": "text", "id": "text", "label": "Texte" } ] },
+    { "type": "tier", "name": "Palier", "settings": [
+      { "type": "text", "id": "name", "label": "Nom" },
+      { "type": "text", "id": "supply", "label": "Duree" },
+      { "type": "text", "id": "price", "label": "Prix" },
+      { "type": "text", "id": "was", "label": "Prix barre", "info": "Laisser vide sauf si ce prix a reellement ete pratique dans les 30 derniers jours." },
+      { "type": "text", "id": "each", "label": "Prix a l'unite" },
+      { "type": "text", "id": "flag", "label": "Etiquette" },
+      { "type": "checkbox", "id": "featured", "label": "Mis en avant", "default": false },
+      { "type": "url", "id": "url", "label": "Lien propre a ce palier" } ] },
+    { "type": "trust", "name": "Reassurance", "settings": [
+      { "type": "text", "id": "icon", "label": "Icone" },
+      { "type": "text", "id": "text", "label": "Texte" } ] },
+    { "type": "review", "name": "Avis", "settings": [
+      { "type": "range", "id": "stars", "label": "Etoiles", "min": 1, "max": 5, "step": 1, "default": 5 },
+      { "type": "textarea", "id": "text", "label": "Texte" },
+      { "type": "text", "id": "name", "label": "Nom" } ] },
+    { "type": "step", "name": "Etape", "settings": [
+      { "type": "text", "id": "title", "label": "Titre" },
+      { "type": "textarea", "id": "text", "label": "Texte" } ] },
+    { "type": "faq", "name": "Question", "settings": [
+      { "type": "text", "id": "q", "label": "Question" },
+      { "type": "richtext", "id": "a", "label": "Reponse" } ] }
+  ],
+  "presets": [ { "name": "FREOS DR · Landing" } ]
+}
+{% endschema %}
