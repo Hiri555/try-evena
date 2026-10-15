@@ -1,420 +1,353 @@
 {
   "layout": "freos-lp",
   "sections": {
-    "mast": {
-      "type": "freos-lp-masthead",
-      "settings": {
-        "logo": "FREOS",
-        "tagline": "Whitening Strips",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "opener": {
-      "type": "freos-lp-opener",
+    "lp": {
+      "type": "freos-dr-lp",
       "blocks": {
-        "l1": {
-          "type": "lead",
+        "sl1": {
+          "type": "slide",
           "settings": {
-            "drop": "C",
-            "text": "<p>affè la mattina, tè il pomeriggio, un bicchiere di rosso la sera. Ognuna di queste cose lascia qualcosa sullo smalto, e per un po' lo spazzolino se lo porta via.</p>"
+            "image": "shopify://shop_images/freos-strips-c1-macchie.jpg",
+            "alt": "Il pigmento di caffè e vino si deposita sulla superficie. È lì che si interviene.",
+            "caption": "Il pigmento di caffè e vino si deposita sulla superficie. È lì che si interviene."
           }
         },
-        "l2": {
-          "type": "lead",
+        "sl2": {
+          "type": "slide",
           "settings": {
-            "drop": "",
-            "text": "<p>Poi smette di portarlo via. Non perché tu ti lavi peggio: perché il pigmento si è depositato in uno strato sottile che la setola non stacca più. È il motivo per cui si può avere un'igiene impeccabile e denti comunque spenti.</p>"
+            "image": "shopify://shop_images/freos-strips-c2-perossido.jpg",
+            "alt": "Oltre lo 0,1% di perossido si entra nel territorio dello studio dentistico.",
+            "caption": "Oltre lo 0,1% di perossido si entra nel territorio dello studio dentistico."
           }
         },
-        "t3": {
-          "type": "thesis",
+        "sl3": {
+          "type": "slide",
           "settings": {
-            "text": "Le strisce non lavano. Sciolgono quello che il lavaggio non toglie più."
+            "image": "shopify://shop_images/freos-strips-c3-gesto.jpg",
+            "alt": "Si appoggiano su denti asciutti. Puoi parlare mentre le porti.",
+            "caption": "Si appoggiano su denti asciutti. Puoi parlare mentre le porti."
           }
-        }
-      },
-      "block_order": [
-        "l1",
-        "l2",
-        "t3"
-      ],
-      "settings": {
-        "eyebrow": "Sbiancamento domiciliare",
-        "heading": "Trenta minuti al giorno. <em>Senza perossido.</em>",
-        "subhead": "Le macchie di superficie — caffè, tè, vino rosso, fumo — si depositano ogni giorno. Queste strisce lavorano su quelle, e su niente altro.",
-        "hero": "shopify://shop_images/freos-strips-01-hero.jpg",
-        "hero_alt": "La confezione FREOS Whitening Strips: 14 strisce, sette trattamenti.",
-        "hero_caption": "",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "segnali": {
-      "type": "freos-lp-signals",
-      "blocks": {
+        },
+        "sl4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-c5-smalto.jpg",
+            "alt": "È la ragione per cui la sensibilità resta fuori dall'equazione.",
+            "caption": "È la ragione per cui la sensibilità resta fuori dall'equazione."
+          }
+        },
+        "sl5": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-c4-scala.jpg",
+            "alt": "Un ciclo intero in una confezione. 1,41 € a trattamento.",
+            "caption": "Un ciclo intero in una confezione. 1,41 € a trattamento."
+          }
+        },
+        "sl6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-c6-limiti.jpg",
+            "alt": "Il materiale artificiale non sbianca. Se hai lavori davanti, parlane col dentista.",
+            "caption": "Il materiale artificiale non sbianca. Se hai lavori davanti, parlane col dentista."
+          }
+        },
+        "sh1": {
+          "type": "showcase",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-vs.jpg",
+            "caption": ""
+          }
+        },
+        "sh2": {
+          "type": "showcase",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-ba-mouth.jpg",
+            "caption": ""
+          }
+        },
+        "sh3": {
+          "type": "showcase",
+          "settings": {
+            "image": "shopify://shop_images/freos-strips-benefit-icon.jpg",
+            "caption": ""
+          }
+        },
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "icon": "🦷",
+            "text": "Agiscono sulle macchie di superficie fin dalla prima applicazione"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "icon": "☕",
+            "text": "Sciolgono il pigmento di caffè, tè, vino rosso e fumo"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "icon": "😌",
+            "text": "Senza perossido: niente bruciore, niente gengive irritate"
+          }
+        },
+        "b4": {
+          "type": "bullet",
+          "settings": {
+            "icon": "🔒",
+            "text": "Smalto intatto. Lavorano sopra, non dentro"
+          }
+        },
+        "b5": {
+          "type": "bullet",
+          "settings": {
+            "icon": "⚡",
+            "text": "Trenta minuti al giorno, poi si staccano e basta"
+          }
+        },
+        "b6": {
+          "type": "bullet",
+          "settings": {
+            "icon": "😁",
+            "text": "Un ciclo completo in sette giorni, a casa tua"
+          }
+        },
+        "t1": {
+          "type": "tier",
+          "settings": {
+            "name": "Confezione singola",
+            "supply": "7 trattamenti",
+            "price": "9,90 €",
+            "each": "1,41 € a trattamento",
+            "flag": "Ciclo completo",
+            "featured": true
+          }
+        },
+        "r1": {
+          "type": "trust",
+          "settings": {
+            "icon": "✓",
+            "text": "Spedizione in 24 ore"
+          }
+        },
+        "r2": {
+          "type": "trust",
+          "settings": {
+            "icon": "✓",
+            "text": "Soddisfatta o rimborsata"
+          }
+        },
+        "r3": {
+          "type": "trust",
+          "settings": {
+            "icon": "✓",
+            "text": "Pagamento sicuro"
+          }
+        },
+        "v1": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "Di solito non scrivo recensioni, ma queste funzionano davvero. La differenza l'ho vista già dopo il primo trattamento, e dopo la settimana non torno più indietro.",
+            "name": "Rebecca P."
+          }
+        },
+        "v2": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "Ho i denti sensibili, quindi con gli sbiancanti vado sempre con i piedi di piombo. Queste non mi hanno dato il minimo fastidio. Restano al loro posto e si staccano pulite.",
+            "name": "Patrizia P."
+          }
+        },
+        "v3": {
+          "type": "review",
+          "settings": {
+            "stars": 5,
+            "text": "Ero scettica, lo ammetto. Sono facilissime da mettere e non sporcano niente. Dopo qualche applicazione la differenza si vede, senza esagerare.",
+            "name": "Alia M."
+          }
+        },
         "s1": {
-          "type": "item",
+          "type": "step",
           "settings": {
-            "text": "<p>Agiscono sulle <b>macchie di superficie</b>: caffè, tè, vino rosso, fumo.</p>"
+            "image": "shopify://shop_images/freos-strips-how-1.jpg",
+            "title": "Applica",
+            "text": ""
           }
         },
         "s2": {
-          "type": "item",
+          "type": "step",
           "settings": {
-            "text": "<p><b>PAP al posto del perossido.</b> Nessun composto che liberi perossido d'idrogeno.</p>"
+            "image": "shopify://shop_images/freos-strips-how-2.jpg",
+            "title": "Trenta minuti",
+            "text": ""
           }
         },
         "s3": {
-          "type": "item",
+          "type": "step",
           "settings": {
-            "text": "<p>Una striscia sopra, una sotto. <b>Trenta minuti</b>, poi si staccano.</p>"
+            "image": "shopify://shop_images/freos-strips-how-3.jpg",
+            "title": "Sorridi",
+            "text": ""
           }
         },
-        "s4": {
-          "type": "item",
+        "f1": {
+          "type": "faq",
           "settings": {
-            "text": "<p>Restano dove le metti. Niente vaschette, niente gel che cola, niente lampada.</p>"
+            "q": "Diciamolo chiaramente: in quanto tempo si vede qualcosa?",
+            "a": "<p>Dipende da quanto sono vecchie le macchie. Il ciclo è di sette giorni e si valuta alla fine. Chi si aspetta una trasformazione dopo trenta minuti resterà deluso: nessun prodotto da banco venduto in Europa lo fa davvero.</p>"
           }
         },
-        "s5": {
-          "type": "item",
+        "f2": {
+          "type": "faq",
           "settings": {
-            "text": "<p><b>14 strisce</b> per confezione. Sette trattamenti.</p>"
+            "q": "Funziona sulle macchie di caffè e di vino?",
+            "a": "<p>È esattamente il bersaglio. Caffè, tè, vino rosso e fumo lasciano pigmento sulla superficie dello smalto, ed è lì che il PAP lavora. Le macchie interne — da farmaci, fluorosi, un dente devitalizzato — non si toccano dall'esterno.</p>"
           }
         },
-        "s6": {
-          "type": "item",
+        "f3": {
+          "type": "faq",
           "settings": {
-            "text": "<p>Si usano a casa. Nessun appuntamento.</p>"
+            "q": "Ho i denti sensibili. Fa male?",
+            "a": "<p>La sensibilità da sbiancamento viene soprattutto dal perossido, che qui non c'è. Il rischio si abbassa molto, ma non è zero: con gengive infiammate, colletti scoperti o carie in corso il fastidio può esserci. In quel caso si interrompe e si sente il dentista.</p>"
+          }
+        },
+        "f4": {
+          "type": "faq",
+          "settings": {
+            "q": "È sicuro per lo smalto?",
+            "a": "<p>Usate come indicato, agiscono sul pigmento depositato sopra lo smalto, non sulla sua struttura. Quello che danneggia lo smalto è l'uso eccessivo: cicli ripetuti senza pausa. Per questo il ciclo è di sette giorni.</p>"
+          }
+        },
+        "f5": {
+          "type": "faq",
+          "settings": {
+            "q": "Si spostano mentre le porto?",
+            "a": "<p>Su denti asciutti tengono. L'errore più comune è applicarle subito dopo aver sciacquato: il velo d'acqua impedisce l'adesione e la striscia scivola nei primi minuti.</p>"
+          }
+        },
+        "f6": {
+          "type": "faq",
+          "settings": {
+            "q": "Devo evitare certi cibi?",
+            "a": "<p>Durante la posa non si mangia e non si beve. Nelle ore successive lo smalto è più ricettivo al pigmento: caffè, tè, vino rosso e sughi scuri è meglio rimandarli. Per questo conviene farlo la sera.</p>"
+          }
+        },
+        "f7": {
+          "type": "faq",
+          "settings": {
+            "q": "I denti diventeranno innaturalmente bianchi?",
+            "a": "<p>No, e non per modestia: non è chimicamente possibile. Il colore di base dello smalto è genetico. Si rimuove quello che si è depositato sopra, e si torna al tuo bianco — non a un altro.</p>"
+          }
+        },
+        "f8": {
+          "type": "faq",
+          "settings": {
+            "q": "Quanto durano i risultati?",
+            "a": "<p>Quanto ci metti a rimacchiare. Tre caffè al giorno e sigarette ridepositano pigmento in poche settimane; senza, tiene molto più a lungo. È una manutenzione, non un risultato definitivo.</p>"
+          }
+        },
+        "f9": {
+          "type": "faq",
+          "settings": {
+            "q": "È come il trattamento dal dentista?",
+            "a": "<p>No. Lo studio usa concentrazioni che la legge gli riserva e arriva dove un prodotto domiciliare non arriva. Questo è il gradino sotto: più economico, più graduale, sufficiente per le macchie di superficie.</p>"
+          }
+        },
+        "f10": {
+          "type": "faq",
+          "settings": {
+            "q": "E se su di me non funziona?",
+            "a": "<p>Succede, soprattutto se le macchie non sono di superficie. Hai trenta giorni dalla consegna per scrivercelo e ti rimborsiamo. Preferiamo un rimborso a una cliente convinta di aver comprato la cosa sbagliata.</p>"
           }
         }
       },
       "block_order": [
+        "sl1",
+        "sl2",
+        "sl3",
+        "sl4",
+        "sl5",
+        "sl6",
+        "sh1",
+        "sh2",
+        "sh3",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "t1",
+        "r1",
+        "r2",
+        "r3",
+        "v1",
+        "v2",
+        "v3",
         "s1",
         "s2",
         "s3",
-        "s4",
-        "s5",
-        "s6"
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "f6",
+        "f7",
+        "f8",
+        "f9",
+        "f10"
       ],
       "settings": {
-        "title": "In breve",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "offerta1": {
-      "type": "freos-lp-offer",
-      "settings": {
-        "photo": "shopify://shop_images/freos-strips-01-hero.jpg",
-        "photo_alt": "La confezione FREOS Whitening Strips.",
-        "headline": "9,90 € la confezione",
-        "body": "<p>14 strisce, sette trattamenti. Spedizione in Italia.</p>",
+        "accent": "#1F3D2E",
+        "accent_soft": "#E7EFE9",
+        "topbar": "Spedizione in 24 ore · 30 giorni per cambiare idea",
+        "badge": "Formula senza perossido",
+        "heading": "Trenta minuti al giorno. Il tuo sorriso più bianco, o ti rimborsiamo.",
+        "quote": "Le ho prese senza aspettarmi granché, dopo averne provate altre. Mio marito ha notato la differenza prima che gliela facessi notare io.",
+        "quote_by": "Natalia M.",
+        "sub": "Lo sbiancamento che fai a casa tua: niente vaschette, niente lampada, niente appuntamento. E niente perossido.",
+        "hero": "shopify://shop_images/freos-strips-01-hero.jpg",
+        "hero_alt": "FREOS Whitening Strips — 14 strisce, sette trattamenti.",
+        "carou_heading": "Come funziona, in sei immagini",
+        "ba_heading": "",
+        "ba_before": "",
+        "ba_after": "",
+        "ba_before_label": "",
+        "ba_after_label": "",
+        "ba_note": "",
+        "offer_heading": "Il tuo ciclo completo",
         "cta_label": "Aggiungi al carrello",
         "cta_url": "/products/freos-strisce-sbiancanti-smalto-intatto",
-        "guarantee": "<p>Trenta giorni per provarle. Se non fanno per te, scrivici e ti rimborsiamo.</p>",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "meccanismo": {
-      "type": "freos-lp-editorial",
-      "blocks": {
-        "p1": {
-          "type": "para",
-          "settings": {
-            "text": "<p>Lo sbiancamento domiciliare in Europa ha un vincolo preciso, e quasi nessuno lo spiega. Il perossido d'idrogeno oltre lo <b>0,1%</b> è riservato allo studio dentistico: prima applicazione dal dentista, vietato ai minorenni. Tutto quello che si compra liberamente e promette risultati da studio o sta sotto quella soglia — e allora fa molto poco — o non dovrebbe essere lì.</p>"
-          }
-        },
-        "p2": {
-          "type": "para",
-          "settings": {
-            "text": "<p>Il PAP aggira il problema invece di infrangerlo. È un acido perossidico che ossida le molecole colorate depositate sullo smalto, ma non libera perossido d'idrogeno. Stessa famiglia di chimica, meccanismo diverso, nessun limite di concentrazione che lo riguardi.</p>"
-          }
-        },
-        "p3": {
-          "type": "pull",
-          "settings": {
-            "text": "Non è una scorciatoia di marketing. È la ragione per cui questa confezione può stare nel tuo bagno invece che in uno studio."
-          }
-        },
-        "p4": {
-          "type": "para",
-          "settings": {
-            "text": "<p>C'è una seconda conseguenza, meno pubblicizzata. La sensibilità dentale che molti associano allo sbiancamento viene in buona parte dal perossido, che penetra oltre la superficie. Senza perossido quella via è chiusa. Non significa che nessuno sentirà niente — significa che la causa principale non c'è.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "p1",
-        "p2",
-        "p3",
-        "p4"
-      ],
-      "settings": {
-        "heading": "Perché senza perossido",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "come": {
-      "type": "freos-lp-stages",
-      "blocks": {
-        "t1": {
-          "type": "stage",
-          "settings": {
-            "label": "Prima",
-            "title": "Dopo i denti",
-            "text": "Lavati i denti come al solito, poi asciuga la superficie con un fazzoletto. Su smalto asciutto la striscia aderisce; su smalto bagnato scivola."
-          }
-        },
-        "t2": {
-          "type": "stage",
-          "settings": {
-            "label": "Poi",
-            "title": "Una sopra, una sotto",
-            "text": "Appoggia il lato con il gel sui denti e premi dal centro verso l'esterno. Ripiega il bordo dietro l'arcata."
-          }
-        },
-        "t3": {
-          "type": "stage",
-          "settings": {
-            "label": "Trenta minuti",
-            "title": "Lasciale lavorare",
-            "text": "Puoi parlare, muoverti, fare altro. Non si mangia e non si beve mentre le porti."
-          }
-        },
-        "t4": {
-          "type": "stage",
-          "settings": {
-            "label": "Alla fine",
-            "title": "Si staccano e basta",
-            "text": "Via le strisce, sciacqua la bocca. Niente da raschiare, niente residuo appiccicoso."
-          }
-        }
-      },
-      "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
-      ],
-      "settings": {
-        "heading": "Come si usano",
-        "intro": "<p>Una volta al giorno, per sette giorni. Poi si ripete quando serve — non è un trattamento da fare in continuo.</p>",
-        "outro": "<p>Il momento migliore è la sera, dopo l'ultimo lavaggio: nelle ore successive non mangi e non bevi, e lo smalto resta tranquillo.</p>",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "cta1": {
-      "type": "freos-lp-cta",
-      "settings": {
-        "heading": "Sette trattamenti, 9,90 €",
-        "body": "<p>Una confezione copre un ciclo intero. Meno di un euro e mezzo a trattamento.</p>",
-        "label": "Vedi la confezione",
-        "url": "/products/freos-strisce-sbiancanti-smalto-intatto",
-        "sub": "Spedizione in Italia. Trenta giorni per cambiare idea.",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "faq": {
-      "type": "freos-lp-faq",
-      "blocks": {
-        "q1": {
-          "type": "q",
-          "settings": {
-            "q": "Diciamolo chiaramente: in quanto tempo si vede qualcosa?",
-            "a": "<p>Dipende da quanto sono vecchie le macchie e da quanto sono profonde. Il ciclo è di sette giorni e va valutato alla fine, non il primo giorno. Chi si aspetta una differenza visibile dopo trenta minuti resterà deluso: non esiste un prodotto da banco che lo faccia davvero, in Europa.</p>"
-          }
-        },
-        "q2": {
-          "type": "q",
-          "settings": {
-            "q": "Funziona sulle macchie di caffè e di vino?",
-            "a": "<p>È esattamente il bersaglio. Caffè, tè, vino rosso e fumo lasciano pigmenti sulla superficie dello smalto, ed è lì che il PAP lavora. Le macchie interne — da farmaci, da fluorosi, da un dente devitalizzato — sono un'altra cosa e non si toccano dall'esterno.</p>"
-          }
-        },
-        "q3": {
-          "type": "q",
-          "settings": {
-            "q": "Ho i denti sensibili. Fa male?",
-            "a": "<p>La sensibilità da sbiancamento è legata soprattutto al perossido, che qui non c'è. Questo riduce il rischio, non lo azzera: se hai gengive infiammate, colletti scoperti o carie in corso, il fastidio può esserci comunque. In quel caso si interrompe e si sente il dentista.</p>"
-          }
-        },
-        "q4": {
-          "type": "q",
-          "settings": {
-            "q": "È sicuro per lo smalto?",
-            "a": "<p>Usate come indicato, le strisce agiscono sui pigmenti depositati sopra lo smalto, non sulla sua struttura. Quello che danneggia lo smalto è l'uso eccessivo — ogni giorno per settimane, cicli ripetuti senza pausa. Il ciclo è di sette giorni per questo motivo.</p>"
-          }
-        },
-        "q5": {
-          "type": "q",
-          "settings": {
-            "q": "Si spostano mentre le porto?",
-            "a": "<p>Se le applichi su denti asciutti, tengono. L'errore più comune è metterle subito dopo aver sciacquato: il velo d'acqua impedisce l'adesione e la striscia scivola nei primi minuti.</p>"
-          }
-        },
-        "q6": {
-          "type": "q",
-          "settings": {
-            "q": "Devo evitare certi cibi?",
-            "a": "<p>Durante i trenta minuti non si mangia e non si beve. Nelle ore successive lo smalto è più ricettivo ai pigmenti: caffè, tè, vino rosso e sughi scuri è meglio rimandarli. È il motivo per cui conviene farlo la sera.</p>"
-          }
-        },
-        "q7": {
-          "type": "q",
-          "settings": {
-            "q": "I denti diventeranno innaturalmente bianchi?",
-            "a": "<p>No, e non è una modestia commerciale: non è chimicamente possibile. Il colore di base dello smalto è genetico e nessuna striscia lo cambia. Si rimuove quello che si è depositato sopra, e si torna al tuo bianco — non a un altro.</p>"
-          }
-        },
-        "q8": {
-          "type": "q",
-          "settings": {
-            "q": "Quanto durano i risultati?",
-            "a": "<p>Quanto ci metti a rimacchiare. Chi beve tre caffè al giorno e fuma ridepositerà pigmenti in poche settimane; chi non lo fa terrà molto più a lungo. È una manutenzione, non un risultato definitivo.</p>"
-          }
-        },
-        "q9": {
-          "type": "q",
-          "settings": {
-            "q": "È come il trattamento dal dentista?",
-            "a": "<p>No. Lo studio usa concentrazioni che la legge gli riserva, e su macchie resistenti arriva dove un prodotto domiciliare non arriva. Questo è il gradino sotto: più economico, più lento, e sufficiente per le macchie di superficie. Se cerchi il risultato dello studio, vai in studio.</p>"
-          }
-        },
-        "q10": {
-          "type": "q",
-          "settings": {
-            "q": "E se su di me non funziona?",
-            "a": "<p>Succede, soprattutto se le macchie non sono di superficie. Hai trenta giorni dalla consegna per scrivercelo e ti rimborsiamo. Preferiamo un rimborso a una persona convinta di aver comprato la cosa sbagliata.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4",
-        "q5",
-        "q6",
-        "q7",
-        "q8",
-        "q9",
-        "q10"
-      ],
-      "settings": {
-        "kicker": "Le domande che riceviamo",
-        "heading": "Macchie, sensibilità, risultati",
-        "cta_label": "Aggiungi al carrello",
-        "cta_url": "/products/freos-strisce-sbiancanti-smalto-intatto",
-        "cta_sub": "9,90 € · 14 strisce · sette trattamenti",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "limiti": {
-      "type": "freos-lp-editorial",
-      "blocks": {
-        "n1": {
-          "type": "note",
-          "settings": {
-            "title": "Quando queste strisce non servono",
-            "text": "<p><b>Corone, faccette, otturazioni e impianti.</b> Il materiale artificiale non sbianca. Se hai lavori sui denti anteriori, dopo un ciclo rischi di avere lo smalto naturale più chiaro del lavoro — un risultato peggiore di quello di partenza. Parlane col dentista prima.</p><p><b>Macchie interne.</b> Da tetracicline, da fluorosi, da un dente devitalizzato. Hanno origine dentro il dente e nessun prodotto applicato sopra le raggiunge.</p><p><b>Denti o gengive non in salute.</b> Carie, gengivite, colletti scoperti, lavori recenti. Prima si sistema quello.</p>",
-            "items": "",
-            "accent": false
-          }
-        }
-      },
-      "block_order": [
-        "n1"
-      ],
-      "settings": {
-        "heading": "",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "offerta2": {
-      "type": "freos-lp-offer",
-      "settings": {
-        "photo": "shopify://shop_images/freos-strips-09-trio.jpg",
-        "photo_alt": "La confezione, una bustina e un modello dentale.",
-        "heading": "Una confezione, un ciclo",
-        "intro": "<p>Niente abbonamento, niente ricarica automatica. Si compra quando serve.</p>",
-        "headline": "9,90 €",
-        "body": "<p>14 strisce · sette trattamenti · spedizione in Italia</p>",
-        "cta_label": "Aggiungi al carrello",
-        "cta_url": "/products/freos-strisce-sbiancanti-smalto-intatto",
-        "guarantee": "<p>Trenta giorni per provarle. Se non fanno per te, scrivici e ti rimborsiamo — senza rimandare indietro la confezione aperta.</p>",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "ours": {
-      "type": "freos-lp-colophon",
-      "settings": {
-        "kicker": "",
-        "whisper": "",
-        "whisper_sign": "",
-        "logo": "FREOS",
-        "tagline": "Whitening Strips",
-        "desc": "FREOS Whitening Strips è un cosmetico per uso domiciliare. Non è un dispositivo medico e non è un trattamento professionale.",
-        "legal": "<p>Questa pagina è a scopo informativo e commerciale insieme. Non sostituisce il parere del dentista. Non indicato ai minori di 18 anni.</p>",
-        "links": "<p>© 2026 FREOS · DINSO VENTURES LLC</p>",
-        "scope": "fr-lp3",
-        "rule": false,
-        "pt": 0,
-        "pb": 0
-      }
-    },
-    "sticky": {
-      "type": "freos-lp-sticky",
-      "settings": {
-        "label": "Aggiungi al carrello — 9,90 €",
-        "url": "/products/freos-strisce-sbiancanti-smalto-intatto",
-        "sub": "14 strisce · sette trattamenti",
-        "at": 25,
-        "hide_end": 90,
-        "mobile_only": false
+        "cta_sub": "Spedizione in 24 ore. Trenta giorni per cambiare idea.",
+        "mech_heading": "Perché funziona senza perossido",
+        "mech_sub": "Il PAP scioglie il pigmento. Non attraversa lo smalto per farlo.",
+        "mech_image": "shopify://shop_images/freos-strips-07-peel.jpg",
+        "mech_alt": "La striscia si stacca dal supporto.",
+        "mech_body": "<p>In Europa il perossido d'idrogeno oltre lo <b>0,1%</b> è riservato allo studio dentistico. Tutto quello che si compra liberamente o sta sotto quella soglia, e allora fa molto poco, oppure non dovrebbe essere sullo scaffale.</p><p>Il PAP aggira il problema: ossida le molecole colorate depositate sullo smalto senza liberare perossido. Stessa chimica di fondo, meccanismo diverso, nessun limite che lo riguardi.</p><p>C'è una conseguenza che nessuno pubblicizza. La sensibilità che molti associano allo sbiancamento viene in gran parte dal perossido, che penetra oltre la superficie. Senza perossido, quella via è chiusa.</p>",
+        "rev_heading": "Perché tutte stanno passando a queste",
+        "rev_sub": "Quello che ci scrivono le clienti.",
+        "step_heading": "Come si usa, in tre passi",
+        "faq_kicker": "Le domande che riceviamo",
+        "faq_heading": "Macchie, sensibilità e risultati, spiegati chiaramente",
+        "gua_heading": "Trenta giorni, rischio nostro",
+        "gua_body": "<p>Siamo abbastanza sicuri del risultato da mettercelo per iscritto. Se dopo il ciclo non sei soddisfatta, ci scrivi entro trenta giorni dalla consegna e ti rimborsiamo. Senza rimandare indietro la confezione aperta.</p>",
+        "gua_cta": "Ordina adesso",
+        "gua_sub": "9,90 € · 14 strisce · sette trattamenti",
+        "legal": "<p>FREOS Whitening Strips è un cosmetico per uso domiciliare. Non è un dispositivo medico, non è un trattamento professionale e non sostituisce il parere del dentista. Non indicato ai minori di 18 anni.</p><p>© 2026 FREOS · DINSO VENTURES LLC</p>",
+        "sticky_label": "Strisce Sbiancanti — 9,90 €",
+        "sticky_sub": "14 strisce · sette trattamenti",
+        "sticky_cta": "Acquista",
+        "sticky_at": 20
       }
     }
   },
   "order": [
-    "mast",
-    "opener",
-    "segnali",
-    "offerta1",
-    "meccanismo",
-    "come",
-    "cta1",
-    "faq",
-    "limiti",
-    "offerta2",
-    "ours",
-    "sticky"
+    "lp"
   ]
 }
