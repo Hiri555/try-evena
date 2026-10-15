@@ -9,7 +9,10 @@
         "buy_buttons": { "type": "buy_buttons", "settings": {} }
       },
       "block_order": ["title", "price", "variant_picker", "buy_buttons"],
-      "settings": {}
+      "settings": {
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "mobile_carousel_control": "thumbnails"
+      }
     },
     "extra": {
       "type": "freos-gratta",
