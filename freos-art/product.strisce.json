@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "description": { "type": "description", "settings": {} },
+        "variant_picker": { "type": "variant_picker", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": {} }
+      },
+      "block_order": ["title", "price", "description", "variant_picker", "buy_buttons"],
+      "settings": {}
+    },
+    "extra": {
+      "type": "freos-gratta",
+      "blocks": {
+        "r1": { "type": "reassure", "settings": { "icon": "check", "label": "Senza perossido", "sub": "smalto intatto" } },
+        "r2": { "type": "reassure", "settings": { "icon": "gesto", "label": "30 minuti", "sub": "una volta al giorno" } },
+        "r3": { "type": "reassure", "settings": { "icon": "durare", "label": "7 trattamenti", "sub": "14 strisce" } },
+        "f1": { "type": "faq", "settings": { "q": "Come si usano?", "a": "Applica una striscia sull'arcata superiore e una sull'inferiore, premi bene e lascia agire 30 minuti. Poi rimuovi e sciacqua. Una volta al giorno, per sette giorni." } },
+        "f2": { "type": "faq", "settings": { "q": "Rovinano lo smalto?", "a": "No. La formula è senza perossido, pensata per rispettare lo smalto. Agisce sulle macchie superficiali senza aggredire il dente." } },
+        "f3": { "type": "faq", "settings": { "q": "In quanto tempo si vedono i risultati?", "a": "Molti notano una differenza già dopo i primi trattamenti. Il ciclo completo è di 7 giorni. I risultati possono variare da persona a persona." } },
+        "f4": { "type": "faq", "settings": { "q": "Vanno bene con denti sensibili?", "a": "Essendo senza perossido sono più delicate delle strisce tradizionali. In caso di forte sensibilità o problemi gengivali, chiedi prima consiglio al tuo dentista." } },
+        "f5": { "type": "faq", "settings": { "q": "Ogni quanto si ripete il trattamento?", "a": "Un ciclo da 7 giorni ogni paio di mesi è in genere sufficiente a mantenere il risultato. Non superare i cicli consigliati." } },
+        "n1": { "type": "note", "settings": { "text": "14 strisce · 7 trattamenti. Senza perossido, smalto intatto. Non è un dispositivo medico. I risultati sullo sbiancamento possono variare da persona a persona." } }
+      },
+      "block_order": ["r1", "r2", "r3", "f1", "f2", "f3", "f4", "f5", "n1"],
+      "settings": {
+        "accent": "#1F3D2E",
+        "bg": "#F5F1E8",
+        "faq_title": "Domande",
+        "faq_title2": "frequenti",
+        "faq_sub": ""
+      }
+    }
+  },
+  "order": ["main", "extra"]
+}
