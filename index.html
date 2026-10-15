@@ -244,7 +244,7 @@
 
                 <!-- CTA FINAL -->
                 <div class="final-cta">
-                    <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="cta-button-final">
+                    <a href="#commander" class="cta-button-final">
                         DÉCOUVRIR EVENA
                     </a>
                     <p class="cta-offer">1 ACHETÉ = 1 OFFERT + LIVRAISON GRATUITE</p>
@@ -254,12 +254,122 @@
         </div>
 
         <!-- ============================================================
+             SECTION PRODUIT — DIAGNOSTIC + ACHAT DIRECT
+             Les cartes filtrent le discours, la buy-box envoie au checkout.
+             IDs de variantes : voir EVENA_SHOP en haut de script.js
+             ============================================================ -->
+        <section class="product-section" id="commander">
+            <div class="container">
+
+                <div class="product-section__head">
+                    <p class="product-section__eyebrow">EVENA · FOND DE TEINT 4-EN-1</p>
+                    <h2 class="product-section__title">Que fait ta peau, à 55&nbsp;ans&nbsp;?</h2>
+                    <p class="product-section__sub">Choisis ce que tu reconnais le mieux — tu verras ce qui se passe vraiment, et ce qui l'arrête.</p>
+                </div>
+
+                <!-- CARTES DIAGNOSTIC -->
+                <div class="concern-grid" role="tablist" aria-label="Choisis ton problème de peau">
+                    <button class="concern-card is-active" role="tab" aria-selected="true" aria-controls="concern-panel" data-concern="plis">
+                        <span class="concern-card__media"><img src="assets/raison1.jpg" alt="" loading="lazy"></span>
+                        <span class="concern-card__label">Ça marque dans les plis</span>
+                    </button>
+                    <button class="concern-card" role="tab" aria-selected="false" aria-controls="concern-panel" data-concern="terne">
+                        <span class="concern-card__media"><img src="assets/raison3.jpg" alt="" loading="lazy"></span>
+                        <span class="concern-card__label">Teint terne, grisâtre</span>
+                    </button>
+                    <button class="concern-card" role="tab" aria-selected="false" aria-controls="concern-panel" data-concern="secheresse">
+                        <span class="concern-card__media"><img src="assets/raison4.jpg" alt="" loading="lazy"></span>
+                        <span class="concern-card__label">Peau qui tiraille</span>
+                    </button>
+                    <button class="concern-card" role="tab" aria-selected="false" aria-controls="concern-panel" data-concern="taches">
+                        <span class="concern-card__media"><img src="assets/raison7.jpg" alt="" loading="lazy"></span>
+                        <span class="concern-card__label">Taches &amp; rougeurs</span>
+                    </button>
+                </div>
+
+                <div class="concern-panel" id="concern-panel" role="tabpanel" aria-live="polite">
+                    <div class="concern-panel__col">
+                        <p class="concern-panel__kicker">CE QUI SE PASSE</p>
+                        <p class="concern-panel__what"></p>
+                    </div>
+                    <div class="concern-panel__col concern-panel__col--fix">
+                        <p class="concern-panel__kicker">CE QUI L'ARRÊTE</p>
+                        <p class="concern-panel__fix"></p>
+                    </div>
+                </div>
+
+                <!-- BUY BOX -->
+                <div class="buybox">
+                    <div class="buybox__stock">
+                        <span class="buybox__stock-dot"></span>
+                        Stock limité — 1 acheté = 1 offert
+                    </div>
+
+                    <div class="buybox__options">
+
+                        <label class="offer is-selected" for="offer-1">
+                            <input type="radio" name="evena-offer" id="offer-1" value="single" checked>
+                            <span class="offer__radio" aria-hidden="true"></span>
+                            <span class="offer__body">
+                                <span class="offer__name">1 flacon</span>
+                                <span class="offer__note">Pour voir si ta peau l'adopte · 30 jours</span>
+                            </span>
+                            <span class="offer__pricing">
+                                <span class="offer__price" data-price-single></span>
+                            </span>
+                        </label>
+
+                        <label class="offer offer--featured" for="offer-2">
+                            <span class="offer__badge">LE PLUS CHOISI</span>
+                            <input type="radio" name="evena-offer" id="offer-2" value="duo">
+                            <span class="offer__radio" aria-hidden="true"></span>
+                            <span class="offer__body">
+                                <span class="offer__name">2 flacons <em>— 1 acheté, 1 offert</em></span>
+                                <span class="offer__note">La cure complète · livraison offerte</span>
+                            </span>
+                            <span class="offer__pricing">
+                                <span class="offer__price" data-price-duo></span>
+                                <span class="offer__compare" data-compare-duo></span>
+                            </span>
+                        </label>
+
+                        <label class="offer" for="offer-3">
+                            <input type="radio" name="evena-offer" id="offer-3" value="trio">
+                            <span class="offer__radio" aria-hidden="true"></span>
+                            <span class="offer__body">
+                                <span class="offer__name">3 flacons</span>
+                                <span class="offer__note">Le meilleur prix au flacon · à partager</span>
+                            </span>
+                            <span class="offer__pricing">
+                                <span class="offer__price" data-price-trio></span>
+                                <span class="offer__compare" data-compare-trio></span>
+                            </span>
+                        </label>
+
+                    </div>
+
+                    <a href="#" class="buybox__cta" id="evena-checkout" data-checkout>
+                        <span class="buybox__cta-main">COMMANDER MAINTENANT</span>
+                        <span class="buybox__cta-sub" data-cta-sub></span>
+                    </a>
+
+                    <ul class="buybox__reassurance">
+                        <li>Satisfaite ou remboursée — 30 jours</li>
+                        <li>Paiement sécurisé · Expédition sous 24&nbsp;h</li>
+                        <li>Sans abonnement — tu commandes une fois</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
              BOUTON STICKY
              ============================================================ -->
         <div id="listicleSticky-sticky_add_to_cart" data-listicle-sticky-button="" class="listicle-sticky-button">
             <div class="listicle-sticky-button__container">
                 <div class="listicle-sticky-button__content">
-                    <a href="https://try-evena.com/products/evena-fond-de-teint-4-en-1" class="listicle-sticky-button__link" id="listicleSticky-sticky_add_to_cart-btn">
+                    <a href="#commander" class="listicle-sticky-button__link" id="listicleSticky-sticky_add_to_cart-btn">
                         DÉCOUVRIR EVENA — 1 ACHETÉ = 1 OFFERT
                     </a>
                 </div>
