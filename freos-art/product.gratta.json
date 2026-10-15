@@ -1,0 +1,45 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "description": { "type": "description", "settings": {} },
+        "variant_picker": { "type": "variant_picker", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": {} }
+      },
+      "block_order": [
+        "title",
+        "price",
+        "description",
+        "variant_picker",
+        "buy_buttons"
+      ],
+      "settings": {}
+    },
+    "extra": {
+      "type": "freos-gratta",
+      "blocks": {
+        "r1": { "type": "reassure", "settings": { "icon": "rame", "label": "Rame puro", "sub": "antimicrobico" } },
+        "r2": { "type": "reassure", "settings": { "icon": "gesto", "label": "30 secondi", "sub": "ogni mattina" } },
+        "r3": { "type": "reassure", "settings": { "icon": "durare", "label": "Fatto per durare", "sub": "zero plastica" } },
+        "f1": { "type": "faq", "settings": { "q": "Come si usa?", "a": "Tira fuori la lingua, appoggia il raschietto il più indietro possibile e tira in avanti con una leggera pressione. Due o tre passaggi, poi sciacqua sotto l'acqua. Trenta secondi in tutto." } },
+        "f2": { "type": "faq", "settings": { "q": "Perché il rame?", "a": "Il rame è naturalmente antimicrobico e non ha rivestimenti che si consumano come la plastica. Un solo strumento, igienico, che dura anni." } },
+        "f3": { "type": "faq", "settings": { "q": "Sostituisce lo spazzolino?", "a": "No, lo completa. Lo spazzolino pulisce i denti; il raschietto rimuove la patina sulla lingua che spazzolino e dentifricio lasciano indietro." } },
+        "f4": { "type": "faq", "settings": { "q": "Come si mantiene?", "a": "Un passaggio sotto l'acqua dopo l'uso, e ogni tanto acqua e sapone neutro. Il rame può ossidarsi leggermente nel tempo: è normale e non ne intacca l'igiene." } },
+        "f5": { "type": "faq", "settings": { "q": "Aiuta davvero contro l'alito del mattino?", "a": "Gran parte dei composti responsabili dell'alito del mattino si forma sulla lingua. Rimuovere quella patina aiuta a ridurli. I risultati possono variare da persona a persona." } },
+        "n1": { "type": "note", "settings": { "text": "Compreso: 1 raschietto in rame puro + pochette in cotone. Non è un dispositivo medico. I risultati sulla freschezza dell'alito possono variare da persona a persona." } }
+      },
+      "block_order": ["r1", "r2", "r3", "f1", "f2", "f3", "f4", "f5", "n1"],
+      "settings": {
+        "accent": "#1F3D2E",
+        "bg": "#F5F1E8",
+        "faq_title": "Domande",
+        "faq_title2": "frequenti",
+        "faq_sub": ""
+      }
+    }
+  },
+  "order": ["main", "extra"]
+}

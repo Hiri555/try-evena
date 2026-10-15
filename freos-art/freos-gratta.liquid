@@ -1,0 +1,149 @@
+{%- comment -%}
+  FREOS — Raschietto in Rame · compact product-page add-on.
+  Sits beneath the native `main-product` section on templates/product.gratta.json.
+  Self-contained: all CSS scoped under .fgx, no theme-setting dependencies.
+  Blocks: reassure (icon + label), faq (q + a), note (single reassurance line).
+{%- endcomment -%}
+
+{%- liquid
+  assign ac = section.settings.accent | default: '#1F3D2E'
+  assign bg = section.settings.bg | default: '#F5F1E8'
+-%}
+
+<style>
+  .fgx{background:{{ bg }};color:{{ ac }};padding:48px 20px 56px;
+    font-family:var(--font-body--family,'Poppins',sans-serif);}
+  .fgx__wrap{max-width:720px;margin:0 auto;}
+  .fgx__reassure{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+    margin:0 0 44px;}
+  .fgx__r{text-align:center;padding:20px 10px;border:1px solid {{ ac }}1f;
+    border-radius:14px;background:#ffffff55;}
+  .fgx__r svg{width:30px;height:30px;stroke:{{ ac }};fill:none;
+    stroke-width:1.6;margin:0 auto 10px;display:block;}
+  .fgx__r b{display:block;font-size:14px;font-weight:600;line-height:1.3;}
+  .fgx__r span{display:block;font-size:12px;opacity:.7;margin-top:3px;}
+
+  .fgx__h{font-family:var(--font-heading--family,Georgia,serif);
+    font-weight:800;font-size:clamp(26px,6vw,34px);line-height:1.05;
+    letter-spacing:-.01em;margin:0 0 6px;}
+  .fgx__h em{font-style:italic;font-weight:600;display:block;}
+  .fgx__sub{font-size:15px;opacity:.75;margin:0 0 26px;max-width:46ch;}
+
+  .fgx__faq{border-top:1px solid {{ ac }}22;}
+  .fgx__q{width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    border-bottom:1px solid {{ ac }}22;padding:18px 34px 18px 0;position:relative;
+    font-size:16px;font-weight:600;color:{{ ac }};font-family:inherit;}
+  .fgx__q::after{content:'+';position:absolute;right:4px;top:50%;
+    transform:translateY(-50%);font-size:22px;font-weight:400;transition:.2s;}
+  .fgx__q[aria-expanded="true"]::after{transform:translateY(-50%) rotate(45deg);}
+  .fgx__a{max-height:0;overflow:hidden;transition:max-height .28s ease;
+    border-bottom:1px solid {{ ac }}22;}
+  .fgx__a p{margin:0;padding:0 0 20px;font-size:15px;line-height:1.6;opacity:.85;}
+
+  .fgx__note{margin:40px auto 0;max-width:52ch;text-align:center;
+    font-size:13px;line-height:1.6;opacity:.6;font-style:italic;}
+
+  @media(max-width:560px){
+    .fgx__reassure{gap:8px;}
+    .fgx__r{padding:16px 6px;}
+    .fgx__r b{font-size:12.5px;}
+  }
+</style>
+
+<section class="fgx">
+  <div class="fgx__wrap">
+
+    {%- assign reassure = section.blocks | where: 'type', 'reassure' -%}
+    {%- if reassure.size > 0 -%}
+      <div class="fgx__reassure">
+        {%- for b in reassure -%}
+          <div class="fgx__r" {{ b.shopify_attributes }}>
+            {%- case b.settings.icon -%}
+              {%- when 'rame' -%}
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M8.5 9.5l7 5M15.5 9.5l-7 5"/></svg>
+              {%- when 'gesto' -%}
+                <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg>
+              {%- when 'durare' -%}
+                <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+              {%- when 'natura' -%}
+                <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V6a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v1"/><path d="M11 20c0-5 2-8 7-9"/></svg>
+              {%- else -%}
+                <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+            {%- endcase -%}
+            <b>{{ b.settings.label }}</b>
+            {%- if b.settings.sub != blank -%}<span>{{ b.settings.sub }}</span>{%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
+    {%- if faqs.size > 0 -%}
+      {%- if section.settings.faq_title != blank -%}
+        <h2 class="fgx__h">{{ section.settings.faq_title }}{%- if section.settings.faq_title2 != blank -%}<em>{{ section.settings.faq_title2 }}</em>{%- endif -%}</h2>
+      {%- endif -%}
+      {%- if section.settings.faq_sub != blank -%}<p class="fgx__sub">{{ section.settings.faq_sub }}</p>{%- endif -%}
+      <div class="fgx__faq">
+        {%- for b in faqs -%}
+          <button class="fgx__q" type="button" aria-expanded="false"
+            onclick="var a=this.nextElementSibling;var o=this.getAttribute('aria-expanded')==='true';this.setAttribute('aria-expanded',!o);a.style.maxHeight=o?null:a.scrollHeight+'px';" {{ b.shopify_attributes }}>{{ b.settings.q }}</button>
+          <div class="fgx__a"><p>{{ b.settings.a }}</p></div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign notes = section.blocks | where: 'type', 'note' -%}
+    {%- for b in notes -%}
+      <p class="fgx__note" {{ b.shopify_attributes }}>{{ b.settings.text }}</p>
+    {%- endfor -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "FREOS Gratta",
+  "tag": "section",
+  "settings": [
+    { "type": "color", "id": "accent", "label": "Accent", "default": "#1F3D2E" },
+    { "type": "color", "id": "bg", "label": "Background", "default": "#F5F1E8" },
+    { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Domande" },
+    { "type": "text", "id": "faq_title2", "label": "FAQ title line 2", "default": "frequenti" },
+    { "type": "textarea", "id": "faq_sub", "label": "FAQ subtitle" }
+  ],
+  "blocks": [
+    {
+      "type": "reassure",
+      "name": "Reassure",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "rame",
+          "options": [
+            {"value":"rame","label":"Rame"},
+            {"value":"gesto","label":"Gesto"},
+            {"value":"durare","label":"Durare"},
+            {"value":"natura","label":"Natura"},
+            {"value":"check","label":"Check"}
+          ] },
+        { "type": "text", "id": "label", "label": "Label", "default": "Rame puro" },
+        { "type": "text", "id": "sub", "label": "Sub" }
+      ]
+    },
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        { "type": "text", "id": "q", "label": "Question", "default": "Domanda" },
+        { "type": "textarea", "id": "a", "label": "Answer", "default": "Risposta" }
+      ]
+    },
+    {
+      "type": "note",
+      "name": "Note",
+      "settings": [
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "FREOS Gratta" } ]
+}
+{% endschema %}
