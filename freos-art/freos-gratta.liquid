@@ -1,8 +1,9 @@
 {%- comment -%}
-  FREOS — Raschietto in Rame · compact product-page add-on.
-  Sits beneath the native `main-product` section on templates/product.gratta.json.
-  Self-contained: all CSS scoped under .fgx, no theme-setting dependencies.
-  Blocks: reassure (icon + label), faq (q + a), note (single reassurance line).
+  FREOS — product-page content section, built on the Gel Notturno pattern.
+  Sits beneath the native `main-product` section. Self-contained: all CSS
+  scoped under .fgx, no theme-setting dependencies. Reusable across products.
+  Blocks: benefit (icon+tag+claim+body), step (num+title+body),
+          reassure (icon+label+sub), faq (q+a), note (line).
 {%- endcomment -%}
 
 {%- liquid
@@ -10,29 +11,59 @@
   assign bg = section.settings.bg | default: '#F5F1E8'
 -%}
 
+{%- capture icon_svg -%}{%- endcapture -%}
+
 <style>
-  .fgx{background:{{ bg }};color:{{ ac }};padding:48px 20px 56px;
+  .fgx{background:{{ bg }};color:{{ ac }};padding:56px 20px 60px;
     font-family:var(--font-body--family,'Poppins',sans-serif);}
+  .fgx *{box-sizing:border-box;}
   .fgx__wrap{max-width:720px;margin:0 auto;}
-  .fgx__reassure{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
-    margin:0 0 44px;}
+  .fgx__eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;opacity:.7;margin:0 0 12px;}
+  .fgx__h{font-family:var(--font-heading--family,Georgia,serif);
+    font-weight:800;font-size:clamp(28px,7vw,40px);line-height:1.04;
+    letter-spacing:-.015em;margin:0 0 28px;}
+  .fgx__h em{font-style:italic;font-weight:600;display:block;color:{{ ac }};opacity:.92;}
+
+  /* benefit list — the "Turno di Notte" pattern */
+  .fgx__bens{margin:0 0 8px;border-left:1.5px solid {{ ac }}26;padding-left:22px;}
+  .fgx__ben{position:relative;padding:0 0 30px;}
+  .fgx__ben:last-child{padding-bottom:0;}
+  .fgx__ben svg{position:absolute;left:-35px;top:-2px;width:26px;height:26px;
+    stroke:{{ ac }};fill:none;stroke-width:1.6;background:{{ bg }};padding:2px 0;}
+  .fgx__tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.12em;
+    text-transform:uppercase;background:{{ ac }}14;color:{{ ac }};
+    padding:4px 10px;border-radius:999px;margin:0 0 9px;}
+  .fgx__bt{font-family:var(--font-heading--family,Georgia,serif);font-weight:700;
+    font-size:19px;line-height:1.25;margin:0 0 6px;}
+  .fgx__bb{font-size:15px;line-height:1.6;opacity:.82;margin:0;}
+
+  /* steps — "il gesto" */
+  .fgx__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:4px 0 0;}
+  .fgx__step{background:#ffffff66;border:1px solid {{ ac }}1f;border-radius:14px;
+    padding:20px 16px;}
+  .fgx__num{display:inline-flex;align-items:center;justify-content:center;
+    width:30px;height:30px;border-radius:999px;background:{{ ac }};color:{{ bg }};
+    font-weight:700;font-size:14px;margin:0 0 12px;}
+  .fgx__st{font-weight:700;font-size:15px;line-height:1.3;margin:0 0 5px;}
+  .fgx__sb{font-size:13.5px;line-height:1.55;opacity:.78;margin:0;}
+
+  /* reassure cards */
+  .fgx__reassure{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0;}
   .fgx__r{text-align:center;padding:20px 10px;border:1px solid {{ ac }}1f;
     border-radius:14px;background:#ffffff55;}
-  .fgx__r svg{width:30px;height:30px;stroke:{{ ac }};fill:none;
-    stroke-width:1.6;margin:0 auto 10px;display:block;}
+  .fgx__r svg{width:30px;height:30px;stroke:{{ ac }};fill:none;stroke-width:1.6;
+    margin:0 auto 10px;display:block;}
   .fgx__r b{display:block;font-size:14px;font-weight:600;line-height:1.3;}
   .fgx__r span{display:block;font-size:12px;opacity:.7;margin-top:3px;}
 
-  .fgx__h{font-family:var(--font-heading--family,Georgia,serif);
-    font-weight:800;font-size:clamp(26px,6vw,34px);line-height:1.05;
-    letter-spacing:-.01em;margin:0 0 6px;}
-  .fgx__h em{font-style:italic;font-weight:600;display:block;}
-  .fgx__sub{font-size:15px;opacity:.75;margin:0 0 26px;max-width:46ch;}
+  .fgx__sep{height:1px;background:{{ ac }}1f;border:0;margin:48px 0;}
 
-  .fgx__faq{border-top:1px solid {{ ac }}22;}
+  /* faq */
   .fgx__q{width:100%;text-align:left;background:none;border:0;cursor:pointer;
     border-bottom:1px solid {{ ac }}22;padding:18px 34px 18px 0;position:relative;
     font-size:16px;font-weight:600;color:{{ ac }};font-family:inherit;}
+  .fgx__faq{border-top:1px solid {{ ac }}22;}
   .fgx__q::after{content:'+';position:absolute;right:4px;top:50%;
     transform:translateY(-50%);font-size:22px;font-weight:400;transition:.2s;}
   .fgx__q[aria-expanded="true"]::after{transform:translateY(-50%) rotate(45deg);}
@@ -40,35 +71,90 @@
     border-bottom:1px solid {{ ac }}22;}
   .fgx__a p{margin:0;padding:0 0 20px;font-size:15px;line-height:1.6;opacity:.85;}
 
-  .fgx__note{margin:40px auto 0;max-width:52ch;text-align:center;
+  .fgx__note{margin:40px auto 0;max-width:54ch;text-align:center;
     font-size:13px;line-height:1.6;opacity:.6;font-style:italic;}
 
   @media(max-width:560px){
+    .fgx__steps{grid-template-columns:1fr;}
     .fgx__reassure{gap:8px;}
     .fgx__r{padding:16px 6px;}
     .fgx__r b{font-size:12.5px;}
   }
 </style>
 
+{%- comment -%} reusable inline icon snippet {%- endcomment -%}
+{%- capture ico_rame -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M8.5 9.5l7 5M15.5 9.5l-7 5"/></svg>{%- endcapture -%}
+{%- capture ico_gesto -%}<svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg>{%- endcapture -%}
+{%- capture ico_durare -%}<svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>{%- endcapture -%}
+{%- capture ico_natura -%}<svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V6a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v1"/><path d="M11 20c0-5 2-8 7-9"/></svg>{%- endcapture -%}
+{%- capture ico_fresco -%}<svg viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h15a3 3 0 1 1-3 3"/><path d="M3 16h8a2.4 2.4 0 1 1-2.4 2.4"/></svg>{%- endcapture -%}
+{%- capture ico_batteri -%}<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 4v-1M12 20v1M4 12H3M21 12h-1M6 6l-1-1M19 19l-1-1M18 6l1-1M5 19l1-1"/><path d="M5 5l14 14" stroke-width="2"/></svg>{%- endcapture -%}
+{%- capture ico_gusto -%}<svg viewBox="0 0 24 24"><path d="M8 3v8M6 3v4a2 2 0 0 0 4 0V3M8 11v10"/><path d="M16 3c-1.5 0-2.5 2-2.5 5s1 4 2.5 4 2.5-1 2.5-4-1-5-2.5-5zM16 12v9"/></svg>{%- endcapture -%}
+{%- capture ico_check -%}<svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>{%- endcapture -%}
+
 <section class="fgx">
   <div class="fgx__wrap">
 
+    {%- assign bens = section.blocks | where: 'type', 'benefit' -%}
+    {%- if bens.size > 0 -%}
+      {%- if section.settings.ben_eyebrow != blank -%}<p class="fgx__eyebrow">{{ section.settings.ben_eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.ben_h1 != blank -%}
+        <h2 class="fgx__h">{{ section.settings.ben_h1 }}{%- if section.settings.ben_h2 != blank -%}<em>{{ section.settings.ben_h2 }}</em>{%- endif -%}</h2>
+      {%- endif -%}
+      <div class="fgx__bens">
+        {%- for b in bens -%}
+          <div class="fgx__ben" {{ b.shopify_attributes }}>
+            {%- case b.settings.icon -%}
+              {%- when 'rame' -%}{{ ico_rame }}
+              {%- when 'gesto' -%}{{ ico_gesto }}
+              {%- when 'durare' -%}{{ ico_durare }}
+              {%- when 'natura' -%}{{ ico_natura }}
+              {%- when 'fresco' -%}{{ ico_fresco }}
+              {%- when 'batteri' -%}{{ ico_batteri }}
+              {%- when 'gusto' -%}{{ ico_gusto }}
+              {%- else -%}{{ ico_check }}
+            {%- endcase -%}
+            {%- if b.settings.tag != blank -%}<span class="fgx__tag">{{ b.settings.tag }}</span>{%- endif -%}
+            <h3 class="fgx__bt">{{ b.settings.title }}</h3>
+            <p class="fgx__bb">{{ b.settings.body }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- assign steps = section.blocks | where: 'type', 'step' -%}
+    {%- if steps.size > 0 -%}
+      <hr class="fgx__sep">
+      {%- if section.settings.step_eyebrow != blank -%}<p class="fgx__eyebrow">{{ section.settings.step_eyebrow }}</p>{%- endif -%}
+      {%- if section.settings.step_h1 != blank -%}
+        <h2 class="fgx__h">{{ section.settings.step_h1 }}{%- if section.settings.step_h2 != blank -%}<em>{{ section.settings.step_h2 }}</em>{%- endif -%}</h2>
+      {%- endif -%}
+      <div class="fgx__steps">
+        {%- for b in steps -%}
+          <div class="fgx__step" {{ b.shopify_attributes }}>
+            <span class="fgx__num">{{ forloop.index }}</span>
+            <p class="fgx__st">{{ b.settings.title }}</p>
+            <p class="fgx__sb">{{ b.settings.body }}</p>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
     {%- assign reassure = section.blocks | where: 'type', 'reassure' -%}
     {%- if reassure.size > 0 -%}
+      <hr class="fgx__sep">
       <div class="fgx__reassure">
         {%- for b in reassure -%}
           <div class="fgx__r" {{ b.shopify_attributes }}>
             {%- case b.settings.icon -%}
-              {%- when 'rame' -%}
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M8.5 9.5l7 5M15.5 9.5l-7 5"/></svg>
-              {%- when 'gesto' -%}
-                <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/></svg>
-              {%- when 'durare' -%}
-                <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-              {%- when 'natura' -%}
-                <svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 4 13V6a1 1 0 0 1 1-1h6a7 7 0 0 1 7 7v1"/><path d="M11 20c0-5 2-8 7-9"/></svg>
-              {%- else -%}
-                <svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg>
+              {%- when 'rame' -%}{{ ico_rame }}
+              {%- when 'gesto' -%}{{ ico_gesto }}
+              {%- when 'durare' -%}{{ ico_durare }}
+              {%- when 'natura' -%}{{ ico_natura }}
+              {%- when 'fresco' -%}{{ ico_fresco }}
+              {%- when 'batteri' -%}{{ ico_batteri }}
+              {%- when 'gusto' -%}{{ ico_gusto }}
+              {%- else -%}{{ ico_check }}
             {%- endcase -%}
             <b>{{ b.settings.label }}</b>
             {%- if b.settings.sub != blank -%}<span>{{ b.settings.sub }}</span>{%- endif -%}
@@ -79,10 +165,10 @@
 
     {%- assign faqs = section.blocks | where: 'type', 'faq' -%}
     {%- if faqs.size > 0 -%}
+      <hr class="fgx__sep">
       {%- if section.settings.faq_title != blank -%}
         <h2 class="fgx__h">{{ section.settings.faq_title }}{%- if section.settings.faq_title2 != blank -%}<em>{{ section.settings.faq_title2 }}</em>{%- endif -%}</h2>
       {%- endif -%}
-      {%- if section.settings.faq_sub != blank -%}<p class="fgx__sub">{{ section.settings.faq_sub }}</p>{%- endif -%}
       <div class="fgx__faq">
         {%- for b in faqs -%}
           <button class="fgx__q" type="button" aria-expanded="false"
@@ -102,27 +188,58 @@
 
 {% schema %}
 {
-  "name": "FREOS Gratta",
+  "name": "FREOS PDP",
   "tag": "section",
   "settings": [
     { "type": "color", "id": "accent", "label": "Accent", "default": "#1F3D2E" },
     { "type": "color", "id": "bg", "label": "Background", "default": "#F5F1E8" },
+    { "type": "header", "content": "Benefit block" },
+    { "type": "text", "id": "ben_eyebrow", "label": "Eyebrow", "default": "PERCHÉ FUNZIONA" },
+    { "type": "text", "id": "ben_h1", "label": "Headline line 1", "default": "Un gesto piccolo." },
+    { "type": "text", "id": "ben_h2", "label": "Headline line 2 (italic)", "default": "Una differenza che si sente." },
+    { "type": "header", "content": "Steps block" },
+    { "type": "text", "id": "step_eyebrow", "label": "Eyebrow", "default": "IL GESTO" },
+    { "type": "text", "id": "step_h1", "label": "Headline line 1", "default": "Trenta secondi," },
+    { "type": "text", "id": "step_h2", "label": "Headline line 2 (italic)", "default": "ogni mattina." },
+    { "type": "header", "content": "FAQ block" },
     { "type": "text", "id": "faq_title", "label": "FAQ title", "default": "Domande" },
-    { "type": "text", "id": "faq_title2", "label": "FAQ title line 2", "default": "frequenti" },
-    { "type": "textarea", "id": "faq_sub", "label": "FAQ subtitle" }
+    { "type": "text", "id": "faq_title2", "label": "FAQ title line 2", "default": "frequenti" }
   ],
   "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "select", "id": "icon", "label": "Icon", "default": "fresco",
+          "options": [
+            {"value":"rame","label":"Rame"},{"value":"gesto","label":"Gesto"},
+            {"value":"durare","label":"Durare"},{"value":"natura","label":"Natura"},
+            {"value":"fresco","label":"Fresco"},{"value":"batteri","label":"Batteri"},
+            {"value":"gusto","label":"Gusto"},{"value":"check","label":"Check"}
+          ] },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "ALITO" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Titolo" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Testo" }
+      ]
+    },
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Passo" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Testo" }
+      ]
+    },
     {
       "type": "reassure",
       "name": "Reassure",
       "settings": [
         { "type": "select", "id": "icon", "label": "Icon", "default": "rame",
           "options": [
-            {"value":"rame","label":"Rame"},
-            {"value":"gesto","label":"Gesto"},
-            {"value":"durare","label":"Durare"},
-            {"value":"natura","label":"Natura"},
-            {"value":"check","label":"Check"}
+            {"value":"rame","label":"Rame"},{"value":"gesto","label":"Gesto"},
+            {"value":"durare","label":"Durare"},{"value":"natura","label":"Natura"},
+            {"value":"fresco","label":"Fresco"},{"value":"batteri","label":"Batteri"},
+            {"value":"gusto","label":"Gusto"},{"value":"check","label":"Check"}
           ] },
         { "type": "text", "id": "label", "label": "Label", "default": "Rame puro" },
         { "type": "text", "id": "sub", "label": "Sub" }
@@ -139,11 +256,9 @@
     {
       "type": "note",
       "name": "Note",
-      "settings": [
-        { "type": "textarea", "id": "text", "label": "Text" }
-      ]
+      "settings": [ { "type": "textarea", "id": "text", "label": "Text" } ]
     }
   ],
-  "presets": [ { "name": "FREOS Gratta" } ]
+  "presets": [ { "name": "FREOS PDP" } ]
 }
 {% endschema %}

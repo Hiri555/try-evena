@@ -5,16 +5,21 @@
       "blocks": {
         "title": { "type": "title", "settings": {} },
         "price": { "type": "price", "settings": {} },
-        "description": { "type": "description", "settings": {} },
         "variant_picker": { "type": "variant_picker", "settings": {} },
         "buy_buttons": { "type": "buy_buttons", "settings": {} }
       },
-      "block_order": ["title", "price", "description", "variant_picker", "buy_buttons"],
+      "block_order": ["title", "price", "variant_picker", "buy_buttons"],
       "settings": {}
     },
     "extra": {
       "type": "freos-gratta",
       "blocks": {
+        "b1": { "type": "benefit", "settings": { "icon": "check", "tag": "SMALTO", "title": "Senza perossido, smalto intatto", "body": "L'agente è il PAP: agisce sulle macchie superficiali senza aggredire lo smalto né liberare perossido." } },
+        "b2": { "type": "benefit", "settings": { "icon": "natura", "tag": "MACCHIE", "title": "Lavora su caffè, tè, vino e fumo", "body": "Le macchie di superficie che si depositano giorno dopo giorno e che lo spazzolino non porta più via." } },
+        "b3": { "type": "benefit", "settings": { "icon": "gesto", "tag": "GESTO", "title": "Trenta minuti, niente apparecchi", "body": "Una striscia sopra, una sotto. Si appoggia, si lascia, si stacca. Nessuna vaschetta, nessuna lampada." } },
+        "s1": { "type": "step", "settings": { "title": "Applica", "body": "Una striscia sull'arcata superiore, una sull'inferiore. Premi bene." } },
+        "s2": { "type": "step", "settings": { "title": "Lascia agire", "body": "Trenta minuti. Nel frattempo fai altro." } },
+        "s3": { "type": "step", "settings": { "title": "Rimuovi", "body": "Stacca e sciacqua. Una volta al giorno, per 7 giorni." } },
         "r1": { "type": "reassure", "settings": { "icon": "check", "label": "Senza perossido", "sub": "smalto intatto" } },
         "r2": { "type": "reassure", "settings": { "icon": "gesto", "label": "30 minuti", "sub": "una volta al giorno" } },
         "r3": { "type": "reassure", "settings": { "icon": "durare", "label": "7 trattamenti", "sub": "14 strisce" } },
@@ -23,15 +28,20 @@
         "f3": { "type": "faq", "settings": { "q": "In quanto tempo si vedono i risultati?", "a": "Molti notano una differenza già dopo i primi trattamenti. Il ciclo completo è di 7 giorni. I risultati possono variare da persona a persona." } },
         "f4": { "type": "faq", "settings": { "q": "Vanno bene con denti sensibili?", "a": "Essendo senza perossido sono più delicate delle strisce tradizionali. In caso di forte sensibilità o problemi gengivali, chiedi prima consiglio al tuo dentista." } },
         "f5": { "type": "faq", "settings": { "q": "Ogni quanto si ripete il trattamento?", "a": "Un ciclo da 7 giorni ogni paio di mesi è in genere sufficiente a mantenere il risultato. Non superare i cicli consigliati." } },
-        "n1": { "type": "note", "settings": { "text": "14 strisce · 7 trattamenti. Senza perossido, smalto intatto. Non è un dispositivo medico. I risultati sullo sbiancamento possono variare da persona a persona." } }
+        "n1": { "type": "note", "settings": { "text": "14 strisce · 7 trattamenti. Senza perossido, smalto intatto. Non è un dispositivo medico. Non indicato ai minori di 18 anni. I risultati possono variare da persona a persona." } }
       },
-      "block_order": ["r1", "r2", "r3", "f1", "f2", "f3", "f4", "f5", "n1"],
+      "block_order": ["b1", "b2", "b3", "s1", "s2", "s3", "r1", "r2", "r3", "f1", "f2", "f3", "f4", "f5", "n1"],
       "settings": {
         "accent": "#1F3D2E",
         "bg": "#F5F1E8",
+        "ben_eyebrow": "PERCHÉ FUNZIONA",
+        "ben_h1": "Macchie di superficie.",
+        "ben_h2": "Via, una sera alla volta.",
+        "step_eyebrow": "IL GESTO",
+        "step_h1": "Trenta minuti,",
+        "step_h2": "per sette giorni.",
         "faq_title": "Domande",
-        "faq_title2": "frequenti",
-        "faq_sub": ""
+        "faq_title2": "frequenti"
       }
     }
   },
