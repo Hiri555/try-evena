@@ -64,6 +64,13 @@ done
 # télémétrie activée par défaut ; décommenter pour la couper :
 # hyperframes telemetry disable
 
+log "Lemo-Opuscar (66 styles d'animation en code) — skill Claude"
+[ -d /opt/vfx/src/lemo-opuscar ] || \
+  git clone --depth 1 -q https://github.com/lemomo-ai/lemo-opuscar.git /opt/vfx/src/lemo-opuscar
+s=/opt/vfx/src/lemo-opuscar/plugin/skills/lemo-opuscar
+[ -f "$s/SKILL.md" ] && { rm -rf ~/.claude/skills/lemo-opuscar; cp -r "$s" ~/.claude/skills/; }
+# note : lemo-opuscar recommande ffmpeg 7+, ce conteneur a 6.1 (voir AIDE-MEMOIRE)
+
 log "wrappers CLI"
 # realesrgan et rife sont des scripts maison (le paquet pip Real-ESRGAN dépend de
 # basicsr, cassé sur Python 3.13 ; RIFE dépend de sk-video, abandonné).

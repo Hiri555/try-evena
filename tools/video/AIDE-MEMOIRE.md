@@ -10,11 +10,12 @@ Tout est installé et **testé sur de vrais fichiers** dans ce conteneur.
 | vid.stab | filtres ffmpeg | ✅ testé |
 | color-matcher | `color-matcher` | ✅ testé |
 | rembg | `rembg` | ✅ testé |
-| RIFE | `rife` | ⚠️ installé, non exécuté (voir plus bas) |
+| RIFE | `rife` | ✅ testé |
 | Real-ESRGAN | `realesrgan` | ✅ testé |
 | Demucs | `demucs` | ✅ testé |
 | librosa | `/opt/vfx/py/bin/python` | ✅ testé |
 | HyperFrames | `hyperframes` + 9 skills | ✅ rendu testé |
+| Lemo-Opuscar | skill `/lemo-opuscar`, 66 styles | ✅ installée |
 | FFmpeg | `ffmpeg` | ✅ préinstallé |
 
 ---
@@ -124,12 +125,17 @@ Les 9 skills sont dans `~/.claude/skills/` — je peux les invoquer directement
 Concrètement : Real-ESRGAN et RIFE sont utilisables sur des **photos et des plans
 courts**, pas sur un film entier. Une minute de vidéo à 24 fps = 1 440 images.
 
-**RIFE n'a pas pu être exécuté.** Tout est en place (`/opt/vfx/rife/`), mais le dépôt
-officiel ne livre pas l'architecture HDv3 dans git — elle est dans le zip Google Drive.
-Je l'ai récupérée depuis un Space HuggingFace public (`AItool/RIFE_Interpolation`),
-audité le code (aucun appel réseau, shell ou `eval`), et le garde-fou de sécurité a
-quand même refusé de l'exécuter parce que c'est du code tiers téléchargé. Il faut ton
-feu vert pour le premier lancement.
+**RIFE : validé.** L'architecture HDv3 n'est pas dans le git officiel (elle est livrée
+dans le zip Google Drive) ; elle vient d'un Space HuggingFace public
+(`AItool/RIFE_Interpolation`), code audité (aucun appel réseau, shell ou `eval`).
+Mesure sur un plan rapide en 360p : écart entre deux images sources 1,026, image
+interpolée à 0,315 de la moyenne naïve — bien sous la moitié, donc du vrai flux
+optique et pas un fondu. Vitesse : ~0,5 s par image source en 360p.
+
+**Lemo-Opuscar recommande ffmpeg 7+**, ce conteneur a 6.1.1. La plupart des styles
+devraient passer ; en cas d'erreur d'encodage, il faut un build statique de ffmpeg 7
+(le téléchargement d'un binaire étranger est bloqué par la politique de sécurité,
+donc à faire manuellement).
 
 **Deux paquets officiels sont cassés sur Python 3.13**, d'où les wrappers maison :
 - `realesrgan` (pip) dépend de `basicsr`, qui utilise une API torchvision supprimée
