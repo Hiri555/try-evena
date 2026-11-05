@@ -17,6 +17,15 @@ Tout est installé et **testé sur de vrais fichiers** dans ce conteneur.
 | HyperFrames | `hyperframes` + 9 skills | ✅ rendu testé |
 | Lemo-Opuscar | skill `/lemo-opuscar`, 66 styles | ✅ installée |
 | FFmpeg | `ffmpeg` | ✅ préinstallé |
+| Remotion | `npx remotion` + 13 skills | ✅ rendu testé — ⚠️ **licence** |
+| Manim | `manim` | ✅ rendu testé, LaTeX inclus |
+| Three.js + VFX | `/opt/vfx/web` | ✅ WebGL2 logiciel confirmé |
+| Anime.js / Motion | `/opt/vfx/web` | ✅ installés |
+| Lottie | `/opt/vfx/web` | ✅ installé |
+| Blender | `blender` | ✅ rendu Cycles CPU testé |
+| Blender MCP | `mcp-for-blender` | ⚠️ à déclarer (voir plus bas) |
+| three-gpu-pathtracer | `/opt/vfx/web` | ⚠️ inutilisable sans GPU |
+| ComfyUI | — | ❌ non installé (voir plus bas) |
 
 ---
 
@@ -158,3 +167,72 @@ bash /chemin/vers/vfx/install.sh
 ```
 
 Encombrement : ~3,4 Go (dont 1 Go de modèle rembg, téléchargé au premier appel).
+
+
+---
+
+## Animation par le code (2ᵉ vague)
+
+### Remotion — vidéo en React
+
+```bash
+cd /opt/vfx/web/demo && npx remotion render src/index.tsx demo out.mp4
+```
+
+Un projet de démonstration qui rend est déjà là. 13 skills officielles actives
+(`/remotion-create`, `/remotion-render`, `/remotion-captions`, `/remotion-studio`…).
+
+> ⚠️ **Remotion n'est pas libre comme les autres outils de cette liste.** Gratuit pour
+> un particulier, une organisation à but non lucratif, ou une société **jusqu'à 3
+> salariés**. Au-delà, il faut une licence d'entreprise payante (remotion.pro).
+> C'est le seul de la boîte à outils dans ce cas.
+
+### Manim — diagrammes et équations
+
+```bash
+manim -qh --disable_caching scene.py MaScene
+```
+
+`-ql` (480p) pour itérer, `-qh` (1080p) pour livrer. LaTeX est installé, donc `MathTex`
+fonctionne.
+
+### Three.js et les VFX
+
+Tout est dans `/opt/vfx/web/node_modules` : `three`, `postprocessing` (bloom, DOF,
+étalonnage), `three.quarks` (particules), `jolt-physics` (collisions, corps rigides),
+`tweakpane`, `animejs`, `motion`, `lottie-web`.
+
+Le WebGL2 de Chrome headless tourne en **SwiftShader (logiciel)** : textures flottantes
+OK, 8192 px max. Les scènes 3D rendent donc, mais plus lentement qu'avec un GPU.
+
+### Blender
+
+```bash
+blender -b -noaudio scene.blend -o //img_ -f 1
+```
+
+Cycles CPU : 0,65 s pour 480×270 en 24 échantillons. **Le dé-bruitage est absent** du
+build Ubuntu — mettre `scene.cycles.use_denoising = False`, sinon le rendu échoue.
+
+---
+
+## Ce qui ne marche pas ici, et pourquoi
+
+**three-gpu-pathtracer** — installé, mais un path tracer a besoin de milliers
+d'échantillons par image. En rendu logiciel, ça se compte en heures par image. Sans GPU,
+inexploitable.
+
+**ComfyUI — pas installé.** Il lui faut un GPU et plusieurs gigaoctets de modèles pour
+produire quoi que ce soit ; sans ça, c'est une interface web qui ne génère rien. Je n'ai
+pas voulu consommer ~3 Go pour une coquille vide. À demander si tu as un usage précis.
+
+**Blender MCP — installé mais pas branché.** Le serveur (`mcp-for-blender`) et l'addon
+(`/opt/vfx/blender/mcp_addon.py`) sont là. Pour que je pilote Blender il faut déclarer
+le serveur MCP, ce qui touche ta configuration Claude — à toi de le faire :
+
+```bash
+claude mcp add blender -- mcp-for-blender
+```
+
+Puis charger `/opt/vfx/blender/mcp_addon.py` comme addon dans Blender et démarrer son
+serveur. L'addon ouvre une socket locale ; Blender doit tourner pendant ce temps.

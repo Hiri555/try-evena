@@ -71,6 +71,38 @@ s=/opt/vfx/src/lemo-opuscar/plugin/skills/lemo-opuscar
 [ -f "$s/SKILL.md" ] && { rm -rf ~/.claude/skills/lemo-opuscar; cp -r "$s" ~/.claude/skills/; }
 # note : lemo-opuscar recommande ffmpeg 7+, ce conteneur a 6.1 (voir AIDE-MEMOIRE)
 
+log "bibliothèques JS (three.js, anime.js, motion, lottie, VFX) + Remotion"
+mkdir -p /opt/vfx/web && cd /opt/vfx/web
+[ -f package.json ] || npm init -y --silent >/dev/null
+npm i --silent --no-fund --no-audit three postprocessing three.quarks tweakpane \
+  animejs motion lottie-web three-gpu-pathtracer jolt-physics \
+  remotion @remotion/cli @remotion/renderer react react-dom
+cd - >/dev/null
+
+log "skills Remotion (13, officielles)"
+[ -d /opt/vfx/src/remotion-skills ] || \
+  git clone --depth 1 -q https://github.com/remotion-dev/skills.git /opt/vfx/src/remotion-skills
+for d in /opt/vfx/src/remotion-skills/skills/*/; do
+  n=$(basename "$d"); [ -f "$d/SKILL.md" ] || continue
+  rm -rf ~/.claude/skills/$n; cp -r "$d" ~/.claude/skills/
+done
+
+log "Manim (+ cairo, pango, LaTeX)"
+export DEBIAN_FRONTEND=noninteractive
+apt-get update -qq
+apt-get install -y -qq libcairo2-dev libpango1.0-dev pkg-config python3-dev build-essential
+apt-get install -y -qq --no-install-recommends texlive-latex-base texlive-latex-extra \
+  texlive-fonts-recommended texlive-science dvisvgm cm-super
+uv tool install -q manim
+
+log "Blender + serveur MCP"
+apt-get install -y -qq blender libegl1 libgl1 libglx-mesa0 libgles2
+uv tool install -q "git+https://github.com/ahujasid/mcp-for-blender.git"
+mkdir -p /opt/vfx/blender /opt/vfx/src
+[ -d /opt/vfx/src/mcp-for-blender ] || \
+  git clone --depth 1 -q https://github.com/ahujasid/mcp-for-blender.git /opt/vfx/src/mcp-for-blender
+cp -f /opt/vfx/src/mcp-for-blender/addon.py /opt/vfx/blender/mcp_addon.py 2>/dev/null || true
+
 log "wrappers CLI"
 # realesrgan et rife sont des scripts maison (le paquet pip Real-ESRGAN dépend de
 # basicsr, cassé sur Python 3.13 ; RIFE dépend de sk-video, abandonné).
@@ -83,7 +115,7 @@ grep -q '/opt/vfx/bin' ~/.bashrc 2>/dev/null || \
   echo 'export PATH="/root/.local/bin:/opt/vfx/bin:$PATH"' >> ~/.bashrc
 
 log "vérification"
-for c in scenedetect auto-editor color-matcher rembg demucs hyperframes ffmpeg; do
+for c in scenedetect auto-editor color-matcher rembg demucs hyperframes ffmpeg manim blender; do
   printf '  %-14s %s\n' "$c" "$(command -v $c || echo MANQUANT)"
 done
 printf '  %-14s %s\n' realesrgan "$(command -v realesrgan || echo MANQUANT)"
