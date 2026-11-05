@@ -1,0 +1,404 @@
+1
+00:00:00,800 --> 00:00:04,182
+Épisode un : on l'a mis en place,
+et on l'y maintient.
+
+2
+00:00:04,242 --> 00:00:06,030
+Maintenant la vraie question.
+
+3
+00:00:06,090 --> 00:00:08,707
+Qu'est-ce qui passe réellement à travers ?
+
+4
+00:00:12,050 --> 00:00:15,885
+À bord, le satellite n'a pas de cerveau.
+Il a des répéteurs.
+
+5
+00:00:15,945 --> 00:00:18,871
+Chacun fait trois choses, toujours les mêmes :
+
+6
+00:00:18,931 --> 00:00:25,816
+il reçoit la porteuse qui monte, il l'amplifie
+— elle arrive épuisée après 36 000 km —
+
+7
+00:00:25,876 --> 00:00:26,920
+et il la renvoie.
+
+8
+00:00:26,980 --> 00:00:29,127
+Mais entre les deux, il la décale.
+
+9
+00:00:29,187 --> 00:00:35,098
+Il la descend de 2225 mégahertz.
+6 GHz deviennent 4.
+
+10
+00:00:35,158 --> 00:00:39,967
+Pourquoi ce décalage ? Parce que le satellite
+émet et reçoit en même temps.
+
+11
+00:00:40,027 --> 00:00:44,121
+S'il réémettait sur sa fréquence d'écoute,
+il se rendrait sourd.
+
+12
+00:00:46,467 --> 00:00:48,311
+La bande C, ce n'est pas un bloc.
+
+13
+00:00:48,371 --> 00:00:50,850
+C'est trois morceaux, collés par l'histoire.
+
+14
+00:00:50,910 --> 00:00:52,638
+Au début, 500 mégahertz.
+
+15
+00:00:52,698 --> 00:00:56,966
+Puis on a ajouté 75 en bas.
+Puis 225 en haut.
+
+16
+00:00:57,026 --> 00:01:00,831
+Total : 800 MHz à la montée, 800 à la descente.
+
+17
+00:01:00,891 --> 00:01:06,255
+La bande principale descend de 2225.
+Le petit morceau du bas aussi.
+
+18
+00:01:06,315 --> 00:01:07,005
+Tout va bien.
+
+19
+00:01:07,065 --> 00:01:10,986
+Et puis il y a le dernier morceau.
+Celui tout en haut de la montante.
+
+20
+00:01:11,046 --> 00:01:14,678
+6425 à 6650.
+
+21
+00:01:14,738 --> 00:01:19,640
+Si on lui applique le même décalage,
+il atterrit au-dessus de 4200.
+
+22
+00:01:19,700 --> 00:01:24,083
+Or la descendante s'arrête à 4200.
+Il n'y a plus de place.
+
+23
+00:01:24,143 --> 00:01:28,641
+Alors on le replie. On le descend
+beaucoup plus bas — de 3025 —
+
+24
+00:01:28,701 --> 00:01:32,911
+et il va se loger tout en bas
+de la descendante. 3400.
+
+25
+00:01:32,971 --> 00:01:37,757
+Retiens ça, c'est le piège : la fin de la montante
+devient le bas de la descendante.
+
+26
+00:01:37,817 --> 00:01:39,488
+Les deux extrêmes se croisent.
+
+27
+00:01:42,550 --> 00:01:44,620
+800 mégahertz, c'est peu.
+
+28
+00:01:44,680 --> 00:01:46,549
+Alors on triche. Honnêtement.
+
+29
+00:01:46,609 --> 00:01:49,810
+Le champ électrique de l'onde
+ne reste pas droit.
+
+30
+00:01:49,870 --> 00:01:52,805
+Il tourne en avançant, comme un tire-bouchon.
+
+31
+00:01:52,865 --> 00:01:56,132
+Vers la droite, on dit RHCP.
+Vers la gauche, LHCP.
+
+32
+00:01:56,192 --> 00:02:01,922
+Et voilà l'astuce. Une antenne réglée à droite
+ne voit pas du tout le signal de gauche.
+
+33
+00:02:01,982 --> 00:02:04,451
+Les deux sens s'ignorent complètement.
+
+34
+00:02:04,511 --> 00:02:09,309
+Donc on envoie deux signaux différents,
+sur exactement la même fréquence,
+
+35
+00:02:09,369 --> 00:02:11,372
+dans les deux sens de rotation.
+
+36
+00:02:11,432 --> 00:02:14,965
+La capacité double.
+Sans une seule fréquence nouvelle.
+
+37
+00:02:15,025 --> 00:02:17,494
+800 deviennent 1600.
+
+38
+00:02:20,133 --> 00:02:21,284
+Reste une question.
+
+39
+00:02:21,344 --> 00:02:24,533
+Pourquoi 6 et 4 gigahertz, et pas ailleurs ?
+
+40
+00:02:24,593 --> 00:02:25,616
+À cause du bruit.
+
+41
+00:02:25,676 --> 00:02:29,567
+En dessous d'un gigahertz,
+la galaxie elle-même fait du bruit.
+
+42
+00:02:29,627 --> 00:02:32,943
+Au-dessus de dix, c'est l'atmosphère qui absorbe —
+
+43
+00:02:33,003 --> 00:02:37,212
+la vapeur d'eau pique à 22 GHz,
+l'oxygène à 60.
+
+44
+00:02:37,272 --> 00:02:41,800
+Entre les deux, il y a une fenêtre. Un creux.
+C'est là qu'on s'installe.
+
+45
+00:02:41,860 --> 00:02:47,789
+Et la descendante prend le bas de la fenêtre, à 4 :
+c'est elle qui arrive la plus faible.
+
+46
+00:02:50,258 --> 00:02:52,615
+Dernière astuce, et c'est la plus belle.
+
+47
+00:02:52,675 --> 00:02:55,032
+Le satellite ne crie pas partout pareil.
+
+48
+00:02:55,092 --> 00:02:58,356
+Il a un faisceau global,
+qui couvre tout ce qu'il voit.
+
+49
+00:02:58,416 --> 00:03:01,257
+Des faisceaux hémisphériques,
+une moitié chacun.
+
+50
+00:03:01,317 --> 00:03:04,037
+Des faisceaux de zone, découpés par continent.
+
+51
+00:03:04,097 --> 00:03:08,086
+Et des spots, étroits et puissants,
+pointés sur une région précise.
+
+52
+00:03:08,146 --> 00:03:12,376
+Deux zones qui ne se touchent pas
+peuvent réutiliser la même fréquence.
+
+53
+00:03:12,436 --> 00:03:14,008
+Elles ne se verront jamais.
+
+54
+00:03:14,068 --> 00:03:20,474
+Avec ça, et la bande Ku, les 800 MHz de départ
+finissent par en valoir 3500.
+
+55
+00:03:22,925 --> 00:03:25,429
+Tout ça ne s'est pas construit d'un coup.
+
+56
+00:03:25,489 --> 00:03:30,871
+Intelsat I, 1965 : 50 mégahertz,
+un an et demi de vie.
+
+57
+00:03:30,931 --> 00:03:35,374
+Intelsat IX : 3450 mégahertz, treize ans.
+
+58
+00:03:35,434 --> 00:03:38,689
+Entre les deux, chaque génération
+a apporté une idée.
+
+59
+00:03:38,749 --> 00:03:44,318
+La IV-A, la réutilisation par l'espace.
+La V, la réutilisation par la polarisation.
+
+60
+00:03:44,378 --> 00:03:46,632
+Et la façon de tenir droit a changé :
+
+61
+00:03:46,692 --> 00:03:50,072
+les premiers tournaient sur eux-mêmes
+comme une toupie.
+
+62
+00:03:50,132 --> 00:03:55,389
+Les modernes sont stabilisés sur trois axes,
+et seuls les panneaux suivent le Soleil.
+
+63
+00:03:55,449 --> 00:03:59,392
+Le monde est découpé en régions :
+Atlantique, Indien, Pacifique.
+
+64
+00:03:59,452 --> 00:04:04,583
+Puis on en a ajouté une quatrième, Asie-Pacifique,
+parce que le trafic y débordait.
+
+65
+00:04:07,050 --> 00:04:07,673
+Et au sol ?
+
+66
+00:04:07,733 --> 00:04:10,034
+Pas forcément une grande antenne fixe.
+
+67
+00:04:10,094 --> 00:04:13,265
+Une VSAT, c'est un terminal
+à très petite ouverture.
+
+68
+00:04:13,325 --> 00:04:16,123
+Moins de 4 mètres, souvent moins de 2.
+
+69
+00:04:16,183 --> 00:04:21,653
+On les branche en étoile autour d'un concentrateur,
+ou en maillage, chacune avec chacune.
+
+70
+00:04:21,713 --> 00:04:27,742
+Elles tiennent une disponibilité de 99,99 %.
+
+71
+00:04:27,802 --> 00:04:31,967
+Visioconférence, télémédecine,
+transfert de fichiers, télédétection.
+
+72
+00:04:32,027 --> 00:04:36,378
+Et ce qui mesure leur qualité d'écoute
+a un nom : le facteur de mérite.
+
+73
+00:04:38,842 --> 00:04:39,433
+Justement.
+
+74
+00:04:39,493 --> 00:04:44,382
+Deux formules suffisent à l'examen,
+et elles disent des choses très simples.
+
+75
+00:04:44,442 --> 00:04:47,507
+La première : l'affaiblissement en espace libre.
+
+76
+00:04:47,567 --> 00:04:52,260
+22, plus 20 log de la distance
+divisée par la longueur d'onde.
+
+77
+00:04:52,320 --> 00:04:57,925
+Ça dit juste ceci : plus c'est loin,
+plus c'est haut en fréquence, plus ça s'affaiblit.
+
+78
+00:04:57,985 --> 00:05:02,418
+Sur 36 000 kilomètres,
+on perd environ 200 décibels.
+
+79
+00:05:02,478 --> 00:05:04,632
+La seconde : le facteur de mérite.
+
+80
+00:05:04,692 --> 00:05:08,734
+Le gain de l'antenne,
+moins 10 log de sa température de bruit.
+
+81
+00:05:08,794 --> 00:05:13,943
+Un bon gain, un récepteur froid —
+et tu entends ce qui est presque inaudible.
+
+82
+00:05:16,592 --> 00:05:17,476
+Avant l'examen.
+
+83
+00:05:17,536 --> 00:05:20,373
+Le répéteur reçoit, amplifie, décale, renvoie.
+
+84
+00:05:20,433 --> 00:05:27,425
+Moins 2225 — sauf la fin de bande,
+moins 3025, qui part tout en bas.
+
+85
+00:05:27,485 --> 00:05:31,455
+La polarisation double la capacité.
+Les faisceaux la redoublent.
+
+86
+00:05:31,515 --> 00:05:35,925
+6 et 4 gigahertz, parce que c'est là
+que le ciel est silencieux.
+
+87
+00:05:35,985 --> 00:05:38,444
+La VSAT se juge à son facteur de mérite.
+
+88
+00:05:38,504 --> 00:05:40,459
+Et tout ça pour une seule chose.
+
+89
+00:05:40,519 --> 00:05:45,685
+Faire tenir une conversation dans un creux de bruit,
+à 36 000 kilomètres.

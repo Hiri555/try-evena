@@ -1,0 +1,80 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Render ép.2</title>
+<style>html,body{margin:0;background:#000;overflow:hidden}canvas{display:block}</style>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script src="gsap.min.js"></script>
+<script src="lib.js"></script>
+<script src="lib2.js"></script>
+<script src="chapters.js"></script>
+<script>
+gsap.ticker.lagSmoothing(0); gsap.ticker.sleep();
+const cv = document.getElementById('c');
+const g  = cv.getContext('2d', { alpha: false });
+g.textBaseline = 'alphabetic';
+const FPS = 24;
+
+CHAPTERS.forEach(ch => {
+  ch.frames = Math.round(ch.dur * FPS);
+  ch.S = {}; ch.tl = gsap.timeline({ paused: true }); ch.setup(ch.tl, ch.S);
+});
+const TOTAL = CHAPTERS.reduce((a, c) => a + c.frames, 0);
+
+async function loadFonts() {
+  const defs = [
+    ['Saira','SairaCondensed-Bold.woff2',700],['Saira','SairaCondensed-SemiBold.woff2',600],
+    ['Saira','SairaCondensed-Medium.woff2',500],['Plex','PlexSans-Regular.woff2',400],
+    ['Plex','PlexSans-Medium.woff2',500],['Plex','PlexSans-SemiBold.woff2',600],
+    ['PlexMono','PlexMono-Regular.woff2',400],['PlexMono','PlexMono-Medium.woff2',500],
+  ];
+  for (const [fam, file, wt] of defs) {
+    const f = new FontFace(fam, `url(/fonts/${file})`, { weight: String(wt) });
+    await f.load(); document.fonts.add(f);
+  }
+  await document.fonts.ready;
+}
+
+let img = null, key = '';
+async function getImg(src) {
+  if (src === key) return img;
+  const i = new Image(); i.src = src; await i.decode();
+  img = i; key = src; return i;
+}
+
+window.__ready = false;
+(async () => { await loadFonts(); buildTextures(); window.__ready = true; })();
+
+window.renderFrame = async function (gf) {
+  let acc = 0, idx = 0, local = 0;
+  for (let i = 0; i < CHAPTERS.length; i++) {
+    if (gf < acc + CHAPTERS[i].frames) { idx = i; local = gf - acc; break; }
+    acc += CHAPTERS[i].frames; idx = i; local = CHAPTERS[i].frames - 1;
+  }
+  const ch = CHAPTERS[idx];
+  const t = local / FPS;
+  _frameIdx = gf;
+
+  let pl = null;
+  if (ch.plate) {                                   // plate vidéo (Veo), éventuellement à l'envers
+    const n = ch.plate.rev ? ch.plate.n - local : local + 1;
+    pl = await getImg(`/plates/${ch.plate.dir}/${String(Math.max(1, Math.min(n, ch.plate.n))).padStart(4,'0')}.jpg`);
+  } else if (ch.bl) {                               // plate Blender retimée
+    const span = ch.bl.to - ch.bl.from;
+    const n = Math.round(clamp((t - ch.bl.from) / span) * (ch.bl.count - 1)) + 1;
+    if (t >= ch.bl.from - 1.5 && t <= ch.bl.to + 1.5)
+      pl = await getImg(`/ep2/bl/${ch.bl.dir}/${String(Math.max(1, Math.min(n, ch.bl.count))).padStart(4,'0')}.png`);
+  }
+
+  ch.tl.pause(t);
+
+  g.setTransform(1,0,0,1,0,0);
+  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
+  g.setLineDash([]); g.letterSpacing = '0px'; g.textAlign = 'left';
+  g.fillStyle = '#05080E'; g.fillRect(0, 0, 1920, 1080);
+  ch.draw(g, ch.S, t, pl);
+  return idx;
+};
+window.setBlCounts = (m) => { CHAPTERS.forEach(c => { if (c.bl && m[c.bl.dir]) c.bl.count = m[c.bl.dir]; }); };
+window.totalFrames = () => TOTAL;
+window.grab = (q) => cv.toDataURL('image/jpeg', q || 0.94);
+</script>
