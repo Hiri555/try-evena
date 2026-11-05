@@ -1,0 +1,137 @@
+#!/opt/vfx/esrgan/bin/python
+"""Real-ESRGAN upscaler (images and video) built on spandrel + torch CPU.
+
+  realesrgan -i in.jpg -o out.png
+  realesrgan -i in.mp4 -o out.mp4 -n general --outscale 2
+"""
+import argparse, os, shutil, subprocess, sys, tempfile, time, math
+import numpy as np
+from PIL import Image
+import torch
+from spandrel import ModelLoader
+
+MODELS = {
+    'x4plus':  '/opt/vfx/models/RealESRGAN_x4plus.pth',       # best quality, slow
+    'general': '/opt/vfx/models/realesr-general-x4v3.pth',    # ~14x faster, very good
+}
+VIDEO_EXT = {'.mp4', '.mov', '.mkv', '.webm', '.avi', '.m4v', '.mpg', '.mpeg', '.ts'}
+
+
+def load(name, threads):
+    torch.set_num_threads(threads)
+    path = MODELS.get(name, name)
+    if not os.path.exists(path):
+        sys.exit(f"✗ modèle introuvable : {path}")
+    m = ModelLoader().load_from_file(path)
+    m.eval().cpu()
+    return m
+
+
+@torch.inference_mode()
+def upscale_array(model, arr, tile, overlap):
+    """arr: HxWx3 uint8 -> upscaled HxWx3 uint8, tiled to bound memory."""
+    h, w, _ = arr.shape
+    s = model.scale
+    x = torch.from_numpy(arr).permute(2, 0, 1).float().div_(255.).unsqueeze(0)
+    if tile <= 0 or (h <= tile and w <= tile):
+        y = model(x)
+    else:
+        y = torch.zeros(1, 3, h * s, w * s)
+        wt = torch.zeros(1, 1, h * s, w * s)
+        step = max(16, tile - overlap)
+        for top in range(0, h, step):
+            for left in range(0, w, step):
+                b, r = min(top + tile, h), min(left + tile, w)
+                t2, l2 = max(0, b - tile), max(0, r - tile)
+                patch = x[:, :, t2:b, l2:r]
+                out = model(patch)
+                y[:, :, t2 * s:b * s, l2 * s:r * s] += out
+                wt[:, :, t2 * s:b * s, l2 * s:r * s] += 1
+                if b >= h: break
+            if r >= w and b >= h: break
+        y = y / wt.clamp(min=1)
+    y = y.clamp_(0, 1).squeeze(0).permute(1, 2, 0).mul_(255).round_().byte().numpy()
+    return y
+
+
+def fit(img, outscale, native):
+    if abs(outscale - native) < 1e-6:
+        return img
+    w, h = img.size
+    return img.resize((round(w * outscale / native), round(h * outscale / native)), Image.LANCZOS)
+
+
+def do_image(model, src, dst, a):
+    im = Image.open(src).convert('RGB')
+    out = Image.fromarray(upscale_array(model, np.array(im), a.tile, a.overlap))
+    fit(out, a.outscale, model.scale).save(dst)
+    print(f"✓ {src} {im.size[0]}x{im.size[1]} → {dst}")
+
+
+def do_video(model, src, dst, a):
+    probe = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
+                            '-show_entries', 'stream=width,height,r_frame_rate,nb_frames',
+                            '-of', 'default=nw=1:nk=1', src],
+                           capture_output=True, text=True).stdout.split()
+    w, h, rate = int(probe[0]), int(probe[1]), probe[2]
+    num, den = (rate.split('/') + ['1'])[:2]
+    fps = float(num) / float(den)
+    tmp = tempfile.mkdtemp(prefix='resr_')
+    fin, fout = os.path.join(tmp, 'in'), os.path.join(tmp, 'out')
+    os.makedirs(fin); os.makedirs(fout)
+    try:
+        print(f"· extraction des images ({w}x{h} @ {fps:.3f} fps)…", flush=True)
+        subprocess.run(['ffmpeg', '-v', 'error', '-i', src, '-qscale:v', '1',
+                        os.path.join(fin, '%06d.jpg')], check=True)
+        names = sorted(os.listdir(fin))
+        n = len(names)
+        t0 = time.time()
+        for i, nm in enumerate(names):
+            im = Image.open(os.path.join(fin, nm)).convert('RGB')
+            out = Image.fromarray(upscale_array(model, np.array(im), a.tile, a.overlap))
+            fit(out, a.outscale, model.scale).save(os.path.join(fout, nm), quality=96)
+            if i % 5 == 0 or i == n - 1:
+                el = time.time() - t0
+                eta = (n - i - 1) * el / max(i + 1, 1)
+                print(f"\r· {i+1}/{n}  {el/max(i+1,1):.1f}s/image  reste {eta/60:.1f} min   ",
+                      end='', flush=True)
+        print()
+        has_audio = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'a:0',
+                                    '-show_entries', 'stream=codec_type', '-of', 'csv=p=0', src],
+                                   capture_output=True, text=True).stdout.strip() != ''
+        cmd = ['ffmpeg', '-y', '-v', 'error', '-stats', '-framerate', str(fps),
+               '-i', os.path.join(fout, '%06d.jpg')]
+        if has_audio:
+            cmd += ['-i', src, '-map', '0:v', '-map', '1:a', '-c:a', 'copy']
+        cmd += ['-c:v', 'libx264', '-crf', str(a.crf), '-preset', a.preset,
+                '-pix_fmt', 'yuv420p', '-movflags', '+faststart', dst]
+        subprocess.run(cmd, check=True)
+        print(f"✓ {dst}")
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def main():
+    p = argparse.ArgumentParser(description='Real-ESRGAN — upscale image ou vidéo (CPU)')
+    p.add_argument('-i', '--input', required=True)
+    p.add_argument('-o', '--output', required=True)
+    p.add_argument('-n', '--model', default='general', help='general (rapide) | x4plus (qualité) | chemin .pth')
+    p.add_argument('--outscale', type=float, default=4.0, help='facteur final (défaut 4)')
+    p.add_argument('--tile', type=int, default=256, help='taille de tuile, 0 = pas de tuilage')
+    p.add_argument('--overlap', type=int, default=16)
+    p.add_argument('--threads', type=int, default=os.cpu_count() or 4)
+    p.add_argument('--crf', type=int, default=17)
+    p.add_argument('--preset', default='medium')
+    a = p.parse_args()
+    if not os.path.exists(a.input):
+        sys.exit(f"✗ introuvable : {a.input}")
+    model = load(a.model, a.threads)
+    print(f"· modèle {a.model} (x{model.scale} natif) · {a.threads} threads · tuile {a.tile}")
+    if os.path.splitext(a.input)[1].lower() in VIDEO_EXT:
+        do_video(model, a.input, a.output, a)
+    else:
+        do_image(model, a.input, a.output, a)
+
+
+if __name__ == '__main__':
+    main()
