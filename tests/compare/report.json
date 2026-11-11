@@ -1,0 +1,68 @@
+[
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "rebuildHeight": 8887,
+    "liveHeight": 8887,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/home.desktop.rebuild.png",
+      "tests/compare/home.desktop.live.png"
+    ]
+  },
+  {
+    "route": "/our-brand/",
+    "viewport": "desktop",
+    "rebuildHeight": 5848,
+    "liveHeight": 5848,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/our-brand.desktop.rebuild.png",
+      "tests/compare/our-brand.desktop.live.png"
+    ]
+  },
+  {
+    "route": "/shop/",
+    "viewport": "desktop",
+    "rebuildHeight": 6067,
+    "liveHeight": 6067,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/shop.desktop.rebuild.png",
+      "tests/compare/shop.desktop.live.png"
+    ]
+  },
+  {
+    "route": "/",
+    "viewport": "mobile",
+    "rebuildHeight": 14252,
+    "liveHeight": 14252,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/home.mobile.rebuild.png",
+      "tests/compare/home.mobile.live.png"
+    ]
+  },
+  {
+    "route": "/our-brand/",
+    "viewport": "mobile",
+    "rebuildHeight": 5176,
+    "liveHeight": 5176,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/our-brand.mobile.rebuild.png",
+      "tests/compare/our-brand.mobile.live.png"
+    ]
+  },
+  {
+    "route": "/shop/",
+    "viewport": "mobile",
+    "rebuildHeight": 12491,
+    "liveHeight": 12491,
+    "heightDeltaPct": 0,
+    "files": [
+      "tests/compare/shop.mobile.rebuild.png",
+      "tests/compare/shop.mobile.live.png"
+    ]
+  }
+]

@@ -1,0 +1,75 @@
+{
+  "ranAt": "2026-11-11T13:10:38.410Z",
+  "results": [
+    {
+      "name": "mobile drawer opens on burger tap",
+      "ok": true,
+      "detail": "class toggled"
+    },
+    {
+      "name": "mobile drawer contains nav links",
+      "ok": true,
+      "detail": "18 links"
+    },
+    {
+      "name": "search overlay opens from its trigger",
+      "ok": true,
+      "detail": "aria-hidden=false, field visible=true"
+    },
+    {
+      "name": "search overlay closes again",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "homepage videos decode real frames",
+      "ok": true,
+      "detail": "sabr.mp4 1440x1080 rs=4; laamu-return.mp4 1080x1920 rs=4"
+    },
+    {
+      "name": "homepage videos are muted+looping autoplay",
+      "ok": true,
+      "detail": "muted=true loop=true autoplay=true; muted=true loop=true autoplay=true"
+    },
+    {
+      "name": "homepage videos actually advance (playing)",
+      "ok": true,
+      "detail": "paused=false t=4.13; paused=true t=0.00"
+    },
+    {
+      "name": "product rail scrolls via its control",
+      "ok": true,
+      "detail": "scrollLeft 46 -> 392"
+    },
+    {
+      "name": "product rail is populated",
+      "ok": true,
+      "detail": "65 cards"
+    },
+    {
+      "name": "internal link navigates to a local page",
+      "ok": true,
+      "detail": "/our-brand/"
+    },
+    {
+      "name": "all relative links on the homepage resolve",
+      "ok": true,
+      "detail": "32 links checked"
+    },
+    {
+      "name": "keyboard focus reaches a control with a visible state",
+      "ok": true,
+      "detail": "A outline=\"auto 1px\" shadow=\"none\""
+    },
+    {
+      "name": "images carry alt attributes",
+      "ok": true,
+      "detail": "0 without alt"
+    },
+    {
+      "name": "contact form is present with labelled fields",
+      "ok": true,
+      "detail": "1/1 labelled, action=../"
+    }
+  ]
+}
