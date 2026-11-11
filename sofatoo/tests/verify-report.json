@@ -1,16 +1,65 @@
 {
   "summary": {
-    "checkedAt": "2026-11-11T13:44:39.975Z",
-    "routes": 4,
+    "checkedAt": "2026-11-11T14:22:58.573Z",
+    "routes": 2,
     "viewports": {
-      "mobile": 4,
-      "tablet": 4,
-      "laptop": 4,
-      "desktop": 4
+      "mobile": 2,
+      "tablet": 2,
+      "laptop": 2,
+      "desktop": 2
     },
-    "totalRenders": 16,
-    "cleanRenders": 16,
-    "problems": [],
+    "totalRenders": 8,
+    "cleanRenders": 4,
+    "problems": [
+      {
+        "route": "/",
+        "viewport": "mobile",
+        "nav": "ok",
+        "overflow": 0,
+        "imgsBroken": 0,
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailed": [
+          "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+        ]
+      },
+      {
+        "route": "/",
+        "viewport": "tablet",
+        "nav": "ok",
+        "overflow": 0,
+        "imgsBroken": 0,
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailed": [
+          "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+        ]
+      },
+      {
+        "route": "/",
+        "viewport": "laptop",
+        "nav": "ok",
+        "overflow": 0,
+        "imgsBroken": 0,
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailed": [
+          "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+        ]
+      },
+      {
+        "route": "/",
+        "viewport": "desktop",
+        "nav": "ok",
+        "overflow": 0,
+        "imgsBroken": 0,
+        "pageErrors": [],
+        "httpErrors": [],
+        "requestFailed": [
+          "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+        ]
+      }
+    ],
     "consoleErrorSamples": []
   },
   "results": [
@@ -28,7 +77,9 @@
       "overflow": 0,
       "pageErrors": [],
       "consoleErrors": [],
-      "requestFailed": [],
+      "requestFailed": [
+        "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+      ],
       "httpErrors": []
     },
     {
@@ -37,44 +88,10 @@
       "nav": "ok",
       "scrollW": 375,
       "clientW": 375,
-      "bodyH": 12178,
+      "bodyH": 12177,
       "imgs": 24,
       "imgsBroken": 0,
       "title": "Shop – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/product/fary/",
-      "viewport": "mobile",
-      "nav": "ok",
-      "scrollW": 375,
-      "clientW": 375,
-      "bodyH": 6141,
-      "imgs": 20,
-      "imgsBroken": 0,
-      "title": "Fary – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/lookbook/",
-      "viewport": "mobile",
-      "nav": "ok",
-      "scrollW": 375,
-      "clientW": 375,
-      "bodyH": 4356,
-      "imgs": 12,
-      "imgsBroken": 0,
-      "title": "LOOKBOOK – So' Fatoo",
       "videos": 0,
       "overflow": 0,
       "pageErrors": [],
@@ -96,7 +113,9 @@
       "overflow": 0,
       "pageErrors": [],
       "consoleErrors": [],
-      "requestFailed": [],
+      "requestFailed": [
+        "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+      ],
       "httpErrors": []
     },
     {
@@ -109,40 +128,6 @@
       "imgs": 24,
       "imgsBroken": 0,
       "title": "Shop – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/product/fary/",
-      "viewport": "tablet",
-      "nav": "ok",
-      "scrollW": 768,
-      "clientW": 768,
-      "bodyH": 3709,
-      "imgs": 20,
-      "imgsBroken": 0,
-      "title": "Fary – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/lookbook/",
-      "viewport": "tablet",
-      "nav": "ok",
-      "scrollW": 768,
-      "clientW": 768,
-      "bodyH": 4801,
-      "imgs": 12,
-      "imgsBroken": 0,
-      "title": "LOOKBOOK – So' Fatoo",
       "videos": 0,
       "overflow": 0,
       "pageErrors": [],
@@ -164,7 +149,9 @@
       "overflow": 0,
       "pageErrors": [],
       "consoleErrors": [],
-      "requestFailed": [],
+      "requestFailed": [
+        "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+      ],
       "httpErrors": []
     },
     {
@@ -177,40 +164,6 @@
       "imgs": 24,
       "imgsBroken": 0,
       "title": "Shop – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/product/fary/",
-      "viewport": "laptop",
-      "nav": "ok",
-      "scrollW": 1024,
-      "clientW": 1024,
-      "bodyH": 3323,
-      "imgs": 20,
-      "imgsBroken": 0,
-      "title": "Fary – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/lookbook/",
-      "viewport": "laptop",
-      "nav": "ok",
-      "scrollW": 1024,
-      "clientW": 1024,
-      "bodyH": 3005,
-      "imgs": 12,
-      "imgsBroken": 0,
-      "title": "LOOKBOOK – So' Fatoo",
       "videos": 0,
       "overflow": 0,
       "pageErrors": [],
@@ -232,7 +185,9 @@
       "overflow": 0,
       "pageErrors": [],
       "consoleErrors": [],
-      "requestFailed": [],
+      "requestFailed": [
+        "/wp-content/themes/sofatoo-maison-disabled/assets/media/sabr.mp4"
+      ],
       "httpErrors": []
     },
     {
@@ -245,40 +200,6 @@
       "imgs": 24,
       "imgsBroken": 0,
       "title": "Shop – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/product/fary/",
-      "viewport": "desktop",
-      "nav": "ok",
-      "scrollW": 1440,
-      "clientW": 1440,
-      "bodyH": 3406,
-      "imgs": 20,
-      "imgsBroken": 0,
-      "title": "Fary – So' Fatoo",
-      "videos": 0,
-      "overflow": 0,
-      "pageErrors": [],
-      "consoleErrors": [],
-      "requestFailed": [],
-      "httpErrors": []
-    },
-    {
-      "route": "/lookbook/",
-      "viewport": "desktop",
-      "nav": "ok",
-      "scrollW": 1440,
-      "clientW": 1440,
-      "bodyH": 3411,
-      "imgs": 12,
-      "imgsBroken": 0,
-      "title": "LOOKBOOK – So' Fatoo",
       "videos": 0,
       "overflow": 0,
       "pageErrors": [],
