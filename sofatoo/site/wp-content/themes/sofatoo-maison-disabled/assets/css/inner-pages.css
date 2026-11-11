@@ -1,4 +1,4 @@
-/* So' Fatoo Maison — editorial and commerce page system. */
+/* Lotty's Maison — editorial and commerce page system. */
 body.sf-bespoke-view:not(.home) .sf-header{position:absolute;background:#fff;color:#151310;border-color:rgba(21,19,16,.13)}
 body.sf-bespoke-view:not(.home) .sf-header.is-scrolled{position:fixed;background:rgba(255,255,255,.96)}
 .sf-editorial-hero{position:relative;height:88svh;min-height:650px;display:grid;place-items:end center;background:#1b1815;color:#fff;text-align:center;overflow:hidden}
