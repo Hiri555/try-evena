@@ -1,0 +1,22 @@
+{
+  "name": "sofatoo-faithful-rebuild",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Faithful static reconstruction of sofatoo.com from a saveweb2zip archive",
+  "type": "module",
+  "scripts": {
+    "dev": "http-server site -p 8777 -c-1",
+    "start": "http-server site -p 8777",
+    "build": "node tools/build.mjs",
+    "test": "node tools/verify.mjs",
+    "test:interactions": "node tools/interactions.mjs",
+    "test:compare": "node tools/compare-live.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "playwright": "^1.63.0"
+  }
+}
