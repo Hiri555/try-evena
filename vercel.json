@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "site",
+  "outputDirectory": "sofatoo/site",
   "buildCommand": null,
   "framework": null,
   "cleanUrls": false,

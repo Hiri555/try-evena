@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-11-11T13:25:56.225Z",
+  "pages": 84,
+  "pageFailures": [],
+  "assets": 2711,
+  "assetFailures": [
+    "wp-content/uploads/2025/05/media-libraryjg697li1h1m4bqlSs7t-micro-large-1-683x1024.webp :: HTTP 404",
+    "wp-content/uploads/2025/05/IMG_6030-large-683x1024.webp :: HTTP 404",
+    "wp-content/uploads/2025/03/elementor/thumbs/coco-noir-lt-scaled-ri79msjenxnxxrngsml1muwumlivf4a37qkezs1r7k.jpg :: HTTP 404"
+  ]
+}

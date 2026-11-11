@@ -1,0 +1,80 @@
+{
+  "ranAt": "2026-11-11T13:31:13.800Z",
+  "results": [
+    {
+      "name": "quick-add buttons render on product cards",
+      "ok": true,
+      "detail": "16 buttons"
+    },
+    {
+      "name": "mini bag opens after add",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "header bag count increments",
+      "ok": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "mini bag lists the line item",
+      "ok": true,
+      "detail": "1 line(s)"
+    },
+    {
+      "name": "variable product adds with its variant",
+      "ok": true,
+      "detail": "count=2, 1 attribute select(s)"
+    },
+    {
+      "name": "variant and price captured on the line",
+      "ok": true,
+      "detail": "Faryblack / l / 160 165cm−1+RemoveFCFA 90,000"
+    },
+    {
+      "name": "quantity + increases the bag",
+      "ok": true,
+      "detail": "count=3"
+    },
+    {
+      "name": "cart page renders the real bag",
+      "ok": true,
+      "detail": "2 lines, total \"TotalFCFA 240,000\""
+    },
+    {
+      "name": "cart total is a real money figure",
+      "ok": true,
+      "detail": "TotalFCFA 240,000"
+    },
+    {
+      "name": "checkout renders an order summary + form",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "placing the order shows a confirmation",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "confirmation states clearly that nothing was charged",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "bag empties after the mock order",
+      "ok": true,
+      "detail": "count=0"
+    },
+    {
+      "name": "bag persists across a page reload",
+      "ok": true,
+      "detail": "count=1"
+    },
+    {
+      "name": "no JavaScript errors during the whole journey",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}
