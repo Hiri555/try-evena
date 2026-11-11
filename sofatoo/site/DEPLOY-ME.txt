@@ -1,4 +1,4 @@
-# So' Fatoo — deploy this folder
+# Lotty's — deploy this folder
 
 Drag this whole folder onto https://app.netlify.com/drop — it goes live as-is.
 No build, no Node, no config. Or:
