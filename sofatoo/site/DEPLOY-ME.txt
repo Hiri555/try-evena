@@ -1,0 +1,14 @@
+# So' Fatoo — deploy this folder
+
+Drag this whole folder onto https://app.netlify.com/drop — it goes live as-is.
+No build, no Node, no config. Or:
+
+    npx netlify-cli deploy --dir=. --prod
+    npx vercel deploy . --prod
+    npx wrangler pages deploy .
+
+Or upload the contents into public_html/ on any classic host.
+
+To change colours/fonts: assets/mockup/overrides.css
+To change currency/labels: assets/mockup/shop-demo.js (CONFIG at the top)
+Full guide: CUSTOMIZE.md

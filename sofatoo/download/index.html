@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>So' Fatoo — download</title>
+<style>:root{--ink:#282828;--cream:#fff6ef;--camel:#cd9a87;--muted:#655e58;--line:rgba(40,40,40,.15)}
+*{box-sizing:border-box}body{margin:0;padding:56px 20px;background:var(--cream);color:var(--ink);
+font:15px/1.75 'Montserrat',system-ui,sans-serif}.w{max-width:700px;margin:0 auto}
+h1{font-size:22px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;margin:0 0 6px}
+p.sub{color:var(--muted);margin:0 0 36px;font-size:13px}
+a.card{display:block;background:#fff;border:1px solid var(--line);padding:22px 24px;margin-bottom:14px;
+text-decoration:none;color:inherit}a.card:hover{border-color:var(--camel)}
+a.card b{display:block;font-size:15px;letter-spacing:.04em;margin-bottom:4px}
+a.card span{font-size:12.5px;color:var(--muted)}
+code{background:#fff;border:1px solid var(--line);padding:2px 6px;font-size:12.5px}
+pre{background:#fff;border:1px solid var(--line);padding:14px;overflow:auto;font-size:12.5px}
+h2{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:34px 0 12px}</style>
+</head><body><div class="w">
+<h1>So&rsquo; Fatoo — rebuild</h1>
+<p class="sub">Static mirror, 84 pages, working front-end cart. No backend, no payment.</p>
+
+<a class="card" href="sofatoo-site-light.zip" download><b>⬇ Download the deploy-ready ZIP (42 MB)</b>
+<span>Images and video compressed for fast hosting. Unzip, drag the folder onto Netlify Drop — live immediately, no build.</span></a>
+
+<a class="card" href="../site/"><b>→ View the full-quality site</b>
+<span>Original uncompressed media, same 84 pages.</span></a>
+
+<a class="card" href="https://github.com/Hiri555/try-evena/tree/main/sofatoo"><b>→ Source on GitHub</b>
+<span>Full-quality media, build pipeline, tests and documentation.</span></a>
+
+<h2>Deploy the ZIP</h2>
+<pre>unzip sofatoo-site-light.zip -d sofatoo
+cd sofatoo
+npx netlify-cli deploy --dir=. --prod</pre>
+<p style="font-size:13px;color:var(--muted)">Or drag the unzipped folder onto <code>app.netlify.com/drop</code>. Works the same on Vercel, Cloudflare Pages or any classic host.</p>
+
+<h2>Change things</h2>
+<p style="font-size:13px;color:var(--muted)">Colours and fonts: <code>assets/mockup/overrides.css</code><br>
+Currency, labels, demo badge: <code>assets/mockup/shop-demo.js</code> (CONFIG at the top)<br>
+Everything else: <code>CUSTOMIZE.md</code> inside the ZIP.</p>
+</div></body></html>

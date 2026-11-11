@@ -13,8 +13,32 @@
 (function () {
   'use strict';
 
+  /* ═══════════════════════════════════════════════════════════════════
+     SETTINGS — edit these, nothing else in this file needs changing.
+     ═══════════════════════════════════════════════════════════════════ */
+  var CONFIG = {
+    currency:      'FCFA',   // shown before every amount
+    currencyAfter: false,    // true -> "90,000 FCFA" instead of "FCFA 90,000"
+    showBadge:     true,     // the "DEMO - no payment, no backend" ribbon
+    openBagOnAdd:  true,     // slide the mini bag open after adding
+    quickAddCards: true,     // "Add to bag" button on product cards
+    freeShipping:  true,     // checkout shows shipping as Free
+    labels: {
+      bagTitle:    'Your bag',
+      addToBag:    'Add to bag',
+      added:       'added to your bag',
+      empty:       'Your bag is empty.',
+      checkout:    'Checkout',
+      viewBag:     'View bag',
+      placeOrder:  'Place order',
+      thankYou:    'Thank you'
+    }
+  };
+  /* ═══════════════════════════════════════════════════════════════════ */
+
   var KEY = 'sofatoo_demo_cart_v1';
-  var CUR = 'FCFA';
+  var CUR = CONFIG.currency;
+  var L = CONFIG.labels;
 
   /* ---------- root-relative helper (pages live at varying depths) ---------- */
   var ROOT = (function () {
@@ -38,7 +62,8 @@
   var total = function () { return read().reduce(function (n, i) { return n + i.price * i.qty; }, 0); };
 
   function money(n) {
-    return CUR + ' ' + Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    var v = Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return CONFIG.currencyAfter ? v + ' ' + CUR : CUR + ' ' + v;
   }
   function parsePrice(txt) {
     if (!txt) return 0;
@@ -52,8 +77,8 @@
     var hit = items.filter(function (i) { return i.id === item.id && i.variant === item.variant; })[0];
     if (hit) hit.qty += item.qty; else items.push(item);
     write(items);
-    toast(item.name + ' added to your bag');
-    openMini();
+    toast(item.name + ' ' + L.added);
+    if (CONFIG.openBagOnAdd) openMini();
   }
   function setQty(idx, q) {
     var items = read();
@@ -95,7 +120,7 @@
     mini.className = 'sfd-mini';
     mini.setAttribute('aria-label', 'Shopping bag');
     mini.innerHTML =
-      '<div class="sfd-mini__top"><h2>Your bag</h2>' +
+      '<div class="sfd-mini__top"><h2>' + L.bagTitle + '</h2>' +
       '<button type="button" class="sfd-mini__close">Close</button></div>' +
       '<div class="sfd-mini__body"></div>' +
       '<div class="sfd-mini__foot"></div>';
@@ -133,15 +158,15 @@
     var body = mini.querySelector('.sfd-mini__body');
     var foot = mini.querySelector('.sfd-mini__foot');
     if (!items.length) {
-      body.innerHTML = '<p class="sfd-empty">Your bag is empty.</p>';
+      body.innerHTML = '<p class="sfd-empty">' + L.empty + '</p>';
       foot.innerHTML = '<a class="sfd-btn sfd-btn--ghost" href="' + url('shop/') + '">Continue shopping</a>';
       return;
     }
     body.innerHTML = items.map(lineHtml).join('');
     foot.innerHTML =
       '<div class="sfd-row sfd-row--total"><span>Subtotal</span><span>' + money(total()) + '</span></div>' +
-      '<a class="sfd-btn" href="' + url('checkout/') + '">Checkout</a>' +
-      '<a class="sfd-btn sfd-btn--ghost" href="' + url('cart/') + '">View bag</a>' +
+      '<a class="sfd-btn" href="' + url('checkout/') + '">' + L.checkout + '</a>' +
+      '<a class="sfd-btn sfd-btn--ghost" href="' + url('cart/') + '">' + L.viewBag + '</a>' +
       '<p class="sfd-note">Demonstration bag. No payment is taken and no order is created.</p>';
   }
 
@@ -251,6 +276,7 @@
 
   /* ---------- product cards (home rails, shop, category archives) ---------- */
   function wireCards() {
+    if (!CONFIG.quickAddCards) return;
     [].forEach.call(document.querySelectorAll('.sf-product-card, li.product'), function (card) {
       if (card.querySelector('.sfd-quick')) return;
       var media = card.querySelector('.sf-product-card__media') || card.querySelector('a');
@@ -264,7 +290,7 @@
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'sfd-quick';
-      b.textContent = 'Add to bag';
+      b.textContent = L.addToBag;
       b.addEventListener('click', function (e) {
         e.preventDefault(); e.stopPropagation();
         add({
@@ -330,9 +356,9 @@
       items.map(function (i) {
         return '<div class="sfd-row"><span>' + esc(i.name) + (i.variant ? ' <small>(' + esc(i.variant.replace(/-/g, ' ')) + ')</small>' : '') + ' &times;' + i.qty + '</span><span>' + money(i.price * i.qty) + '</span></div>';
       }).join('') +
-      '<div class="sfd-row"><span>Shipping</span><span>Free</span></div>' +
+      '<div class="sfd-row"><span>Shipping</span><span>' + (CONFIG.freeShipping ? 'Free' : 'Calculated at checkout') + '</span></div>' +
       '<div class="sfd-row sfd-row--total"><span>Total</span><span>' + money(total()) + '</span></div>' +
-      '<button type="submit" class="sfd-btn">Place order</button>' +
+      '<button type="submit" class="sfd-btn">' + L.placeOrder + '</button>' +
       '<a class="sfd-btn sfd-btn--ghost" href="' + url('cart/') + '">Back to bag</a>' +
       '<p class="sfd-note"><strong>Demonstration only.</strong> This checkout is a front-end mock-up: no payment is processed, no card details are requested and no order is created or sent anywhere.</p>' +
       '</aside></form></div>';
@@ -347,7 +373,7 @@
       write([]);
       host.innerHTML =
         '<div class="sfd-page"><div class="sfd-confirm">' +
-        '<h2>Thank you</h2>' +
+        '<h2>' + L.thankYou + '</h2>' +
         '<p>This is where So&rsquo; Fatoo would confirm your order and send a receipt.</p>' +
         '<p><strong>No payment was taken and no order was created.</strong> This page is a front-end demonstration of the checkout flow, running with no backend.</p>' +
         '<p class="sfd-ref">Mock reference ' + ref + ' &middot; ' + sum + '</p>' +
@@ -359,7 +385,7 @@
 
   /* ---------- demo badge ---------- */
   function badge() {
-    if (document.querySelector('.sfd-badge')) return;
+    if (!CONFIG.showBadge || document.querySelector('.sfd-badge')) return;
     var d = document.createElement('div');
     d.className = 'sfd-badge';
     d.innerHTML = '<b>Demo</b><span>front-end mock-up &middot; no payment, no backend</span>';
