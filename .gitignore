@@ -22,3 +22,7 @@ Thumbs.db
 # scratch
 tmp/
 *.tmp
+
+# local build scratch (not for the repo)
+dist-zip/
+slim/

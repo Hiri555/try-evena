@@ -1,0 +1,43 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   EDIT THIS FILE — it is loaded last, so anything here wins.
+   Nothing else needs touching to re-skin the whole site.
+   Uncomment a line and change the value.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ---- BRAND COLOURS ---------------------------------------------------- */
+  /* --sf-ink:    #282828;  */ /* main text + dark buttons                   */
+  /* --sf-cream:  #fff6ef;  */ /* page / panel background                    */
+  /* --sf-paper:  #ffffff;  */ /* cards, drawers                             */
+  /* --sf-rose:   #f3e6dd;  */ /* soft accent blocks                         */
+  /* --sf-brown:  #81564f;  */ /* button hover                               */
+  /* --sf-camel:  #cd9a87;  */ /* logo / highlight                           */
+  /* --sf-marron: #af7c69;  */ /* secondary accent                           */
+  /* --sf-blush:  #fbe3d7;  */
+  /* --sf-mocca:  #d8bdb5;  */
+  /* --sf-muted:  #655e58;  */ /* captions, small print                      */
+  /* --sf-line:   rgba(40,40,40,.15); */ /* hairlines and borders            */
+
+  /* ---- TYPEFACES -------------------------------------------------------- */
+  /* Fonts are self-hosted in assets/fonts/. To use different ones, drop the
+     files there, add an @font-face below, then point these at it.           */
+  /* --sf-serif: 'Aboreto', Georgia, serif;                 */ /* headings   */
+  /* --sf-sans:  'Montserrat', Arial, sans-serif;           */ /* body       */
+  /* --sf-brand: 'Comfortaa', 'Montserrat', Arial, sans-serif; */ /* logo    */
+
+  /* ---- LAYOUT ----------------------------------------------------------- */
+  /* --sf-gutter: clamp(18px, 3.2vw, 54px); */ /* side padding everywhere    */
+}
+
+/* ---- HIDE THE DEMO BADGE ------------------------------------------------
+   Uncomment for a clean client presentation. Only do this if you are also
+   confident nobody will mistake the mock checkout for a real one.           */
+/* .sfd-badge { display: none !important; } */
+
+/* ---- HIDE THE WHATSAPP WIDGET ------------------------------------------ */
+/* .njt-whatsapp, [class*="njt-wa"] { display: none !important; } */
+
+/* ---- HIDE THE LANGUAGE SWITCHER ---------------------------------------- */
+/* .trp-language-switcher { display: none !important; } */
+
+/* ---- YOUR OWN RULES ----------------------------------------------------- */
