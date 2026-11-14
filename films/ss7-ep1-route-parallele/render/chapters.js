@@ -2,7 +2,7 @@
    SS7 — ÉPISODE 1 · LA ROUTE PARALLÈLE
    ============================================================ */
 const o = (i) => Object.assign({ o: 0, dx: 0, dy: 0, sc: 1, p: 0, g: 0, ok: 0 }, i);
-const EO = 'power3.out', EIO = 'power2.inOut', EB = 'back.out(1.7)', EX = 'expo.out';
+const EO = 'power4.out', EIO = 'power2.inOut', EB = 'back.out(2.4)', EX = 'expo.out';
 
 function addHeader(tl, S, num, titre, dur, at = 0.25) {
   S.hdr = o(); S.num = num; S.titre = titre;
@@ -11,14 +11,9 @@ function addHeader(tl, S, num, titre, dur, at = 0.25) {
 }
 function addOutro(tl, S, dur) {
   S.out = o();
-  tl.to(S.out, { o: 1, duration: .45, ease: 'power2.in' }, dur - .45);
+  tl.to(S.out, { o: 1, duration: .40, ease: 'power2.in' }, dur - .40);
 }
-function fadeOut(g, S) {
-  if (S.out && S.out.o > 0) {
-    g.save(); g.globalAlpha = S.out.o; g.fillStyle = C.papier;
-    g.fillRect(-500, -400, W + 1000, H + 800); g.restore();
-  }
-}
+function fadeOut(g, S) { /* la transition est un glissement de feuille, plus un fondu */ }
 /* la caméra : jamais immobile. moves = [[t, durée, {z,x,y}], ...] */
 function addCam(tl, S, moves) {
   S.cam = o({ z: 1, x: 0, y: 0, rot: 0 });
@@ -381,7 +376,7 @@ const CH1 = {
 /* ══════════════ 02 · VOIE PAR VOIE — 61.625 s ══════════════
    plate Blender « mic » 29.5 → 45.5 s                        */
 const CH2 = {
-  dur: 61.625, bl: { dir: 'mic', from: 29.5, to: 45.5 },
+  dur: 61.625, bl: { dir: 'mic', from: 29.5, to: 41.4 },
   setup(tl, S) {
     addCam(tl, S, [[1.2, 2.0, {z: 1.06}], [4.0, 4.0, {x: -80, z: 1.09}], [8.2, 1.4, {x: 0, y: -20, z: 0.98}], [8.8, 6.0, {z: 1.05, y: -40}], [12.4, 7.0, {y: 90, z: 1.07}], [21.8, 1.6, {x: 0, y: 30, z: 1.0}], [22.4, 6.0, {z: 1.05, y: 60}], [28.8, 1.6, {x: 0, y: 0, z: 0.96}], [29.4, 15.0, {z: 1.05}], [45.6, 1.4, {z: 0.97, y: -40}], [46.2, 5.0, {z: 1.04, y: -20}], [51.6, 8.0, {z: 1.07, y: 60}]]);
     S.circ = o(); S.coll = o(); S.arch = o(); S.cit1 = o({ dy: 18 });
@@ -520,7 +515,7 @@ const CH2 = {
 /* ══════════════ 03 · VOIE COMMUNE — 29.375 s ══════════════
    plate Blender « res » 3.5 → 24.0 s                         */
 const CH3 = {
-  dur: 29.375, bl: { dir: 'res', from: 3.5, to: 24.0 },
+  dur: 29.375, bl: { dir: 'res', from: 3.5, to: 15.4 },
   setup(tl, S) {
     addCam(tl, S, [[0.4, 3.0, {z: 1.03}], [3.0, 8.0, {z: 1.07, x: -40}], [10.2, 2.0, {x: 120, y: -40, z: 1.08}], [13.8, 3.0, {x: -60, y: -110, z: 1.07}], [22.6, 1.6, {x: 0, y: 0, z: 0.97}], [24.4, 5.0, {z: 1.05}]]);
     S.bl = o(); S.tam = o({ sc: 1.6 }); S.heli = o(); S.msg = o(); S.fin = o({ sc: .94 });
@@ -1152,7 +1147,7 @@ const CH7 = {
 /* ══════════════ 08 · LA PILE — 46.458 s ══════════════
    plate Blender « pile » 5.0 → 36.0 s                   */
 const CH8 = {
-  dur: 46.458, bl: { dir: 'pile', from: 5.0, to: 36.0 },
+  dur: 46.458, bl: { dir: 'pile', from: 5.0, to: 28.8 },
   setup(tl, S) {
     addCam(tl, S, [[0.6, 3.0, {z: 1.03}], [4.2, 12.0, {z: 1.07, x: -50}], [18.0, 6.0, {x: 60, z: 1.05}], [25.6, 5.0, {y: -90, z: 1.05}], [34.8, 1.6, {x: 0, y: 0, z: 0.97}], [36.8, 6.0, {z: 1.05}]]);
     S.bl = o(); S.tab = o(); S.r = [o({ dx: -18 }), o({ dx: -18 }), o({ dx: -18 }), o({ dx: -18 })];

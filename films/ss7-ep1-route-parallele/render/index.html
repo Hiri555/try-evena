@@ -64,7 +64,7 @@ window.renderFrame = async function (gf) {
     const span = ch.bl.to - ch.bl.from;
     const n = Math.round(clamp((t - ch.bl.from) / span) * (ch.bl.count - 1)) + 1;
     if (t >= ch.bl.from - 1.6 && t <= ch.bl.to + 1.6)
-      pl = await getImg(`/ss7/bl/${ch.bl.dir}/${String(Math.max(1, Math.min(n, ch.bl.count))).padStart(4,'0')}.png`);
+      pl = await getImg(`/ss7/bl2/${ch.bl.dir}/${String(Math.max(1, Math.min(n, ch.bl.count))).padStart(4,'0')}.jpg`);
   }
 
   ch.tl.pause(t);
@@ -74,16 +74,32 @@ window.renderFrame = async function (gf) {
   g.setLineDash([]); g.letterSpacing = '0px'; g.textAlign = 'left';
   g.fillStyle = '#EDE4D2'; g.fillRect(0, 0, W, H);
 
-  // caméra : mouvement du chapitre + respiration permanente + poussée de sortie
+  // le bureau sur lequel les feuilles glissent
+  g.fillStyle = '#C9BCA2'; g.fillRect(0, 0, W, H);
+
+  // caméra du chapitre + respiration + la feuille qui entre / qui sort
   const c = ch.S.cam || { z: 1, x: 0, y: 0, rot: 0 };
   const d = derive(gf);
-  const push = ch.S.out ? ch.S.out.o : 0;
+  const TR = 0.38;
+  const inE  = 1 - Math.pow(1 - Math.min(t / TR, 1), 3);       // arrivée vive
+  const outQ = ch.S.out ? ch.S.out.o : 0;                      // départ accéléré
+  const dx   = W * 0.66 * (1 - inE) - W * 0.74 * outQ;
+  const rot  = 0.034 * (1 - inE) - 0.030 * outQ;
+  const slip = 1 - 0.045 * (1 - inE) - 0.035 * outQ;
   g.save();
-  g.translate(W / 2 + c.x + d.x - push * 190, H / 2 + c.y + d.y);
-  g.rotate((c.rot || 0) + d.rot);
-  const z = (c.z || 1) * d.z * (1 + push * 0.05);
+  g.translate(W / 2 + c.x + d.x + dx, H / 2 + c.y + d.y);
+  g.rotate((c.rot || 0) + d.rot + rot);
+  const z = (c.z || 1) * d.z * slip;
   g.scale(z, z);
   g.translate(-W / 2, -H / 2);
+  if (Math.abs(dx) > 1) {                                      // ombre portée pendant le glissement
+    g.save();
+    g.shadowColor = 'rgba(52,38,16,.42)'; g.shadowBlur = 46;
+    g.shadowOffsetX = dx > 0 ? -22 : 22;
+    g.fillStyle = C.papier;
+    g.fillRect(-W * 0.05, -H * 0.05, W * 1.10, H * 1.10);
+    g.restore();
+  }
   ch.draw(g, ch.S, t, pl);
   g.restore();
 

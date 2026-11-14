@@ -92,6 +92,21 @@ observateur dans l'hélicoptère.
   mouvements (zoom, panoramique) calés sur le texte, plus une dérive permanente
   très lente. Les post-it et les fiches flottent légèrement. Le grain et la
   vignette, eux, restent fixes : ils appartiennent à l'image, pas à la page.
+- **Les transitions** : pas de fondu. Chaque chapitre est une feuille qui glisse
+  hors champ vers la gauche en pivotant, laissant voir le bureau, pendant que la
+  suivante entre par la droite. 0,38 s, ombre portée sur le bord qui mène.
+- **La cadence des plans 3D.** Première version livrée : les 144 images rendues
+  étaient étirées sur la durée du plan, soit **9 im/s pour `mic`, 7 pour `res` et
+  4,6 pour `pile`** — sur un film à 24 im/s, donc une image 3D tenue 2 à 5 images
+  de sortie. C'était saccadé, et c'était un vrai défaut, pas un parti pris.
+  Corrigé par interpolation **RIFE HDv3** (flux optique, sur CPU) : `mic` et `res`
+  passent à 287 images, `pile` à 573 en deux passes. Les fenêtres ont été recalées
+  pour que chaque plan avance d'une image 3D par image de sortie — **24 im/s
+  pleines**. Vérifié en mesurant l'écart entre images consécutives du rendu final :
+  1,008 / 1,010 sur `mic`, 1,560 / 1,593 sur `pile` — régulier, donc aucune image
+  répétée. L'interpolation est bien du flux optique et pas un fondu : l'image
+  intermédiaire s'écarte de 0,059 de la simple moyenne des deux sources, là où les
+  sources s'écartent de 0,364 l'une de l'autre.
 - **Les trois plans 3D** (Blender 4.0, Cycles, scènes construites en Python, look
   studio clair — des maquettes mates posées sur la feuille) :
   - `bl_mic.py` — la trame MIC : 32 intervalles, IT0 en jaune, IT16 surélevé en

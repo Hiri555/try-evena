@@ -133,12 +133,14 @@ function halftone(g, x, y, w, h, alpha, scale = 1) {
 
 /* ---------- backgrounds ---------- */
 /* la page : papier crème légèrement inégal */
+const OVER = 0.05;                 // la feuille dépasse du cadre
 function bgPaper(g) {
   const gr = g.createRadialGradient(W * .42, H * .38, 140, W * .5, H * .52, W * .86);
   gr.addColorStop(0, C.papier3);
   gr.addColorStop(.52, C.papier);
   gr.addColorStop(1, C.papier2);
-  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  g.fillStyle = gr;
+  g.fillRect(-W * OVER, -H * OVER, W * (1 + 2 * OVER), H * (1 + 2 * OVER));
 }
 const bgNight = bgPaper;   // alias : les anciens appels continuent de marcher
 
@@ -149,17 +151,20 @@ function carreaux(g, alpha = 1) {
   g.save();
   g.lineWidth = 1;
   g.strokeStyle = `rgba(159,182,194,${0.30 * alpha})`;
+  const X0 = -W * OVER, X1 = W * (1 + OVER), Y0 = -H * OVER, Y1 = H * (1 + OVER);
   g.beginPath();
-  for (let x = 0; x < W; x += S1) { g.moveTo(x + .5, 0); g.lineTo(x + .5, H); }
-  for (let y = 0; y < H; y += S1) { g.moveTo(0, y + .5); g.lineTo(W, y + .5); }
+  for (let x = 0; x > X0; x -= S1) { g.moveTo(x + .5, Y0); g.lineTo(x + .5, Y1); }
+  for (let x = 0; x < X1; x += S1) { g.moveTo(x + .5, Y0); g.lineTo(x + .5, Y1); }
+  for (let y = 0; y > Y0; y -= S1) { g.moveTo(X0, y + .5); g.lineTo(X1, y + .5); }
+  for (let y = 0; y < Y1; y += S1) { g.moveTo(X0, y + .5); g.lineTo(X1, y + .5); }
   g.stroke();
   g.strokeStyle = `rgba(123,152,168,${0.42 * alpha})`;
   g.beginPath();
-  for (let x = 0; x < W; x += S2) { g.moveTo(x + .5, 0); g.lineTo(x + .5, H); }
-  for (let y = 0; y < H; y += S2) { g.moveTo(0, y + .5); g.lineTo(W, y + .5); }
+  for (let x = 0; x < X1; x += S2) { g.moveTo(x + .5, Y0); g.lineTo(x + .5, Y1); }
+  for (let y = 0; y < Y1; y += S2) { g.moveTo(X0, y + .5); g.lineTo(X1, y + .5); }
   g.stroke();
   g.strokeStyle = `rgba(200,65,43,${0.46 * alpha})`; g.lineWidth = 2.2;
-  g.beginPath(); g.moveTo(MARGE + .5, 0); g.lineTo(MARGE + .5, H); g.stroke();
+  g.beginPath(); g.moveTo(MARGE + .5, Y0); g.lineTo(MARGE + .5, Y1); g.stroke();
   g.restore();
 }
 

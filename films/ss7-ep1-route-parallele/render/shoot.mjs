@@ -19,7 +19,19 @@ const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, de
 page.on('pageerror', e => console.error('PAGEERROR:', e.message));
 page.on('console', m => { if (m.type() === 'error') console.error('CONSOLE:', m.text()); });
 
-await page.goto(`http://127.0.0.1:${PORT}/render4/index.html`, { waitUntil: 'load' });
+// pas de serveur : Playwright sert les fichiers directement depuis le disque
+const MIME = { '.html':'text/html', '.js':'text/javascript', '.css':'text/css',
+               '.woff2':'font/woff2', '.png':'image/png', '.jpg':'image/jpeg',
+               '.json':'application/json' };
+await page.route('**/*', route => {
+  const u = new URL(route.request().url());
+  const f = path.join(ROOT, decodeURIComponent(u.pathname));
+  if (!f.startsWith(ROOT) || !fs.existsSync(f)) return route.fulfill({ status: 404, body: '' });
+  const ext = path.extname(f).toLowerCase();
+  route.fulfill({ status: 200, contentType: MIME[ext] || 'application/octet-stream',
+                  body: fs.readFileSync(f) });
+});
+await page.goto('http://rendu.local/render4/index.html', { waitUntil: 'load' });
 await page.waitForFunction('window.__ready === true', null, { timeout: 60000 });
 
 const blCounts = JSON.parse(process.env.BLCOUNTS || '{}');
