@@ -1,0 +1,606 @@
+1
+00:00:01,400 --> 00:00:02,623
+Tu composes un numéro.
+
+2
+00:00:02,683 --> 00:00:05,947
+Avant même que ça sonne,
+des machines se sont déjà parlé.
+
+3
+00:00:06,007 --> 00:00:10,554
+Elles ont réservé un circuit, vérifié que la ligne
+existe, préparé la sonnerie.
+
+4
+00:00:10,614 --> 00:00:13,062
+Et tout ça, ta voix ne l'a jamais emprunté.
+
+5
+00:00:13,122 --> 00:00:15,628
+Ça voyage ailleurs. Sur une route parallèle.
+
+6
+00:00:15,688 --> 00:00:20,410
+Cette route, c'est le réseau sémaphore.
+Et aujourd'hui, on va la prendre ensemble.
+
+7
+00:00:22,650 --> 00:00:25,140
+Deux gares, reliées par un seul tapis roulant.
+
+8
+00:00:25,200 --> 00:00:29,408
+Les bagages, c'est la parole. Mais des bagages
+tout seuls, ça ne sert à rien.
+
+9
+00:00:29,468 --> 00:00:31,514
+Il faut les papiers des chefs de gare.
+
+10
+00:00:31,574 --> 00:00:35,782
+Prépare-toi. Le bagage 42 va quai 3.
+Confirmé, tu peux fermer.
+
+11
+00:00:35,843 --> 00:00:37,944
+Ces papiers-là, c'est la signalisation.
+
+12
+00:00:38,004 --> 00:00:40,162
+La définition, retiens-la telle quelle :
+
+13
+00:00:40,222 --> 00:00:45,926
+l'ensemble des ordres et des informations échangés
+pour établir, superviser et rompre une communication.
+
+14
+00:00:45,986 --> 00:00:47,866
+Avant la parole, pendant, et après.
+
+15
+00:00:47,926 --> 00:00:53,132
+Et ce n'est pas réservé au téléphone : dès qu'il y a
+communication, il y a de la signalisation.
+
+16
+00:00:53,192 --> 00:00:55,294
+Maintenant, où est-ce qu'elle circule ?
+
+17
+00:00:55,354 --> 00:00:58,121
+Sur une chaîne téléphonique, il y a trois endroits.
+
+18
+00:00:58,181 --> 00:01:01,724
+Entre ton poste et ton commutateur.
+À l'intérieur du commutateur.
+
+19
+00:01:01,784 --> 00:01:03,221
+Et entre deux commutateurs.
+
+20
+00:01:03,281 --> 00:01:06,325
+Un seul des trois est normalisé : le dernier. Pourquoi ?
+
+21
+00:01:06,385 --> 00:01:09,484
+Parce que l'intérieur d'un Alcatel
+ne regarde qu'Alcatel.
+
+22
+00:01:09,544 --> 00:01:13,642
+Mais entre deux commutateurs, un Alcatel doit
+pouvoir parler à un Ericsson.
+
+23
+00:01:13,702 --> 00:01:15,360
+Là, il faut une langue commune.
+
+24
+00:01:17,733 --> 00:01:20,129
+La première méthode s'appelle la voie par voie.
+
+25
+00:01:20,189 --> 00:01:23,420
+Chaque conversation porte ses propres papiers,
+collés sur elle.
+
+26
+00:01:23,480 --> 00:01:26,190
+Dans le commutateur, le prof l'a dessiné au tableau :
+
+27
+00:01:26,250 --> 00:01:30,787
+« C'est l'URA qui injecte la signalisation,
+et c'est lui qui la récupère à la réception.
+
+28
+00:01:30,847 --> 00:01:36,012
+Mais le message qu'il injecte, c'est les enregistreurs
+de l'unité de commande qui le lui envoient. »
+
+29
+00:01:36,072 --> 00:01:37,580
+D'où deux familles de signaux.
+
+30
+00:01:37,640 --> 00:01:40,819
+Les signaux d'enregistreur,
+qui portent les ordres de l'appel.
+
+31
+00:01:40,879 --> 00:01:44,999
+Et les signaux de ligne, qui surveillent la ligne :
+décroché, raccroché, occupé.
+
+32
+00:01:45,059 --> 00:01:49,074
+Et ça part où ? Dans une liaison MIC,
+il y a 32 intervalles de temps.
+
+33
+00:01:49,134 --> 00:01:53,672
+L'intervalle 16 est réservé à la signalisation :
+2 voies par trame, 15 trames,
+
+34
+00:01:53,732 --> 00:01:56,494
+et les 30 voies de parole sont servies. Ça marche.
+
+35
+00:01:56,554 --> 00:01:59,681
+Mais il y a un défaut, et il est grave.
+Écoute bien le prof :
+
+36
+00:01:59,741 --> 00:02:04,645
+« Tant que les deux étaient embarqués dans le même
+cycle, je n'ai ni signalisation, ni données.
+
+37
+00:02:04,705 --> 00:02:08,093
+Même si le réseau ne fonctionne pas,
+je ne saurais pas pourquoi. »
+
+38
+00:02:08,153 --> 00:02:11,698
+Son image, c'est une course de bateaux
+surveillée par un observateur.
+
+39
+00:02:11,758 --> 00:02:15,408
+Si l'observateur monte dans un des bateaux,
+le jour où ce bateau coule,
+
+40
+00:02:15,468 --> 00:02:16,923
+personne ne peut le signaler.
+
+41
+00:02:19,358 --> 00:02:22,451
+Alors on renverse tout.
+On construit une route à part.
+
+42
+00:02:22,511 --> 00:02:28,231
+Une seule voie, à 64 kilobits, qui porte les messages
+de plusieurs circuits à la fois.
+
+43
+00:02:28,291 --> 00:02:31,850
+Chaque message est étiqueté :
+il dit de quel circuit il parle.
+
+44
+00:02:31,910 --> 00:02:34,303
+On appelle ça la signalisation hors bande.
+
+45
+00:02:34,363 --> 00:02:35,937
+Et le changement est énorme.
+
+46
+00:02:35,997 --> 00:02:38,798
+Maintenant, l'observateur est dans l'hélicoptère.
+
+47
+00:02:38,858 --> 00:02:42,068
+Si la parole tombe,
+la signalisation continue de passer.
+
+48
+00:02:42,128 --> 00:02:43,994
+Elle peut même annoncer la panne.
+
+49
+00:02:44,054 --> 00:02:46,388
+C'est ça, la voie commune. C'est ça, SS7.
+
+50
+00:02:48,733 --> 00:02:50,836
+Ça ne s'est pas trouvé du premier coup.
+
+51
+00:02:50,896 --> 00:02:54,995
+Le numéro 5, avant 1970, marchait aux fréquences,
+voie par voie.
+
+52
+00:02:55,055 --> 00:02:57,269
+Correct pour la téléphonie, rien d'autre.
+
+53
+00:02:57,329 --> 00:03:01,317
+Le numéro 6, c'est la première tentative
+de voie commune. Et il échoue.
+
+54
+00:03:01,377 --> 00:03:03,369
+Pourquoi ? À cause d'un seul chiffre.
+
+55
+00:03:03,429 --> 00:03:06,253
+Le numéro 6 tourne à 2,4 kilobits.
+
+56
+00:03:06,313 --> 00:03:12,353
+Or un intervalle de temps, c'est 8 bits
+toutes les 125 microsecondes — 64 kilobits.
+
+57
+00:03:12,413 --> 00:03:15,348
+2,4 là-dedans, ça ne tombe pas juste :
+
+58
+00:03:15,408 --> 00:03:19,674
+il faudrait re-multiplexer la signalisation
+pour la faire rentrer. Trop lourd.
+
+59
+00:03:19,734 --> 00:03:20,728
+Personne n'en veut.
+
+60
+00:03:20,788 --> 00:03:24,388
+Le numéro 7, lui, est conçu pour tenir
+pile dans un intervalle.
+
+61
+00:03:24,448 --> 00:03:28,769
+Spécifié à Genève en 1981,
+complété à Malaga en 1984.
+
+62
+00:03:28,829 --> 00:03:33,150
+En 1992, le CCITT devient l'UIT-T,
+et le numéro 7 devient SS7.
+
+63
+00:03:33,210 --> 00:03:34,703
+Même protocole, nouveau nom.
+
+64
+00:03:37,150 --> 00:03:39,141
+Ce réseau a ses propres habitants.
+
+65
+00:03:39,201 --> 00:03:40,709
+Le point sémaphore, le PS.
+
+66
+00:03:40,769 --> 00:03:44,087
+C'est lui qui traite SS7,
+et il vit dans un commutateur.
+
+67
+00:03:44,147 --> 00:03:45,414
+Pas de PS, pas de SS7.
+
+68
+00:03:45,474 --> 00:03:47,887
+Le point de transfert sémaphore, le PTS :
+
+69
+00:03:47,947 --> 00:03:50,541
+un commutateur qui ne raccorde aucun abonné,
+
+70
+00:03:50,601 --> 00:03:54,341
+et qui ne fait que faire transiter
+la signalisation des autres.
+
+71
+00:03:54,401 --> 00:03:58,804
+Et voilà la règle qui piège tout le monde.
+Un PS ne fait jamais transiter.
+
+72
+00:03:58,864 --> 00:04:04,293
+Le prof est formel : « Si le CT reçoit un message
+dont la destination finale n'est pas lui,
+
+73
+00:04:04,353 --> 00:04:07,912
+il le supprime. Il n'a pas les moyens
+de faire du transit. »
+
+74
+00:04:07,972 --> 00:04:10,084
+Il le jette. Seul le PTS réachemine.
+
+75
+00:04:10,144 --> 00:04:14,547
+Entre deux points, on tire un canal sémaphore,
+à 64 kilobits.
+
+76
+00:04:14,607 --> 00:04:17,442
+On en groupe 2 à 16 : ça fait un faisceau.
+
+77
+00:04:17,502 --> 00:04:20,820
+Et entre deux mêmes points,
+quatre faisceaux au maximum.
+
+78
+00:04:23,192 --> 00:04:26,420
+Maintenant la question centrale,
+celle qui tombe à l'examen.
+
+79
+00:04:26,480 --> 00:04:29,489
+Par où passe la signalisation,
+par rapport à la parole ?
+
+80
+00:04:29,549 --> 00:04:31,024
+Trois réponses. Trois modes.
+
+81
+00:04:31,084 --> 00:04:35,408
+Le mode associé : la signalisation suit
+exactement le même trajet que la parole.
+
+82
+00:04:35,468 --> 00:04:37,545
+Lien direct, aucun transfert au milieu.
+
+83
+00:04:37,605 --> 00:04:39,299
+Et le prof a insisté là-dessus :
+
+84
+00:04:39,359 --> 00:04:44,779
+« Deux CAA ne peuvent pas communiquer en mode
+associé si les deux PS ne sont pas liés directement. »
+
+85
+00:04:44,839 --> 00:04:49,657
+C'est simple, mais ça exige un lien direct partout
+— impossible à l'échelle d'un pays.
+
+86
+00:04:49,717 --> 00:04:54,315
+Le mode non associé : les messages prennent
+n'importe lequel des chemins disponibles.
+
+87
+00:04:54,375 --> 00:04:55,740
+Très résistant aux pannes.
+
+88
+00:04:55,800 --> 00:04:59,686
+Mais deux messages partis dans l'ordre
+peuvent arriver dans le désordre.
+
+89
+00:04:59,746 --> 00:05:02,207
+Et SS7 ne sait pas les remettre dans l'ordre :
+
+90
+00:05:02,267 --> 00:05:04,947
+son logiciel de transport ne prévoit rien pour ça.
+
+91
+00:05:05,007 --> 00:05:06,810
+Donc pour la voix, c'est interdit.
+
+92
+00:05:06,870 --> 00:05:09,605
+Le mode quasi-associé : plusieurs chemins existent,
+
+93
+00:05:09,665 --> 00:05:12,620
+on en choisit un,
+et on le garde pour toute la session.
+
+94
+00:05:12,680 --> 00:05:16,401
+On récupère la résistance du non associé,
+et l'ordre du mode associé.
+
+95
+00:05:16,461 --> 00:05:20,292
+Retiens-le : SS7 n'est spécifié que pour
+l'associé et le quasi-associé.
+
+96
+00:05:22,858 --> 00:05:25,982
+Chaque point sémaphore a un numéro.
+Six, zéro seize, un.
+
+97
+00:05:26,042 --> 00:05:29,793
+Ça se lit comme une adresse postale :
+du plus large au plus précis.
+
+98
+00:05:29,853 --> 00:05:32,181
+Le six, c'est la zone mondiale. L'Afrique.
+
+99
+00:05:32,241 --> 00:05:35,934
+2 pour l'Europe, 3 pour les États-Unis, 4 pour l'Asie,
+
+100
+00:05:35,994 --> 00:05:38,834
+5 pour l'Australie, 7 pour l'Amérique du Sud.
+
+101
+00:05:38,894 --> 00:05:42,019
+Zéro seize, c'est la zone de signalisation :
+le Sénégal.
+
+102
+00:05:42,079 --> 00:05:44,691
+Et le dernier chiffre, c'est le point lui-même.
+
+103
+00:05:44,751 --> 00:05:48,615
+Les vrais codes de chez nous :
+le CTI de Thiaroye, 6-016-1.
+
+104
+00:05:48,675 --> 00:05:53,392
+Le CTI Médina, 2. Le point de transfert
+du Technopole, 5. Celui de Dakar, 6.
+
+105
+00:05:53,452 --> 00:05:55,155
+Seul le dernier chiffre change.
+
+106
+00:05:55,215 --> 00:05:59,533
+Dernière chose, et elle surprend : un même point
+peut porter plusieurs codes,
+
+107
+00:05:59,593 --> 00:06:02,263
+un par plan — local, national, international.
+
+108
+00:06:02,323 --> 00:06:03,514
+C'est la même machine.
+
+109
+00:06:03,574 --> 00:06:06,528
+Mais elle a un surnom au basket,
+et un autre au foot.
+
+110
+00:06:08,942 --> 00:06:11,490
+Il reste à savoir qui parle à qui là-dedans.
+
+111
+00:06:11,550 --> 00:06:13,150
+SS7 se range en deux étages.
+
+112
+00:06:13,210 --> 00:06:18,010
+En bas, le SSTM, le sous-système de transport
+de messages : les trois niveaux bas.
+
+113
+00:06:18,070 --> 00:06:22,337
+Son seul travail, c'est d'amener un message
+d'un point à l'autre, intact.
+
+114
+00:06:22,397 --> 00:06:24,471
+Il est identique pour tout le monde.
+
+115
+00:06:24,531 --> 00:06:26,842
+En haut, les sous-systèmes utilisateurs.
+
+116
+00:06:26,902 --> 00:06:32,295
+Le SSUT pour la téléphonie analogique.
+Le SSUR, qu'on appelle aussi ISUP, pour le numérique.
+
+117
+00:06:32,355 --> 00:06:35,199
+Le SSUM pour le mobile. Le SSUD pour les données.
+
+118
+00:06:35,259 --> 00:06:39,882
+Et entre les deux ? Quatre bits, dans chaque
+message : l'indicateur de service.
+
+119
+00:06:39,942 --> 00:06:44,683
+C'est l'aiguilleur. Le transport lit ces quatre bits
+et sait à quel étage livrer.
+
+120
+00:06:44,743 --> 00:06:49,958
+0000, c'est de la gestion, ça ne monte pas.
+0100, téléphonie.
+
+121
+00:06:50,018 --> 00:06:52,922
+Quatre bits, et tout le monde reçoit son courrier.
+
+122
+00:06:55,400 --> 00:06:56,985
+Avant de fermer le cahier.
+
+123
+00:06:57,045 --> 00:06:59,895
+La signalisation établit, surveille, et rompt.
+
+124
+00:06:59,955 --> 00:07:04,576
+Voie par voie : les papiers voyagent avec la parole,
+et tombent avec elle.
+
+125
+00:07:04,636 --> 00:07:09,068
+Voie commune : une route à part,
+des messages étiquetés — c'est SS7.
+
+126
+00:07:09,128 --> 00:07:14,572
+Le numéro 6 a échoué sur un débit ;
+le 7 tient pile dans 64 kilobits.
+
+127
+00:07:14,632 --> 00:07:20,013
+Dans le réseau : des PS partout, des PTS pour le
+transit, et un PS ne transite jamais.
+
+128
+00:07:20,073 --> 00:07:23,619
+Trois modes, un seul bon pour la voix :
+le quasi-associé.
+
+129
+00:07:23,679 --> 00:07:26,339
+L'adresse se lit de la zone jusqu'au point.
+
+130
+00:07:26,399 --> 00:07:30,388
+Et quatre bits, l'INS, aiguillent chaque message
+vers son étage.
+
+131
+00:07:30,448 --> 00:07:33,108
+Le prof a terminé la séance par une phrase.
+
+132
+00:07:33,168 --> 00:07:36,967
+« On commence par les fonctions du SSTM.
+La prochaine fois. »
+
+133
+00:07:37,027 --> 00:07:40,067
+Eh bien, la prochaine fois, c'est l'épisode deux.
+
+134
+00:07:40,127 --> 00:07:43,610
+On ouvre le message, et on démonte
+BIR, BIA, NSA et NSR.
