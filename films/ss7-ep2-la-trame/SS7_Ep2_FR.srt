@@ -1,0 +1,793 @@
+1
+00:00:01,400 --> 00:00:03,753
+Dans l'épisode un, on a construit la route.
+
+2
+00:00:03,813 --> 00:00:06,279
+Une route à part, qui ne porte pas la parole.
+
+3
+00:00:06,339 --> 00:00:09,309
+Aujourd'hui on monte dessus,
+et on ouvre ce qui roule.
+
+4
+00:00:09,369 --> 00:00:14,865
+Un paquet de bits, 300 octets au maximum,
+qui part d'un commutateur et doit arriver intact.
+
+5
+00:00:14,925 --> 00:00:16,043
+Intact, c'est le mot.
+
+6
+00:00:16,103 --> 00:00:20,140
+Parce qu'une erreur sur un ordre de signalisation,
+ça coupe deux abonnés.
+
+7
+00:00:22,442 --> 00:00:24,162
+Niveau 1. La couche physique.
+
+8
+00:00:24,222 --> 00:00:27,425
+Elle s'appelle la liaison sémaphore de données,
+la LSD.
+
+9
+00:00:27,485 --> 00:00:32,528
+Un seul travail : transporter des bits dans les
+deux sens, à 64 kbit/s.
+
+10
+00:00:32,588 --> 00:00:36,681
+Mais attention, elle ne tombe pas du ciel.
+Le prof insiste là-dessus :
+
+11
+00:00:36,741 --> 00:00:41,724
+« La liaison sémaphore de données, avant de devenir
+une liaison sémaphore de données,
+
+12
+00:00:41,784 --> 00:00:43,920
+c'est d'abord une liaison de données.
+
+13
+00:00:43,980 --> 00:00:48,904
+C'est quand on décide d'envoyer la signalisation
+dessus qu'on l'appelle sémaphore. »
+
+14
+00:00:48,964 --> 00:00:51,811
+Trois étapes, donc. Un intervalle de temps banal.
+
+15
+00:00:51,871 --> 00:00:55,193
+Qu'on fige en mode données,
+de façon semi-permanente —
+
+16
+00:00:55,253 --> 00:00:59,702
+c'est une voiture qu'on loue au mois,
+pas un taxi qu'on prend et qu'on rend.
+
+17
+00:00:59,762 --> 00:01:04,627
+Et qui devient sémaphore le jour où on branche
+un terminal sémaphore à chaque bout.
+
+18
+00:01:04,687 --> 00:01:08,365
+Formule à graver : canal sémaphore
+= terminal + LSD + terminal.
+
+19
+00:01:08,425 --> 00:01:11,865
+Dernière question : où vit ce terminal ?
+Pas chez l'abonné.
+
+20
+00:01:11,925 --> 00:01:17,621
+« Tout ce qui est dans l'unité de raccordement des
+abonnés, ce sont des ressources individuelles.
+
+21
+00:01:17,681 --> 00:01:23,257
+Mais la signalisation sert à tous ceux qui veulent
+appeler. Donc on la met dans l'auxiliaire. »
+
+22
+00:01:23,317 --> 00:01:24,622
+Une ressource partagée.
+
+23
+00:01:27,067 --> 00:01:33,820
+Le niveau 2 a cinq fonctions : délimiter, détecter
+l'erreur, la corriger, superviser, aligner.
+
+24
+00:01:33,880 --> 00:01:37,051
+Tout ça tient dans une seule chose : la trame.
+
+25
+00:01:37,111 --> 00:01:44,566
+Regarde-la bien. Au milieu, la partie variable :
+l'information, 272 octets au maximum.
+
+26
+00:01:44,626 --> 00:01:47,445
+Autour, deux blocs fixes de trois octets.
+
+27
+00:01:47,505 --> 00:01:53,837
+Un colis : le cadeau est au centre, le carton et le
+ruban garantissent qu'il arrive entier.
+
+28
+00:01:53,897 --> 00:01:58,613
+Et maintenant, le piège.
+Celui qui coûte des points à tout le monde.
+
+29
+00:01:58,673 --> 00:02:02,054
+« Détection d'erreur, c'est à la fin de la trame.
+
+30
+00:02:02,114 --> 00:02:05,566
+Correction d'erreur, c'est au début de la trame. »
+
+31
+00:02:05,626 --> 00:02:10,553
+Donc : fanion, correction, INL,
+information, contrôle de trame, fanion.
+
+32
+00:02:10,613 --> 00:02:11,887
+Ne les inverse pas.
+
+33
+00:02:14,358 --> 00:02:19,387
+Juste après les champs de correction, il y a un
+octet : l'indicateur de longueur. L'INL.
+
+34
+00:02:19,447 --> 00:02:21,643
+Il dit la taille de la partie variable.
+
+35
+00:02:21,703 --> 00:02:25,807
+Mais il fait bien plus que ça :
+c'est lui qui donne le type de la trame.
+
+36
+00:02:25,867 --> 00:02:29,740
+INL = 0 : trame sémaphore de remplissage.
+Elle ne porte rien.
+
+37
+00:02:29,800 --> 00:02:33,615
+Son seul rôle : garder le canal éveillé
+quand il n'y a rien à dire.
+
+38
+00:02:33,675 --> 00:02:36,275
+INL = 1 ou 2 : trame sémaphore d'état.
+
+39
+00:02:36,335 --> 00:02:42,116
+Elle annonce l'état du canal, et elle ne sort
+jamais du niveau 2 — elle reste entre les terminaux.
+
+40
+00:02:42,176 --> 00:02:45,008
+INL > 2 : trame sémaphore de message.
+
+41
+00:02:45,068 --> 00:02:49,982
+La seule qui porte de l'information utile,
+la seule qui remonte jusqu'à l'application.
+
+42
+00:02:50,042 --> 00:02:54,204
+Un détail qui surprend : sur les 8 bits de l'INL,
+on n'en lit que 6.
+
+43
+00:02:54,264 --> 00:02:56,575
+Les deux de poids fort ne servent à rien.
+
+44
+00:02:56,635 --> 00:03:02,301
+Et quand on demande pourquoi, le prof répond :
+« Quand ils faisaient la norme, je n'étais pas là. »
+
+45
+00:03:02,361 --> 00:03:03,978
+On ne les utilise pas, point.
+
+46
+00:03:06,400 --> 00:03:09,591
+Comment le récepteur sait-il
+où commence une trame ?
+
+47
+00:03:09,651 --> 00:03:12,403
+Par un motif unique de 8 bits : le fanion.
+
+48
+00:03:12,463 --> 00:03:16,092
+Zéro, un, un, un, un, un, un, zéro.
+En hexadécimal, 7E.
+
+49
+00:03:16,152 --> 00:03:18,092
+Six 1 encadrés par deux 0.
+
+50
+00:03:18,152 --> 00:03:20,405
+Un drapeau planté en bord de terrain.
+
+51
+00:03:20,465 --> 00:03:22,405
+Mais il y a un problème évident.
+
+52
+00:03:22,465 --> 00:03:28,843
+Si tes données contiennent cette suite-là, le récepteur
+croit voir une fin de trame au mauvais endroit.
+
+53
+00:03:28,903 --> 00:03:31,406
+La parade s'appelle le bourrage de zéros.
+
+54
+00:03:31,466 --> 00:03:37,345
+À l'émission, un compteur suit les 1 consécutifs.
+Dès qu'il en compte cinq, on force un 0.
+
+55
+00:03:37,405 --> 00:03:39,470
+À la réception, on enlève ce zéro.
+
+56
+00:03:39,530 --> 00:03:43,283
+Résultat : plus aucune donnée
+ne peut ressembler à un fanion.
+
+57
+00:03:43,343 --> 00:03:48,472
+Et si le récepteur voit quand même six 1
+à l'intérieur ? Configuration interdite.
+
+58
+00:03:48,532 --> 00:03:54,660
+Il déclare une perte d'alignement, il jette tout
+depuis le dernier fanion, et il repart proprement.
+
+59
+00:03:57,108 --> 00:04:01,207
+16 bits, juste avant le fanion de fin :
+le contrôle de trame, le CRT.
+
+60
+00:04:01,267 --> 00:04:03,863
+Son principe, c'est une division de polynômes.
+
+61
+00:04:03,923 --> 00:04:08,773
+L'idée tient en une image. Les deux bouts se mettent
+d'accord sur un diviseur commun.
+
+62
+00:04:08,833 --> 00:04:13,451
+L'émetteur divise ses données par ce diviseur,
+et colle le reste en fin de trame.
+
+63
+00:04:13,511 --> 00:04:17,263
+Le récepteur refait exactement le même calcul
+sur ce qu'il a reçu.
+
+64
+00:04:17,323 --> 00:04:21,191
+Même reste, la trame est intacte.
+Reste différent, elle est rejetée.
+
+65
+00:04:21,251 --> 00:04:25,292
+« Le diviseur commun, c'est comme les nombres
+aléatoires du réseau GSM.
+
+66
+00:04:25,352 --> 00:04:30,779
+C'est généré, mais une fois qu'on veut l'utiliser,
+on le partage avec l'autre avant la session.
+
+67
+00:04:30,839 --> 00:04:33,840
+Les deux font le calcul, puis comparent la réponse. »
+
+68
+00:04:33,900 --> 00:04:38,692
+Un mot sur le diviseur. Au tableau, il a écrit
+un exemple simple, pour la pédagogie.
+
+69
+00:04:38,752 --> 00:04:45,911
+Dans la vraie norme, le polynôme générateur,
+c'est X¹⁶ + X¹² + X⁵ + 1.
+
+70
+00:04:45,971 --> 00:04:49,608
+Garde l'exemple pour comprendre,
+connais celui-là pour l'examen.
+
+71
+00:04:52,067 --> 00:04:56,368
+Voilà le morceau qui bloque tout le monde.
+On va le casser en pièces.
+
+72
+00:04:56,428 --> 00:05:01,993
+Corriger une erreur, en SS7, ça veut dire une
+seule chose : faire retransmettre la trame.
+
+73
+00:05:02,053 --> 00:05:05,343
+Chaque trame porte quatre champs,
+16 bits en tout.
+
+74
+00:05:05,403 --> 00:05:10,462
+NSA, numéro de séquence avant, 7 bits :
+le numéro de la trame que je t'envoie.
+
+75
+00:05:10,522 --> 00:05:16,150
+NSR, numéro de séquence arrière, 7 bits :
+la dernière trame que j'ai bien reçue de toi.
+
+76
+00:05:16,210 --> 00:05:17,983
+C'est un accusé de réception.
+
+77
+00:05:18,043 --> 00:05:23,103
+BIA, bit indicateur avant, un seul bit.
+BIR, bit indicateur arrière, un seul bit.
+
+78
+00:05:23,163 --> 00:05:25,631
+Et maintenant l'image qui débloque tout.
+
+79
+00:05:25,691 --> 00:05:29,423
+Tu envoies des colis numérotés —
+le numéro, c'est le NSA.
+
+80
+00:05:29,483 --> 00:05:33,405
+Sur chaque colis, tu poses un tampon de couleur :
+c'est le BIA.
+
+81
+00:05:33,465 --> 00:05:38,967
+Le receveur te renvoie un reçu avec le numéro du
+dernier colis reçu en bon état, le NSR,
+
+82
+00:05:39,027 --> 00:05:41,495
+et un tampon de couleur en écho, le BIR.
+
+83
+00:05:41,555 --> 00:05:43,707
+La règle d'or tient en deux lignes.
+
+84
+00:05:43,767 --> 00:05:48,890
+Même couleur que celle que tu avais posée,
+BIR = BIA : tout va bien, continue.
+
+85
+00:05:48,950 --> 00:05:53,693
+Couleur différente, BIR ≠ BIA :
+problème, reprends à NSR + 1.
+
+86
+00:05:53,753 --> 00:05:58,749
+Et quand tu retransmets, tu bascules ta propre
+couleur pour vous resynchroniser.
+
+87
+00:05:58,809 --> 00:06:03,047
+C'est tout le secret : le bit qui bascule,
+c'est le signal d'erreur.
+
+88
+00:06:05,483 --> 00:06:08,009
+Deux méthodes, et c'est le délai qui décide.
+
+89
+00:06:08,069 --> 00:06:12,477
+Méthode de base : support terrestre,
+aller-retour sous 30 millisecondes.
+
+90
+00:06:12,537 --> 00:06:14,593
+On accuse chaque trame, une par une.
+
+91
+00:06:14,653 --> 00:06:20,236
+Méthode cyclique préventive : support à long délai,
+satellite, jusqu'à 500 millisecondes.
+
+92
+00:06:20,296 --> 00:06:22,999
+Impossible d'attendre un accusé à chaque trame.
+
+93
+00:06:23,059 --> 00:06:27,525
+On définit une fenêtre, on envoie en rafale,
+et on retransmet dans les creux.
+
+94
+00:06:27,585 --> 00:06:29,818
+Maintenant le TD du prof. Vingt trames.
+
+95
+00:06:29,878 --> 00:06:35,578
+Premier cas, aucune erreur. En méthode de base :
+20 trames, 20 accusés, 0 retransmission.
+
+96
+00:06:35,638 --> 00:06:40,928
+En cyclique, fenêtre de 20 : 20 trames,
+un seul accusé à la fin, 0 retransmission.
+
+97
+00:06:40,988 --> 00:06:43,455
+Deuxième cas, erreur détectée à la dixième.
+
+98
+00:06:43,515 --> 00:06:47,511
+En base : les neuf premières sont acquittées,
+la dixième est erronée.
+
+99
+00:06:47,571 --> 00:06:52,860
+B renvoie NSR = 9 avec le BIR basculé,
+A reprend à 10. Une seule trame retransmise.
+
+100
+00:06:52,920 --> 00:06:54,976
+En cyclique, c'est tout autre chose.
+
+101
+00:06:55,036 --> 00:06:57,916
+A a déjà envoyé les vingt avant le moindre accusé.
+
+102
+00:06:57,976 --> 00:07:02,089
+B détecte l'erreur sur la 10, et les suivantes
+arrivent hors séquence.
+
+103
+00:07:02,149 --> 00:07:06,263
+Or SS7 ne sait pas garder le hors séquence.
+Donc il les rejette toutes.
+
+104
+00:07:06,323 --> 00:07:09,672
+Résultat : onze trames retransmises,
+de la 10 à la 20.
+
+105
+00:07:09,732 --> 00:07:11,788
+Les deux méthodes sont du Go-Back-N.
+
+106
+00:07:11,848 --> 00:07:15,903
+Ce qui change, c'est le nombre de trames
+en vol au moment de l'erreur.
+
+107
+00:07:18,358 --> 00:07:22,355
+Avant de confier la signalisation à un canal,
+on mesure sa fiabilité.
+
+108
+00:07:22,415 --> 00:07:26,881
+Le seuil fatidique : quatre pour mille.
+Au-delà, le canal est déclaré inapte.
+
+109
+00:07:26,941 --> 00:07:28,880
+Mais comment compter les erreurs ?
+
+110
+00:07:28,940 --> 00:07:31,761
+« Si j'ai un compteur qui ne fait qu'incrémenter,
+
+111
+00:07:31,821 --> 00:07:37,817
+même si la deuxième erreur est dans trois jours
+et la troisième dans trois mois, j'aurai trois erreurs.
+
+112
+00:07:37,877 --> 00:07:40,168
+Donc tôt ou tard il condamne le canal. »
+
+113
+00:07:40,228 --> 00:07:46,106
+D'où le compteur-décompteur. Une erreur, plus un.
+256 trames correctes, moins un.
+
+114
+00:07:46,166 --> 00:07:47,987
+Un panier qui se vide tout seul.
+
+115
+00:07:48,047 --> 00:07:53,690
+À la mise en service, les deux terminaux doivent
+se mettre en phase : c'est l'alignement initial.
+
+116
+00:07:53,750 --> 00:07:59,275
+Ils échangent des trames d'état, et traversent
+une séquence : hors service, non aligné, aligné,
+
+117
+00:07:59,335 --> 00:08:03,802
+période probatoire, aligné prêt, en service.
+Six états, codés sur 3 bits.
+
+118
+00:08:03,862 --> 00:08:08,858
+Une fois en service, s'il n'y a rien à dire, ils
+s'envoient des trames de remplissage.
+
+119
+00:08:11,317 --> 00:08:14,572
+On monte d'un étage.
+Le prof ouvre la séance comme ça :
+
+120
+00:08:14,632 --> 00:08:17,707
+« Le niveau 3 assume deux groupes de fonctions :
+
+121
+00:08:17,767 --> 00:08:21,565
+l'orientation des messages,
+et la gestion du réseau sémaphore. »
+
+122
+00:08:21,625 --> 00:08:25,302
+L'orientation, c'est trois gestes,
+à trois moments différents.
+
+123
+00:08:25,362 --> 00:08:29,160
+L'acheminement, à l'émission :
+je choisis par quel canal partir.
+
+124
+00:08:29,220 --> 00:08:31,210
+La discrimination, à la réception.
+
+125
+00:08:31,270 --> 00:08:35,670
+« Quand je reçois un message, la première action,
+c'est la discrimination.
+
+126
+00:08:35,730 --> 00:08:39,830
+Je compare le numéro du champ CPD
+avec mon numéro de point sémaphore.
+
+127
+00:08:39,890 --> 00:08:42,844
+Si ça correspond, c'est mon message, distribution.
+
+128
+00:08:42,904 --> 00:08:48,209
+Si ça ne correspond pas : si je suis un PS, poubelle ;
+si je suis un PTS, acheminement. »
+
+129
+00:08:48,269 --> 00:08:53,754
+Et la distribution, c'est le troisième geste :
+je lis l'INS et je livre au bon sous-système.
+
+130
+00:08:53,814 --> 00:08:57,974
+Tout ça se lit dans la trame. Après l'INL viennent
+l'octet de service,
+
+131
+00:08:58,034 --> 00:09:03,701
+puis le code du point de destination, 14 bits,
+le code du point d'origine, 14 bits,
+
+132
+00:09:03,761 --> 00:09:06,594
+et la sélection du canal sémaphore, 4 bits.
+
+133
+00:09:06,654 --> 00:09:11,115
+Ces trois-là ensemble, c'est l'étiquette
+d'acheminement : 32 bits.
+
+134
+00:09:11,175 --> 00:09:15,817
+Ajoute le code d'identification du circuit,
+et tu as l'étiquette téléphonique.
+
+135
+00:09:18,275 --> 00:09:21,587
+Dernier étage : le niveau 4,
+le sous-système utilisateur.
+
+136
+00:09:21,647 --> 00:09:25,504
+C'est là, et seulement là, qu'apparaît
+le vrai message de signalisation.
+
+137
+00:09:25,564 --> 00:09:28,604
+Tout ce qu'on a vu avant servait
+à le transporter intact.
+
+138
+00:09:28,664 --> 00:09:32,412
+Le réflexe à avoir : avant de décoder,
+on lit l'indicateur de service,
+
+139
+00:09:32,472 --> 00:09:35,023
+parce que c'est lui qui dit quelle norme ouvrir.
+
+140
+00:09:35,083 --> 00:09:40,136
+Et le tout premier message d'une communication
+s'appelle le message initial d'adresse, le MIA.
+
+141
+00:09:40,196 --> 00:09:43,835
+« C'est le premier message qu'on envoie vers le
+commutateur distant,
+
+142
+00:09:43,895 --> 00:09:46,228
+qui comporte les premiers chiffres composés.
+
+143
+00:09:46,288 --> 00:09:49,111
+Si vous êtes rapide, il transporte tous les chiffres.
+
+144
+00:09:49,171 --> 00:09:52,701
+Sinon, il y a des messages subséquents d'adresse
+qui complètent. »
+
+145
+00:09:52,761 --> 00:09:54,605
+Alors déroulons un appel en entier.
+
+146
+00:09:54,665 --> 00:09:56,291
+Le central amont envoie le MIA.
+
+147
+00:09:56,351 --> 00:10:00,371
+Si des chiffres manquent, il complète avec
+un message subséquent d'adresse.
+
+148
+00:10:00,431 --> 00:10:03,689
+Le central aval répond adresse complète
+quand il a tout reçu.
+
+149
+00:10:03,749 --> 00:10:07,061
+L'abonné décroche : signal de réponse avec taxation.
+On parle.
+
+150
+00:10:07,121 --> 00:10:12,120
+Puis le demandeur raccroche : signal de fin,
+et celui-là est prioritaire sur tous les autres.
+
+151
+00:10:12,180 --> 00:10:16,744
+Enfin, le central aval renvoie libération de garde,
+et le circuit sortant est libéré.
+
+152
+00:10:16,804 --> 00:10:20,497
+MIA, subséquent, adresse complète, réponse, fin,
+libération de garde.
+
+153
+00:10:20,557 --> 00:10:22,455
+Six messages, et l'appel est bouclé.
+
+154
+00:10:24,900 --> 00:10:29,349
+On ferme. Niveau 1 : la LSD, 64 kbit/s,
+semi-permanente.
+
+155
+00:10:29,409 --> 00:10:32,355
+Canal sémaphore = terminal + LSD + terminal —
+
+156
+00:10:32,415 --> 00:10:37,365
+et le terminal vit dans les auxiliaires,
+parce que c'est une ressource partagée.
+
+157
+00:10:37,425 --> 00:10:41,561
+La trame : fanion, correction, INL,
+information, détection, fanion.
+
+158
+00:10:41,621 --> 00:10:44,066
+Détection à la fin, correction au début.
+
+159
+00:10:44,126 --> 00:10:48,950
+L'INL donne le type : 0 remplissage,
+1 ou 2 état, plus de 2 message.
+
+160
+00:10:49,010 --> 00:10:53,209
+Le fanion vaut 7E, et le bourrage insère
+un 0 après cinq 1.
+
+161
+00:10:53,269 --> 00:10:56,340
+Le CRT, c'est une division par un diviseur commun.
+
+162
+00:10:56,400 --> 00:11:00,911
+Correction : NSA mon numéro, NSR ton accusé,
+BIA et BIR les deux tampons.
+
+163
+00:11:00,971 --> 00:11:05,734
+BIR = BIA, tout va bien ;
+BIR ≠ BIA, on reprend à NSR + 1.
+
+164
+00:11:05,794 --> 00:11:09,053
+Base sous 30 millisecondes, cyclique au-delà —
+
+165
+00:11:09,113 --> 00:11:13,875
+et sur une erreur à la dixième,
+une retransmission en base, onze en cyclique.
+
+166
+00:11:13,935 --> 00:11:19,824
+Seuil d'erreur : quatre pour mille, compteur
++1 −1 tous les 256.
+
+167
+00:11:19,884 --> 00:11:26,713
+Niveau 3 : discrimination, distribution, acheminement,
+et l'étiquette d'acheminement sur 32 bits.
+
+168
+00:11:26,773 --> 00:11:31,096
+Niveau 4 : le MIA ouvre l'appel,
+la libération de garde le ferme.
+
+169
+00:11:31,156 --> 00:11:34,729
+Voilà. Tu as la chaîne complète,
+du bit à la conversation.
+
+170
+00:11:34,789 --> 00:11:35,480
+Révise bien.
