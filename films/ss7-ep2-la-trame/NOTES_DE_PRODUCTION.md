@@ -92,17 +92,36 @@ vertical** (`fond()` dans `bl_common.py`) : la page se relève derrière la scè
 **L'éclairage a été refait, et c'est le vrai gain.** Les deux sources de surface
 de 16 m de l'épisode 1 ne convergent pas quand la page occupe tout le cadre :
 
-| Échantillons | σ sur une zone de papier plat | Temps / image |
-|---|---|---|
-| 6 (area lights) | 4,90 | ~5 s |
-| 12 (area lights) | 3,39 | ~12 s |
-| 24 (area lights) | 2,22 | ~17 s |
-| **6 (soleils)** | **0,00** | **~7 s** |
+Mesure du bruit haute fréquence (image moins son flou gaussien, sur une zone
+de papier plat — mesurer l'écart-type brut ne vaut rien ici, il compte aussi
+le dégradé d'éclairage) :
 
-Remplacées par deux **soleils** (angles 7° et 16°), le bruit s'effondre à zéro
-sur la page et 6 échantillons suffisent. Le débruiteur OpenImageDenoise n'était
-pas disponible dans ce build de Blender — il a été essayé, et écarté sur
-constat, pas par préférence.
+| Éclairage | Échantillons | Bruit HF /255 | Temps / image |
+|---|---|---|---|
+| area lights 16 m | 12 | 3,24 | ~12 s |
+| soleils 7°/16° | 3 | 7,19 | 3,4 s |
+| soleils 7°/16° | **4** | **5,73** | **4,3 s** |
+| soleils 7°/16° | 6 | 4,71 | 5,5 s |
+
+Les soleils ne suppriment pas le bruit — ils coûtent simplement **deux fois
+moins par échantillon**. Retenu : **4 échantillons**, soit 76 min pour les
+1 056 plans au lieu de 3 h 30 avec l'éclairage de l'épisode 1. À 5,7/255 le
+grain se lit comme le grain du papier, et le composite en ajoute de toute façon.
+
+Deux impasses, mesurées puis écartées :
+
+- **OpenImageDenoise** : l'énumération du débruiteur est vide dans ce build de
+  Blender. Essayé, indisponible, abandonné.
+- **Débruitage en post avec ffmpeg** (`hqdn3d=6:4:9:6`) : 7,19 → 6,36 seulement.
+  Le bruit de rendu est trop fin et trop ample pour un débruiteur vidéo. Rendre
+  un échantillon de plus coûte moins cher et donne mieux.
+
+Les rebonds diffus et l'angle du soleil de remplissage ont aussi été testés
+(2 → 1 rebond, 16° → 3°) : 5,46 → 5,20 s/image. 5 %. Ce n'était pas là.
+
+**Leçon notée pour l'épisode 3 :** ma première mesure annonçait σ = 0,00 avec
+les soleils. C'était faux — la zone mesurée était surexposée, donc écrêtée à
+255. Un indicateur qui renvoie zéro mérite d'être vérifié avant d'être cru.
 
 **L'exposition a été calibrée à la mesure**, pas à l'œil : gain 0,44, ce qui
 place la page à 211/255 (la référence de l'épisode 1 était à 215) avec 0,11 %
