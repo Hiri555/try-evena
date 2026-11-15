@@ -28,11 +28,12 @@ function page(g, S) {
   bgPaper(g); carreaux(g, 1); watermark(g);
   if (S && S.hdr) entete(g, S.num, S.titre, S.hdr);
 }
-function plate(g, img, a) {
+function plate(g, img, a, dy = 0, m = 0.05) {
+  // dy descend la plate : utile quand une étiquette 3D vient buter
+  // contre le bandeau de titre. m est le débord, à augmenter avec dy.
   if (!img || a <= 0) return;
-  const m = 0.05;
   g.save(); g.globalAlpha = a;
-  g.drawImage(img, -W * m, -H * m, W * (1 + 2 * m), H * (1 + 2 * m));
+  g.drawImage(img, -W * m, -H * m + dy, W * (1 + 2 * m), H * (1 + 2 * m));
   g.restore();
 }
 function flecheD(g, x1, y1, x2, y2, u, opt = {}) {
@@ -79,15 +80,16 @@ function coche(g, x, y, s, u, color = C.vert) {
 const CH0 = {
   dur: 21.542,
   setup(tl, S) {
-    addCam(tl, S, [[0.6,2.4,{z:1.05}],[4.0,7.0,{x:-60,z:1.065}],
-                   [12.6,1.2,{x:0,y:0,z:0.99}],[13.4,7.0,{z:1.05}]]);
+    const T = i => L(0, i);                      // repères mesurés dans la voix
+    addCam(tl, S, [[0.6,2.4,{z:1.05}],[8.2,5.6,{x:-60,z:1.065}],
+                   [13.9,1.0,{x:0,y:0,z:0.99}],[14.6,6.5,{z:1.05}]]);
     S.rap = o(); S.bits = o(); S.tit = o({ dy: 26 }); S.sous = o(); S.pied = o();
-    tl.to(S.rap, { o: 1, p: 1, duration: 1.6, ease: 'none' }, .7)
-      .to(S.bits, { o: 1, p: 1, duration: 2.4, ease: EX }, 4.2)
-      .to([S.rap, S.bits], { o: 0, duration: .6 }, 12.2)
-      .to(S.tit, { o: 1, dy: 0, duration: .8, ease: EO }, 12.9)
-      .to(S.sous, { o: 1, p: 1, duration: 1.2, ease: 'none' }, 14.1)
-      .to(S.pied, { o: 1, duration: .6, ease: EO }, 16.4);
+    tl.to(S.rap, { o: 1, p: 1, duration: 1.6, ease: 'none' }, T(0) - 0.3)
+      .to(S.bits, { o: 1, p: 1, duration: 2.4, ease: EX }, T(3) - 0.4)
+      .to([S.rap, S.bits], { o: 0, duration: .6 }, T(4) - 0.3)
+      .to(S.tit, { o: 1, dy: 0, duration: .8, ease: EO }, T(4) + 0.1)
+      .to(S.sous, { o: 1, p: 1, duration: 1.2, ease: 'none' }, T(5) - 0.2)
+      .to(S.pied, { o: 1, duration: .6, ease: EO }, T(5) + 2.2);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -157,20 +159,26 @@ const CH1 = {
     S.form = o({ sc: .9 }); S.aux = o({ dy: 16 }); S.cinq = o(); S.li = [];
     for (let i = 0; i < 5; i++) S.li.push(o({ dx: -16 }));
     addHeader(tl, S, '01', 'DE LA LIGNE AU CANAL', this.dur);
-    tl.to(S.def, { o: 1, p: 1, duration: 1.4, ease: 'none' }, 1.2)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 8.4)
-      .to([S.def, S.cit], { o: 0, duration: .6 }, 20.4)
-      .to(S.e[0], { o: 1, dy: 0, duration: .6, ease: EO }, 21.4)
-      .to(S.e[1], { o: 1, dy: 0, duration: .6, ease: EO }, 24.4)
-      .to(S.e[2], { o: 1, dy: 0, duration: .6, ease: EO }, 29.4)
-      .to([S.e[0], S.e[1], S.e[2]], { o: 0, duration: .6 }, 35.6)
-      .to(S.form, { o: 1, sc: 1, duration: .8, ease: EB }, 36.4)
-      .to(S.form, { o: 0, duration: .6 }, 44.4)
-      .to(S.aux, { o: 1, dy: 0, duration: .7, ease: EO }, 45.2)
-      .to(S.aux, { o: 0, duration: .6 }, 57.0)
-      .to(S.cinq, { o: 1, duration: .6, ease: EO }, 57.8);
-    S.li.forEach((s, i) => tl.to(s, { o: 1, dx: 0, duration: .4, ease: EO }, 58.4 + i * .5));
-    tl.to([S.cinq, ...S.li], { o: 0, duration: .5 }, 63.6);
+    const T = i => L(1, i);                      // repères mesurés dans la voix
+    // L0-L2 · la définition      L4-L6 · la citation du prof
+    tl.to(S.def, { o: 1, p: 1, duration: 1.4, ease: 'none' }, T(0) - 0.3)
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(4) - 0.6)
+      .to([S.def, S.cit], { o: 0, duration: .6 }, T(7) - 0.5)
+    // L7-L10 · les trois étapes, chacune sur sa phrase
+      .to(S.e[0], { o: 1, dy: 0, duration: .6, ease: EO }, T(7) + 0.2)
+      .to(S.e[1], { o: 1, dy: 0, duration: .6, ease: EO }, T(8) + 0.1)
+      .to(S.e[2], { o: 1, dy: 0, duration: .6, ease: EO }, T(10) + 0.1)
+      .to([S.e[0], S.e[1], S.e[2]], { o: 0, duration: .6 }, T(11) - 0.5)
+    // L11 · « formule à graver »
+      .to(S.form, { o: 1, sc: 1, duration: .8, ease: EB }, T(11) - 0.1)
+      .to(S.form, { o: 0, duration: .6 }, T(13) - 0.9)
+    // L13-L15 · où vit le terminal : une ressource partagée
+      .to(S.aux, { o: 1, dy: 0, duration: .7, ease: EO }, T(13) - 0.5)
+      .to(S.aux, { o: 0, duration: .6 }, this.dur - 1.1);
+    // L'annonce « les cinq fonctions » a été retirée d'ici : elle arrivait
+    // AVANT que la voix n'en parle, et le chapitre 02 enchaînait sur autre
+    // chose pendant qu'il les énumérait. Elles sont maintenant dans le 02,
+    // posées une par une sur ses mots.
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -262,31 +270,65 @@ const CH1 = {
 /* ══════════════ 02 · ANATOMIE DE LA TRAME — 47.292 s ══════════════
    plate Blender « trame » 9.5 → 23.5 s                               */
 const CH2 = {
-  dur: 47.292, bl: { dir: 'trame', from: 9.5, to: 23.5 },
+  dur: 47.292, bl: { dir: 'trame', from: 8.8, to: 22.8 },
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,6.0,{y:-40,z:1.06}],
-                   [8.8,1.2,{x:0,y:0,z:0.99}],[9.4,15.0,{z:1.06,x:-40}],
-                   [24.4,1.4,{x:0,y:0,z:0.99}],[25.4,8.0,{z:1.05,y:20}],
-                   [33.6,1.4,{x:0,y:0,z:0.99}],[34.4,11.0,{z:1.05}]]);
-    S.colis = o(); S.bl = o(); S.cit = o({ dy: 16 }); S.ord = o(); S.c = [];
+    const T = i => L(2, i), F_ = i => LE(2, i);   // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,6.2,{y:-40,z:1.06}],
+                   [8.4,1.0,{x:0,y:0,z:0.99}],[8.9,13.4,{z:1.06,x:-40}],
+                   [22.6,1.2,{x:0,y:0,z:0.99}],[23.4,7.6,{z:1.05,y:20}],
+                   [31.2,1.2,{x:0,y:0,z:0.99}],[32.0,13.4,{z:1.05}]]);
+    S.colis = o(); S.bl = o(); S.cit = o({ dy: 16 }); S.pie = o(); S.ord = o(); S.c = [];
+    S.ftit = o(); S.f = [];
+    for (let i = 0; i < 5; i++) S.f.push(o({ dy: 22 }));
     for (let i = 0; i < 6; i++) S.c.push(o({ dy: 20 }));
     S.pas = o({ sc: 1.4 });
     addHeader(tl, S, '02', 'ANATOMIE DE LA TRAME', this.dur);
-    tl.to(S.colis, { o: 1, p: 1, duration: 1.2, ease: EX }, 1.6)
-      .to(S.colis, { o: 0, duration: .6 }, 8.6)
-      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 9.0)
-      .to(S.bl, { o: 0, duration: 1.0 }, 24.0)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 25.4)
-      .to(S.cit, { o: 0, duration: .6 }, 33.4)
-      .to(S.ord, { o: 1, duration: .5, ease: EO }, 34.2);
-    S.c.forEach((s, i) => tl.to(s, { o: 1, dy: 0, duration: .4, ease: EB }, 34.6 + i * .55));
-    tl.to(S.pas, { o: 1, sc: 1, duration: .5, ease: EB }, 40.6)
+    // L0 · il énumère les cinq fonctions : elles arrivent une par une, sur ses mots
+    tl.to(S.ftit, { o: 1, duration: .5, ease: EO }, T(0) - 0.3);
+    S.f.forEach((s, i) => tl.to(s, { o: 1, dy: 0, duration: .45, ease: EB },
+                                T(0) + 0.8 + i * ((F_(0) - T(0) - 1.1) / 5)));
+    // L1 · « tout ça tient dans une seule chose : la trame »
+    tl.to([S.ftit, ...S.f], { o: 0, duration: .5 }, T(1) + 0.7)
+      .to(S.bl, { o: 1, duration: .9, ease: EO }, 8.8)
+    // L4 · le colis — exactement quand il en parle, plus treize secondes avant
+      .to(S.bl, { o: 0, duration: 1.0 }, T(4) + 0.1)
+      .to(S.colis, { o: 1, p: 1, duration: 1.2, ease: EX }, T(4) + 0.8)
+      .to(S.colis, { o: 0, duration: .6 }, F_(4) - 0.5)
+    // L5 · « et maintenant, le piège »
+      .to(S.pie, { o: 1, duration: .5, ease: EO }, T(5) + 0.2)
+    // L6-L7 · la citation reste affichée tant qu'il la lit
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(6) - 0.6)
+      .to([S.cit, S.pie], { o: 0, duration: .6 }, F_(7) + 0.3)
+    // L8 · il récite l'ordre des six champs : ils se posent sur ses mots
+      .to(S.ord, { o: 1, duration: .5, ease: EO }, T(8) - 0.4);
+    S.c.forEach((s, i) => tl.to(s, { o: 1, dy: 0, duration: .4, ease: EB },
+                                T(8) + 0.15 + i * ((F_(8) - T(8) - 0.7) / 6)));
+    // L9 · « ne les inverse pas »
+    tl.to(S.pas, { o: 1, sc: 1, duration: .5, ease: EB }, T(9))
       .to([S.ord, S.pas, ...S.c], { o: 0, duration: .5 }, 46.3);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t, pl) {
     page(g, null);
     plate(g, pl, S.bl.o);
+    if (S.ftit.o > 0 || S.f.some(x => x.o > 0)) {
+      const FN = ['DÉLIMITER', "DÉTECTER L'ERREUR", 'LA CORRIGER', 'SUPERVISER', 'ALIGNER'];
+      const WD = [300, 400, 310, 330, 270];
+      const CO = [C.bleu, C.rouge, C.vert, C.encre2, C.or];
+      if (S.ftit.o > 0) {
+        g.save(); g.globalAlpha = S.ftit.o; g.textAlign = 'center';
+        setFont(g, F.m, 20, 500, 5); g.fillStyle = C.encre3;
+        g.fillText('LE NIVEAU 2  ·  CINQ FONCTIONS', 1000, 436);
+        g.restore();
+      }
+      const GA = 16, TOT = WD.reduce((a, b) => a + b, 0) + GA * 4;
+      let fx = 1000 - TOT / 2;
+      S.f.forEach((st, i) => {
+        if (st.o > 0) boite(g, fx + WD[i] / 2, 566 + st.dy, WD[i], 92, FN[i], null, st.o,
+                            { color: CO[i], ts: 23 });
+        fx += WD[i] + GA;
+      });
+    }
     if (S.colis.o > 0) {
       g.save(); g.globalAlpha = S.colis.o; g.textAlign = 'center';
       setFont(g, F.h, 60, 700, 0); g.fillStyle = C.encre;
@@ -313,8 +355,8 @@ const CH2 = {
     citation(g, 330, 470, ["Détection d'erreur, c'est à la fin de la trame.",
                            "Correction d'erreur, c'est au début de la trame."],
              S.cit, { size: 54, source: 'le prof' });
-    if (S.cit.o > 0) {
-      g.save(); g.globalAlpha = S.cit.o; g.textAlign = 'center';
+    if (S.pie.o > 0) {
+      g.save(); g.globalAlpha = S.pie.o; g.textAlign = 'center';
       setFont(g, F.m, 18, 500, 5); g.fillStyle = C.rouge;
       g.fillText('LE PIÈGE QUI COÛTE DES POINTS À TOUT LE MONDE', 1000, 350);
       g.restore();
@@ -361,22 +403,25 @@ const CH2 = {
 const CH3 = {
   dur: 52.042,
   setup(tl, S) {
+    const T = i => L(3, i);                      // repères mesurés dans la voix
     addCam(tl, S, [[0.8,2.4,{z:1.06}],[2.0,7.0,{y:-30,z:1.065}],
-                   [10.0,1.4,{x:0,y:0,z:0.99}],[11.0,9.0,{z:1.05,y:40}],
-                   [20.0,8.0,{y:60,z:1.06}],[29.0,8.0,{y:80,z:1.065}],
-                   [37.6,1.4,{x:0,y:0,z:0.99}],[38.4,11.0,{z:1.05}]]);
+                   [11.6,1.4,{x:0,y:0,z:0.99}],[12.6,7.6,{z:1.05,y:40}],
+                   [20.4,7.0,{y:60,z:1.06}],[27.6,7.4,{y:80,z:1.065}],
+                   [35.2,1.2,{x:0,y:0,z:0.99}],[36.0,13.0,{z:1.05}]]);
     S.oct = o(); S.ign = o(); S.T = [o({ dx: -20 }), o({ dx: -20 }), o({ dx: -20 })];
     S.cit = o({ dy: 16 }); S.post = o({ sc: .9 });
     addHeader(tl, S, '03', "L'INDICATEUR DE LONGUEUR", this.dur);
-    tl.to(S.oct, { o: 1, p: 1, duration: 1.1, ease: EX }, 1.4)
-      .to(S.ign, { o: 1, duration: .6, ease: EO }, 5.0)
-      .to(S.T[0], { o: 1, dx: 0, duration: .5, ease: EO }, 11.2)
-      .to(S.T[1], { o: 1, dx: 0, duration: .5, ease: EO }, 20.4)
-      .to(S.T[2], { o: 1, dx: 0, duration: .5, ease: EO }, 29.4)
-      .to([S.oct, S.ign, S.T[0], S.T[1], S.T[2]], { o: 0, duration: .6 }, 37.8)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 42.6)
-      .to(S.post, { o: 1, sc: 1, duration: .6, ease: EB }, 38.8)
-      .to([S.cit, S.post], { o: 0, duration: .5 }, 51.1);
+    tl.to(S.oct, { o: 1, p: 1, duration: 1.1, ease: EX }, T(0) + 0.3)
+      .to(S.ign, { o: 1, duration: .6, ease: EO }, T(1) - 0.3)
+    // L3, L5, L7 · chaque type apparaît quand il l'annonce
+      .to(S.T[0], { o: 1, dx: 0, duration: .5, ease: EO }, T(3) - 0.3)
+      .to(S.T[1], { o: 1, dx: 0, duration: .5, ease: EO }, T(5) - 0.3)
+      .to(S.T[2], { o: 1, dx: 0, duration: .5, ease: EO }, T(7) - 0.3)
+      .to([S.oct, S.ign, S.T[0], S.T[1], S.T[2]], { o: 0, duration: .6 }, T(9) - 0.4)
+    // L9-L10 · les 6 bits lus sur 8     L11 · la réponse du prof
+      .to(S.post, { o: 1, sc: 1, duration: .6, ease: EB }, T(9) + 0.2)
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(11) - 0.4)
+      .to([S.cit, S.post], { o: 0, duration: .5 }, T(12) + 1.4);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -438,24 +483,30 @@ const CH3 = {
 const CH4 = {
   dur: 50.708,
   setup(tl, S) {
+    const T = i => L(4, i);                      // repères mesurés dans la voix
     addCam(tl, S, [[0.8,2.4,{z:1.06}],[2.0,8.0,{z:1.065,y:-20}],
-                   [11.6,1.4,{x:0,y:0,z:0.99}],[12.4,8.0,{z:1.05,y:30}],
-                   [21.0,1.4,{x:0,y:0,z:0.99}],[22.0,12.0,{z:1.06,y:40}],
-                   [35.4,1.4,{x:0,y:0,z:0.99}],[36.4,10.0,{z:1.05}]]);
+                   [13.4,1.2,{x:0,y:0,z:0.99}],[14.2,9.4,{z:1.05,y:30}],
+                   [23.8,1.2,{x:0,y:0,z:0.99}],[24.6,12.8,{z:1.06,y:40}],
+                   [37.6,1.2,{x:0,y:0,z:0.99}],[38.4,11.0,{z:1.05}]]);
     S.fan = o(); S.hex = o({ sc: 1.4 }); S.dan = o(); S.src = o(); S.stu = o();
     S.ins = o({ sc: 1.6 }); S.res = o(); S.perte = o({ dx: -20 });
     addHeader(tl, S, '04', 'LE FANION ET LE BOURRAGE', this.dur);
-    tl.to(S.fan, { o: 1, p: 1, duration: 1.2, ease: EX }, 1.4)
-      .to(S.hex, { o: 1, sc: 1, duration: .5, ease: EB }, 5.4)
-      .to([S.fan, S.hex], { o: 0, duration: .6 }, 11.8)
-      .to(S.dan, { o: 1, duration: .6, ease: EO }, 12.6)
-      .to(S.src, { o: 1, p: 1, duration: 1.0, ease: EX }, 13.6)
-      .to(S.stu, { o: 1, p: 1, duration: 1.2, ease: EX }, 24.0)
-      .to(S.ins, { o: 1, sc: 1, duration: .5, ease: EB }, 26.2)
-      .to(S.res, { o: 1, duration: .6, ease: EO }, 31.4)
-      .to([S.dan, S.src, S.stu, S.ins, S.res], { o: 0, duration: .6 }, 36.0)
-      .to(S.perte, { o: 1, dx: 0, duration: .7, ease: EO }, 37.0)
-      .to(S.perte, { o: 0, duration: .5 }, 49.8);
+    // L1-L2 · le motif, puis 7E quand il le dit
+    tl.to(S.fan, { o: 1, p: 1, duration: 1.2, ease: EX }, T(1) - 0.6)
+      .to(S.hex, { o: 1, sc: 1, duration: .5, ease: EB }, T(3) - 0.9)
+    // L5-L6 · le problème
+      .to([S.fan, S.hex], { o: 0, duration: .6 }, T(5) - 0.5)
+      .to(S.dan, { o: 1, duration: .6, ease: EO }, T(5) + 0.1)
+      .to(S.src, { o: 1, p: 1, duration: 1.0, ease: EX }, T(6) - 0.3)
+    // L7-L8 · la parade, le compteur, le zéro forcé
+      .to(S.stu, { o: 1, p: 1, duration: 1.2, ease: EX }, T(7) - 0.4)
+      .to(S.ins, { o: 1, sc: 1, duration: .5, ease: EB }, T(8) - 0.3)
+    // L10 · le résultat
+      .to(S.res, { o: 1, duration: .6, ease: EO }, T(10) - 0.4)
+      .to([S.dan, S.src, S.stu, S.ins, S.res], { o: 0, duration: .6 }, T(11) - 0.5)
+    // L11-L12 · la configuration interdite, la perte d'alignement
+      .to(S.perte, { o: 1, dx: 0, duration: .7, ease: EO }, T(11) + 0.2)
+      .to(S.perte, { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -548,23 +599,27 @@ const CH4 = {
 const CH5 = {
   dur: 54.958,
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,8.0,{z:1.065,y:-20}],
-                   [9.6,1.4,{x:0,y:0,z:0.99}],[10.4,12.0,{z:1.06,y:30}],
-                   [23.0,1.4,{x:0,y:0,z:0.99}],[24.0,10.0,{z:1.05,y:20}],
-                   [35.4,1.4,{x:0,y:0,z:0.99}],[36.4,12.0,{z:1.05}]]);
+    const T = i => L(5, i);                      // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,9.6,{z:1.065,y:-20}],
+                   [11.8,1.2,{x:0,y:0,z:0.99}],[12.6,10.8,{z:1.06,y:30}],
+                   [23.6,1.2,{x:0,y:0,z:0.99}],[24.4,16.8,{z:1.05,y:20}],
+                   [41.4,1.2,{x:0,y:0,z:0.99}],[42.2,11.6,{z:1.05}]]);
     S.tete = o(); S.A = o({ dx: -24 }); S.B = o({ dx: 24 }); S.cmp = o({ sc: 1.4 });
     S.cit = o({ dy: 16 }); S.pol = o({ sc: .92 }); S.note = o();
     addHeader(tl, S, '05', 'DÉTECTION  ·  LE CONTRÔLE DE TRAME', this.dur);
-    tl.to(S.tete, { o: 1, p: 1, duration: 1.3, ease: 'none' }, 1.3)
-      .to(S.A, { o: 1, dx: 0, duration: .6, ease: EO }, 10.6)
-      .to(S.B, { o: 1, dx: 0, duration: .6, ease: EO }, 14.6)
-      .to(S.cmp, { o: 1, sc: 1, duration: .5, ease: EB }, 18.6)
-      .to([S.tete, S.A, S.B, S.cmp], { o: 0, duration: .6 }, 23.2)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 24.0)
-      .to(S.cit, { o: 0, duration: .6 }, 35.2)
-      .to(S.pol, { o: 1, sc: 1, duration: .8, ease: EB }, 36.4)
-      .to(S.note, { o: 1, duration: .6, ease: EO }, 44.4)
-      .to([S.pol, S.note], { o: 0, duration: .5 }, 54.0);
+    tl.to(S.tete, { o: 1, p: 1, duration: 1.3, ease: 'none' }, T(0) + 0.3)
+    // L3 · l'émetteur   L4 · le récepteur   L5 · même reste / reste différent
+      .to(S.A, { o: 1, dx: 0, duration: .6, ease: EO }, T(3) - 0.4)
+      .to(S.B, { o: 1, dx: 0, duration: .6, ease: EO }, T(4) - 0.4)
+      .to(S.cmp, { o: 1, sc: 1, duration: .5, ease: EB }, T(5) - 0.3)
+      .to([S.tete, S.A, S.B, S.cmp], { o: 0, duration: .6 }, T(6) - 0.5)
+    // L6-L8 · la citation du prof, affichée tant qu'il la lit
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(6) - 0.4)
+      .to(S.cit, { o: 0, duration: .6 }, T(10) - 0.9)
+    // L10 · le vrai polynôme   L11 · la consigne d'examen
+      .to(S.pol, { o: 1, sc: 1, duration: .8, ease: EB }, T(10) - 0.5)
+      .to(S.note, { o: 1, duration: .6, ease: EO }, T(11) - 0.4)
+      .to([S.pol, S.note], { o: 0, duration: .5 }, this.dur - 1.0);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -634,29 +689,34 @@ const CH5 = {
 /* ══════════════ 06 · BIR, BIA, NSA, NSR — 73.417 s ══════════════
    plate Blender « tampons » 33.0 → 49.0 s                          */
 const CH6 = {
-  dur: 73.417, bl: { dir: 'tampons', from: 33.0, to: 49.0 },
+  dur: 73.417, bl: { dir: 'tampons', from: 34.6, to: 50.6 },
   setup(tl, S) {
+    const T = i => L(6, i);                     // repères mesurés dans la voix
     addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,7.0,{z:1.065,y:-20}],
-                   [9.6,1.4,{x:0,y:0,z:0.99}],[10.4,20.0,{z:1.05,y:30}],
-                   [31.6,1.2,{x:0,y:0,z:0.99}],[32.4,17.0,{z:1.05,x:-40}],
-                   [50.0,1.4,{x:0,y:0,z:0.99}],[51.0,12.0,{z:1.05,y:20}],
-                   [64.0,8.0,{y:60,z:1.065}]]);
+                   [9.6,1.4,{x:0,y:0,z:0.99}],[10.4,23.0,{z:1.05,y:30}],
+                   [33.8,1.0,{x:0,y:0,z:0.99}],[34.6,15.4,{z:1.05,x:-40}],
+                   [50.2,1.2,{x:0,y:0,z:0.99}],[51.0,16.4,{z:1.05,y:20}],
+                   [67.8,5.0,{y:60,z:1.065}]]);
     S.tete = o(); S.f = [o({ dy: 18 }), o({ dy: 18 }), o({ dy: 18 }), o({ dy: 18 })];
     S.bl = o(); S.reg = o(); S.r1 = o({ dx: -20 }); S.r2 = o({ dx: -20 });
     S.fin = o({ sc: 1.3 });
     addHeader(tl, S, '06', 'CORRECTION  ·  BIR, BIA, NSA, NSR', this.dur);
-    tl.to(S.tete, { o: 1, p: 1, duration: 1.3, ease: 'none' }, 1.3);
-    [11.0, 19.4, 27.0, 29.8].forEach((a, i) =>
+    tl.to(S.tete, { o: 1, p: 1, duration: 1.3, ease: 'none' }, T(0) + 0.4);
+    // L3 NSA · L4 NSR · L6 BIA puis BIR
+    [T(3) - 0.4, T(4) - 0.4, T(6) - 0.3, T(6) + 2.6].forEach((a, i) =>
       tl.to(S.f[i], { o: 1, dy: 0, duration: .5, ease: EO }, a));
-    tl.to([S.tete, ...S.f], { o: 0, duration: .6 }, 31.8)
-      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 32.4)
-      .to(S.bl, { o: 0, duration: 1.0 }, 49.4)
-      .to(S.reg, { o: 1, duration: .5, ease: EO }, 51.0)
-      .to(S.r1, { o: 1, dx: 0, duration: .5, ease: EO }, 52.2)
-      .to(S.r2, { o: 1, dx: 0, duration: .5, ease: EO }, 57.0)
-      .to([S.reg, S.r1, S.r2], { o: 0, duration: .6 }, 63.6)
-      .to(S.fin, { o: 1, sc: 1, duration: .7, ease: EB }, 64.6)
-      .to(S.fin, { o: 0, duration: .5 }, 72.5);
+    // L8-L11 · les colis et les tampons, pendant qu'il raconte l'image
+    tl.to([S.tete, ...S.f], { o: 0, duration: .6 }, T(7) - 0.4)
+      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 34.6)
+      .to(S.bl, { o: 0, duration: 1.0 }, T(12) - 0.2)
+    // L12-L14 · la règle d'or
+      .to(S.reg, { o: 1, duration: .5, ease: EO }, T(12) + 0.4)
+      .to(S.r1, { o: 1, dx: 0, duration: .5, ease: EO }, T(13) - 0.4)
+      .to(S.r2, { o: 1, dx: 0, duration: .5, ease: EO }, T(14) - 0.4)
+      .to([S.reg, S.r1, S.r2], { o: 0, duration: .6 }, T(16) - 0.5)
+    // L16 · « le bit qui bascule, c'est le signal d'erreur »
+      .to(S.fin, { o: 1, sc: 1, duration: .7, ease: EB }, T(16) - 0.1)
+      .to(S.fin, { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t, pl) {
@@ -734,11 +794,12 @@ const CH6 = {
 const CH7 = {
   dur: 72.875,
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,9.0,{z:1.06,y:-20}],
-                   [19.6,1.4,{x:0,y:0,z:0.99}],[20.6,12.0,{z:1.05,y:20}],
-                   [33.4,1.4,{x:0,y:0,z:0.99}],[34.4,11.0,{z:1.05,y:30}],
-                   [46.0,1.4,{x:0,y:0,z:0.99}],[47.0,15.0,{z:1.05,y:40}],
-                   [63.0,8.0,{y:-30,z:1.04}]]);
+    const T = i => L(7, i);                     // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,18.6,{z:1.06,y:-20}],
+                   [21.0,1.0,{x:0,y:0,z:0.99}],[21.8,14.0,{z:1.05,y:20}],
+                   [36.0,1.0,{x:0,y:0,z:0.99}],[36.8,11.4,{z:1.05,y:30}],
+                   [48.2,1.0,{x:0,y:0,z:0.99}],[49.0,16.6,{z:1.05,y:40}],
+                   [65.8,6.0,{y:-30,z:1.04}]]);
     S.M = [o({ dx: -24 }), o({ dx: 24 })];
     S.td = o({ sc: 1.3 });
     S.c1 = o(); S.u1 = { v: 0 }; S.c1b = o();
@@ -746,26 +807,32 @@ const CH7 = {
     S.c3 = o(); S.u3 = { v: 0 }; S.rx2 = o(); S.c3b = o();
     S.fin = o();
     addHeader(tl, S, '07', 'BASE OU CYCLIQUE  ·  LE TD', this.dur);
-    tl.to(S.M[0], { o: 1, dx: 0, duration: .6, ease: EO }, 1.4)
-      .to(S.M[1], { o: 1, dx: 0, duration: .6, ease: EO }, 8.0)
-      .to(S.M, { o: 0, duration: .6 }, 19.8)
-      .to(S.td, { o: 1, sc: 1, duration: .6, ease: EB }, 20.6)
-      .to(S.c1, { o: 1, duration: .5, ease: EO }, 23.4)
-      .to(S.u1, { v: 1, duration: 2.6, ease: 'none' }, 23.8)
-      .to(S.c1b, { o: 1, duration: .5, ease: EO }, 27.4)
-      .to([S.c1, S.c1b], { o: 0, duration: .5 }, 33.6)
-      .to(S.c2, { o: 1, duration: .5, ease: EO }, 34.4)
-      .to(S.u2, { v: 1, duration: 2.6, ease: 'none' }, 34.8)
-      .to(S.rx1, { o: 1, duration: .5, ease: EO }, 39.4)
-      .to(S.c2b, { o: 1, duration: .5, ease: EO }, 42.0)
-      .to([S.c2, S.rx1, S.c2b], { o: 0, duration: .5 }, 46.2)
-      .to(S.c3, { o: 1, duration: .5, ease: EO }, 47.0)
-      .to(S.u3, { v: 1, duration: 3.0, ease: 'none' }, 47.4)
-      .to(S.rx2, { o: 1, duration: .5, ease: EO }, 55.0)
-      .to(S.c3b, { o: 1, duration: .5, ease: EO }, 59.6)
-      .to([S.td, S.c3, S.rx2, S.c3b], { o: 0, duration: .5 }, 63.2)
-      .to(S.fin, { o: 1, duration: .7, ease: EO }, 64.2)
-      .to(S.fin, { o: 0, duration: .5 }, 72.0);
+    // L1 la base · L3 la cyclique
+    tl.to(S.M[0], { o: 1, dx: 0, duration: .6, ease: EO }, T(1) - 0.4)
+      .to(S.M[1], { o: 1, dx: 0, duration: .6, ease: EO }, T(3) - 0.4)
+      .to(S.M, { o: 0, duration: .6 }, T(6) - 0.5)
+    // L6 · « maintenant le TD du prof »
+      .to(S.td, { o: 1, sc: 1, duration: .6, ease: EB }, T(6) + 0.1)
+    // L7-L8 · premier cas, base puis cyclique
+      .to(S.c1, { o: 1, duration: .5, ease: EO }, T(7) - 0.4)
+      .to(S.u1, { v: 1, duration: 2.6, ease: 'none' }, T(7) + 0.2)
+      .to(S.c1b, { o: 1, duration: .5, ease: EO }, T(8) - 0.4)
+      .to([S.c1, S.c1b], { o: 0, duration: .5 }, T(9) - 0.5)
+    // L9-L11 · deuxième cas en méthode de base
+      .to(S.c2, { o: 1, duration: .5, ease: EO }, T(9) + 0.3)
+      .to(S.u2, { v: 1, duration: 2.6, ease: 'none' }, T(10) - 0.2)
+      .to(S.rx1, { o: 1, duration: .5, ease: EO }, T(11) - 0.3)
+      .to(S.c2b, { o: 1, duration: .5, ease: EO }, T(11) + 3.4)
+      .to([S.c2, S.rx1, S.c2b], { o: 0, duration: .5 }, T(12) - 0.5)
+    // L12-L16 · le même cas en cyclique : onze retransmissions
+      .to(S.c3, { o: 1, duration: .5, ease: EO }, T(12) + 0.2)
+      .to(S.u3, { v: 1, duration: 3.0, ease: 'none' }, T(13) - 0.2)
+      .to(S.rx2, { o: 1, duration: .5, ease: EO }, T(14) - 0.3)
+      .to(S.c3b, { o: 1, duration: .5, ease: EO }, T(16) - 0.5)
+      .to([S.td, S.c3, S.rx2, S.c3b], { o: 0, duration: .5 }, T(17) - 0.5)
+    // L17-L18 · les deux sont du Go-Back-N
+      .to(S.fin, { o: 1, duration: .7, ease: EO }, T(17) - 0.1)
+      .to(S.fin, { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -877,26 +944,33 @@ const CH7 = {
 const CH8 = {
   dur: 52.958,
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.06}],[2.0,7.0,{z:1.065,y:-20}],
-                   [9.6,1.4,{x:0,y:0,z:0.99}],[10.4,12.0,{z:1.05,y:30}],
-                   [23.0,1.4,{x:0,y:0,z:0.99}],[24.0,8.0,{z:1.06}],
-                   [32.4,1.4,{x:0,y:0,z:0.99}],[33.4,12.0,{z:1.05,y:20}],
-                   [46.0,6.0,{y:60,z:1.06}]]);
+    const T = i => L(8, i);                     // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.06}],[2.0,7.6,{z:1.065,y:-20}],
+                   [10.0,1.0,{x:0,y:0,z:0.99}],[10.8,11.2,{z:1.05,y:30}],
+                   [22.4,1.0,{x:0,y:0,z:0.99}],[23.0,7.2,{z:1.06}],
+                   [30.4,1.0,{x:0,y:0,z:0.99}],[31.2,13.0,{z:1.05,y:20}],
+                   [44.4,7.0,{y:60,z:1.06}]]);
     S.seuil = o({ sc: 1.3 }); S.cit = o({ dy: 16 }); S.pan = o(); S.cnt = { v: 0 };
     S.et = []; for (let i = 0; i < 6; i++) S.et.push(o({ dy: 14 }));
     S.tsr = o();
     addHeader(tl, S, '08', 'SUPERVISION ET ALIGNEMENT', this.dur);
-    tl.to(S.seuil, { o: 1, sc: 1, duration: .7, ease: EB }, 1.4)
-      .to(S.seuil, { o: 0, duration: .6 }, 9.8)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 10.6)
-      .to(S.cit, { o: 0, duration: .6 }, 22.6)
-      .to(S.pan, { o: 1, duration: .6, ease: EO }, 23.6)
-      .to(S.cnt, { v: 1, duration: 5.0, ease: 'none' }, 24.4)
-      .to(S.pan, { o: 0, duration: .6 }, 32.2);
-    [33.6, 35.0, 36.4, 37.8, 39.2, 40.6].forEach((a, i) =>
+    // L1 · le seuil de quatre pour mille
+    tl.to(S.seuil, { o: 1, sc: 1, duration: .7, ease: EB }, T(1) - 0.5)
+      .to(S.seuil, { o: 0, duration: .6 }, T(3) - 0.5)
+    // L3-L5 · la citation du prof sur le compteur
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(3) - 0.4)
+      .to(S.cit, { o: 0, duration: .6 }, T(6) - 0.5)
+    // L6-L7 · le compteur-décompteur, le panier qui se vide
+      .to(S.pan, { o: 1, duration: .6, ease: EO }, T(6) + 0.1)
+      .to(S.cnt, { v: 1, duration: 5.0, ease: 'none' }, T(6) + 0.9)
+      .to(S.pan, { o: 0, duration: .6 }, T(8) - 0.4);
+    // L9-L10 · les six états, trois par phrase, dans l'ordre où il les cite
+    [T(9) + 1.6, T(9) + 2.8, T(9) + 4.0,
+     T(10) + 0.9, T(10) + 2.1, T(10) + 3.3].forEach((a, i) =>
       tl.to(S.et[i], { o: 1, dy: 0, duration: .45, ease: EO }, a));
-    tl.to(S.tsr, { o: 1, duration: .6, ease: EO }, 45.6)
-      .to([...S.et, S.tsr], { o: 0, duration: .5 }, 52.1);
+    // L11 · les trames de remplissage
+    tl.to(S.tsr, { o: 1, duration: .6, ease: EO }, T(11) - 0.3)
+      .to([...S.et, S.tsr], { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -981,29 +1055,35 @@ const CH8 = {
 const CH9 = {
   dur: 66.958,
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,8.0,{z:1.06,y:-20}],
-                   [10.6,1.4,{x:0,y:0,z:0.99}],[11.4,9.0,{z:1.05,y:20}],
-                   [20.6,1.4,{x:0,y:0,z:0.99}],[21.4,14.0,{z:1.05,y:40}],
-                   [36.0,1.4,{x:0,y:0,z:0.99}],[37.0,8.0,{z:1.05}],
-                   [45.6,1.4,{x:0,y:0,z:0.99}],[46.4,12.0,{z:1.05,y:30}],
-                   [59.0,7.0,{y:60,z:1.06}]]);
+    const T = i => L(9, i);                     // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,7.4,{z:1.06,y:-20}],
+                   [9.6,1.0,{x:0,y:0,z:0.99}],[10.4,9.0,{z:1.05,y:20}],
+                   [19.6,1.0,{x:0,y:0,z:0.99}],[20.4,16.0,{z:1.05,y:40}],
+                   [36.6,1.0,{x:0,y:0,z:0.99}],[37.4,5.6,{z:1.05}],
+                   [43.2,1.0,{x:0,y:0,z:0.99}],[44.0,14.0,{z:1.05,y:30}],
+                   [58.4,7.0,{y:60,z:1.06}]]);
     S.cit0 = o({ dy: 16 }); S.G = [o({ dy: 18 }), o({ dy: 18 }), o({ dy: 18 })];
     S.cit = o({ dy: 16 }); S.flo = o(); S.ch = []; for (let i = 0; i < 5; i++) S.ch.push(o({ dy: 16 }));
     S.et1 = o(); S.et2 = o();
     addHeader(tl, S, '09', 'LE NIVEAU 3  ·  ORIENTER LES MESSAGES', this.dur);
-    tl.to(S.cit0, { o: 1, dy: 0, duration: .7, ease: EO }, 1.4)
-      .to(S.cit0, { o: 0, duration: .6 }, 10.8);
-    [11.6, 15.6, 36.8].forEach((a, i) => tl.to(S.G[i], { o: 1, dy: 0, duration: .5, ease: EO }, a));
-    tl.to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 21.4)
-      .to(S.flo, { o: 1, duration: .6, ease: EO }, 27.0)
-      .to([S.cit, S.flo], { o: 0, duration: .6 }, 35.4)
-      .to(S.G[2], { o: 0, duration: .5 }, 45.0)
-      .to([S.G[0], S.G[1]], { o: 0, duration: .5 }, 45.0);
-    [46.6, 48.2, 50.4, 52.6, 54.4].forEach((a, i) =>
+    // L1-L2 · les deux groupes de fonctions
+    tl.to(S.cit0, { o: 1, dy: 0, duration: .7, ease: EO }, T(1) - 0.5)
+      .to(S.cit0, { o: 0, duration: .6 }, T(3) - 0.4);
+    // L4 acheminement · L5 discrimination · L10 distribution
+    [T(4) - 0.4, T(5) - 0.4, T(10) - 0.4].forEach((a, i) =>
+      tl.to(S.G[i], { o: 1, dy: 0, duration: .5, ease: EO }, a));
+    // L6-L9 · la citation puis l'arbre de décision
+    tl.to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(6) - 0.4)
+      .to(S.flo, { o: 1, duration: .6, ease: EO }, T(8) - 0.5)
+      .to([S.cit, S.flo], { o: 0, duration: .6 }, T(10) - 0.6)
+      .to([S.G[0], S.G[1], S.G[2]], { o: 0, duration: .5 }, T(11) - 0.5);
+    // L11-L13, L15 · les champs, chacun sur sa mention
+    [T(11) + 1.6, T(12) + 0.3, T(12) + 2.6, T(13) - 0.2, T(15) - 0.3].forEach((a, i) =>
       tl.to(S.ch[i], { o: 1, dy: 0, duration: .45, ease: EO }, a));
-    tl.to(S.et1, { o: 1, duration: .6, ease: EO }, 58.8)
-      .to(S.et2, { o: 1, duration: .6, ease: EO }, 62.4)
-      .to([...S.ch, S.et1, S.et2], { o: 0, duration: .5 }, 66.1);
+    // L14 · l'étiquette d'acheminement   L15 · l'étiquette téléphonique
+    tl.to(S.et1, { o: 1, duration: .6, ease: EO }, T(14) + 1.4)
+      .to(S.et2, { o: 1, duration: .6, ease: EO }, T(15) + 1.4)
+      .to([...S.ch, S.et1, S.et2], { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {
@@ -1100,32 +1180,41 @@ const CH9 = {
 /* ══════════════ 10 · LE MIA ET L'APPEL — 66.625 s ══════════════
    plate Blender « appel » 34.0 → 48.0 s                           */
 const CH10 = {
-  dur: 66.625, bl: { dir: 'appel', from: 34.0, to: 48.0 },
+  // La voix met 21 s à dérouler les six messages, le plan 3D en dure 14 :
+  // la fenêtre est étirée pour que chaque flèche arrive sur son nom.
+  dur: 66.625, bl: { dir: 'appel', from: 37.2, to: 57.5 },
   setup(tl, S) {
-    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,9.0,{z:1.06,y:-20}],
-                   [11.6,1.4,{x:0,y:0,z:0.99}],[12.4,7.0,{z:1.05}],
-                   [19.6,1.4,{x:0,y:0,z:0.99}],[20.4,12.0,{z:1.05,y:20}],
-                   [33.0,1.2,{x:0,y:0,z:0.99}],[33.8,16.0,{z:1.05,x:-30}],
-                   [56.0,1.4,{x:0,y:0,z:0.99}],[57.0,9.0,{z:1.05}]]);
+    const T = i => L(10, i);                    // repères mesurés dans la voix
+    addCam(tl, S, [[0.8,2.4,{z:1.05}],[2.0,8.4,{z:1.06,y:-20}],
+                   [10.8,1.0,{x:0,y:0,z:0.99}],[11.6,5.0,{z:1.05}],
+                   [16.8,1.0,{x:0,y:0,z:0.99}],[17.6,4.2,{z:1.04,y:10}],
+                   [22.0,1.0,{x:0,y:0,z:0.99}],[22.8,13.6,{z:1.05,y:20}],
+                   [36.6,1.0,{x:0,y:0,z:0.99}],[37.4,21.4,{z:1.05,x:-30}],
+                   [59.0,1.0,{x:0,y:0,z:0.99}],[59.8,6.4,{z:1.05}]]);
     S.tete = o(); S.ref = o({ sc: .94 }); S.cit = o({ dy: 16 }); S.bl = o();
     S.rec = o(); S.m = []; for (let i = 0; i < 6; i++) S.m.push(o({ dy: 16 }));
     addHeader(tl, S, '10', "LE NIVEAU 4  ·  LE MIA ET L'APPEL", this.dur);
-    tl.to(S.tete, { o: 1, p: 1, duration: 1.4, ease: 'none' }, 1.4)
-      .to(S.tete, { o: 0, duration: .6 }, 11.8)
-      .to(S.ref, { o: 1, sc: 1, duration: .7, ease: EB }, 12.6)
-      .to(S.ref, { o: 0, duration: .6 }, 19.8)
-      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, 20.6)
-      .to(S.cit, { o: 0, duration: .6 }, 32.8)
-      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 33.4)
-      .to(S.bl, { o: 0, duration: 1.0 }, 55.4)
-      .to(S.rec, { o: 1, duration: .5, ease: EO }, 56.8);
-    S.m.forEach((s, i) => tl.to(s, { o: 1, dy: 0, duration: .35, ease: EB }, 57.4 + i * .55));
-    tl.to([S.rec, ...S.m], { o: 0, duration: .5 }, 65.8);
+    tl.to(S.tete, { o: 1, p: 1, duration: 1.4, ease: 'none' }, T(0) + 0.4)
+      .to(S.tete, { o: 0, duration: .6 }, T(3) - 0.4)
+    // L3-L4 · le réflexe : lire l'indicateur de service
+      .to(S.ref, { o: 1, sc: 1, duration: .7, ease: EB }, T(3) + 0.1)
+      .to(S.ref, { o: 0, duration: .6 }, T(5) - 0.4)
+    // L6-L9 · la citation du prof sur le MIA
+      .to(S.cit, { o: 1, dy: 0, duration: .7, ease: EO }, T(6) - 0.5)
+      .to(S.cit, { o: 0, duration: .6 }, T(10) - 0.5)
+    // L11-L16 · l'appel se déroule, flèche par flèche
+      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 37.0)
+      .to(S.bl, { o: 0, duration: 1.0 }, T(17) - 0.5)
+    // L17-L18 · le récapitulatif des six messages
+      .to(S.rec, { o: 1, duration: .5, ease: EO }, T(17) - 0.3);
+    S.m.forEach((s, i) => tl.to(s, { o: 1, dy: 0, duration: .35, ease: EB },
+                                T(17) + 0.1 + i * .55));
+    tl.to([S.rec, ...S.m], { o: 0, duration: .5 }, this.dur - 0.9);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t, pl) {
     page(g, null);
-    plate(g, pl, S.bl.o);
+    plate(g, pl, S.bl.o, 92, 0.11);
     if (S.tete.o > 0) {
       g.save(); g.globalAlpha = S.tete.o; g.textAlign = 'center';
       setFont(g, F.m, 18, 500, 5); g.fillStyle = C.rouge;
@@ -1195,20 +1284,24 @@ const CH10 = {
 const CH11 = {
   dur: 78.000,
   setup(tl, S) {
-    addCam(tl, S, [[0.9,2.4,{z:1.04}],[2.4,22.0,{y:70,z:1.06}],
-                   [26.0,22.0,{y:150,z:1.065}],[52.0,1.4,{x:0,y:0,z:0.98}],
-                   [53.0,9.0,{z:1.05}],[64.0,1.2,{x:0,y:0,z:0.99}],[69.0,7.0,{z:1.04}]]);
+    const Q = i => L(11, i);                    // repères mesurés dans la voix
+    addCam(tl, S, [[0.9,2.4,{z:1.04}],[2.4,26.0,{y:70,z:1.06}],
+                   [29.0,26.0,{y:150,z:1.065}],[56.4,1.2,{x:0,y:0,z:0.98}],
+                   [57.4,9.0,{z:1.05}],[66.8,1.2,{x:0,y:0,z:0.99}],[68.0,8.0,{z:1.04}]]);
     S.card = o({ sc: .94 }); S.b = []; for (let i = 0; i < 10; i++) S.b.push(o({ dx: -16 }));
     S.fin = o(); S.sig = o({ p: 0 });
     addHeader(tl, S, '11', "CE QU'IL FAUT RETENIR", this.dur);
-    tl.to(S.card, { o: 1, sc: 1, duration: .7, ease: EB }, 1.1);
-    const T = [2.6, 7.4, 13.2, 19.0, 24.6, 30.2, 36.4, 42.6, 47.6, 51.4];
-    S.b.forEach((s, i) => tl.to(s, { o: 1, dx: 0, duration: .45, ease: EO }, T[i]));
-    tl.to([S.card, ...S.b], { o: 0, duration: .6 }, 57.6)
-      .to(S.fin, { o: 1, duration: .7, ease: EO }, 58.6)
-      .to(S.fin, { o: 0, duration: .5 }, 68.4)
-      .to(S.sig, { o: 1, duration: .9, ease: EO }, 69.0)
-      .to(S.sig, { p: 1, duration: 1.4, ease: EO }, 69.4);
+    tl.to(S.card, { o: 1, sc: 1, duration: .7, ease: EB }, Q(0) + 0.2);
+    // chaque ligne de la fiche se pose quand il la récite
+    const TB = [Q(0) + 0.4, Q(1) - 0.3, Q(3) - 0.3, Q(4) - 0.3, Q(5) - 0.3,
+                Q(6) - 0.3, Q(7) - 0.3, Q(8) - 0.3, Q(10) - 0.3, Q(12) - 0.3];
+    S.b.forEach((s, i) => tl.to(s, { o: 1, dx: 0, duration: .45, ease: EO }, TB[i]));
+    // L13-L14 · niveau 3 et niveau 4      L15-L16 · la signature
+    tl.to([S.card, ...S.b], { o: 0, duration: .6 }, Q(13) - 0.5)
+      .to(S.fin, { o: 1, duration: .7, ease: EO }, Q(13) - 0.1)
+      .to(S.fin, { o: 0, duration: .5 }, Q(15) - 0.3)
+      .to(S.sig, { o: 1, duration: .9, ease: EO }, Q(15) + 0.1)
+      .to(S.sig, { p: 1, duration: 1.4, ease: EO }, Q(15) + 0.5);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t) {

@@ -233,11 +233,12 @@ SC = [
   ("Révise bien.", None)],
 ]
 
-PAUSE = 7.0     # an ellipsis is worth this many characters of time
+import json
 
-
-def weight(s):
-    return len(s.replace('\n', ' ')) + s.count('…') * PAUSE + s.count('—') * 3
+# Les temps ne sont plus estimés au nombre de caractères : ils sont
+# MESURÉS sur les silences réels de chaque prise (voir cale.py).
+D = os.path.dirname(os.path.abspath(__file__))
+CAL = json.load(open(os.path.join(D, 'calage.json')))
 
 
 def ts(t):
@@ -247,18 +248,13 @@ def ts(t):
 
 out, n = [], 0
 for i, lines in enumerate(SC):
-    t0, dur = STARTS[i], DURS[i]
-    ws = [weight(sp or cap) for cap, sp in lines]
-    tot = sum(ws)
-    cur = t0
-    for (cap, _), w in zip(lines, ws):
-        span = dur * w / tot
-        a, b = cur, cur + span
-        cur = b
+    b = CAL[i]['bornes']
+    for k, (cap, _) in enumerate(lines):
+        a, z = STARTS[i] + b[k], STARTS[i] + b[k + 1]
         n += 1
-        out.append(f"{n}\n{ts(a)} --> {ts(max(b - 0.06, a + 0.5))}\n{cap}\n")
+        out.append(f"{n}\n{ts(a)} --> {ts(max(z - 0.08, a + 0.5))}\n{cap}\n")
 
-p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'out', 'SS7_Ep2_FR.srt')
+p = os.path.join(D, '..', 'out', 'SS7_Ep2_FR.srt')
 os.makedirs(os.path.dirname(p), exist_ok=True)
 open(p, 'w', encoding='utf-8').write('\n'.join(out))
-print(f"{n} sous-titres ->", os.path.realpath(p))
+print(f"{n} sous-titres (temps mesurés) ->", os.path.realpath(p))
