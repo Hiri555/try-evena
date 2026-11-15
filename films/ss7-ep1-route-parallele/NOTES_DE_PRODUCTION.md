@@ -43,7 +43,7 @@ Le spectateur apprend ce code en dix secondes, et il porte les dix chapitres.
 |---|---|---|
 | 00 | L'accroche | la signalisation arrive **avant** la parole, par une autre route |
 | 01 | Signaler, c'est quoi | établir · superviser · rompre — et les 3 périmètres, un seul normalisé |
-| 02 | La voie par voie | URA + enregistreurs, IT16, et le défaut : tout tombe ensemble |
+| 02 | La voie par voie | URM + enregistreurs, IT16, et le défaut : tout tombe ensemble |
 | 03 | La voie commune | une route à part — l'observateur passe dans l'hélicoptère |
 | 04 | Pourquoi le N°6 a échoué | **2,4 ne tombe pas juste dans 64** : 26 fois, et il reste un trou |
 | 05 | Qui habite ce réseau | PS / PTS / canal / faisceau — **un PS ne transite jamais** |
@@ -63,7 +63,7 @@ trois messages partent 1·2·3 et arrivent 2·1·3.
 Quatre citations sont reprises **mot pour mot**, écrites à la main dans la marge,
 pour que la formulation de l'examen soit celle du cours :
 
-1. « C'est l'URA qui injecte la signalisation… c'est les enregistreurs de l'unité
+1. « C'est l'URM qui injecte la signalisation… c'est les enregistreurs de l'unité
    de commande qui le lui envoient. » *(ch. 02)*
 2. « Tant que les deux étaient embarqués dans le même cycle, je n'ai ni
    signalisation, ni données. Même si le réseau ne fonctionne pas, je ne saurais
@@ -156,3 +156,56 @@ morceau — **BIR, BIA, NSA, NSR**, méthode de base contre méthode cyclique (l
 des 20 trames), le niveau 3 (discrimination / distribution / acheminement), et
 l'entrée dans le niveau 4 avec le MIA et la procédure d'appel complète
 (MIA → MSS → ACO → RAT → FIN → LIG).
+
+---
+
+## Correction du 15/11 — URA → URM
+
+**Une erreur de fond a été corrigée dans le chapitre 02.** Le film disait, entre
+guillemets et au nom du prof : « C'est l'URA qui injecte la signalisation. »
+
+L'enregistrement du cours dit **URM** :
+
+> « C'est l'URM qui injecte la signalisation, et c'est lui qui récupère la
+> signalisation à la réception. […] les fonctions de l'URM, c'est le transcodage,
+> la synchronisation des débuts de trame, et l'injection-extraction de la
+> signalisation. »
+
+L'URA raccorde les **abonnés** ; l'URM raccorde les **MIC**. C'est l'URM qui
+touche à l'IT16. La **BT** du schéma est la **Base de Temps** : elle synchronise,
+elle n'injecte rien.
+
+**Origine de l'erreur.** Le dossier technique (REV 3.0) écrit en FIG.02 :
+« [3] URA injecte dans IT16 du MIC ». J'ai recopié. Mais **la FIG.11 du même
+dossier dessine URM** côté MIC entre C1 et C2 : le document se contredit, et je
+n'ai pas confronté les deux figures. *(La FIG.02 du dossier est à corriger.)*
+
+**Ce qui a été fait :**
+
+- prise de voix du chapitre 02 refaite (URM), remise à la durée exacte de
+  l'ancienne pour ne pas décaler le reste du film ;
+- schéma : la boîte « URA » devient « URM », et les **trois fonctions de l'URM**
+  sont affichées — ce qui ferme la confusion avec l'URA et avec la base de temps ;
+- chapitre 02 recalé sur les frontières de phrases **mesurées** dans la nouvelle
+  prise (`audio/cale.py`), bruitages compris ;
+- **tous** les sous-titres de l'épisode passés sur les temps mesurés : la dérive
+  de l'estimation par nombre de caractères allait jusqu'à **2,14 s**.
+
+## Audit des citations
+
+Les 20 passages entre « » des trois épisodes ont été confrontés aux six
+transcriptions du cours. Résultat : **une citation fausse** (celle ci-dessus) et
+**une paraphrase présentée comme une citation** —
+
+- avant : « Deux CAA ne peuvent pas communiquer en mode associé si les deux PS
+  ne sont pas liés directement. »
+- le prof : « Dans un mode associé, les deux points sémaphores qui sont en jeu
+  sont reliés directement. Il n'y a pas de point intermédiaire de relève de
+  l'information de signalisation. »
+
+Les autres sont retrouvées dans l'audio.
+
+**Règle adoptée pour la suite :** des guillemets seulement si la phrase est
+localisable dans l'enregistrement ; sinon c'est une phrase d'auteur, écrite comme
+telle. En cas de divergence : l'enregistrement prime sur le dossier, le dossier
+prime sur ma reconstruction. Et si un document se contredit, on demande.

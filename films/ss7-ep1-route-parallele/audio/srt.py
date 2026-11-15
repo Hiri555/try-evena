@@ -37,7 +37,7 @@ SC = [
  [("La première méthode s'appelle la voie par voie.", None),
   ("Chaque conversation porte ses propres papiers,\ncollés sur elle.", None),
   ("Dans le commutateur, le prof l'a dessiné au tableau :", None),
-  ("« C'est l'URA qui injecte la signalisation,\net c'est lui qui la récupère à la réception.", None),
+  ("« C'est l'URM qui injecte la signalisation,\net c'est lui qui la récupère à la réception.", None),
   ("Mais le message qu'il injecte, c'est les enregistreurs\nde l'unité de commande qui le lui envoient. »", None),
   ("D'où deux familles de signaux.", None),
   ("Les signaux d'enregistreur,\nqui portent les ordres de l'appel.", None),
@@ -174,32 +174,24 @@ SC = [
   ("On ouvre le message, et on démonte\nBIR, BIA, NSA et NSR.", None)],
 ]
 
-PAUSE = 7.0     # an ellipsis is worth this many characters of time
-
-
-def weight(s):
-    return len(s.replace('\n', ' ')) + s.count('…') * PAUSE + s.count('—') * 3
-
+import json
+# Temps MESURÉS sur les silences réels des prises (cale.py), plus estimés.
+D = os.path.dirname(os.path.abspath(__file__))
+CAL = json.load(open(os.path.join(D, 'calage.json')))
+TLJ = json.load(open(os.path.join(D, '..', 'timeline.json')))
 
 def ts(t):
-    h = int(t // 3600); m = int(t % 3600 // 60); s = t % 60
+    h=int(t//3600); m=int(t%3600//60); s=t%60
     return f"{h:02d}:{m:02d}:{s:06.3f}".replace('.', ',')
-
 
 out, n = [], 0
 for i, lines in enumerate(SC):
-    t0, dur = STARTS[i], DURS[i]
-    ws = [weight(sp or cap) for cap, sp in lines]
-    tot = sum(ws)
-    cur = t0
-    for (cap, _), w in zip(lines, ws):
-        span = dur * w / tot
-        a, b = cur, cur + span
-        cur = b
+    b = CAL[i]['bornes']
+    for k, (cap, _) in enumerate(lines):
+        a, z = TLJ['vostart'][i] + b[k], TLJ['vostart'][i] + b[k+1]
         n += 1
-        out.append(f"{n}\n{ts(a)} --> {ts(max(b - 0.06, a + 0.5))}\n{cap}\n")
-
-p = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'out', 'SS7_Ep1_FR.srt')
+        out.append(f"{n}\n{ts(a)} --> {ts(max(z-0.08, a+0.5))}\n{cap}\n")
+p = os.path.join(D, '..', 'out', 'SS7_Ep1_FR.srt')
 os.makedirs(os.path.dirname(p), exist_ok=True)
 open(p, 'w', encoding='utf-8').write('\n'.join(out))
-print(f"{n} sous-titres ->", os.path.realpath(p))
+print(f"{n} sous-titres (temps mesurés) ->", os.path.realpath(p))

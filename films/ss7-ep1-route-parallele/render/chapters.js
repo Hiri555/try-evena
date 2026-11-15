@@ -376,34 +376,41 @@ const CH1 = {
 /* ══════════════ 02 · VOIE PAR VOIE — 61.625 s ══════════════
    plate Blender « mic » 29.5 → 45.5 s                        */
 const CH2 = {
-  dur: 61.625, bl: { dir: 'mic', from: 29.5, to: 41.4 },
+  dur: 61.625, bl: { dir: 'mic', from: 26.95, to: 38.85 },
   setup(tl, S) {
-    addCam(tl, S, [[1.2, 2.0, {z: 1.06}], [4.0, 4.0, {x: -80, z: 1.09}], [8.2, 1.4, {x: 0, y: -20, z: 0.98}], [8.8, 6.0, {z: 1.05, y: -40}], [12.4, 7.0, {y: 90, z: 1.07}], [21.8, 1.6, {x: 0, y: 30, z: 1.0}], [22.4, 6.0, {z: 1.05, y: 60}], [28.8, 1.6, {x: 0, y: 0, z: 0.96}], [29.4, 15.0, {z: 1.05}], [45.6, 1.4, {z: 0.97, y: -40}], [46.2, 5.0, {z: 1.04, y: -20}], [51.6, 8.0, {z: 1.07, y: 60}]]);
+    // Chapitre recalé sur les frontières de phrases MESURÉES dans la prise
+    // refaite (celle qui dit URM, et non URA). Voir NOTES_DE_PRODUCTION.
+    addCam(tl, S, [[1.2,2.0,{z:1.06}],[4.0,4.0,{x:-80,z:1.09}],
+                   [6.0,1.2,{x:0,y:-20,z:0.98}],[6.6,5.0,{z:1.05,y:-40}],
+                   [9.0,8.4,{y:90,z:1.07}],[17.6,1.4,{x:0,y:30,z:1.0}],
+                   [18.2,8.0,{z:1.05,y:60}],[26.4,1.4,{x:0,y:0,z:0.96}],
+                   [27.0,11.4,{z:1.05}],[38.4,1.2,{z:0.97,y:-40}],
+                   [39.0,10.0,{z:1.04,y:-20}],[49.2,10.0,{z:1.07,y:60}]]);
     S.circ = o(); S.coll = o(); S.arch = o(); S.cit1 = o({ dy: 18 });
     S.fam = [o({ dx: -24 }), o({ dx: -24 })];
     S.bl = o(); S.mic = o(); S.cit2 = o({ dy: 18 });
     S.mer = o(); S.bat = o(); S.obs = o(); S.coule = { t: 0 }; S.x = o({ sc: 1.6 });
     addHeader(tl, S, '02', 'LA VOIE PAR VOIE', this.dur);
-    tl.to(S.circ, { o: 1, p: 1, duration: 1.1, ease: EX }, 1.5)
-      .to(S.coll, { o: 1, duration: .6, ease: EO }, 4.0)
-      .to([S.circ, S.coll], { o: 0, duration: .6 }, 8.0)
-      .to(S.arch, { o: 1, p: 1, duration: 1.8, ease: EX }, 8.6)
-      .to(S.cit1, { o: 1, dy: 0, duration: .8, ease: EO }, 12.4)
-      .to(S.cit1, { o: 0, duration: .6 }, 21.6)
-      .to(S.fam[0], { o: 1, dx: 0, duration: .6, ease: EO }, 22.4)
-      .to(S.fam[1], { o: 1, dx: 0, duration: .6, ease: EO }, 24.6)
-      .to([S.arch, S.fam[0], S.fam[1]], { o: 0, duration: .7 }, 28.6)
-      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 29.2)
-      .to(S.mic, { o: 1, duration: .6, ease: EO }, 31.0)
-      .to([S.bl, S.mic], { o: 0, duration: 1.0 }, 45.0)
-      .to(S.cit2, { o: 1, dy: 0, duration: .8, ease: EO }, 46.2)
-      .to(S.cit2, { o: 0, duration: .6 }, 51.4)
-      .to(S.mer, { o: 1, p: 1, duration: .9, ease: EX }, 51.8)
-      .to(S.bat, { o: 1, duration: .7, ease: EO }, 52.4)
-      .to(S.obs, { o: 1, duration: .5, ease: EB }, 53.4)
-      .to(S.coule, { t: 1, duration: 2.4, ease: 'power2.in' }, 55.0)
-      .to(S.x, { o: 1, sc: 1, duration: .5, ease: EB }, 57.4)
-      .to([S.mer, S.bat, S.obs, S.x], { o: 0, duration: .5 }, 60.6);
+    tl.to(S.circ, { o: 1, p: 1, duration: 1.1, ease: EX }, 0.60)
+      .to(S.coll, { o: 1, duration: .6, ease: EO }, 3.03)
+      .to([S.circ, S.coll], { o: 0, duration: .6 }, 6.10)
+      .to(S.arch, { o: 1, p: 1, duration: 1.8, ease: EX }, 6.40)
+      .to(S.cit1, { o: 1, dy: 0, duration: .8, ease: EO }, 8.80)
+      .to(S.cit1, { o: 0, duration: .6 }, 17.58)
+      .to(S.fam[0], { o: 1, dx: 0, duration: .6, ease: EO }, 19.45)
+      .to(S.fam[1], { o: 1, dx: 0, duration: .6, ease: EO }, 22.42)
+      .to([S.arch, S.fam[0], S.fam[1]], { o: 0, duration: .7 }, 26.65)
+      .to(S.bl, { o: 1, duration: 1.0, ease: EO }, 26.95)
+      .to(S.mic, { o: 1, duration: .6, ease: EO }, 31.25)
+      .to([S.bl, S.mic], { o: 0, duration: 1.0 }, 38.68)
+      .to(S.cit2, { o: 1, dy: 0, duration: .8, ease: EO }, 40.80)
+      .to(S.cit2, { o: 0, duration: .6 }, 49.34)
+      .to(S.mer, { o: 1, p: 1, duration: .9, ease: EX }, 49.64)
+      .to(S.bat, { o: 1, duration: .7, ease: EO }, 50.34)
+      .to(S.obs, { o: 1, duration: .5, ease: EB }, 51.34)
+      .to(S.coule, { t: 1, duration: 2.4, ease: 'power2.in' }, 53.11)
+      .to(S.x, { o: 1, sc: 1, duration: .5, ease: EB }, 55.41)
+      .to([S.mer, S.bat, S.obs, S.x], { o: 0, duration: .5 }, 60.60);
     addOutro(tl, S, this.dur);
   },
   draw(g, S, t, pl) {
@@ -426,7 +433,7 @@ const CH2 = {
     if (S.arch.o > 0) {
       const y = 430;
       boite(g, 420, y, 250, 128, 'UC', 'enregistreurs', S.arch.o * clamp(S.arch.p * 3));
-      boite(g, 840, y, 250, 128, 'URA', 'injecte / extrait', S.arch.o * clamp(S.arch.p * 3 - .8));
+      boite(g, 840, y, 250, 128, 'URM', 'injecte / extrait', S.arch.o * clamp(S.arch.p * 3 - .8));
       boite(g, 1300, y, 230, 128, 'IT 16', 'du MIC', S.arch.o * clamp(S.arch.p * 3 - 1.5),
             { color: C.bleu });
       g.save(); g.globalAlpha = S.arch.o;
@@ -436,9 +443,16 @@ const CH2 = {
       g.textAlign = 'left';
       setFont(g, F.b, 19, 500, .3); g.fillStyle = C.encre3;
       g.fillText('→ vers le commutateur suivant', 1500, y - 24);
+      // les trois fonctions de l'URM, dites par le prof : c'est elles qui
+      // expliquent pourquoi c'est lui — et pas l'URA, ni la base de temps.
+      g.textAlign = 'center';
+      setFont(g, F.m, 17, 500, 2.6); g.fillStyle = C.bleu;
+      g.globalAlpha = S.arch.o * clamp(S.arch.p * 3 - 2.2);
+      g.fillText('URM  ·  TRANSCODAGE  ·  SYNCHRONISATION DES DÉBUTS DE TRAME  ·  INJECTION / EXTRACTION DE LA SIGNALISATION',
+                 1000, y + 110);
       g.restore();
     }
-    citation(g, 330, 700, ["C'est l'URA qui injecte la signalisation,",
+    citation(g, 330, 700, ["C'est l'URM qui injecte la signalisation,",
                            'et c\'est lui qui la récupère à la réception.',
                            'Mais le message qu\'il injecte, c\'est les enregistreurs',
                            'de l\'unité de commande qui le lui envoient.'],
@@ -938,9 +952,12 @@ const CH6 = {
       g.restore();
       coche(g, 1000, 742, 1.8, S.Aok.o);
     }
-    citation(g, 330, 806, ['Deux CAA ne peuvent pas communiquer en mode associé',
-                           'si les deux PS ne sont pas liés directement.'],
-             S.cit, { size: 42, source: 'le prof' });
+    // Phrase du prof, reprise telle quelle de l'enregistrement.
+    citation(g, 330, 806, ['Dans un mode associé, les deux points sémaphores',
+                           'qui sont en jeu sont reliés directement.',
+                           "Il n'y a pas de point intermédiaire de relève",
+                           "de l'information de signalisation."],
+             S.cit, { size: 38, source: 'le prof' });
     if (S.Alim.o > 0) {
       g.save(); g.globalAlpha = S.Alim.o; g.textAlign = 'center';
       setFont(g, F.h, 48, 700, 0); g.fillStyle = C.rouge;
