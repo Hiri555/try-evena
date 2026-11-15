@@ -15,7 +15,7 @@ ffmpeg -y -loglevel error -framerate 24 -i $F/%05d.jpg -i $S/ss7b/audio/mix.wav 
 
 echo "=== WEB (CRF 21)"
 ffmpeg -y -loglevel error -framerate 24 -i $F/%05d.jpg -i $S/ss7b/audio/mix.wav \
-  -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -profile:v high -level 4.0 \
+  -c:v libx264 -preset medium -crf 21 -pix_fmt yuv420p -profile:v high -level 4.0 \
   -x264-params "keyint=48:min-keyint=24" -color_primaries bt709 -color_trc bt709 -colorspace bt709 \
   -c:a aac -b:a 192k -ar 48000 -movflags +faststart -shortest \
   $O/SS7_Ep2_WEB_1080p.mp4
@@ -23,7 +23,7 @@ ffmpeg -y -loglevel error -framerate 24 -i $F/%05d.jpg -i $S/ss7b/audio/mix.wav 
 echo "=== WEB sous-titré"
 ffmpeg -y -loglevel error -i $O/SS7_Ep2_WEB_1080p.mp4 \
   -vf "subtitles=$O/SS7_Ep2_FR.srt:fontsdir=$T:force_style='FontName=IBM Plex Sans SemiBold,FontSize=21,PrimaryColour=&H00332B1C,OutlineColour=&H00D2E4ED,BorderStyle=1,Outline=2,Shadow=0,MarginV=52,Alignment=2'" \
-  -c:v libx264 -preset slow -crf 21 -pix_fmt yuv420p -c:a copy -movflags +faststart \
+  -c:v libx264 -preset medium -crf 21 -pix_fmt yuv420p -c:a copy -movflags +faststart \
   $O/SS7_Ep2_WEB_1080p_SOUSTITRE.mp4
 
 echo "=== affiche"
