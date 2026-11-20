@@ -1,0 +1,130 @@
+1
+00:00:00,137 --> 00:00:02,987
+Un opérateur pose des milliers de compteurs communicants.
+
+2
+00:00:03,013 --> 00:00:04,613
+Chacun porte une carte SIM.
+
+3
+00:00:04,667 --> 00:00:08,331
+Et chaque heure, il envoie un seul chiffre : l'index de consommation.
+
+4
+00:00:08,400 --> 00:00:09,716
+Un chiffre banal.
+
+5
+00:00:10,080 --> 00:00:16,170
+Sauf qu'aligné sur vingt-quatre heures, ce chiffre montre quelqu'un
+qui se lève, qui part travailler, qui rentre, qui dort.
+
+6
+00:00:16,230 --> 00:00:18,613
+L'index dessine le rythme de vie d'un foyer.
+
+7
+00:00:18,667 --> 00:00:20,560
+Et là, le droit se réveille.
+
+8
+00:00:20,640 --> 00:00:23,940
+Trois corps de règles s'appliquent en même temps sur ce seul boîtier.
+
+9
+00:00:23,960 --> 00:00:26,400
+C'est leur superposition qui fait la difficulté.
+
+10
+00:00:26,480 --> 00:00:28,100
+Un : identifier.
+
+11
+00:00:28,200 --> 00:00:32,811
+L'article 36 oblige l'opérateur à identifier
+tous les utilisateurs de ses services.
+
+12
+00:00:32,869 --> 00:00:36,027
+Mais attention : la carte du compteur n'appartient pas à l'occupant.
+
+13
+00:00:36,053 --> 00:00:38,731
+Elle est rattachée à l'entreprise qui exploite le parc.
+
+14
+00:00:38,800 --> 00:00:42,893
+Deux sujets de droit distincts —
+les confondre, c'est l'erreur la plus chère du sujet.
+
+15
+00:00:42,960 --> 00:00:44,440
+Deux : qualifier.
+
+16
+00:00:44,480 --> 00:00:47,787
+L'index est une donnée personnelle dès qu'il est rattachable à un foyer.
+
+17
+00:00:47,813 --> 00:00:52,971
+Mais il n'est pas sensible : l'article 40 réserve ça
+à la santé, aux opinions, à l'origine.
+
+18
+00:00:53,029 --> 00:00:55,733
+Trop qualifier est une erreur. Pas assez aussi.
+
+19
+00:00:55,787 --> 00:00:57,531
+La bonne réponse est entre les deux.
+
+20
+00:00:57,589 --> 00:01:00,180
+Et l'ingénieur a deux leviers que le juriste n'a pas.
+
+21
+00:01:00,200 --> 00:01:06,000
+L'agrégation : si la finalité est de piloter un quartier,
+on remonte un agrégat, et ce n'est plus une donnée personnelle.
+
+22
+00:01:06,040 --> 00:01:10,663
+La fréquence : l'horaire révèle la présence au domicile ;
+le quotidien suffit souvent.
+
+23
+00:01:10,777 --> 00:01:12,680
+Trois : faire vieillir le parc.
+
+24
+00:01:12,720 --> 00:01:14,187
+Changer les mots de passe d'usine.
+
+25
+00:01:14,213 --> 00:01:15,493
+Chiffrer les transmissions.
+
+26
+00:01:15,547 --> 00:01:17,947
+Remplacer un objet que le fabricant ne corrige plus.
+
+27
+00:01:17,973 --> 00:01:21,453
+Et à la dépose, désactiver la carte — sinon elle devient orpheline.
+
+28
+00:01:21,587 --> 00:01:25,240
+La preuve de tout ça tient dans un seul document : le registre de parc.
+
+29
+00:01:25,280 --> 00:01:30,023
+Chaque objet, sa donnée, sa finalité, sa fréquence,
+sa base légale, sa durée.
+
+30
+00:01:30,137 --> 00:01:32,080
+Trois régimes. Un seul boîtier.
+
+31
+00:01:32,240 --> 00:01:35,360
+Identifier la carte, qualifier la donnée, faire vieillir le parc.
