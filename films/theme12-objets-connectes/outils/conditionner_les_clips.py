@@ -1,10 +1,11 @@
 import subprocess, os
-# ordre chronologique : (clip source, duree du plan, point d'entree)
-CIBLES=[("s08",5.6,0.3),("s03",3.2,1.2),("s01",5.0,0.6),("s09L",6.6,0.6),("s09R",6.6,0.6),
-        ("s10",2.7,1.8),("s04",6.2,0.4),("s05",5.8,0.9),("s06",5.0,1.0),("s11",5.6,0.9),
-        ("s12",5.2,1.0),("s13",3.2,1.6),("s14",3.6,1.5),("s15",4.8,1.2),("s16",5.2,1.1),
-        ("s02",4.0,1.2),("s17",4.4,1.4),("s18",4.4,1.3),("s07",4.9,1.0),("s19",4.6,1.3),
-        ("s20",4.3,1.3),("s21",5.8,0.9)]
+# (clip source, duree du plan, point d'entree) — ordre de l'histoire, ouverture comprise
+CIBLES=[("ville",5.4,0.8),("entrepot",4.2,1.2),("camionnette",4.2,1.2),
+        ("s08",6.0,0.3),("s03",2.8,1.4),("s01",4.4,0.8),("s09L",6.2,0.6),("s09R",6.2,0.6),
+        ("s10",3.3,1.6),("s04",6.5,0.3),("s05",5.4,1.0),("s06",5.9,0.8),("s11",5.6,0.9),
+        ("s12",5.0,1.1),("s13",4.9,1.2),("s14",4.2,1.4),("s15",5.2,1.0),("s16",5.9,0.9),
+        ("s02",4.2,1.2),("s17",5.3,1.0),("s18",5.0,1.0),("s07",5.2,0.9),("s19",5.2,1.0),
+        ("s20",4.6,1.2),("s21",6.4,0.7)]
 os.makedirs('assets/clips',exist_ok=True)
 def dur(f):
     return float(subprocess.run(['ffprobe','-v','error','-show_entries','format=duration',
@@ -23,6 +24,6 @@ for pid,plan,ss in CIBLES:
     if r.returncode!=0: print('ERR',pid,r.stderr[-200:]); continue
     nd=dur(f'assets/clips/{pid}.mp4'); mo=os.path.getsize(f'assets/clips/{pid}.mp4')/1048576
     tot+=mo;n+=1
-    print(f"{'OK ' if nd>=plan-0.01 else 'COURT'} {pid:5s} -> {nd:5.2f}s (plan {plan}s)  {mo:5.1f} Mo")
+    print(f"{'OK ' if nd>=plan-0.01 else 'COURT'} {pid:12s} -> {nd:5.2f}s (plan {plan}s)  {mo:5.1f} Mo")
 print(f'\n{n}/{len(CIBLES)} plans, {tot:.0f} Mo')
 if manque: print('MANQUENT :',' '.join(manque))

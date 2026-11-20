@@ -14,7 +14,17 @@ donc pas de fil conducteur. Le commanditaire a tranché : « on ne comprend rien
 pas de chronologie ».
 
 Le film suit maintenant un objet dans le temps, et le droit arrive quand l'objet le
-rencontre. Le fil conducteur est double :
+rencontre.
+
+Une deuxième passe a ajouté ce qui manquait encore : **une ouverture**. La version
+précédente démarrait sur « Jour un » sans jamais dire ce qu'on regardait. Treize secondes
+posent maintenant le sujet, la méthode et la durée du récit — « Un opérateur installe des
+milliers d'objets connectés… Chacun pose au droit exactement les mêmes questions… **Alors
+suivons-en un seul. Un compteur. De sa pose à sa dépose.** » — et la frise n'apparaît qu'au
+« Jour un ». Le reste du texte a été desserré : des silences entre les chapitres, et les
+phrases tassées coupées en deux (« Personnelle ? Oui. » / « Sensible ? Non. »).
+
+Le fil conducteur est double :
 
 - une **frise permanente** en haut de l'écran — sept repères (J1, J2, M3, M6, A3, A8, FIN)
   et un point qui avance de chapitre en chapitre ;
@@ -129,18 +139,18 @@ voit pas en projection, mais il est réel et je préfère l'écrire.
 
 | | |
 |---|---|
-| durée | 98,40 s (brief : 1 min 50 maximum) |
-| plans | 22, tous différents, tous animés (0 réemploi, 0 image fixe), remontés dans l'ordre de l'histoire |
-| chapitres | 7, portés par une frise permanente |
+| durée | 119,0 s — 1 min 59 (brief : 1 min 50 à 2 minutes) |
+| plans | 25, tous différents, tous animés (0 réemploi, 0 image fixe), remontés dans l'ordre de l'histoire |
+| chapitres | 1 ouverture + 7 chapitres, portés par une frise permanente |
 | personnages | 4, dessinés en SVG, entrant sur le mot qui les nomme |
 | image | 1920×1080, 30 i/s, H.264 high@4.0 |
-| son | −12,5 LUFS intégré, crête −0,9 dBTP (référence : son film multiplexage, −11,9 LUFS) |
+| son | −13,1 LUFS intégré, crête −2,5 dBTP (référence : son film multiplexage, −11,9 LUFS) |
 | contrôle HyperFrames | 0 erreur ; 0 alerte de contraste ; mise en page 0 problème |
-| version allégée | 42,0 Mo, SSIM 0,99993 contre le master (41,7 dB) |
+| version allégée | 49,2 Mo, SSIM 0,99994 contre le master (42,1 dB) |
 | coupes internes dans les clips | 0 sur 22 (détection `scdet`) |
 | mouvement image par image | 0,40 à 2,46 sur 255 ; aucun plan à zéro |
 
-Deux fichiers : le master (97,0 Mo, pour la projection) et `_whatsapp` (42,0 Mo, pour l'envoi).
+Deux fichiers : le master (116,1 Mo, pour la projection) et `_whatsapp` (49,2 Mo, pour l'envoi).
 Ils ne sont pas versionnés ici — ce dépôt garde la source, pas les rendus.
 
 ---
@@ -179,6 +189,15 @@ KIE=<votre_cle> python3 outils/animer_les_plans.py   # genere et telecharge clip
 python3 outils/conditionner_les_clips.py             # decoupe vers assets/clips/
 ```
 
+### Quand le service de génération tombe
+
+Les trois plans d'ouverture ont refusé de se générer : huit tentatives, deux modèles, trois
+images. Avant de relancer à l'aveugle, j'ai renvoyé à Veo **une image qui avait déjà abouti**
+— elle a échoué aussi. Ce n'étaient donc ni les prompts ni les images : le service vidéo
+était en panne. Une boucle de reprise espacée a fini par passer dès qu'il est revenu.
+Leçon retenue : avant de supposer que son propre travail est en cause, envoyer un témoin
+connu.
+
 ### Un bug qui aurait tout gâché
 
 Les six pastilles du registre portaient les identifiants `c1`…`c6`, **identiques à ceux des
@@ -188,5 +207,5 @@ ne le voyait pas — il a fallu regarder les images. Les pastilles s'appellent m
 `k1`…`k6`. Règle retenue : ne jamais réutiliser un préfixe d'identifiant entre deux familles
 d'éléments d'une même composition.
 
-La bande son `assets/audio/mix3.mp3` contient déjà la voix et la musique mixées
+La bande son `assets/audio/mix4.mp3` contient déjà la voix et la musique mixées
 (ducking par `sidechaincompress` sous la voix, limiteur, master à −12 LUFS).

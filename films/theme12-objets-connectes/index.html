@@ -16,7 +16,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 
 /* ---------- plans ---------- */
 .plan{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;opacity:0}
-#p04L{left:0;width:960px} #p04R{left:960px;width:960px}
+#v06L{left:0;width:960px} #v06R{left:960px;width:960px}
 .voile{position:absolute;inset:0;opacity:0}
 .v-bas{background:linear-gradient(180deg,rgba(5,8,15,.18) 0%,rgba(5,8,15,.04) 32%,rgba(5,8,15,.82) 76%,rgba(5,8,15,.95) 100%)}
 .v-gauche{background:linear-gradient(90deg,rgba(5,8,15,.90) 0%,rgba(5,8,15,.55) 38%,rgba(5,8,15,.08) 70%,rgba(5,8,15,.32) 100%)}
@@ -42,6 +42,20 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   font-family:var(--fm);font-size:30px;letter-spacing:.2em;color:var(--cyan);opacity:0}
 #marque{position:absolute;right:68px;top:64px;font-family:var(--fm);font-size:28px;
   letter-spacing:.14em;color:#8FA3C8;opacity:0}
+
+/* ---------- ouverture ---------- */
+#okick{position:absolute;left:0;top:338px;width:1920px;text-align:center;font-family:var(--fm);
+  font-size:32px;letter-spacing:.36em;color:var(--cyan);opacity:0}
+#otit{position:absolute;left:0;top:396px;width:1920px;text-align:center;font-family:var(--fd);
+  font-size:92px;line-height:1.04;letter-spacing:-.02em}
+#osub{position:absolute;left:0;top:552px;width:1920px;text-align:center;font-family:var(--fm);
+  font-size:32px;letter-spacing:.26em;color:var(--gris);opacity:0}
+#oq{position:absolute;left:0;top:452px;width:1920px;text-align:center;font-family:var(--fd);
+  font-size:62px;line-height:1.1}
+#os1{position:absolute;left:0;top:432px;width:1920px;text-align:center;font-family:var(--fd);
+  font-size:74px}
+#os2{position:absolute;left:0;top:552px;width:1920px;text-align:center;font-family:var(--fm);
+  font-size:34px;letter-spacing:.24em;color:var(--cyan);opacity:0}
 
 /* ---------- typographie ---------- */
 .titre{position:absolute;font-family:var(--fd);font-size:80px;line-height:1.03;letter-spacing:-.015em}
@@ -147,38 +161,57 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="98.6"
+<div id="root" data-composition-id="main" data-start="0" data-duration="119"
      data-width="1920" data-height="1080" data-fps="30">
 
-  <!-- ====== 22 PLANS, DANS L'ORDRE DE L'HISTOIRE ====== -->
-  <video class="plan clip" id="p01"  src="assets/clips/s08.mp4"  muted playsinline preload="auto" data-start="0"    data-duration="5.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p02"  src="assets/clips/s03.mp4"  muted playsinline preload="auto" data-start="5.4"  data-duration="3.2" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p03"  src="assets/clips/s01.mp4"  muted playsinline preload="auto" data-start="8.4"  data-duration="5.0" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p04L" src="assets/clips/s09L.mp4" muted playsinline preload="auto" data-start="13.2" data-duration="6.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p04R" src="assets/clips/s09R.mp4" muted playsinline preload="auto" data-start="13.2" data-duration="6.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p05"  src="assets/clips/s10.mp4"  muted playsinline preload="auto" data-start="19.6" data-duration="2.7" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p06"  src="assets/clips/s04.mp4"  muted playsinline preload="auto" data-start="22.0" data-duration="6.2" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p07"  src="assets/clips/s05.mp4"  muted playsinline preload="auto" data-start="28.0" data-duration="5.8" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p08"  src="assets/clips/s06.mp4"  muted playsinline preload="auto" data-start="33.6" data-duration="5.0" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p09"  src="assets/clips/s11.mp4"  muted playsinline preload="auto" data-start="38.4" data-duration="5.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p10"  src="assets/clips/s12.mp4"  muted playsinline preload="auto" data-start="43.8" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p11"  src="assets/clips/s13.mp4"  muted playsinline preload="auto" data-start="48.8" data-duration="3.2" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p12"  src="assets/clips/s14.mp4"  muted playsinline preload="auto" data-start="51.8" data-duration="3.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p13"  src="assets/clips/s15.mp4"  muted playsinline preload="auto" data-start="55.2" data-duration="4.8" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p14"  src="assets/clips/s16.mp4"  muted playsinline preload="auto" data-start="59.8" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p15"  src="assets/clips/s02.mp4"  muted playsinline preload="auto" data-start="64.8" data-duration="4.0" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p16"  src="assets/clips/s17.mp4"  muted playsinline preload="auto" data-start="68.6" data-duration="4.4" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p17"  src="assets/clips/s18.mp4"  muted playsinline preload="auto" data-start="72.8" data-duration="4.4" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p18"  src="assets/clips/s07.mp4"  muted playsinline preload="auto" data-start="77.0" data-duration="4.9" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p19"  src="assets/clips/s19.mp4"  muted playsinline preload="auto" data-start="81.7" data-duration="4.6" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p20"  src="assets/clips/s20.mp4"  muted playsinline preload="auto" data-start="86.1" data-duration="4.3" data-track-index="0" data-track-kind="video"></video>
-  <video class="plan clip" id="p21"  src="assets/clips/s21.mp4"  muted playsinline preload="auto" data-start="90.2" data-duration="5.8" data-track-index="0" data-track-kind="video"></video>
+  <!-- ====== 25 PLANS, DANS L'ORDRE DE L'HISTOIRE ====== -->
+  <video class="plan clip" id="v00" src="assets/clips/ville.mp4" muted playsinline preload="auto" data-start="0.0" data-duration="5.4" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v01" src="assets/clips/entrepot.mp4" muted playsinline preload="auto" data-start="5.2" data-duration="4.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v02" src="assets/clips/camionnette.mp4" muted playsinline preload="auto" data-start="9.2" data-duration="4.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v03" src="assets/clips/s08.mp4" muted playsinline preload="auto" data-start="13.4" data-duration="6.0" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v04" src="assets/clips/s03.mp4" muted playsinline preload="auto" data-start="19.2" data-duration="2.8" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v05" src="assets/clips/s01.mp4" muted playsinline preload="auto" data-start="21.8" data-duration="4.4" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v06L" src="assets/clips/s09L.mp4" muted playsinline preload="auto" data-start="26.0" data-duration="6.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v06R" src="assets/clips/s09R.mp4" muted playsinline preload="auto" data-start="26.0" data-duration="6.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v07" src="assets/clips/s10.mp4" muted playsinline preload="auto" data-start="32.0" data-duration="3.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v08" src="assets/clips/s04.mp4" muted playsinline preload="auto" data-start="35.1" data-duration="6.5" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v09" src="assets/clips/s05.mp4" muted playsinline preload="auto" data-start="41.4" data-duration="5.4" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v10" src="assets/clips/s06.mp4" muted playsinline preload="auto" data-start="46.6" data-duration="5.9" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v11" src="assets/clips/s11.mp4" muted playsinline preload="auto" data-start="52.3" data-duration="5.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v12" src="assets/clips/s12.mp4" muted playsinline preload="auto" data-start="57.7" data-duration="5.0" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v13" src="assets/clips/s13.mp4" muted playsinline preload="auto" data-start="62.5" data-duration="4.9" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v14" src="assets/clips/s14.mp4" muted playsinline preload="auto" data-start="67.2" data-duration="4.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v15" src="assets/clips/s15.mp4" muted playsinline preload="auto" data-start="71.2" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v16" src="assets/clips/s16.mp4" muted playsinline preload="auto" data-start="76.2" data-duration="5.9" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v17" src="assets/clips/s02.mp4" muted playsinline preload="auto" data-start="81.9" data-duration="4.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v18" src="assets/clips/s17.mp4" muted playsinline preload="auto" data-start="85.9" data-duration="5.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v19" src="assets/clips/s18.mp4" muted playsinline preload="auto" data-start="91.0" data-duration="5.0" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v20" src="assets/clips/s07.mp4" muted playsinline preload="auto" data-start="95.8" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v21" src="assets/clips/s19.mp4" muted playsinline preload="auto" data-start="100.8" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v22" src="assets/clips/s20.mp4" muted playsinline preload="auto" data-start="105.8" data-duration="4.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="v23" src="assets/clips/s21.mp4" muted playsinline preload="auto" data-start="110.2" data-duration="6.4" data-track-index="0" data-track-kind="video"></video>
 
   <div id="fente"></div>
   <div id="vg"></div>
 
+  <!-- ====== C0 · OUVERTURE : de quoi parle le film ====== -->
+  <div class="clip" id="c0" data-start="0" data-duration="13.4" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-plein" id="vo0"></div>
+    <div id="okick">THÈME 12</div>
+    <div id="otit">
+      <span class="w">RÉSEAUX</span> <span class="w">D'OBJETS</span> <span class="w cy">CONNECTÉS</span></div>
+    <div id="osub">SIM · IDENTIFICATION · DONNÉES</div>
+    <div id="oq">
+      <span class="w">CHACUN</span> <span class="w">POSE</span> <span class="w">LES</span>
+      <span class="w amb">MÊMES</span> <span class="w amb">QUESTIONS</span>
+      <span class="w">AU</span> <span class="w">DROIT</span></div>
+    <div id="os1">
+      <span class="w">SUIVONS-EN</span> <span class="w cy">UN</span> <span class="w cy">SEUL</span></div>
+    <div id="os2">DE SA POSE À SA DÉPOSE</div>
+  </div>
+
   <!-- ====== C1a · le technicien pose, et la question tombe ====== -->
-  <div class="clip" id="c1a" data-start="0" data-duration="13.2" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c1a" data-start="13.4" data-duration="12.6" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-bas" id="vo1a"></div>
     <svg class="perso tech" id="tech1" style="left:150px" viewBox="0 0 120 264">
       <path class="om" d="M44 168h13v88H44zM63 168h13v88H63z"/>
@@ -198,7 +231,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C1b · deux sujets de droit : la carte change de mains ====== -->
-  <div class="clip" id="c1b" data-start="13.2" data-duration="9.1" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c1b" data-start="26.0" data-duration="9.3" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-haut" id="vo1b"></div>
     <svg class="perso occ" id="occ" style="left:300px" viewBox="0 0 120 264">
       <path class="om" d="M44 168h13v88H44zM63 168h13v88H63z"/>
@@ -234,7 +267,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C2 · le premier relevé, puis vingt-quatre ====== -->
-  <div class="clip" id="c2" data-start="22.0" data-duration="16.4" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c2" data-start="35.1" data-duration="17.4" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-gauche" id="vo2a"></div>
     <div id="idx">04 812</div>
     <div id="idxLab">INDEX · kWh</div>
@@ -251,7 +284,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C3 · le juriste qualifie ====== -->
-  <div class="clip" id="c3" data-start="38.4" data-duration="13.4" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c3" data-start="52.3" data-duration="15.1" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-haut" id="vo3"></div>
     <svg class="perso jur" id="jur" style="left:1480px" viewBox="0 0 120 264">
       <path class="om" d="M44 168h13v88H44zM63 168h13v88H63z"/>
@@ -273,7 +306,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C4 · l'ingénieur et ses deux leviers ====== -->
-  <div class="clip" id="c4" data-start="51.8" data-duration="13.1" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c4" data-start="67.2" data-duration="14.7" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-haut" id="vo4"></div>
     <svg class="perso ing" id="ing" style="left:180px" viewBox="0 0 120 264">
       <path class="om" d="M44 168h13v88H44zM63 168h13v88H63z"/>
@@ -302,7 +335,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C5 · le parc vieillit : une illustration par négligence ====== -->
-  <div class="clip" id="c5" data-start="64.9" data-duration="7.9" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c5" data-start="81.9" data-duration="9.3" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-fort" id="vo5"></div>
     <div class="vig" id="g1v">
       <svg viewBox="0 0 420 260" style="width:420px;height:260px" data-layout-allow-overflow>
@@ -349,7 +382,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C6 · le technicien revient ====== -->
-  <div class="clip" id="c6" data-start="72.8" data-duration="8.9" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c6" data-start="91.0" data-duration="10.0" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-bas" id="vo6"></div>
     <svg class="perso tech" id="tech2" style="left:1480px" viewBox="0 0 120 264">
       <path class="om" d="M44 168h13v88H44zM63 168h13v88H63z"/>
@@ -369,7 +402,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== C7 · le registre, puis la clôture ====== -->
-  <div class="clip" id="c7" data-start="81.7" data-duration="16.9" data-track-index="1" data-track-kind="graphics">
+  <div class="clip" id="c7" data-start="100.8" data-duration="18.2" data-track-index="1" data-track-kind="graphics">
     <div class="voile v-fort" id="vo7"></div>
     <div class="titre" id="tReg" style="left:170px;top:340px;width:1580px">
       <span class="w">LE</span> <span class="w amb">REGISTRE</span> <span class="w amb">DE</span>
@@ -392,7 +425,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   </div>
 
   <!-- ====== LA FRISE : sept repères, un pion qui avance ====== -->
-  <div class="clip" id="gfrise" data-start="0" data-duration="96.0" data-track-index="2" data-track-kind="graphics">
+  <div class="clip" id="gfrise" data-start="13.2" data-duration="103.2" data-track-index="2" data-track-kind="graphics">
     <div id="frise">
       <div id="fond"></div>
       <div id="rail"></div>
@@ -415,7 +448,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
     <div id="marque">ESMT · THÈME 12</div>
   </div>
 
-  <audio id="bande" class="clip" src="assets/audio/mix3.mp3" data-start="0" data-volume="1"
+  <audio id="bande" class="clip" src="assets/audio/mix4.mp3" data-start="0" data-volume="1"
          data-track-index="9" data-track-kind="audio"></audio>
 </div>
 
@@ -461,153 +494,165 @@ function plan(id,start,dur,fi){
   else tl.fromTo(id,{opacity:0},{opacity:1,duration:.5,ease:'power2.out'},start);
   tl.to(id,{opacity:0,duration:.45,ease:'power2.in'},start+dur-.45);
 }
-plan('#p01',0,5.6,0);   plan('#p02',5.4,3.2);   plan('#p03',8.4,5.0);
-plan('#p04L',13.2,6.6); plan('#p04R',13.2,6.6); plan('#p05',19.6,2.7);
-plan('#p06',22.0,6.2);  plan('#p07',28.0,5.8);  plan('#p08',33.6,5.0);
-plan('#p09',38.4,5.6);  plan('#p10',43.8,5.2);  plan('#p11',48.8,3.2);
-plan('#p12',51.8,3.6);  plan('#p13',55.2,4.8);  plan('#p14',59.8,5.2);
-plan('#p15',64.8,4.0);  plan('#p16',68.6,4.4);  plan('#p17',72.8,4.4);
-plan('#p18',77.0,4.9);  plan('#p19',81.7,4.6);  plan('#p20',86.1,4.3);
-plan('#p21',90.2,5.8);
-tl.fromTo('#fente',{opacity:0,scaleY:0},{opacity:.85,scaleY:1,duration:.5,ease:'power3.out'},13.8)
-  .to('#fente',{opacity:0,duration:.4,ease:'power2.in'},19.2);
+plan('#v00',0,5.4,0);   plan('#v01',5.2,4.2);   plan('#v02',9.2,4.2);
+plan('#v03',13.4,6.0);  plan('#v04',19.2,2.8);  plan('#v05',21.8,4.4);
+plan('#v06L',26.0,6.2); plan('#v06R',26.0,6.2); plan('#v07',32.0,3.3);
+plan('#v08',35.1,6.5);  plan('#v09',41.4,5.4);  plan('#v10',46.6,5.9);
+plan('#v11',52.3,5.6);  plan('#v12',57.7,5.0);  plan('#v13',62.5,4.9);
+plan('#v14',67.2,4.2);  plan('#v15',71.2,5.2);  plan('#v16',76.2,5.9);
+plan('#v17',81.9,4.2);  plan('#v18',85.9,5.3);  plan('#v19',91.0,5.0);
+plan('#v20',95.8,5.2);  plan('#v21',100.8,5.2); plan('#v22',105.8,4.6);
+plan('#v23',110.2,6.4);
+tl.fromTo('#fente',{opacity:0,scaleY:0},{opacity:.85,scaleY:1,duration:.5,ease:'power3.out'},26.6)
+  .to('#fente',{opacity:0,duration:.4,ease:'power2.in'},31.6);
 
-[['#vo1a',0,13.2],['#vo1b',13.2,9.1],['#vo2a',22.0,16.4],['#vo3',38.4,13.4],
- ['#vo4',51.8,13.1],['#vo5',64.9,7.9],['#vo6',72.8,8.9],['#vo7',81.9,16.7]]
- .forEach(([s,a,d])=>{ tl.fromTo(s,{opacity:0},{opacity:1,duration:.5},a)
-   .to(s,{opacity:0,duration:.45},a+d-.45); });
+[['#vo0',0,13.4],['#vo1a',13.4,12.6],['#vo1b',26.0,9.3],['#vo2a',35.1,17.4],['#vo3',52.3,15.1],
+ ['#vo4',67.2,14.7],['#vo5',81.9,9.3],['#vo6',91.0,10.0],['#vo7',101.0,18.0]]
+ .forEach(([q,a,d])=>{ tl.fromTo(q,{opacity:0},{opacity:1,duration:.5},a)
+   .to(q,{opacity:0,duration:.45},a+d-.45); });
+
+/* ================= C0 · OUVERTURE : de quoi parle le film ================= */
+tl.to('#okick',{opacity:1,duration:.5,ease:'power2.out'},0.40);
+mots('#otit',1.56,.30);                       /* « des milliers d'objets CONNECTÉS » */
+tl.to('#osub',{opacity:1,duration:.45},2.96); /* « des compteurs, des capteurs, des boîtiers » */
+tl.to(['#okick','#otit','#osub'],{opacity:0,duration:.4,ease:'power2.in'},5.20);
+mots('#oq',6.16,.085);                        /* « chacun pose les mêmes questions au droit » */
+tl.to('#oq',{opacity:0,duration:.35,ease:'power2.in'},8.95);
+mots('#os1',9.16,.22);                        /* « suivons-en un seul » */
+tl.to('#os2',{opacity:1,duration:.4},11.36);  /* « de sa pose à sa dépose » */
+tl.to(['#os1','#os2'],{opacity:0,duration:.4,ease:'power2.in'},12.90);
 
 /* ================= LA FRISE : le fil conducteur ================= */
-tl.to('#frise',{opacity:1,duration:.6,ease:'power2.out'},0.4)
-  .to('#marque',{opacity:1,duration:.6},0.4);
-const CHAP=[['#ch1',0.16,600],['#ch2',22.08,720],['#ch3',38.48,840],['#ch4',51.83,960],
-            ['#ch5',64.96,1080],['#ch6',72.88,1200],['#ch7',81.81,1320]];
-CHAP.forEach(([s,t,x],i)=>{
+tl.to('#frise',{opacity:1,duration:.6,ease:'power2.out'},13.40)
+  .to('#marque',{opacity:1,duration:.6},13.40);
+const CHAP=[['#ch1',13.44,600],['#ch2',35.20,720],['#ch3',52.32,840],['#ch4',67.19,960],
+            ['#ch5',81.92,1080],['#ch6',91.04,1200],['#ch7',100.80,1320]];
+CHAP.forEach(([q,t,x],i)=>{
   tl.to('#pion',{x:x-600,duration:.55,ease:'power3.inOut'},t);
-  tl.to(s,{opacity:1,duration:.35},t+.1);
-  if(i<CHAP.length-1) tl.to(s,{opacity:0,duration:.3},CHAP[i+1][1]-.25);
+  tl.to(q,{opacity:1,duration:.35},t+.1);
+  if(i<CHAP.length-1) tl.to(q,{opacity:0,duration:.3},CHAP[i+1][1]-.25);
 });
-tl.to(['#frise','#marque','#ch7'],{opacity:0,duration:.5,ease:'power2.in'},95.2);
+tl.to(['#frise','#marque','#ch7'],{opacity:0,duration:.5,ease:'power2.in'},115.6);
 
 /* ================= C1a · JOUR 1, LA POSE ================= */
-tl.fromTo('#tech1',{opacity:0,x:-80},{opacity:1,x:0,duration:.6,ease:'power3.out'},1.20)
-  .to('#nTech1',{opacity:1,duration:.3},1.70);
-mots('#tQ',7.12,.09);                                   /* « à qui appartient cette carte ? » */
-tl.fromTo('#badge',{opacity:0,scale:1.14},{opacity:1,scale:1,duration:.3,ease:'power4.out'},9.04);
-tl.to(['#tech1','#nTech1','#tQ','#badge'],{opacity:0,duration:.35,ease:'power2.in'},12.60);
+tl.fromTo('#tech1',{opacity:0,x:-80},{opacity:1,x:0,duration:.6,ease:'power3.out'},14.48)
+  .to('#nTech1',{opacity:1,duration:.3},14.95);
+mots('#tQ',18.88,.085);                       /* « à qui appartient cette carte ? » */
+tl.fromTo('#badge',{opacity:0,scale:1.14},{opacity:1,scale:1,duration:.3,ease:'power4.out'},21.12);
+tl.to(['#tech1','#nTech1','#tQ','#badge'],{opacity:0,duration:.35,ease:'power2.in'},25.40);
 
 /* ================= C1b · DEUX SUJETS DE DROIT ================= */
-tl.fromTo('#occ',{opacity:0,y:30},{opacity:1,y:0,duration:.4,ease:'power3.out'},14.32)
-  .to('#nOcc',{opacity:1,duration:.3},14.70)
-  .to('#pSim',{opacity:1,duration:.3},14.70)
+tl.fromTo('#occ',{opacity:0,y:30},{opacity:1,y:0,duration:.4,ease:'power3.out'},26.56)
+  .to('#nOcc',{opacity:1,duration:.3},27.00)
+  .to('#pSim',{opacity:1,duration:.3},27.00)
   .fromTo('#mCroix',{opacity:0,scale:1.5,transformOrigin:'48px 48px'},
-          {opacity:1,scale:1,duration:.26,ease:'power4.out'},14.99);
-tl.fromTo('#pEnt',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},15.87)
-  .to('#pSim',{x:900,duration:.95,ease:'power2.inOut'},16.10)
-  .to('#nEnt',{opacity:1,duration:.3},16.64)
+          {opacity:1,scale:1,duration:.26,ease:'power4.out'},27.39);
+tl.fromTo('#pEnt',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},28.72)
+  .to('#pSim',{x:900,duration:.95,ease:'power2.inOut'},28.90)
+  .to('#nEnt',{opacity:1,duration:.3},29.52)
   .fromTo('#mCoche',{opacity:0,scale:1.4,transformOrigin:'48px 48px'},
-          {opacity:1,scale:1,duration:.26,ease:'power4.out'},17.20);
-tl.fromTo('#tampon',{opacity:0,scale:1.16},{opacity:1,scale:1,duration:.34,ease:'power4.out'},17.84);
+          {opacity:1,scale:1,duration:.26,ease:'power4.out'},30.00);
+tl.fromTo('#tampon',{opacity:0,scale:1.16},{opacity:1,scale:1,duration:.34,ease:'power4.out'},30.88);
 tl.to(['#occ','#nOcc','#nEnt','#pEnt','#pSim','#mCroix','#mCoche','#tampon'],
-      {opacity:0,duration:.35,ease:'power2.in'},21.60);
+      {opacity:0,duration:.35,ease:'power2.in'},34.60);
 
 /* ================= C2 · JOUR 2, LE PREMIER RELEVÉ ================= */
-tl.fromTo('#idx',{opacity:0,y:26},{opacity:1,y:0,duration:.45,ease:'back.out(2)'},24.88)
-  .to('#idxLab',{opacity:1,duration:.35},25.49);
+tl.fromTo('#idx',{opacity:0,y:26},{opacity:1,y:0,duration:.45,ease:'back.out(2)'},38.00)
+  .to('#idxLab',{opacity:1,duration:.35},38.69);
 const INDEX=PROFIL.reduce((a,v,i)=>{a.push((a[i-1]||4480)+v);return a;},[]);
 INDEX.forEach((v,i)=>{tl.set('#idx',
-  {textContent:String(4812+v).replace(/(\d)(\d{3})$/,'$1 $2')},25.6+i*0.05);});
-tl.to(['#idx','#idxLab'],{opacity:0,duration:.3,ease:'power2.in'},26.90);
-tl.fromTo('#banal',{opacity:0,scale:.94},{opacity:1,scale:1,duration:.4,ease:'back.out(1.8)'},27.00)
-  .to('#banal',{opacity:0,duration:.35,ease:'power2.in'},28.10);
-tl.to('#axe',{opacity:1,duration:.3},28.16)
-  .to('.bar',{opacity:1,scaleY:1,duration:.26,stagger:.032,ease:'power3.out'},28.30);
-tl.fromTo('#m1',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},33.04)
-  .fromTo('#m2',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},33.88)
-  .fromTo('#m3',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},34.40)
-  .fromTo('#m4',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},35.04);
-mots('#tDP',36.16,.1);                                  /* « une donnée personnelle » */
-tl.to(['#tDP','.marq','.bar','#axe'],{opacity:0,duration:.4,ease:'power2.in'},37.90);
+  {textContent:String(4812+v).replace(/(\d)(\d{3})$/,'$1 $2')},38.80+i*0.05);});
+tl.to(['#idx','#idxLab'],{opacity:0,duration:.3,ease:'power2.in'},40.10);
+tl.fromTo('#banal',{opacity:0,scale:.94},{opacity:1,scale:1,duration:.4,ease:'back.out(1.8)'},40.24)
+  .to('#banal',{opacity:0,duration:.35,ease:'power2.in'},41.30);
+tl.to('#axe',{opacity:1,duration:.3},41.52)
+  .to('.bar',{opacity:1,scaleY:1,duration:.26,stagger:.030,ease:'power3.out'},41.70);
+tl.fromTo('#m1',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},46.56)
+  .fromTo('#m2',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},47.28)
+  .fromTo('#m3',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},47.92)
+  .fromTo('#m4',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},48.64);
+mots('#tDP',50.96,.10);                       /* « une donnée personnelle » */
+tl.to(['#tDP','.marq','.bar','#axe'],{opacity:0,duration:.4,ease:'power2.in'},52.00);
 
 /* ================= C3 · MOIS 3, LE JURISTE ================= */
-tl.set('#cur',{x:0},38.4);
-tl.fromTo('#jur',{opacity:0,x:80},{opacity:1,x:0,duration:.5,ease:'power3.out'},39.44)
-  .to('#nJur',{opacity:1,duration:.3},39.90);
-tl.to('#qual',{opacity:1,duration:.4,ease:'power2.out'},40.40);
-tl.to('#cur',{x:390,duration:.5,ease:'power3.inOut'},40.68)
-  .to('#q2 .qt',{opacity:1,duration:.3},41.36);
-tl.to('#cur',{x:780,duration:.4,ease:'power2.out'},43.88)
-  .to('#q3 .qt',{opacity:1,duration:.25},44.00)
-  .to('#art40',{opacity:1,duration:.4},45.24)
-  .to('#cur',{x:390,duration:.5,ease:'power3.inOut'},46.64)
-  .to('#q3 .qt',{opacity:.5,duration:.3},46.64);
-tl.to('#cur',{x:780,backgroundColor:'#FF5247',duration:.3,ease:'power2.out'},49.12)
-  .to('#cur',{x:0,duration:.4,ease:'power2.inOut'},50.80)
-  .to('#cur',{x:390,backgroundColor:'#44DD93',duration:.45,ease:'back.out(1.6)'},51.20);
-tl.to(['#jur','#nJur','#qual','#art40'],{opacity:0,duration:.35,ease:'power2.in'},51.45);
+tl.set('#cur',{x:0},52.3);
+tl.fromTo('#jur',{opacity:0,x:80},{opacity:1,x:0,duration:.5,ease:'power3.out'},53.36)
+  .to('#nJur',{opacity:1,duration:.3},53.85);
+tl.to('#qual',{opacity:1,duration:.4,ease:'power2.out'},54.60);
+tl.to('#cur',{x:390,duration:.5,ease:'power3.inOut'},56.24)
+  .to('#q2 .qt',{opacity:1,duration:.3},56.72);
+tl.to('#cur',{x:780,duration:.4,ease:'power2.out'},58.48)
+  .to('#q3 .qt',{opacity:1,duration:.25},58.60)
+  .to('#art40',{opacity:1,duration:.4},60.05)
+  .to('#cur',{x:390,duration:.5,ease:'power3.inOut'},61.60)
+  .to('#q3 .qt',{opacity:.5,duration:.3},61.60);
+tl.to('#cur',{x:780,backgroundColor:'#FF5247',duration:.3,ease:'power2.out'},64.32)
+  .to('#cur',{x:0,duration:.4,ease:'power2.inOut'},65.92)
+  .to('#cur',{x:390,backgroundColor:'#44DD93',duration:.45,ease:'back.out(1.6)'},66.40);
+tl.to(['#jur','#nJur','#qual','#art40'],{opacity:0,duration:.35,ease:'power2.in'},67.00);
 
 /* ================= C4 · MOIS 6, L'INGÉNIEUR ================= */
-tl.fromTo('#ing',{opacity:0,x:-80},{opacity:1,x:0,duration:.5,ease:'power3.out'},52.75)
-  .to('#nIng',{opacity:1,duration:.3},53.20);
-tl.fromTo('#lA',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},53.52)
-  .fromTo('#lB',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},53.70);
-tl.to(['#lA','#lB'],{opacity:0,duration:.3,ease:'power2.in'},55.00);
-MZ.forEach((m,i)=>tl.fromTo(m,{opacity:0,y:16},{opacity:1,y:0,duration:.24,ease:'power3.out'},55.23+i*.035));
-PU.forEach((p,i)=>{
-  tl.fromTo(p,{opacity:0,y:0},{opacity:1,duration:.1},56.00+i*.028)
-    .to(p,{y:-130,duration:.45,ease:'power2.out'},56.00+i*.028)
-    .to(p,{opacity:0,duration:.18},56.36+i*.028);});
+tl.fromTo('#ing',{opacity:0,x:-80},{opacity:1,x:0,duration:.5,ease:'power3.out'},68.12)
+  .to('#nIng',{opacity:1,duration:.3},68.62);
+tl.fromTo('#lA',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},69.36)
+  .fromTo('#lB',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},69.54);
+tl.to(['#lA','#lB'],{opacity:0,duration:.3,ease:'power2.in'},71.00);
+MZ.forEach((m,i)=>tl.fromTo(m,{opacity:0,y:16},{opacity:1,y:0,duration:.24,ease:'power3.out'},71.27+i*.035));
+PU.forEach((q,i)=>{
+  tl.fromTo(q,{opacity:0,y:0},{opacity:1,duration:.1},72.00+i*.028)
+    .to(q,{y:-130,duration:.45,ease:'power2.out'},72.00+i*.028)
+    .to(q,{opacity:0,duration:.18},72.36+i*.028);});
 MZ.forEach((m,i)=>{const x=190+i*140;
-  tl.to(m,{x:960-x-70,opacity:.16,duration:.7,ease:'power3.inOut'},57.44+i*.011);});
-tl.fromTo('#bloc',{opacity:0,scale:.55},{opacity:1,scale:1,duration:.45,ease:'back.out(2)'},57.90);
-tl.to('#verdict',{opacity:1,duration:.4,ease:'power2.out'},58.40);
-tl.to(['#ing','#nIng','#bloc','#verdict','.mz'],{opacity:0,duration:.35,ease:'power2.in'},59.60);
-tl.to('#freq',{opacity:1,duration:.2},59.92)
-  .to('.fb',{opacity:1,duration:.18,stagger:.016,ease:'power2.out'},59.92)
-  .to('#presence',{opacity:1,duration:.35},60.60);
-PROFIL.forEach((v,i)=>{ tl.set('#hab',{opacity:v>40?1:0},60.90+i*.05); });
-tl.to('#oeil',{opacity:1,duration:.35},61.88);
-FB.forEach((b,i)=>{if(i%6!==0) tl.to(b,{opacity:0,scaleY:.1,duration:.28,ease:'power2.in'},63.20+i*.006);});
-tl.to('#hab',{opacity:0,duration:.3},63.50)
-  .to('#oeil',{opacity:.25,duration:.4},63.90);
-tl.to(['#freq','#oeil','#presence'],{opacity:0,duration:.35,ease:'power2.in'},64.50);
+  tl.to(m,{x:960-x-70,opacity:.16,duration:.7,ease:'power3.inOut'},73.76+i*.011);});
+tl.fromTo('#bloc',{opacity:0,scale:.55},{opacity:1,scale:1,duration:.45,ease:'back.out(2)'},74.20);
+tl.to('#verdict',{opacity:1,duration:.4,ease:'power2.out'},75.00);
+tl.to(['#ing','#nIng','#bloc','#verdict','.mz'],{opacity:0,duration:.35,ease:'power2.in'},76.00);
+tl.to('#freq',{opacity:1,duration:.2},76.24)
+  .to('.fb',{opacity:1,duration:.18,stagger:.016,ease:'power2.out'},76.24)
+  .to('#presence',{opacity:1,duration:.35},76.90);
+PROFIL.forEach((v,i)=>{ tl.set('#hab',{opacity:v>40?1:0},77.00+i*.05); });
+tl.to('#oeil',{opacity:1,duration:.35},77.76);
+FB.forEach((b,i)=>{if(i%6!==0) tl.to(b,{opacity:0,scaleY:.1,duration:.28,ease:'power2.in'},79.76+i*.006);});
+tl.to('#hab',{opacity:0,duration:.3},80.00)
+  .to('#oeil',{opacity:.25,duration:.4},80.30);
+tl.to(['#freq','#oeil','#presence'],{opacity:0,duration:.35,ease:'power2.in'},81.40);
 
 /* ================= C5 · ANNÉE 3, LE PARC VIEILLIT ================= */
-tl.fromTo('#g1v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},67.16)
-  .to('#anseF',{opacity:0,duration:.18,ease:'power2.in'},67.96)
-  .to('#anseO',{opacity:1,duration:.22,ease:'power3.out'},68.02);
-tl.fromTo('#g2v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},69.36)
-  .fromTo('#flux',{strokeDashoffset:240},{strokeDashoffset:0,duration:.9,ease:'none'},69.50)
-  .to('#flux',{strokeDasharray:'212 0',stroke:'#44DD93',duration:.3,ease:'power2.out'},70.20)
+tl.fromTo('#g1v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},84.87)
+  .to('#anseF',{opacity:0,duration:.18,ease:'power2.in'},85.72)
+  .to('#anseO',{opacity:1,duration:.22,ease:'power3.out'},85.78);
+tl.fromTo('#g2v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},87.16)
+  .fromTo('#flux',{strokeDashoffset:240},{strokeDashoffset:0,duration:.9,ease:'none'},87.30)
+  .to('#flux',{strokeDasharray:'212 0',stroke:'#44DD93',duration:.3,ease:'power2.out'},88.00)
   .fromTo('#verrou',{opacity:0,y:-22,scale:.7,transformOrigin:'34px 60px'},
-          {opacity:1,y:0,scale:1,duration:.35,ease:'back.out(2.2)'},70.30);
-tl.fromTo('#g3v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},71.20)
-  .to('#usine',{color:'#7488B2',duration:.5,ease:'power2.inOut'},71.90)
+          {opacity:1,y:0,scale:1,duration:.35,ease:'back.out(2.2)'},88.10);
+tl.fromTo('#g3v',{opacity:0,y:26},{opacity:1,y:0,duration:.35,ease:'power3.out'},89.15)
+  .to('#usine',{color:'#7488B2',duration:.5,ease:'power2.inOut'},89.90)
   .fromTo('#croixU',{opacity:0,scale:1.5,transformOrigin:'70px 70px'},
-          {opacity:1,scale:1,duration:.26,ease:'power4.out'},72.16);
-tl.to(['#g1v','#g2v','#g3v'],{opacity:0,duration:.35,ease:'power2.in'},72.45);
+          {opacity:1,scale:1,duration:.26,ease:'power4.out'},90.20);
+tl.to(['#g1v','#g2v','#g3v'],{opacity:0,duration:.35,ease:'power2.in'},90.80);
 
 /* ================= C6 · ANNÉE 8, LA DÉPOSE ================= */
-tl.fromTo('#tech2',{opacity:0,x:80},{opacity:1,x:0,duration:.55,ease:'power3.out'},73.92)
-  .to('#nTech2',{opacity:1,duration:.3},74.48);
-mots('#tDes',76.53,.1);
-tl.to('#sOrph',{opacity:1,duration:.35,ease:'power2.out'},79.04);
-tl.to(['#tech2','#nTech2','#tDes','#sOrph'],{opacity:0,duration:.35,ease:'power2.in'},81.30);
+tl.fromTo('#tech2',{opacity:0,x:80},{opacity:1,x:0,duration:.55,ease:'power3.out'},92.08)
+  .to('#nTech2',{opacity:1,duration:.3},92.60);
+mots('#tDes',95.32,.10);
+tl.to('#sOrph',{opacity:1,duration:.35,ease:'power2.out'},97.92);
+tl.to(['#tech2','#nTech2','#tDes','#sOrph'],{opacity:0,duration:.35,ease:'power2.in'},100.50);
 
 /* ================= C7 · LE REGISTRE, PUIS LA CLÔTURE ================= */
-mots('#tReg',84.16,.1);
-tl.fromTo('#trReg',{opacity:1,scaleX:0},{scaleX:1,duration:.5,ease:'power3.out'},84.60);
-[['#k1',85.68],['#k2',86.40],['#k3',87.08],['#k4',87.84],['#k5',88.88],['#k6',89.60]]
-  .forEach(([s,t])=>tl.fromTo(s,{opacity:0,y:18},{opacity:1,y:0,duration:.26,ease:'back.out(2)'},t));
-tl.to(['#tReg','#trReg','.chip'],{opacity:0,duration:.4,ease:'power2.in'},90.00);
-mots('#tFin',90.23,.1);
-tl.fromTo('#f1',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},92.80)
-  .fromTo('#f2',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},93.76)
-  .fromTo('#f3',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},94.76);
-tl.to(['#tFin','#f1','#f2','#f3'],{opacity:0,duration:.5,ease:'power2.in'},95.80);
-tl.to('#sign',{opacity:1,duration:.5,ease:'power2.out'},96.00)
-  .fromTo('#sgn1',{opacity:0,y:16},{opacity:1,y:0,duration:.45,ease:'power3.out'},96.15)
-  .fromTo('#sgn2',{opacity:0},{opacity:1,duration:.4},96.45);
+mots('#tReg',103.36,.10);
+tl.fromTo('#trReg',{opacity:1,scaleX:0},{scaleX:1,duration:.5,ease:'power3.out'},103.85);
+[['#k1',104.96],['#k2',105.76],['#k3',106.40],['#k4',107.28],['#k5',108.44],['#k6',109.20]]
+  .forEach(([q,t])=>tl.fromTo(q,{opacity:0,y:18},{opacity:1,y:0,duration:.26,ease:'back.out(2)'},t));
+tl.to(['#tReg','#trReg','.chip'],{opacity:0,duration:.4,ease:'power2.in'},109.80);
+mots('#tFin',109.92,.10);
+tl.fromTo('#f1',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},112.64)
+  .fromTo('#f2',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},113.92)
+  .fromTo('#f3',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},115.00);
+tl.to(['#tFin','#f1','#f2','#f3'],{opacity:0,duration:.5,ease:'power2.in'},116.30);
+tl.to('#sign',{opacity:1,duration:.5,ease:'power2.out'},116.45)
+  .fromTo('#sgn1',{opacity:0,y:16},{opacity:1,y:0,duration:.45,ease:'power3.out'},116.60)
+  .fromTo('#sgn2',{opacity:0},{opacity:1,duration:.4},116.90);
 
 window.__timelines = window.__timelines || {};
 window.__timelines['main'] = tl;
