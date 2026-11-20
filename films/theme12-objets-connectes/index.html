@@ -14,53 +14,38 @@
 html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 #root{width:100%;height:100%;position:relative;font-family:var(--fu);color:var(--blanc)}
 
-/* ---------- plans photographiques ---------- */
-.plate{position:absolute;inset:0;overflow:hidden}
-.plate .in{position:absolute;inset:0;opacity:0}
-.plate img{position:absolute;left:-10%;top:-10%;width:120%;height:120%;object-fit:cover}
-/* voile de lecture : le texte doit tenir sur la photo */
-.voile{position:absolute;inset:0}
-.v-bas{background:linear-gradient(180deg,rgba(5,8,15,.18) 0%,rgba(5,8,15,.05) 34%,rgba(5,8,15,.82) 78%,rgba(5,8,15,.95) 100%)}
-.v-gauche{background:linear-gradient(90deg,rgba(5,8,15,.90) 0%,rgba(5,8,15,.55) 38%,rgba(5,8,15,.10) 70%,rgba(5,8,15,.35) 100%)}
-.v-plein{background:rgba(5,8,15,.60)}
-.v-haut{background:linear-gradient(180deg,rgba(5,8,15,.86) 0%,rgba(5,8,15,.30) 30%,rgba(5,8,15,.10) 55%,rgba(5,8,15,.88) 100%)}
+/* ---------- plans : des clips, pas des photos ---------- */
+.plan{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;opacity:0}
+#vs09L{left:0;width:960px} #vs09R{left:960px;width:960px}
 
-/* demi-écrans pour le plan « deux sujets » */
-.demi{position:absolute;top:0;width:960px;height:1080px;overflow:hidden}
-.demi img{position:absolute;left:-20%;top:-10%;width:140%;height:120%;object-fit:cover}
-#dG{left:0} #dD{left:960px}
-#fente{position:absolute;left:958px;top:0;width:4px;height:1080px;background:var(--blanc);opacity:0}
+/* voiles de lecture, posés par beat et non sur le plan */
+.voile{position:absolute;inset:0;opacity:0}
+.v-bas{background:linear-gradient(180deg,rgba(5,8,15,.16) 0%,rgba(5,8,15,.04) 34%,rgba(5,8,15,.80) 78%,rgba(5,8,15,.94) 100%)}
+.v-gauche{background:linear-gradient(90deg,rgba(5,8,15,.90) 0%,rgba(5,8,15,.55) 38%,rgba(5,8,15,.08) 70%,rgba(5,8,15,.32) 100%)}
+.v-plein{background:rgba(5,8,15,.58)}
+.v-haut{background:linear-gradient(180deg,rgba(5,8,15,.86) 0%,rgba(5,8,15,.26) 30%,rgba(5,8,15,.08) 55%,rgba(5,8,15,.86) 100%)}
 
+#fente{position:absolute;left:958px;top:0;width:4px;height:1080px;background:var(--blanc);opacity:0;
+  transform-origin:50% 0}
 #vg{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(1500px 900px at 50% 46%,rgba(0,0,0,0) 50%,rgba(0,0,0,.62) 100%)}
-#grain{position:absolute;inset:0;opacity:.055;mix-blend-mode:overlay;background-image:
-  radial-gradient(circle at 17% 29%,#fff 0 1px,transparent 1px),
-  radial-gradient(circle at 63% 71%,#fff 0 1px,transparent 1px),
-  radial-gradient(circle at 41% 83%,#fff 0 1px,transparent 1px);
-  background-size:5px 5px,7px 7px,11px 11px}
+  background:radial-gradient(1500px 900px at 50% 46%,rgba(0,0,0,0) 50%,rgba(0,0,0,.58) 100%)}
 
 /* ---------- typographie ---------- */
-.hud{position:absolute;font-family:var(--fm);font-size:28px;letter-spacing:.14em;
-  color:#8FA3C8;opacity:0}
-.kick{position:absolute;font-family:var(--fm);font-size:30px;letter-spacing:.26em;
-  color:var(--cyan);opacity:0}
-.titre{position:absolute;font-family:var(--fd);font-size:84px;line-height:1.02;
-  letter-spacing:-.015em}
-.titre2{position:absolute;font-family:var(--fd);font-size:60px;line-height:1.06;
-  letter-spacing:-.01em}
-.sous{position:absolute;font-size:34px;line-height:1.38;color:var(--gris);opacity:0}
+.hud{position:absolute;font-family:var(--fm);font-size:28px;letter-spacing:.14em;color:#8FA3C8;opacity:0}
+.kick{position:absolute;font-family:var(--fm);font-size:30px;letter-spacing:.26em;color:var(--cyan);opacity:0}
+.titre{position:absolute;font-family:var(--fd);font-size:84px;line-height:1.02;letter-spacing:-.015em}
+.titre2{position:absolute;font-family:var(--fd);font-size:60px;line-height:1.06;letter-spacing:-.01em}
 .w{display:inline-block;opacity:0;filter:blur(10px)}
-.amb{color:var(--ambre)} .cy{color:var(--cyan)} .rg{color:var(--rouge)} .vt{color:var(--vert)}
+.amb{color:var(--ambre)} .cy{color:var(--cyan)} .rg{color:var(--rouge)} .vrt{color:var(--vert)}
 .trait{position:absolute;height:5px;background:var(--cyan);opacity:0;transform-origin:0 50%}
 
-/* ---------- compteur / index ---------- */
-#idx{position:absolute;right:120px;top:300px;font-family:var(--fm);font-size:170px;
-  font-weight:700;letter-spacing:.02em;color:var(--cyan);opacity:0;
-  text-shadow:0 0 50px rgba(63,216,232,.45)}
+/* ---------- compteur ---------- */
+#idx{position:absolute;right:120px;top:300px;font-family:var(--fm);font-size:170px;font-weight:700;
+  letter-spacing:.02em;color:var(--cyan);opacity:0;text-shadow:0 0 50px rgba(63,216,232,.45)}
 #idxLab{position:absolute;right:122px;top:490px;font-family:var(--fm);font-size:30px;
   letter-spacing:.2em;color:var(--gris);opacity:0;text-align:right}
 #banal{position:absolute;left:0;top:800px;width:1920px;text-align:center;
-  font-family:var(--fd);font-size:72px;opacity:0;color:var(--blanc)}
+  font-family:var(--fd);font-size:72px;opacity:0}
 
 /* ---------- courbe 24 h ---------- */
 #jour{position:absolute;left:260px;top:620px;width:1400px;height:300px}
@@ -71,74 +56,81 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 .marq i{position:absolute;left:109px;top:0;width:3px;height:300px;background:var(--ambre);opacity:.55}
 .marq b{position:absolute;left:0;top:318px;width:220px;font-family:var(--fm);font-size:28px;
   color:var(--ambre);font-weight:500;text-align:center;white-space:nowrap}
-.marq.bas b{top:366px}
-.marq.bas i{height:348px}
+.marq.bas b{top:366px} .marq.bas i{height:348px}
 
 /* ---------- trois régimes ---------- */
 .reg{position:absolute;left:300px;width:1320px;height:118px;border-left:6px solid var(--cyan);
   background:rgba(8,14,28,.80);opacity:0;padding:22px 34px}
 .reg .rt{font-family:var(--fd);font-size:40px;letter-spacing:-.01em}
 .reg .rs{font-family:var(--fm);font-size:28px;color:var(--gris);margin-top:8px;letter-spacing:.06em}
+#scan{position:absolute;left:290px;top:330px;width:1340px;height:10px;opacity:0;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  box-shadow:0 0 36px rgba(63,216,232,.8)}
+
+/* ---------- 01 identifier ---------- */
+#badge{position:absolute;left:140px;top:520px;padding:20px 38px;border:4px solid var(--cyan);
+  font-family:var(--fd);font-size:46px;color:var(--cyan);opacity:0;background:rgba(6,18,26,.72)}
+#onde{position:absolute;left:1190px;top:430px;width:220px;height:220px;border-radius:50%;
+  border:4px solid var(--cyan);opacity:0}
 
 /* ---------- deux sujets ---------- */
-.sujet{position:absolute;top:720px;width:820px;opacity:0}
-.sujet .st{font-family:var(--fd);font-size:54px}
-.sujet .ss{font-size:31px;color:var(--gris);margin-top:14px;line-height:1.34}
-#sG{left:70px} #sD{left:1030px}
-#tampon{position:absolute;left:360px;top:940px;width:1200px;text-align:center;
+.sujet{position:absolute;top:660px;width:760px;opacity:0;text-align:center}
+.sujet .sm{font-family:var(--fd);font-size:104px;line-height:1}
+.sujet .st{font-family:var(--fd);font-size:54px;margin-top:8px}
+.sujet .ss{font-family:var(--fm);font-size:29px;color:var(--gris);margin-top:14px}
+#sG{left:100px} #sD{left:1060px}
+#tampon{position:absolute;left:400px;top:962px;width:1120px;text-align:center;
   border:5px solid var(--rouge);color:var(--rouge);font-family:var(--fd);font-size:40px;
-  padding:18px 0;opacity:0;background:rgba(10,4,6,.72)}
+  padding:16px 0;opacity:0;background:rgba(10,4,6,.74)}
 
 /* ---------- curseur de qualification ---------- */
-#qual{position:absolute;left:310px;top:600px;width:1300px;height:220px}
+#qual{position:absolute;left:310px;top:600px;width:1300px;height:190px;opacity:0;
+  background:rgba(5,8,15,.88);box-shadow:0 0 70px 48px rgba(5,8,15,.88)}
 #piste{position:absolute;left:0;top:124px;width:1300px;height:6px;background:#1B2944}
 .qp{position:absolute;top:0;width:420px;text-align:center}
-.qt{font-family:var(--fd);font-size:40px;line-height:1.08;height:96px;opacity:.26}
-.qd{font-family:var(--fm);font-size:28px;color:var(--gris);margin-top:100px;opacity:0}
-#cur{position:absolute;left:0;top:98px;width:60px;height:60px;margin-left:180px;
-  border-radius:50%;background:var(--blanc);box-shadow:0 0 44px rgba(255,255,255,.6)}
-#art40{position:absolute;left:310px;top:880px;width:1300px;text-align:center;
+.qt{font-family:var(--fd);font-size:40px;line-height:1.08;height:96px;opacity:.5}
+#cur{position:absolute;left:0;top:98px;width:60px;height:60px;margin-left:180px;border-radius:50%;
+  background:var(--blanc);box-shadow:0 0 44px rgba(255,255,255,.6)}
+#art40{position:absolute;left:310px;top:840px;width:1300px;text-align:center;
   font-family:var(--fm);font-size:30px;color:var(--gris);opacity:0;letter-spacing:.05em}
 
 /* ---------- leviers ---------- */
-.lev{position:absolute;top:470px;width:700px;height:260px;background:rgba(8,14,28,.84);
-  border:2px solid #1E3154;opacity:0;padding:38px 42px}
+.lev{position:absolute;top:500px;width:620px;height:200px;background:rgba(8,14,28,.84);
+  border:2px solid #1E3154;opacity:0;padding:36px 42px}
 .lev .ln{font-family:var(--fm);font-size:28px;color:var(--cyan);letter-spacing:.2em}
-.lev .lt{font-family:var(--fd);font-size:52px;margin-top:16px}
-.lev .ls{font-size:30px;color:var(--gris);margin-top:16px;line-height:1.32}
-#lA{left:200px} #lB{left:1020px}
+.lev .lt{font-family:var(--fd);font-size:56px;margin-top:18px}
+#lA{left:250px} #lB{left:1050px}
 
 /* ---------- agrégation ---------- */
 #pts{position:absolute;left:0;top:0;width:1920px;height:1080px}
-.pt{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--cyan);
-  opacity:0;box-shadow:0 0 18px rgba(63,216,232,.7)}
+.pt{position:absolute;width:20px;height:20px;border-radius:50%;background:var(--cyan);opacity:0;
+  box-shadow:0 0 18px rgba(63,216,232,.7)}
 #sigma{position:absolute;left:860px;top:430px;width:200px;height:200px;border-radius:50%;
   border:5px solid var(--vert);display:flex;align-items:center;justify-content:center;
   font-family:var(--fd);font-size:84px;color:var(--vert);opacity:0}
-#verdict{position:absolute;left:0;top:770px;width:1920px;text-align:center;
+#verdict{position:absolute;left:0;top:782px;width:1920px;text-align:center;
   font-family:var(--fd);font-size:56px;color:var(--vert);opacity:0}
 
 /* ---------- fréquence ---------- */
-#freq{position:absolute;left:360px;top:600px;width:1200px;height:230px}
+#freq{position:absolute;left:360px;top:620px;width:1200px;height:230px}
 .fb{position:absolute;bottom:0;width:34px;background:var(--ambre);opacity:0;border-radius:3px 3px 0 0}
 
 /* ---------- vieillir le parc ---------- */
 .vie{position:absolute;left:280px;width:1380px;opacity:0;padding-left:96px}
-.vie .vn{position:absolute;left:0;top:4px;font-family:var(--fm);font-size:36px;color:var(--cyan)}
-.vie .vti{font-family:var(--fd);font-size:46px}
-.vie .vs{font-size:29px;color:var(--gris);margin-top:8px}
+.vie .vn{position:absolute;left:0;top:2px;font-family:var(--fm);font-size:36px;color:var(--cyan)}
+.vie .vti{font-family:var(--fd);font-size:48px}
 
 /* ---------- registre ---------- */
-#chips{position:absolute;left:170px;top:700px;width:1580px}
+#chips{position:absolute;left:170px;top:730px;width:1580px}
 .chip{display:inline-block;margin:0 14px 18px 0;padding:16px 28px;border:2px solid var(--cyan);
   font-family:var(--fm);font-size:30px;letter-spacing:.08em;color:var(--cyan);opacity:0;
   background:rgba(8,20,30,.62)}
 
 /* ---------- final ---------- */
-.fin{position:absolute;left:0;width:1920px;text-align:center;opacity:0}
+.fin{position:absolute;left:0;width:1920px;text-align:center;opacity:0;
+  font-family:var(--fd);font-size:52px}
 #sign{position:absolute;left:0;top:0;width:1920px;height:1080px;background:var(--fond);opacity:0}
-#sgn1{position:absolute;left:0;top:468px;width:1920px;text-align:center;
-  font-family:var(--fd);font-size:58px}
+#sgn1{position:absolute;left:0;top:468px;width:1920px;text-align:center;font-family:var(--fd);font-size:58px}
 #sgn2{position:absolute;left:0;top:552px;width:1920px;text-align:center;
   font-family:var(--fm);font-size:30px;color:var(--gris);letter-spacing:.18em}
 </style>
@@ -147,79 +139,51 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 <div id="root" data-composition-id="main" data-start="0" data-duration="98.4"
      data-width="1920" data-height="1080" data-fps="30">
 
-  <!-- ============ PLANS ============ -->
-  <div class="plate clip" id="pA" data-start="0" data-duration="2.2" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/antenne.jpg" alt=""><div class="voile v-bas"></div></div></div>
+  <!-- ====== 22 PLANS, TOUS DIFFÉRENTS, TOUS ANIMÉS ====== -->
+  <video class="plan clip" id="vs01" src="assets/clips/s01.mp4" muted playsinline preload="auto" data-start="0.0" data-duration="2.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs02" src="assets/clips/s02.mp4" muted playsinline preload="auto" data-start="1.4" data-duration="2.1" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs03" src="assets/clips/s03.mp4" muted playsinline preload="auto" data-start="2.9" data-duration="2.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs04" src="assets/clips/s04.mp4" muted playsinline preload="auto" data-start="4.6" data-duration="5.8" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs05" src="assets/clips/s05.mp4" muted playsinline preload="auto" data-start="9.9" data-duration="6.1" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs06" src="assets/clips/s06.mp4" muted playsinline preload="auto" data-start="15.8" data-duration="5.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs07" src="assets/clips/s07.mp4" muted playsinline preload="auto" data-start="20.4" data-duration="6.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs08" src="assets/clips/s08.mp4" muted playsinline preload="auto" data-start="26.4" data-duration="7.0" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs09L" src="assets/clips/s09L.mp4" muted playsinline preload="auto" data-start="32.8" data-duration="6.7" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs09R" src="assets/clips/s09R.mp4" muted playsinline preload="auto" data-start="32.8" data-duration="6.7" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs10" src="assets/clips/s10.mp4" muted playsinline preload="auto" data-start="39.3" data-duration="4.1" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs11" src="assets/clips/s11.mp4" muted playsinline preload="auto" data-start="42.8" data-duration="5.8" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs12" src="assets/clips/s12.mp4" muted playsinline preload="auto" data-start="48.4" data-duration="4.7" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs13" src="assets/clips/s13.mp4" muted playsinline preload="auto" data-start="52.9" data-duration="5.1" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs14" src="assets/clips/s14.mp4" muted playsinline preload="auto" data-start="57.4" data-duration="3.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs15" src="assets/clips/s15.mp4" muted playsinline preload="auto" data-start="60.0" data-duration="6.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs16" src="assets/clips/s16.mp4" muted playsinline preload="auto" data-start="66.1" data-duration="5.0" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs17" src="assets/clips/s17.mp4" muted playsinline preload="auto" data-start="70.5" data-duration="7.9" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs18" src="assets/clips/s18.mp4" muted playsinline preload="auto" data-start="77.8" data-duration="4.3" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs19" src="assets/clips/s19.mp4" muted playsinline preload="auto" data-start="81.4" data-duration="5.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs20" src="assets/clips/s20.mp4" muted playsinline preload="auto" data-start="86.8" data-duration="3.8" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vs21" src="assets/clips/s21.mp4" muted playsinline preload="auto" data-start="90.0" data-duration="6.0" data-track-index="0" data-track-kind="video"></video>
 
-  <div class="plate clip" id="pB" data-start="1.4" data-duration="2.1" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/banc.jpg" alt=""><div class="voile v-bas"></div></div></div>
-
-  <div class="plate clip" id="pC" data-start="2.9" data-duration="2.3" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/cartes.jpg" alt=""><div class="voile v-bas"></div></div></div>
-
-  <div class="plate clip" id="pD" data-start="4.6" data-duration="5.8" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/compteur.jpg" alt=""><div class="voile v-gauche"></div></div></div>
-
-  <div class="plate clip" id="pE" data-start="9.9" data-duration="11.1" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/fenetre.jpg" alt=""><div class="voile v-bas"></div></div></div>
-
-  <div class="plate clip" id="pF" data-start="20.4" data-duration="6.6" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/salle.jpg" alt=""><div class="voile v-plein"></div></div></div>
-
-  <div class="plate clip" id="pG" data-start="26.4" data-duration="7.0" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/cartes.jpg" alt=""><div class="voile v-gauche"></div></div></div>
-
-  <!-- le plan scindé : à gauche l'occupant, à droite l'entreprise -->
-  <div class="plate clip" id="pH" data-start="32.8" data-duration="10.6" data-track-index="0" data-track-kind="video">
-    <div class="in">
-      <div class="demi" id="dG" data-layout-allow-overflow><img src="assets/img/fenetre.jpg" alt=""></div>
-      <div class="demi" id="dD" data-layout-allow-overflow><img src="assets/img/banc.jpg" alt=""></div>
-      <div id="fente"></div>
-      <div class="voile v-haut"></div>
-    </div></div>
-
-  <div class="plate clip" id="pI" data-start="42.8" data-duration="15.2" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/puce.jpg" alt=""><div class="voile v-plein"></div></div></div>
-
-  <div class="plate clip" id="pJ" data-start="57.4" data-duration="3.3" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/salle.jpg" alt=""><div class="voile v-plein"></div></div></div>
-
-  <div class="plate clip" id="pK" data-start="60.0" data-duration="11.1" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/quartier.jpg" alt=""><div class="voile v-haut"></div></div></div>
-
-  <div class="plate clip" id="pL" data-start="70.5" data-duration="7.9" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/banc.jpg" alt=""><div class="voile v-plein"></div></div></div>
-
-  <div class="plate clip" id="pM" data-start="77.8" data-duration="4.2" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/depose.jpg" alt=""><div class="voile v-bas"></div></div></div>
-
-  <div class="plate clip" id="pN" data-start="81.4" data-duration="9.2" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/registre.jpg" alt=""><div class="voile v-haut"></div></div></div>
-
-  <div class="plate clip" id="pO" data-start="90.0" data-duration="6.0" data-track-index="0" data-track-kind="video">
-    <div class="in"><img src="assets/img/compteur.jpg" alt=""><div class="voile v-plein"></div></div></div>
-
+  <div id="fente"></div>
   <div id="vg"></div>
-  <div id="grain"></div>
 
-  <!-- ============ GRAPHIQUES ============ -->
+  <!-- ====== GRAPHIQUES ====== -->
 
   <!-- G1 · ouverture -->
-  <div class="clip" id="g1" data-start="0" data-duration="5.0" data-track-index="1" data-track-kind="graphics">
-    <div class="titre" id="t1" style="left:120px;top:782px;width:1560px">
-      <span class="w">UN</span> <span class="w">OPÉRATEUR</span> <span class="w">POSE</span>
+  <div class="clip" id="g1" data-start="0" data-duration="5.2" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-bas" id="vo1"></div>
+    <div class="titre" id="t1" style="left:120px;top:800px;width:1560px">
       <span class="w">DES</span> <span class="w amb">MILLIERS</span> <span class="w amb">DE</span>
       <span class="w amb">COMPTEURS</span></div>
-    <div class="titre2" id="t1b" style="left:120px;top:782px;width:1560px">
-      <span class="w">CHACUN</span> <span class="w">PORTE</span> <span class="w">UNE</span>
-      <span class="w cy">CARTE</span> <span class="w cy">SIM</span></div>
+    <div class="titre2" id="t1b" style="left:120px;top:812px;width:1560px">
+      <span class="w">UNE</span> <span class="w cy">CARTE</span> <span class="w cy">SIM</span>
+      <span class="w">CHACUN</span></div>
   </div>
 
   <!-- G2 · l'index -->
   <div class="clip" id="g2" data-start="4.6" data-duration="5.8" data-track-index="1" data-track-kind="graphics">
-    <div class="kick" id="k2" style="left:120px;top:300px">RELEVÉ HORAIRE</div>
-    <div class="titre" id="t2" style="left:120px;top:360px;width:900px">
-      <span class="w">CHAQUE</span> <span class="w">HEURE,</span><br>
+    <div class="voile v-gauche" id="vo2"></div>
+    <div class="kick" id="k2" style="left:120px;top:360px">RELEVÉ HORAIRE</div>
+    <div class="titre" id="t2" style="left:120px;top:420px;width:900px">
       <span class="w amb">UN</span> <span class="w amb">SEUL</span> <span class="w amb">CHIFFRE</span></div>
     <div id="idx">04 812</div>
     <div id="idxLab">INDEX · kWh</div>
@@ -228,7 +192,8 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 
   <!-- G3 · 24 heures -->
   <div class="clip" id="g3" data-start="9.9" data-duration="11.1" data-track-index="1" data-track-kind="graphics">
-    <div class="kick" id="k3" style="left:260px;top:246px">24 HEURES DE RELEVÉS · UN SEUL FOYER</div>
+    <div class="voile v-bas" id="vo3"></div>
+    <div class="kick" id="k3" style="left:260px;top:246px">24 HEURES · UN SEUL FOYER</div>
     <div id="jour" data-layout-allow-overflow><div id="axe"></div>
       <div class="marq" id="m1"><i></i><b>elle se lève</b></div>
       <div class="marq bas" id="m2"><i></i><b>elle part</b></div>
@@ -236,136 +201,115 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
       <div class="marq bas" id="m4"><i></i><b>elle dort</b></div>
     </div>
     <div class="titre" id="t3" style="left:260px;top:300px;width:1420px">
-      <span class="w">L'INDEX</span> <span class="w">DESSINE</span> <span class="w">UN</span>
-      <span class="w amb">RYTHME</span> <span class="w amb">DE</span> <span class="w amb">VIE</span></div>
-    <div class="titre2" id="t3b" style="left:260px;top:500px;width:1420px">
-      <span class="w cy">ET</span> <span class="w cy">LÀ,</span> <span class="w cy">LE</span>
-      <span class="w cy">DROIT</span> <span class="w cy">SE</span> <span class="w cy">RÉVEILLE.</span></div>
+      <span class="w">UN</span> <span class="w amb">RYTHME</span> <span class="w amb">DE</span>
+      <span class="w amb">VIE</span></div>
+    <div class="titre2" id="t3b" style="left:260px;top:420px;width:1420px">
+      <span class="w cy">LE</span> <span class="w cy">DROIT</span> <span class="w cy">SE</span>
+      <span class="w cy">RÉVEILLE.</span></div>
   </div>
 
   <!-- G4 · trois régimes -->
   <div class="clip" id="g4" data-start="20.4" data-duration="6.6" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-plein" id="vo4"></div>
     <div class="kick" id="k4" style="left:300px;top:250px">UN SEUL BOÎTIER</div>
     <div class="reg" id="r1" style="top:340px;border-left-color:var(--cyan)">
-      <div class="rt">IDENTIFIER L'UTILISATEUR</div>
-      <div class="rs">LOI 2018-28 · ART. 36</div></div>
+      <div class="rt">IDENTIFIER L'UTILISATEUR</div><div class="rs">LOI 2018-28 · ART. 36</div></div>
     <div class="reg" id="r2" style="top:478px;border-left-color:var(--ambre)">
-      <div class="rt">PROTÉGER LA DONNÉE</div>
-      <div class="rs">LOI 2008-12 · CDP</div></div>
+      <div class="rt">PROTÉGER LA DONNÉE</div><div class="rs">LOI 2008-12 · CDP</div></div>
     <div class="reg" id="r3" style="top:616px;border-left-color:var(--rouge)">
-      <div class="rt">SÉCURISER LE PARC</div>
-      <div class="rs">OBLIGATION DE MOYENS · ARTP</div></div>
-    <div class="sous" id="s4" style="left:300px;top:800px;width:1320px">
-      Les trois s'appliquent <b>en même temps</b>.</div>
+      <div class="rt">SÉCURISER LE PARC</div><div class="rs">OBLIGATION DE MOYENS · ARTP</div></div>
+    <div id="scan"></div>
   </div>
 
   <!-- G5 · 01 identifier -->
   <div class="clip" id="g5" data-start="26.4" data-duration="7.0" data-track-index="1" data-track-kind="graphics">
-    <div class="kick" id="k5" style="left:140px;top:250px">01</div>
-    <div class="titre" id="t5" style="left:140px;top:300px;width:1640px">
+    <div class="voile v-gauche" id="vo5"></div>
+    <div id="onde"></div>
+    <div class="kick" id="k5" style="left:140px;top:280px">01</div>
+    <div class="titre" id="t5" style="left:140px;top:330px;width:1200px">
       <span class="w">IDENTIFIER</span></div>
-    <div class="trait" id="tr5" style="left:140px;top:432px;width:420px"></div>
-    <div class="sous" id="s5" style="left:140px;top:482px;width:880px;font-size:38px;color:var(--blanc)">
-      L'article 36 oblige l'opérateur à identifier
-      <b class="cy">tous les utilisateurs de ses services.</b></div>
+    <div class="trait" id="tr5" style="left:140px;top:462px;width:420px"></div>
+    <div id="badge">ART. 36</div>
   </div>
 
   <!-- G6 · deux sujets de droit -->
   <div class="clip" id="g6" data-start="32.8" data-duration="10.6" data-track-index="1" data-track-kind="graphics">
-    <div class="titre2" id="t6" style="left:0;top:210px;width:1920px;text-align:center">
-      <span class="w">LA</span> <span class="w">CARTE</span> <span class="w">DU</span>
-      <span class="w">COMPTEUR</span> <span class="w rg">N'APPARTIENT</span>
-      <span class="w rg">PAS</span> <span class="w rg">À</span> <span class="w rg">L'OCCUPANT</span></div>
-    <div class="sujet" id="sG">
-      <div class="st rg">L'OCCUPANT</div>
-      <div class="ss">Il vit derrière le compteur.<br>Ses données le concernent — la carte, non.</div></div>
-    <div class="sujet" id="sD">
-      <div class="st vt">L'ENTREPRISE</div>
-      <div class="ss">Elle exploite le parc.<br>C'est elle, le titulaire de la carte SIM.</div></div>
-    <div id="tampon">DEUX SUJETS DE DROIT DISTINCTS<br>
-      <span style="font-family:var(--fu);font-size:29px;letter-spacing:.04em">
-      l'erreur la plus chère</span></div>
+    <div class="voile v-haut" id="vo6"></div>
+    <div class="sujet" id="sG"><div class="sm rg">✕</div><div class="st rg">L'OCCUPANT</div>
+      <div class="ss">pas titulaire de la carte</div></div>
+    <div class="sujet" id="sD"><div class="sm vrt">✓</div><div class="st vrt">L'ENTREPRISE</div>
+      <div class="ss">titulaire de la carte SIM</div></div>
+    <div id="tampon">DEUX SUJETS DE DROIT DISTINCTS</div>
   </div>
 
   <!-- G7 · 02 qualifier -->
   <div class="clip" id="g7" data-start="42.8" data-duration="15.2" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-haut" id="vo7"></div>
     <div class="kick" id="k7" style="left:140px;top:250px">02</div>
-    <div class="titre" id="t7" style="left:140px;top:300px;width:1640px">
+    <div class="titre" id="t7" style="left:140px;top:300px;width:1200px">
       <span class="w">QUALIFIER</span></div>
     <div class="trait" id="tr7" style="left:140px;top:432px;width:420px"></div>
     <div id="qual">
       <div id="piste"></div>
-      <div class="qp" id="q1" style="left:0"><div class="qt rg">NON<br>PERSONNELLE</div>
-        <div class="qd">erreur par défaut</div></div>
-      <div class="qp" id="q2" style="left:440px"><div class="qt vt">PERSONNELLE</div>
-        <div class="qd">la bonne réponse</div></div>
-      <div class="qp" id="q3" style="left:880px"><div class="qt rg">SENSIBLE</div>
-        <div class="qd">erreur par excès</div></div>
+      <div class="qp" id="q1" style="left:0"><div class="qt rg">NON<br>PERSONNELLE</div></div>
+      <div class="qp" id="q2" style="left:440px"><div class="qt vrt">PERSONNELLE</div></div>
+      <div class="qp" id="q3" style="left:880px"><div class="qt rg">SENSIBLE</div></div>
       <div id="cur"></div>
     </div>
-    <div id="art40">ART. 40 — « SENSIBLE » EST RÉSERVÉ À LA SANTÉ, AUX OPINIONS, À L'ORIGINE</div>
+    <div id="art40">ART. 40 — SANTÉ, OPINIONS, ORIGINE</div>
   </div>
 
   <!-- G8 · les deux leviers -->
   <div class="clip" id="g8" data-start="57.4" data-duration="3.3" data-track-index="1" data-track-kind="graphics">
-    <div class="titre2" id="t8" style="left:0;top:300px;width:1920px;text-align:center">
-      <span class="w">DEUX</span> <span class="w cy">LEVIERS</span> <span class="w">QUE</span>
-      <span class="w">LE</span> <span class="w">JURISTE</span> <span class="w">N'A</span> <span class="w">PAS</span></div>
-    <div class="lev" id="lA"><div class="ln">LEVIER 01</div><div class="lt">AGRÉGATION</div>
-      <div class="ls">le quartier, pas le foyer</div></div>
-    <div class="lev" id="lB"><div class="ln">LEVIER 02</div><div class="lt">FRÉQUENCE</div>
-      <div class="ls">le jour, pas l'heure</div></div>
+    <div class="voile v-plein" id="vo8"></div>
+    <div class="titre2" id="t8" style="left:0;top:330px;width:1920px;text-align:center">
+      <span class="w">DEUX</span> <span class="w cy">LEVIERS</span></div>
+    <div class="lev" id="lA"><div class="ln">LEVIER 01</div><div class="lt">AGRÉGATION</div></div>
+    <div class="lev" id="lB"><div class="ln">LEVIER 02</div><div class="lt">FRÉQUENCE</div></div>
   </div>
 
   <!-- G9 · agrégation puis fréquence -->
   <div class="clip" id="g9" data-start="60.0" data-duration="11.1" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-haut" id="vo9"></div>
     <div id="pts"></div>
     <div id="sigma">Σ</div>
-    <div class="kick" id="k9" style="left:0;top:212px;width:1920px;text-align:center">LEVIER 01 · AGRÉGATION</div>
-    <div class="titre2" id="t9" style="left:0;top:272px;width:1920px;text-align:center">
-      <span class="w">PILOTER</span> <span class="w">UN</span> <span class="w cy">QUARTIER,</span>
-      <span class="w">PAS</span> <span class="w">UN</span> <span class="w">FOYER</span></div>
+    <div class="kick" id="k9" style="left:0;top:252px;width:1920px;text-align:center">01 · AGRÉGATION</div>
     <div id="verdict">PLUS UNE DONNÉE PERSONNELLE</div>
-    <div class="kick" id="k9b" style="left:0;top:252px;width:1920px;text-align:center">LEVIER 02 · FRÉQUENCE</div>
+    <div class="kick" id="k9b" style="left:0;top:252px;width:1920px;text-align:center">02 · FRÉQUENCE</div>
     <div id="freq"></div>
-    <div class="sous" id="s9" style="left:360px;top:866px;width:1200px;text-align:center">
-      <span id="s9a" class="rg" style="font-weight:700">horaire → révèle la présence au domicile</span><br>
-      <span id="s9b" class="vt" style="font-weight:700">quotidien → suffit pour facturer</span></div>
   </div>
 
   <!-- G10 · 03 faire vieillir -->
   <div class="clip" id="g10" data-start="70.5" data-duration="7.9" data-track-index="1" data-track-kind="graphics">
-    <div class="kick" id="k10" style="left:280px;top:228px">03</div>
-    <div class="titre2" id="t10" style="left:280px;top:276px;width:1400px">
+    <div class="voile v-plein" id="vo10"></div>
+    <div class="kick" id="k10" style="left:280px;top:250px">03</div>
+    <div class="titre2" id="t10" style="left:280px;top:298px;width:1400px">
       <span class="w">FAIRE</span> <span class="w">VIEILLIR</span> <span class="w amb">LE</span>
       <span class="w amb">PARC</span></div>
-    <div class="vie" id="v1" style="top:432px"><div class="vn">01</div>
-      <div class="vti">CHANGER LES MOTS DE PASSE D'USINE</div>
-      <div class="vs">une porte laissée ouverte par le fabricant</div></div>
-    <div class="vie" id="v2" style="top:580px"><div class="vn">02</div>
-      <div class="vti">CHIFFRER LES TRANSMISSIONS</div>
-      <div class="vs">du compteur jusqu'au concentrateur</div></div>
-    <div class="vie" id="v3" style="top:728px"><div class="vn">03</div>
-      <div class="vti">REMPLACER CE QUI N'EST PLUS CORRIGÉ</div>
-      <div class="vs">le fabricant ne corrige plus</div></div>
+    <div class="vie" id="v1" style="top:460px"><div class="vn">01</div>
+      <div class="vti">LES MOTS DE PASSE D'USINE</div></div>
+    <div class="vie" id="v2" style="top:600px"><div class="vn">02</div>
+      <div class="vti">CHIFFRER LES TRANSMISSIONS</div></div>
+    <div class="vie" id="v3" style="top:740px"><div class="vn">03</div>
+      <div class="vti">REMPLACER CE QUI N'EST PLUS CORRIGÉ</div></div>
   </div>
 
   <!-- G11 · la dépose -->
   <div class="clip" id="g11" data-start="77.8" data-duration="4.3" data-track-index="1" data-track-kind="graphics">
-    <div class="titre2" id="t11" style="left:120px;top:690px;width:1680px">
-      <span class="w">À</span> <span class="w">LA</span> <span class="w">DÉPOSE,</span>
+    <div class="voile v-bas" id="vo11"></div>
+    <div class="titre2" id="t11" style="left:120px;top:730px;width:1680px">
       <span class="w cy">DÉSACTIVER</span> <span class="w cy">LA</span> <span class="w cy">CARTE</span></div>
-    <div class="sous" id="s11" style="left:120px;top:800px;width:1680px;font-size:40px;color:var(--rouge);font-weight:700">
-      une carte orpheline, active, sans responsable</div>
+    <div class="fin" id="s11" style="top:846px;font-family:var(--fu);font-size:40px;
+      color:var(--rouge);font-weight:700">sinon : une carte orpheline</div>
   </div>
 
   <!-- G12 · le registre -->
   <div class="clip" id="g12" data-start="81.4" data-duration="9.2" data-track-index="1" data-track-kind="graphics">
-    <div class="kick" id="k12" style="left:170px;top:250px">LA PREUVE TIENT DANS UN SEUL DOCUMENT</div>
-    <div class="titre" id="t12" style="left:170px;top:308px;width:1580px">
+    <div class="voile v-haut" id="vo12"></div>
+    <div class="titre" id="t12" style="left:170px;top:330px;width:1580px">
       <span class="w">LE</span> <span class="w amb">REGISTRE</span> <span class="w amb">DE</span>
       <span class="w amb">PARC</span></div>
-    <div class="trait" id="tr12" style="left:170px;top:452px;width:520px;background:var(--ambre)"></div>
+    <div class="trait" id="tr12" style="left:170px;top:474px;width:520px;background:var(--ambre)"></div>
     <div id="chips">
       <span class="chip" id="c1">CHAQUE OBJET</span><span class="chip" id="c2">SA DONNÉE</span>
       <span class="chip" id="c3">SA FINALITÉ</span><span class="chip" id="c4">SA FRÉQUENCE</span>
@@ -374,22 +318,20 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 
   <!-- G13 · clôture -->
   <div class="clip" id="g13" data-start="90.0" data-duration="8.4" data-track-index="1" data-track-kind="graphics">
+    <div class="voile v-plein" id="vo13"></div>
     <div class="titre" id="t13" style="left:0;top:270px;width:1920px;text-align:center">
       <span class="w">TROIS</span> <span class="w">RÉGIMES.</span>
       <span class="w amb">UN</span> <span class="w amb">SEUL</span> <span class="w amb">BOÎTIER.</span></div>
-    <div class="fin" id="f1" style="top:470px;font-family:var(--fd);font-size:52px">
-      IDENTIFIER <span class="cy">LA CARTE</span></div>
-    <div class="fin" id="f2" style="top:570px;font-family:var(--fd);font-size:52px">
-      QUALIFIER <span class="cy">LA DONNÉE</span></div>
-    <div class="fin" id="f3" style="top:670px;font-family:var(--fd);font-size:52px">
-      FAIRE VIEILLIR <span class="cy">LE PARC</span></div>
+    <div class="fin" id="f1" style="top:470px">IDENTIFIER <span class="cy">LA CARTE</span></div>
+    <div class="fin" id="f2" style="top:570px">QUALIFIER <span class="cy">LA DONNÉE</span></div>
+    <div class="fin" id="f3" style="top:670px">FAIRE VIEILLIR <span class="cy">LE PARC</span></div>
     <div id="sign">
       <div id="sgn1">BIG MAGASS</div>
       <div id="sgn2">ESMT · THÈME 12 — RÉSEAUX D'OBJETS CONNECTÉS</div>
     </div>
   </div>
 
-  <!-- HUD permanent -->
+  <!-- HUD -->
   <div class="clip" id="ghud" data-start="0" data-duration="90.0" data-track-index="2" data-track-kind="graphics">
     <div class="hud" id="hL" style="left:68px;top:58px">THÈME 12 · OBJETS CONNECTÉS</div>
     <div class="hud" id="hR" style="right:68px;top:58px;text-align:right">ESMT · DROIT DES TIC</div>
@@ -401,210 +343,178 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 
 <script>
 /* ------------------------------------------------------------------
-   Tous les temps ci-dessous sont des horodatages RÉELS, relevés mot à
-   mot sur la bande son (transcription Scribe). Aucun n'est estimé.
+   Tous les temps sont des horodatages RÉELS, relevés mot à mot sur la
+   bande son (transcription Scribe). Aucun n'est estimé.
+   Les plans sont des CLIPS : le mouvement est dans l'image elle-même,
+   pas dans un faux travelling sur une photo fixe.
    ------------------------------------------------------------------ */
-
-/* profil de consommation d'une journée : 24 valeurs, déterministes */
-const PROFIL = [12,9,8,7,7,9,22,48,62,40,26,22,28,24,20,22,34,66,92,88,70,46,28,18];
-const jour = document.getElementById('jour');
-PROFIL.forEach((v,i)=>{ const d=document.createElement('div'); d.className='bar'; d.id='bar'+i;
-  d.style.left=(i*58)+'px'; d.style.height=(v*3.0)+'px'; jour.appendChild(d); });
-
-/* les quatre marqueurs de vie, posés sur l'heure qu'ils décrivent */
+const PROFIL=[12,9,8,7,7,9,22,48,62,40,26,22,28,24,20,22,34,66,92,88,70,46,28,18];
+const jour=document.getElementById('jour');
+PROFIL.forEach((v,i)=>{const d=document.createElement('div');d.className='bar';d.id='bar'+i;
+  d.style.left=(i*58)+'px';d.style.height=(v*3.0)+'px';jour.appendChild(d);});
 [['m1',6],['m2',8],['m3',18],['m4',23]].forEach(([id,h])=>{
-  document.getElementById(id).style.left = (h*58+20) + 'px';
-});
+  document.getElementById(id).style.left=(h*58+20)+'px';});
 
-/* la nappe de points du quartier : grille déterministe, pas de random */
-const pts = document.getElementById('pts');
-const PTS = [];
-for (let r=0;r<5;r++) for (let c=0;c<11;c++){
-  const d=document.createElement('div'); d.className='pt';
-  d.style.left=(300+c*120)+'px'; d.style.top=(400+r*64)+'px';
-  pts.appendChild(d); PTS.push({el:d,x:300+c*120,y:400+r*64});
-}
+const pts=document.getElementById('pts'); const PTS=[];
+for(let r=0;r<5;r++)for(let c=0;c<11;c++){const d=document.createElement('div');d.className='pt';
+  d.style.left=(300+c*120)+'px';d.style.top=(400+r*64)+'px';pts.appendChild(d);
+  PTS.push({el:d,x:300+c*120,y:400+r*64});}
 
-/* les barres du levier « fréquence » */
-const freq=document.getElementById('freq');
-const FB=[];
-for(let i=0;i<24;i++){ const d=document.createElement('div'); d.className='fb';
-  d.style.left=(i*50)+'px'; d.style.height=(PROFIL[i]*2.1)+'px'; freq.appendChild(d); FB.push(d); }
+const freq=document.getElementById('freq'); const FB=[];
+for(let i=0;i<24;i++){const d=document.createElement('div');d.className='fb';
+  d.style.left=(i*50)+'px';d.style.height=(PROFIL[i]*2.1)+'px';freq.appendChild(d);FB.push(d);}
 
-const tl = gsap.timeline({ paused:true });
-const W  = s => gsap.utils.toArray(s+' .w');
-const mots = (s,at,st=.055)=> tl.to(W(s),
+const tl=gsap.timeline({paused:true});
+const W=s=>gsap.utils.toArray(s+' .w');
+const mots=(s,at,st=.055)=>tl.to(W(s),
   {opacity:1,filter:'blur(0px)',duration:.16,stagger:st,ease:'power4.out'},at);
-const off = (s,at,d=.3)=> tl.to(s,{opacity:0,duration:d,ease:'power2.in'},at);
 
-/* ---------- plans : fondu + léger mouvement d'appareil ---------- */
-function plan(id,img,start,dur,from,to,fi){
-  if(fi===0) tl.set('#'+id+' .in',{opacity:1},0);
-  else tl.fromTo('#'+id+' .in',{opacity:0},{opacity:1,duration:.55,ease:'power2.out'},start);
-  tl.to('#'+id+' .in',{opacity:0,duration:.5,ease:'power2.in'},start+dur-.5)
-    .fromTo('#'+id+' '+img,from,{...to,duration:dur,ease:'none'},start);
+/* ---------- les plans : fondu enchaîné, aucun mouvement ajouté ---------- */
+function plan(id,start,dur,fi){
+  if(fi===0) tl.set(id,{opacity:1},0);
+  else tl.fromTo(id,{opacity:0},{opacity:1,duration:.55,ease:'power2.out'},start);
+  tl.to(id,{opacity:0,duration:.5,ease:'power2.in'},start+dur-.5);
 }
-plan('pA','img',0.0 ,2.2 ,{scale:1.00,x:0,y:0},      {scale:1.07,x:-18,y:8}, 0);
-plan('pB','img',1.4 ,2.1 ,{scale:1.06,x:20,y:0},     {scale:1.00,x:-10,y:0});
-plan('pC','img',2.9 ,2.3 ,{scale:1.00,x:0,y:-10},    {scale:1.06,x:0,y:10});
-plan('pD','img',4.6 ,5.8 ,{scale:1.10,x:40,y:0},     {scale:1.00,x:-24,y:0});
-plan('pE','img',9.9 ,11.1,{scale:1.00,x:0,y:14},     {scale:1.09,x:12,y:-14});
-plan('pF','img',20.4,6.6 ,{scale:1.08,x:-20,y:0},    {scale:1.00,x:18,y:0});
-plan('pG','img',26.4,7.0 ,{scale:1.00,x:-14,y:0},    {scale:1.07,x:14,y:6});
-plan('pI','img',42.8,15.2,{scale:1.00,x:20,y:0},     {scale:1.12,x:-26,y:10});
-plan('pJ','img',57.4,3.3 ,{scale:1.05,x:0,y:0},      {scale:1.00,x:0,y:0});
-plan('pK','img',60.0,11.1,{scale:1.10,x:0,y:-18},    {scale:1.00,x:0,y:16});
-plan('pL','img',70.5,7.9 ,{scale:1.00,x:-22,y:0},    {scale:1.08,x:22,y:0});
-plan('pM','img',77.8,4.2 ,{scale:1.06,x:0,y:10},     {scale:1.00,x:0,y:-8});
-plan('pN','img',81.4,9.2 ,{scale:1.00,x:0,y:0},      {scale:1.08,x:-14,y:-10});
-plan('pO','img',90.0,6.0 ,{scale:1.08,x:16,y:0},     {scale:1.00,x:-6,y:0});
+plan('#vs01',0.0,2.2,0); plan('#vs02',1.4,2.1); plan('#vs03',2.9,2.3);
+plan('#vs04',4.6,5.8); plan('#vs05',9.9,6.1); plan('#vs06',15.8,5.2);
+plan('#vs07',20.4,6.6); plan('#vs08',26.4,7.0); plan('#vs09L',32.8,6.7);
+plan('#vs09R',32.8,6.7); plan('#vs10',39.3,4.1); plan('#vs11',42.8,5.8);
+plan('#vs12',48.4,4.7); plan('#vs13',52.9,5.1); plan('#vs14',57.4,3.3);
+plan('#vs15',60.0,6.3); plan('#vs16',66.1,5.0); plan('#vs17',70.5,7.9);
+plan('#vs18',77.8,4.3); plan('#vs19',81.4,5.6); plan('#vs20',86.8,3.8);
+plan('#vs21',90.0,6.0);
+tl.fromTo('#fente',{opacity:0,scaleY:0},{opacity:.85,scaleY:1,duration:.5,ease:'power3.out'},33.4)
+  .to('#fente',{opacity:0,duration:.4,ease:'power2.in'},38.9);
 
-/* le plan scindé : les deux moitiés s'écartent légèrement */
-tl.fromTo('#pH .in',{opacity:0},{opacity:1,duration:.55,ease:'power2.out'},32.8)
-  .to('#pH .in',{opacity:0,duration:.5,ease:'power2.in'},42.9)
-  .fromTo('#dG img',{scale:1.00,x:20},{scale:1.08,x:-14,duration:10.6,ease:'none'},32.8)
-  .fromTo('#dD img',{scale:1.08,x:-20},{scale:1.00,x:14,duration:10.6,ease:'none'},32.8)
-  .fromTo('#fente',{opacity:0,scaleY:0},{opacity:.85,scaleY:1,duration:.5,ease:'power3.out'},33.6);
+[['#vo1',0,5.2],['#vo2',4.6,5.8],['#vo3',9.9,11.1],['#vo4',20.4,6.6],['#vo5',26.4,7.0],
+ ['#vo6',32.8,10.6],['#vo7',42.8,15.2],['#vo8',57.4,3.3],['#vo9',60.0,11.1],
+ ['#vo10',70.5,7.9],['#vo11',77.8,4.3],['#vo12',81.9,8.7],['#vo13',90.0,8.4]]
+ .forEach(([s,a,d])=>{ tl.fromTo(s,{opacity:0},{opacity:1,duration:.5},a)
+   .to(s,{opacity:0,duration:.45},a+d-.45); });
 
-/* ---------- HUD ---------- */
 tl.to('.hud',{opacity:1,duration:.7,ease:'power2.out'},0.5)
   .to('.hud',{opacity:0,duration:.6,ease:'power2.in'},89.0);
 
-/* ================= G1 · ouverture ================= */
-mots('#t1',0.24,.14);                       // "Un opérateur pose des milliers de compteurs"
-off('#t1',2.80,.28);
-mots('#t1b',3.013,.17);                     // "Chacun porte une carte SIM"
-off('#t1b',4.45,.26);
+/* ================= G1 ================= */
+mots('#t1',1.40,.16);                        // « milliers de compteurs »
+tl.to('#t1',{opacity:0,duration:.28,ease:'power2.in'},2.80);
+mots('#t1b',3.013,.17);                      // « chacun porte une carte SIM »
+tl.to('#t1b',{opacity:0,duration:.26,ease:'power2.in'},4.45);
 
-/* ================= G2 · l'index ================= */
+/* ================= G2 ================= */
 tl.to('#k2',{opacity:1,duration:.4,ease:'power2.out'},4.70);
-mots('#t2',4.76,.14);                       // "Chaque heure, un seul chiffre"
+mots('#t2',6.00,.14);                        // « un seul chiffre »
 tl.fromTo('#idx',{opacity:0,y:26},{opacity:1,y:0,duration:.45,ease:'back.out(2)'},6.88)
   .to('#idxLab',{opacity:1,duration:.35},6.95);
-/* l'index défile : 24 relevés, un par heure */
-const INDEX = PROFIL.reduce((a,v,i)=>{a.push((a[i-1]||4480)+v);return a;},[]);
-INDEX.forEach((v,i)=>{ tl.set('#idx',{textContent:String(4812+v).replace(/(\d)(\d{3})$/,'$1 $2')},
-  7.0 + i*0.055); });
+const INDEX=PROFIL.reduce((a,v,i)=>{a.push((a[i-1]||4480)+v);return a;},[]);
+INDEX.forEach((v,i)=>{tl.set('#idx',
+  {textContent:String(4812+v).replace(/(\d)(\d{3})$/,'$1 $2')},7.0+i*0.055);});
 tl.to(['#k2','#t2','#idx','#idxLab'],{opacity:0,duration:.3,ease:'power2.in'},8.35);
 tl.fromTo('#banal',{opacity:0,scale:.94},{opacity:1,scale:1,duration:.4,ease:'back.out(1.8)'},8.40)
   .to('#banal',{opacity:0,duration:.35,ease:'power2.in'},9.60);
 
-/* ================= G3 · 24 heures ================= */
-tl.to('#k3',{opacity:1,duration:.4},10.10)
-  .to('#axe',{opacity:1,duration:.3},10.80);
-/* les 24 barres montent pendant « aligné sur vingt-quatre heures » */
+/* ================= G3 ================= */
+tl.to('#k3',{opacity:1,duration:.4},10.10).to('#axe',{opacity:1,duration:.3},10.80);
 tl.to('.bar',{opacity:1,scaleY:1,duration:.26,stagger:.034,ease:'power3.out'},10.88);
-/* chaque marqueur tombe exactement sur son mot */
-tl.fromTo('#m1',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},13.20)   // "lève"
-  .fromTo('#m2',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},13.84)   // "part"
-  .fromTo('#m3',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},14.96)   // "rentre"
-  .fromTo('#m4',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},15.52);  // "dort"
+tl.fromTo('#m1',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},13.20)
+  .fromTo('#m2',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},13.84)
+  .fromTo('#m3',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},14.96)
+  .fromTo('#m4',{opacity:0,y:18},{opacity:1,y:0,duration:.28,ease:'back.out(2)'},15.52);
 tl.to('#k3',{opacity:0,duration:.3},16.10);
-mots('#t3',16.23,.11);                      // "L'index dessine un rythme de vie"
-mots('#t3b',18.92,.09);                     // "Et là, le droit se réveille"
+mots('#t3',17.28,.11);                       // « rythme de vie »
+mots('#t3b',19.28,.1);                       // « le droit se réveille »
 tl.to(['#t3','#t3b','.marq','.bar','#axe'],{opacity:0,duration:.4,ease:'power2.in'},20.80);
 
-/* ================= G4 · trois régimes ================= */
+/* ================= G4 ================= */
 tl.to('#k4',{opacity:1,duration:.35},20.64);
 tl.fromTo('#r1',{opacity:0,x:-40},{opacity:1,x:0,duration:.4,ease:'power3.out'},20.88)
   .fromTo('#r2',{opacity:0,x:-40},{opacity:1,x:0,duration:.4,ease:'power3.out'},21.20)
   .fromTo('#r3',{opacity:0,x:-40},{opacity:1,x:0,duration:.4,ease:'power3.out'},21.52);
-/* « sur ce seul boîtier » : les trois bandes se resserrent, elles se superposent */
 tl.to('#r1',{y:20,duration:.7,ease:'power3.inOut'},23.28)
   .to('#r3',{y:-20,duration:.7,ease:'power3.inOut'},23.28);
-tl.to('#s4',{opacity:1,duration:.45,ease:'power2.out'},23.90);
-tl.to(['#k4','#r1','#r2','#r3','#s4'],{opacity:0,duration:.4,ease:'power2.in'},26.55);
+/* « superposition » : un balayage traverse les trois d'un seul geste */
+tl.fromTo('#scan',{opacity:0,y:0},{opacity:1,duration:.18},24.40)
+  .to('#scan',{y:390,duration:1.1,ease:'power1.inOut'},24.40)
+  .to('#scan',{opacity:0,duration:.25},25.30);
+tl.to(['#k4','#r1','#r2','#r3'],{opacity:0,duration:.4,ease:'power2.in'},26.10);
 
-/* ================= G5 · 01 identifier ================= */
+/* ================= G5 ================= */
 tl.to('#k5',{opacity:1,duration:.3},26.48);
-mots('#t5',27.653,.1);                      // "identifier."
-tl.fromTo('#tr5',{opacity:1,scaleX:0},{scaleX:1,duration:.45,ease:'power3.out'},28.20)
-  .to('#s5',{opacity:1,duration:.4,ease:'power2.out'},28.48);
-tl.to(['#k5','#t5','#tr5','#s5'],{opacity:0,duration:.35,ease:'power2.in'},32.40);
+mots('#t5',27.653,.1);                       // « identifier. »
+tl.fromTo('#tr5',{opacity:1,scaleX:0},{scaleX:1,duration:.45,ease:'power3.out'},28.20);
+tl.fromTo('#badge',{opacity:0,scale:1.14},{opacity:1,scale:1,duration:.3,ease:'power4.out'},28.48);
+/* l'onde de lecture de la carte, trois fois, sur « identifier les utilisateurs » */
+[30.48,30.94,31.40].forEach(t=>{
+  tl.fromTo('#onde',{opacity:.9,scale:.35},{opacity:0,scale:1.5,duration:.9,ease:'power2.out'},t);});
+tl.to(['#k5','#t5','#tr5','#badge'],{opacity:0,duration:.35,ease:'power2.in'},32.50);
 
-/* ================= G6 · deux sujets de droit ================= */
-mots('#t6',33.84,.07);                      // "la carte du compteur n'appartient pas à l'occupant"
-tl.fromTo('#sG',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},35.36)  // "l'occupant"
-  .fromTo('#sD',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},36.76); // "l'entreprise"
-tl.fromTo('#tampon',{opacity:0,scale:1.16},{opacity:1,scale:1,duration:.34,ease:'power4.out'},39.60)
-  .to('#tampon',{opacity:0,duration:.35,ease:'power2.in'},42.40);
-tl.to(['#t6','#sG','#sD'],{opacity:0,duration:.35,ease:'power2.in'},42.40);
+/* ================= G6 ================= */
+tl.fromTo('#sG',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},35.36)
+  .fromTo('#sD',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},36.76);
+tl.fromTo('#tampon',{opacity:0,scale:1.16},{opacity:1,scale:1,duration:.34,ease:'power4.out'},39.60);
+tl.to(['#sG','#sD','#tampon'],{opacity:0,duration:.35,ease:'power2.in'},42.45);
 
-/* ================= G7 · 02 qualifier ================= */
+/* ================= G7 ================= */
 tl.set('#cur',{x:0},42.8);
 tl.to('#k7',{opacity:1,duration:.3},42.96);
-mots('#t7',43.52,.1);                       // "qualifier."
+mots('#t7',43.52,.1);                        // « qualifier. »
 tl.fromTo('#tr7',{opacity:1,scaleX:0},{scaleX:1,duration:.45,ease:'power3.out'},44.00);
-tl.to(['#q1 .qt','#q2 .qt','#q3 .qt'],{opacity:.3,duration:.3},44.48);
-/* "donnée personnelle dès qu'il est rattachable à un foyer" → le curseur va au centre */
+tl.to('#qual',{opacity:1,duration:.4,ease:'power2.out'},44.30);
+tl.to(['#q1 .qt','#q2 .qt','#q3 .qt'],{opacity:.5,duration:.3},44.48);
 tl.to('#cur',{x:440,duration:.55,ease:'power3.inOut'},45.52)
-  .to('#q2 .qt',{opacity:1,duration:.3},46.00)
-  .to('#q2 .qd',{opacity:1,duration:.3},46.48);
-/* "mais il n'est pas sensible" → le curseur tente la droite puis est repoussé */
+  .to('#q2 .qt',{opacity:1,duration:.3},46.00);
 tl.to('#cur',{x:880,duration:.4,ease:'power2.out'},48.32)
   .to('#q3 .qt',{opacity:1,duration:.25},48.40)
   .to('#art40',{opacity:1,duration:.4},49.04)
   .to('#cur',{x:440,duration:.5,ease:'power3.inOut'},50.80)
-  .to('#q3 .qt',{opacity:.3,duration:.3},50.80);
-/* "trop qualifier est une erreur / pas assez aussi" */
+  .to('#q3 .qt',{opacity:.5,duration:.3},50.80);
 tl.to('#cur',{x:880,backgroundColor:'#FF5247',duration:.3,ease:'power2.out'},53.20)
   .to('#cur',{x:0,duration:.42,ease:'power2.inOut'},54.88)
-  .to('#cur',{x:440,backgroundColor:'#44DD93',duration:.5,ease:'back.out(1.6)'},56.08)
-  .to('#q1 .qd',{opacity:1,duration:.25},56.08)
-  .to('#q3 .qd',{opacity:1,duration:.25},56.20);
+  .to('#cur',{x:440,backgroundColor:'#44DD93',duration:.5,ease:'back.out(1.6)'},56.08);
 tl.to(['#k7','#t7','#tr7','#qual','#art40'],{opacity:0,duration:.4,ease:'power2.in'},57.20);
 
-/* ================= G8 · les deux leviers ================= */
-mots('#t8',57.64,.08);                      // "l'ingénieur a deux leviers"
-tl.fromTo('#lA',{opacity:0,y:30},{opacity:1,y:0,duration:.38,ease:'power3.out'},58.20)
-  .fromTo('#lB',{opacity:0,y:30},{opacity:1,y:0,duration:.38,ease:'power3.out'},58.36);
+/* ================= G8 ================= */
+mots('#t8',58.427,.1);                       // « deux leviers »
+tl.fromTo('#lA',{opacity:0,y:30},{opacity:1,y:0,duration:.38,ease:'power3.out'},58.56)
+  .fromTo('#lB',{opacity:0,y:30},{opacity:1,y:0,duration:.38,ease:'power3.out'},58.74);
 tl.to(['#t8','#lA','#lB'],{opacity:0,duration:.35,ease:'power2.in'},60.25);
 
-/* ================= G9 · agrégation ================= */
+/* ================= G9 ================= */
 tl.to('#k9',{opacity:1,duration:.3},60.20);
-mots('#t9',62.04,.07);                      // "piloter un quartier"
 tl.to('.pt',{opacity:1,duration:.22,stagger:.009,ease:'power2.out'},60.40);
-/* « on remonte un agrégat » : tous les points convergent vers un seul cercle */
-PTS.forEach((p,i)=>{ tl.to(p.el,{x:960-p.x,y:530-p.y,opacity:.18,duration:.8,
-  ease:'power3.inOut'},63.80+i*0.004); });
+PTS.forEach((p,i)=>{tl.to(p.el,{x:960-p.x,y:530-p.y,opacity:.18,duration:.8,
+  ease:'power3.inOut'},63.80+i*0.004);});
 tl.fromTo('#sigma',{opacity:0,scale:.5},{opacity:1,scale:1,duration:.5,ease:'back.out(2)'},64.40);
 tl.to('#verdict',{opacity:1,duration:.4,ease:'power2.out'},64.60);
-tl.to(['#k9','#t9','#sigma','.pt'],{opacity:0,duration:.35,ease:'power2.in'},65.96);
+tl.to(['#k9','#sigma','.pt'],{opacity:0,duration:.35,ease:'power2.in'},65.96);
 tl.to('#verdict',{opacity:0,duration:.35,ease:'power2.in'},66.50);
-
-/* ================= G9b · fréquence ================= */
 tl.to('#k9b',{opacity:1,duration:.3},66.16);
 tl.to('.fb',{opacity:1,duration:.2,stagger:.02,ease:'power2.out'},66.50);
-tl.to('#s9a',{opacity:1,duration:.3},68.48);
-/* « le quotidien suffit » : on ne garde qu'une barre sur six */
-FB.forEach((b,i)=>{ if(i%6!==0) tl.to(b,{opacity:0,scaleY:.1,duration:.3,ease:'power2.in'},69.36+i*0.006); });
-tl.to('#s9b',{opacity:1,duration:.3},69.80);
-tl.to(['#k9b','#freq','#s9'],{opacity:0,duration:.35,ease:'power2.in'},70.40);
+FB.forEach((b,i)=>{if(i%6!==0) tl.to(b,{opacity:0,scaleY:.1,duration:.3,ease:'power2.in'},69.36+i*0.006);});
+tl.to(['#k9b','#freq'],{opacity:0,duration:.35,ease:'power2.in'},70.40);
 
-/* ================= G10 · 03 faire vieillir ================= */
+/* ================= G10 ================= */
 tl.to('#k10',{opacity:1,duration:.3},70.78);
-mots('#t10',71.28,.09);                     // "faire vieillir le parc"
-tl.fromTo('#v1',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},72.72)  // "Changer"
-  .fromTo('#v2',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},74.213) // "Chiffrer"
-  .fromTo('#v3',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},75.547);// "Remplacer"
-tl.to(['#k10','#t10','#v1','#v2','#v3'],{opacity:0,duration:.35,ease:'power2.in'},77.40);
+mots('#t10',71.28,.09);                      // « faire vieillir le parc »
+tl.fromTo('#v1',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},72.72)
+  .fromTo('#v2',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},74.213)
+  .fromTo('#v3',{opacity:0,x:-32},{opacity:1,x:0,duration:.36,ease:'power3.out'},75.547);
+tl.to(['#k10','#t10','#v1','#v2','#v3'],{opacity:0,duration:.35,ease:'power2.in'},77.50);
 
-/* ================= G11 · la dépose ================= */
-mots('#t11',78.24,.08);                     // "à la dépose, désactiver la carte"
-tl.to('#s11',{opacity:1,duration:.35,ease:'power2.out'},79.90);
-tl.to(['#t11','#s11'],{opacity:0,duration:.35,ease:'power2.in'},81.75);
+/* ================= G11 ================= */
+mots('#t11',78.88,.1);                       // « désactiver la carte »
+tl.to('#s11',{opacity:1,duration:.35,ease:'power2.out'},80.12);
+tl.to(['#t11','#s11'],{opacity:0,duration:.35,ease:'power2.in'},81.45);
 
-/* ================= G12 · le registre ================= */
-tl.to('#k12',{opacity:1,duration:.35},81.64);
-mots('#t12',84.20,.1);                      // "le registre de parc"
+/* ================= G12 ================= */
+mots('#t12',84.20,.1);                       // « le registre de parc »
 tl.fromTo('#tr12',{opacity:1,scaleX:0},{scaleX:1,duration:.5,ease:'power3.out'},84.60);
-/* une colonne par mot prononcé */
 [['#c1',85.52],['#c2',86.24],['#c3',86.88],['#c4',87.72],['#c5',88.72],['#c6',89.44]]
-  .forEach(([s,t])=> tl.fromTo(s,{opacity:0,y:18},{opacity:1,y:0,duration:.26,ease:'back.out(2)'},t));
-tl.to(['#k12','#t12','#tr12','.chip'],{opacity:0,duration:.4,ease:'power2.in'},89.90);
+  .forEach(([s,t])=>tl.fromTo(s,{opacity:0,y:18},{opacity:1,y:0,duration:.26,ease:'back.out(2)'},t));
+tl.to(['#t12','#tr12','.chip'],{opacity:0,duration:.4,ease:'power2.in'},89.95);
 
-/* ================= G13 · clôture ================= */
-mots('#t13',90.28,.1);                      // "Trois régimes. Un seul boîtier."
+/* ================= G13 ================= */
+mots('#t13',90.28,.1);                       // « trois régimes, un seul boîtier »
 tl.fromTo('#f1',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},92.24)
   .fromTo('#f2',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},93.147)
   .fromTo('#f3',{opacity:0,x:-26},{opacity:1,x:0,duration:.34,ease:'power3.out'},94.16);

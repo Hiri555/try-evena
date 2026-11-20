@@ -54,15 +54,52 @@ Vérifié après rendu sur dix points de contrôle extraits du MP4 lui-même, pa
 
 ---
 
-## Les images
+## Les images : 22 plans, tous animés, aucun répété
 
-Dix plans photographiques générés (`nano-banana-pro`, 2752×1536, puis JPEG 2400 px),
-sur une seule direction : nuit, ombres indigo, une lampe ambre dans le champ, contre-jour cyan.
-Les invites exactes sont dans `outils/generer_plans.py` — rien n'est irreproductible.
+**Première version (abandonnée).** Dix photographies fixes, six d'entre elles réutilisées
+deux fois, animées par un simple travelling avant en CSS. Le commanditaire a tranché :
+« toutes les images sont statiques, aucune ne bouge ». Il avait raison — un zoom lent sur
+une photo n'est pas de l'animation, et six images qui reviennent, c'est de la redondance.
 
-Le film n'est pas en typographie : chaque beat est porté par une photo plein cadre avec
-un léger travelling avant ou latéral, et la data-viz se pose dessus. Le plan 33–43 s est
-scindé en deux pour que l'opposition *occupant / entreprise* soit littéralement à l'écran.
+**Version actuelle.** 22 plans vidéo distincts, aucun réemploi. Chaque plan est produit en
+deux temps :
+
+1. une photographie est générée (`nano-banana-pro`, 2752×1536) — elle fixe le cadre,
+   la lumière et la composition ;
+2. cette photographie est animée en image-to-video (`veo3_fast` / Veo 3.1, 8 s) avec une
+   consigne qui interdit explicitement toute coupe, tout zoom et tout recadrage : seuls
+   les éléments nommés bougent.
+
+Ce qui bouge, plan par plan : la lampe-témoin rouge du pylône clignote · les DEL des
+compteurs s'allument en ordre dispersé · la pince soulève une carte SIM du plateau · les
+chiffres du compteur défilent et un papillon traverse le faisceau · une silhouette traverse
+la fenêtre éclairée · le ventilateur tourne au-dessus du canapé · l'opérateur se penche et
+tape · la main gantée enfonce la SIM puis se retire · une main tire le rideau · le tampon
+descend sur le contrat · la lumière balaie la puce et révèle l'empreinte · le doigt descend
+la colonne de la fiche · les phares traversent les avenues · les fenêtres de la rue
+s'allument une à une · la toile d'araignée tremble sur le vieux compteur · le tournevis
+dévisse et le compteur bascule · la plume écrit une ligne du registre · le tiroir de fiches
+s'ouvre · l'aube monte sur la rangée de compteurs.
+
+Les invites exactes sont dans `outils/animer_les_plans.py` et `outils/generer_plans.py`.
+
+**Deux contrôles automatiques** sur chaque clip, avant montage :
+
+- *coupe interne* : `scdet` cherche un changement de plan à l'intérieur du clip. Veo a
+  tendance à se recadrer tout seul ; un clip qui coupe est relancé avec une consigne
+  renforcée. Résultat final : **0 coupe sur les 22**.
+- *mouvement réel* : différence moyenne entre images consécutives (`tblend=difference` +
+  `signalstats`). **Aucun plan à zéro** — de 0,40 (le registre, volontairement calme) à
+  2,46 (la dépose), moyenne 1,16 sur 255.
+
+Le plan 32,8–39,5 s est scindé en deux moitiés d'écran : à gauche une main tire le rideau
+chez l'occupant, à droite le tampon de l'entreprise tombe sur un contrat, à côté des bacs
+de cartes SIM. L'opposition des deux sujets de droit est à l'écran avant d'être dite.
+
+**Limite assumée :** Veo 3.1 rapide sort en 1280×720. Les clips sont agrandis en 1920×1080
+(lanczos + accentuation légère) ; les graphiques, eux, sont rendus nativement en 1920.
+Sur une image nocturne, granuleuse et à faible profondeur de champ, l'agrandissement ne se
+voit pas en projection, mais il est réel et je préfère l'écrire.
 
 ---
 
@@ -71,12 +108,15 @@ scindé en deux pour que l'opposition *occupant / entreprise* soit littéralemen
 | | |
 |---|---|
 | durée | 98,40 s (brief : 1 min 50 maximum) |
+| plans | 22, tous différents, tous animés (0 réemploi, 0 image fixe) |
 | image | 1920×1080, 30 i/s, H.264 high@4.0 |
 | son | −12,4 LUFS intégré, crête −0,8 dBTP (référence : son film multiplexage, −11,9 LUFS) |
-| contrôle HyperFrames | 0 erreur ; contraste 30/30 WCAG AA ; mise en page 0 problème sur 9 échantillons |
-| version allégée | 42,0 Mo, SSIM 0,99985 contre le master (38,2 dB) |
+| contrôle HyperFrames | 0 erreur ; 0 alerte de contraste ; mise en page 0 problème |
+| version allégée | 42,0 Mo, SSIM 0,99984 contre le master (38,0 dB) |
+| coupes internes dans les clips | 0 sur 22 (détection `scdet`) |
+| mouvement image par image | 0,40 à 2,46 sur 255 ; aucun plan à zéro |
 
-Deux fichiers : le master (97,9 Mo, pour la projection) et `_whatsapp` (42,0 Mo, pour l'envoi).
+Deux fichiers : le master (108,0 Mo, pour la projection) et `_whatsapp` (42,0 Mo, pour l'envoi).
 Ils ne sont pas versionnés ici — ce dépôt garde la source, pas les rendus.
 
 ---
@@ -106,6 +146,13 @@ est une construction, pas une citation. Rien n'est présenté entre guillemets �
 ```bash
 npx hyperframes check
 npx hyperframes render --output out/t12.mp4
+```
+
+Les 22 clips ne sont **pas** versionnés (353 Mo). Pour les refabriquer :
+
+```bash
+KIE=<votre_cle> python3 outils/animer_les_plans.py   # genere et telecharge clips/
+python3 outils/conditionner_les_clips.py             # decoupe vers assets/clips/
 ```
 
 La bande son `assets/audio/mix.mp3` contient déjà la voix et la musique mixées
