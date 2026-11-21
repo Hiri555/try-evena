@@ -6,178 +6,195 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <style>
 :root{
-  --noir:#05060A; --blanc:#FFFFFF; --or:#F5C14B; --rouge:#FF2D1F;
-  --gris:#9AA6BF;
-  --fh:'Archivo Black', sans-serif;
-  --fd:'Archivo Black', sans-serif;
-  --fu:'Inter', sans-serif;
-  --fm:'JetBrains Mono', monospace;
+  --nuit:#030712; --bleu:#0B1B3A; --ciel:#7FB2FF; --blanc:#FFFFFF;
+  --or:#F5C14B; --rouge:#FF2D1F; --gris:#A7B6D4;
+  --fh:'Archivo Black', sans-serif; --fu:'Inter', sans-serif; --fm:'JetBrains Mono', monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1920px;overflow:hidden;background:var(--noir)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--nuit)}
 #root{width:100%;height:100%;position:relative;font-family:var(--fu);color:var(--blanc)}
 
+/* ---- la nuit bleue de la Ligue des Champions ---- */
 #fond{position:absolute;inset:0;background:
-  radial-gradient(760px 1100px at 50% 34%,#141A2B 0%,#0A0E1A 48%,#05060A 100%)}
-#rays{position:absolute;left:50%;top:-520px;width:2600px;height:2600px;margin-left:-1300px;
+  radial-gradient(820px 1120px at 50% 33%,#16305F 0%,#0A1836 42%,#050B1C 72%,#030712 100%)}
+#lueur{position:absolute;left:50%;top:560px;width:1500px;height:1500px;margin:-750px 0 0 -750px;
+  opacity:0;background:radial-gradient(circle,rgba(150,195,255,.46) 0%,rgba(90,150,255,.14) 34%,rgba(0,0,0,0) 66%)}
+#rays{position:absolute;left:50%;top:560px;width:2800px;height:2800px;margin:-1400px 0 0 -1400px;
   opacity:0;transform-origin:50% 50%;
   background:conic-gradient(from 0deg,
-    rgba(255,255,255,0) 0deg, rgba(255,255,255,.10) 4deg, rgba(255,255,255,0) 9deg,
-    rgba(255,255,255,0) 26deg, rgba(255,255,255,.07) 30deg, rgba(255,255,255,0) 35deg,
-    rgba(255,255,255,0) 58deg, rgba(255,255,255,.12) 63deg, rgba(255,255,255,0) 69deg,
-    rgba(255,255,255,0) 96deg, rgba(255,255,255,.06) 100deg, rgba(255,255,255,0) 106deg,
-    rgba(255,255,255,0) 150deg, rgba(255,255,255,.09) 155deg, rgba(255,255,255,0) 161deg,
-    rgba(255,255,255,0) 210deg, rgba(255,255,255,.08) 215deg, rgba(255,255,255,0) 221deg,
-    rgba(255,255,255,0) 280deg, rgba(255,255,255,.10) 285deg, rgba(255,255,255,0) 291deg,
-    rgba(255,255,255,0) 360deg)}
+    rgba(190,220,255,0) 0deg, rgba(190,220,255,.13) 3deg, rgba(190,220,255,0) 8deg,
+    rgba(190,220,255,0) 30deg, rgba(255,255,255,.09) 33deg, rgba(190,220,255,0) 38deg,
+    rgba(190,220,255,0) 62deg, rgba(190,220,255,.15) 66deg, rgba(190,220,255,0) 71deg,
+    rgba(190,220,255,0) 104deg, rgba(255,255,255,.07) 107deg, rgba(190,220,255,0) 112deg,
+    rgba(190,220,255,0) 150deg, rgba(190,220,255,.12) 154deg, rgba(190,220,255,0) 159deg,
+    rgba(190,220,255,0) 196deg, rgba(255,255,255,.08) 199deg, rgba(190,220,255,0) 204deg,
+    rgba(190,220,255,0) 248deg, rgba(190,220,255,.14) 252deg, rgba(190,220,255,0) 257deg,
+    rgba(190,220,255,0) 300deg, rgba(255,255,255,.08) 303deg, rgba(190,220,255,0) 308deg,
+    rgba(190,220,255,0) 360deg)}
 #vig{position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(760px 1060px at 50% 46%,rgba(0,0,0,0) 46%,rgba(0,0,0,.80) 100%)}
-#grain{position:absolute;inset:0;pointer-events:none;opacity:.055;
-  background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.5) 0 1px,rgba(0,0,0,0) 1px 3px)}
-
-/* ---- surfaces plein cadre ---- */
+  background:radial-gradient(780px 1080px at 50% 44%,rgba(0,0,0,0) 46%,rgba(0,0,0,.80) 100%)}
 #flash{position:absolute;inset:0;background:#fff;opacity:0}
 #blanc{position:absolute;inset:0;background:#fff;opacity:0}
-#barres{position:absolute;inset:0;opacity:0}
-#barres div{position:absolute;left:-60px;width:1200px;background:rgba(255,255,255,.92)}
+/* le trait du whip-pan */
+#whip{position:absolute;left:-400px;top:0;width:360px;height:1920px;opacity:0;
+  background:linear-gradient(90deg,rgba(255,255,255,0) 0%,rgba(205,228,255,.9) 50%,rgba(255,255,255,0) 100%)}
+
+/* ---- l'emblème : une sphère taillée dans la lumière ---- */
+#emb{position:absolute;left:50%;top:560px;width:620px;height:620px;margin:-310px 0 0 -310px;opacity:0}
+#emb svg{display:block;width:620px;height:620px;overflow:visible}
+.pet{fill:url(#gPet);opacity:0}
+#anneau{fill:none;stroke:url(#gRing);stroke-width:5}
+#disque{fill:url(#gDisc)}
+#qmark{font-family:'Archivo Black',sans-serif;font-size:188px;fill:#FF2D1F;
+  text-anchor:middle;dominant-baseline:central}
+.onde{position:absolute;left:50%;top:560px;width:300px;height:300px;margin:-150px 0 0 -150px;
+  border-radius:50%;border:6px solid rgba(190,220,255,.9);opacity:0}
 
 /* ---- silhouettes ---- */
 #sil{position:absolute;left:50%;margin-left:-430px;bottom:-40px;width:860px;opacity:0}
-#sil img{display:block;width:860px;height:auto}
-#silGlow{position:absolute;left:50%;margin-left:-420px;bottom:120px;width:840px;height:840px;
-  border-radius:50%;opacity:0;
-  background:radial-gradient(circle,rgba(120,180,255,.30) 0%,rgba(120,180,255,0) 66%)}
-
-/* ---- le point d'interrogation ---- */
-#qm{position:absolute;left:0;width:1080px;text-align:center;top:560px;
-  font-family:var(--fd);font-size:560px;line-height:1;color:var(--rouge);opacity:0}
-#qms{position:absolute;left:0;width:1080px;text-align:center;top:1180px;
-  font-family:var(--fd);font-size:170px;line-height:1;color:var(--rouge);opacity:0}
-
-/* ---- ondes de choc ---- */
-.onde{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;
-  border-radius:50%;border:7px solid rgba(255,255,255,.95);opacity:0}
+#sil img{display:block;width:860px;height:auto;opacity:.40}
 
 /* ---- particules ---- */
-#parts{position:absolute;left:50%;top:50%;width:0;height:0;opacity:0}
-#parts span{position:absolute;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;
-  background:#fff}
+#parts{position:absolute;left:50%;top:560px;width:0;height:0;opacity:0}
+#parts span{position:absolute;border-radius:50%}
 
 /* ---- typographie ---- */
 .lg{position:absolute;left:0;width:1080px;text-align:center;
-  font-family:var(--fh);font-size:150px;line-height:.94;letter-spacing:-.01em;
+  font-family:var(--fh);font-size:132px;line-height:1.0;letter-spacing:-.012em;
   text-transform:uppercase;opacity:0}
-.md{position:absolute;left:0;width:1080px;text-align:center;
-  font-family:var(--fh);font-size:104px;line-height:1.0;text-transform:uppercase;opacity:0}
+.chrome{
+  background:linear-gradient(174deg,#FFFFFF 0%,#FFFFFF 18%,#CFE2FA 30%,#FFFFFF 42%,
+    #FFFFFF 56%,#D6E6FB 68%,#FFFFFF 80%,#FFFFFF 100%);
+  background-size:100% 300%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 42px rgba(120,175,255,.45)}
 .sm{position:absolute;left:0;width:1080px;text-align:center;
-  font-family:var(--fm);font-size:34px;letter-spacing:.26em;text-transform:uppercase;
+  font-family:var(--fm);font-size:34px;letter-spacing:.3em;text-transform:uppercase;
   color:var(--gris);opacity:0}
 .or{color:var(--or)} .rg{color:var(--rouge)}
 
-/* ---- aberration RGB ---- */
+#ph{position:absolute;left:60px;top:1074px;width:960px;text-align:center;
+  font-family:var(--fh);font-size:76px;line-height:1.2;text-transform:uppercase;color:#FFFFFF}
+#ph span{display:inline-block;opacity:0;margin:0 .13em;
+  text-shadow:0 0 34px rgba(130,185,255,.55),0 4px 18px rgba(0,0,0,.55)}
+
+/* réfraction prismatique, comme la lumière dans le verre */
 .gl{position:relative;display:block;width:1080px}
 .gl b{font-weight:inherit;display:block;width:1080px}
 .gl u{position:absolute;left:0;top:0;display:block;width:1080px;
-  text-decoration:none;mix-blend-mode:screen}
-.gl u.r{color:#FF2D1F} .gl u.c{color:#17E6FF}
+  text-decoration:none;mix-blend-mode:screen;opacity:.26}
+.gl u.r{color:#FF8A00} .gl u.c{color:#17C8FF}
 
-/* ---- balayage de lumiere ---- */
-.sweep{position:absolute;top:0;height:100%;width:420px;opacity:0;
-  background:linear-gradient(100deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.85) 48%,rgba(255,255,255,0) 100%)}
-
-/* ---- tampon VOTE ---- */
-#tampon{position:absolute;left:50%;margin-left:-260px;top:900px;width:520px;height:520px;opacity:0}
-#tampon .cadre{position:absolute;inset:0;border:16px solid var(--rouge);border-radius:50%}
-#tampon .cadre2{position:absolute;inset:34px;border:6px solid var(--rouge);border-radius:50%}
-#tampon .txt{position:absolute;left:0;top:196px;width:520px;text-align:center;
-  font-family:var(--fh);font-size:118px;color:var(--rouge);line-height:1}
-#tampon .dte{position:absolute;left:0;top:324px;width:520px;text-align:center;
-  font-family:var(--fm);font-size:40px;letter-spacing:.2em;color:var(--rouge)}
-
-/* ---- logo et pied ---- */
-#logo{position:absolute;left:50%;margin-left:-250px;top:148px;width:500px;opacity:0}
-#logo img{display:block;width:500px;height:auto}
-#logoBig{position:absolute;left:50%;margin-left:-330px;top:852px;width:660px;opacity:0}
-#logoBig img{display:block;width:660px;height:auto}
-#com{position:absolute;left:0;top:1336px;width:1080px;text-align:center;
-  font-family:var(--fm);font-size:31px;letter-spacing:.17em;line-height:1.7;
-  color:#C6D2E8;opacity:0;text-transform:uppercase}
-#fin{position:absolute;left:0;top:1536px;width:1080px;text-align:center;
-  font-family:var(--fh);font-size:96px;letter-spacing:.01em;opacity:0}
-#deco{position:absolute;left:50%;margin-left:-180px;top:1494px;width:360px;height:5px;
-  background:var(--or);opacity:0;transform-origin:50% 50%}
+/* ---- la carte de match finale ---- */
+#logoBig{position:absolute;left:50%;margin-left:-300px;top:946px;width:600px;opacity:0}
+#logoBig img{display:block;width:600px;height:auto}
+#com{position:absolute;left:0;top:1382px;width:1080px;text-align:center;
+  font-family:var(--fm);font-size:31px;letter-spacing:.17em;line-height:1.75;
+  color:#C6D6F2;opacity:0;text-transform:uppercase}
+#deco{position:absolute;left:50%;margin-left:-190px;top:1536px;width:380px;height:4px;
+  background:linear-gradient(90deg,rgba(245,193,75,0),#F5C14B,rgba(245,193,75,0));
+  opacity:0;transform-origin:50% 50%}
+#fin{position:absolute;left:0;top:1578px;width:1080px;text-align:center;
+  font-family:var(--fh);font-size:84px;opacity:0}
+#vote{position:absolute;left:50%;top:560px;width:700px;height:700px;margin:-350px 0 0 -350px;opacity:0}
+#vote svg{display:block;width:700px;height:700px}
+#voteTxt{font-family:'JetBrains Mono',monospace;font-size:46px;fill:#F5C14B;letter-spacing:.3em}
 </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="20.2"
+<div id="root" data-composition-id="main" data-start="0" data-duration="20.4"
      data-width="1080" data-height="1920" data-fps="30">
 
   <div id="fond"></div>
   <div id="rays"></div>
-  <div id="silGlow"></div>
+  <div id="lueur"></div>
   <div id="sil"><img src="assets/img/silhouettes.png" alt=""></div>
-  <div id="qms" data-layout-allow-occlusion>?</div>
+
+  <!-- ====== l'emblème ====== -->
+  <div id="emb">
+    <svg viewBox="-310 -310 620 620">
+      <defs>
+        <radialGradient id="gPet" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#FFFFFF" stop-opacity=".95"/>
+          <stop offset="45%" stop-color="#9CC6FF" stop-opacity=".72"/>
+          <stop offset="100%" stop-color="#3C6FC8" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="gRing" x1="0" y1="-1" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="40%" stop-color="#8FB6E8"/>
+          <stop offset="70%" stop-color="#FFFFFF"/>
+          <stop offset="100%" stop-color="#4C7BC8"/>
+        </linearGradient>
+        <radialGradient id="gDisc" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#0D1E42"/>
+          <stop offset="78%" stop-color="#071129"/>
+          <stop offset="100%" stop-color="#040B1C"/>
+        </radialGradient>
+      </defs>
+      <g id="petales"></g>
+      <circle id="anneau" r="262" cx="0" cy="0"/>
+      <circle id="disque" r="112" cx="0" cy="0"/>
+      <text id="qmark" x="0" y="6">?</text>
+    </svg>
+  </div>
+  <div class="onde" id="o1"></div>
+  <div class="onde" id="o2"></div>
+  <div class="onde" id="o3" style="border-color:rgba(245,193,75,.9)"></div>
+  <div id="parts"></div>
   <div id="vig"></div>
-  <div id="grain"></div>
 
-  <!-- ====== ouverture ====== -->
-  <div class="clip" id="s0" data-start="0" data-duration="4.4" data-track-index="1" data-track-kind="graphics">
-    <div id="qm" data-layout-allow-occlusion>?</div>
-    <div class="sm" id="aff" style="top:1216px;font-size:40px;color:#E6ECF8">Présidence <span class="or">2026</span></div>
-    <div class="onde" id="o1"></div>
-    <div class="onde" id="o2"></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="L1" style="top:860px;font-size:132px">
-      <span class="gl" data-layout-allow-overlap data-layout-allow-overflow data-layout-allow-occlusion id="g1"><u class="r">UN AN.</u><u class="c">UN AN.</u><b>UN AN.</b></span></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="L2" style="top:860px;font-size:116px">
-      <span class="gl" data-layout-allow-overlap data-layout-allow-overflow data-layout-allow-occlusion id="g2"><u class="r">UNE AMICALE.</u><u class="c">UNE AMICALE.</u><b>UNE AMICALE.</b></span></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="L3" style="top:790px;font-size:128px">
-      <span class="gl" data-layout-allow-overlap data-layout-allow-overflow data-layout-allow-occlusion id="g3"><u class="r">UNE SEULE PLACE.</u><u class="c">UNE SEULE PLACE.</u><b>UNE SEULE PLACE.</b></span></div>
+  <!-- ====== acte 1 · la phrase ====== -->
+  <div class="clip" id="s1" data-start="0" data-duration="4.5" data-track-index="1" data-track-kind="graphics">
+    <div class="sm" id="aff" style="top:968px">Présidence <span class="or">2026</span></div>
+    <div id="ph"></div>
   </div>
 
-  <!-- ====== présidence 2026 ====== -->
-  <div class="clip" id="s1" data-start="4.4" data-duration="4.6" data-track-index="1" data-track-kind="graphics">
-    <div class="sm" id="P0" style="top:506px">Commission électorale</div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="P1" style="top:580px;font-size:126px">PRÉSIDENCE
-      <div class="sweep" id="sw1" style="left:-460px"></div></div>
-    <div class="lg or" data-layout-allow-overflow data-layout-allow-occlusion id="P2" style="top:712px;font-size:208px">2026</div>
-    <div class="md" data-layout-allow-overflow data-layout-allow-occlusion id="P3" style="top:560px">QUELQU'UN VA<br>DÉCIDER</div>
-    <div class="lg rg" data-layout-allow-overflow data-layout-allow-occlusion id="P4" style="top:820px;font-size:138px">
-      <span class="gl" data-layout-allow-overlap data-layout-allow-overflow data-layout-allow-occlusion id="g4"><u class="r">POUR TOI.</u><u class="c">POUR TOI.</u><b>POUR TOI.</b></span></div>
+  <!-- ====== acte 2 · les enjeux ====== -->
+  <div class="clip" id="s2" data-start="4.5" data-duration="4.0" data-track-index="1" data-track-kind="graphics">
+    <div class="lg chrome" id="D1" style="top:862px;font-size:112px">QUELQU'UN VA<br>DÉCIDER</div>
+    <div class="lg chrome" id="D2" style="top:862px;font-size:112px">QUELQU'UN VA<br>PARLER</div>
+    <div class="lg rg" id="D3" style="top:908px;font-size:160px">
+      <span class="gl" id="g1"><u class="r">POUR TOI.</u><u class="c">POUR TOI.</u><b>POUR TOI.</b></span></div>
   </div>
 
-  <!-- ====== LE DROP ====== -->
-  <div class="clip" id="s2" data-start="9.0" data-duration="2.0" data-track-index="2" data-track-kind="graphics">
+  <!-- ====== acte 3 · le drop ====== -->
+  <div class="clip" id="s3" data-start="8.42" data-duration="1.6" data-track-index="2" data-track-kind="graphics">
     <div id="blanc"></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="D1" style="top:720px;font-size:152px;color:#05060A">ET SI<br>C'ÉTAIT<br><span style="color:#FF2D1F">TOI&nbsp;?</span></div>
-    <div id="parts"></div>
-    <div class="onde" id="o3" style="border-color:rgba(5,6,10,.9)"></div>
+    <div class="lg" id="E1" style="top:700px;font-size:148px;color:#06112B">ET SI</div>
+    <div class="lg" id="E2" style="top:856px;font-size:148px;color:#06112B">C'ÉTAIT</div>
+    <div class="lg rg" id="E3" style="top:1020px;font-size:196px">
+      <span class="gl" id="g2"><u class="r">TOI&nbsp;?</u><u class="c">TOI&nbsp;?</u><b>TOI&nbsp;?</b></span></div>
   </div>
 
-  <!-- ====== l'appel ====== -->
-  <div class="clip" id="s3" data-start="11.0" data-duration="6.0" data-track-index="1" data-track-kind="graphics">
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="A1" style="top:810px;font-size:116px">CANDIDATE-TOI.
-      <div class="sweep" id="sw2" style="left:-460px"></div></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="A2" style="top:810px;font-size:150px">OU <span class="or">VOTE</span>.</div>
-    <div class="lg rg" data-layout-allow-overflow data-layout-allow-occlusion id="A3" style="top:760px;font-size:124px">
-      <span class="gl" data-layout-allow-overlap data-layout-allow-overflow data-layout-allow-occlusion id="g5"><u class="r">MAIS NE REGARDE PAS.</u><u class="c">MAIS NE REGARDE PAS.</u><b>MAIS NE REGARDE PAS.</b></span></div>
-    <div class="lg" data-layout-allow-overflow data-layout-allow-occlusion id="A4" style="top:830px;font-size:146px;letter-spacing:.04em"></div>
+  <!-- ====== acte 4 · l'appel ====== -->
+  <div class="clip" id="s4" data-start="9.9" data-duration="6.5" data-track-index="1" data-track-kind="graphics">
+    <div class="lg chrome" id="A1" style="top:830px;font-size:116px">CANDIDATE-TOI.</div>
+    <div class="lg chrome" id="A2" style="top:810px;font-size:148px">OU VOTE.</div>
+    <div class="lg chrome" id="A3" style="top:760px;font-size:106px">MAIS NE RESTE PAS<br>SPECTATEUR.</div>
+    <div class="lg chrome" id="A4" style="top:740px;font-size:112px">PRÉSIDENCE<br><span style="font-size:176px">2026</span></div>
+    <div class="lg chrome" id="A5" style="top:800px;font-size:98px">ÉLECTIONS<br>EN DÉCEMBRE</div>
   </div>
 
-  <!-- ====== tampon + signature ====== -->
-  <div class="clip" id="s4" data-start="17.0" data-duration="3.2" data-track-index="1" data-track-kind="graphics">
-    <div class="onde" id="o4" style="border-color:rgba(255,45,31,.95)"></div>
-    <div id="tampon" data-layout-allow-overflow data-layout-allow-occlusion>
-      <div class="cadre"></div><div class="cadre2"></div>
-      <div class="txt">VOTE</div><div class="dte">DÉCEMBRE</div>
-    </div>
+  <!-- ====== acte 5 · la carte de match ====== -->
+  <div id="vote">
+    <svg viewBox="0 0 700 700">
+      <defs><path id="arcH" d="M 350,350 m -268,0 a 268,268 0 1,1 536,0" fill="none"/>
+             <path id="arcB" d="M 350,350 m 268,0 a 268,268 0 1,1 -536,0" fill="none"/></defs>
+      <circle cx="350" cy="350" r="296" fill="none" stroke="#F5C14B" stroke-width="4" opacity=".85"/>
+      <circle cx="350" cy="350" r="238" fill="none" stroke="#F5C14B" stroke-width="2" opacity=".5"/>
+      <text id="voteTxt"><textPath href="#arcH" startOffset="50%" text-anchor="middle">VOTE · DÉCEMBRE</textPath></text>
+      <text id="voteTxt2" class="" style="font-family:'JetBrains Mono',monospace;font-size:34px;fill:#F5C14B;letter-spacing:.34em;opacity:.8">
+        <textPath href="#arcB" startOffset="50%" text-anchor="middle">AMICALE DES ÉTUDIANTS</textPath></text>
+    </svg>
+  </div>
+  <div class="clip" id="s5" data-start="16.3" data-duration="4.1" data-track-index="1" data-track-kind="graphics">
     <div id="logoBig"><img src="assets/img/logo_esmt_grand.png" alt="ESMT"></div>
     <div id="com">Commission électorale<br>Amicale des étudiants · ESMT</div>
     <div id="deco"></div>
-    <div id="fin">PRÉSIDENCE <span class="or">2026</span></div>
+    <div class="lg chrome" id="fin" style="top:1578px;font-size:84px">PRÉSIDENCE 2026</div>
   </div>
 
-  <div id="logo"><img src="assets/img/logo_esmt.png" alt="ESMT"></div>
-  <div id="barres"><div></div><div></div><div></div><div></div></div>
+  <div id="whip" data-layout-allow-overflow></div>
   <div id="flash"></div>
 
   <audio id="bande" class="clip" src="assets/audio/bed.mp3" data-start="0" data-volume="1"
@@ -185,33 +202,55 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--noir)}
 </div>
 
 <script>
-/* ===== particules du drop ===== */
-const NP = 40, pc = document.getElementById('parts');
-const PARTS = [];
-for(let i=0;i<NP;i++){
-  const s=document.createElement('span');
-  const a=(i/NP)*Math.PI*2 + (i%3)*0.11;
-  const r=470+((i*97)%470);
-  const t=0.75+((i*53)%40)/42;
-  s.style.width=s.style.height=(16+((i*31)%30))+'px';
-  s.style.background = (i%5===0)?'#FF2D1F':((i%7===0)?'#F5C14B':'#05060A');
-  pc.appendChild(s); PARTS.push({el:s,x:Math.cos(a)*r,y:Math.sin(a)*r*1.45,d:t});
+/* ===== horodatages réels des mots de la voix, + 1,00 s de calage ===== */
+const V = 1.00;
+const T = {
+  dans:V+0.081, un:V+0.401, an:V+0.601, quelquun:V+1.401, presidera:V+1.761,
+  amicale:V+2.201, des:V+2.641, etudiants:V+2.801,
+  q1:V+3.825, decider:V+4.361, q2:V+5.201, parler:V+5.881,
+  pour:V+6.641, toi1:V+6.881,
+  et:V+7.521, si:V+7.681, cetait:V+7.841, TOI:V+8.241,
+  candidate:V+8.961, ou:V+9.841, vote:V+10.001,
+  mais:V+10.561, spectateur:V+11.361,
+  presidence:V+12.312, v2026:V+13.041,
+  elections:V+13.841, decembre:V+14.361
+};
+const DROP = 8.42, CARTE = 16.30;
+
+/* ===== l'emblème : 16 pétales de lumière ===== */
+const NPET = 16, gp = document.getElementById('petales'), PET = [];
+for (let k = 0; k < NPET; k++) {
+  const ext = document.createElementNS('http://www.w3.org/2000/svg','g');
+  ext.setAttribute('transform','rotate(' + (k * 360 / NPET) + ')');
+  const inn = document.createElementNS('http://www.w3.org/2000/svg','g');
+  inn.setAttribute('class','pet');
+  const pa = document.createElementNS('http://www.w3.org/2000/svg','path');
+  pa.setAttribute('d','M0,-118 C40,-150 46,-212 0,-252 C-46,-212 -40,-150 0,-118 Z');
+  inn.appendChild(pa); ext.appendChild(inn); gp.appendChild(ext); PET.push(inn);
 }
 
-/* ===== DÉCEMBRE, lettre par lettre ===== */
-const A4 = document.getElementById('A4');
-[...'DÉCEMBRE'].forEach(c=>{ const s=document.createElement('span');
-  s.textContent=c; s.style.cssText='display:inline-block;opacity:0'; A4.appendChild(s); });
-const LET = Array.from(A4.children);
+/* ===== éclats du drop ===== */
+const NP = 46, pc = document.getElementById('parts'), PARTS = [];
+for (let i = 0; i < NP; i++) {
+  const s = document.createElement('span');
+  const a = (i / NP) * Math.PI * 2 + (i % 3) * 0.09, r = 500 + ((i * 97) % 520);
+  const t = 12 + ((i * 31) % 26), d = 0.72 + ((i * 53) % 40) / 40;
+  s.style.cssText = 'width:' + t + 'px;height:' + t + 'px;margin:' + (-t/2) + 'px 0 0 ' + (-t/2) + 'px;' +
+    'background:' + ((i % 6 === 0) ? '#FF2D1F' : ((i % 5 === 0) ? '#F5C14B' : '#06112B'));
+  pc.appendChild(s); PARTS.push({el:s, x:Math.cos(a)*r, y:Math.sin(a)*r*1.35, d:d});
+}
 
-/* ===== barres de glitch ===== */
-const BAR = Array.from(document.querySelectorAll('#barres div'));
-BAR.forEach((b,i)=>{ b.style.top=(320+i*330)+'px'; b.style.height=(14+i*9)+'px'; });
+/* ===== la phrase, mot à mot sur la voix ===== */
+const MOTS = [['DANS',T.dans],['UN',T.un],['AN,',T.an],
+              ['QUELQU’UN',T.quelquun],['PRÉSIDERA',T.presidera],
+              ['L’AMICALE',T.amicale],['DES',T.des],['ÉTUDIANTS',T.etudiants]];
+const ph = document.getElementById('ph');
+MOTS.forEach(([m]) => { const s = document.createElement('span'); s.textContent = m; ph.appendChild(s); });
+const SP = Array.from(ph.children);
 
-/* les superpositions et depassements de l'ecrasement sont voulus :
-   flash plein cadre, barres de glitch, copies RVB, lettres qui rebondissent */
-document.querySelectorAll('.lg,.md,.gl,.gl u,.gl b,#qm,#qms,#D1,#D1 span,'
-  +'#tampon,#tampon div,#A4,#A4 span,#parts,#parts span,#aff,#aff span').forEach(e=>{
+document.querySelectorAll('#voteTxt,#voteTxt2').forEach(e=>e.setAttribute('data-layout-ignore',''));
+document.querySelectorAll('.lg,.gl,.gl u,.gl b,#aff,#aff span,#ph,#ph span,#parts,#parts span,'
+  + '#emb,#qmark,#vote,#A4 span').forEach(e => {
   e.setAttribute('data-layout-allow-overflow','');
   e.setAttribute('data-layout-allow-occlusion','');
   e.setAttribute('data-layout-allow-overlap','');
@@ -220,158 +259,148 @@ document.querySelectorAll('.lg,.md,.gl,.gl u,.gl b,#qm,#qms,#D1,#D1 span,'
 const tl = gsap.timeline({paused:true});
 window.__timelines = {main: tl};
 
-/* ---------- utilitaires ---------- */
+function on(s,t,d){ tl.to(s,{opacity:1,duration:d||.4,ease:'power2.out'},t); }
+function off(s,t,d){ tl.to(s,{opacity:0,duration:d||.24,ease:'power2.in'},t); }
 function flash(t,d,o){ tl.set('#flash',{opacity:o||1},t);
-  tl.to('#flash',{opacity:0,duration:d||.22,ease:'power3.out'},t+0.02); }
-function onde(sel,t,fin,dur,col){
-  tl.set(sel,{scale:0.12,opacity:0.95,borderWidth:14},t);
+  tl.to('#flash',{opacity:0,duration:d||.2,ease:'power3.out'},t+0.02); }
+function onde(sel,t,fin,dur,w){
+  tl.set(sel,{scale:0.1,opacity:.9,borderWidth:w||13},t);
   tl.to(sel,{scale:fin,opacity:0,borderWidth:1,duration:dur,ease:'power2.out'},t);
 }
-/* le texte arrive en s'ecrasant */
-function ecrase(sel,t,de){
-  tl.fromTo(sel,{opacity:0,scale:de||3.4,y:0},
-    {opacity:1,scale:1,duration:.26,ease:'power4.out'},t);
+/* la lumière traverse les lettres, comme dans du verre */
+function verre(sel,t,dur){
+  tl.fromTo(sel,{backgroundPositionY:'0%'},
+    {backgroundPositionY:'320%',duration:dur||.9,ease:'power1.inOut'},t);
 }
-function sortie(sel,t,d){ tl.to(sel,{opacity:0,duration:d||.18,ease:'power2.in'},t); }
-/* secousse de l'aberration RGB */
-function glitch(sel,t,amp,n){
-  const a=amp||16;
-  for(let i=0;i<(n||5);i++){
-    const k=t+i*0.045, s=(i%2?1:-1)*a*(1-i/((n||5)+1));
-    tl.set(sel+' u.r',{x:s,y:(i%3-1)*3},k);
-    tl.set(sel+' u.c',{x:-s,y:(1-i%3)*3},k);
-  }
-  tl.set(sel+' u.r',{x:0,y:0},t+(n||5)*0.045);
-  tl.set(sel+' u.c',{x:0,y:0},t+(n||5)*0.045);
+function slam(sel,t,de,dur){
+  tl.fromTo(sel,{opacity:0,scale:de||2.4},{opacity:1,scale:1,duration:dur||.24,ease:'power4.out'},t);
 }
-function balayage(sel,t,dur){
-  tl.set(sel,{x:0,opacity:0},t);
-  tl.to(sel,{opacity:1,duration:.1},t);
-  tl.to(sel,{x:1540,duration:dur||.65,ease:'power1.inOut'},t);
-  tl.to(sel,{opacity:0,duration:.14},t+(dur||.65)-0.14);
+/* whip-pan : le trait balaie, l'ancien part, le nouveau arrive */
+function whip(t){
+  tl.set('#whip',{x:0,opacity:0},t);
+  tl.to('#whip',{opacity:1,duration:.05},t);
+  tl.to('#whip',{x:1880,duration:.20,ease:'power2.inOut'},t);
+  tl.to('#whip',{opacity:0,duration:.07},t+0.17);
 }
-function barres(t){
-  BAR.forEach((b,i)=>{
-    tl.set('#barres',{opacity:1},t);
-    tl.set(b,{x:(i%2?1:-1)*(70+i*40),scaleY:1},t);
-    tl.set(b,{x:(i%2?-1:1)*(40+i*22)},t+0.05);
-    tl.set(b,{x:0,scaleY:0},t+0.1);
-  });
-  tl.set('#barres',{opacity:0},t+0.12);
+function sort(sel,t){ tl.to(sel,{opacity:0,x:-420,duration:.12,ease:'power2.in'},t);
+                      tl.set(sel,{x:0},t+0.14); }
+function entre(sel,t,dur){
+  tl.fromTo(sel,{opacity:0,x:460},{opacity:1,x:0,duration:dur||.22,ease:'power4.out'},t);
+}
+function prisme(sel,t,amp,n){
+  const a=amp||10, k=n||4;
+  for(let i=0;i<k;i++){ const u=t+i*0.05, s=(i%2?1:-1)*a*(1-i/(k+1));
+    tl.set(sel+' u.r',{x:s},u); tl.set(sel+' u.c',{x:-s},u); }
+  tl.set(sel+' u.r',{x:0},t+k*0.05); tl.set(sel+' u.c',{x:0},t+k*0.05);
 }
 
-/* ---------- décor permanent ---------- */
-tl.fromTo('#rays',{rotation:-9,opacity:0},{opacity:.85,duration:1.1},4.3);
-tl.to('#rays',{rotation:9,duration:14,ease:'none'},4.3);
-tl.to('#rays',{opacity:0,duration:.3},8.95);
-tl.to('#rays',{opacity:.7,duration:.5},11.0);
-tl.to('#rays',{opacity:0,duration:.4},17.0);
-tl.set('#logo',{opacity:.92,y:0},0);
-tl.to('#logo',{opacity:0,duration:.2},8.98);
-tl.to('#logo',{opacity:.9,duration:.4},11.0);
-tl.to('#logo',{opacity:0,duration:.14},16.88);
-
-/* ---------- 0.42 s · le choc d'ouverture ---------- */
-tl.set('#qm',{opacity:1,scale:1},0);
-tl.set('#aff',{opacity:1},0);
-tl.to('#qm',{scale:1.06,duration:.40,ease:'power1.inOut'},0);
-flash(0.42,.26,1);
-tl.to('#qm',{scale:1.42,duration:.14,ease:'power3.out'},0.42);
-onde('#o1',0.44,9,.75);
-onde('#o2',0.56,13,.95);
-tl.to('#aff',{opacity:0,duration:.14},0.42);
-tl.to('#qm',{opacity:0,scale:.42,y:-170,duration:.34,ease:'power3.in'},0.72);
-tl.fromTo('#qms',{opacity:0,scale:.5},{opacity:.95,scale:1,duration:.3,ease:'back.out(3)'},1.08);
-tl.to('#qms',{scale:1.09,duration:.5,repeat:15,yoyo:true,ease:'sine.inOut'},1.4);
-
-/* ---------- 1.30 / 2.30 / 3.30 · les trois constats ---------- */
-ecrase('#L1',1.30); glitch('#g1',1.33,18,5); barres(1.30); sortie('#L1',2.18);
-ecrase('#L2',2.30); glitch('#g2',2.33,18,5); barres(2.30); sortie('#L2',3.18);
-ecrase('#L3',3.30,3.0); glitch('#g3',3.33,20,6); barres(3.30); sortie('#L3',4.26);
-
-/* ---------- 4.40 · les silhouettes montent ---------- */
-tl.fromTo('#sil',{opacity:0,y:300},{opacity:1,y:0,duration:1.0,ease:'power3.out'},4.40);
-tl.fromTo('#silGlow',{opacity:0,scale:.5},{opacity:1,scale:1,duration:1.2,ease:'power2.out'},4.45);
-tl.to('#qms',{y:-40,duration:1.0,ease:'power2.out'},4.40);
-
-/* ---------- 5.20 · PRÉSIDENCE 2026 ---------- */
-tl.fromTo('#P0',{opacity:0,y:16},{opacity:1,y:0,duration:.4},5.05);
-ecrase('#P1',5.20,2.6); balayage('#sw1',5.55,.8);
-ecrase('#P2',5.85,3.2);
-tl.to('#P2',{scale:1.05,duration:.7,ease:'sine.inOut',overwrite:'auto'},6.0);
-sortie('#P0',6.55); sortie('#P1',6.55); sortie('#P2',6.55);
-
-/* ---------- 6.80 · quelqu'un va décider pour toi ---------- */
-tl.fromTo('#P3',{opacity:0,y:40},{opacity:1,y:0,duration:.4,ease:'power3.out'},6.80);
-ecrase('#P4',7.90,2.8); glitch('#g4',7.93,24,7); barres(7.90);
-/* montée : on resserre le cadre et on fait vibrer */
-tl.to('#sil',{scale:1.10,duration:1.1,ease:'power2.in'},7.95);
-tl.to('#silGlow',{opacity:.5,scale:1.25,duration:1.1,ease:'power2.in'},7.95);
-tl.to('#P4',{scale:1.14,duration:1.05,ease:'power2.in',overwrite:'auto'},7.98);
-for(let i=0;i<9;i++){
-  const k=8.20+i*0.09;
-  tl.set('#root',{x:(i%2?1:-1)*(2+i*1.1),y:(i%3-1)*2},k);
-}
-tl.set('#root',{x:0,y:0},9.0);
-sortie('#P3',8.98,.06); sortie('#P4',8.98,.06);
-tl.to('#sil',{opacity:0,duration:.08},8.98);
-tl.to('#silGlow',{opacity:0,duration:.08,overwrite:'auto'},8.98);
-tl.to('#qms',{opacity:0,duration:.08},8.98);
-
-/* ---------- 9.00 · LE DROP ---------- */
-flash(9.0,.34,1);
-tl.set('#blanc',{opacity:1},9.0);
-tl.to('#blanc',{opacity:0,duration:.35,ease:'power2.in'},10.58);
-onde('#o3',9.02,11,.85);
-tl.set('#parts',{opacity:1},9.0);
-PARTS.forEach((p,i)=>{
-  tl.set(p.el,{x:0,y:0,opacity:1,scale:1},9.0);
-  tl.to(p.el,{x:p.x,y:p.y,scale:.2,opacity:0,duration:p.d,ease:'power3.out'},9.0);
+/* =================== ACTE 1 · l'emblème s'allume =================== */
+tl.set('#emb',{opacity:1},0);
+tl.set('#lueur',{opacity:.85,scale:.9},0);
+tl.to('#lueur',{opacity:1,scale:1,duration:.9,ease:'power2.out'},0);
+tl.set('#disque',{attr:{r:112}},0);
+tl.fromTo('#anneau',{attr:{r:40},opacity:0},{attr:{r:262},opacity:1,duration:.7,ease:'power3.out'},0.06);
+PET.forEach((p,i)=>{
+  const ordre = (i % 2 ? NPET - 1 - i : i);
+  tl.fromTo(p,{opacity:0,scale:.2,svgOrigin:'0 0'},
+    {opacity:1,scale:1,duration:.34,ease:'back.out(2.2)'},0.10 + ordre*0.035);
 });
-tl.set('#parts',{opacity:0},10.1);
-tl.fromTo('#D1',{opacity:0,scale:2.6},{opacity:1,scale:1,duration:.3,ease:'power4.out'},9.06);
-for(let i=0;i<7;i++){ const k=9.4+i*0.08;
-  tl.set('#D1',{x:(i%2?1:-1)*(9-i)},k); }
-tl.set('#D1',{x:0},9.98);
-tl.to('#D1',{scale:1.08,duration:1.0,ease:'sine.inOut'},10.0);
-tl.to('#D1',{opacity:0,duration:.18},10.62);
+tl.set('#qmark',{opacity:1,scale:1,svgOrigin:'0 0'},0);
+tl.to('#qmark',{scale:1.10,duration:.22,ease:'power2.out'},0.60);
+tl.to('#qmark',{scale:1,duration:.4,ease:'elastic.out(1,.5)'},0.82);
+onde('#o1',0.70,7,.9);
+tl.fromTo('#rays',{rotation:-7,opacity:0},{opacity:.85,duration:1.2},0.55);
+tl.to('#rays',{rotation:7,duration:15,ease:'none'},0.55);
+tl.set('#aff',{opacity:1,y:0},0);
+/* respiration de l'emblème */
+tl.to('#emb',{scale:1.02,duration:1.2,yoyo:true,repeat:1,ease:'sine.inOut'},1.0);
+tl.to('#emb',{scale:.80,y:-110,duration:.8,ease:'power2.inOut'},T.quelquun-0.2);
+tl.to('#lueur',{scale:.85,y:-110,opacity:.8,duration:.8,ease:'power2.inOut'},T.quelquun-0.2);
 
-/* ---------- 11.00 · l'appel ---------- */
-tl.fromTo('#A1',{opacity:0,x:-760,skewX:14},
-  {opacity:1,x:0,skewX:0,duration:.34,ease:'power4.out'},11.0);
-balayage('#sw2',11.35,.75); barres(11.0);
-sortie('#A1',12.36,.14);
-tl.fromTo('#A2',{opacity:0,x:760,skewX:-14},
-  {opacity:1,x:0,skewX:0,duration:.34,ease:'power4.out'},12.5);
-barres(12.5);
-tl.to('#A2',{scale:1.06,duration:.9,ease:'sine.inOut'},12.9);
-sortie('#A2',13.86,.14);
-ecrase('#A3',14.0,2.9); glitch('#g5',14.03,26,7); barres(14.0);
-sortie('#A3',15.36,.14);
-/* DÉCEMBRE, lettre par lettre */
-tl.set('#A4',{opacity:1},15.5);
-LET.forEach((l,i)=>{
-  tl.fromTo(l,{opacity:0,y:-70,scale:2.1,rotation:(i%2?8:-8)},
-    {opacity:1,y:0,scale:1,rotation:0,duration:.26,ease:'back.out(2.6)'},15.5+i*0.07);
+MOTS.forEach((m,i)=>{
+  tl.fromTo(SP[i],{opacity:0,y:26,scale:1.3},
+    {opacity:1,y:0,scale:1,duration:.24,ease:'power3.out'},m[1]);
 });
-tl.to('#A4',{scale:1.07,duration:.8,ease:'sine.inOut'},16.1);
-tl.to('#A4',{opacity:0,duration:.14},16.92);
+tl.to('#aff',{opacity:0,duration:.25},T.quelquun-0.15);
+tl.to(SP,{opacity:0,duration:.2,stagger:.015},T.q1-0.35);
 
-/* ---------- 17.00 · le tampon ---------- */
-flash(17.0,.20,.85);
-tl.fromTo('#tampon',{opacity:0,scale:3.6,rotation:-26},
-  {opacity:1,scale:1,rotation:-9,duration:.3,ease:'power4.out'},17.0);
-tl.to('#tampon',{rotation:-7,duration:.5,ease:'elastic.out(1,0.5)'},17.3);
-onde('#o4',17.02,10,.8);
-tl.to('#tampon',{opacity:0,scale:.9,duration:.24,ease:'power2.in'},17.74);
+/* =================== ACTE 2 · les enjeux =================== */
+/* l'emblème monte et rétrécit, les silhouettes arrivent */
+tl.to('#emb',{scale:.42,y:-430,duration:.7,ease:'power3.inOut',overwrite:'auto'},T.q1-0.5);
+tl.to('#lueur',{scale:.55,y:-430,opacity:.6,duration:.7,ease:'power3.inOut',overwrite:'auto'},T.q1-0.5);
+tl.to('#rays',{opacity:.5,duration:.5},T.q1-0.5);
+tl.fromTo('#sil',{opacity:0,y:300},{opacity:1,y:0,duration:1.0,ease:'power3.out'},T.q1-0.4);
 
-/* ---------- 18.00 · la signature ---------- */
-tl.fromTo('#logoBig',{opacity:0,y:40,scale:.9},
-  {opacity:1,y:0,scale:1,duration:.45,ease:'power3.out'},17.82);
-tl.fromTo('#fin',{opacity:0,y:26},{opacity:1,y:0,duration:.40,ease:'power3.out'},18.00);
-tl.fromTo('#com',{opacity:0,y:20},{opacity:1,y:0,duration:.40},18.05);
-tl.fromTo('#deco',{opacity:0,scaleX:0},{opacity:1,scaleX:1,duration:.40,ease:'power3.out'},18.22);
-tl.to(['#logoBig','#com','#deco','#fin'],{opacity:0,duration:.12,ease:'power2.in'},20.08);
+slam('#D1',T.q1,2.0); verre('#D1',T.q1+0.1,.8); off('#D1',T.q2-0.2,.16);
+slam('#D2',T.q2,2.0); verre('#D2',T.q2+0.1,.8); off('#D2',T.pour-0.2,.16);
+slam('#D3',T.pour,2.6,.26); prisme('#g1',T.pour+0.04,13,4);
+/* ralenti avant le drop : tout se resserre, puis se fige */
+tl.to('#D3',{scale:1.14,duration:1.0,ease:'power2.in'},T.toi1);
+tl.to('#sil',{scale:1.10,duration:1.0,ease:'power2.in'},T.toi1);
+tl.to('#emb',{scale:.60,duration:1.0,ease:'power2.in'},T.toi1);
+off('#D3',DROP-0.05,.05);
+tl.to('#sil',{opacity:0,duration:.05},DROP-0.05);
+tl.to('#emb',{opacity:0,duration:.05},DROP-0.05);
+tl.to('#lueur',{opacity:0,duration:.05},DROP-0.05);
+tl.to('#rays',{opacity:0,duration:.05},DROP-0.05);
+
+/* =================== ACTE 3 · LE DROP =================== */
+flash(DROP,.30,1);
+tl.set('#blanc',{opacity:1},DROP);
+tl.to('#blanc',{opacity:0,duration:.28,ease:'power2.in'},9.62);
+tl.set('#parts',{opacity:1},DROP);
+PARTS.forEach(p=>{
+  tl.set(p.el,{x:0,y:0,opacity:1,scale:1},DROP);
+  tl.to(p.el,{x:p.x,y:p.y,scale:.18,opacity:0,duration:p.d,ease:'power3.out'},DROP);
+});
+tl.set('#parts',{opacity:0},DROP+1.35);
+slam('#E1',T.et,2.0,.2);
+slam('#E2',T.cetait,2.0,.2);
+slam('#E3',T.TOI,3.0,.26); prisme('#g2',T.TOI+0.04,17,5);
+onde('#o2',T.TOI,12,.8,16);
+tl.to('#E3',{scale:1.08,duration:.5,ease:'sine.inOut'},T.TOI+0.3);
+off('#E1',9.66,.14); off('#E2',9.66,.14); off('#E3',9.66,.14);
+
+/* =================== ACTE 4 · l'appel, en whip-pan =================== */
+tl.to('#rays',{opacity:.55,duration:.4},9.95);
+tl.to('#lueur',{opacity:.5,duration:.4},9.95);
+tl.set('#emb',{opacity:1,scale:.34,y:-420},9.95);
+tl.to('#emb',{rotation:10,duration:6.4,ease:'none'},9.95);
+
+whip(T.candidate-0.12); entre('#A1',T.candidate); verre('#A1',T.candidate+0.1,.7);
+sort('#A1',T.ou-0.14);
+whip(T.ou-0.14);        entre('#A2',T.ou);        verre('#A2',T.ou+0.1,.7);
+sort('#A2',T.mais-0.14);
+whip(T.mais-0.14);      entre('#A3',T.mais);      verre('#A3',T.mais+0.1,.8);
+sort('#A3',T.presidence-0.16);
+whip(T.presidence-0.16);entre('#A4',T.presidence,.26); verre('#A4',T.presidence+0.1,1.0);
+sort('#A4',T.elections-0.16);
+whip(T.elections-0.16); entre('#A5',T.elections);  verre('#A5',T.elections+0.1,.9);
+off('#A5',CARTE-0.1,.14);
+
+/* =================== ACTE 5 · la carte de match =================== */
+flash(CARTE,.22,.85);
+tl.to('#emb',{opacity:0,duration:.1},CARTE-0.06);
+tl.set('#emb',{scale:1,y:0,rotation:0},CARTE-0.05);
+tl.fromTo('#emb',{opacity:0,scale:2.6},{opacity:1,scale:1,duration:.32,ease:'power4.out'},CARTE);
+tl.to('#lueur',{opacity:1,scale:1,y:0,duration:.4},CARTE);
+tl.to('#rays',{opacity:.8,duration:.4},CARTE);
+onde('#o3',CARTE+0.02,9,.85,15);
+tl.fromTo('#vote',{opacity:0,scale:1.9,rotation:-18},
+  {opacity:1,scale:1,rotation:0,duration:.42,ease:'power4.out'},CARTE+0.06);
+tl.to('#vote',{rotation:7,duration:4,ease:'none'},CARTE+0.5);
+/* l'emblème se range en haut, la carte se compose */
+tl.to('#emb',{scale:.40,y:-420,duration:.55,ease:'power3.inOut'},17.55);
+tl.to('#vote',{scale:.40,y:-420,opacity:.9,duration:.55,ease:'power3.inOut'},17.55);
+tl.to('#lueur',{scale:.6,y:-420,opacity:.55,duration:.55,ease:'power3.inOut'},17.55);
+tl.fromTo('#logoBig',{opacity:0,y:40,scale:.92},
+  {opacity:1,y:0,scale:1,duration:.45,ease:'power3.out'},17.85);
+tl.fromTo('#fin',{opacity:0,y:26},{opacity:1,y:0,duration:.4,ease:'power3.out'},18.02);
+verre('#fin',18.2,1.1);
+tl.fromTo('#com',{opacity:0,y:18},{opacity:1,y:0,duration:.4},18.10);
+tl.fromTo('#deco',{opacity:0,scaleX:0},{opacity:1,scaleX:1,duration:.4,ease:'power3.out'},18.26);
+tl.to(['#logoBig','#com','#deco','#fin','#emb','#vote','#lueur','#rays'],
+  {opacity:0,duration:.16,ease:'power2.in'},20.22);
 </script>
 </body>
 </html>

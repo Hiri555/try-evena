@@ -1,0 +1,14 @@
+Texte dit par la voix (ElevenLabs eleven_v4, voix « Mundo », fr-parisien, grave).
+Les crochets sont des directions d'interprétation lues par le modèle.
+
+[low and controlled] Dans un an... quelqu'un présidera l'Amicale des étudiants.
+
+[building] Quelqu'un va décider. Quelqu'un va parler.
+
+[hard, deliberate] Pour toi.
+
+[explosive, loud] Et si c'était TOI ?
+
+[urgent, driving] Candidate-toi. Ou vote. Mais ne reste pas spectateur.
+
+[powerful, final] Présidence deux mille vingt-six. Élections en décembre.
