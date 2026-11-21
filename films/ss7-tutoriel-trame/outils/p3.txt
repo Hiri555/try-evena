@@ -1,0 +1,31 @@
+Niveau quatre, toujours vers la gauche. Octets deux un et C A.
+
+Le cours donne la structure du message initial d'adresse. En partant de la droite : quatre bits de H zéro, quatre bits de H un, six bits de catégorie, deux bits réservés.
+
+H zéro vaut zéro zéro zéro un. Table des en-têtes : messages d'adresse, émis vers l'avant. H un vaut zéro zéro un zéro : message initial d'adresse avec informations supplémentaires. C'est donc un M I A.
+
+Catégorie : zéro zéro un zéro un zéro. Table de la catégorie du demandeur : abonné demandeur ordinaire. Ni opératrice, ni ligne prioritaire. Un particulier.
+
+Octets suivants : cinq sept et C neuf. En partant de la droite : douze bits d'indicateurs de message, puis quatre bits pour le nombre de signaux d'adresse.
+
+Les douze bits valent neuf cinq sept. Le cours les nomme de A à L, A étant le bit de poids faible. Chaque case a sa propre table.
+
+Prenons-en une, pour la démarche. Les bits D et C valent zéro un. J'ouvre la rubrique nature du circuit. Zéro zéro, pas de circuit satellite. Zéro un, un circuit satellite fait partie de la connexion. Mon code est zéro un. Je n'ai rien deviné : j'ai lu la table.
+
+Le formulaire complet : numéro international, circuit satellite, contrôle de continuité requis, demi-suppresseur d'écho de départ inséré, appel autre qu'international entrant, appel prolongé, appel ordinaire, trajet quelconque.
+
+Les quatre bits suivants valent un un zéro zéro, soit douze. Le numéro demandé a donc douze chiffres.
+
+Six octets, et dans chaque octet le quartet de droite sort en premier. Deux deux : deux, deux. Sept un : un, sept. Quatre sept : sept, quatre. Trois zéro : zéro, trois. Cinq zéro : zéro, cinq. Neuf sept : sept, neuf.
+
+Plus deux cent vingt et un, soixante-dix-sept, quatre cent trois, zéro cinq, soixante-dix-neuf. Un numéro sénégalais.
+
+Reste l'octet B zéro : le premier octet d'indicateurs, celui qui n'existe que parce que H un annonçait un M I A avec informations supplémentaires.
+
+Question deux : le trajet. Le S C S vaut sept, soit zéro un un un. Un bit par carrefour, en partant du bit de poids faible.
+
+Au départ, P S A. Bit zéro égale un : la route X X X un mène à P T S six. À P T S six, bit un égale un : X X un X mène à P T S deux. À P T S deux, bit un égale un : X X un X mène à P T S trois. À P T S trois, bit zéro égale un : X X X un mène à P S B.
+
+Le trajet est donc : P S A, P T S six, P T S deux, P T S trois, P S B.
+
+Voilà. La trame est lue en entier. La seule chose à retenir, c'est l'ordre : on part du bord droit, on avance champ par champ, et à chaque champ on ouvre la page du cours. C'est tout le métier.

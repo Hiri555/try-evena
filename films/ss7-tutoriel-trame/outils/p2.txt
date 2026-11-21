@@ -1,0 +1,27 @@
+On continue vers la gauche. Octet suivant : zéro quatre. C'est l'octet de service, le S E R. La porte d'entrée du niveau trois.
+
+Le cours le coupe en deux quartets. À droite, zéro un zéro zéro : l'indicateur de service, l'I N S. À gauche, zéro zéro zéro zéro : le domaine de sous-service, le D S S.
+
+Table de l'I N S. Zéro zéro zéro zéro, gestion du réseau niveau trois. Zéro un zéro zéro, S S U T, niveau quatre. Zéro un un zéro, S S U D. Mon code est zéro un zéro zéro : c'est du S S U T, le sous-système utilisateur téléphonique. Derrière, il y a donc un vrai message téléphonique.
+
+Table du D S S. Sous la forme D C B A, les bits B et A sont réservés et fixés à zéro. Ce sont les bits D et C qui parlent. Ici, D C égale zéro zéro : réseau international.
+
+Maintenant l'étiquette. On va lentement : c'est là que tout le monde se trompe.
+
+L'étiquette téléphonique fait quarante bits. Quarante bits, c'est dix chiffres hexadécimaux. Les voici, juste à gauche du S E R : six six, sept sept, six deux, B sept, sept B.
+
+Je les mets bout à bout en binaire, en partant de la droite. Quarante bits.
+
+Le cours dit comment découper, toujours depuis la droite : quatorze bits pour le C P D, quatorze bits pour le C P O, quatre bits pour le S C S, et les huit bits qui restent complètent le C I C.
+
+Quatorze plus quatorze, ça fait vingt-huit bits. Vingt-huit bits, c'est sept chiffres hexadécimaux. Voilà pourquoi on ne peut pas lire les codes de points directement dans la trame : ils ne tombent pas sur des frontières d'octets. Il faut obligatoirement passer par le binaire.
+
+Les quatorze premiers bits. En décimal, quatorze mille deux cent trois. C'est le C P D, le code du point de destination. Le destinataire : P S B.
+
+Les quatorze bits suivants. Sept mille cinq cent soixante-deux. C'est le C P O, le code du point d'origine. L'expéditeur : P S A.
+
+Et l'interprétation. C'est la question que se pose chaque nœud qui reçoit la trame : ce C P D, est-ce moi ? Si oui, la trame m'est destinée, je la distribue à mon niveau quatre. Si non, je ne l'ouvre pas, je l'achemine plus loin. Ici, C P D et C P O sont différents : la trame est bien en voyage entre deux points distincts.
+
+Quatre bits suivants : zéro un un un. Le S C S, sélection du canal sémaphore. Il vaut sept. On s'en servira à la question deux.
+
+Et les huit derniers bits complètent le C I C. Le cours le dit : le S C S, ce sont les quatre bits de poids faible du C I C. Donc C I C égale six six sept en hexadécimal, mille six cent trente-neuf en décimal. Et ses quatre bits de poids faible valent bien sept, comme le S C S.

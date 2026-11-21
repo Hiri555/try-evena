@@ -1,0 +1,25 @@
+Voici la trame du TD, telle qu'elle est écrite sur la diapo.
+
+Avant de décoder, comptons. Entre les deux fanions, il y a quarante-trois chiffres. Quarante-trois, c'est impair. Or un octet, c'est deux chiffres hexadécimaux. Cette trame ne se découpe donc pas en octets si on part de la gauche.
+
+C'est logique : à gauche, il y a des points de suspension. Le prof n'a pas réécrit le début. Le seul bord fiable, c'est le bord droit.
+
+Et ça tombe bien. En signalisation sémaphore, le premier bit émis est à droite. Le schéma du cours le montre : c'est le fanion de droite qui part en premier.
+
+Donc on lit de droite à gauche. Champ par champ. Sans sauter d'étape. Et à chaque champ, les mêmes quatre gestes : je repère, je convertis, j'ouvre la table du cours, je lis.
+
+Un rappel : un chiffre hexadécimal, c'est quatre bits. Donc un octet, deux chiffres, huit bits.
+
+Premier champ, tout à droite : sept E. C'est le fanion. Il délimite la trame.
+
+Octet suivant, en remontant : zéro huit. Le cours découpe ainsi : le bit de poids fort, c'est le B I R, bit indicateur vers l'arrière. Les sept bits qui restent, c'est le N S R, numéro de séquence arrière. Donc B I R égale zéro, N S R égale huit. La dernière trame que j'ai bien reçue porte le numéro huit.
+
+Octet suivant : zéro huit encore. Même découpage, mais vers l'avant. B I A égale zéro, N S A égale huit. La trame que j'envoie porte le numéro huit.
+
+Interprétation : B I R égale B I A. Les deux bits indicateurs n'ont pas basculé. Aucune erreur, aucune retransmission demandée. La liaison tourne normalement.
+
+Octet suivant : D huit. Deux bits réservés devant, puis six bits d'indicateur de longueur. On jette les deux premiers. Il reste zéro un un zéro zéro zéro, soit vingt-quatre.
+
+J'ouvre la table des types de trame. I N L égale zéro, remplissage. I N L égale un ou deux, trame d'état. I N L supérieur à deux, trame de message. Vingt-quatre est supérieur à deux. C'est donc une T S M, et son champ information fait vingt-quatre octets.
+
+Le niveau deux est lu. Reste la détection d'erreur, seize bits, à l'autre bout de la trame, dans la partie non réécrite.

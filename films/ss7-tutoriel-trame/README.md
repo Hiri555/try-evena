@@ -1,98 +1,113 @@
-# SS7 — Décoder une trame sémaphore, bit par bit
+# SS7 — Décoder la trame du TD, de droite à gauche
 
-Film pédagogique de 7 min 19, tiré du TD de signalisation sémaphore (ESMT, LPTI2)
-et de la correction rédigée par Big Magass.
+Film de **6 min 58**, tiré du TD de signalisation sémaphore CCITT n°7 (ESMT) et du
+polycopié de cours. Signé Big Magass.
 
-## Ce que le film enseigne
+## La découverte qui a tout changé
 
-Pas le résultat : **la méthode**. Les mêmes quatre gestes reviennent pour chaque
-champ, sur une fiche identique à chaque fois —
+La trame de l'énoncé est écrite ainsi :
 
-1. **JE REPÈRE** — quel octet, quels bits dans la trame ?
-2. **JE CONVERTIS** — hexadécimal → binaire
-3. **J'OUVRE LA TABLE** — celle du cours, la bonne
-4. **JE LIS** — la ligne qui correspond
+```
+7E…….2B0975030477122C957CA21667762B77B04D808087E
+```
 
-C'est répété sept fois (correction d'erreur, INL, SER, H0/H1, catégorie,
-indicateurs 957, CIC). La répétition est voulue : c'est ce qui fait entrer la
-recette.
+Entre les deux fanions il y a **43 chiffres**. Quarante-trois est **impair**, or un
+octet s'écrit avec deux chiffres hexadécimaux. **Cette chaîne ne se découpe donc pas
+en octets si on part de la gauche.**
+
+C'est cohérent : les points de suspension sont à gauche, le prof n'a pas réécrit le
+début. Le seul bord sur lequel on peut s'appuyer est le **bord droit** — qui est
+aussi, en signalisation sémaphore, le côté du **premier bit émis** (cours p. 5 et 7,
+la flèche part vers la droite).
+
+En alignant depuis la droite, tout tombe juste :
+
+```
+7E ……2 B0 97 50 30 47 71 22 C9 57 CA 21 66 77 62 B7 7B 04 D8 08 08 7E
+```
+
+Une première version de ce film affichait l'alignement depuis la gauche — décalé d'un
+chiffre — et affirmait que `08 08` et `D8` étaient dans la partie non réécrite. C'était
+faux : ce sont les trois derniers octets avant le fanion de fermeture. Le décodage est
+désormais vérifié champ par champ par calcul (`outils/`), contre les tables du cours.
+
+## Lecture, de droite à gauche
+
+| Octets | Champ | Lecture | Table |
+|--------|-------|---------|-------|
+| `7E` | fanion | 0111 1110 | p. 5 |
+| `08` | BIR + NSR | BIR = 0 · NSR = 8 | p. 7 |
+| `08` | BIA + NSA | BIA = 0 · NSA = 8 | p. 7 |
+| | | BIR = BIA → aucune erreur, aucune retransmission | p. 8 |
+| `D8` | 2 réservés + INL | `011000` = 24 → INL > 2 → **TSM**, information = 24 octets | p. 6 |
+| `04` | SER | INS `0100` = **SSUT niveau 4** · DSS `0000` → D C = 00 = **international** | p. 13 |
+| `7B B7 62 77 66` | étiquette, 40 bits | **CPD = 14203** · **CPO = 7562** · **SCS = 7** · **CIC = 1639** | p. 12, 14 |
+| `21 CA` | entête + catégorie | H0 `0001` · H1 `0010` → **MIA + infos suppl.** · catégorie `001010` = **abonné ordinaire** | p. 20, 21, 22, 24 |
+| `57 C9` | indicateurs + nb signaux | **957** · **12 chiffres** | p. 22, 25, 26 |
+| `22 71 47 30 50 97` | signaux d'adresse | **+221 77 403 05 79** | p. 27 |
+| `B0` | 1er octet d'indicateurs | présent parce que H1 = MIA avec infos supplémentaires | p. 23 |
+| `……2` | non réécrit | reste de l'information + CRT 16 bits + fanion d'ouverture | p. 5 |
+
+**Question 2 — le trajet.** SCS = 7 = `0111`, un bit par carrefour depuis le poids
+faible : PSA → PTS6 → PTS2 → PTS3 → PSB.
+
+## Les 28 bits des codes de points, montrés et non assénés
+
+C'est le cœur du film. Les dix chiffres hexadécimaux de l'étiquette sont posés
+**chacun au-dessus de ses quatre bits**, et les cinq octets sont ombrés en alternance.
+Les accolades de découpage — 14 / 14 / 4 / 8, prises depuis la droite — **traversent
+visiblement les zones ombrées**. On voit donc que 14 + 14 = 28 bits = 7 chiffres hexa
+ne tombent pas sur des frontières d'octets, et qu'il faut obligatoirement passer par
+le binaire. Les 14 bits du CPD s'allument ensuite en vert, les 14 du CPO en ambre.
+
+L'interprétation suit : « ce CPD, est-ce moi ? **oui** → je distribue à mon niveau 4 ;
+**non** → je ne l'ouvre pas, je l'achemine plus loin. » Ici 14203 ≠ 7562, donc la trame
+est en voyage entre deux points distincts.
 
 ## Le fil conducteur
 
-La trame reste **à l'écran en permanence**, en haut, avec un curseur qui se
-déplace sur l'octet dont on parle. Les octets sont colorés par niveau :
+La trame reste à l'écran du début à la fin. Un curseur **part du bord droit et remonte**,
+champ par champ, sans sauter d'étape. Chaque octet **prend sa couleur au moment où il
+est décodé** — cyan pour le niveau 2, ambre pour le niveau 3, vert pour le niveau 4.
+On voit la trame se remplir.
 
-| Couleur | Zone |
-|---------|------|
-| cyan | N2 — l'enveloppe (fanions, correction, INL, CRT) |
-| ambre | N3 — l'adresse (SER + étiquette d'acheminement, 32 bits) |
-| vert | N4 — la lettre (MIA : entête, catégorie, 957, CIC, numéro) |
-| gris | tête de trame non détaillée dans l'énoncé |
+## Les pages du cours à l'écran
 
-À tout instant on sait **où on est** dans la trame. C'est la méthode relevée
-dans les didacticiels Orange : un seul objet à l'écran, qu'on ré-entre en
-changeant son état, plutôt qu'une pile de panneaux de texte.
-
-## Note d'honnêteté sur la source
-
-Le document écrit donne `… 2B 77 B0 … 80 80 7E` alors que la diapo du TD donne
-`…2B77B0 4D 808087E` : l'octet `4D` manque dans le .md. Le film travaille sur la
-trame complète de la diapo.
-
-Les octets `08 08` (correction) et `D8` (INL) sont dans la partie de trame que
-l'énoncé n'a pas réécrite (`….`). Le film le dit à l'écran à la section N2
-plutôt que de leur inventer une position. Le curseur ne surligne que ce que
-l'énoncé permet de situer : les fanions, le SER, l'étiquette (« juste après le
-SER, 32 bits »), la zone N4 et les 16 bits de CRT en fin de trame.
-
-## Résultats décodés
-
-| Niveau | Champ | Lecture |
-|--------|-------|---------|
-| N2 | `08 08` | NSR = 8, NSA = 8, BIR = BIA = 0 → fonctionnement normal |
-| N2 | INL `D8` | `011000` = 24 → INL > 2 → TSM, information = 24 octets |
-| N2 | CRT | 16 bits de détection d'erreur |
-| N3 | SER `04` | INS `0100` = SSUT · DSS `00` = international |
-| N3 | étiquette | CPO = 7562 (PSA) · CPD = 14203 (PSB) · SCS = 7 |
-| N4 | H0/H1 | `0001`/`0010` → MIA avec informations supplémentaires |
-| N4 | catégorie `CA` | `001010` → abonné demandeur ordinaire |
-| N4 | indicateurs `957` | international, circuit satellite, continuité exigée, … |
-| N4 | CIC `667` | 1639 — ses 4 bits faibles `0111` = 7 = le SCS |
-| N4 | numéro | 12 chiffres, lus à l'envers → **+221 77 403 05 79** |
-| Q2 | trajet | SCS = `0111` → PSA → PTS6 → PTS2 → PTS3 → PSB |
-| Q3 | transitions | émission N4→N3→N2 · réception N2→N3→N4 |
+Dix pages du polycopié apparaissent à droite, au moment exact où la table est ouverte :
+5 (fanion), 7 (BIR/NSR), 6 (types de trame), 13 (INS et DSS), 12 (étiquette),
+14 (CIC/SCS), 22 (structure du MIA), 20 et 21 (H0/H1), 24 (catégorie), 25 (indicateurs).
 
 ## Fabrication
 
-- **Voix** — ElevenLabs `eleven_v4`, voix Florian, en 3 parties recollées (436,19 s).
-- **Synchronisation** — chaque partie retranscrite par `eleven_scribe_v1` en
-  horodatage mot à mot, puis **130 ancres** relevées par recherche de la phrase
-  dans la transcription normalisée. Aucun repère n'est estimé au nombre de
-  caractères : chaque événement à l'écran tombe sur l'horodatage réel du mot
-  qu'il illustre.
-- **Plans** — 7 images `nano-banana-pro` (2752×1536) animées en plans continus
-  par `veo3_fast`, avec préambule anti-coupe. Chaque clip est vérifié
-  automatiquement (`ffmpeg scdet`) : zéro coupe interne sur les sept.
-  Conditionnés en 1920×1080, 30 fps, all-intra (`-g 1`) pour un seek exact.
-- **Musique** — Suno, bouclée avec un creux de volume au raccord, masqué par la voix.
-- **Mixage** — voix `highpass` + `acompressor`, musique en `sidechaincompress`,
-  puis `alimiter` et double passe `loudnorm`.
+- **Voix** — ElevenLabs `eleven_v4`, voix Florian, 3 parties (443 s), accélérées de
+  **8,5 %** pour tenir sous les 7 minutes sans rien couper du contenu.
+- **Synchronisation** — chaque partie retranscrite par `eleven_scribe_v1` en horodatage
+  mot à mot ; les timestamps sont divisés par le facteur d'accélération, ce qui est exact
+  puisque `atempo` est linéaire. **152 ancres** relevées par recherche de phrase dans la
+  transcription normalisée (`ancres.py`). Aucune n'est estimée.
+- **Plans** — 7 plans continus générés puis vérifiés (`ffmpeg scdet`) : zéro coupe interne.
+- **Mixage** — voix compressée, musique en `sidechaincompress`, `alimiter`, double passe
+  `loudnorm`. Rendu : **−14,5 LUFS / −2,7 dBTP**, 1920×1080, 30 fps, 418,0 s, 54 Mo.
+- **Contrôle HyperFrames** — 1085 échantillons (`--at-transitions`), 0 erreur, 0 avertissement.
 
-## Fichiers
+## Vérifier le décodage soi-même
 
-- `index.html` — la composition HyperFrames (439 s, 1920×1080, 30 fps)
-- `SS7_tutoriel_FR.srt` — sous-titres mot à mot
-- `cues.js` — les 130 ancres relevées sur la bande son
-- `outils/` — génération des images, des plans, conditionnement
+```bash
+python3 outils/verifier_trame.py
+```
 
 ## Règles apprises (à ne pas réapprendre)
 
+- **Un `tl.set()` sans position s'ajoute à la FIN de la timeline**, pas au début. Poser
+  une géométrie calculée en JS se fait avec `gsap.set()`, hors timeline — sinon les
+  éléments gardent leur position CSS initiale pendant toute la lecture et se superposent.
+- **Les hauteurs de table se mesurent, elles ne se calculent pas** : un titre qui passe
+  à la ligne décale tout ce qui suit.
+- **`hyperframes check --at-transitions`** échantillonne à chaque début et fin de fondu
+  (ici 1085 points au lieu de 9). Les trois défauts de la version précédente — une
+  virgule orpheline sur la première image, deux tables superposées, un titre croisant un
+  schéma — étaient tous invisibles aux 9 échantillons par défaut.
 - **Jamais deux familles d'éléments avec le même préfixe d'identifiant** dans une
-  composition. Sur le Thème 12, des pastilles `c1…c6` portaient les mêmes ids que
-  les clips de chapitre : GSAP a mis les *clips* à `opacity:0` et cinq chapitres
-  n'ont jamais été rendus. Le lint ne l'a pas vu — seule l'inspection d'images l'a vu.
-- **Ne pas positionner un surlignage de tableau au pixel près.** Les hauteurs de
-  ligne dépendent de la police et du retour à la ligne. Teindre la ligne elle-même.
-- **Le plancher typographique est 28 px.** En dessous, le contrôle le signale et
-  c'est illisible sur téléphone.
-- Un `<video>` se place sur la timeline **lui-même**, jamais son conteneur.
+  composition : GSAP applique alors les tweens aux mauvais nœuds, et le lint ne le voit pas.
+- Le plancher typographique est **28 px**. Un `<video>` se place sur la timeline lui-même,
+  jamais son conteneur.
