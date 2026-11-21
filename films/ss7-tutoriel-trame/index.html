@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1920, height=1080" />
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<style>
+:root{
+  --fond:#05080F; --blanc:#F1F5FF; --gris:#9BADCE; --gris2:#5A6D95;
+  --cyan:#3FD8E8; --ambre:#FFB23D; --rouge:#FF5247; --vert:#44DD93; --bleu:#6EA2FF;
+  --fd:'Archivo Black', sans-serif; --fu:'Inter', sans-serif; --fm:'JetBrains Mono', monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
+#root{width:100%;height:100%;position:relative;font-family:var(--fu);color:var(--blanc)}
+#fonddur{position:absolute;inset:0;background:
+  radial-gradient(1500px 900px at 50% 42%,#0C1526 0%,#070C18 55%,var(--fond) 100%)}
+.plan{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;opacity:0}
+.voile{position:absolute;inset:0;opacity:0;background:rgba(5,8,15,.80)}
+#vg{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1500px 900px at 50% 46%,rgba(0,0,0,0) 52%,rgba(0,0,0,.55) 100%)}
+
+/* ---------- bandeau permanent ---------- */
+#bar{position:absolute;left:0;top:0;width:1920px;height:52px;background:rgba(5,8,15,.93);opacity:0}
+#jauge{position:absolute;left:0;top:0;height:3px;width:1920px;background:var(--cyan);
+  transform-origin:0 50%}
+#sect{position:absolute;left:68px;top:11px;height:32px;width:760px;
+  font-family:var(--fm);font-size:28px;letter-spacing:.18em;color:var(--cyan)}
+.sl{position:absolute;left:0;top:0;white-space:nowrap;opacity:0}
+#marque{position:absolute;right:68px;top:11px;font-family:var(--fm);font-size:28px;
+  letter-spacing:.12em;color:#A3B4D2;opacity:0}
+
+#tramebox{position:absolute;left:0;top:78px;width:1920px;height:124px;opacity:0}
+#trame{position:absolute;left:0;top:20px;width:1920px;text-align:center;
+  font-family:var(--fm);font-size:33px;letter-spacing:.03em;white-space:nowrap}
+#trame .o{display:inline-block;padding:5px 7px;border-radius:5px}
+#trame .z-f{color:#E6EEFF} #trame .z-e{color:#7185AD} #trame .z-x{color:#90A0C1}
+#trame .z-n2{color:var(--cyan)} #trame .z-n3{color:var(--ambre)} #trame .z-n4{color:var(--vert)}
+#surl{position:absolute;left:0;top:16px;height:52px;border-radius:7px;
+  background:rgba(241,245,255,.14);border:2px solid var(--blanc);opacity:0}
+#tlg{position:absolute;left:0;top:80px;width:1920px;text-align:center;
+  font-family:var(--fm);font-size:28px;letter-spacing:.12em;opacity:0}
+#tlg b{font-weight:400;padding:0 22px}
+
+/* ---------- typographie ---------- */
+.titre{position:absolute;font-family:var(--fd);font-size:74px;line-height:1.05;letter-spacing:-.015em}
+.titre2{position:absolute;font-family:var(--fd);font-size:52px;line-height:1.1}
+.kick{position:absolute;font-family:var(--fm);font-size:29px;letter-spacing:.26em;color:var(--cyan);opacity:0}
+.w{display:inline-block;opacity:0}
+.amb{color:var(--ambre)} .cy{color:var(--cyan)} .rg{color:var(--rouge)} .vrt{color:var(--vert)}
+.rec{position:absolute;left:0;width:1920px;text-align:center;opacity:0;
+  font-family:var(--fd);font-size:46px}
+
+/* ---------- la fiche en 4 gestes ---------- */
+.fiche{position:absolute;top:276px;opacity:0}
+.fiche .fl{font-family:var(--fd);font-size:44px;margin-bottom:22px}
+.fiche .fl small{display:block;font-family:var(--fm);font-size:28px;color:var(--cyan);
+  letter-spacing:.18em;margin-bottom:8px;font-weight:400}
+.st{position:relative;padding:14px 0 14px 90px;opacity:.2;border-left:3px solid #1B2740}
+.st b{position:absolute;left:0;top:12px;width:50px;height:50px;border-radius:50%;
+  border:2px solid var(--cyan);color:var(--cyan);font-family:var(--fm);font-size:28px;
+  font-weight:400;display:flex;align-items:center;justify-content:center}
+.st i{display:block;font-family:var(--fm);font-size:28px;letter-spacing:.16em;
+  color:#92A2C3;font-style:normal}
+.st em{display:block;font-family:var(--fm);font-size:37px;color:var(--blanc);
+  font-style:normal;margin-top:5px}
+#fc{left:212px;width:1500px}
+#fi{left:212px;width:900px}
+#tInl .tr>span:first-child{width:264px}
+#fs{left:200px;width:900px}
+#fs .st em{font-size:30px}
+#fs .fl{font-size:36px}
+#fs .st{padding:11px 0 11px 86px}
+#fa{left:212px;width:1500px}
+.fcc{position:absolute;padding:18px 28px;border-left:6px solid var(--vert);
+  background:rgba(8,24,17,.78);font-family:var(--fd);font-size:38px;color:var(--vert);opacity:0}
+
+/* ---------- tables ---------- */
+.tab{position:absolute;opacity:0;font-family:var(--fm);font-size:29px;
+  background:rgba(6,12,24,.93);border:1px solid #1E2C48}
+.tab .tr{display:flex;border-bottom:1px solid #16213A}
+.tab .tr:last-child{border-bottom:none}
+.tab .tr>span{padding:13px 22px;color:var(--gris)}
+.tab .tr>span:first-child{width:210px;color:var(--cyan);border-right:1px solid #16213A}
+.tab .cap{padding:11px 22px;font-size:28px;letter-spacing:.14em;color:#92A2C3;
+  border-bottom:1px solid #16213A}
+
+/* ---------- bits 957 ---------- */
+#b957{position:absolute;left:0;top:402px;width:1920px;text-align:center;opacity:0;white-space:nowrap}
+.bit{display:inline-block;width:88px;margin:0 4px;text-align:center}
+.bit u{display:block;height:74px;line-height:70px;border:2px solid #2A3C60;border-radius:7px;
+  font-family:var(--fm);font-size:36px;color:var(--gris);text-decoration:none}
+.bit s{display:block;margin-top:8px;font-family:var(--fm);font-size:28px;
+  color:#B6C2DA;text-decoration:none}
+.bit.k u{border-color:var(--ambre);color:var(--ambre)}
+.bit.k s{color:var(--ambre)}
+
+/* ---------- le reseau (Q2) ---------- */
+#reseau{position:absolute;left:0;top:0;width:1920px;height:1080px;opacity:0}
+.nd{fill:rgba(6,12,24,.9);stroke:#44598A;stroke-width:4}
+.ar{fill:none;stroke:#2B3C5E;stroke-width:4}
+.nl{font-family:'JetBrains Mono',monospace;font-size:28px;fill:#9DAECB}
+.el{font-family:'JetBrains Mono',monospace;font-size:28px;fill:#9AABC9}
+
+/* ---------- couches (Q3) ---------- */
+.couche{position:absolute;left:50%;margin-left:-470px;width:940px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;font-family:var(--fd);
+  font-size:38px;opacity:0;border:3px solid}
+#cN2{top:296px;height:104px;border-color:var(--cyan);color:var(--cyan);background:rgba(6,22,28,.78)}
+#cN3{top:420px;height:104px;border-color:var(--ambre);color:var(--ambre);background:rgba(28,20,6,.78)}
+#cN4{top:544px;height:104px;border-color:var(--vert);color:var(--vert);background:rgba(8,26,18,.78)}
+
+/* ---------- final ---------- */
+#sign{position:absolute;left:0;top:0;width:1920px;height:1080px;background:var(--fond);opacity:0}
+#sg1{position:absolute;left:0;top:450px;width:1920px;text-align:center;font-family:var(--fd);font-size:54px}
+#sg2{position:absolute;left:0;top:536px;width:1920px;text-align:center;
+  font-family:var(--fm);font-size:28px;color:var(--gris);letter-spacing:.14em}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="439"
+     data-width="1920" data-height="1080" data-fps="30">
+
+  <div id="fonddur"></div>
+
+  <!-- ====== PLANS : les analogies ====== -->
+  <video class="plan clip" id="vLettre" src="assets/clips/lettre.mp4" muted playsinline preload="auto" data-start="0" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vTri" src="assets/clips/tri.mp4" muted playsinline preload="auto" data-start="15.4" data-duration="7.2" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vCachet" src="assets/clips/cachet.mp4" muted playsinline preload="auto" data-start="123.2" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vCentral" src="assets/clips/central.mp4" muted playsinline preload="auto" data-start="131.4" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vForm" src="assets/clips/formulaire.mp4" muted playsinline preload="auto" data-start="219.4" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vCarr" src="assets/clips/carrefour.mp4" muted playsinline preload="auto" data-start="304.7" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <video class="plan clip" id="vPoup" src="assets/clips/poupees.mp4" muted playsinline preload="auto" data-start="389.3" data-duration="7.6" data-track-index="0" data-track-kind="video"></video>
+  <div class="voile" id="voPlan"></div>
+  <div id="vg"></div>
+
+  <!-- ====== S0 · L'ANALOGIE ====== -->
+  <div class="clip" id="s0" data-start="0" data-duration="22.6" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t0" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w">UNE</span> <span class="w">TRAME</span> <span class="w cy">SS7</span>,
+      <span class="w">C'EST</span> <span class="w">UNE</span> <span class="w amb">LETTRE</span>
+      <span class="w amb">RECOMMANDÉE</span></div>
+    <div class="rec" id="c0a" style="top:420px">L'ENVELOPPE <span class="cy">· NIVEAU 2</span></div>
+    <div class="rec" id="c0b" style="top:512px">L'ADRESSE <span class="amb">· NIVEAU 3</span></div>
+    <div class="rec" id="c0c" style="top:604px">LA LETTRE <span class="vrt">· NIVEAU 4</span></div>
+    <div class="rec" id="c0d" style="top:702px;font-size:30px;font-family:var(--fu);color:var(--gris)">
+      trois enveloppes, trois métiers — et on les ouvre dans cet ordre</div>
+    <div class="titre2" id="t0b" style="left:0;top:792px;width:1920px;text-align:center">
+      <span class="w">ON</span> <span class="w">FAIT</span> <span class="w">LE</span>
+      <span class="w cy">TRAVAIL</span> <span class="w cy">DU</span> <span class="w cy">FACTEUR</span></div>
+  </div>
+
+  <!-- ====== S1 · L'ÉNONCÉ ====== -->
+  <div class="clip" id="s1" data-start="22.6" data-duration="17.9" data-track-index="1" data-track-kind="graphics">
+    <div class="kick" id="k1" style="left:0;top:424px;width:1920px;text-align:center">L'ÉNONCÉ</div>
+    <div class="rec" id="q1l" style="top:508px;font-size:38px;text-align:left;padding-left:410px">
+      <span class="cy">1.</span> &nbsp;Déterminer et interpréter les champs <span class="cy">N2, N3, N4</span></div>
+    <div class="rec" id="q2l" style="top:604px;font-size:38px;text-align:left;padding-left:410px">
+      <span class="cy">2.</span> &nbsp;Déterminer le trajet de <span class="amb">PSA</span> vers <span class="amb">PSB</span></div>
+    <div class="rec" id="q3l" style="top:700px;font-size:38px;text-align:left;padding-left:410px">
+      <span class="cy">3.</span> &nbsp;Expliquer les transitions <span class="vrt">N2 → N3 → N4</span></div>
+  </div>
+
+  <!-- ====== S2 · HEXA → BINAIRE ====== -->
+  <div class="clip" id="s2" data-start="40.5" data-duration="14.2" data-track-index="1" data-track-kind="graphics">
+    <div class="kick" id="k2" style="left:0;top:286px;width:1920px;text-align:center">LA BOÎTE À OUTILS</div>
+    <div class="titre2" id="t2" style="left:0;top:344px;width:1920px;text-align:center">
+      <span class="w">UN</span> <span class="w cy">CHIFFRE</span> <span class="w cy">HEXA</span>
+      <span class="w">=</span> <span class="w amb">QUATRE</span> <span class="w amb">BITS</span></div>
+    <div class="rec" id="d8h" style="top:466px;font-family:var(--fm);font-size:92px;color:var(--ambre)">D8</div>
+    <div class="rec" id="d8f" style="top:596px;font-family:var(--fm);font-size:68px">
+      <span style="color:var(--ambre)">1101</span> &nbsp;<span style="color:var(--cyan)">1000</span></div>
+    <div class="rec" id="d8l" style="top:700px;font-family:var(--fm);font-size:29px;
+      letter-spacing:.14em;color:var(--gris)">D → 1101 &nbsp;·&nbsp; 8 → 1000</div>
+    <div class="rec" id="d8r" style="top:812px;font-size:34px;font-family:var(--fu);color:var(--gris)">
+      l'hexadécimal n'est qu'une écriture raccourcie du binaire</div>
+  </div>
+
+  <!-- ====== S3 · LES 4 GESTES ====== -->
+  <div class="clip" id="s3" data-start="54.7" data-duration="13.0" data-track-index="1" data-track-kind="graphics">
+    <div class="kick" id="k3" style="left:0;top:262px;width:1920px;text-align:center">LA MÉTHODE</div>
+    <div class="titre2" id="t3" style="left:0;top:322px;width:1920px;text-align:center">
+      <span class="w">TOUJOURS</span> <span class="w">LES</span> <span class="w cy">MÊMES</span>
+      <span class="w cy">QUATRE</span> <span class="w cy">GESTES</span></div>
+    <div class="rec" id="m1" style="top:452px;font-size:42px;text-align:left;padding-left:580px">
+      <span class="cy">1</span> &nbsp;&nbsp;JE REPÈRE</div>
+    <div class="rec" id="m2" style="top:538px;font-size:42px;text-align:left;padding-left:580px">
+      <span class="cy">2</span> &nbsp;&nbsp;JE CONVERTIS</div>
+    <div class="rec" id="m3" style="top:624px;font-size:42px;text-align:left;padding-left:580px">
+      <span class="cy">3</span> &nbsp;&nbsp;J'OUVRE LA TABLE</div>
+    <div class="rec" id="m4" style="top:710px;font-size:42px;text-align:left;padding-left:580px">
+      <span class="cy">4</span> &nbsp;&nbsp;JE LIS</div>
+    <div class="rec" id="m5" style="top:856px;font-size:34px;font-family:var(--fu);color:var(--ambre)">
+      savoir décoder, c'est savoir dans quelle table aller chercher</div>
+  </div>
+
+  <!-- ====== S4 · NIVEAU 2 ====== -->
+  <div class="clip" id="s4" data-start="67.7" data-duration="63.7" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t4" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w cy">NIVEAU</span> <span class="w cy">2</span> <span class="w">·</span>
+      <span class="w">L'ENVELOPPE</span></div>
+    <div class="rec" id="snote" style="top:648px;font-size:28px;font-family:var(--fu);color:#92A2C3">
+      08 08 et D8 sont dans la partie de trame que le prof n'a pas réécrite</div>
+    <div class="rec" id="t4b" style="top:534px;font-size:34px;font-family:var(--fu);color:var(--gris)">
+      que la trame arrive entière, dans l'ordre, sans erreur</div>
+
+    <div class="fiche" id="fc">
+      <div class="fl"><small>CHAMP N2 · CORRECTION D'ERREUR</small>« QU'EST-CE QUE J'AI REÇU, QU'EST-CE QUE J'ENVOIE ? »</div>
+      <div class="st" id="fc1"><b>1</b><i>JE REPÈRE</i><em>08&nbsp;&nbsp;&nbsp;08</em></div>
+      <div class="st" id="fc2"><b>2</b><i>JE CONVERTIS</i><em>0 0001000&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;0 0001000</em></div>
+      <div class="st" id="fc3"><b>3</b><i>J'OUVRE LA TABLE</i><em>bit de poids fort = indicateur · les 7 autres = n° de séquence</em></div>
+      <div class="st" id="fc4"><b>4</b><i>JE LIS</i><em>NSR = 8 · BIR = 0&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;NSA = 8 · BIA = 0</em></div>
+    </div>
+    <div class="fcc" id="fcc" style="left:212px;top:884px;width:1500px;text-align:center">
+      BIR = BIA → fonctionnement normal, aucune retransmission</div>
+
+    <div class="fiche" id="fi">
+      <div class="fl"><small>CHAMP N2 · INDICATEUR DE LONGUEUR</small>« QUEL TYPE DE TRAME EST-CE ? »</div>
+      <div class="st" id="fi1"><b>1</b><i>JE REPÈRE</i><em>D8</em></div>
+      <div class="st" id="fi2"><b>2</b><i>JE CONVERTIS</i><em>11 011000</em></div>
+      <div class="st" id="fi3"><b>3</b><i>J'OUVRE LA TABLE</i><em>on ignore les 2 bits de poids fort</em></div>
+      <div class="st" id="fi4"><b>4</b><i>JE LIS</i><em>011000 = 24</em></div>
+    </div>
+    <div class="tab" id="tInl" style="left:1160px;top:300px;width:700px">
+      <div class="cap">TYPE DE TRAME</div>
+      <div class="tr" id="ti1"><span>INL = 0</span><span>remplissage — TSR</span></div>
+      <div class="tr" id="ti2"><span>INL = 1 ou 2</span><span>état — TSE</span></div>
+      <div class="tr" id="ti3"><span>INL &gt; 2</span><span>message — TSM</span></div>
+    </div>
+    <div class="fcc" id="ficc" style="left:1160px;top:600px;width:700px;text-align:center">
+      TSM · information = 24 octets</div>
+
+    <div class="titre2" id="tcrt" style="left:0;top:706px;width:1920px;text-align:center">
+      <span class="w">DÉTECTION</span> <span class="w">D'ERREUR</span> <span class="w cy">·</span>
+      <span class="w cy">16</span> <span class="w cy">BITS</span></div>
+    <div class="rec" id="tcrt2" style="top:812px;font-size:32px;font-family:var(--fu);color:var(--gris)">
+      le sceau de cire : s'il ne correspond pas, la trame est jetée — et redemandée</div>
+  </div>
+
+  <!-- ====== S5 · NIVEAU 3 ====== -->
+  <div class="clip" id="s5" data-start="131.4" data-duration="49.9" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t5" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w amb">NIVEAU</span> <span class="w amb">3</span> <span class="w">·</span>
+      <span class="w">L'ADRESSE</span></div>
+
+    <div class="fiche" id="fs">
+      <div class="fl"><small>CHAMP N3 · OCTET DE SERVICE</small>« QUI TRAITE CETTE LETTRE ? »</div>
+      <div class="st" id="fs1"><b>1</b><i>JE REPÈRE</i><em>04</em></div>
+      <div class="st" id="fs2"><b>2</b><i>JE CONVERTIS</i><em>0000&nbsp;&nbsp;0100</em></div>
+      <div class="st" id="fs3"><b>3</b><i>DEUX TABLES</i><em>poids fort = DSS · poids faible = INS</em></div>
+      <div class="st" id="fs4"><b>4</b><i>JE LIS</i><em>INS = 0100 · DSS → bits D C = 00</em></div>
+    </div>
+    <div class="tab" id="tIns" style="left:1140px;top:430px;width:600px">
+      <div class="cap">INS — INDICATEUR DE SERVICE</div>
+      <div class="tr"><span>0000</span><span>gestion réseau</span></div>
+      <div class="tr" id="ins4"><span>0100</span><span>SSUT — niveau 4</span></div>
+      <div class="tr"><span>0110</span><span>SSUD — niveau 4</span></div>
+    </div>
+    <div class="tab" id="tDss" style="left:1140px;top:690px;width:600px">
+      <div class="cap">DSS — BITS D C</div>
+      <div class="tr" id="dss0"><span>00</span><span>international</span></div>
+      <div class="tr"><span>10</span><span>national</span></div>
+    </div>
+    <div class="fcc" id="fsc" style="left:1140px;top:884px;width:600px;text-align:center">
+      SSUT · international</div>
+
+    <div class="titre2" id="t5e" style="left:0;top:300px;width:1920px;text-align:center">
+      <span class="w">L'ÉTIQUETTE</span> <span class="w">D'ACHEMINEMENT</span>
+      <span class="w cy">·</span> <span class="w cy">32</span> <span class="w cy">BITS</span></div>
+    <div id="etq" style="position:absolute;left:280px;top:426px;width:1360px;height:88px;opacity:0">
+      <div style="position:absolute;left:0;top:0;width:580px;height:84px;border:3px solid var(--cyan);
+        border-radius:9px;display:flex;align-items:center;justify-content:center;
+        font-family:var(--fm);font-size:32px;color:var(--cyan)">14 bits</div>
+      <div style="position:absolute;left:600px;top:0;width:580px;height:84px;border:3px solid var(--ambre);
+        border-radius:9px;display:flex;align-items:center;justify-content:center;
+        font-family:var(--fm);font-size:32px;color:var(--ambre)">14 bits</div>
+      <div style="position:absolute;left:1200px;top:0;width:160px;height:84px;border:3px solid var(--vert);
+        border-radius:9px;display:flex;align-items:center;justify-content:center;
+        font-family:var(--fm);font-size:32px;color:var(--vert)">4</div>
+    </div>
+    <div class="rec" id="eCpo" style="top:566px;font-size:40px;text-align:left;padding-left:300px">
+      <span class="cy">CPO = 7562</span><span style="font-size:32px;font-family:var(--fu);color:var(--gris)">&nbsp;&nbsp;&nbsp;point d'origine — PSA, l'expéditeur</span></div>
+    <div class="rec" id="eCpd" style="top:654px;font-size:40px;text-align:left;padding-left:300px">
+      <span class="amb">CPD = 14203</span><span style="font-size:32px;font-family:var(--fu);color:var(--gris)">&nbsp;&nbsp;&nbsp;point de destination — PSB, le destinataire</span></div>
+    <div class="rec" id="eScs" style="top:742px;font-size:40px;text-align:left;padding-left:300px">
+      <span class="vrt">SCS = 7</span><span style="font-size:32px;font-family:var(--fu);color:var(--gris)">&nbsp;&nbsp;&nbsp;sélection du canal sémaphore — le code de la route</span></div>
+    <div class="rec" id="eQ2" style="top:858px;font-size:32px;font-family:var(--fu);color:var(--ambre)">
+      retiens le SCS → question 2</div>
+  </div>
+
+  <!-- ====== S6 · NIVEAU 4 ====== -->
+  <div class="clip" id="s6" data-start="181.3" data-duration="123.4" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t6" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w vrt">NIVEAU</span> <span class="w vrt">4</span> <span class="w">·</span>
+      <span class="w">LA</span> <span class="w">LETTRE</span></div>
+    <div class="rec" id="t6b" style="top:534px;font-size:36px;font-family:var(--fu);color:var(--gris)">
+      un <span class="vrt">MIA</span> — message initial d'adresse</div>
+
+    <div class="titre2" id="t6h" style="left:0;top:288px;width:1920px;text-align:center">
+      <span class="w">L'ENTÊTE</span> <span class="w cy">H0</span> <span class="w">·</span>
+      <span class="w cy">H1</span></div>
+    <div class="tab" id="tH0" style="left:276px;top:420px;width:660px">
+      <div class="cap">H0 — LA FAMILLE</div>
+      <div class="tr" id="h0a"><span>0001</span><span>messages d'adresse</span></div>
+      <div class="tr"><span>0010</span><span>messages d'établissement</span></div>
+    </div>
+    <div class="tab" id="tH1" style="left:984px;top:420px;width:660px">
+      <div class="cap">H1 — DANS CETTE FAMILLE</div>
+      <div class="tr"><span>0001</span><span>MIA</span></div>
+      <div class="tr" id="h1a"><span>0010</span><span>MIA + infos suppl.</span></div>
+      <div class="tr"><span>0011</span><span>MSS</span></div>
+    </div>
+    <div class="fcc" id="fh" style="left:276px;top:680px;width:1368px;text-align:center">
+      MIA avec informations supplémentaires</div>
+
+    <div class="fiche" id="fa">
+      <div class="fl"><small>CHAMP N4 · CATÉGORIE DU DEMANDEUR</small>« QUI APPELLE ? »</div>
+      <div class="st" id="fa1"><b>1</b><i>JE REPÈRE</i><em>CA</em></div>
+      <div class="st" id="fa2"><b>2</b><i>JE CONVERTIS</i><em>11 001010</em></div>
+      <div class="st" id="fa3"><b>3</b><i>J'OUVRE LA TABLE</i><em>2 bits réservés, puis 6 bits de catégorie</em></div>
+      <div class="st" id="fa4"><b>4</b><i>JE LIS</i><em>001010</em></div>
+    </div>
+    <div class="fcc" id="fac" style="left:212px;top:884px;width:1500px;text-align:center">
+      abonné demandeur ordinaire</div>
+
+    <div class="kick" id="k957" style="left:0;top:264px;width:1920px;text-align:center">LE CHAMP LE PLUS RICHE</div>
+    <div class="titre2" id="t957" style="left:0;top:318px;width:1920px;text-align:center">
+      <span class="w">LE</span> <span class="w">FORMULAIRE</span> <span class="w">À</span>
+      <span class="w">CASES</span> <span class="w amb">·</span> <span class="w amb">957</span></div>
+    <div id="b957"></div>
+    <div class="rec" id="caDC" style="top:572px;font-size:36px;font-family:var(--fm)">
+      <span class="amb">bits D C = 01</span><span style="font-size:30px;font-family:var(--fu);color:var(--gris)">&nbsp;&nbsp;→ table « nature du circuit »</span></div>
+    <div class="tab" id="tNat" style="left:450px;top:646px;width:1020px">
+      <div class="cap">NATURE DU CIRCUIT</div>
+      <div class="tr" id="nat0"><span>00</span><span>pas de circuit satellite</span></div>
+      <div class="tr" id="nat1"><span>01</span><span>un circuit satellite dans la connexion</span></div>
+    </div>
+    <div class="fcc" id="fnat" style="left:450px;top:874px;width:1020px;text-align:center">
+      on n'a rien deviné — on a lu la table</div>
+    <div class="rec" id="r957" style="top:588px;font-size:31px;line-height:1.8;font-family:var(--fu);color:var(--gris)">
+      numéro international &nbsp;·&nbsp; circuit satellite &nbsp;·&nbsp; continuité exigée<br>
+      demi-suppresseur d'écho de départ &nbsp;·&nbsp; pas d'appel international entrant<br>
+      appel prolongé &nbsp;·&nbsp; appel ordinaire &nbsp;·&nbsp; trajet quelconque</div>
+
+    <div class="titre2" id="t6c" style="left:0;top:330px;width:1920px;text-align:center">
+      <span class="w">LE</span> <span class="w cy">CIC</span> <span class="w">·</span>
+      <span class="w">LE</span> <span class="w">TUYAU</span> <span class="w">DE</span> <span class="w">PAROLE</span></div>
+    <div class="rec" id="cicA" style="top:466px;font-family:var(--fm);font-size:74px;color:var(--ambre)">667<span style="font-size:34px;color:var(--gris2)"> hex</span></div>
+    <div class="rec" id="cicB" style="top:580px;font-family:var(--fm);font-size:74px;color:var(--cyan)">1639<span style="font-size:34px;color:var(--gris2)"> déc</span></div>
+    <div class="rec" id="cicC" style="top:722px;font-size:32px;font-family:var(--fu);color:var(--gris)">
+      ses 4 bits de poids faible = <span class="vrt">0111 = 7</span> — exactement le SCS. Le tuyau et la route sont liés.</div>
+
+    <div class="titre2" id="t6n" style="left:0;top:300px;width:1920px;text-align:center">
+      <span class="w">LE</span> <span class="w">NUMÉRO</span> <span class="w amb">DEMANDÉ</span></div>
+    <div class="rec" id="nbS" style="top:414px;font-family:var(--fm);font-size:32px;color:var(--gris)">
+      nombre de signaux = <span class="cy">C</span> = <span class="cy">1100</span> = <span class="cy">12 chiffres</span></div>
+    <div class="rec" id="numA" style="top:524px;font-family:var(--fm);font-size:58px;color:var(--gris)">9 7 5 0 3 0 4 7 7 1 2 2</div>
+    <div class="rec" id="numL" style="top:614px;font-family:var(--fm);font-size:28px;
+      letter-spacing:.14em;color:#92A2C3">DANS LA TRAME — POIDS FAIBLE D'ABORD</div>
+    <div class="rec" id="numB" style="top:702px;font-family:var(--fm);font-size:58px;color:var(--ambre)">2 2 1 7 7 4 0 3 0 5 7 9</div>
+    <div class="rec" id="numC" style="top:834px;font-family:var(--fd);font-size:56px;color:var(--vert)">+221 77 403 05 79</div>
+  </div>
+
+  <!-- ====== S7 · QUESTION 2 — LE TRAJET ====== -->
+  <div class="clip" id="s7" data-start="304.7" data-duration="84.6" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t7" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w">QUESTION</span> <span class="w cy">2</span> <span class="w">·</span>
+      <span class="w">LE</span> <span class="w">TRAJET</span></div>
+    <div class="rec" id="t7b" style="top:534px;font-size:34px;font-family:var(--fu);color:var(--gris)">
+      le GPS, ici, c'est le <span class="cy">SCS</span></div>
+
+    <svg id="reseau" viewBox="0 0 1920 1080">
+      <path class="ar" id="aA" d="M334 560 L620 380"/>
+      <path class="ar" id="aB" d="M334 560 L620 740"/>
+      <path class="ar" id="aC" d="M700 380 H960"/>
+      <path class="ar" id="aD" d="M1040 380 H1300"/>
+      <path class="ar" id="aE" d="M700 740 H960"/>
+      <path class="ar" id="aF" d="M1040 740 H1300"/>
+      <path class="ar" id="aG" d="M700 420 L960 700"/>
+      <path class="ar" id="aH" d="M700 700 L960 420"/>
+      <path class="ar" id="aI" d="M1040 420 L1300 700"/>
+      <path class="ar" id="aJ" d="M1040 700 L1300 420"/>
+      <path class="ar" id="aK" d="M1380 380 L1616 560"/>
+      <path class="ar" id="aL" d="M1380 740 L1616 560"/>
+      <circle class="nd" id="nPSA" cx="294" cy="560" r="44"/>
+      <rect class="nd" id="nP1" x="620" y="340" width="80" height="80" rx="8"/>
+      <rect class="nd" id="nP2" x="960" y="340" width="80" height="80" rx="8"/>
+      <rect class="nd" id="nP3" x="1300" y="340" width="80" height="80" rx="8"/>
+      <rect class="nd" id="nP6" x="620" y="700" width="80" height="80" rx="8"/>
+      <rect class="nd" id="nP5" x="960" y="700" width="80" height="80" rx="8"/>
+      <rect class="nd" id="nP4" x="1300" y="700" width="80" height="80" rx="8"/>
+      <circle class="nd" id="nPSB" cx="1664" cy="560" r="44"/>
+      <text class="nl" x="294" y="648" text-anchor="middle">PSA</text>
+      <text class="nl" x="660" y="326" text-anchor="middle">PTS1</text>
+      <text class="nl" x="1000" y="326" text-anchor="middle">PTS2</text>
+      <text class="nl" x="1340" y="326" text-anchor="middle">PTS3</text>
+      <text class="nl" x="660" y="818" text-anchor="middle">PTS6</text>
+      <text class="nl" x="1000" y="818" text-anchor="middle">PTS5</text>
+      <text class="nl" x="1340" y="818" text-anchor="middle">PTS4</text>
+      <text class="nl" x="1664" y="648" text-anchor="middle">PSB</text>
+      <text class="el" x="436" y="438" text-anchor="middle">XXX0</text>
+      <text class="el" x="436" y="692" text-anchor="middle">XXX1</text>
+      <text class="el" x="830" y="360" text-anchor="middle">XX0X</text>
+      <text class="el" x="1170" y="360" text-anchor="middle">XX1X</text>
+      <text class="el" x="830" y="782" text-anchor="middle">XX0X</text>
+      <text class="el" x="1170" y="782" text-anchor="middle">XX1X</text>
+      <text class="el" x="824" y="576" text-anchor="middle">XX1X</text>
+      <text class="el" x="1166" y="576" text-anchor="middle">XX0X</text>
+      <text class="el" x="1528" y="438" text-anchor="middle">XXX1</text>
+      <text class="el" x="1528" y="692" text-anchor="middle">XXX0</text>
+      <circle id="jeton" cx="294" cy="560" r="15" fill="#FFB23D" opacity="0"/>
+    </svg>
+
+    <div class="rec" id="scsb" style="top:186px;font-family:var(--fm);font-size:48px;color:var(--cyan)">
+      SCS = 7 &nbsp;=&nbsp; <span class="amb">0 1 1 1</span></div>
+    <div class="rec" id="scsl" style="top:252px;font-family:var(--fm);font-size:28px;
+      letter-spacing:.1em;color:#92A2C3">BIT 3 &nbsp;&nbsp; BIT 2 &nbsp;&nbsp; BIT 1 &nbsp;&nbsp; BIT 0</div>
+    <div class="rec" id="pas1" style="top:900px;font-family:var(--fm);font-size:31px;color:var(--cyan)">PSA &nbsp;·&nbsp; bit 0 = 1 &nbsp;→&nbsp; XXX1 &nbsp;→&nbsp; PTS6</div>
+    <div class="rec" id="pas2" style="top:900px;font-family:var(--fm);font-size:31px;color:var(--cyan)">PTS6 &nbsp;·&nbsp; bit 1 = 1 &nbsp;→&nbsp; XX1X &nbsp;→&nbsp; PTS2</div>
+    <div class="rec" id="pas3" style="top:900px;font-family:var(--fm);font-size:31px;color:var(--cyan)">PTS2 &nbsp;·&nbsp; bit 1 = 1 &nbsp;→&nbsp; XX1X &nbsp;→&nbsp; PTS3</div>
+    <div class="rec" id="pas4" style="top:900px;font-family:var(--fm);font-size:31px;color:var(--cyan)">PTS3 &nbsp;·&nbsp; bit 0 = 1 &nbsp;→&nbsp; XXX1 &nbsp;→&nbsp; PSB</div>
+    <div class="rec" id="traj" style="top:890px;font-family:var(--fd);font-size:44px;color:var(--vert)">PSA → PTS6 → PTS2 → PTS3 → PSB</div>
+    <div class="rec" id="piege" style="top:972px;font-size:29px;font-family:var(--fu);color:var(--ambre)">
+      le piège : PSA n'est relié qu'à PTS1 et PTS6 — on avance carrefour par carrefour</div>
+  </div>
+
+  <!-- ====== S8 · QUESTION 3 — LES TRANSITIONS ====== -->
+  <div class="clip" id="s8" data-start="389.3" data-duration="38.3" data-track-index="1" data-track-kind="graphics">
+    <div class="titre" id="t8" style="left:0;top:398px;width:1920px;text-align:center">
+      <span class="w">QUESTION</span> <span class="w cy">3</span> <span class="w">·</span>
+      <span class="w">LES</span> <span class="w">TRANSITIONS</span></div>
+    <div class="rec" id="t8b" style="top:534px;font-size:34px;font-family:var(--fu);color:var(--gris)">des poupées russes</div>
+    <div class="couche" id="cN2">N2 · L'ENVELOPPE</div>
+    <div class="couche" id="cN3">N3 · L'ADRESSE</div>
+    <div class="couche" id="cN4">N4 · LA LETTRE</div>
+    <div class="rec" id="lbEm" style="top:200px;font-family:var(--fm);font-size:29px;
+      letter-spacing:.18em;color:var(--ambre)">À L'ÉMISSION — ON EMBOÎTE &nbsp;·&nbsp; N4 → N3 → N2</div>
+    <div class="rec" id="lbRe" style="top:200px;font-family:var(--fm);font-size:29px;
+      letter-spacing:.18em;color:var(--cyan)">À LA RÉCEPTION — ON DÉBOÎTE &nbsp;·&nbsp; N2 → N3 → N4</div>
+    <div class="rec" id="lbDis" style="top:712px;font-size:32px;font-family:var(--fu);color:var(--gris)">
+      le CPD, c'est moi ? &nbsp;<span class="vrt">oui → distribution</span>&nbsp; · &nbsp;<span class="amb">non → acheminement</span></div>
+    <div class="rec" id="rc2" style="top:808px;font-size:34px;font-family:var(--fu)"><span class="cy">N2</span> transporte</div>
+    <div class="rec" id="rc3" style="top:872px;font-size:34px;font-family:var(--fu)"><span class="amb">N3</span> achemine</div>
+    <div class="rec" id="rc4" style="top:936px;font-size:34px;font-family:var(--fu)"><span class="vrt">N4</span> donne le sens</div>
+  </div>
+
+  <!-- ====== S9 · CLÔTURE ====== -->
+  <div class="clip" id="s9" data-start="427.4" data-duration="11.6" data-track-index="1" data-track-kind="graphics">
+    <div class="titre2" id="t9" style="left:0;top:374px;width:1920px;text-align:center">
+      <span class="w">VOUS</span> <span class="w">VENEZ</span> <span class="w">DE</span>
+      <span class="w cy">DÉCODER</span> <span class="w cy">UNE</span> <span class="w cy">TRAME</span>
+      <span class="w cy">SS7</span></div>
+    <div class="rec" id="r9a" style="top:510px;font-family:var(--fm);font-size:36px;letter-spacing:.08em">
+      <span class="cy">1</span> REPÉRER &nbsp;&nbsp;&nbsp; <span class="cy">2</span> CONVERTIR &nbsp;&nbsp;&nbsp;
+      <span class="cy">3</span> OUVRIR LA TABLE &nbsp;&nbsp;&nbsp; <span class="cy">4</span> LIRE</div>
+    <div id="sign">
+      <div id="sg1">BIG MAGASS</div>
+      <div id="sg2">ESMT · SIGNALISATION SÉMAPHORE SS7 — CCITT N°7</div>
+    </div>
+  </div>
+
+  <!-- ====== bandeau permanent : la trame ====== -->
+  <div class="clip" id="hud" data-start="0" data-duration="427.4" data-track-index="2" data-track-kind="graphics">
+    <div id="bar"><div id="jauge"></div></div>
+    <div id="sect">
+      <span class="sl" id="sl0">OUVERTURE</span>
+      <span class="sl" id="sl1">L'ÉNONCÉ</span>
+      <span class="sl" id="sl2">LA BOÎTE À OUTILS</span>
+      <span class="sl" id="sl3">LA MÉTHODE</span>
+      <span class="sl" id="sl4">NIVEAU 2 · L'ENVELOPPE</span>
+      <span class="sl" id="sl5">NIVEAU 3 · L'ADRESSE</span>
+      <span class="sl" id="sl6">NIVEAU 4 · LA LETTRE</span>
+      <span class="sl" id="sl7">QUESTION 2 · LE TRAJET</span>
+      <span class="sl" id="sl8">QUESTION 3 · LES TRANSITIONS</span>
+    </div>
+    <div id="marque">ESMT · TD SS7</div>
+    <div id="tramebox">
+      <div id="trame"></div>
+      <div id="surl"></div>
+      <div id="tlg"><b style="color:var(--cyan)">N2 enveloppe</b><b style="color:var(--ambre)">N3 adresse</b><b style="color:var(--vert)">N4 lettre</b></div>
+    </div>
+  </div>
+
+  <audio id="bande" class="clip" src="assets/audio/mix.mp3" data-start="0" data-volume="1"
+         data-track-index="9" data-track-kind="audio"></audio>
+</div>
+
+<script>
+/* ===== ancres relevees mot a mot sur la bande son ===== */
+const T = {
+  lettreRec:1.68, env:3.92, n2a:5.2, adr:6.347, n3a:9.32, let:10.44, n4a:12.933,
+  facteur:15.64, ordre:21.44, trame:22.627, hexa:23.64, fanion:25.76, q:29.76,
+  q1:30.88, q2:34.0, q3:37.6, hex4:42.213, octet:44.64, d8conv:48.0, raccourci:50.827,
+  gestes:54.76, g1:56.56, g2:58.36, g3:59.88, g4:62.04, savoir:62.944, n2:67.68,
+  n2job:69.44, corr:74.56, c0808:77.04, whats:78.68, bitfort:81.48, nsr:87.707,
+  egaux:94.48, inl:99.96, d8:101.867, convertit:104.16, lit24:109.36, tab0:110.8,
+  tab12:113.04, tabsup:115.04, tsm:118.92, crt:123.2, sceau:125.893, n3:131.527,
+  ser:133.927, v04:135.58, quartets:140.487, ins:144.594, ssut:148.607, dss:154.007,
+  intl:157.927, etiq:159.514, d1414:161.954, cpo:164.944, psa:167.9, cpd:170.087,
+  psb:173.047, scs:175.327, route:178.527, n4:181.28, mia:185.58, entete:191.354,
+  h0:193.607, h1:199.127, cat:203.447, ca:205.447, abonne:210.194, ind:216.967,
+  v957:218.527, form:220.62, range:222.367, ex:227.161, sat:229.34, dc:230.634,
+  tabnat:234.167, lit00:236.567, lit01:238.447, donc:243.26, lu:244.967, pareil:246.16,
+  total:247.967, cic:261.687, v667:263.767, v1639:266.087, lien7:270.647, numdem:277.127,
+  nbsig:278.927, envers:283.727, danstrame:286.394, miroir:294.556, numero:297.794,
+  q2t:304.797, depart:307.357, maillage:310.997, gps:317.197, scs7:320.157,
+  carrefour:323.584, xxx:325.837, xxox:331.637, deroule:338.477, s1:339.317, a1:343.997,
+  s2:345.901, a2:350.397, s3:351.984, a3:354.797, s4:356.464, a4:359.437, trajet:360.941,
+  disc:368.197, distrib:374.837, piege:377.83, q3t:389.357, poupees:391.397, emis:392.864,
+  e4:395.317, e3:397.077, e2:399.157, recep:402.47, r2:405.077, r3:410.997, r4:417.717,
+  chacun:420.957, t2:423.157, t3:424.437, t4:425.797, voila:427.509, refaire:431.517,
+  recette:433.037
+};
+
+/* ===== la trame : zones N2 / N3 / N4 ===== */
+/* 7E .... 2B 09 75 03 04 77 12 2C 95 7C A2 16 67 76 2B 77 B0 4D 80 80 7E
+   z-f fanion · z-e partie non reecrite (08 08, D8) · z-x tete non detaillee
+   z-n3 SER + etiquette d'acheminement (32 bits) · z-n4 la lettre · z-n2 CRT 16 bits */
+const TRAME = [
+  ['7E','f'],['· · · ·','e'],
+  ['2B','x'],['09','x'],['75','x'],['03','x'],
+  ['04','n3'],['77','n3'],['12','n3'],['2C','n3'],['95','n3'],
+  ['7C','n4'],['A2','n4'],['16','n4'],['67','n4'],['76','n4'],
+  ['2B','n4'],['77','n4'],['B0','n4'],['4D','n4'],
+  ['80','n2'],['80','n2'],['7E','f']
+];
+const tr = document.getElementById('trame');
+TRAME.forEach(([h,z])=>{
+  const s = document.createElement('span');
+  s.className = 'o z-'+z; s.textContent = h; tr.appendChild(s);
+});
+const OCT = Array.from(tr.children);
+
+/* ===== les 12 bits du champ 957 ===== */
+/* 957 = 1001 0101 0111 — nommes L..A, A = poids faible (doc du cours) */
+const B957 = [['1','L'],['0','K'],['0','J'],['1','I'],['0','H'],['1','G'],
+              ['0','F'],['1','E'],['0','D'],['1','C'],['1','B'],['1','A']];
+const bb = document.getElementById('b957');
+B957.forEach(([v,n],i)=>{
+  const d = document.createElement('span');
+  d.className = 'bit'; d.id = 'bq'+i;
+  d.innerHTML = '<u>'+v+'</u><s>'+n+'</s>';
+  bb.appendChild(d);
+});
+
+/* ===== timeline ===== */
+const tl = gsap.timeline({paused:true});
+window.__timelines = {main: tl};
+
+function on(sel,t,d){ tl.to(sel,{opacity:1,duration:d||.45,ease:'power2.out'},t); }
+function off(sel,t,d){ tl.to(sel,{opacity:0,duration:d||.4,ease:'power2.in'},t); }
+function show(sel,t0,t1){ on(sel,t0); off(sel,t1); }
+function up(sel,t,d){
+  tl.fromTo(sel,{opacity:0,y:22},{opacity:1,y:0,duration:d||.55,ease:'power3.out'},t);
+}
+function mots(sel,t,pas){
+  const n = document.querySelectorAll(sel+' .w');
+  tl.fromTo(n,{opacity:0,y:26},
+    {opacity:1,y:0,duration:.5,ease:'power3.out',stagger:pas||.085},t);
+}
+function geste(sel,t){ tl.to(sel,{opacity:1,duration:.35,ease:'power2.out'},t); }
+function surl(i0,i1,t,dur){
+  const a = OCT[i0], b = OCT[i1];
+  const x = a.offsetLeft - 4;
+  const w = b.offsetLeft + b.offsetWidth - a.offsetLeft + 8;
+  tl.to('#surl',{x:x,width:w,opacity:1,duration:dur||.5,ease:'power3.inOut'},t);
+}
+function plan(id,t,dur,premier){
+  if(premier) tl.set(id,{opacity:1},0); else on(id,t,.55);
+  on('#voPlan',t,.55);
+  off(id,t+dur-.5,.5); off('#voPlan',t+dur-.5,.5);
+}
+
+/* ---------- bandeau ---------- */
+tl.set('#surl',{x:0,width:120});
+on('#bar',0.6,.6); on('#marque',0.9,.6);
+on('#tramebox',T.trame,.6);
+tl.fromTo('#jauge',{scaleX:0},{scaleX:1,duration:427.4,ease:'none'},0);
+off('#bar',426.3,.8); off('#marque',426.3,.8); off('#tramebox',426.3,.8);
+
+const SEC = [['#sl0',0.6,22.2],['#sl1',22.5,40.2],['#sl2',40.4,54.4],['#sl3',54.6,67.4],
+             ['#sl4',67.6,131.1],['#sl5',131.3,181.0],['#sl6',181.2,304.4],
+             ['#sl7',304.6,389.0],['#sl8',389.2,426.4]];
+SEC.forEach(([q,a,b])=>{ on(q,a,.35); off(q,b,.3); });
+
+/* ---------- plans ---------- */
+plan('#vLettre',0,7.6,true);
+plan('#vTri',15.4,7.2);
+plan('#vCachet',123.2,7.6);
+plan('#vCentral',131.4,7.6);
+plan('#vForm',219.4,7.6);
+plan('#vCarr',304.7,7.6);
+plan('#vPoup',389.3,7.6);
+
+/* ---------- S0 · l'analogie ---------- */
+mots('#t0',T.lettreRec,.075);
+off('#t0',3.55,.35);
+show('#c0a',T.env,21.6); show('#c0b',T.adr,21.6); show('#c0c',T.let,21.6);
+up('#c0d',T.n4a); off('#c0d',21.6);
+mots('#t0b',T.facteur,.07);
+tl.to('#t0b .w',{opacity:0,duration:.4},21.7);
+
+/* ---------- S1 · l'enonce ---------- */
+surl(0,0,T.fanion,.45);               /* le fanion d'ouverture */
+surl(22,22,T.fanion+1.5,.6);          /* le fanion de fermeture */
+on('#tlg',T.hexa,.5);
+function ligne(sel,t,d){
+  tl.to(sel,{backgroundColor:'rgba(63,216,232,.20)',duration:d||.35},t);
+  tl.to(sel+' span:nth-child(2)',{color:'#EAF1FF',duration:d||.35},t);
+}
+function ligneOff(sel,t){
+  tl.to(sel,{backgroundColor:'rgba(0,0,0,0)',duration:.3},t);
+  tl.to(sel+' span:nth-child(2)',{color:'#9BADCE',duration:.3},t);
+}
+on('#k1',T.q,.4); off('#k1',T.q1-0.1,.3);
+up('#q1l',T.q1); up('#q2l',T.q2); up('#q3l',T.q3);
+off('#q1l',40.1,.35); off('#q2l',40.1,.35); off('#q3l',40.1,.35);
+tl.to('#surl',{opacity:0,duration:.4},39.6);
+
+/* ---------- S2 · hexa vers binaire ---------- */
+on('#k2',40.6,.4);
+mots('#t2',T.hex4,.08);
+up('#d8h',T.octet);
+up('#d8f',T.d8conv); on('#d8l',T.d8conv+0.5,.4);
+up('#d8r',T.raccourci);
+[['#k2',54.3],['#d8h',54.3],['#d8f',54.3],['#d8l',54.3],['#d8r',54.3]].forEach(([q,t])=>off(q,t,.35));
+tl.to('#t2 .w',{opacity:0,duration:.35},54.3);
+
+/* ---------- S3 · les quatre gestes ---------- */
+on('#k3',54.72,.4);
+mots('#t3',T.gestes,.08);
+up('#m1',T.g1,.45); up('#m2',T.g2,.45); up('#m3',T.g3,.45); up('#m4',T.g4,.45);
+up('#m5',T.savoir);
+[['#k3'],['#m1'],['#m2'],['#m3'],['#m4'],['#m5']].forEach(([q])=>off(q,67.3,.35));
+tl.to('#t3 .w',{opacity:0,duration:.35},67.3);
+
+/* ---------- S4 · niveau 2 ---------- */
+surl(1,1,T.n2,.6);                    /* on travaille dans la tete de trame */
+mots('#t4',T.n2,.08);
+up('#t4b',T.n2job);
+up('#snote',T.n2+0.8);
+tl.to('#t4 .w',{opacity:0,duration:.35},73.6); off('#t4b',73.6,.35); off('#snote',73.6,.35);
+
+on('#fc',T.corr,.5);
+geste('#fc1',T.c0808); geste('#fc2',T.whats); geste('#fc3',T.bitfort); geste('#fc4',T.nsr);
+up('#fcc',T.egaux);
+off('#fc',99.0,.45); off('#fcc',99.0,.45);
+
+on('#fi',T.inl,.5);
+geste('#fi1',T.d8); geste('#fi2',T.convertit); geste('#fi3',T.lit24-1.9); geste('#fi4',T.lit24);
+on('#tInl',T.tab0,.45);
+ligne('#ti1',T.tab0+.3);
+ligneOff('#ti1',T.tab12-.1); ligne('#ti2',T.tab12);
+ligneOff('#ti2',T.tabsup-.1); ligne('#ti3',T.tabsup);
+up('#ficc',T.tsm);
+off('#fi',121.9,.45); off('#tInl',121.9,.45); off('#ficc',121.9,.45);
+
+surl(20,21,T.crt,.6);                 /* les 16 bits de controle, en fin de trame */
+mots('#tcrt',T.crt+0.1,.08);
+up('#tcrt2',T.sceau);
+tl.to('#tcrt .w',{opacity:0,duration:.35},130.8); off('#tcrt2',130.8,.35);
+
+/* ---------- S5 · niveau 3 ---------- */
+surl(6,10,T.n3,.7);                   /* SER + etiquette d'acheminement */
+mots('#t5',T.n3+0.15,.08);
+tl.to('#t5 .w',{opacity:0,duration:.35},133.6);
+
+surl(6,6,T.ser,.5);                   /* l'octet de service, seul */
+on('#fs',T.ser,.5);
+geste('#fs1',T.v04); geste('#fs2',T.quartets); geste('#fs3',T.ins); geste('#fs4',T.ssut);
+on('#tIns',T.ins,.45);
+ligne('#ins4',T.ssut);
+on('#tDss',T.dss,.45);
+ligne('#dss0',T.intl);
+up('#fsc',T.intl+0.4);
+off('#fs',159.2,.4); off('#tIns',160.4,.4); off('#tDss',160.4,.4); off('#fsc',160.4,.4);
+
+surl(7,10,T.etiq,.6);                 /* les 4 octets de l'etiquette */
+mots('#t5e',T.etiq,.08);
+on('#etq',T.d1414,.5);
+up('#eCpo',T.cpo); up('#eCpd',T.cpd); up('#eScs',T.scs);
+up('#eQ2',T.route-0.3);
+tl.to('#t5e .w',{opacity:0,duration:.35},180.8);
+['#etq','#eCpo','#eCpd','#eScs','#eQ2'].forEach(q=>off(q,180.8,.35));
+
+/* ---------- S6 · niveau 4 ---------- */
+surl(11,19,T.n4,.7);                  /* toute la lettre */
+mots('#t6',T.n4+0.15,.08);
+up('#t6b',T.mia);
+tl.to('#t6 .w',{opacity:0,duration:.35},190.5); off('#t6b',190.5,.35);
+
+mots('#t6h',T.entete,.08);
+on('#tH0',T.h0,.45);
+ligne('#h0a',T.h0+1.3);
+on('#tH1',T.h1,.45);
+ligne('#h1a',T.h1+1.7);
+up('#fh',T.h1+2.6);
+tl.to('#t6h .w',{opacity:0,duration:.35},203.0);
+['#tH0','#tH1','#fh'].forEach(q=>off(q,203.0,.35));
+
+on('#fa',T.cat,.5);
+geste('#fa1',T.ca); geste('#fa2',T.ca+1.8); geste('#fa3',T.ca+3.1); geste('#fa4',T.abonne);
+up('#fac',T.abonne+0.6);
+off('#fa',216.3,.4); off('#fac',216.3,.4);
+
+on('#k957',T.ind,.4);
+mots('#t957',T.ind+0.1,.08);
+on('#b957',T.v957,.5);
+tl.fromTo('#b957 .bit',{opacity:0,y:20},
+  {opacity:1,y:0,duration:.4,ease:'power3.out',stagger:.045},T.v957);
+/* les cases D et C — indices 8 et 9 dans l'ordre L..A */
+tl.to('#bq8 u, #bq9 u',{borderColor:'#FFB23D',color:'#FFB23D',duration:.4},T.dc);
+tl.to('#bq8 s, #bq9 s',{color:'#FFB23D',duration:.4},T.dc);
+up('#caDC',T.dc);
+on('#tNat',T.tabnat,.45);
+ligne('#nat0',T.lit00);
+ligneOff('#nat0',T.lit01-.1); ligne('#nat1',T.lit01);
+up('#fnat',T.lu);
+off('#caDC',T.total-0.5,.35); off('#tNat',T.total-0.5,.35); off('#fnat',T.total-0.5,.35);
+up('#r957',T.total);
+off('#r957',260.8,.4); off('#b957',260.8,.4); off('#k957',260.8,.4);
+tl.to('#t957 .w',{opacity:0,duration:.35},260.8);
+
+mots('#t6c',T.cic,.08);
+up('#cicA',T.v667); up('#cicB',T.v1639); up('#cicC',T.lien7);
+tl.to('#t6c .w',{opacity:0,duration:.35},276.4);
+['#cicA','#cicB','#cicC'].forEach(q=>off(q,276.4,.35));
+
+mots('#t6n',T.numdem,.08);
+up('#nbS',T.nbsig);
+up('#numA',T.danstrame); on('#numL',T.danstrame+0.5,.4);
+up('#numB',T.miroir);
+up('#numC',T.numero);
+tl.to('#t6n .w',{opacity:0,duration:.35},304.2);
+['#nbS','#numA','#numL','#numB','#numC'].forEach(q=>off(q,304.2,.35));
+
+/* ---------- S7 · question 2, le trajet ---------- */
+tl.to('#surl',{opacity:0,duration:.4},304.2);
+mots('#t7',T.q2t+0.1,.08);
+up('#t7b',T.depart);
+tl.to('#t7 .w',{opacity:0,duration:.35},311.6); off('#t7b',311.6,.35);
+
+on('#reseau',T.maillage,.7);
+up('#scsb',T.gps); on('#scsl',T.gps+0.5,.4);
+tl.to('#jeton',{opacity:1,duration:.4},T.deroule);
+
+const ETAPE = [
+  ['#pas1','#aB','#nP6',T.s1,T.a1,660,740],
+  ['#pas2','#aH','#nP2',T.s2,T.a2,1000,380],
+  ['#pas3','#aD','#nP3',T.s3,T.a3,1340,380],
+  ['#pas4','#aK','#nPSB',T.s4,T.a4,1664,560]
+];
+tl.to('#nPSA',{stroke:'#3FD8E8','stroke-width':6,duration:.4},T.s1);
+ETAPE.forEach(([lab,arc,nod,ts,ta,cx,cy],i)=>{
+  up(lab,ts,.45);
+  tl.to(arc,{stroke:'#3FD8E8','stroke-width':7,duration:.5},ts+.4);
+  tl.to('#jeton',{attr:{cx:cx,cy:cy},duration:.9,ease:'power2.inOut'},ta);
+  tl.to(nod,{stroke:'#3FD8E8','stroke-width':6,duration:.4},ta+.5);
+  const fin = (i<3) ? ETAPE[i+1][3]-0.25 : T.trajet-0.3;
+  off(lab,fin,.3);
+});
+up('#traj',T.trajet);
+up('#piege',T.piege);
+off('#traj',388.5,.4); off('#piege',388.5,.4);
+off('#reseau',388.5,.5); off('#scsb',388.5,.4); off('#scsl',388.5,.4);
+
+/* ---------- S8 · question 3, les transitions ---------- */
+mots('#t8',T.q3t+0.1,.08);
+up('#t8b',T.poupees);
+tl.to('#t8 .w',{opacity:0,duration:.3},392.5); off('#t8b',392.5,.3);
+
+up('#lbEm',T.emis,.45);
+up('#cN4',T.e4,.5); up('#cN3',T.e3,.5); up('#cN2',T.e2,.5);
+off('#lbEm',T.recep-0.25,.3);
+up('#lbRe',T.recep,.45);
+const PILE = [['#cN2',T.r2,'#3FD8E8'],['#cN3',T.r3,'#FFB23D'],['#cN4',T.r4,'#44DD93']];
+PILE.forEach(([q,t,c],i)=>{
+  tl.to(q,{backgroundColor:c,color:'#05080F',duration:.45,ease:'power2.out'},t);
+  if(i<2) tl.to(q,{backgroundColor:'rgba(6,16,26,.78)',color:c,duration:.4},PILE[i+1][1]-0.3);
+});
+up('#lbDis',T.r3+1.6);
+off('#lbDis',T.chacun-0.3,.3);
+up('#rc2',T.t2,.4); up('#rc3',T.t3,.4); up('#rc4',T.t4,.4);
+['#lbRe','#cN2','#cN3','#cN4','#rc2','#rc3','#rc4'].forEach(q=>off(q,427.0,.4));
+
+/* ---------- S9 · cloture ---------- */
+mots('#t9',T.voila+0.1,.08);
+up('#r9a',T.refaire);
+tl.to('#t9 .w',{opacity:0,duration:.4},434.9); off('#r9a',434.9,.4);
+on('#sign',435.1,.7);
+tl.fromTo('#sg1',{opacity:0,y:18},{opacity:1,y:0,duration:.7,ease:'power3.out'},435.3);
+tl.fromTo('#sg2',{opacity:0},{opacity:1,duration:.6},436.0);
+
+tl.set({},{},439);
+</script>
+</body>
+</html>

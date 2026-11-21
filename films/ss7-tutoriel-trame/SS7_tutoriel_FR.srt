@@ -1,0 +1,967 @@
+1
+00:00:00,137 --> 00:00:03,040
+Une trame SS7, c'est une lettre recommandée qui traverse
+
+2
+00:00:03,080 --> 00:00:03,640
+le pays.
+
+3
+00:00:03,920 --> 00:00:05,160
+L'enveloppe la protège :
+
+4
+00:00:05,200 --> 00:00:06,320
+c'est le niveau deux.
+
+5
+00:00:06,347 --> 00:00:08,560
+L'adresse écrite dessus dit d'où elle vient et où
+
+6
+00:00:08,640 --> 00:00:09,300
+elle va :
+
+7
+00:00:09,320 --> 00:00:10,400
+c'est le niveau trois.
+
+8
+00:00:10,440 --> 00:00:12,560
+Et la lettre à l'intérieur contient le vrai message
+
+9
+00:00:12,880 --> 00:00:12,907
+:
+
+10
+00:00:12,933 --> 00:00:14,320
+c'est le niveau quatre.
+
+11
+00:00:14,480 --> 00:00:16,720
+Décoder une trame, c'est faire le travail du facteur
+
+12
+00:00:16,760 --> 00:00:17,840
+au centre de tri.
+
+13
+00:00:17,880 --> 00:00:20,640
+On regarde l'enveloppe, on lit l'adresse, puis on ouvre
+
+14
+00:00:20,680 --> 00:00:21,360
+la lettre.
+
+15
+00:00:21,440 --> 00:00:22,560
+Dans cet ordre.
+
+16
+00:00:22,627 --> 00:00:23,600
+Voici la trame.
+
+17
+00:00:23,640 --> 00:00:26,480
+Elle arrive en hexadécimal, encadrée par deux fanions,
+
+18
+00:00:26,520 --> 00:00:27,360
+sept E.
+
+19
+00:00:27,387 --> 00:00:29,680
+Tout ce qui compte est entre ces deux balises.
+
+20
+00:00:29,760 --> 00:00:30,720
+Trois questions.
+
+21
+00:00:30,880 --> 00:00:33,920
+Interpréter les champs des niveaux deux, trois et quatre.
+
+22
+00:00:34,000 --> 00:00:36,240
+Trouver le trajet du message, de P S A
+
+23
+00:00:36,400 --> 00:00:37,520
+vers P S B.
+
+24
+00:00:37,600 --> 00:00:40,320
+Et expliquer comment le message traverse les couches.
+
+25
+00:00:40,400 --> 00:00:42,187
+Un seul réflexe avant de commencer :
+
+26
+00:00:42,213 --> 00:00:44,560
+un chiffre hexadécimal vaut quatre bits.
+
+27
+00:00:44,640 --> 00:00:47,920
+Un octet, c'est deux chiffres hexa, donc huit bits.
+
+28
+00:00:48,000 --> 00:00:50,800
+D huit devient mille cent un, mille.
+
+29
+00:00:50,827 --> 00:00:53,680
+L'hexadécimal n'est qu'une écriture raccourcie du binaire.
+
+30
+00:00:53,760 --> 00:00:56,480
+Et pour chaque champ, toujours les quatre mêmes gestes.
+
+31
+00:00:56,560 --> 00:00:58,320
+Je repère les octets dans la trame.
+
+32
+00:00:58,360 --> 00:00:59,840
+Je convertis en binaire.
+
+33
+00:00:59,880 --> 00:01:02,000
+J'ouvre mon document à la table de ce champ.
+
+34
+00:01:02,040 --> 00:01:02,560
+Et je lis.
+
+35
+00:01:02,944 --> 00:01:05,320
+Savoir décoder, ce n'est pas réciter par cœur :
+
+36
+00:01:05,360 --> 00:01:07,147
+c'est savoir dans quelle table aller chercher.
+
+37
+00:01:07,680 --> 00:01:08,480
+Niveau deux.
+
+38
+00:01:08,533 --> 00:01:09,360
+L'enveloppe.
+
+39
+00:01:09,440 --> 00:01:11,120
+Son travail, ce n'est pas le contenu,
+
+40
+00:01:11,160 --> 00:01:13,600
+mais que la trame arrive entière, dans l'ordre,
+
+41
+00:01:13,680 --> 00:01:14,480
+sans erreur.
+
+42
+00:01:14,560 --> 00:01:16,187
+D'abord la correction d'erreur :
+
+43
+00:01:16,213 --> 00:01:18,640
+deux octets, zéro huit et zéro huit.
+
+44
+00:01:18,680 --> 00:01:20,480
+Ce sont les deux coches de WhatsApp.
+
+45
+00:01:20,560 --> 00:01:22,480
+Dans chaque octet, le bit de poids fort est
+
+46
+00:01:22,560 --> 00:01:25,200
+le bit indicateur, les sept autres forment le numéro
+
+47
+00:01:25,240 --> 00:01:26,160
+de séquence.
+
+48
+00:01:26,240 --> 00:01:27,653
+Zéro huit donne donc :
+
+49
+00:01:27,707 --> 00:01:30,720
+numéro de séquence huit, bit indicateur zéro.
+
+50
+00:01:30,800 --> 00:01:32,640
+La dernière trame reçue est la huit,
+
+51
+00:01:32,680 --> 00:01:34,400
+la trame envoyée est la huit.
+
+52
+00:01:34,480 --> 00:01:36,480
+Et comme les deux bits indicateurs sont égaux,
+
+53
+00:01:36,520 --> 00:01:37,800
+le fonctionnement est normal :
+
+54
+00:01:37,840 --> 00:01:39,760
+personne ne demande de retransmission.
+
+55
+00:01:39,960 --> 00:01:41,813
+Ensuite l'indicateur de longueur :
+
+56
+00:01:41,867 --> 00:01:42,640
+D huit.
+
+57
+00:01:42,667 --> 00:01:44,080
+C'est l'épaisseur de l'enveloppe.
+
+58
+00:01:44,160 --> 00:01:46,520
+On convertit, et la table dit d'ignorer les deux
+
+59
+00:01:46,560 --> 00:01:48,240
+bits de poids fort et de ne garder que
+
+60
+00:01:48,320 --> 00:01:49,280
+les six derniers.
+
+61
+00:01:49,360 --> 00:01:50,720
+On lit vingt-quatre.
+
+62
+00:01:50,800 --> 00:01:52,960
+Zéro, c'est une trame de remplissage.
+
+63
+00:01:53,040 --> 00:01:54,960
+Un ou deux, une trame d'état.
+
+64
+00:01:55,040 --> 00:01:57,120
+Plus de deux, une trame de message.
+
+65
+00:01:57,200 --> 00:01:58,900
+Vingt-quatre est supérieur à deux :
+
+66
+00:01:58,920 --> 00:02:00,800
+c'est donc une trame sémaphore de message,
+
+67
+00:02:00,840 --> 00:02:03,040
+et le champ information fait vingt-quatre octets.
+
+68
+00:02:03,200 --> 00:02:05,867
+Enfin la détection d'erreur, seize bits :
+
+69
+00:02:05,893 --> 00:02:07,120
+le sceau de cire.
+
+70
+00:02:07,160 --> 00:02:09,280
+S'il ne correspond pas à l'arrivée, la trame est
+
+71
+00:02:09,400 --> 00:02:10,880
+jetée, et redemandée.
+
+72
+00:02:11,527 --> 00:02:12,487
+Niveau trois.
+
+73
+00:02:12,514 --> 00:02:13,127
+L'adresse.
+
+74
+00:02:13,927 --> 00:02:15,554
+D'abord l'octet de service :
+
+75
+00:02:15,580 --> 00:02:16,487
+zéro quatre.
+
+76
+00:02:16,514 --> 00:02:18,407
+C'est le tampon qui dit quel bureau doit ouvrir
+
+77
+00:02:18,487 --> 00:02:19,127
+la lettre.
+
+78
+00:02:19,167 --> 00:02:21,367
+On convertit, et on coupe en deux quartets.
+
+79
+00:02:21,447 --> 00:02:23,927
+Les quatre bits de poids faible, zéro un zéro
+
+80
+00:02:24,007 --> 00:02:26,167
+zéro, c'est l'indicateur de service.
+
+81
+00:02:26,207 --> 00:02:27,247
+La table donne :
+
+82
+00:02:27,287 --> 00:02:30,727
+S S U T, sous-système utilisateur téléphonique,
+
+83
+00:02:30,767 --> 00:02:31,607
+niveau quatre.
+
+84
+00:02:31,687 --> 00:02:33,927
+La lettre sera donc un message téléphonique.
+
+85
+00:02:34,007 --> 00:02:35,927
+Les quatre bits de poids fort donnent les bits
+
+86
+00:02:36,007 --> 00:02:37,887
+D et C à zéro zéro :
+
+87
+00:02:37,927 --> 00:02:39,447
+réseau international.
+
+88
+00:02:39,514 --> 00:02:41,127
+Puis l'étiquette d'acheminement.
+
+89
+00:02:41,180 --> 00:02:44,007
+Trente-deux bits, qu'on découpe en quatorze, quatorze,
+
+90
+00:02:44,087 --> 00:02:44,807
+et quatre.
+
+91
+00:02:44,944 --> 00:02:46,114
+Code du point d'origine :
+
+92
+00:02:46,140 --> 00:02:47,847
+sept mille cinq cent soixante-deux.
+
+93
+00:02:47,900 --> 00:02:50,007
+C'est P S A, l'expéditeur.
+
+94
+00:02:50,087 --> 00:02:51,554
+Code du point de destination :
+
+95
+00:02:51,580 --> 00:02:52,967
+quatorze mille deux cent trois.
+
+96
+00:02:53,047 --> 00:02:55,287
+C'est P S B, le destinataire.
+
+97
+00:02:55,327 --> 00:02:57,954
+Et quatre bits de sélection du canal sémaphore :
+
+98
+00:02:57,980 --> 00:02:58,487
+sept.
+
+99
+00:02:58,527 --> 00:02:59,527
+Le code de la route.
+
+100
+00:02:59,567 --> 00:03:01,207
+On s'en servira à la question deux.
+
+101
+00:03:01,280 --> 00:03:02,167
+Niveau quatre.
+
+102
+00:03:02,207 --> 00:03:04,287
+Le service a dit S S U T :
+
+103
+00:03:04,327 --> 00:03:05,527
+on ouvre donc la lettre.
+
+104
+00:03:05,580 --> 00:03:08,247
+C'est un message initial d'adresse, le tout premier message
+
+105
+00:03:08,327 --> 00:03:11,287
+qu'un central envoie pour demander l'établissement d'un appel.
+
+106
+00:03:11,354 --> 00:03:13,527
+L'entête d'abord, comme l'objet d'un courriel.
+
+107
+00:03:13,607 --> 00:03:14,940
+H zéro vaut un :
+
+108
+00:03:14,994 --> 00:03:16,887
+la famille, messages d'adresse.
+
+109
+00:03:16,967 --> 00:03:18,967
+Puis, dans la sous-table de cette famille,
+
+110
+00:03:19,127 --> 00:03:20,380
+H un vaut deux :
+
+111
+00:03:20,514 --> 00:03:23,367
+message initial d'adresse avec informations supplémentaires.
+
+112
+00:03:23,447 --> 00:03:25,367
+La catégorie du demandeur ensuite :
+
+113
+00:03:25,447 --> 00:03:26,087
+C A.
+
+114
+00:03:26,167 --> 00:03:29,047
+Deux bits réservés devant, puis six bits de catégorie.
+
+115
+00:03:29,087 --> 00:03:30,140
+La table donne :
+
+116
+00:03:30,194 --> 00:03:31,927
+abonné demandeur ordinaire.
+
+117
+00:03:31,967 --> 00:03:32,967
+Un particulier.
+
+118
+00:03:33,007 --> 00:03:35,207
+Ni opératrice, ni ligne prioritaire.
+
+119
+00:03:35,279 --> 00:03:36,927
+Et maintenant le champ le plus riche :
+
+120
+00:03:36,967 --> 00:03:39,687
+les indicateurs de message, neuf cinq sept.
+
+121
+00:03:39,767 --> 00:03:40,567
+Douze bits.
+
+122
+00:03:40,620 --> 00:03:42,327
+C'est un formulaire à cases à cocher.
+
+123
+00:03:42,367 --> 00:03:44,007
+On range les bits de droite à gauche,
+
+124
+00:03:44,047 --> 00:03:46,087
+et on les nomme A, B, C,
+
+125
+00:03:46,127 --> 00:03:47,047
+et ainsi de suite.
+
+126
+00:03:47,161 --> 00:03:48,087
+Prenons un exemple.
+
+127
+00:03:48,207 --> 00:03:50,460
+Comment sait-on que l'appel passe par un satellite ?
+
+128
+00:03:50,634 --> 00:03:52,434
+On prend les bits D et C :
+
+129
+00:03:52,460 --> 00:03:53,207
+zéro un.
+
+130
+00:03:53,247 --> 00:03:55,007
+On ouvre la table à la rubrique nature du
+
+131
+00:03:55,047 --> 00:03:55,687
+circuit.
+
+132
+00:03:55,767 --> 00:03:56,527
+On y lit :
+
+133
+00:03:56,567 --> 00:03:58,407
+zéro zéro, pas de satellite.
+
+134
+00:03:58,447 --> 00:04:00,727
+Zéro un, un circuit satellite fait partie de la
+
+135
+00:04:00,807 --> 00:04:01,527
+connexion.
+
+136
+00:04:01,607 --> 00:04:03,127
+Notre code est zéro un.
+
+137
+00:04:03,260 --> 00:04:03,767
+Donc oui.
+
+138
+00:04:03,927 --> 00:04:04,927
+On n'a rien deviné :
+
+139
+00:04:04,967 --> 00:04:06,087
+on a lu la table.
+
+140
+00:04:06,160 --> 00:04:07,927
+Et on fait pareil pour chaque case.
+
+141
+00:04:07,967 --> 00:04:08,754
+Au total :
+
+142
+00:04:08,780 --> 00:04:12,007
+un numéro international, un circuit satellite, un contrôle de
+
+143
+00:04:12,087 --> 00:04:15,447
+continuité exigé, un demi-suppresseur d'écho de départ,
+
+144
+00:04:15,487 --> 00:04:17,527
+ce n'est pas un appel international entrant,
+
+145
+00:04:17,607 --> 00:04:20,167
+l'appel est prolongé, c'est un appel ordinaire,
+
+146
+00:04:20,247 --> 00:04:21,367
+sur un trajet quelconque.
+
+147
+00:04:21,687 --> 00:04:23,727
+Vient le numéro du circuit téléphonique :
+
+148
+00:04:23,767 --> 00:04:27,127
+six cent soixante-sept en hexadécimal, mille six cent trente-neuf
+
+149
+00:04:27,287 --> 00:04:28,247
+en décimal.
+
+150
+00:04:28,314 --> 00:04:29,207
+Et remarquez :
+
+151
+00:04:29,287 --> 00:04:31,607
+ses quatre bits de poids faible valent sept.
+
+152
+00:04:31,847 --> 00:04:33,607
+Exactement le canal sémaphore.
+
+153
+00:04:33,647 --> 00:04:35,767
+Le tuyau de parole et la route de signalisation
+
+154
+00:04:35,847 --> 00:04:36,354
+sont liés.
+
+155
+00:04:37,127 --> 00:04:38,887
+Enfin, le numéro demandé.
+
+156
+00:04:38,927 --> 00:04:40,807
+Le nombre de signaux d'adresse vaut C,
+
+157
+00:04:40,887 --> 00:04:41,954
+soit douze :
+
+158
+00:04:41,980 --> 00:04:43,687
+le numéro a douze chiffres.
+
+159
+00:04:43,727 --> 00:04:46,127
+Mais ils sont écrits à l'envers, poids faible d'abord.
+
+160
+00:04:46,394 --> 00:04:47,327
+Dans la trame :
+
+161
+00:04:47,367 --> 00:04:51,767
+neuf, sept, cinq, zéro, trois, zéro, quatre,
+
+162
+00:04:51,847 --> 00:04:54,487
+sept, sept, un, deux, deux.
+
+163
+00:04:54,556 --> 00:04:56,327
+On les retourne comme dans un miroir,
+
+164
+00:04:56,367 --> 00:04:57,527
+et le numéro apparaît.
+
+165
+00:04:57,794 --> 00:05:01,047
+Plus deux cent vingt-et-un, soixante-dix-sept, quatre cent trois,
+
+166
+00:05:01,127 --> 00:05:02,967
+zéro cinq, soixante-dix-neuf.
+
+167
+00:05:02,994 --> 00:05:04,167
+Un numéro sénégalais.
+
+168
+00:05:04,797 --> 00:05:05,717
+Question deux :
+
+169
+00:05:05,757 --> 00:05:06,397
+le trajet.
+
+170
+00:05:07,357 --> 00:05:09,277
+On connaît le départ, P S A,
+
+171
+00:05:09,317 --> 00:05:10,877
+et l'arrivée, P S B.
+
+172
+00:05:10,997 --> 00:05:12,797
+Mais entre les deux il y a un maillage
+
+173
+00:05:12,877 --> 00:05:15,597
+de points de transfert, avec plusieurs routes parallèles.
+
+174
+00:05:15,677 --> 00:05:16,761
+Laquelle prend-on ?
+
+175
+00:05:17,197 --> 00:05:19,997
+Le G P S, ici, c'est le canal sémaphore.
+
+176
+00:05:20,157 --> 00:05:21,384
+Sept, en binaire :
+
+177
+00:05:21,410 --> 00:05:23,117
+zéro, un, un, un.
+
+178
+00:05:23,584 --> 00:05:25,757
+Chaque carrefour regarde un bit précis.
+
+179
+00:05:25,837 --> 00:05:28,237
+Les arêtes notées X X X zéro,
+
+180
+00:05:28,317 --> 00:05:30,637
+ou X X X un, testent le bit de
+
+181
+00:05:30,717 --> 00:05:31,597
+poids faible.
+
+182
+00:05:31,637 --> 00:05:34,797
+Celles notées X X zéro X, ou X X
+
+183
+00:05:34,877 --> 00:05:37,277
+un X, testent le deuxième bit en partant de
+
+184
+00:05:37,317 --> 00:05:37,885
+la droite.
+
+185
+00:05:38,477 --> 00:05:39,277
+On déroule.
+
+186
+00:05:39,317 --> 00:05:40,984
+P S A regarde le bit zéro :
+
+187
+00:05:41,010 --> 00:05:41,837
+il vaut un.
+
+188
+00:05:41,877 --> 00:05:43,757
+On prend X X X un.
+
+189
+00:05:43,997 --> 00:05:45,357
+Direction P T S six.
+
+190
+00:05:45,901 --> 00:05:47,890
+P T S six regarde le bit un :
+
+191
+00:05:47,944 --> 00:05:48,717
+il vaut un.
+
+192
+00:05:48,797 --> 00:05:50,157
+X X un X.
+
+193
+00:05:50,397 --> 00:05:51,917
+Direction P T S deux.
+
+194
+00:05:51,984 --> 00:05:53,784
+P T S deux regarde le bit un :
+
+195
+00:05:53,810 --> 00:05:54,557
+il vaut un.
+
+196
+00:05:54,797 --> 00:05:56,397
+Direction P T S trois.
+
+197
+00:05:56,464 --> 00:05:58,370
+P T S trois regarde le bit zéro :
+
+198
+00:05:58,424 --> 00:05:59,197
+il vaut un.
+
+199
+00:05:59,437 --> 00:06:00,797
+Direction P S B.
+
+200
+00:06:00,941 --> 00:06:02,024
+Le trajet est donc :
+
+201
+00:06:02,050 --> 00:06:03,997
+P S A, P T S six,
+
+202
+00:06:04,037 --> 00:06:05,917
+P T S deux, P T S trois,
+
+203
+00:06:05,957 --> 00:06:06,797
+P S B.
+
+204
+00:06:06,942 --> 00:06:09,517
+À chaque point de transfert, la discrimination constate que
+
+205
+00:06:09,597 --> 00:06:11,437
+le code de destination n'est pas le sien,
+
+206
+00:06:11,517 --> 00:06:12,557
+et réachemine.
+
+207
+00:06:12,637 --> 00:06:14,817
+Arrivé à P S B, le code correspond :
+
+208
+00:06:14,837 --> 00:06:16,957
+c'est la distribution, et la lettre monte au niveau
+
+209
+00:06:17,037 --> 00:06:17,757
+quatre.
+
+210
+00:06:17,830 --> 00:06:19,090
+Le piège classique :
+
+211
+00:06:19,144 --> 00:06:21,357
+ne jamais sauter de P S A directement à
+
+212
+00:06:21,437 --> 00:06:22,317
+P T S deux.
+
+213
+00:06:22,357 --> 00:06:23,917
+P S A n'est relié qu'à P T S
+
+214
+00:06:23,997 --> 00:06:25,437
+un et P T S six.
+
+215
+00:06:25,477 --> 00:06:27,997
+On avance carrefour par carrefour, un bit du canal
+
+216
+00:06:28,077 --> 00:06:29,277
+sémaphore à la fois.
+
+217
+00:06:29,357 --> 00:06:30,277
+Question trois :
+
+218
+00:06:30,317 --> 00:06:31,357
+les transitions.
+
+219
+00:06:31,397 --> 00:06:32,797
+Ce sont des poupées russes.
+
+220
+00:06:32,864 --> 00:06:35,277
+À l'émission, on descend, et on emboîte.
+
+221
+00:06:35,317 --> 00:06:37,037
+Le niveau quatre écrit la lettre.
+
+222
+00:06:37,077 --> 00:06:39,117
+Le niveau trois écrit l'adresse autour.
+
+223
+00:06:39,157 --> 00:06:41,037
+Le niveau deux met le tout dans l'enveloppe,
+
+224
+00:06:41,077 --> 00:06:42,397
+et scelle avec les fanions.
+
+225
+00:06:42,470 --> 00:06:45,037
+À la réception, on remonte, et on déboîte.
+
+226
+00:06:45,077 --> 00:06:47,677
+Le niveau deux vérifie les fanions, recalcule le code
+
+227
+00:06:47,757 --> 00:06:50,957
+de détection, contrôle la séquence, puis retire l'enveloppe.
+
+228
+00:06:50,997 --> 00:06:52,584
+Le niveau trois lit l'adresse :
+
+229
+00:06:52,610 --> 00:06:54,397
+si le code de destination est le sien,
+
+230
+00:06:54,424 --> 00:06:55,597
+c'est la distribution ;
+
+231
+00:06:55,677 --> 00:06:57,677
+sinon, l'acheminement vers le point suivant.
+
+232
+00:06:57,717 --> 00:06:59,837
+Et le niveau quatre reçoit enfin la lettre,
+
+233
+00:06:59,877 --> 00:07:00,877
+et traite l'appel.
+
+234
+00:07:00,957 --> 00:07:03,117
+Chaque niveau ne s'occupe que de sa couche.
+
+235
+00:07:03,157 --> 00:07:04,397
+Le deux transporte.
+
+236
+00:07:04,437 --> 00:07:05,757
+Le trois achemine.
+
+237
+00:07:05,797 --> 00:07:07,437
+Le quatre donne le sens.
+
+238
+00:07:07,509 --> 00:07:08,077
+Voilà.
+
+239
+00:07:08,117 --> 00:07:09,997
+Vous venez de décoder une trame S S 7
+
+240
+00:07:10,077 --> 00:07:10,797
+complète.
+
+241
+00:07:10,837 --> 00:07:12,997
+Et surtout, vous savez comment le refaire :
+
+242
+00:07:13,037 --> 00:07:16,317
+repérer, convertir, ouvrir la table, lire.
