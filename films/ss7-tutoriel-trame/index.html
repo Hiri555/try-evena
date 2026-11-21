@@ -67,7 +67,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
 #fc{left:212px;width:1500px}
 #fi{left:212px;width:900px}
 #tInl .tr>span:first-child{width:264px}
-#fs{left:200px;width:900px}
+#fs{left:200px;width:840px}
 #fs .st em{font-size:30px}
 #fs .fl{font-size:36px}
 #fs .st{padding:11px 0 11px 86px}
@@ -137,7 +137,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
   <!-- ====== S0 · L'ANALOGIE ====== -->
   <div class="clip" id="s0" data-start="0" data-duration="22.6" data-track-index="1" data-track-kind="graphics">
     <div class="titre" id="t0" style="left:0;top:398px;width:1920px;text-align:center">
-      <span class="w">UNE</span> <span class="w">TRAME</span> <span class="w cy">SS7</span>,
+      <span class="w">UNE</span> <span class="w">TRAME</span> <span class="w"><span class="cy">SS7</span>,</span>
       <span class="w">C'EST</span> <span class="w">UNE</span> <span class="w amb">LETTRE</span>
       <span class="w amb">RECOMMANDÉE</span></div>
     <div class="rec" id="c0a" style="top:420px">L'ENVELOPPE <span class="cy">· NIVEAU 2</span></div>
@@ -250,18 +250,18 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:var(--fond)}
       <div class="st" id="fs3"><b>3</b><i>DEUX TABLES</i><em>poids fort = DSS · poids faible = INS</em></div>
       <div class="st" id="fs4"><b>4</b><i>JE LIS</i><em>INS = 0100 · DSS → bits D C = 00</em></div>
     </div>
-    <div class="tab" id="tIns" style="left:1140px;top:430px;width:600px">
+    <div class="tab" id="tIns" style="left:1050px;top:430px;width:690px">
       <div class="cap">INS — INDICATEUR DE SERVICE</div>
       <div class="tr"><span>0000</span><span>gestion réseau</span></div>
       <div class="tr" id="ins4"><span>0100</span><span>SSUT — niveau 4</span></div>
       <div class="tr"><span>0110</span><span>SSUD — niveau 4</span></div>
     </div>
-    <div class="tab" id="tDss" style="left:1140px;top:690px;width:600px">
+    <div class="tab" id="tDss" style="left:1050px;top:690px;width:690px">
       <div class="cap">DSS — BITS D C</div>
       <div class="tr" id="dss0"><span>00</span><span>international</span></div>
       <div class="tr"><span>10</span><span>national</span></div>
     </div>
-    <div class="fcc" id="fsc" style="left:1140px;top:884px;width:600px;text-align:center">
+    <div class="fcc" id="fsc" style="left:1050px;top:884px;width:690px;text-align:center">
       SSUT · international</div>
 
     <div class="titre2" id="t5e" style="left:0;top:300px;width:1920px;text-align:center">
@@ -578,10 +578,12 @@ on('#tramebox',T.trame,.6);
 tl.fromTo('#jauge',{scaleX:0},{scaleX:1,duration:427.4,ease:'none'},0);
 off('#bar',426.3,.8); off('#marque',426.3,.8); off('#tramebox',426.3,.8);
 
-const SEC = [['#sl0',0.6,22.2],['#sl1',22.5,40.2],['#sl2',40.4,54.4],['#sl3',54.6,67.4],
-             ['#sl4',67.6,131.1],['#sl5',131.3,181.0],['#sl6',181.2,304.4],
-             ['#sl7',304.6,389.0],['#sl8',389.2,426.4]];
-SEC.forEach(([q,a,b])=>{ on(q,a,.35); off(q,b,.3); });
+const SEC = [['#sl0',0.6],['#sl1',22.5],['#sl2',40.4],['#sl3',54.6],['#sl4',67.6],
+             ['#sl5',131.3],['#sl6',181.2],['#sl7',304.6],['#sl8',389.2]];
+SEC.forEach(([q,a],i)=>{
+  on(q,a,.35);
+  off(q, i+1<SEC.length ? SEC[i+1][1]-0.45 : 426.4, .3);
+});
 
 /* ---------- plans ---------- */
 plan('#vLettre',0,7.6,true);
@@ -738,7 +740,7 @@ tl.to('#t6n .w',{opacity:0,duration:.35},304.2);
 tl.to('#surl',{opacity:0,duration:.4},304.2);
 mots('#t7',T.q2t+0.1,.08);
 up('#t7b',T.depart);
-tl.to('#t7 .w',{opacity:0,duration:.35},311.6); off('#t7b',311.6,.35);
+tl.to('#t7 .w',{opacity:0,duration:.35},T.maillage-0.55); off('#t7b',T.maillage-0.55,.35);
 
 on('#reseau',T.maillage,.7);
 up('#scsb',T.gps); on('#scsl',T.gps+0.5,.4);
